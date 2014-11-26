@@ -1,3 +1,207 @@
+// Items
+actor YellowBalloon replaces BallYel
+{
+   Radius 12
+   Height 40
+   HEALTH 2
+   Mass 25
+   +SHOOTABLE +NOGRAVITY +HEXENBOUNCE +PUSHABLE +FloatBob +SPAWNFLOAT 
+   +NOLIFTDROP +NOBLOOD +DONTOVERLAP +CANNOTPUSH +NOBLOCKMONST     
+
+   // Has a tiny chance to drop a weapon
+   DropItem SauronGauntlets 1
+   DropItem SauronGauntletsIllucia 1
+   DropItem SauronGauntletsFlora 1
+   DropItem DiarisLongBow 1
+   DropItem ImpClaw 1
+   DropItem DarkImpClaw 1
+   DropItem CacodemonEye 1
+   DropItem CacolanternEye 1
+   DropItem AbaddonEye 1
+   DropItem KnightFist 1
+   DropItem BaronFist 1
+   DropItem BelphegorFist 1
+   DropItem BruiserFist 1
+   DropItem ArchonFist 1
+   DropItem PyroFist 1
+   DropItem IncarnateSkull 1
+   DropItem ArchvileHand 1
+   DropItem DiabloistHand 1
+   DropItem BalrogFist 1
+   DropItem Chainsaw 1
+   DropItem DualPistolsChecker 1
+   DropItem Shotgun 1
+   DropItem SuperShotgun 1
+   DropItem Chaingun 1
+   DropItem RocketLauncher 1
+   DropItem PlasmaRifle 1
+   DropItem Repeater 1
+   DropItem Kawasawa 1
+   DropItem BFG9000 1
+
+   PainSound "pop1"
+   DeathSound "pop1"
+   States
+   {
+    SpawnBlue:
+        BNYL A 0 A_SpawnItemEx("BlueBalloon")
+        BNYL A 0 A_FadeOut(1.0)
+        stop
+    Spawn:
+        BNYL A 0 NoDelay A_Jump(4,"SpawnBlue")
+        BNYL A 4 
+        goto Spawn+1
+    See:
+        BNYL A 4 
+        Loop
+    Pain:
+        BOON A 4
+        Goto See
+    Death:
+        BNYL B 2 A_Scream
+        BNYL C 2 A_Fall
+        BNYL DEF 2   
+        Stop
+   }
+}
+
+actor GreenBalloon replaces BallGreen
+{
+   Radius 12
+   Height 40
+   HEALTH 2
+   Mass 25
+   +SHOOTABLE 
+   +NOGRAVITY
+   +HEXENBOUNCE
+   +PUSHABLE 
+   +FloatBob
+   +SPAWNFLOAT 
+   +NOLIFTDROP
+   +NOBLOOD
+   +DONTOVERLAP
+   +CANNOTPUSH
+   +NOBLOCKMONST 
+   DropItem Clip 60
+   DropItem ClipBox 12
+   DropItem Shell 50
+   DropItem ShellBox 10
+   DropItem HealthBonus 40
+   DropItem HealthBonus 40
+   DropItem ArmorBonus 40
+   DropItem ArmorBonus 40
+   DropItem Berserk 1
+   DropItem Berserk 1
+   DropItem Medikit 5
+   DropItem Medikit 5
+   DropItem Stimpack 10
+   DropItem Stimpack 10
+   DropItem RandomPowerup 1
+   DropItem DiarisLongBow 1
+   DropItem RandomSeedDropForced 1
+   DropItem RandomSeedDropForced 1
+   DropItem SeedOfLife 1
+   DropItem SeedOfMagic 1
+   DropItem SeedOfSkillForced 1
+   DropItem DiarisArrow 1
+   DropItem DiarisArrowQuiver 1
+   DropItem FloraRandomArmor 32
+
+   PainSound "pop1"
+   DeathSound "pop1"
+   States
+   {
+    SpawnBlue:
+        GBON A 0 A_SpawnItemEx("BlueBalloon")
+        GBON A 0 A_FadeOut(1.0)
+        stop
+    Spawn:
+        GBON A 0 NoDelay A_Jump(4,"SpawnBlue")
+        GBON A 4 
+        goto Spawn+1
+    See:
+        GBON A 4 
+        loop
+    Pain:
+        GBON A 4
+        Goto See
+    Death:
+        GBON B 2 A_Scream
+        GBON C 2 A_Fall
+        GBON DEFG 3   
+        Stop
+   }
+}
+
+actor BlueBalloon
+{
+   Radius 12
+   Height 40
+   HEALTH 2
+   Mass 25
+   +SHOOTABLE +NOGRAVITY +HEXENBOUNCE +PUSHABLE +FloatBob +SPAWNFLOAT 
+   +NOLIFTDROP +NOBLOOD +DONTOVERLAP +CANNOTPUSH +NOBLOCKMONST 
+   DropItem HealthBonus 40
+   DropItem HealthBonus 40
+   DropItem HealthBonus 40
+   DropItem HealthBonus 40
+   DropItem HealthBonus 40
+   DropItem HealthBonus 40
+   DropItem HealthBonus 40
+   DropItem HealthBonus 40
+   DropItem SoulSphere2 4
+   DropItem ArmorBonus 40
+   DropItem ArmorBonus 40
+   DropItem ArmorBonus 40
+   DropItem ArmorBonus 40
+   DropItem ArmorBonus 40
+   DropItem ArmorBonus 40
+   DropItem ArmorBonus 40
+   DropItem ArmorBonus 40
+   DropItem MegaSphere2 4
+   DropItem RandomSeedDropForced 8
+   DropItem RandomSeedDropForced 8
+   DropItem RandomSeedDropForced 8
+   DropItem RandomSeedDropForced 8
+   DropItem SeedOfLife 8
+   DropItem SeedOfLife 8
+   DropItem SeedOfMagic 8
+   DropItem SeedOfMagic 8
+   DropItem SeedOfSkillForced 8
+   DropItem SeedOfSkillForced 8
+   DropItem RandomPowerup 2
+   DropItem RandomPowerup 2
+   DropItem RandomPowerup 2
+   DropItem RandomPowerup 2
+   DropItem DiarisArrow 4
+   DropItem DiarisArrowQuiver 4
+   DropItem DiarisLongBow 4
+   DropItem SauronHelmet 1
+   DropItem FloraRandomArmor 128
+
+   PainSound "pop1"
+   DeathSound "pop1"
+   States
+   {
+    Spawn:
+        BLUB A 4 
+        Loop
+    See:
+        BLUB A 4 
+        Loop
+    Pain:
+        BLUB A 4
+        Goto See
+    Death:
+        BLUB B 2 A_Scream
+        BLUB C 2 A_Fall
+        BLUB DEF 3   
+        Stop
+   }
+}
+
+
+// Monsters
 ACTOR PennywiseHeadNew replaces Pennywise
 {
     var int user_theta;
@@ -120,6 +324,16 @@ ACTOR JumpingSkullNew replaces JumpingSkull
     var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
     var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
+    dropitem DoomSpellMana1 16 50
+    dropitem GreenArmor 2
+    dropitem BlueArmor 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem MaxHealthBonus 1
+    dropitem FloraRandomArmor
+
     Health 30
     Radius 8
     Height 11
@@ -208,6 +422,16 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon
     var int user_theta;
     var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
     var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+    dropitem DoomSpellMana1 8 50
+    dropitem GreenArmor 1
+    dropitem BlueArmor 1
+    dropitem HealthBonus 1
+    dropitem HealthBonus 1
+    dropitem ArmorBonus 1
+    dropitem ArmorBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem FloraRandomArmor
 
     Health 15
     Radius 15
@@ -311,6 +535,44 @@ ACTOR BigBerthaNew replaces BigBertha
     var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
     var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
+    dropitem DoomSpellMana3 24 350
+    dropitem DoomSpellMana3 24 350
+    dropitem GreenArmor 2
+    dropitem GreenArmor 2
+    dropitem BlueArmor 2
+    dropitem BlueArmor 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem FloraRandomArmor
+
     Scale 12
     Health 6500
     Radius 64
@@ -409,6 +671,21 @@ ACTOR ClownHeadNew replaces ClownHead
     var int user_theta;
     var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
     var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+    dropitem DoomSpellMana2 76 125
+    dropitem GreenArmor 2
+    dropitem BlueArmor 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem FloraRandomArmor
+
     Health 400 
     Speed 5 
     Radius 16

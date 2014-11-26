@@ -1,8 +1,208 @@
+// Items
+actor YellowBalloon replaces Balloon_Yellow
+{
+   Radius 12
+   Height 40
+   HEALTH 2
+   Mass 25
+   +SHOOTABLE +NOGRAVITY +HEXENBOUNCE +PUSHABLE +FloatBob +SPAWNFLOAT 
+   +NOLIFTDROP +NOBLOOD +DONTOVERLAP +CANNOTPUSH +NOBLOCKMONST     
+
+   // Has a tiny chance to drop a weapon
+   DropItem SauronGauntlets 1
+   DropItem SauronGauntletsIllucia 1
+   DropItem SauronGauntletsFlora 1
+   DropItem DiarisLongBow 1
+   DropItem ImpClaw 1
+   DropItem DarkImpClaw 1
+   DropItem CacodemonEye 1
+   DropItem CacolanternEye 1
+   DropItem AbaddonEye 1
+   DropItem KnightFist 1
+   DropItem BaronFist 1
+   DropItem BelphegorFist 1
+   DropItem BruiserFist 1
+   DropItem ArchonFist 1
+   DropItem PyroFist 1
+   DropItem IncarnateSkull 1
+   DropItem ArchvileHand 1
+   DropItem DiabloistHand 1
+   DropItem BalrogFist 1
+   DropItem Chainsaw 1
+   DropItem DualPistolsChecker 1
+   DropItem Shotgun 1
+   DropItem SuperShotgun 1
+   DropItem Chaingun 1
+   DropItem RocketLauncher 1
+   DropItem PlasmaRifle 1
+   DropItem Repeater 1
+   DropItem Kawasawa 1
+   DropItem BFG9000 1
+
+   PainSound "pop1"
+   DeathSound "pop1"
+   States
+   {
+    Spawn:
+        BNYL A 4 
+        Loop
+    See:
+        BNYL A 4 
+        Loop
+    Pain:
+        BOON A 4
+        Goto See
+    Death:
+        BNYL B 2 A_Scream
+        BNYL C 2 A_Fall
+        BNYL DEF 2   
+        Stop
+   }
+}
+
+actor GreenBalloon replaces Balloon_Green
+{
+   Radius 12
+   Height 40
+   HEALTH 2
+   Mass 25
+   +SHOOTABLE 
+   +NOGRAVITY
+   +HEXENBOUNCE
+   +PUSHABLE 
+   +FloatBob
+   +SPAWNFLOAT 
+   +NOLIFTDROP
+   +NOBLOOD
+   +DONTOVERLAP
+   +CANNOTPUSH
+   +NOBLOCKMONST 
+   DropItem Clip 60
+   DropItem ClipBox 12
+   DropItem Shell 50
+   DropItem ShellBox 10
+   DropItem HealthBonus 40
+   DropItem HealthBonus 40
+   DropItem ArmorBonus 40
+   DropItem ArmorBonus 40
+   DropItem Berserk 1
+   DropItem Berserk 1
+   DropItem Medikit 5
+   DropItem Medikit 5
+   DropItem Stimpack 10
+   DropItem Stimpack 10
+   DropItem RandomPowerup 1
+   DropItem DiarisLongBow 1
+   DropItem RandomSeedDropForced 1
+   DropItem RandomSeedDropForced 1
+   DropItem SeedOfLife 1
+   DropItem SeedOfMagic 1
+   DropItem SeedOfSkillForced 1
+   DropItem DiarisArrow 1
+   DropItem DiarisArrowQuiver 1
+   DropItem FloraRandomArmor 32
+
+   PainSound "pop1"
+   DeathSound "pop1"
+   States
+   {
+    Spawn:
+        GBON A 4 
+        Loop
+    See:
+        GBON A 4 
+        Loop
+    Pain:
+        GBON A 4
+        Goto See
+    Death:
+        GBON B 2 A_Scream
+        GBON C 2 A_Fall
+        GBON DEFG 3   
+        Stop
+   }
+}
+
+actor BlueBalloon replaces Balloon_Blue
+{
+   Radius 12
+   Height 40
+   HEALTH 2
+   Mass 25
+   +SHOOTABLE +NOGRAVITY +HEXENBOUNCE +PUSHABLE +FloatBob +SPAWNFLOAT 
+   +NOLIFTDROP +NOBLOOD +DONTOVERLAP +CANNOTPUSH +NOBLOCKMONST 
+   DropItem HealthBonus 40
+   DropItem HealthBonus 40
+   DropItem HealthBonus 40
+   DropItem HealthBonus 40
+   DropItem HealthBonus 40
+   DropItem HealthBonus 40
+   DropItem HealthBonus 40
+   DropItem HealthBonus 40
+   DropItem SoulSphere2 4
+   DropItem ArmorBonus 40
+   DropItem ArmorBonus 40
+   DropItem ArmorBonus 40
+   DropItem ArmorBonus 40
+   DropItem ArmorBonus 40
+   DropItem ArmorBonus 40
+   DropItem ArmorBonus 40
+   DropItem ArmorBonus 40
+   DropItem MegaSphere2 4
+   DropItem RandomSeedDropForced 8
+   DropItem RandomSeedDropForced 8
+   DropItem RandomSeedDropForced 8
+   DropItem RandomSeedDropForced 8
+   DropItem SeedOfLife 8
+   DropItem SeedOfLife 8
+   DropItem SeedOfMagic 8
+   DropItem SeedOfMagic 8
+   DropItem SeedOfSkillForced 8
+   DropItem SeedOfSkillForced 8
+   DropItem RandomPowerup 2
+   DropItem RandomPowerup 2
+   DropItem RandomPowerup 2
+   DropItem RandomPowerup 2
+   DropItem DiarisArrow 4
+   DropItem DiarisArrowQuiver 4
+   DropItem DiarisLongBow 4
+   DropItem SauronHelmet 1
+   DropItem FloraRandomArmor 128
+
+   PainSound "pop1"
+   DeathSound "pop1"
+   States
+   {
+    Spawn:
+        BLUB A 4 
+        Loop
+    See:
+        BLUB A 4 
+        Loop
+    Pain:
+        BLUB A 4
+        Goto See
+    Death:
+        BLUB B 2 A_Scream
+        BLUB C 2 A_Fall
+        BLUB DEF 3   
+        Stop
+   }
+}
+
+// Monsters
+
 ACTOR GoreWormNew replaces GoreWorm
 {
     var int user_theta;
     var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
     var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+    dropitem DoomSpellMana1 2 50
+    dropitem HealthBonus 1
+    dropitem ArmorBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem FloraRandomArmor
 
     Health 20
     Radius 8
@@ -97,7 +297,30 @@ ACTOR FluffyNew replaces Fluffy2
     var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
     var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
-    Health 100
+    dropitem DoomSpellMana2 192 125
+    dropitem DoomSpellMana2 192 125
+    dropitem GreenArmor 32
+    dropitem BlueArmor 32
+    dropitem HealthBonus 32
+    dropitem HealthBonus 32
+    dropitem HealthBonus 32
+    dropitem HealthBonus 32
+    dropitem HealthBonus 32
+    dropitem ArmorBonus 32
+    dropitem ArmorBonus 32
+    dropitem ArmorBonus 32
+    dropitem ArmorBonus 32
+    dropitem ArmorBonus 32
+    dropitem MaxHealthBonus 16
+    dropitem MaxHealthBonus 16
+    dropitem MaxHealthBonus 16
+    dropitem MaxHealthBonus 16
+    dropitem MaxHealthBonus 16
+    dropitem RandomPowerup 1
+    dropitem RandomPowerup 1
+    dropitem FloraRandomArmor
+
+    Health 1000
     Radius 25
     Height 56
     Speed 40
@@ -213,6 +436,22 @@ ACTOR MiniFluffyNew replaces MiniFluffy
     var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
     var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
+    dropitem DoomSpellMana2 24 125
+    dropitem DoomSpellMana2 24 125
+    dropitem GreenArmor 2
+    dropitem BlueArmor 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem RandomPowerup 1
+    dropitem FloraRandomArmor
+
     Health 60
     Radius 8
     Height 25
@@ -303,6 +542,17 @@ ACTOR JumpingSkullNew replaces JumpingSkull
     var int user_theta;
     var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
     var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+    dropitem DoomSpellMana1 16 50
+    dropitem GreenArmor 2
+    dropitem BlueArmor 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem MaxHealthBonus 1
+    dropitem RandomPowerup 1
+    dropitem FloraRandomArmor
 
     Health 40
     Radius 8
@@ -397,6 +647,17 @@ ACTOR JumpingSkull2New replaces JumpingSkull2 //spawns skull ghosts
     var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
     var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
+    dropitem DoomSpellMana1 16 50
+    dropitem GreenArmor 2
+    dropitem BlueArmor 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem MaxHealthBonus 1
+    dropitem RandomPowerup 1
+    dropitem FloraRandomArmor
+
     Health 40
     Speed 10
     Radius 8
@@ -490,6 +751,17 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon
     var int user_theta;
     var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
     var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+    dropitem DoomSpellMana1 8 50
+    dropitem GreenArmor 1
+    dropitem BlueArmor 1
+    dropitem HealthBonus 1
+    dropitem HealthBonus 1
+    dropitem ArmorBonus 1
+    dropitem ArmorBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem RandomPowerup 1
+    dropitem FloraRandomArmor
 
     Health 15
     Radius 15
@@ -595,6 +867,22 @@ ACTOR BingoNew replaces Bingo
     var int user_theta;
     var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
     var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+    dropitem DoomSpellMana2 76 125
+    dropitem GreenArmor 2
+    dropitem BlueArmor 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem RandomPowerup 1
+    dropitem RandomPowerup 1
+    dropitem FloraRandomArmor
 
    Health 400 
    Speed 5 
@@ -711,6 +999,15 @@ ACTOR TinyBingoNew replaces TinyBingo
     var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
     var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
+    dropitem DoomSpellMana1 76 50
+    dropitem GreenArmor 4
+    dropitem BlueArmor 4
+    dropitem HealthBonus 4
+    dropitem ArmorBonus 4
+    dropitem MaxHealthBonus 1
+    dropitem RandomPowerup 1
+    dropitem FloraRandomArmor
+
    Health 35 
    Speed 6 
    Radius 9
@@ -800,6 +1097,19 @@ actor BeefyNew replaces Beefy
     var int user_theta;
     var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
     var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+    dropitem DoomSpellMana1 24 50
+    dropitem DoomSpellMana1 24 50
+    dropitem GreenArmor 2
+    dropitem BlueArmor 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem RandomPowerup 1
+    dropitem FloraRandomArmor
 
     Health 120
     Radius 20
@@ -963,6 +1273,13 @@ ACTOR BlackBearNew replaces BlackBear
     var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
     var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
+    dropitem DoomSpellMana1 8 50
+    dropitem HealthBonus 1
+    dropitem ArmorBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem RandomPowerup 1
+    dropitem FloraRandomArmor
+
     Health 8
     Radius 8
     Height 20
@@ -1058,6 +1375,27 @@ actor ClownGhostNew replaces ClownGhost
     var int user_theta;
     var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
     var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+    dropitem DoomSpellMana1 24 50
+    dropitem DoomSpellMana1 24 50
+    dropitem DoomSpellMana2 24 125
+    dropitem DoomSpellMana2 24 125
+    dropitem GreenArmor 2
+    dropitem BlueArmor 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem RandomPowerup 1
+    dropitem FloraRandomArmor
 
    Health 300 
    Speed 5 
@@ -1189,6 +1527,26 @@ actor ClownGhost2New replaces ClownGhost2
     var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
     var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
+    dropitem DoomSpellMana1 24 50
+    dropitem DoomSpellMana2 24 125
+    dropitem DoomSpellMana3 24 350
+    dropitem GreenArmor 2
+    dropitem BlueArmor 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem RandomPowerup 1
+    dropitem FloraRandomArmor
+
    Health 150
    Speed 6 
    Radius 16
@@ -1295,6 +1653,22 @@ actor BulbyNew replaces Bulby
     var int user_theta;
     var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
     var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+    dropitem DoomSpellMana1 24 50
+    dropitem DoomSpellMana2 24 125
+    dropitem GreenArmor 2
+    dropitem BlueArmor 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem RandomPowerup 1
+    dropitem FloraRandomArmor
 
    Health 200 
    Speed 5 
@@ -1424,6 +1798,35 @@ actor MegaBulbyNew replaces MegaBulby
     var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
     var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
+    dropitem DoomSpellMana1 24 50
+    dropitem DoomSpellMana2 24 125
+    dropitem DoomSpellMana3 24 350
+    dropitem GreenArmor 2
+    dropitem GreenArmor 2
+    dropitem BlueArmor 2
+    dropitem BlueArmor 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem RandomPowerup 1
+    dropitem RandomPowerup 1
+    dropitem FloraRandomArmor
+
    Health 400 
    Speed 6 
    Radius 32
@@ -1548,6 +1951,41 @@ ACTOR BigBertha2New replaces BigBertha2
     var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
     var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
+    dropitem DoomSpellMana1 24 50
+    dropitem DoomSpellMana1 24 50
+    dropitem DoomSpellMana2 24 125
+    dropitem DoomSpellMana2 24 125
+    dropitem DoomSpellMana3 24 350
+    dropitem DoomSpellMana3 24 350
+    dropitem GreenArmor 2
+    dropitem GreenArmor 2
+    dropitem BlueArmor 2
+    dropitem BlueArmor 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem HealthBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem ArmorBonus 2
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem RandomPowerup 1
+    dropitem RandomPowerup 1
+    dropitem FloraRandomArmor
+
    Health 675 
    Speed 6 
    Radius 24
@@ -1650,6 +2088,47 @@ actor SuperBerthaNew replaces SuperBertha
     var int user_theta;
     var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
     var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+    dropitem DoomSpellMana3 24 350
+    dropitem DoomSpellMana3 24 350
+    dropitem DoomSpellMana3 24 350
+    dropitem DoomSpellMana3 24 350
+    dropitem GreenArmor 8
+    dropitem GreenArmor 8
+    dropitem GreenArmor 8
+    dropitem GreenArmor 8
+    dropitem BlueArmor 8
+    dropitem BlueArmor 8
+    dropitem BlueArmor 8
+    dropitem BlueArmor 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem RandomPowerup 1
+    dropitem RandomPowerup 1
+    dropitem RandomPowerup 1
+    dropitem RandomPowerup 1
+    dropitem FloraRandomArmor
 
    Health 6000 
    Speed 7 
@@ -1795,6 +2274,17 @@ ACTOR EvilDeadHandNew replaces EvilDeadHand
     var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
     var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
+    dropitem DoomSpellMana1 8 50
+    dropitem GreenArmor 1
+    dropitem BlueArmor 1
+    dropitem HealthBonus 1
+    dropitem HealthBonus 1
+    dropitem ArmorBonus 1
+    dropitem ArmorBonus 1
+    dropitem MaxHealthBonus 1
+    dropitem RandomPowerup 1
+    dropitem FloraRandomArmor
+
     Health 20
     Radius 8
     Height 16
@@ -1886,6 +2376,57 @@ ACTOR BouncingClownNew replaces BouncingClown
     var int user_theta;
     var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
     var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+    dropitem DoomSpellMana3 24 350
+    dropitem DoomSpellMana3 24 350
+    dropitem DoomSpellMana3 24 350
+    dropitem DoomSpellMana3 24 350
+    dropitem DoomSpellMana3 24 350
+    dropitem GreenArmor 8
+    dropitem GreenArmor 8
+    dropitem GreenArmor 8
+    dropitem GreenArmor 8
+    dropitem GreenArmor 8
+    dropitem BlueArmor 8
+    dropitem BlueArmor 8
+    dropitem BlueArmor 8
+    dropitem BlueArmor 8
+    dropitem BlueArmor 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem RandomPowerup 1
+    dropitem RandomPowerup 1
+    dropitem RandomPowerup 1
+    dropitem RandomPowerup 1
+    dropitem RandomPowerup 1
+    dropitem FloraRandomArmor
 
     Health 6000
     Radius 24
@@ -2018,6 +2559,21 @@ ACTOR BabyClownNew replaces BabyClown
     var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
     var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
+    dropitem DoomSpellMana3 24 350
+    dropitem GreenArmor 8
+    dropitem BlueArmor 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem RandomPowerup 1
+    dropitem FloraRandomArmor
+
     Health 88
     Radius 8
     Height 32
@@ -2118,6 +2674,21 @@ ACTOR BabyClown2New replaces BabyClown2
     var int user_theta;
     var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
     var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+    dropitem DoomSpellMana3 24 350
+    dropitem GreenArmor 8
+    dropitem BlueArmor 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem RandomPowerup 1
+    dropitem FloraRandomArmor
 
     Health 75
     Radius 8
@@ -2220,6 +2791,31 @@ actor PennywiseHead2New replaces PennywiseHead
    var int user_theta;
    var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
    var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+    dropitem DoomSpellMana3 24 350
+    dropitem DoomSpellMana3 24 350
+    dropitem GreenArmor 8
+    dropitem GreenArmor 8
+    dropitem BlueArmor 8
+    dropitem BlueArmor 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem RandomPowerup 1
+    dropitem RandomPowerup 1
+    dropitem FloraRandomArmor
 
    Health 450
    Speed 11 
@@ -2325,6 +2921,58 @@ actor PennywiseBoss replaces Pennywise
     var int user_theta;
     var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
     var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+    dropitem DoomSpellMana3 24 350
+    dropitem DoomSpellMana3 24 350
+    dropitem DoomSpellMana3 24 350
+    dropitem DoomSpellMana3 24 350
+    dropitem DoomSpellMana3 24 350
+    dropitem GreenArmor 8
+    dropitem GreenArmor 8
+    dropitem GreenArmor 8
+    dropitem GreenArmor 8
+    dropitem GreenArmor 8
+    dropitem BlueArmor 8
+    dropitem BlueArmor 8
+    dropitem BlueArmor 8
+    dropitem BlueArmor 8
+    dropitem BlueArmor 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem HealthBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem ArmorBonus 8
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem MaxHealthBonus 4
+    dropitem RandomPowerup 1
+    dropitem RandomPowerup 1
+    dropitem RandomPowerup 1
+    dropitem RandomPowerup 1
+    dropitem RandomPowerup 1
+    dropitem RandomPowerup 1
+    dropitem FloraRandomArmor
 
     Health 9000
     Radius 40
