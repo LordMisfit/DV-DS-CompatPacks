@@ -18,7 +18,7 @@ actor YellowBalloon replaces BallYel
         BNYL A 0 A_FadeOut(1.0)
         stop
     Spawn:
-        BNYL A 0 NoDelay A_Jump(8,"SpawnBlue")
+        BNYL A 0 NoDelay A_Jump(16,"SpawnBlue")
         BNYL A 4 
         goto Spawn+1
     See:
@@ -110,9 +110,9 @@ actor GreenBalloon replaces BallGreen
         GBON A 0 A_FadeOut(1.0)
         stop
     Spawn:
-        GBON A 0 NoDelay A_Jump(8,"SpawnBlue")
+        GBON A 0 NoDelay A_Jump(16,"SpawnBlue")
         GBON A 4 
-        Loop
+        goto Spawn+1
     See:
         GBON A 4 
         Loop
