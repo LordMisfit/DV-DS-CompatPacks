@@ -1,0 +1,27 @@
+Major Things:
+
+-Complete Circus2 Monster List in DECORATE [done]
+--GoreWorm [done]
+--JumpingSkull [done]
+--JumpingSkull2 [done]
+--PossessedBalloon [done]
+--Beefy [done]
+--TinyBingo [done]
+--Bingo [done]
+--MiniFluffy [done]
+--Fluffy [done]
+--ClownGhost [done]
+--ClownGhost2 [done]
+--Bulby [done]
+--MegaBulby [done]
+--BlackBear [done]
+--BigBertha2 [done]
+--SuperBertha [done]
+--EvilDeadHand [done]
+--PennywiseHead [done]
+--BouncingClown [done]
+--BabyClown [done]
+--BabyClown2 [done]
+--Pennywise [done]
+
+-Get normal weapons working as selectable in Circus2

@@ -1,3 +1,2325 @@
+ACTOR GoreWormNew replaces GoreWorm
+{
+    var int user_theta;
+    var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+    var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+    Health 20
+    Radius 8
+    Height 4
+    Speed 3
+    Mass 20
+    PainChance 200
+    MONSTER 
+    +FLOORCLIP +RANDOMIZE 
+    scale 0.75
+    MELEEDAMAGE 1
+    SeeSound "HSEE"
+    PainSound "HAND1"
+    DeathSound ""
+    ActiveSound "HAND1"
+    MeleeSound "SKULBITE"
+    Obituary "%o duh" 
+    States
+    {
+    CheckMapSkillSpawn:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto Spawn+2
+    CheckMapSkillSee:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto See+1
+    Spawn:
+        TNT1 A 0 A_Look
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        WORM A 20 A_UnSetShootable
+        WORM A 4 A_SetShootable
+        WORM A 4 A_Look
+        Goto Spawn + 2
+    See:   
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        WORM ABCB 3 A_Wander
+        WORM A 0 A_JumpIfHealthLower (6, 2)
+        Loop
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        WORM A 0 A_Jump (64,1)
+        WORM ABCB 1 A_Wander
+        Goto See 
+    Melee:
+        WORM C 0
+        Goto Death
+    Pain.GravityHP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+        Goto See
+    Pain.GravityMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+        Goto See
+    Pain.GravityHPMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+        Goto See
+    Pain.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Pain
+    Pain.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+        Goto Pain
+    Pain:
+        WORM A 8 A_Pain 
+        Goto See 
+    Death.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Death
+    Death.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when killing a monster [3+(HP/100)]
+        Goto Death
+    DeathCheck:
+        TNT1 A 0 A_Jump(255, 3)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 
+        goto Death+1
+    Death:
+        TNT1 A 0 A_Jump(1, "DeathCheck")
+        WORM A 5 A_CustomMissile("ZGut2", 0, 0, 30) 
+        WORM B 2 A_PlaySound("splat11")
+        WORM B 2 A_TossGib
+        WORM B 3 A_Scream 
+        WORM C 2 A_TossGib
+        WORM C 1 A_CustomMissile("BSplatter", 0, 0, 0, 1)
+        WORM C 5 A_CustomMissile("ZGut3", 0, 0, -40)   
+        Stop 
+    }
+}
+
+ACTOR FluffyNew replaces Fluffy2
+{
+    var int user_theta;
+    var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+    var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+    Health 100
+    Radius 25
+    Height 56
+    Speed 40
+    Mass 250
+    PainChance 80
+    MONSTER
+    +FLOORCLIP +NOCLIP
+    +NOLIFTDROP
+    MELEEDAMAGE 7
+    SeeSound "BHIT1"
+    PainSound "BHIT5"
+    DeathSound "BTALK3"
+    ActiveSound "BTALK7"
+    MeleeSound "BCHOMP"
+    HitObituary "%o was playing with Fluffy!"
+    MissileHeight 12
+    MissileType SkullSeeker
+    States 
+    {
+    CheckMapSkillSpawn:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto Spawn+2
+    CheckMapSkillSee:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto See+1
+    Spawn:
+        TNT1 A 0 A_Look
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        FLUF A 2 A_Look
+        Loop
+    See:
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        FLUF ABCBJ 2 A_Chase
+        FLUF KL 1   
+        FLUF M 1 A_CustomMissile("ZGut", 0, 0, 0,0)
+        FLUF M 1 A_PlaySound("SPLAT5")
+        FLUF LK 1
+        FLUF J 1 A_Jump(124,2) 
+        GoTo See
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        FLUF K 0  
+        FLUF K 0 A_CustomMissile("JSkull_Image1", 0, 0, 0,1) 
+        GoTo See
+    Missile:   
+        FLUF A 0 A_Jump(124,8)
+        FLUF A 0 A_Jump(156,2) 
+        FLUF A 0 A_Jump(99,10)
+        FLUF AB 4 A_FaceTarget 
+        FLUF C 6 A_ComboAttack
+        Goto See 
+        FLUF AB 2 A_FaceTarget
+        FLUF C 4 A_CustomMissile("SkullSeeker", 28, -4, 0, 1)
+        Goto See 
+        FLUF AB 2 A_FaceTarget
+        FLUF C 2 A_CustomMissile("SkullSeeker", 28, -12, -60, 1)
+        FLUF B 4 A_FaceTarget
+        FLUF C 2 A_CustomMissile("SkullSeeker", 28, -4, 60, 1)
+        Goto See 
+        FLUF AB 2 A_FaceTarget
+        FLUF C 4 A_CustomMissile("SkullSeeker", 28, 12, 0, 1)
+        Goto See 
+    Melee:
+        FLUF ABC 4  
+        FLUF B  6 A_MeleeAttack
+        Goto See
+    Pain.GravityHP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+        Goto See
+    Pain.GravityMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+        Goto See
+    Pain.GravityHPMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+        Goto See
+    Pain.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Pain
+    Pain.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+        Goto Pain
+    Pain:
+        FLUF C 2
+        FLUF C 3 A_Pain
+        Goto See 
+    Death.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Death
+    Death.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when killing a monster [3+(HP/100)]
+        Goto Death
+    DeathCheck:
+        TNT1 A 0 A_Jump(255, 3)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 
+        goto Death+1
+    Death:
+        TNT1 A 0 A_Jump(1, "DeathCheck")
+        FLUF JKLMN 10 
+        FLUF N 100 
+        GoTo Raise
+    Raise:
+       FLUF M 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+       FLUF MLKJ 10 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+       GoTo See
+    }
+}
+
+ACTOR MiniFluffyNew replaces MiniFluffy
+{
+    var int user_theta;
+    var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+    var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+    Health 60
+    Radius 8
+    Height 25
+    Speed 6
+    Mass 40
+    PainChance 80
+    MONSTER
+    +FLOORCLIP
+    MELEEDAMAGE 1
+    SeeSound "BHIT1"
+    PainSound "BHIT5"
+    DeathSound "BTALK3"
+    ActiveSound "BTALK7"
+    MeleeSound "BCHOMP"
+    HitObituary "%o was playing with Fluffy!"
+    States 
+    {
+    CheckMapSkillSpawn:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto Spawn+2
+    CheckMapSkillSee:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto See+1
+    Spawn:
+        TNT1 A 0 A_Look
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        RAIN B 5 A_Look
+        Loop
+    See:
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        SBUN HHHHIIIJJ 3
+        SBUN ABCCB 1 A_Chase
+        GoTo See + 11
+    Melee:
+        SBUN ABC 4  
+        SBUN B  6 A_MeleeAttack
+        Goto See + 11
+    Pain.GravityHP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+        Goto See
+    Pain.GravityMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+        Goto See
+    Pain.GravityHPMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+        Goto See
+    Pain.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Pain
+    Pain.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+        Goto Pain
+    Pain:
+        SBUN D 8  A_Pain
+        SBUN E 8 A_UnSetShootable
+        SBUN F 100 
+        SBUN F 0 A_Jump(128,3) 
+        SBUN E 8 
+        SBUN D 8 A_SetShootable
+        Goto See + 11
+        SBUN F 8 A_UnSetShootable
+        SBUN F 100  
+        SBUN E 8 A_SetShootable
+        Goto See + 11
+    Death.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Death
+    Death.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when killing a monster [3+(HP/100)]
+        Goto Death
+    DeathCheck:
+        TNT1 A 0 A_Jump(255, 3)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 
+        goto Death+1
+    Death:
+        TNT1 A 0 A_Jump(1, "DeathCheck")
+        SBUN DEF 8 
+        SBUN G -1
+        Stop
+
+    } 
+}
+ACTOR JumpingSkullNew replaces JumpingSkull
+{
+    var int user_theta;
+    var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+    var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+    Health 40
+    Radius 8
+    Height 20
+    Speed 9
+    Mass 20
+    PainChance 90
+    MONSTER 
+    DropItem ClownSouls 10
+    +FLOORCLIP +RANDOMIZE +COUNTKILL +CANPASS   
+    MELEEDAMAGE 1
+    SeeSound "LAUGH1"
+    PainSound "SKULPN2"
+    DeathSound "JDIE"
+    ActiveSound "LAUGH1"
+    MeleeSound "SKULBITE"
+    HitObituary "%o was bitten by a bouncing skull."
+    States
+    {
+    CheckMapSkillSpawn:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto Spawn+2
+    CheckMapSkillSee:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto See+1
+    Spawn:
+        TNT1 A 0 A_Look
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        JSKL A 4 A_Look
+        Loop
+    See:
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        JSKL ABCB 2 A_Chase
+        Loop
+    Melee:
+        JSKL A 3 A_FaceTarget 
+        JSKL B 3 A_FaceTarget 
+        JSKL C 4 A_MeleeAttack
+        JSKL B 3 A_FaceTarget 
+        Goto See
+    Pain.GravityHP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+        Goto See
+    Pain.GravityMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+        Goto See
+    Pain.GravityHPMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+        Goto See
+    Pain.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Pain
+    Pain.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+        Goto Pain
+    Pain:
+        JSKL B 4 A_Pain
+        Goto See
+    Death.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Death
+    Death.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when killing a monster [3+(HP/100)]
+        Goto Death
+    DeathCheck:
+        TNT1 A 0 A_Jump(255, 3)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 
+        goto Death+1
+    Death:
+        TNT1 A 0 A_Jump(1, "DeathCheck")
+        JSKL A 5 A_Scream
+        JSKL D 4 A_Fall
+        JSKL D 4 A_TossGib
+        JSKL D 0 A_TossGib
+        JSKL D 0 A_TossGib
+        JSKL D 0 A_TossGib
+        JSKL D 0 A_TossGib
+        JSKL E 8 A_CustomMissile("ZGut2", 0, 0, 30) 
+        JSKL F 8 A_CustomMissile("ZGut3", 0, 0, -40) 
+        JSKL G 8 A_CustomMissile("ZGut2", 0, 0, 90) 
+        JSKL H 8 A_CustomMissile("ZGut3", 0, 0, 180) 
+        JSKL I -1 
+        Stop
+    }
+}
+ACTOR JumpingSkull2New replaces JumpingSkull2 //spawns skull ghosts
+{
+    var int user_theta;
+    var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+    var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+    Health 40
+    Speed 10
+    Radius 8
+    Height 32
+    MELEEDAMAGE 1
+    MeleeSound "BCHOMP"
+    Scale 1.2
+    MONSTER
+    RENDERSTYLE Translucent
+    ALPHA 0.67
+    States
+    {
+    CheckMapSkillSpawn:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto Spawn+2
+    CheckMapSkillSee:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto See+1
+    Spawn:
+        TNT1 A 0 A_Look
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        JSKL A 4 A_Look
+        Loop
+    See:
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        JSKL ABCB 2 A_Chase
+        JSKL A 0 A_CustomMissile("PennywiseHead2",  8, 0, random(-180, 180), 2, random(0, 30))
+        Loop
+    Melee:
+        JSKL A 3 A_FaceTarget 
+        JSKL B 3 A_FaceTarget 
+        JSKL C 4 A_MeleeAttack
+        JSKL B 3 A_FaceTarget 
+        Goto See
+    Pain.GravityHP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+        Goto See
+    Pain.GravityMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+        Goto See
+    Pain.GravityHPMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+        Goto See
+    Pain.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Pain
+    Pain.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+        Goto Pain
+    Pain:
+        JSKL B 4 A_Pain
+        Goto See
+    Death.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Death
+    Death.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when killing a monster [3+(HP/100)]
+        Goto Death
+    DeathCheck:
+        TNT1 A 0 A_Jump(255, 3)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 
+        goto Death+1
+    Death:
+        TNT1 A 0 A_Jump(1, "DeathCheck")
+        JSKL A 5 A_Scream
+        JSKL D 4 A_Fall
+        JSKL D 4 A_TossGib
+        BBLD A 0 A_custommissile("BloodSpeck2", 8, 0, random(-180, 180), 2, random(-180, 180))
+        JSKL D 0 A_TossGib
+        JSKL D 0 A_TossGib
+        JSKL D 0 A_custommissile("BloodSpeck2", 8, 0, random(-180, 180), 2, random(-180, 180))
+        JSKL D 0 A_custommissile("BloodSpeck2", 8, 0, random(-180, 180), 2, random(-180, 180))
+        JSKL D 0 A_TossGib
+        JSKL D 0 A_custommissile("BloodSpeck2", 8, 0, random(-180, 180), 2, random(-180, 180))
+        JSKL D 0 A_TossGib
+        JSKL D 0 A_custommissile("BloodSpeck2", 8, 0, random(-180, 180), 2, random(-180, 180))
+        JSKL E 8 A_CustomMissile("ZGut2", 0, 0, 30) 
+        JSKL F 8 A_CustomMissile("ZGut3", 0, 0, -40) 
+        JSKL G 8 A_CustomMissile("ZGut2", 0, 0, 90) 
+        JSKL H 8 A_CustomMissile("ZGut3", 0, 0, 180) 
+        JSKL I -1 
+        Stop
+    }
+}
+
+ACTOR PossessedBalloonNew replaces PossessedBalloon
+{
+    var int user_theta;
+    var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+    var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+    Health 15
+    Radius 15
+    Height 40
+    Speed 2
+    Mass 20
+    PainChance 50
+    MONSTER 
+    +FLOORCLIP
+    +NOGRAVITY
+    +FLOAT
+    +COUNTKILL
+    +CANPASS
+    +PUSHABLE
+    +FloatBob
+    DropItem Blood 255 8
+    DropItem Blood
+    DropItem Blood
+    DropItem Blood
+    DropItem Blood
+    DropItem Blood
+    DropItem Blood
+    DropItem BloodSplashBase
+    DropItem BloodSplashBase 
+    DropItem BloodSplashBase 
+    DropItem BloodSplashBase  
+    MELEEDAMAGE 1
+    SeeSound ""
+    PainSound "BOONBITE"
+    DeathSound ""
+    ActiveSound "BLOONACT"
+    MeleeSound "BOONBITE"
+    HitObituary "%o wanted to float with all the pretty balloons."
+    States
+    {
+    CheckMapSkillSpawn:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto Spawn+2
+    CheckMapSkillSee:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto See+1
+    Spawn:
+        TNT1 A 0 A_Look
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        BSTN A 2 A_Look
+        Loop
+    See:
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        BSTN A 2 A_Chase
+        Loop
+    Pain.GravityHP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+        Goto See
+    Pain.GravityMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+        Goto See
+    Pain.GravityHPMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+        Goto See
+    Pain.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Pain
+    Pain.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+        Goto Pain
+    Pain:
+        BSTN B 3 A_Pain
+        Goto See
+    Melee:
+        BSTN BC 4
+        BSTN  D 4 A_MeleeAttack
+        BSTN  CB  4 
+        Goto See
+    Death.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Death
+    Death.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when killing a monster [3+(HP/100)]
+        Goto Death
+    DeathCheck:
+        TNT1 A 0 A_Jump(255, 3)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 
+        goto Death+1
+    Death:
+        TNT1 A 0 A_Jump(1, "DeathCheck")
+        BSTN B 3
+        BSTN C 3 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BSTN D 3 A_Scream
+        BSTN DDDDDD 0 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BSTN E 3 A_Fall
+        BSTN EEEEE 0 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BSTN F 3 A_custommissile("BalloonSoul", 28, 0, random(-180, 180), 2, random(-15, 80))
+        BSTN GHIJKLM 3
+        Stop
+    }
+}
+
+ACTOR BingoNew replaces Bingo
+{ 
+    var int user_theta;
+    var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+    var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+   Health 400 
+   Speed 5 
+   Radius 18
+   Height 56
+   PainChance 128
+   Mass 300
+   Meleedamage 1 
+   REACTIONTIME 8 
+   MONSTER
+   DropItem GasRocketLauncher 255
+   DropItem ClownSouls 75
+   +FLOORCLIP +NOGRAVITY +FLOAT +PUSHABLE +NORADIUSDMG 
+   +FloatBob +SPAWNFLOAT 
+   scale 0.85
+   SeeSound "CHEDSEE"
+   PainSound "REVN3"
+   DeathSound ""
+   ActiveSound "CHEDLAF"
+   Obituary "%o got blasted by a freaky clown head." 
+   MissileHeight 12
+   MissileType RevRocket
+   States 
+   { 
+    CheckMapSkillSpawn:
+      TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+      TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+      Goto Spawn+2
+    CheckMapSkillSee:
+      TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+      TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+      Goto See+1
+    Spawn:
+      TNT1 A 0 A_Look
+      TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+      CHED A 10  A_Look 
+      Loop 
+    See: 
+      TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+      CHED A 2 A_PlaySound("DRONE")
+      CHED A 2 A_CustomMissile("RFlame", -8, 0, 0, 1)  
+      CHED A 2   A_FastChase
+      CHED A 2 A_CustomMissile("RFlame", -8, 0, 0, 1)  
+      CHED A 2   A_FastChase
+      CHED A 2 A_CustomMissile("RFlame", -8, 0, 0, 1)  
+      CHED A 2   A_Chase
+      CHED A 2 A_CustomMissile("RFlame", -8, 0, 0, 1)  
+      CHED A 2   A_Chase
+      Goto See
+    Missile:   
+      CHED A 0 A_Jump(104,9)
+      CHED A 0 A_Jump(136,2) 
+      CHED A 0 A_Jump(88,13)
+      CHED A 4 A_FaceTarget 
+      CHED A 6 Bright A_ComboAttack
+      Goto See 
+      CHED A 2 Bright A_FaceTarget
+      CHED A 2 Bright A_CustomMissile("RevRocket", 12, -4, 0, 1)
+      CHED A 4 
+      Goto See 
+      CHED A 2 Bright A_FaceTarget
+      CHED A 2 Bright A_CustomMissile("RevRocket", 12, -12, -60, 1)
+      CHED A 2 Bright A_FaceTarget
+      CHED A 2 Bright A_CustomMissile("RevRocket", 12, -4, 60, 1)
+      CHED A 4 
+      Goto See 
+      CHED A 4 Bright A_FaceTarget
+      CHED A 2 Bright A_CustomMissile("RevRocket", 12, 12, 0, 1)
+      CHED A 4 
+      Goto See 
+    Pain.GravityHP:
+      TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+      Goto See
+    Pain.GravityMP:
+      TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+      Goto See
+    Pain.GravityHPMP:
+      TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+      Goto See
+    Pain.Sceptre:
+      TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,2,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+      Goto Pain
+    Pain.Gauntlets:
+      TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+      Goto Pain
+    Pain: 
+      CHED A 4 A_Pain 
+      Goto See 
+    Death.Sceptre:
+      TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,2,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+      Goto Death
+    Death.Gauntlets:
+      TNT1 A 0 ACS_ExecuteAlways(850,0,0,7,0) // Give some life when killing a monster [3+(HP/100)]
+      Goto Death
+    DeathCheck:
+      TNT1 A 0 A_Jump(255, 3)
+      TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+      TNT1 A 0 
+      goto Death+1
+    Death:
+      TNT1 A 0 A_Jump(1, "DeathCheck")
+      CHED A 1 A_Scream 
+      CHED B 6  A_NoBlocking 
+      CHED CD 6
+      CHED EFGHIJKL 4
+      CHED M 4
+      Stop 
+   } 
+} 
+
+ACTOR TinyBingoNew replaces TinyBingo
+{ 
+    var int user_theta;
+    var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+    var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+   Health 35 
+   Speed 6 
+   Radius 9
+   Height 24
+   PainChance 128
+   Mass 300
+   Meleedamage 1 
+   REACTIONTIME 8 
+   MONSTER
+   DropItem ClownSouls 10
+   +FLOORCLIP +NOGRAVITY +FLOAT +PUSHABLE 
+   +FloatBob +SPAWNFLOAT 
+   scale 0.35
+   SeeSound "TINY2"
+   PainSound "TINYPAIN"
+   DeathSound "TINYDIE"
+   ActiveSound "TINYACT"
+   Obituary "%o got blasted by a freaky clown head." 
+   MissileHeight 12
+   MissileType MyBall
+   States 
+   { 
+   CheckMapSkillSpawn:
+      TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+      TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+      Goto Spawn+2
+   CheckMapSkillSee:
+      TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+      TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+      Goto See+1
+   Spawn:
+      TNT1 A 0 A_Look
+      TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+      CHED A 10 A_Look 
+      Loop 
+   See: 
+      TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+      CHED A 2 A_Chase
+      Goto See
+   Missile:   
+      CHED A 4 A_FaceTarget 
+      CHED A 2 Bright A_CustomMissile("MyBall", 12, -4, 0, 1)
+      CHED A 4 
+      Goto See 
+   Pain.GravityHP:
+      TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+      Goto See
+   Pain.GravityMP:
+      TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+      Goto See
+   Pain.GravityHPMP:
+      TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+      Goto See
+   Pain.Sceptre:
+      TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+      Goto Pain
+   Pain.Gauntlets:
+      TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+      Goto Pain
+   Pain: 
+      CHED A 4 A_Pain 
+      Goto See 
+   Death.Sceptre:
+      TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+      Goto Death
+   Death.Gauntlets:
+      TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when killing a monster [3+(HP/100)]
+      Goto Death
+   DeathCheck:
+      TNT1 A 0 A_Jump(255, 3)
+      TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+      TNT1 A 0 
+      goto Death+1
+   Death:
+      TNT1 A 0 A_Jump(1, "DeathCheck")
+      CHED A 1 A_Scream 
+      CHED B 6 A_NoBlocking 
+      CHED CD 6
+      CHED EFGHIJKL 4
+      CHED M 4     
+      Stop    
+   } 
+} 
+
+actor BeefyNew replaces Beefy
+{
+    var int user_theta;
+    var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+    var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+    Health 120
+    Radius 20
+    Height 56
+    Speed 8
+    PainChance 200
+    MONSTER 
+    DropItem ClownSouls 20
+    +FLOORCLIP
+    SeeSound "BEEFSEE"
+    PainSound "GHS2PAN"
+    DeathSound "GHS2PAN"
+    ActiveSound "BEEFY"
+    MeleeSound "imp/melee"
+    Obituary "%o was killed by beefy."
+    HitObituary "%o was killed by beefy."
+    MissileHeight 32
+    MissileType MyBall2
+    States
+    {
+    CheckMapSkillSpawn:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto Spawn+2
+    CheckMapSkillSee:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto See+1
+    Spawn:
+        TNT1 A 0 A_Look
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        CIMP AB 10 A_Look
+        Loop
+    See:
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        CIMP AABBCCDD 3 A_Chase
+        Loop
+    Melee:
+        CIMP J 8 A_FaceTarget
+        CIMP K 6 A_ComboAttack
+        Goto See
+    Missile:
+        CIMP J 0 A_Jump(128,4)
+        CIMP J 9 A_FaceTarget
+        CIMP K 9 A_CustomMissile("MyBall2", 32, 0, 0)
+        Goto See
+        CIMP J 4 A_FaceTarget
+        CIMP J 4 A_FaceTarget
+        CIMP K 6 A_CustomMissile("MyBall2", 32, 0, 0)
+        CIMP J 8 A_FaceTarget
+        CIMP J 0 A_Jump(128,5)
+        CIMP J 8 A_FaceTarget
+        CIMP K 6 A_CustomMissile("MyBall3", 32, 0, 0)
+        CIMP J 8 A_FaceTarget
+        Goto See
+        CIMP J 4 A_FaceTarget
+        CIMP J 4 A_FaceTarget
+        CIMP K 9 A_CustomMissile("MyBall3", 32, 0, 0)
+        CIMP J 8 A_FaceTarget
+        Goto See
+    Pain:
+        CIMP L 2
+        CIMP L 2 A_Pain
+        Goto See
+    Pain.GravityHP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+        Goto See
+    Pain.GravityMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+        Goto See
+    Pain.GravityHPMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+        Goto See
+    Pain.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Pain
+    Death.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+        Goto Death
+    Pain.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+        Goto Pain
+    Death.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,4,0) // Give some life when killing a monster [3+(HP/100)]
+        TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+        Goto Death
+    DeathCheck:
+        TNT1 A 0 A_Jump(255, 3)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 
+        goto Death+1
+    Death:
+        TNT1 A 0 A_Jump(1, "DeathCheck")
+        CIMP E 8 A_Scream
+        CIMP F 4 A_CustomMissile("Gibb3", 20, -1, -60, 1)
+        CIMP F 4 A_TossGib
+        CIMP G 1 A_Fall
+        CIMP G 1 A_TossGib
+        CIMP G 1 A_CustomMissile("Gibb1", 16, -2, -30, 1)
+        CIMP G 1 A_TossGib
+        CIMP G 1 A_CustomMissile("BSplatter", 2,0,0, 1)
+        CIMP G 1 A_TossGib
+        CIMP G 1 A_CustomMissile("Gibb2", 14, 2, -10, 1)
+        CIMP G 0 A_TossGib
+        CIMP G 1 A_PlaySound("splat11")
+        CIMP G 1 A_CustomMissile("BSplatter", 14, 0, 0, 1)
+        CIMP H 1 A_CustomMissile("Gibb4", 12, 3, 32, 1)
+        CIMP H 1 A_TossGib
+        CIMP H 1 A_CustomMissile("Gibb5", 10, 3, 0, 1)
+        CIMP H 1 A_TossGib
+        CIMP H 1 A_CustomMissile("BSplatter", 10, 1, 16, 1)
+        CIMP H 1 A_CustomMissile("BeefyHead", -20, 0, 0)
+        CIMP H 1 A_TossGib
+        CIMP H 1 A_CustomMissile("BSplatter", 16, -1, -16, 1) 
+        CIMP H 1 A_TossGib
+        CIMP H 2 A_CustomMissile("Gibb3", 4, 3, 0, 1)
+        CIMP I -1
+        Stop
+    XDeathCheck:
+        TNT1 A 0 A_Jump(255, 3)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 
+        goto XDeath+1
+    XDeath:
+        TNT1 A 0 A_Jump(1, "XDeathCheck")
+        CIMP E 4 A_Scream
+        CIMP E 4 A_TossGib
+        CIMP F 4 A_CustomMissile("Gibb3", 20, 0, -60, 1)
+        CIMP F 4 A_TossGib
+        CIMP F 1 A_Fall
+        CIMP F 1 A_TossGib
+        CIMP G 1 A_CustomMissile("Gibb1", 16, 0, -10, 1)
+        CIMP G 0 A_TossGib
+        CIMP G 1 A_CustomMissile("BSplatter", 38,0,0, 1)
+        CIMP G 1 A_TossGib
+        CIMP G 1 A_CustomMissile("Gibb2", 14, 0, -30, 1)
+        CIMP G 1 A_TossGib
+        CIMP G 1 A_PlaySound("splat11")
+        CIMP G 0 A_TossGib
+        CIMP G 1 A_CustomMissile("BSplatter", 24, 0, 0, 1)
+        CIMP H 1 A_TossGib
+        CIMP H 1 A_CustomMissile("Gibb4", 12, 0, 32, 1)
+        CIMP H 1 A_TossGib
+        CIMP H 1 A_CustomMissile("Gibb5", 10, 0, 0, 1)
+        CIMP H 0 A_TossGib
+        CIMP H 1 A_CustomMissile("BSplatter", 24, 0, 16, 1)
+        CIMP H 1 A_CustomMissile("BeefyHead", -20, 0, 0)
+        CIMP H 1 A_TossGib
+        CIMP H 1 A_CustomMissile("BSplatter", 16, 0, -16, 1) 
+        CIMP H 1 A_TossGib
+        CIMP H 3 A_CustomMissile("Gibb3", 4, 0, 0, 1)
+        CIMP I -1
+        Stop
+    }
+}
+
+ACTOR BlackBearNew replaces BlackBear
+{
+    var int user_theta;
+    var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+    var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+    Health 8
+    Radius 8
+    Height 20
+    Speed 9
+    Mass 20
+    PainChance 90
+    MONSTER 
+    +FLOORCLIP +NOCLIP +RANDOMIZE +COUNTKILL +CANPASS +DONTOVERLAP 
+    Scale 0.75
+    MELEEDAMAGE 1
+    SeeSound ""
+    PainSound ""
+    DeathSound ""
+    ActiveSound "BLACK"
+    MeleeSound ""
+    HitObituary "%o was blown up by a demonized teddy bear."
+    ExplosionRadius 40
+    ExplosionDamage 11
+    States
+    {
+    CheckMapSkillSpawn:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto Spawn+2
+    CheckMapSkillSee:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto See+1
+    Spawn:
+        TNT1 A 0 A_Look
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        BBER AB 4 A_Look
+        Loop
+    See:
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        BBER ABCD 2 A_Chase
+        Loop
+    Melee:
+        BBER A 1 A_MeleeAttack
+        BBER A 1 A_Scream
+        BBER A 1 A_Fall
+        BBER A 1 A_Explode  
+        BBER A 0 A_PlaySound("splat11")
+        BBER A 1 A_CustomMissile("BSplatter", 0, 0, 0, 1)
+        Stop
+    Pain.GravityHP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+        Goto See
+    Pain.GravityMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+        Goto See
+    Pain.GravityHPMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+        Goto See
+    Pain.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Pain
+    Pain.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+        Goto Pain
+    Pain:
+        BBER B 4 A_Pain
+        Goto See
+    Death.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Death
+    Death.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when killing a monster [3+(HP/100)]
+        Goto Death
+    DeathCheck:
+        TNT1 A 0 A_Jump(255, 3)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 
+        goto Death+1
+    Death:
+        TNT1 A 0 A_Jump(1, "DeathCheck")
+        BBER A 1 A_Scream
+        BBER A 1 A_Fall
+        BBER A 0 A_Jump(200,2) 
+        BBER A 1 A_Explode
+        BBER A 0 
+        BBER A 0 A_PlaySound("splat11")
+        BBER A 0 A_CustomMissile("BSplatter", 0, 0, 0, 1)
+        BBER A 0 A_custommissile("BlackSplatter1", 6, 0, random(-180, 180), 2, random(0, 180))
+        BBER AAA 0 A_custommissile("BlackSplatter2", 6, 0, random(-180, 180), 2, random(0, 180))		
+        BBER A 1
+        Stop
+    }
+}
+
+actor ClownGhostNew replaces ClownGhost
+{ 
+    var int user_theta;
+    var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+    var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+   Health 300 
+   Speed 5 
+   Radius 16
+   Height 48
+   PainChance 128
+   Mass 400
+   Meleedamage 1 
+   gibhealth -400
+   REACTIONTIME 8 
+   MONSTER
+   DropItem ClownSouls 75
+   +FLOORCLIP +NOCLIP +NOGRAVITY +FLOAT +FloatBob +DONTHURTSPECIES +NOTARGET
+   RENDERSTYLE Translucent
+   ALPHA 0.67
+   SeeSound ""
+   PainSound "GHSTPAIN"
+   DeathSound "GHSTDIE"
+   ActiveSound "GIDLE"  
+   MeleeSound "imp/melee"
+   Obituary "%o got killed by a clown ghost." 
+   MissileHeight 12
+   MissileType SkullSeeker2 
+   States 
+   { 
+    CheckMapSkillSpawn:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto Spawn+2
+    CheckMapSkillSee:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto See+1
+    Spawn:
+        TNT1 A 0 A_Look
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        GHOS C 10  A_Look
+        Loop
+    See: 
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        GHOS D 10 A_Chase
+        GHOS E 10 A_Chase
+        GHOS F 10 A_Chase
+        GHOS A 0 A_Jump(128,6)
+        GHOS A 4 A_Chase
+        GHOS A 4 A_Chase     
+        GHOS A 4 A_Chase        
+        GHOS A 4 A_Chase     
+        Goto See + 4
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        GHOS B 1 Bright A_Chase
+        GHOS B 1 Bright A_Chase
+        GHOS B 1 Bright A_Chase
+        GHOS B 1 Bright A_Chase
+        GHOS B 1 Bright A_Chase
+        GHOS B 1 Bright A_Chase
+        GHOS B 1 Bright A_Chase
+        GHOS B 1 Bright A_Chase
+        GHOS B 1 Bright A_Chase
+        GHOS B 1 Bright A_Chase
+        GHOS B 1 Bright A_Chase
+        GHOS B 1 Bright A_Chase
+        GHOS B 1 Bright A_Chase
+        GHOS B 1 Bright  A_Chase
+        GHOS B 1 Bright A_Chase
+        Goto See + 4
+    Melee:
+        GHOS A 4 A_FaceTarget  
+        GHOS F 3 A_FaceTarget 
+        GHOS G 3 A_MeleeAttack
+        GHOS F 3 A_FaceTarget 
+        Goto See + 4
+    Missile: 
+        GHOS F 4 A_Jump (245,3)
+        GHOS F 4 A_FaceTarget 
+        GHOS G 6 A_ComboAttack
+        GHOS F 1 A_Chase 
+        GHOS G 1 A_Chase 
+        GHOS G 1 A_Chase 
+        GHOS G 1 A_Chase 
+        GHOS G 1 A_Chase 
+        GHOS G 1 A_Chase 
+        GHOS G 1 A_Chase 
+        GHOS F 1 A_Chase 
+        Goto See + 4
+    Pain.GravityHP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+        Goto See
+    Pain.GravityMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+        Goto See
+    Pain.GravityHPMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+        Goto See
+    Pain.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,2,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Pain
+    Pain.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+        Goto Pain
+    Pain: 
+        GHOS A 4  A_Pain 
+        Goto See + 4
+    Death.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,2,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Death
+    Death.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,6,0) // Give some life when killing a monster [3+(HP/100)]
+        Goto Death
+    DeathCheck:
+        TNT1 A 0 A_Jump(255, 3)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 
+        goto Death+1
+    Death:
+        TNT1 A 0 A_Jump(1, "DeathCheck")
+        GHOS B 1 A_Scream 
+        GHOS F 8 A_NoBlocking 
+        GHOS E 8 //A_custommissile("ClownSoulFloat1", 8, random(-15, 15), random(-180, 180), 2, random(80, 100))
+        GHOS D 8 A_PlaySound("BOONBITE")
+        GHOS C 0 A_CustomMissile("Balloon_Black", 8, 0, 0, 1)
+        Stop 
+   } 
+}
+
+actor ClownGhost2New replaces ClownGhost2
+{ 
+    var int user_theta;
+    var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+    var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+   Health 150
+   Speed 6 
+   Radius 16
+   Height 48
+   PainChance 128
+   Mass 400
+   Meleedamage 3 
+   REACTIONTIME 8 
+   MONSTER
+   DropItem ClownSouls 100
+   +FLOORCLIP +NOCLIP +NOGRAVITY +FLOAT +FloatBob +NORADIUSDMG +NOTARGET
+   RENDERSTYLE Translucent
+   ALPHA 0.67
+   SeeSound ""
+   PainSound "GHS2PAN"
+   DeathSound "GHS2PAN"
+   ActiveSound "GHS2ACT"
+   MeleeSound "imp/melee"
+   Obituary "%o got killed by a clown ghost." 
+   MissileHeight 15
+   MissileType Ghost2Ball
+   States 
+   { 
+    CheckMapSkillSpawn:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto Spawn+2
+    CheckMapSkillSee:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto See+1
+    Spawn:
+        TNT1 A 0 A_Look
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        GST2 AB 10  A_Look
+        Loop
+    See: 
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        GST2 A 1 A_JumpIfCloser(1500,5)
+        GST2 AABB 1 A_Chase 
+        Loop
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        GST2 A 0 A_CustomMissile("HellFire2", 0, 0, 0)
+        GST2 AABB 1 A_Chase
+        Goto See
+    Melee:
+        GST2 A 4 A_FaceTarget  
+        GST2 B 3 A_FaceTarget 
+        GST2 C 3 A_MeleeAttack
+        GST2 B 3 A_FaceTarget 
+        Goto See
+    Missile:
+        GST2 B 4 A_FaceTarget 
+        GST2 C 6 A_ComboAttack
+        GST2 B 4 A_Chase 
+        Goto See
+    Pain.GravityHP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+        Goto See
+    Pain.GravityMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+        Goto See
+    Pain.GravityHPMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+        Goto See
+    Pain.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Pain
+    Pain.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+        Goto Pain
+    Pain: 
+        GST2 B 4  A_Pain 
+        Goto See
+    Death.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Death
+    Death.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,4,0) // Give some life when killing a monster [3+(HP/100)]
+        Goto Death
+    DeathCheck:
+        TNT1 A 0 A_Jump(255, 3)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 
+        goto Death+1
+    Death:
+        TNT1 A 0 A_Jump(1, "DeathCheck")
+        GST2 D 1 A_Scream 
+        GST2 D 2 A_TossGib
+        GST2 E 2 A_CustomMissile("BSplatter", 16, 0,0, 1)
+        GST2 E 2 A_TossGib
+        GST2 F 2 A_NoBlocking 
+        GST2 F 2 A_TossGib
+        GST2 G 2 A_CustomMissile("HellFire1", 8, 0, -180)
+        GST2 G 2 A_TossGib
+        GST2 H 2 A_TossGib
+        GST2 H 2 A_TossGib
+        Stop   
+   }
+}
+
+actor BulbyNew replaces Bulby
+{ 
+    var int user_theta;
+    var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+    var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+   Health 200 
+   Speed 5 
+   Radius 16
+   Height 32
+   PainChance 128
+   Mass 400
+   Meleedamage 1 
+   Scale .7
+   MONSTER
+   DropItem ClownSouls 30
+   +FLOORCLIP +FLOAT +NOTARGET //+NORADIUSDMG 
+   SeeSound "BOTTLE2"
+   PainSound "GHS2PAIN"
+   DeathSound "BOTTLE2"
+   ActiveSound "BULBSEE"  
+   MeleeSound "imp/melee"
+   Obituary "%o got killed by Bulby." 
+   MissileType BulbyBall
+   States 
+   { 
+    CheckMapSkillSpawn:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto Spawn+2
+    CheckMapSkillSee:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto See+1
+    Spawn:
+        TNT1 A 0 A_Look
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        LDEM A 2 A_UnSetShootable
+        LDEM A 2 A_Look
+        Loop
+    See: 
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        LLLL A 16  A_UnSetShootable
+        LLLL B 7
+        LLLL C 7
+        LDEM A 6 
+        LDEM B 6 
+        LDEM C 5
+        LDEM D 5 
+        LDEM E 4
+        LDEM F 2 A_NoGravity 
+        LDEM F 2 A_SetShootable
+        LDEM G 2 A_Chase
+        Goto See + 11
+    Melee: 
+        LDEM G 3 A_FaceTarget 
+        LDEM H 3 A_FaceTarget 
+        LDEM I 3 A_MeleeAttack
+        LDEM H 3 A_FaceTarget 
+        Goto See + 11
+    Missile:  
+        LDEM G 3 A_Jump(88,6)
+        LDEM G 3 A_FaceTarget 
+        LDEM H 3 A_FaceTarget 
+        LDEM I 0 A_PlaySound("BULBEXP2")
+        LDEM I 2 Bright A_CustomMissile("BulbyBall", 12, -4, 0, 1)
+        LDEM H 4 
+        Goto See + 11
+        LDEM G 4 A_FaceTarget 
+        LDEM H 4 A_FaceTarget 
+        LDEM I 1 A_PlaySound("BULBEXP2")
+        LDEM I 3 Bright A_CustomMissile("BulbyBall2", 12, -4, 0, 1)
+        LDEM H 4 
+        Goto See + 11
+    Pain.GravityHP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+        Goto See
+    Pain.GravityMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+        Goto See
+    Pain.GravityHPMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+        Goto See
+    Pain.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Pain
+    Pain.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+        Goto Pain
+    Pain: 
+        LDEM J 4  A_Pain 
+        Goto See + 11
+    Death.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Death
+    Death.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,5,0) // Give some life when killing a monster [3+(HP/100)]
+        Goto Death
+    DeathCheck:
+        TNT1 A 0 A_Jump(255, 3)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 
+        goto Death+1
+    Death:
+        TNT1 A 0 A_Jump(1, "DeathCheck")
+        LDEM J 1 A_Scream 
+        LDEM K 1 A_TossGib
+        LDEM K 1 A_CustomMissile("BSplatter", 0, 0, 0, 1) 
+        LDEM K 1 A_TossGib
+        LDEM K 2 A_PlaySound("splat11")
+        LDEM K 2 A_CustomMissile("BulbyGib1", 24, 16, 60, 1)
+        LDEM K 2 A_TossGib
+        LDEM L 2 A_CustomMissile("BSplatter", 40, -16, -32, 1)
+        LDEM L 2 A_TossGib
+        LDEM L 2 A_CustomMissile("BulbyGib2", 16, 8, -30, 1)
+        LDEM L 2 A_TossGib
+        LDEM M 4 A_NoBlocking 
+        LDEM M 2 A_CustomMissile("BulbyGib3", 32, -16, -60, 1)
+        LDEM M 2 A_TossGib
+        LDEM N 2 A_CustomMissile("BSplatter", 24, 30, 32, 1)
+        LDEM N 2 A_TossGib
+        LDEM N 2 A_CustomMissile("BSplatter", 20, 32, 0, 1)
+        LDEM N 2 A_TossGib
+        LDEM N -1
+        Stop   
+   }    
+}
+
+actor MegaBulbyNew replaces MegaBulby
+{ 
+    var int user_theta;
+    var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+    var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+   Health 400 
+   Speed 6 
+   Radius 32
+   Height 64
+   PainChance 64
+   Mass 400
+   Meleedamage 1 
+   Scale 1.5
+   MONSTER
+   DropItem ClownSouls 200
+   +FLOORCLIP +FLOAT +NORADIUSDMG +NOGRAVITY +FloatBob +NOTARGET
+   SeeSound "GHSTPAIN"
+   PainSound "GHSTPAIN"
+   DeathSound "GHSTPAIN"
+   ActiveSound "GHSTATT"
+   MeleeSound "imp/melee"
+   Obituary "%o got killed by Mega Bulby." 
+   MissileType BulbyBall3
+   States 
+   { 
+    CheckMapSkillSpawn:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto Spawn+2
+    CheckMapSkillSee:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto See+1
+    Spawn:
+        TNT1 A 0 A_Look
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        LDEM G 2 A_Look
+        Loop
+    See: 
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        LDEM G 0 
+        LDEM G 0 
+        LDEM G 2 A_Chase
+        Goto See + 3
+    Melee: 
+        LDEM H 3 A_FaceTarget 
+        LDEM I 3 A_MeleeAttack
+        LDEM H 3 A_FaceTarget 
+        Goto See + 3
+    Missile:  
+        LDEM G 3 A_Jump(5,5)
+        LDEM G 3 A_FaceTarget 
+        LDEM H 3 A_FaceTarget 
+        LDEM I 0 A_PlaySound("BULBEXP2")
+        LDEM I 2 Bright A_CustomMissile("BulbyBall3", 24, -4,0, 1)
+        LDEM H 4 
+        Goto See + 3
+        LDEM G 4 A_FaceTarget 
+        LDEM H 4 A_FaceTarget 
+        LDEM I 4 Bright A_CustomMissile("BulbyBall3", 24, -4, 0, 1)
+        LDEM H 4 
+        Goto See + 3       
+    Pain.GravityHP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+        Goto See
+    Pain.GravityMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+        Goto See
+    Pain.GravityHPMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+        Goto See
+    Pain.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,2,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Pain
+    Pain.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,7,0) // Give some life when hurting a monster [1+(HP/500)]
+        Goto Pain
+    Pain: 
+        LDEM J 4  A_Pain 
+        Goto See + 3
+    Death.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Death
+    Death.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when killing a monster [3+(HP/100)]
+        Goto Death
+    DeathCheck:
+        TNT1 A 0 A_Jump(255, 3)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 
+        goto Death+1
+    Death:
+        TNT1 A 0 A_Jump(1, "DeathCheck")
+        LDEM J 1 A_Scream 
+        LDEM K 1 A_CustomMissile("BSplatter", 0, 0, 0, 1) 
+        LDEM K 1 A_TossGib
+        LDEM K 1 A_PlaySound("GHSTPAIN")
+        LDEM K 1 A_TossGib
+        LDEM K 2 A_CustomMissile("BulbyGib1", 24, 20, 60, 1)
+        LDEM K 2 A_TossGib
+        LDEM L 2 A_CustomMissile("BSplatter", 40, -18, -32, 1)
+        LDEM L 2 A_TossGib
+        LDEM L 1 A_CustomMissile("BulbyGib2", 16, 8, -30, 1)
+        LDEM L 2 A_TossGib
+        LDEM L 1 A_CustomMissile("BulbyGib3", 32, -32, -30, 1)
+        LDEM L 2 A_TossGib
+        LDEM M 2 A_NoBlocking 
+        LDEM M 2 A_TossGib
+        LDEM M 1 A_CustomMissile("BulbyGib3", 32, -16, -60, 1)
+        LDEM M 1 A_TossGib
+        LDEM M 1 A_CustomMissile("BulbyGib3", 32, -16, -60, 1)
+        LDEM M 1 A_TossGib
+        LDEM N 2 A_CustomMissile("BSplatter", 24, 30, 32, 1)
+        LDEM N 2 A_TossGib
+        LDEM N 1 A_CustomMissile("BSplatter", 20, 32, 0, 1)
+        LDEM N 1 A_TossGib
+        LDEM N 1 A_CustomMissile("BSplatter", 15, -16, 0, 1)
+        LDEM N 1 A_TossGib
+        LDEM N 2 A_IceGuyDie 
+        Stop   
+   }    
+}
+
+ACTOR BigBertha2New replaces BigBertha2
+{ 
+    var int user_theta;
+    var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+    var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+   Health 675 
+   Speed 6 
+   Radius 24
+   Height 92
+   PainChance 128
+   Mass 500
+   Meleedamage 1 
+   REACTIONTIME 8 
+   MONSTER
+   +FLOORCLIP +NOGRAVITY +FLOAT
+   scale 1.25
+   SeeSound "BIRTHA3"
+   PainSound "BIRTHA1"
+   DeathSound "BIRTHA1"
+   ActiveSound "BIRTHA2"
+   Obituary "%o touched big birtha's puke." 
+   MissileHeight 12
+   MissileType BlackBear
+   States 
+   { 
+    CheckMapSkillSpawn:
+      TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+      TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+      Goto Spawn+2
+    CheckMapSkillSee:
+      TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+      TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+      Goto See+1
+    Spawn:
+      TNT1 A 0 A_Look
+      TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+      BRTH A 10 A_Look 
+      Loop 
+    See: 
+      TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+      BRTH AAB 4 A_Chase
+      Goto See
+    Missile: 
+      BRTH A 0 A_Jump(128,15)  
+      BRTH A 4 A_FaceTarget 
+      BRTH ABCDH 4 A_FaceTarget 
+      BRTH EF 4 A_FaceTarget 
+      BRTH G 3 A_CustomMissile("BlackBlob", 12, 0, 0, 1)
+      BRTH G 0 A_CustomMissile("BlackBlob", 12, 12, 0, 1)
+      BRTH G 0 A_CustomMissile("BlackBlob", 12, -12, 0, 1)
+      BRTH DC 4 
+      Goto See 
+      BRTH ABC 4 A_FaceTarget 
+      BRTH D 2 Bright A_CustomMissile("BirthaBall", 48, 0, 0, 1)
+      BRTH C 4 A_FaceTarget 
+      Goto See 
+    Pain.GravityHP:
+      TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+      Goto See
+    Pain.GravityMP:
+      TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+      Goto See
+    Pain.GravityHPMP:
+      TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+      Goto See
+    Pain.Sceptre:
+      TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,3,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+      Goto Pain
+    Pain.Gauntlets:
+      TNT1 A 0 ACS_ExecuteAlways(850,0,0,2,0) // Give some life when hurting a monster [1+(HP/500)]
+      Goto Pain
+    Pain: 
+      BRTH A 4  A_Pain 
+      Goto See 
+    Death.Sceptre:
+      TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,3,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+      Goto Death
+    Death.Gauntlets:
+      TNT1 A 0 ACS_ExecuteAlways(850,0,0,10,0) // Give some life when killing a monster [3+(HP/100)]
+      Goto Death
+    DeathCheck:
+      TNT1 A 0 A_Jump(255, 3)
+      TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+      TNT1 A 0 
+      goto Death+1
+    Death:
+      TNT1 A 0 A_Jump(1, "DeathCheck")
+      BRTH I 7 A_Scream 
+      BRTH J 6  A_NoBlocking 
+      BRTH K 6
+      BRTH L 4
+      BRTH MN 4
+      BRTH N 0 A_CustomMissile("BlackBlob", 12, 0, 0, 1) 
+      BRTH N 0 A_CustomMissile("BlackBlob", 12, 12, 0, 1) 
+      BRTH N 0 A_CustomMissile("BlackBlob", 12, -13, 0, 1) 
+      BRTH N 0 A_CustomMissile("BlackBlob", 12, -16, 0, 1) 
+      BRTH N 0 A_CustomMissile("BlackBlob", 12, 18, 0, 1) 
+      BRTH O 4     
+      Stop    
+   } 
+}
+
+actor SuperBerthaNew replaces SuperBertha
+{ 
+    var int user_theta;
+    var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+    var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+   Health 6000 
+   Speed 7 
+   Radius 50
+   Height 144
+   PainChance 128
+   Mass 40000
+   Meleedamage 1 
+   REACTIONTIME 8 
+   MONSTER
+   +FLOORCLIP
+   +NOGRAVITY
+   +FLOAT 
+   +FloatBob
+   SeeSound ""
+   PainSound "GHSTPAIN"
+   DeathSound "GHSTDIE"
+   ActiveSound "BCLICK5"
+   MeleeSound "imp/melee"
+   Obituary "%o got killed by a giant possessed balloon." 
+   Scale 1.25
+   DamageFactor "Normal", 0.33
+   DamageFactor "Sceptre", 1
+   DamageFactor "Holy", 1.5
+   DamageFactor "Magic", 0.875
+
+   States
+   {
+    CheckMapSkillSpawn:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto Spawn+2
+    CheckMapSkillSee:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto See+1
+    Spawn:
+        TNT1 A 0 A_Look
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        BBTH A 2 A_Look // A_SetInvulnerable
+        BBTH A 2 A_Look
+        Loop
+    See:
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        BBTH A 2 A_Chase // A_SetInvulnerable
+        BBTH A 2 A_Chase
+        Loop
+    Missile:   
+        BBTH A 0 A_JumpIfCloser(200,2)
+        BBTH A 0 
+        Goto See
+        BBTH A 0 A_FaceTarget  
+        BBTH B 1 //A_PlaySound("BEAT667")
+        BBTH B 0 A_custommissile("SoulAttack", 45, 0, random(-45, 45), 2, random(-20, 20))
+        BBTH B 1 A_FaceTarget 
+        BBTH B 0 A_custommissile("SoulAttack", 45, 0, random(-45, 45), 2, random(-20, 20))
+        BBTH B 1 A_FaceTarget 
+        BBTH B 0 A_custommissile("SoulAttack", 45, 0, random(-45, 45), 2, random(-20, 20))
+        BBTH B 1 A_FaceTarget 
+        BBTH B 0 A_custommissile("SoulAttack", 45, 0, random(-45, 45), 2, random(-20, 20))
+        BBTH B 0 A_custommissile("SoulAttack", 45, 0, random(-45, 45), 2, random(-20, 20))
+        BBTH B 1 A_FaceTarget 
+        BBTH B 0 A_custommissile("SoulAttack", 45, 0, random(-45, 45), 2, random(-20, 20))
+        BBTH B 1 A_FaceTarget 
+        BBTH B 0 A_custommissile("SoulAttack", 45, 0, random(-45, 45), 2, random(-20, 20))
+        BBTH B 1 A_FaceTarget 
+        BBTH B 0 A_custommissile("SoulAttack", 45, 0, random(-45, 45), 2, random(-20, 20))
+        BBTH B 0 A_custommissile("SoulAttack", 45, 0, random(-45, 45), 2, random(-20, 20))
+        BBTH B 1 A_FaceTarget 
+        BBTH B 0 A_custommissile("SoulAttack", 45, 0, random(-45, 45), 2, random(-20, 20))
+        BBTH B 1 A_FaceTarget 
+        BBTH B 0 A_custommissile("SoulAttack", 45, 0, random(-45, 45), 2, random(-20, 20))
+        BBTH B 1 A_FaceTarget 
+        BBTH B 0 A_custommissile("SoulAttack", 45, 0, random(-45, 45), 2, random(-20, 20))
+        BBTH B 1 
+        Goto See
+    Melee:
+        BBTH BA 1 A_FaceTarget 
+        BBTH C 4  A_MeleeAttack
+        BBTH AB 4 A_FaceTarget 
+        Goto See
+    Pain.GravityHP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+        Goto See
+    Pain.GravityMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+        Goto See
+    Pain.GravityHPMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+        Goto See
+    Pain.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,14,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Pain
+    Pain.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,9,0) // Give some life when hurting a monster [1+(HP/500)]
+        Goto Pain
+    Pain:
+        BBTH C 3 A_Pain
+        Goto See
+    Death.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,14,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Death
+    Death.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,43,0) // Give some life when killing a monster [3+(HP/100)]
+        Goto Death
+    DeathCheck:
+        TNT1 A 0 A_Jump(255, 3)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 
+        goto Death+1
+    Death:
+        TNT1 A 0 A_Jump(1, "DeathCheck")
+        BBTH B 3 A_Scream
+        BBTH B 3 
+        BBTH B 2 A_CustomMissile("BSplatter", 64, -16, -32, 1)
+        BBTH B 2 A_CustomMissile("BSplatter", 32, -32, 0, 1)
+        BBTH B 2 A_CustomMissile("BSplatter", 16, 32, 32, 1)
+        BBTH B 2 A_CustomMissile("BSplatter", 128, -48, 64, 1)
+        BBTH B 2 A_CustomMissile("BSplatter", 144, 48, -16, 1)
+        BBTH B 2 A_CustomMissile("BSplatter", 40, 0, 0, 1)
+        BBTH B 2 A_CustomMissile("BSplatter", 112, 64, 16, 1)
+        BBTH B 2 A_CustomMissile("BSplatter", 64, 128, 72, 1)
+        BBTH B 2 A_CustomMissile("BSplatter", 8, 96, -104, 1)
+        BBTH C 2 A_CustomMissile("BSplatter", 144, 144, 0, 1)
+        BBTH B 2 A_CustomMissile("BSplatter", 64, -16, -32, 1)
+        BBTH B 2 A_CustomMissile("BSplatter", 32, -32, 0, 1)
+        BBTH B 2 A_CustomMissile("BSplatter", 16, 32, 32, 1)
+        BBTH B 2 A_CustomMissile("BSplatter", 128, -48, 64, 1)
+        BBTH B 2 A_CustomMissile("BSplatter", 144, 48, -16, 1)
+        BBTH B 2 A_CustomMissile("BSplatter", 40, 0, 0, 1)
+        BBTH B 2 A_CustomMissile("BSplatter", 112, 64, 16, 1)
+        BBTH B 2 A_CustomMissile("BSplatter", 64, 128, 72, 1)
+        BBTH B 2 A_CustomMissile("BSplatter", 8, 96, -104, 1)
+        BBTH C 2 A_CustomMissile("BSplatter", 144, 144, 0, 1)
+        SPL2 ABCDE 4 A_Fall
+        Stop
+   }
+}
+
+ACTOR EvilDeadHandNew replaces EvilDeadHand
+{
+    var int user_theta;
+    var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+    var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+    Health 20
+    Radius 8
+    Height 16
+    Speed 5
+    Mass 20
+    PainChance 200
+    MONSTER 
+    +FLOORCLIP +RANDOMIZE 
+    scale 0.75
+    MELEEDAMAGE 1
+    SeeSound "HSEE"
+    PainSound "HAND1"
+    DeathSound "HAND3"
+    ActiveSound "HAND1"
+    MeleeSound "SKULBITE"
+    Obituary "%o was scratched by the Evil Dead hand." 
+    States
+    {
+    CheckMapSkillSpawn:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto Spawn+2
+    CheckMapSkillSee:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto See+1
+    Spawn:
+        TNT1 A 0 A_Look
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        HAND A 4 A_Look
+        Loop
+    See:
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        HAND A 0 A_Jump(200,5)
+        HAND A 0 A_CustomMissile("ZGut2", 0, 0, 180)  
+        HAND A 0 A_Jump(250,2)
+        HAND A 0 A_CustomMissile("ZGut3", 0, 0, 0)     
+        HAND ABCB 2 A_Chase 
+        Loop
+    Melee:
+        HAND C 6 A_FaceTarget 
+        HAND A 6 A_MeleeAttack
+        HAND B 6
+        Goto See 
+    Pain.GravityHP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+        Goto See
+    Pain.GravityMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+        Goto See
+    Pain.GravityHPMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+        Goto See
+    Pain.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Pain
+    Pain.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+        Goto Pain
+    Pain:
+        HAND B 8 A_Pain 
+        Goto See 
+    Death.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Death
+    Death.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when killing a monster [3+(HP/100)]
+        Goto Death
+    DeathCheck:
+        TNT1 A 0 A_Jump(255, 3)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 
+        goto Death+1
+    Death:
+        TNT1 A 0 A_Jump(1, "DeathCheck")
+        HAND D 5 A_CustomMissile("ZGut2", 0, 0, 30) 
+        HAND E 2 A_PlaySound("splat11")
+        HAND E 3 A_Scream 
+        HAND F 0 A_CustomMissile("BSplatter", 0, 0, 0, 1)
+        HAND F 5 A_CustomMissile("ZGut3", 0, 0, -40)   
+        HAND G 5 A_Fall 
+        HAND H -1 
+        Stop 
+    }
+}
+
+ACTOR BouncingClownNew replaces BouncingClown
+{
+    var int user_theta;
+    var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+    var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+    Health 6000
+    Radius 24
+    Height 112
+    Speed 11
+    Mass 2000
+    PainChance 25
+    MONSTER 
+    +FLOORCLIP +RANDOMIZE +COUNTKILL +CANPASS
+    MELEEDAMAGE 3
+    SeeSound "GAURD11"
+    PainSound "GAURD12"
+    DeathSound "GAURD12"
+    ActiveSound "GAURD11"
+    MeleeSound "BCHOMP"
+    HitObituary "%o was killed by a bouncing clown."
+
+    PainChance "Magic", 128
+    PainChance "Melee", 128
+    PainChance "Sceptre", 256
+    PainChance "Holy", 256
+    DamageFactor "Sceptre", 1 // Sceptre does full damage
+    DamageFactor "Magic", 0.75 // Magic does damage, but not quite a full amount
+    DamageFactor "Holy", 2 // Diaris Arrows hurt it like no-one's business
+    DamageFactor "Melee", 1.25
+    DamageFactor "Normal", 0.125 // Most other damage doesn't work well [1/8th normal damage]
+    States
+    {
+    CheckMapSkillSpawn:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto Spawn+2
+    CheckMapSkillSee:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto See+1
+    Spawn:
+        TNT1 A 0 A_Look
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        BCWN AB 4 A_Look
+        Loop
+    See:
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        BCWN A 2
+        BCWN A 2 A_Chase
+        BCWN B 2
+        BCWN B 2 A_Chase
+        BCWN CC 2 A_Chase
+        BCWN B 4
+        BCWN A 0 A_JumpIfCloser(1024,1)
+        Loop
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        BCWN A 0 A_PlaySound("GAURD13")
+        BCWN A 0 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN A 0 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN A 0 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN A 0 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN A 0 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN A 0 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN A 0 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN A 0
+        Loop
+    Melee:
+        BCWN A 3 A_FaceTarget 
+        BCWN B 3 A_FaceTarget 
+        BCWN C 4 A_MeleeAttack
+        BCWN B 3 A_FaceTarget 
+        Goto See
+    Pain.GravityHP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+        Goto See
+    Pain.GravityMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+        Goto See
+    Pain.GravityHPMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+        Goto See
+    Pain.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,2,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Pain
+    Pain.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,2,0) // Give some life when hurting a monster [1+(HP/500)]
+        Goto Pain
+    Pain:
+        BCWN D 5 A_Pain
+        BCWN E 0 A_SetReflective
+        BCWN E 0 A_SetInvulnerable
+        BCWN E 4
+        BCWN FFFF 2 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN GGGG 1 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN HHHH 1 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN IIII 1 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN JJJJ 1 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN JJJJJ 10 
+        BCWN JIHGFED 5
+        BCWN D 0 A_UnSetReflective
+        BCWN D 0 A_UnSetInvulnerable
+        Goto See
+    Death.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,2,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Death
+    Death.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,7,0) // Give some life when killing a monster [3+(HP/100)]
+        Goto Death
+    DeathCheck:
+        TNT1 A 0 A_Jump(255, 3)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 
+        goto Death+1
+    Death:
+        TNT1 A 0 A_Jump(1, "DeathCheck")
+        BCWN D 5 A_Scream
+        BCWN E 0
+        BCWN E 0 
+        BCWN E 4
+        BCWN FFFF 2 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN GGGG 1 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN HHHH 1 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN IIII 1 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN JJJJ 1 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN JJ 10 
+        BCWN J 0 
+        Stop
+    }
+}
+
+ACTOR BabyClownNew replaces BabyClown
+{
+    var int user_theta;
+    var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+    var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+    Health 88
+    Radius 8
+    Height 32
+    Speed 15
+    Mass 60
+    PainChance 200
+    MONSTER 
+    Scale 0.25
+    DropItem ClownSouls 64
+    +FLOORCLIP +RANDOMIZE +COUNTKILL +CANPASS   +randomize
+    MELEEDAMAGE 3
+    SeeSound ""
+    PainSound "BYHURT"
+    DeathSound "BYHURT"
+    ActiveSound "BYCLWN"
+    MeleeSound "CLWNBITE"
+    HitObituary "%o was killed by a bouncing clown."
+    States
+    {
+    CheckMapSkillSpawn:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto Spawn+2
+    CheckMapSkillSee:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto See+1
+    Spawn:
+        TNT1 A 0 A_Look
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        BCWN AB 4 A_Look
+        Loop
+    See:
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        BCWN A 1
+        BCWN A 2 
+        BCWN B 1 A_Chase
+        BCWN B 2 A_Chase
+        BCWN CC 2 A_Chase
+        BCWN B 2
+        Loop
+    Melee:
+        BCWN A 3 A_FaceTarget 
+        BCWN B 0 A_PlaySound("CLWNBITE")
+        BCWN B 3 A_FaceTarget
+        BCWN C 4 A_MeleeAttack
+        BCWN B 3 A_FaceTarget
+        BCWN B 0 A_PlaySound("CLWNBITE")
+        Goto See
+    Pain.GravityHP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+        Goto See
+    Pain.GravityMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+        Goto See
+    Pain.GravityHPMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+        Goto See
+    Pain.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Pain
+    Pain.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+        Goto Pain
+    Pain:
+        BCWN B 4 A_Pain
+        Goto See
+    Death.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Death
+    Death.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when killing a monster [3+(HP/100)]
+        Goto Death
+    DeathCheck:
+        TNT1 A 0 A_Jump(255, 3)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 
+        goto Death+1
+    Death:
+        TNT1 A 0 A_Jump(1, "DeathCheck")
+        BCWN D 5 A_Scream
+        BCWN E 4 A_Fall
+        BCWN FFFF 2 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN GGGG 1 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN HHHH 1 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN IIII 1 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN JJJJ 1 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN K 8 
+        BCWN L 8 A_CustomMissile("cloud1", 12, 0, 0, 1)
+        BCWN M 8 A_CustomMissile("cloud1", 12, 0, 1)
+        BCWN N -1 A_CustomMissile("cloud1", 12, 0, 0, 1)
+        Stop
+    }
+}
+
+ACTOR BabyClown2New replaces BabyClown2
+{
+    var int user_theta;
+    var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+    var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+    Health 75
+    Radius 8
+    Height 32
+    Speed 15
+    Mass 60
+    PainChance 200
+    MONSTER 
+    Scale 0.25
+    DropItem ClownSouls 64
+    +FLOORCLIP +RANDOMIZE +COUNTKILL +CANPASS   
+    MELEEDAMAGE 3
+    SeeSound ""
+    PainSound "BYHURT"
+    DeathSound "BYHURT"
+    ActiveSound "BYCLWN"
+    MeleeSound "CLWNBITE"
+    HitObituary "%o was killed by a bouncing clown."
+    States
+    {
+    CheckMapSkillSpawn:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto Spawn+2
+    CheckMapSkillSee:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto See+1
+    Spawn:
+        TNT1 A 0 A_Look
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        CRWL A 4 A_Look
+        Loop
+    See:
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        PCWN ABC 5
+        BCWN A 1
+        BCWN A 2 
+        BCWN B 1 A_Chase
+        BCWN B 2 A_Chase
+        BCWN CC 2 A_Chase
+        BCWN B 2
+        Goto See + 5
+    Melee:
+        BCWN A 3 A_FaceTarget 
+        BCWN B 0 A_PlaySound("CLWNBITE")
+        BCWN B 3 A_FaceTarget
+        BCWN C 4 A_MeleeAttack
+        BCWN B 3 A_FaceTarget
+        BCWN B 0 A_PlaySound("CLWNBITE")
+        Goto See + 5
+    Pain.GravityHP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+        Goto See
+    Pain.GravityMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+        Goto See
+    Pain.GravityHPMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+        Goto See
+    Pain.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Pain
+    Pain.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+        Goto Pain
+    Pain:
+        BCWN B 4 A_Pain
+        Goto See + 5
+    Death.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Death
+    Death.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when killing a monster [3+(HP/100)]
+        Goto Death
+    DeathCheck:
+        TNT1 A 0 A_Jump(255, 3)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 
+        goto Death+1
+    Death:
+        TNT1 A 0 A_Jump(1, "DeathCheck")
+        BCWN D 5 A_Scream
+        BCWN E 4 A_Fall
+        BCWN FFFF 2 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN GGGG 1 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN HHHH 1 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN IIII 1 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN JJJJ 1 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+        BCWN K 8 
+        BCWN L 8 A_CustomMissile("cloud1", 12, 0, 0, 1)
+        BCWN M 8 A_CustomMissile("cloud1", 12, 0, 1)
+        BCWN N -1 A_CustomMissile("cloud1", 12, 0, 0, 1)
+        Stop
+    }
+}
+
+actor PennywiseHead2New replaces PennywiseHead
+{ 
+   var int user_theta;
+   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+   Health 450
+   Speed 11 
+   Radius 16
+   Height 48
+   PainChance 128
+   Mass 400
+   Meleedamage 3 
+   REACTIONTIME 8 
+   MONSTER
+   DropItem ClownSouls 100
+   +FLOORCLIP +NOGRAVITY +FLOAT +FloatBob +NORADIUSDMG +NOTARGET
+   SeeSound ""
+   PainSound ""
+   DeathSound ""
+   ActiveSound ""
+   MeleeSound "imp/melee"
+   Obituary "%o got killed by a floating apparition of Pennywise's head." 
+   MissileHeight 15
+   MissileType Ghost2Ball
+   States 
+   { 
+    CheckMapSkillSpawn:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto Spawn+2
+    CheckMapSkillSee:
+        TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+        TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+        Goto See+1
+    Spawn:
+        TNT1 A 0 A_Look
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        CFHD A 10 A_Look
+        Loop
+    See: 
+        TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+        CFHD A 1 A_Chase 
+        CFHD A 1 A_Chase 
+        CFHD A 1 A_Chase 
+        CFHD A 1 A_Chase 
+        Goto See
+    Melee:
+        CFHD D 4 A_FaceTarget  
+        CFHD E 3 A_FaceTarget 
+        CFHD D 3 A_MeleeAttack
+        CFHD A 3 A_FaceTarget 
+        Goto See
+    Missile:
+        CFHD D 4 A_FaceTarget 
+        CFHD E 6 A_ComboAttack
+        CFHD D 4 A_Chase 
+        Goto See
+    Pain.GravityHP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+        Goto See
+    Pain.GravityMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+        Goto See
+    Pain.GravityHPMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+        Goto See
+    Pain.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,2,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Pain
+    Pain.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,2,0) // Give some life when hurting a monster [1+(HP/500)]
+        Goto Pain
+    Pain: 
+        CFHD E 4 A_Pain 
+        Goto See
+    Death.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,2,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Death
+    Death.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,7,0) // Give some life when killing a monster [3+(HP/100)]
+        Goto Death
+    DeathCheck:
+        TNT1 A 0 A_Jump(255, 3)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 
+        goto Death+1
+    Death:
+        TNT1 A 0 A_Jump(1, "DeathCheck")
+        CFHD F 1 A_Scream 
+        CFHD G 2 A_TossGib
+        CFHD H 2 A_CustomMissile("BSplatter", 16, 0,0, 1)
+        CFHD I 2 A_TossGib
+        CFHD J 2 A_NoBlocking 
+        CFHD K 2 
+        CFHD L 2 A_CustomMissile("HellFire1", 8, 0, -180)
+        CFHD M 2 
+        CFHD N 2
+        Stop   
+   }
+}
+
+// Insert Between here
+// Insert Between here
+
 actor PennywiseBoss replaces Pennywise
 {
     var int user_theta;
@@ -8,7 +2330,7 @@ actor PennywiseBoss replaces Pennywise
     Radius 40
     Height 112
     Speed 8
-    PainChance 200
+    PainChance 224
     MONSTER 
     minmissilechance 40
     scale 1.25
@@ -22,6 +2344,17 @@ actor PennywiseBoss replaces Pennywise
     HitObituary "%o was killed by Pennywise the Dancing Clown."
     MissileHeight 96
     MissileType PennySeeker
+
+    PainChance "Magic", 252
+    PainChance "Melee", 252
+    PainChance "Sceptre", 256
+    PainChance "Holy", 256
+    DamageFactor "Sceptre", 1.25
+    DamageFactor "Magic", 1.33
+    DamageFactor "Holy", 1.33
+    DamageFactor "Melee", 1
+    DamageFactor "Normal", 0.9
+
     States
     {
     CheckMapSkillSpawn:
@@ -42,12 +2375,12 @@ actor PennywiseBoss replaces Pennywise
         PLIT QPONMLJKIHGFEDCB 2
         PENY A 0 A_SetInvulnerable
         PENY AABBCCDD 3 A_Chase
-        Goto See + 16
+        Goto See + 17
     Melee:
         PENY E 1 A_FaceTarget 
         PENY E 1 A_custommissile("SoulAttack", 80, random(-4, 4), random(-45, 45), 2, random(-20, 20))
         PENY E 1 A_custommissile("SoulAttack", 32, random(-4, 4), random(-45, 45), 2, random(-20, 20))
-        Goto See + 16     
+        Goto See + 17     
     Missile:
         PENY A 0 A_ClearShadow 
         PENY E 0 A_UnSetInvulnerable
@@ -55,11 +2388,11 @@ actor PennywiseBoss replaces Pennywise
         PENY E 9 A_FaceTarget  
         PENY E 4 A_CustomMissile("Deadlight", 96, 0, 0,1) 
         PENY E 9 A_FaceTarget 
-        Goto See + 16
+        Goto See + 17
         PENY E 9 A_FaceTarget
         PENY E 4 A_CustomMissile("Deadlight", 96, 0, 0,1)
         PENY E 9 A_FaceTarget
-        Goto See + 16
+        Goto See + 17
     Pain.GravityHP:
         TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
         Goto See
