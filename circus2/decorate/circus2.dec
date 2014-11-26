@@ -9,36 +9,6 @@ actor YellowBalloon replaces Balloon_Yellow
    +NOLIFTDROP +NOBLOOD +DONTOVERLAP +CANNOTPUSH +NOBLOCKMONST     
 
    // Has a tiny chance to drop a weapon
-   DropItem SauronGauntlets 1
-   DropItem SauronGauntletsIllucia 1
-   DropItem SauronGauntletsFlora 1
-   DropItem DiarisLongBow 1
-   DropItem ImpClaw 1
-   DropItem DarkImpClaw 1
-   DropItem CacodemonEye 1
-   DropItem CacolanternEye 1
-   DropItem AbaddonEye 1
-   DropItem KnightFist 1
-   DropItem BaronFist 1
-   DropItem BelphegorFist 1
-   DropItem BruiserFist 1
-   DropItem ArchonFist 1
-   DropItem PyroFist 1
-   DropItem IncarnateSkull 1
-   DropItem ArchvileHand 1
-   DropItem DiabloistHand 1
-   DropItem BalrogFist 1
-   DropItem Chainsaw 1
-   DropItem DualPistolsChecker 1
-   DropItem Shotgun 1
-   DropItem SuperShotgun 1
-   DropItem Chaingun 1
-   DropItem RocketLauncher 1
-   DropItem PlasmaRifle 1
-   DropItem Repeater 1
-   DropItem Kawasawa 1
-   DropItem BFG9000 1
-
    PainSound "pop1"
    DeathSound "pop1"
    States
@@ -50,10 +20,40 @@ actor YellowBalloon replaces Balloon_Yellow
         BNYL A 4 
         Loop
     Pain:
-        BOON A 4
+        BNYL A 4
         Goto See
+    Drop:
+        BNYL B 0 A_DropItem("SauronGauntlets",1,1)
+        BNYL B 0 A_DropItem("DiarisLongBow",1,1)
+        BNYL B 0 A_DropItem("ImpClawCI",1,1)
+        BNYL B 0 A_DropItem("DarkImpClawCI",1,1)
+        BNYL B 0 A_DropItem("CacodemonEyeCI",1,1)
+        BNYL B 0 A_DropItem("CacolanternEyeCI",1,1)
+        BNYL B 0 A_DropItem("AbaddonEyeCI",1,1)
+        BNYL B 0 A_DropItem("KnightFistCI",1,1)
+        BNYL B 0 A_DropItem("BaronFistCI",1,1)
+        BNYL B 0 A_DropItem("BelphegorFistCI",1,1)
+        BNYL B 0 A_DropItem("BruiserFistCI",1,1)
+        BNYL B 0 A_DropItem("ArchonFistCI",1,1)
+        BNYL B 0 A_DropItem("PyroFistCI",1,1)
+        BNYL B 0 A_DropItem("IncarnateSkullCI",1,1)
+        BNYL B 0 A_DropItem("ArchvileHandCI",1,1)
+        BNYL B 0 A_DropItem("DiabloistHandCI",1,1)
+        BNYL B 0 A_DropItem("BalrogFistCI",1,1)
+        BNYL B 0 A_DropItem("Chainsaw",1,1)
+        BNYL B 0 A_DropItem("DualPistolsChecker",1,1)
+        BNYL B 0 A_DropItem("Shotgun",1,1)
+        BNYL B 0 A_DropItem("SuperShotgun",1,1)
+        BNYL B 0 A_DropItem("Chaingun",1,1)
+        BNYL B 0 A_DropItem("RocketLauncher",1,1)
+        BNYL B 0 A_DropItem("PlasmaRifle",1,1)
+        BNYL B 0 A_DropItem("RepeaterChecker",1,1)
+        BNYL B 0 A_DropItem("KaraSawaChecker",1,1)
+        BNYL B 0 A_DropItem("BFG9000",1,1)
+        goto Death+2
     Death:
         BNYL B 2 A_Scream
+        BNYL B 0 A_Jump(32,"Drop")
         BNYL C 2 A_Fall
         BNYL DEF 2   
         Stop
@@ -77,27 +77,21 @@ actor GreenBalloon replaces Balloon_Green
    +DONTOVERLAP
    +CANNOTPUSH
    +NOBLOCKMONST 
-   DropItem Clip 60
-   DropItem ClipBox 12
-   DropItem Shell 50
+   DropItem Clip 51
+   DropItem ClipBox 10
+   DropItem Shell 51
    DropItem ShellBox 10
-   DropItem HealthBonus 40
+   DropItem RocketAmmo 51
+   DropItem RocketBox 10
+   DropItem Cell 51
+   DropItem CellPack 10
    DropItem HealthBonus 40
    DropItem ArmorBonus 40
-   DropItem ArmorBonus 40
-   DropItem Berserk 1
    DropItem Berserk 1
    DropItem Medikit 5
-   DropItem Medikit 5
    DropItem Stimpack 10
-   DropItem Stimpack 10
-   DropItem RandomPowerup 1
+   DropItem RandomPowerupSpawner 1
    DropItem DiarisLongBow 1
-   DropItem RandomSeedDropForced 1
-   DropItem RandomSeedDropForced 1
-   DropItem SeedOfLife 1
-   DropItem SeedOfMagic 1
-   DropItem SeedOfSkillForced 1
    DropItem DiarisArrow 1
    DropItem DiarisArrowQuiver 1
    DropItem FloraRandomArmor 32
@@ -115,7 +109,15 @@ actor GreenBalloon replaces Balloon_Green
     Pain:
         GBON A 4
         Goto See
+    Drop:
+        GBON B 0 A_DropItem("RandomSeedDropForced",1,1)
+        GBON B 0 A_DropItem("SeedOfLife",1,1)
+        GBON B 0 A_DropItem("SeedOfMagic",1,1)
+        GBON B 0 A_DropItem("SeedOfSkillForced",1,1)
+        GBON B 0 A_DropItem("RandomPowerupSpawner",1,1)
+        goto Death+2
     Death:
+        GBON B 0 A_Jump(32,"Drop")
         GBON B 2 A_Scream
         GBON C 2 A_Fall
         GBON DEFG 3   
@@ -149,20 +151,20 @@ actor BlueBalloon replaces Balloon_Blue
    DropItem ArmorBonus 40
    DropItem ArmorBonus 40
    DropItem MegaSphere2 4
-   DropItem RandomSeedDropForced 8
-   DropItem RandomSeedDropForced 8
-   DropItem RandomSeedDropForced 8
-   DropItem RandomSeedDropForced 8
-   DropItem SeedOfLife 8
-   DropItem SeedOfLife 8
-   DropItem SeedOfMagic 8
-   DropItem SeedOfMagic 8
-   DropItem SeedOfSkillForced 8
-   DropItem SeedOfSkillForced 8
-   DropItem RandomPowerup 2
-   DropItem RandomPowerup 2
-   DropItem RandomPowerup 2
-   DropItem RandomPowerup 2
+   DropItem RandomSeedDropForced 4
+   DropItem RandomSeedDropForced 4
+   DropItem RandomSeedDropForced 4
+   DropItem RandomSeedDropForced 4
+   DropItem SeedOfLife 4
+   DropItem SeedOfLife 4
+   DropItem SeedOfMagic 4
+   DropItem SeedOfMagic 4
+   DropItem SeedOfSkillForced 4
+   DropItem SeedOfSkillForced 4
+   DropItem RandomPowerupSpawner 1
+   DropItem RandomPowerupSpawner 1
+   DropItem RandomPowerupSpawner 1
+   DropItem RandomPowerupSpawner 1
    DropItem DiarisArrow 4
    DropItem DiarisArrowQuiver 4
    DropItem DiarisLongBow 4
@@ -316,8 +318,8 @@ ACTOR FluffyNew replaces Fluffy2
     dropitem MaxHealthBonus 16
     dropitem MaxHealthBonus 16
     dropitem MaxHealthBonus 16
-    dropitem RandomPowerup 1
-    dropitem RandomPowerup 1
+    dropitem RandomPowerupSpawner 1
+    dropitem RandomPowerupSpawner 1
     dropitem FloraRandomArmor
 
     Health 1000
@@ -449,7 +451,7 @@ ACTOR MiniFluffyNew replaces MiniFluffy
     dropitem MaxHealthBonus 1
     dropitem MaxHealthBonus 1
     dropitem MaxHealthBonus 1
-    dropitem RandomPowerup 1
+    dropitem RandomPowerupSpawner 1
     dropitem FloraRandomArmor
 
     Health 60
@@ -551,7 +553,7 @@ ACTOR JumpingSkullNew replaces JumpingSkull
     dropitem ArmorBonus 2
     dropitem ArmorBonus 2
     dropitem MaxHealthBonus 1
-    dropitem RandomPowerup 1
+    dropitem RandomPowerupSpawner 1
     dropitem FloraRandomArmor
 
     Health 40
@@ -655,7 +657,7 @@ ACTOR JumpingSkull2New replaces JumpingSkull2 //spawns skull ghosts
     dropitem ArmorBonus 2
     dropitem ArmorBonus 2
     dropitem MaxHealthBonus 1
-    dropitem RandomPowerup 1
+    dropitem RandomPowerupSpawner 1
     dropitem FloraRandomArmor
 
     Health 40
@@ -760,7 +762,7 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon
     dropitem ArmorBonus 1
     dropitem ArmorBonus 1
     dropitem MaxHealthBonus 1
-    dropitem RandomPowerup 1
+    dropitem RandomPowerupSpawner 1
     dropitem FloraRandomArmor
 
     Health 15
@@ -880,8 +882,8 @@ ACTOR BingoNew replaces Bingo
     dropitem MaxHealthBonus 1
     dropitem MaxHealthBonus 1
     dropitem MaxHealthBonus 1
-    dropitem RandomPowerup 1
-    dropitem RandomPowerup 1
+    dropitem RandomPowerupSpawner 1
+    dropitem RandomPowerupSpawner 1
     dropitem FloraRandomArmor
 
    Health 400 
@@ -1005,7 +1007,7 @@ ACTOR TinyBingoNew replaces TinyBingo
     dropitem HealthBonus 4
     dropitem ArmorBonus 4
     dropitem MaxHealthBonus 1
-    dropitem RandomPowerup 1
+    dropitem RandomPowerupSpawner 1
     dropitem FloraRandomArmor
 
    Health 35 
@@ -1108,7 +1110,7 @@ actor BeefyNew replaces Beefy
     dropitem ArmorBonus 2
     dropitem MaxHealthBonus 1
     dropitem MaxHealthBonus 1
-    dropitem RandomPowerup 1
+    dropitem RandomPowerupSpawner 1
     dropitem FloraRandomArmor
 
     Health 120
@@ -1277,7 +1279,7 @@ ACTOR BlackBearNew replaces BlackBear
     dropitem HealthBonus 1
     dropitem ArmorBonus 1
     dropitem MaxHealthBonus 1
-    dropitem RandomPowerup 1
+    dropitem RandomPowerupSpawner 1
     dropitem FloraRandomArmor
 
     Health 8
@@ -1394,7 +1396,7 @@ actor ClownGhostNew replaces ClownGhost
     dropitem MaxHealthBonus 1
     dropitem MaxHealthBonus 1
     dropitem MaxHealthBonus 1
-    dropitem RandomPowerup 1
+    dropitem RandomPowerupSpawner 1
     dropitem FloraRandomArmor
 
    Health 300 
@@ -1544,7 +1546,7 @@ actor ClownGhost2New replaces ClownGhost2
     dropitem MaxHealthBonus 1
     dropitem MaxHealthBonus 1
     dropitem MaxHealthBonus 1
-    dropitem RandomPowerup 1
+    dropitem RandomPowerupSpawner 1
     dropitem FloraRandomArmor
 
    Health 150
@@ -1667,7 +1669,7 @@ actor BulbyNew replaces Bulby
     dropitem MaxHealthBonus 1
     dropitem MaxHealthBonus 1
     dropitem MaxHealthBonus 1
-    dropitem RandomPowerup 1
+    dropitem RandomPowerupSpawner 1
     dropitem FloraRandomArmor
 
    Health 200 
@@ -1823,8 +1825,8 @@ actor MegaBulbyNew replaces MegaBulby
     dropitem MaxHealthBonus 1
     dropitem MaxHealthBonus 1
     dropitem MaxHealthBonus 1
-    dropitem RandomPowerup 1
-    dropitem RandomPowerup 1
+    dropitem RandomPowerupSpawner 1
+    dropitem RandomPowerupSpawner 1
     dropitem FloraRandomArmor
 
    Health 400 
@@ -1982,8 +1984,8 @@ ACTOR BigBertha2New replaces BigBertha2
     dropitem MaxHealthBonus 1
     dropitem MaxHealthBonus 1
     dropitem MaxHealthBonus 1
-    dropitem RandomPowerup 1
-    dropitem RandomPowerup 1
+    dropitem RandomPowerupSpawner 1
+    dropitem RandomPowerupSpawner 1
     dropitem FloraRandomArmor
 
    Health 675 
@@ -2124,10 +2126,10 @@ actor SuperBerthaNew replaces SuperBertha
     dropitem MaxHealthBonus 4
     dropitem MaxHealthBonus 4
     dropitem MaxHealthBonus 4
-    dropitem RandomPowerup 1
-    dropitem RandomPowerup 1
-    dropitem RandomPowerup 1
-    dropitem RandomPowerup 1
+    dropitem RandomPowerupSpawner 1
+    dropitem RandomPowerupSpawner 1
+    dropitem RandomPowerupSpawner 1
+    dropitem RandomPowerupSpawner 1
     dropitem FloraRandomArmor
 
    Health 6000 
@@ -2282,7 +2284,7 @@ ACTOR EvilDeadHandNew replaces EvilDeadHand
     dropitem ArmorBonus 1
     dropitem ArmorBonus 1
     dropitem MaxHealthBonus 1
-    dropitem RandomPowerup 1
+    dropitem RandomPowerupSpawner 1
     dropitem FloraRandomArmor
 
     Health 20
@@ -2421,11 +2423,11 @@ ACTOR BouncingClownNew replaces BouncingClown
     dropitem MaxHealthBonus 4
     dropitem MaxHealthBonus 4
     dropitem MaxHealthBonus 4
-    dropitem RandomPowerup 1
-    dropitem RandomPowerup 1
-    dropitem RandomPowerup 1
-    dropitem RandomPowerup 1
-    dropitem RandomPowerup 1
+    dropitem RandomPowerupSpawner 1
+    dropitem RandomPowerupSpawner 1
+    dropitem RandomPowerupSpawner 1
+    dropitem RandomPowerupSpawner 1
+    dropitem RandomPowerupSpawner 1
     dropitem FloraRandomArmor
 
     Health 6000
@@ -2571,7 +2573,7 @@ ACTOR BabyClownNew replaces BabyClown
     dropitem MaxHealthBonus 4
     dropitem MaxHealthBonus 4
     dropitem MaxHealthBonus 4
-    dropitem RandomPowerup 1
+    dropitem RandomPowerupSpawner 1
     dropitem FloraRandomArmor
 
     Health 88
@@ -2687,7 +2689,7 @@ ACTOR BabyClown2New replaces BabyClown2
     dropitem MaxHealthBonus 4
     dropitem MaxHealthBonus 4
     dropitem MaxHealthBonus 4
-    dropitem RandomPowerup 1
+    dropitem RandomPowerupSpawner 1
     dropitem FloraRandomArmor
 
     Health 75
@@ -2813,8 +2815,8 @@ actor PennywiseHead2New replaces PennywiseHead
     dropitem MaxHealthBonus 4
     dropitem MaxHealthBonus 4
     dropitem MaxHealthBonus 4
-    dropitem RandomPowerup 1
-    dropitem RandomPowerup 1
+    dropitem RandomPowerupSpawner 1
+    dropitem RandomPowerupSpawner 1
     dropitem FloraRandomArmor
 
    Health 450
@@ -2966,12 +2968,12 @@ actor PennywiseBoss replaces Pennywise
     dropitem MaxHealthBonus 4
     dropitem MaxHealthBonus 4
     dropitem MaxHealthBonus 4
-    dropitem RandomPowerup 1
-    dropitem RandomPowerup 1
-    dropitem RandomPowerup 1
-    dropitem RandomPowerup 1
-    dropitem RandomPowerup 1
-    dropitem RandomPowerup 1
+    dropitem RandomPowerupSpawner 1
+    dropitem RandomPowerupSpawner 1
+    dropitem RandomPowerupSpawner 1
+    dropitem RandomPowerupSpawner 1
+    dropitem RandomPowerupSpawner 1
+    dropitem RandomPowerupSpawner 1
     dropitem FloraRandomArmor
 
     Health 9000
