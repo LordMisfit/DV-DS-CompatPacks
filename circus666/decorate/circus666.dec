@@ -441,6 +441,7 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon
     Mass 20
     PainChance 50
     MONSTER 
+    +LOOKALLAROUND
     +FLOORCLIP
     +NOGRAVITY
     +FLOAT
