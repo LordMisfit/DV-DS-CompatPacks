@@ -1,30 +1,4 @@
 Major Things:
 
--Balance out Drops of DV-DS stuff in Circus666 & Circus2
--Fix DoomEdNum 20000 for Bush/Fusion Arachnotron
-
--Get normal weapons working as selectable in Circus2 [done]
-
--Complete Circus2 Monster List in DECORATE [done]
---GoreWorm [done]
---JumpingSkull [done]
---JumpingSkull2 [done]
---PossessedBalloon [done]
---Beefy [done]
---TinyBingo [done]
---Bingo [done]
---MiniFluffy [done]
---Fluffy [done]
---ClownGhost [done]
---ClownGhost2 [done]
---Bulby [done]
---MegaBulby [done]
---BlackBear [done]
---BigBertha2 [done]
---SuperBertha [done]
---EvilDeadHand [done]
---PennywiseHead [done]
---BouncingClown [done]
---BabyClown [done]
---BabyClown2 [done]
---Pennywise [done]
+-Balance out Drops of DV-DS stuff in Circus666 & Circus2 [in progress]
+-Fix DoomEdNum 20000 for Bush/Fusion Arachnotron & Web2/FusionArachnotron

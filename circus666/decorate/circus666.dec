@@ -1,4 +1,53 @@
+actor BloodNonSolid : Blood
+{
+ -SOLID
+ +CANNOTPUSH
+}
+
 // Items
+actor RedBalloon replaces Balloon
+{
+   Radius 12
+   Height 40
+   HEALTH 2
+   Mass 25
+   +SHOOTABLE +NOGRAVITY +HEXENBOUNCE +PUSHABLE +FLOATBOB +SPAWNFLOAT
+   +NOLIFTDROP +DONTOVERLAP +CANNOTPUSH +NOBLOCKMONST    
+   PainSound "pop1"
+   DeathSound "pop1"
+   States
+   {
+    Spawn:
+        BOON A 4 A_Look
+        Loop
+    See:
+        BOON A 4 A_Chase
+        Loop
+    Pain:
+        BOON A 4
+        Goto See
+    Death:
+        BOON B 2 A_Scream
+        BOON C 2 A_Fall
+        BOON D 2 A_CustomMissile("BSplatter", 40, 0, 0, 1)
+        TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
+        TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
+        TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
+        TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
+        TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
+        TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
+        TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
+        TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
+        TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
+        TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
+        TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
+        BOON E 2
+        BOON F 2
+        BOON G 2
+        Stop
+   }
+}
+
 actor YellowBalloon replaces BallYel
 {
    Radius 12
@@ -58,7 +107,7 @@ actor YellowBalloon replaces BallYel
         goto Death+2
     Death:
         BNYL B 2 A_Scream
-        BNYL B 0 A_Jump(32,"Drop")
+        BNYL B 0 A_Jump(48,"Drop")
         BNYL C 2 A_Fall
         BNYL DEF 2   
         Stop
@@ -125,9 +174,10 @@ actor GreenBalloon replaces BallGreen
         GBON B 0 A_DropItem("SeedOfMagic",1,1)
         GBON B 0 A_DropItem("SeedOfSkillForced",1,1)
         GBON B 0 A_DropItem("RandomPowerupSpawner",1,1)
+        GBON B 0 A_DropItem("RandomArmorSpawner",1,1)
         goto Death+2
     Death:
-        GBON B 0 A_Jump(32,"Drop")
+        GBON B 0 A_Jump(48,"Drop")
         GBON B 2 A_Scream
         GBON C 2 A_Fall
         GBON DEFG 3   
@@ -143,43 +193,42 @@ actor BlueBalloon
    Mass 25
    +SHOOTABLE +NOGRAVITY +HEXENBOUNCE +PUSHABLE +FloatBob +SPAWNFLOAT 
    +NOLIFTDROP +NOBLOOD +DONTOVERLAP +CANNOTPUSH +NOBLOCKMONST 
-   DropItem HealthBonus 40
-   DropItem HealthBonus 40
-   DropItem HealthBonus 40
-   DropItem HealthBonus 40
-   DropItem HealthBonus 40
-   DropItem HealthBonus 40
-   DropItem HealthBonus 40
-   DropItem HealthBonus 40
-   DropItem SoulSphere2 4
-   DropItem ArmorBonus 40
-   DropItem ArmorBonus 40
-   DropItem ArmorBonus 40
-   DropItem ArmorBonus 40
-   DropItem ArmorBonus 40
-   DropItem ArmorBonus 40
-   DropItem ArmorBonus 40
-   DropItem ArmorBonus 40
-   DropItem MegaSphere2 4
-   DropItem RandomSeedDropForced 4
-   DropItem RandomSeedDropForced 4
-   DropItem RandomSeedDropForced 4
-   DropItem RandomSeedDropForced 4
-   DropItem SeedOfLife 4
-   DropItem SeedOfLife 4
-   DropItem SeedOfMagic 4
-   DropItem SeedOfMagic 4
-   DropItem SeedOfSkillForced 4
-   DropItem SeedOfSkillForced 4
-   DropItem RandomPowerup 1
-   DropItem RandomPowerup 1
-   DropItem RandomPowerup 1
-   DropItem RandomPowerup 1
-   DropItem DiarisArrow 4
-   DropItem DiarisArrowQuiver 4
+   DropItem HealthBonus 64
+   DropItem HealthBonus 64
+   DropItem HealthBonus 64
+   DropItem HealthBonus 64
+   DropItem HealthBonus 64
+   DropItem HealthBonus 64
+   DropItem HealthBonus 64
+   DropItem HealthBonus 64
+   DropItem SoulSphere2 8
+   DropItem MegaSphere2 8
+   DropItem RandomArmorSpawner 8
+   DropItem ArmorBonus 64
+   DropItem ArmorBonus 64
+   DropItem ArmorBonus 64
+   DropItem ArmorBonus 64
+   DropItem ArmorBonus 64
+   DropItem ArmorBonus 64
+   DropItem ArmorBonus 64
+   DropItem ArmorBonus 64
+   DropItem RandomSeedDropForced 8
+   DropItem RandomSeedDropForced 8
+   DropItem RandomSeedDropForced 8
+   DropItem RandomSeedDropForced 8
+   DropItem RandomSeedDropForced 8
+   DropItem RandomSeedDropForced 8
+   DropItem RandomSeedDropForced 8
+   DropItem RandomSeedDropForced 8
+   DropItem RandomPowerup 2
+   DropItem RandomPowerup 2
+   DropItem RandomPowerup 2
+   DropItem RandomPowerup 2
+   DropItem DiarisArrow 8
+   DropItem DiarisArrowQuiver 8
    DropItem DiarisLongBow 4
    DropItem SauronHelmet 1
-   DropItem FloraRandomArmor 128
+   DropItem FloraRandomArmor 160
 
    PainSound "pop1"
    DeathSound "pop1"
@@ -347,6 +396,7 @@ ACTOR JumpingSkullNew replaces JumpingSkull
     +COUNTKILL
     +CANPASS   
     MELEEDAMAGE 1
+    MeleeRange 22
     SeeSound "jump11"
     PainSound "jumphit"
     DeathSound "jumpdie"
@@ -449,18 +499,8 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon
     +CANPASS
     +PUSHABLE
     +FloatBob
-    DropItem Blood 255 8
-    DropItem Blood
-    DropItem Blood
-    DropItem Blood
-    DropItem Blood
-    DropItem Blood
-    DropItem Blood
-    DropItem BloodSplashBase
-    DropItem BloodSplashBase 
-    DropItem BloodSplashBase 
-    DropItem BloodSplashBase  
     MELEEDAMAGE 1
+    MeleeRange 22
     SeeSound "delfate4"
     PainSound "hit1"
     DeathSound "delfate3"
@@ -526,6 +566,18 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon
         BSTN C 3 
         BSTN D 3 A_Scream
         BSTN E 3 A_Fall
+        TNT1 A 0 A_CustomMissile("BSplatter", 40, 0, 0, 1)
+        TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
+        TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
+        TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
+        TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
+        TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
+        TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
+        TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
+        TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
+        TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
+        TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
+        TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
         BSTN FGHIJKLM 3
         Stop
     }
@@ -765,3 +817,15 @@ ACTOR ClownHeadNew replaces ClownHead
         Stop 
    } 
 } 
+
+actor BSplatter
+{   
+    +Nogravity
+    +NOCLIP
+    States
+    {
+    Spawn:
+        BBLD ABCDE 4
+        Stop
+    }
+}
