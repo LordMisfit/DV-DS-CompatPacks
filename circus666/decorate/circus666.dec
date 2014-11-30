@@ -17,17 +17,34 @@ actor RedBalloon replaces Balloon
    DeathSound "pop1"
    States
    {
+    SpawnBlue:
+        BOON A 0 A_SpawnItemEx("BlueBalloon",0,0,0,0,0,0,0,0,0,tid)
+        BOON A 0 A_FadeOut(1.0)
+        stop
+    SpawnGreen:
+        BOON A 0 A_SpawnItemEx("GreenBalloon",0,0,0,0,0,0,0,0,0,tid)
+        BOON A 0 A_FadeOut(1.0)
+        stop
+    SpawnYellow:
+        BOON A 0 A_SpawnItemEx("YellowBalloon",0,0,0,0,0,0,0,0,0,tid)
+        BOON A 0 A_FadeOut(1.0)
+        stop
     Spawn:
+        TNT1 A 0 NoDelay A_Jump(16,"SpawnGreen","SpawnBlue","SpawnYellow")
         BOON A 4 A_Look
-        Loop
+        goto Spawn+1
     See:
         BOON A 4 A_Chase
         Loop
     Pain:
         BOON A 4
         Goto See
+    Drop:
+        TNT1 A 0 A_DropItem("RuinousShield",1,1)
+        goto Death+2
     Death:
         BOON B 2 A_Scream
+        TNT1 A 0 A_Jump(192,"Drop")
         BOON C 2 A_Fall
         BOON D 2 A_CustomMissile("BSplatter", 40, 0, 0, 1)
         TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
@@ -47,6 +64,11 @@ actor RedBalloon replaces Balloon
         Stop
    }
 }
+actor RedBalloon2 : RedBalloon replaces BallTarg 
+{ 
+ +SHOOTABLE -NOGRAVITY -HEXENBOUNCE +PUSHABLE -FLOATBOB -SPAWNFLOAT
+ -NOLIFTDROP -DONTOVERLAP +CANNOTPUSH +NOBLOCKMONST +CANPASS +DROPOFF
+}
 
 actor YellowBalloon replaces BallYel
 {
@@ -62,12 +84,20 @@ actor YellowBalloon replaces BallYel
    DeathSound "pop1"
    States
    {
+    SpawnRed:
+        TNT1 A 0 A_SpawnItemEx("RedBalloon",0,0,0,0,0,0,0,0,0,tid)
+        TNT1 A 0 A_FadeOut(1.0)
+        stop
     SpawnBlue:
-        BNYL A 0 A_SpawnItemEx("BlueBalloon")
-        BNYL A 0 A_FadeOut(1.0)
+        TNT1 A 0 A_SpawnItemEx("BlueBalloon",0,0,0,0,0,0,0,0,0,tid)
+        TNT1 A 0 A_FadeOut(1.0)
+        stop
+    SpawnGreen:
+        TNT1 A 0 A_SpawnItemEx("GreenBalloon",0,0,0,0,0,0,0,0,0,tid)
+        TNT1 A 0 A_FadeOut(1.0)
         stop
     Spawn:
-        BNYL A 0 NoDelay A_Jump(16,"SpawnBlue")
+        TNT1 A 0 NoDelay A_Jump(16,"SpawnGreen","SpawnBlue","SpawnRed")
         BNYL A 4 
         goto Spawn+1
     See:
@@ -154,12 +184,20 @@ actor GreenBalloon replaces BallGreen
    DeathSound "pop1"
    States
    {
+    SpawnRed:
+        TNT1 A 0 A_SpawnItemEx("RedBalloon",0,0,0,0,0,0,0,0,0,tid)
+        TNT1 A 0 A_FadeOut(1.0)
+        stop
     SpawnBlue:
-        GBON A 0 A_SpawnItemEx("BlueBalloon")
-        GBON A 0 A_FadeOut(1.0)
+        TNT1 A 0 A_SpawnItemEx("BlueBalloon",0,0,0,0,0,0,0,0,0,tid)
+        TNT1 A 0 A_FadeOut(1.0)
+        stop
+    SpawnYellow:
+        TNT1 A 0 A_SpawnItemEx("YellowBalloon",0,0,0,0,0,0,0,0,0,tid)
+        TNT1 A 0 A_FadeOut(1.0)
         stop
     Spawn:
-        GBON A 0 NoDelay A_Jump(16,"SpawnBlue")
+        TNT1 A 0 NoDelay A_Jump(16,"SpawnBlue","SpawnYellow","SpawnRed")
         GBON A 4 
         goto Spawn+1
     See:
@@ -234,9 +272,22 @@ actor BlueBalloon
    DeathSound "pop1"
    States
    {
+    SpawnRed:
+        TNT1 A 0 A_SpawnItemEx("RedBalloon",0,0,0,0,0,0,0,0,0,tid)
+        TNT1 A 0 A_FadeOut(1.0)
+        stop
+    SpawnGreen:
+        TNT1 A 0 A_SpawnItemEx("GreenBalloon",0,0,0,0,0,0,0,0,0,tid)
+        TNT1 A 0 A_FadeOut(1.0)
+        stop
+    SpawnYellow:
+        TNT1 A 0 A_SpawnItemEx("YellowBalloon",0,0,0,0,0,0,0,0,0,tid)
+        TNT1 A 0 A_FadeOut(1.0)
+        stop
     Spawn:
+        TNT1 A 0 NoDelay A_Jump(16,"SpawnGreen","SpawnYellow","SpawnRed")
         BLUB A 4 
-        Loop
+        goto Spawn+1
     See:
         BLUB A 4 
         Loop
@@ -282,8 +333,13 @@ ACTOR PennywiseHeadNew replaces Pennywise
     Painchance "GravityHP", 255
     Painchance "GravityMP", 255
     Painchance "GravityHPMP", 255 
+
+    DamageFactor "Holy", 2
+    DamageFactor "Magic", 1.25
+    Painchance "Holy", 160
+    Painchance "Magic", 100
  
-    Health 100
+    Health 250
     Radius 29
     Height 56
     Speed 30
@@ -322,7 +378,7 @@ ACTOR PennywiseHeadNew replaces Pennywise
         PENY AB 1 A_Chase
         Loop
     Melee:
-        PENY E 1 A_MeleeAttack
+        PENY E 1 A_CustomMeleeAttack(random(2,4)*1,"hit1","none")
         PENY F 1
         Goto See
     Pain.GravityHP:
@@ -340,6 +396,16 @@ ACTOR PennywiseHeadNew replaces Pennywise
     Pain.Gauntlets:
         TNT1 A 0 ACS_ExecuteAlways(850,0,0,19,0) // Give some life when hurting a monster [1+(HP/500)]
         Goto Pain
+    Pain.Holy:
+        PENY H 2
+        PENY H 3 A_Pain
+        PENY H 16
+        Goto See
+    Pain.Magic:
+        PENY H 2
+        PENY H 3 A_Pain
+        PENY H 4
+        Goto See
     Pain:
         PENY H 2
         PENY H 3 A_Pain
@@ -384,6 +450,11 @@ ACTOR JumpingSkullNew replaces JumpingSkull
     dropitem MaxHealthBonus 1
     dropitem FloraRandomArmor
 
+    DamageFactor "Holy", 2
+    DamageFactor "Magic", 1.25
+    Painchance "Holy", 140
+    Painchance "Magic", 87
+
     Health 30
     Radius 8
     Height 11
@@ -423,10 +494,10 @@ ACTOR JumpingSkullNew replaces JumpingSkull
         JUMP ABCBA 2 A_Chase
         Loop
     Melee:
-        JUMP A 3
-        JUMP B 3
-        JUMP C 4 A_MeleeAttack
-        JUMP B 3 
+        JUMP A 3 A_FaceTarget
+        JUMP B 3 A_FaceTarget
+        JUMP C 4 A_CustomMeleeAttack(random(1,4)*1,"jumpbite","none")
+        JUMP B 3 A_FaceTarget
         Goto See
     Pain.GravityHP:
         TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
@@ -484,6 +555,9 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon
     dropitem MaxHealthBonus 1
     dropitem FloraRandomArmor
 
+    DamageFactor "Magic", 1.5
+    Painchance "Magic", 75
+
     Health 15
     Radius 15
     Height 40
@@ -500,7 +574,7 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon
     +PUSHABLE
     +FloatBob
     MELEEDAMAGE 1
-    MeleeRange 22
+    MeleeRange 28
     SeeSound "delfate4"
     PainSound "hit1"
     DeathSound "delfate3"
@@ -528,8 +602,8 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon
         Loop
     Melee:
         BSTN BC 4
-        BSTN D 4 A_MeleeAttack
-        BSTN CB  4 
+        BSTN D 4 A_CustomMeleeAttack(random(1,6)*1,"hit1","none")
+        BSTN CB 4 
         Goto See
     Pain.GravityHP:
         TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
@@ -626,6 +700,9 @@ ACTOR BigBerthaNew replaces BigBertha
     dropitem MaxHealthBonus 1
     dropitem MaxHealthBonus 1
     dropitem FloraRandomArmor
+
+    DamageFactor "Magic", 1.5
+    Painchance "Magic", 75
 
     Scale 12
     Health 6500
@@ -739,6 +816,11 @@ ACTOR ClownHeadNew replaces ClownHead
     dropitem MaxHealthBonus 1
     dropitem MaxHealthBonus 1
     dropitem FloraRandomArmor
+
+    DamageFactor "Holy", 2
+    DamageFactor "Magic", 1.25
+    Painchance "Holy", 255
+    Painchance "Magic", 160
 
     Health 400 
     Speed 5 
