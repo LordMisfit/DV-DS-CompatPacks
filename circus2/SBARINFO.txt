@@ -486,42 +486,42 @@ statusbar fullscreen, fullscreenoffsets // ZDoom HUD
   }
 
   // Circus 2 weapons
-  IsSelected ClownGrenade
+  IsSelected ClownGrenadeNew
   {
    drawimage "CGRDA0", -38, -38, centerbottom;
    drawnumber 2147483647, HUDFONT_DOOM, untranslated, Ammo CGrenadeAmmo, drawshadow, -41, -37;
    drawstring BIGFONT, HealthLightRed, "/", -24, -26, 0, drawshadow;    
    drawnumber 2147483647, HUDFONT_DOOM, untranslated, AmmoCapacity CGrenadeAmmo, drawshadow, whennotzero, -41, -18;
   }
-  IsSelected GutFlinger
+  IsSelected GutFlingerNew
   {
    drawimage "CCCCF0", -38, -38, centerbottom;
    drawnumber 2147483647, HUDFONT_DOOM, untranslated, Ammo ClownSouls, drawshadow, -41, -37;
    drawstring BIGFONT, HealthLightRed, "/", -24, -26, 0, drawshadow;    
    drawnumber 2147483647, HUDFONT_DOOM, untranslated, AmmoCapacity ClownSouls, drawshadow, whennotzero, -41, -18;
   }
-  IsSelected GasRocketLauncher
+  IsSelected GasRocketLauncherNew
   {
    drawimage "PRCKV0", -38, -38, centerbottom;
    drawnumber 2147483647, HUDFONT_DOOM, untranslated, Ammo ClownSouls, drawshadow, -41, -37;
    drawstring BIGFONT, HealthLightRed, "/", -24, -26, 0, drawshadow;    
    drawnumber 2147483647, HUDFONT_DOOM, untranslated, AmmoCapacity ClownSouls, drawshadow, whennotzero, -41, -18;
   }
-  IsSelected GoreBalloon
+  IsSelected GoreBalloonNew
   {
    drawimage "BLNNJ0", -38, -38, centerbottom;
    drawnumber 2147483647, HUDFONT_DOOM, untranslated, Ammo GoreBalloons, drawshadow, -41, -37;
    drawstring BIGFONT, HealthLightRed, "/", -24, -26, 0, drawshadow;    
    drawnumber 2147483647, HUDFONT_DOOM, untranslated, AmmoCapacity GoreBalloons, drawshadow, whennotzero, -41, -18;
   }
-  IsSelected PopcornGun
+  IsSelected PopcornGunNew
   {
    drawimage "PPPGA0", -38, -38, centerbottom;
    drawnumber 2147483647, HUDFONT_DOOM, untranslated, Ammo PopcornPiece, drawshadow, -41, -37;
    drawstring BIGFONT, HealthLightRed, "/", -24, -26, 0, drawshadow;    
    drawnumber 2147483647, HUDFONT_DOOM, untranslated, AmmoCapacity PopcornPiece, drawshadow, whennotzero, -41, -18;
   }
-  IsSelected CrazyBall2
+  IsSelected CrazyBall2New
   {
    drawimage "CRZYA0", -38, -38, centerbottom;
    drawnumber 2147483647, HUDFONT_DOOM, untranslated, Ammo CzBall, drawshadow, -41, -37;

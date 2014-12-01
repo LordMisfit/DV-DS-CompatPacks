@@ -3426,3 +3426,1327 @@ actor PennywiseBoss replaces Pennywise
         Stop
     }
 }
+
+
+// Weapons
+ACTOR PopcornGunNew : PopcornGun replaces PopcornGun
+{
+     Weapon.SelectionOrder 100
+     Inventory.PickupSound "misc/w_pkup" 
+     Weapon.AmmoType "PopcornPiece" 
+     Weapon.AmmoGive 20 
+     Weapon.AmmoUse 1
+     Inventory.Pickupmessage "You got the Popcorn Gun! Don't eat the popcorn..." 
+     Obituary "%o ate some of %k's popcorn."
+     AttackSound "" 
+     Scale 0.75
+     States 
+     { 
+     Spawn: 
+        PPPG A -1 
+        LOOP 
+     Ready: 
+        PGUN AAACCCDDDEEEFFFGGG 1 A_WeaponReady 
+        LOOP 
+     Deselect: 
+        PGUN A 0 A_Lower 
+        PGUN A 1 A_Lower 
+        LOOP 
+     Select: 
+        PGUN A 0 A_Raise 
+        PGUN A 1 A_Raise 
+        LOOP 
+     Fire:
+        TNT1 A 0 A_JumpIfInventory("SpreaderAura2", 0, "FireSpread7")
+        TNT1 A 0 A_JumpIfInventory("SpreaderAura1", 0, "FireSpread3")
+        goto FireNormal
+     FireNormal:
+        PGUN A 0 A_Jump (200,5)
+        PGUN A 0 A_PlaySound("POPFIRE")
+        PGUN A 4 A_FireCustomMissile("Popcorn1", -1, 1, 4, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", 0, 0, 6, 1, 0, 0)
+        PGUN B 2 A_FireCustomMissile("Popcorn3", 1, 0, 5, 1, 0, 0)
+
+        PGUN A 0 A_Jump (144,5)
+        PGUN A 0 A_PlaySound("POPFIRE")
+        PGUN A 2 A_FireCustomMissile("Popcorn11", -1, 0, 4, 2, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", -4, 1, 5, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn1", 2, 0, 4, 1, 0, 0)
+
+        PGUN A 0 A_Jump (128,5)
+        PGUN A 0 A_PlaySound("POPFIRE")
+        PGUN A 4 A_FireCustomMissile("Popcorn3", -2, 0, 3, 1, 0, 0)
+        PGUN B 2 A_FireCustomMissile("Popcorn2", -2, 1, 4, -2, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", 4, 0, 0, 1, 0, 0)
+
+        PGUN A 0 A_Jump (96,4)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", -3, 0, 4, 1, 0, 0)
+        PGUN A 0 A_PlaySound("POPFIRE")
+        PGUN A 0 A_FireCustomMissile("Popcorn3", 3, 0, 0, 1, 0, 0)
+
+        PGUN A 0 A_Jump (96,5)
+        PGUN A 2 A_FireCustomMissile("Popcorn1", 2, 0, 5, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", 0, 0, 0, 1, 0, 0)
+        PGUN A 0 A_PlaySound("POPFIRE")
+        PGUN B 1 A_FireCustomMissile("Popcorn3", -2, 1, 0, 1, 0, 0)
+
+        PGUN A 0 A_Jump (64,4)
+        PGUN A 0 A_PlaySound("POPFIRE")
+        PGUN A 4 A_FireCustomMissile("Popcorn3", -1, 0, 4, 1, 0, 0)
+        PGUN A 2 A_FireCustomMissile("Popcorn2", 1, 0, 0, 1, 0, 0)
+
+        PGUN A 0 A_Jump (64,4)
+        PGUN B 1 A_FireCustomMissile("BurntPopcorn1", 0, 0, 5, 1, 0, 0)
+
+        PGUN A 0 A_Jump (128,2)
+        PGUN A 1 A_FireCustomMissile("BurntPopcorn1", 0, 0, 5, 1, 0, 0)
+        PGUN A 0 
+        goto FireEnd
+     FireSpread3:
+        PGUN A 0 A_Jump (200,11)
+        PGUN A 0 A_PlaySound("POPFIRE")
+        PGUN A 0 A_FireCustomMissile("Popcorn1", -1+15, 0, 4, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn1",    -1, 1, 4, 1, 0, 0)
+        PGUN A 4 A_FireCustomMissile("Popcorn1", -1-15, 0, 4, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", 0+15, 0, 6, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2",    0, 0, 6, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", 0-15, 0, 6, 1, 0, 0)
+        PGUN B 0 A_FireCustomMissile("Popcorn3", 1+15, 0, 5, 1, 0, 0)
+        PGUN B 0 A_FireCustomMissile("Popcorn3",    1, 0, 5, 1, 0, 0)
+        PGUN B 2 A_FireCustomMissile("Popcorn3", 1-15, 0, 5, 1, 0, 0)
+
+        PGUN A 0 A_Jump (144,11)
+        PGUN A 0 A_PlaySound("POPFIRE")
+        PGUN A 0 A_FireCustomMissile("Popcorn11", -1+15, 0, 4, 2, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn11",    -1, 0, 4, 2, 0, 0)
+        PGUN A 2 A_FireCustomMissile("Popcorn11", -1-15, 0, 4, 2, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", -4+15, 0, 5, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2",    -4, 1, 5, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", -4-15, 0, 5, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn1", 2+15, 0, 4, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn1",    2, 0, 4, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn1", 2-15, 0, 4, 1, 0, 0)
+
+        PGUN A 0 A_Jump (128,11)
+        PGUN A 0 A_PlaySound("POPFIRE")
+        PGUN A 0 A_FireCustomMissile("Popcorn3", -2+15, 0, 3, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn3",    -2, 0, 3, 1, 0, 0)
+        PGUN A 4 A_FireCustomMissile("Popcorn3", -2-15, 0, 3, 1, 0, 0)
+        PGUN B 0 A_FireCustomMissile("Popcorn2", -2+15, 0, 4, -2, 0, 0)
+        PGUN B 0 A_FireCustomMissile("Popcorn2",    -2, 1, 4, -2, 0, 0)
+        PGUN B 2 A_FireCustomMissile("Popcorn2", -2-15, 0, 4, -2, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", 4+15, 0, 0, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2",    4, 0, 0, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", 4-15, 0, 0, 1, 0, 0)
+
+        PGUN A 0 A_Jump (96,8)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", -3+15, 0, 4, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2",    -3, 0, 4, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", -3-15, 0, 4, 1, 0, 0)
+        PGUN A 0 A_PlaySound("POPFIRE")
+        PGUN A 0 A_FireCustomMissile("Popcorn3", 3+15, 0, 0, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn3",    3, 0, 0, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn3", 3-15, 0, 0, 1, 0, 0)
+
+        PGUN A 0 A_Jump (96,11)
+        PGUN A 0 A_FireCustomMissile("Popcorn1", 2+15, 0, 5, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn1",    2, 0, 5, 1, 0, 0)
+        PGUN A 2 A_FireCustomMissile("Popcorn1", 2-15, 0, 5, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", 0+15, 0, 0, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2",    0, 0, 0, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", 0-15, 0, 0, 1, 0, 0)
+        PGUN A 0 A_PlaySound("POPFIRE")
+        PGUN B 0 A_FireCustomMissile("Popcorn3", -2+15, 0, 0, 1, 0, 0)
+        PGUN B 0 A_FireCustomMissile("Popcorn3",    -2, 1, 0, 1, 0, 0)
+        PGUN B 1 A_FireCustomMissile("Popcorn3", -2-15, 0, 0, 1, 0, 0)
+
+        PGUN A 0 A_Jump (64,8)
+        PGUN A 0 A_PlaySound("POPFIRE")
+        PGUN A 0 A_FireCustomMissile("Popcorn3", -1+15, 0, 4, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn3",    -1, 0, 4, 1, 0, 0)
+        PGUN A 4 A_FireCustomMissile("Popcorn3", -1-15, 0, 4, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", 1+15, 0, 0, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2",    1, 0, 0, 1, 0, 0)
+        PGUN A 2 A_FireCustomMissile("Popcorn2", 1-15, 0, 0, 1, 0, 0)
+
+        PGUN A 0 A_Jump (64,8)
+        PGUN B 0 A_FireCustomMissile("BurntPopcorn1", 0+15, 0, 5, 1, 0, 0)
+        PGUN B 0 A_FireCustomMissile("BurntPopcorn1",    0, 0, 5, 1, 0, 0)
+        PGUN B 1 A_FireCustomMissile("BurntPopcorn1", 0-15, 0, 5, 1, 0, 0)
+
+        PGUN A 0 A_Jump (128,4)
+        PGUN A 0 A_FireCustomMissile("BurntPopcorn1", 0+15, 0, 5, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("BurntPopcorn1",    0, 0, 5, 1, 0, 0)
+        PGUN A 1 A_FireCustomMissile("BurntPopcorn1", 0-15, 0, 5, 1, 0, 0)
+        PGUN A 0 
+        goto FireEnd
+     FireSpread7:
+        PGUN A 0 A_Jump (200,23)
+        PGUN A 0 A_PlaySound("POPFIRE")
+        PGUN A 0 A_FireCustomMissile("Popcorn1",  -1+15, 0, 4, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn1", -1+7.5, 0, 4, 1, 0, 7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn1", -1+7.5, 0, 4, 1, 0, -7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn1",     -1, 1, 4, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn1", -1-7.5, 0, 4, 1, 0, -7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn1", -1-7.5, 0, 4, 1, 0, 7.5)
+        PGUN A 4 A_FireCustomMissile("Popcorn1",  -1-15, 0, 4, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2",  0+15, 0, 6, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", 0+7.5, 0, 6, 1, 0, 7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", 0+7.5, 0, 6, 1, 0, -7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn2",     0, 0, 6, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", 0-7.5, 0, 6, 1, 0, -7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", 0-7.5, 0, 6, 1, 0, 7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn2",  0-15, 0, 6, 1, 0, 0)
+        PGUN B 0 A_FireCustomMissile("Popcorn3",  1+15, 0, 5, 1, 0, 0)
+        PGUN B 0 A_FireCustomMissile("Popcorn3", 1+7.5, 0, 5, 1, 0, 7.5)
+        PGUN B 0 A_FireCustomMissile("Popcorn3", 1+7.5, 0, 5, 1, 0, -7.5)
+        PGUN B 0 A_FireCustomMissile("Popcorn3",     1, 0, 5, 1, 0, 0)
+        PGUN B 0 A_FireCustomMissile("Popcorn3", 1-7.5, 0, 5, 1, 0, -7.5)
+        PGUN B 0 A_FireCustomMissile("Popcorn3", 1-7.5, 0, 5, 1, 0, 7.5)
+        PGUN B 2 A_FireCustomMissile("Popcorn3",  1-15, 0, 5, 1, 0, 0)
+
+        PGUN A 0 A_Jump (144,23)
+        PGUN A 0 A_PlaySound("POPFIRE")
+        PGUN A 0 A_FireCustomMissile("Popcorn11",  -1+15, 0, 4, 2, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn11", -1+7.5, 0, 4, 2, 0, 7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn11", -1+7.5, 0, 4, 2, 0, -7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn11",     -1, 0, 4, 2, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn11", -1-7.5, 0, 4, 2, 0, -7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn11", -1-7.5, 0, 4, 2, 0, 7.5)
+        PGUN A 2 A_FireCustomMissile("Popcorn11",  -1-15, 0, 4, 2, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2",  -4+15, 0, 5, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", -4+7.5, 0, 5, 1, 0, 7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", -4+7.5, 0, 5, 1, 0, -7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn2",     -4, 1, 5, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", -4-7.5, 0, 5, 1, 0, -7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", -4-7.5, 0, 5, 1, 0, 7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn2",  -4-15, 0, 5, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn1",  2+15, 0, 4, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn1", 2+7.5, 0, 4, 1, 0, 7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn1", 2+7.5, 0, 4, 1, 0, -7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn1",     2, 0, 4, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn1", 2-7.5, 0, 4, 1, 0, -7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn1", 2-7.5, 0, 4, 1, 0, 7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn1",  2-15, 0, 4, 1, 0, 0)
+
+        PGUN A 0 A_Jump (128,23)
+        PGUN A 0 A_PlaySound("POPFIRE")
+        PGUN A 0 A_FireCustomMissile("Popcorn3",  -2+15, 0, 3, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn3", -2+7.5, 0, 3, 1, 0, 7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn3", -2+7.5, 0, 3, 1, 0, -7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn3",     -2, 0, 3, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn3", -2-7.5, 0, 3, 1, 0, -7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn3", -2-7.5, 0, 3, 1, 0, 7.5)
+        PGUN A 4 A_FireCustomMissile("Popcorn3",  -2-15, 0, 3, 1, 0, 0)
+        PGUN B 0 A_FireCustomMissile("Popcorn2",  -2+15, 0, 4, -2, 0, 0)
+        PGUN B 0 A_FireCustomMissile("Popcorn2", -2+7.5, 0, 4, -2, 0, 7.5)
+        PGUN B 0 A_FireCustomMissile("Popcorn2", -2+7.5, 0, 4, -2, 0, -7.5)
+        PGUN B 0 A_FireCustomMissile("Popcorn2",     -2, 1, 4, -2, 0, 0)
+        PGUN B 0 A_FireCustomMissile("Popcorn2", -2-7.5, 0, 4, -2, 0, -7.5)
+        PGUN B 0 A_FireCustomMissile("Popcorn2", -2-7.5, 0, 4, -2, 0, 7.5)
+        PGUN B 2 A_FireCustomMissile("Popcorn2",  -2-15, 0, 4, -2, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2",  4+15, 0, 0, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", 4+7.5, 0, 0, 1, 0, 7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", 4+7.5, 0, 0, 1, 0, -7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn2",     4, 0, 0, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", 4-7.5, 0, 0, 1, 0, -7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", 4-7.5, 0, 0, 1, 0, 7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn2",  4-15, 0, 0, 1, 0, 0)
+
+        PGUN A 0 A_Jump (96,16)
+        PGUN A 0 A_FireCustomMissile("Popcorn2",  -3+15, 0, 4, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", -3+7.5, 0, 4, 1, 0, 7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", -3+7.5, 0, 4, 1, 0, -7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn2",     -3, 0, 4, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", -3-7.5, 0, 4, 1, 0, -7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", -3-7.5, 0, 4, 1, 0, 7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn2",  -3-15, 0, 4, 1, 0, 0)
+        PGUN A 0 A_PlaySound("POPFIRE")
+        PGUN A 0 A_FireCustomMissile("Popcorn3",  3+15, 0, 0, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn3", 3+7.5, 0, 0, 1, 0, 7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn3", 3+7.5, 0, 0, 1, 0, -7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn3",     3, 0, 0, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn3", 3-7.5, 0, 0, 1, 0, -7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn3", 3-7.5, 0, 0, 1, 0, 7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn3",  3-15, 0, 0, 1, 0, 0)
+
+        PGUN A 0 A_Jump (96,23)
+        PGUN A 0 A_FireCustomMissile("Popcorn1",  2+15, 0, 5, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn1", 2+7.5, 0, 5, 1, 0, 7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn1", 2+7.5, 0, 5, 1, 0, -7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn1",     2, 0, 5, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn1", 2-7.5, 0, 5, 1, 0, -7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn1", 2-7.5, 0, 5, 1, 0, 7.5)
+        PGUN A 2 A_FireCustomMissile("Popcorn1",  2-15, 0, 5, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2",  0+15, 0, 0, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", 0+7.5, 0, 0, 1, 0, 7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", 0+7.5, 0, 0, 1, 0, -7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn2",     0, 0, 0, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", 0-7.5, 0, 0, 1, 0, -7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", 0-7.5, 0, 0, 1, 0, 7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn2",  0-15, 0, 0, 1, 0, 0)
+        PGUN A 0 A_PlaySound("POPFIRE")
+        PGUN B 0 A_FireCustomMissile("Popcorn3",  -2+15, 0, 0, 1, 0, 0)
+        PGUN B 0 A_FireCustomMissile("Popcorn3", -2+7.5, 0, 0, 1, 0, 7.5)
+        PGUN B 0 A_FireCustomMissile("Popcorn3", -2+7.5, 0, 0, 1, 0, -7.5)
+        PGUN B 0 A_FireCustomMissile("Popcorn3",     -2, 1, 0, 1, 0, 0)
+        PGUN B 0 A_FireCustomMissile("Popcorn3", -2-7.5, 0, 0, 1, 0, -7.5)
+        PGUN B 0 A_FireCustomMissile("Popcorn3", -2-7.5, 0, 0, 1, 0, 7.5)
+        PGUN B 1 A_FireCustomMissile("Popcorn3",  -2-15, 0, 0, 1, 0, 0)
+
+        PGUN A 0 A_Jump (64,16)
+        PGUN A 0 A_PlaySound("POPFIRE")
+        PGUN A 0 A_FireCustomMissile("Popcorn3",  -1+15, 0, 4, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn3", -1+7.5, 0, 4, 1, 0, 7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn3", -1+7.5, 0, 4, 1, 0, -7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn3",     -1, 0, 4, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn3", -1-7.5, 0, 4, 1, 0, -7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn3", -1-7.5, 0, 4, 1, 0, 7.5)
+        PGUN A 4 A_FireCustomMissile("Popcorn3",  -1-15, 0, 4, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2",  1+15, 0, 0, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", 1+7.5, 0, 0, 1, 0, 7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", 1+7.5, 0, 0, 1, 0, -7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn2",     1, 0, 0, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", 1-7.5, 0, 0, 1, 0, 7.5)
+        PGUN A 0 A_FireCustomMissile("Popcorn2", 1-7.5, 0, 0, 1, 0, -7.5)
+        PGUN A 2 A_FireCustomMissile("Popcorn2",  1-15, 0, 0, 1, 0, 0)
+
+        PGUN A 0 A_Jump (64,16)
+        PGUN B 0 A_FireCustomMissile("BurntPopcorn1",  0+15, 0, 5, 1, 0, 0)
+        PGUN B 0 A_FireCustomMissile("BurntPopcorn1", 0+7.5, 0, 5, 1, 0, 7.5)
+        PGUN B 0 A_FireCustomMissile("BurntPopcorn1", 0+7.5, 0, 5, 1, 0, -7.5)
+        PGUN B 0 A_FireCustomMissile("BurntPopcorn1",     0, 0, 5, 1, 0, 0)
+        PGUN B 0 A_FireCustomMissile("BurntPopcorn1", 0-7.5, 0, 5, 1, 0, -7.5)
+        PGUN B 0 A_FireCustomMissile("BurntPopcorn1", 0-7.5, 0, 5, 1, 0, 7.5)
+        PGUN B 1 A_FireCustomMissile("BurntPopcorn1",  0-15, 0, 5, 1, 0, 0)
+        PGUN A 0 A_Jump (128,8)
+        PGUN A 0 A_FireCustomMissile("BurntPopcorn1",  0+15, 0, 5, 1, 0, 0)
+        PGUN A 0 A_FireCustomMissile("BurntPopcorn1", 0+7.5, 0, 5, 1, 0, 7.5)
+        PGUN A 0 A_FireCustomMissile("BurntPopcorn1", 0+7.5, 0, 5, 1, 0, -7.5)
+        PGUN A 0 A_FireCustomMissile("BurntPopcorn1",     0, 0, 5, 1, 0, 0)
+        PGUN B 0 A_FireCustomMissile("BurntPopcorn1", 0-7.5, 0, 5, 1, 0, -7.5)
+        PGUN B 0 A_FireCustomMissile("BurntPopcorn1", 0-7.5, 0, 5, 1, 0, 7.5)
+        PGUN A 1 A_FireCustomMissile("BurntPopcorn1",  0-15, 0, 5, 1, 0, 0)
+        PGUN A 0 
+        goto FireEnd
+     FireEnd:
+        Goto Ready 
+     } 
+}
+
+ACTOR GoreBalloonNew : GoreBalloon replaces GoreBalloon
+{
+    Weapon.SelectionOrder 1500
+    Inventory.PickupSound "misc/w_pkup" 
+    Weapon.AmmoType "GoreBalloons" 
+    Weapon.AmmoGive 5 
+    Weapon.AmmoUse 1
+    Inventory.Pickupmessage "You got some gore balloons!" 
+    Obituary "%o wanted %k's balloon."
+    Scale 0.75
+    States 
+    { 
+     Spawn: 
+        BLNN J -1 
+        LOOP 
+     Ready: 
+        BLNN ABCD 6 A_WeaponReady 
+        LOOP 
+        BLNN AA 1 
+        Goto Deselect
+     Deselect: 
+        BLNN E 1 A_Lower 
+        BLNN E 1 A_Lower 
+        Loop
+     Select: 
+        BLNN E 1 A_Raise 
+        BLNN E 1 A_Raise 
+        LOOP 
+     Fire: 
+        BLNN A 1 
+        BLNN FG 2
+        TNT1 A 0 A_JumpIfInventory("SpreaderAura2", 0, "FireSpread7")
+        TNT1 A 0 A_JumpIfInventory("SpreaderAura1", 0, "FireSpread3")
+        goto FireNormal
+     FireNormal:
+        BLNN I 0 A_FireCustomMissile("GoreBalloon666", 0, 1, 4, 1, 0, 0)
+        goto FireEnd
+     FireSpread3:
+        BLNN I 0 A_FireCustomMissile("GoreBalloon666NoHurt", 0+15, 0, 4, 1, 0, 0)
+        BLNN I 0 A_FireCustomMissile("GoreBalloon666",          0, 1, 4, 1, 0, 0)
+        BLNN I 0 A_FireCustomMissile("GoreBalloon666NoHurt", 0-15, 0, 4, 1, 0, 0)
+        goto FireEnd
+     FireSpread7:
+        BLNN I 0 A_FireCustomMissile("GoreBalloon666NoHurt",  0+15, 0, 4, 1, 0, 0)
+        BLNN I 0 A_FireCustomMissile("GoreBalloon666NoHurt", 0+7.5, 0, 4, 1, 0, 7.5)
+        BLNN I 0 A_FireCustomMissile("GoreBalloon666NoHurt", 0+7.5, 0, 4, 1, 0, -7.5)
+        BLNN I 0 A_FireCustomMissile("GoreBalloon666",           0, 1, 4, 1, 0, 0)
+        BLNN I 0 A_FireCustomMissile("GoreBalloon666NoHurt", 0-7.5, 0, 4, 1, 0, -7.5)
+        BLNN I 0 A_FireCustomMissile("GoreBalloon666NoHurt", 0-7.5, 0, 4, 1, 0, 7.5)
+        BLNN I 0 A_FireCustomMissile("GoreBalloon666NoHurt",  0-15, 0, 4, 1, 0, 0)
+        goto FireEnd
+     FireEnd:
+        BLNN I 6
+        BLNN IH 6
+        BLNN A 0 
+        Goto Select
+    } 
+}
+actor GoreBalloon666NoHurt
+{
+    Radius 8
+    Height 6
+    Speed 13
+    Damage 6
+    scale 1
+    +SEEKERMISSILE +FloatBob 
+    PROJECTILE
+    ALPHA 0.8
+    SeeSound ""
+    DeathSound "pop1"
+    States
+    {
+     Spawn:
+        BOON A 4 A_SeekerMissile (30,40)
+        BOON A 4 A_CustomMissile("Blood", 24, 0, 0, CMF_AIMOFFSET)
+        Goto Spawn
+     Death:
+        BOON B 2 A_Scream
+        BOON C 2 A_Fall
+        BOON C 0 A_custommissile("BloodSpeck2", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-180, 180))
+        BOON D 1 A_CustomMissile("BSplatter", 0, 0, 45, CMF_AIMOFFSET|CMF_TRACKOWNER)
+        BOON D 1 A_TossGib
+        BOON E 1 A_CustomMissile("FlyingGutNoHurt", 4, 0, 225, CMF_AIMOFFSET|CMF_TRACKOWNER)
+        BOON C 0 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-180, 180))
+        BOON E 1 A_TossGib
+        BOON E 1 A_CustomMissile("FlyingGutNoHurt", 8, 0, 90, CMF_AIMOFFSET|CMF_TRACKOWNER)
+        BOON E 0 A_custommissile("BloodSpeck2", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-180, 180))
+        BOON F 1 A_CustomMissile("FlyingGutNoHurt", 12, 0, 270, CMF_AIMOFFSET|CMF_TRACKOWNER)
+        BOON F 1 A_TossGib
+        BOON F 0 A_CustomMissile("FlyingGutNoHurt", 12, 0, 30, CMF_AIMOFFSET|CMF_TRACKOWNER)
+        BOON C 0 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-180, 180))
+        BOON F 0 A_CustomMissile("FlyingGutNoHurt", 12, 0, 270, CMF_AIMOFFSET|CMF_TRACKOWNER)
+        BOON C 0 A_CustomMissile("FlyingGutNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-180, 180))
+        BOON C 0 A_CustomMissile("FlyingGutNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-180, 180))
+        BOON C 0 A_CustomMissile("FlyingGutNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-180, 180))
+        BOON F 1 A_TossGib
+        BOON F 1 A_CustomMissile("BSplatter", 4, 0, -90, CMF_AIMOFFSET|CMF_TRACKOWNER)
+        BOON F 0 A_custommissile("BloodSpeck3", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-180, 180))
+        BOON F 0 A_CustomMissile("FlyingGutNoHurt", 4, 0, -300, CMF_AIMOFFSET|CMF_TRACKOWNER)
+        BOON G 1 A_CustomMissile("FlyingGutNoHurt", 8, 0, 180, CMF_AIMOFFSET|CMF_TRACKOWNER)
+        BOON G 0 A_custommissile("BloodSpeck2", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-180, 180))
+        BOON G 1 A_TossGib
+        BOON G 0 A_CustomMissile("FlyingGutNoHurt", 8, 0, 300, CMF_AIMOFFSET|CMF_TRACKOWNER)
+        BOON G 0 A_custommissile("BloodSpeck3", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-180, 180))
+        BOON G 0 A_Jump (240,2) 
+        BOON G 0 A_CustomMissile("GoreWorm", 16, 0, 0, CMF_AIMOFFSET|CMF_TRACKOWNER)
+        BOON C 0 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-180, 180))
+        BOON G 0 A_TossGib
+        BOON G 0 A_TossGib
+        BOON G 0 A_TossGib
+        BOON G 0 A_TossGib
+        BOON G 1 A_TossGib
+        BOON G 0 A_custommissile("BloodSpeck2", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-180, 180))
+        BOON G 1 A_CustomMissile("FlyingGutNoHurt", 0, 0, 45, CMF_AIMOFFSET|CMF_TRACKOWNER)
+        BOON G 0 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-180, 180))
+        Stop
+    }
+}
+
+ACTOR ClownGrenadeNew : ClownGrenade replaces ClownGrenade
+{
+     Weapon.SelectionOrder 1400
+     Inventory.PickupSound "misc/w_pkup" 
+     Weapon.AmmoType "CGrenadeAmmo" 
+     Weapon.AmmoGive 5 
+     Weapon.AmmoUse 1
+     Inventory.Pickupmessage "You picked up some clown grenades"
+     AttackSound "" 
+     +FloatBob 
+     Scale .3
+     States 
+     { 
+     Spawn: 
+        CGRD ABCDEFGHIJKL 3
+        LOOP 
+     Ready: 
+        GHND ABCDEFFFFFEDCBAA 1 A_WeaponReady 
+        LOOP 
+     Deselect: 
+        GHND A 0 A_Lower 
+        GHND A 1 A_Lower 
+        LOOP 
+     Select: 
+        GHND A 0 A_Raise 
+        GHND A 1 A_Raise 
+        LOOP 
+     Fire: 
+        GHND I 4
+        TNT1 A 0 A_JumpIfInventory("SpreaderAura2", 0, "FireSpread7")
+        TNT1 A 0 A_JumpIfInventory("SpreaderAura1", 0, "FireSpread3")
+        goto FireNormal
+     FireNormal:
+        GHND G 0 A_FireCustomMissile("CGrenade", 0, 1, 0, 1, 0, 0)
+        goto FireEnd
+     FireSpread3:
+        GHND G 0 A_FireCustomMissile("CGrenadeNoHurt", 0+15, 0, 0, 1, 0, 0)
+        GHND G 0 A_FireCustomMissile("CGrenade",    0, 1, 0, 1, 0, 0)
+        GHND G 0 A_FireCustomMissile("CGrenadeNoHurt", 0-15, 0, 0, 1, 0, 0)
+        goto FireEnd
+     FireSpread7:
+        GHND G 0 A_FireCustomMissile("CGrenadeNoHurt",  0+15, 0, 0, 1, 0, 0)
+        GHND G 0 A_FireCustomMissile("CGrenadeNoHurt", 0+7.5, 0, 0, 1, 0, 7.5)
+        GHND G 0 A_FireCustomMissile("CGrenadeNoHurt", 0+7.5, 0, 0, 1, 0, -7.5)
+        GHND G 0 A_FireCustomMissile("CGrenade",     0, 1, 0, 1, 0, 0)
+        GHND G 0 A_FireCustomMissile("CGrenadeNoHurt", 0-7.5, 0, 0, 1, 0, -7.5)
+        GHND G 0 A_FireCustomMissile("CGrenadeNoHurt", 0-7.5, 0, 0, 1, 0, 7.5)
+        GHND G 0 A_FireCustomMissile("CGrenadeNoHurt",  0-15, 0, 0, 1, 0, 0)
+        goto FireEnd
+     FireEnd:
+        GHND G 4 
+        GHND H 10 
+        Goto Ready 
+     } 
+}
+actor CGrenadeNoHurt
+{
+    Radius 8
+    Height 16
+    Speed 25
+    Damage 2
+    Scale .5
+    +Missile +NOTELEPORT
+    SeeSound ""
+    DeathSound ""
+    ExplosionRadius 256
+    ExplosionDamage 128
+    States
+    {
+    Spawn:
+        CGRD ABCDEFGHIJKL 3 A_CustomMissile("cloud", 4, 0, 0, 1)  
+        Goto Spawn 
+    Death: 
+        CGRD M 0 A_Jump (128,12)
+        CGRD MMMMMMMMMM 3
+        CGRD M 0 A_Jump (255,11)
+        CGRD NNNNNNNNNN 3
+        PBFF A 0 A_Explode(128,256,0)
+        PBFF A 0 A_PlaySound("BULBEXP") 
+        GHFF AAAAAAAAAAAAAAAAAAAAAAAAA 0 A_custommissile("GrenadeSparkNoHurt", 2, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        GHFF AAAAAAAAAAAAAAAAAAAAAAAAA 0 A_custommissile("GrenadeSparkNoHurt", 2, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        GHFF A 1
+        GHFF AAAAAAAAAAAAAAAAAAAAAAAAA 0 A_custommissile("GrenadeSparkNoHurt", 2, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))        
+        GHFF AAAAAAAAAAAAAAAAA 0 A_custommissile("GrenadeSpark2NoHurt", 2, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        GHFF BC 4 A_custommissile("GrenadeSparkNoHurt", 2, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        GHFF DDDDEEEE 1 
+        GHFF FFFFGGGG 1 
+        GHFF HI 4 
+        GHFF J 4 
+        Stop
+    }
+}
+Actor GrenadeSparkNoHurt
+{
+    Radius 2
+    Height 2
+    Speed 17
+    +Missile +NOTELEPORT
+    scale 1
+    damage 8
+    SeeSound ""
+    DeathSound ""
+    States
+    {
+    Spawn:
+        CRZY R 1 Bright 
+        Goto Spawn
+     Death:
+        PWT2 G 3 Bright 
+        PWT2 H 3 Bright 
+        PWT2 IIIIIIIII 3 Bright 
+        PWH4 JJJJJJJJJKKKKKKKKKLLLLLLLLLLLLL 3 Bright 
+        Stop
+    }
+}
+Actor GrenadeSpark2NoHurt
+{
+    Radius 2
+    Height 2
+    Speed 17
+    +Missile +NOTELEPORT
+    scale 1.5
+    damage 25
+    SeeSound ""
+    DeathSound ""
+    States
+    {
+     Spawn:
+        CRZY PQR 1 Bright
+        Goto Spawn
+     Death:
+        PWT2 G 3 Bright 
+        PWT2 H 3 Bright 
+        PWT2 I 3 Bright 
+        Stop
+    }
+}
+
+ACTOR GutFlingerNew : GutFlinger replaces GutFlinger
+{
+     Weapon.SelectionOrder 1150
+     Inventory.PickupSound "misc/w_pkup" 
+     Weapon.AmmoType "ClownSouls" 
+     Weapon.AmmoGive 5 
+     Weapon.AmmoUse 1
+     Inventory.Pickupmessage "You got the Gut Flinger!" 
+     AttackSound "" 
+     Scale 1
+     States 
+     { 
+     Spawn: 
+        CCCC F -1 
+        LOOP 
+     Ready: 
+        CCCC A 1 A_WeaponReady 
+        LOOP 
+     Deselect: 
+        CCCC A 0 A_Lower 
+        CCCC A 1 A_Lower 
+        LOOP 
+     Select: 
+        CCCC A 0 A_Raise 
+        CCCC A 1 A_Raise 
+        LOOP 
+     Fire: 
+        CCCC A 1 A_JumpIfNoAmmo("FireNoAmmo") 
+        CCCC B 0 A_PlaySound("GUTFIRE") 
+        TNT1 A 0 A_JumpIfInventory("SpreaderAura2", 0, "FireSpread7")
+        TNT1 A 0 A_JumpIfInventory("SpreaderAura1", 0, "FireSpread3")
+        goto FireNormal
+     FireNormal:
+        CCCC B 0 A_FireCustomMissile("FlyingGut", 0, 1, 5, 1, 0, 0)
+        goto FireEnd
+     FireSpread3:
+        CCCC B 0 A_FireCustomMissile("FlyingGutNoHurt", 0+15, 0, 5, 1, 0, 0)
+        CCCC B 0 A_FireCustomMissile("FlyingGut",    0, 1, 5, 1, 0, 0)
+        CCCC B 0 A_FireCustomMissile("FlyingGutNoHurt", 0-15, 0, 5, 1, 0, 0)
+        goto FireEnd
+     FireSpread7:
+        CCCC B 0 A_FireCustomMissile("FlyingGutNoHurt",  0+15, 0, 5, 1, 0, 0)
+        CCCC B 0 A_FireCustomMissile("FlyingGutNoHurt", 0+7.5, 0, 5, 1, 0, 7.5)
+        CCCC B 0 A_FireCustomMissile("FlyingGutNoHurt", 0+7.5, 0, 5, 1, 0, -7.5)
+        CCCC B 0 A_FireCustomMissile("FlyingGut",     0, 1, 5, 1, 0, 0)
+        CCCC B 0 A_FireCustomMissile("FlyingGutNoHurt", 0-7.5, 0, 5, 1, 0, -7.5)
+        CCCC B 0 A_FireCustomMissile("FlyingGutNoHurt", 0-7.5, 0, 5, 1, 0, 7.5)
+        CCCC B 0 A_FireCustomMissile("FlyingGutNoHurt",  0-15, 0, 5, 1, 0, 0)
+        goto FireEnd
+     FireEnd:
+        CCCC B 1 
+        CCCC E 1
+        CCCC EDCB 3
+        Goto Ready 
+     FireNoAmmo:
+        CCCC E 0
+        Goto Deselect
+     } 
+} 
+
+// FlyingGut with no-damage [for player] explosion (for spread aura)
+actor FlyingGutNoHurt
+{
+    Radius 8
+    Height 6
+    Speed 13
+    Damage 5
+    Scale .8
+    +Missile
+    +Lowgravity
+    DropItem Blood
+    DropItem Blood
+    DropItem Blood
+    DropItem Blood
+    ExplosionRadius 80
+    ExplosionDamage 48
+    DeathSound "splat11"
+    States
+    {
+    Spawn:
+        SPLT ABCDEF 3 
+        Loop
+    Death:
+        BBLD A 2 A_Explode(48,80,0)
+        BBLD A 0 A_custommissile("BloodSpeck2", 8, 0, random(-180, 180), 2, random(-180, 180))
+        BBLD A 0 A_custommissile("BloodSpeck2", 8, 0, random(-180, 180), 2, random(-180, 180))
+        BBLD AB 2 A_CustomMissile("ZGut2", 0, 0, 180) 
+        BBLD B 0 A_custommissile("BloodSpeck2", 8, 0, random(-180, 180), 2, random(-180, 180))
+        BBLD B 0 A_custommissile("BloodSpeck2", 8, 0, random(-180, 180), 2, random(-180, 180))
+        BBLD BC 2 A_CustomMissile("ZGut3", 0, 0, 180) 
+        BBLD C 0 A_custommissile("BloodSpeck2", 8, 0, random(-180, 180), 2, random(-180, 180))
+        BBLD C 0 A_custommissile("BloodSpeck2", 8, 0, random(-180, 180), 2, random(-180, 180))
+        BBLD D 4 
+        BBLD D 0 A_custommissile("BloodSpeck2", 8, 0, random(-180, 180), 2, random(-180, 180))
+        BBLD D 0 A_custommissile("BloodSpeck2", 8, 0, random(-180, 180), 2, random(-180, 180))
+        BBLD D 0 A_custommissile("BloodSpeck2", 8,0, random(-180, 180), 2, random(-180, 180))
+        BBLD E 2 
+        BBLD E 0 A_custommissile("BloodSpeck2", 8, 0, random(-180, 180), 2, random(-180, 180))
+        BBLD E 0 A_custommissile("BloodSpeck2", 8, 0, random(-180, 180), 2, random(-180, 180))
+        BBLD E 0 A_custommissile("BloodSpeck2", 8, 0, random(-180, 180), 2, random(-180, 180))
+        BBLD E 0 A_custommissile("BloodSpeck2", 8, 0, random(-180, 180), 2, random(-180, 180))
+        BBLD E 3 
+        Stop
+    }
+}
+
+ACTOR GasRocketLauncherNew : GasRocketLauncher replaces GasRocketLauncher
+{
+     Weapon.SelectionOrder 1050
+     Inventory.PickupSound "misc/w_pkup" 
+     Weapon.AmmoType "ClownSouls" 
+     Weapon.AmmoGive 20 
+     Weapon.AmmoUse 5
+     Inventory.Pickupmessage "You got the Gas Rocket Launcher" 
+     Obituary "%o choked on %k's gas."
+     AttackSound "" 
+     Scale 0.75
+     States 
+     { 
+     Spawn: 
+        PRCK V -1 
+        LOOP 
+     Ready: 
+        PRCK G 1 A_WeaponReady 
+        LOOP 
+     Deselect: 
+        PRCK G 0 A_Lower 
+        PRCK G 1 A_Lower 
+        LOOP 
+     Select: 
+        PRCK D 0 A_Raise 
+        PRCK D 1 A_Raise 
+        LOOP 
+     Fire: 
+        PRCK G 0 
+        TNT1 A 0 A_JumpIfInventory("SpreaderAura2", 0, "FireSpread7")
+        TNT1 A 0 A_JumpIfInventory("SpreaderAura1", 0, "FireSpread3")
+        goto FireNormal
+     FireNormal:
+        PRCK W 0 A_FireCustomMissile("RevRocket2", 0, 1, 4, 1, 0, 0)
+        goto FireEnd
+     FireSpread3:
+        PRCK W 0 A_FireCustomMissile("RevRocket2NoHurt", 0+15, 0, 4, 1, 0, 0)
+        PRCK W 0 A_FireCustomMissile("RevRocket2",    0, 1, 4, 1, 0, 0)
+        PRCK W 0 A_FireCustomMissile("RevRocket2NoHurt", 0-15, 0, 4, 1, 0, 0)
+        goto FireEnd
+     FireSpread7:
+        PRCK W 0 A_FireCustomMissile("RevRocket2NoHurt",  0+15, 0, 4, 1, 0, 0)
+        PRCK W 0 A_FireCustomMissile("RevRocket2NoHurt", 0+7.5, 0, 4, 1, 0, 7.5)
+        PRCK W 0 A_FireCustomMissile("RevRocket2NoHurt", 0+7.5, 0, 4, 1, 0, -7.5)
+        PRCK W 0 A_FireCustomMissile("RevRocket2",     0, 1, 4, 1, 0, 0)
+        PRCK W 0 A_FireCustomMissile("RevRocket2NoHurt", 0-7.5, 0, 4, 1, 0, -7.5)
+        PRCK W 0 A_FireCustomMissile("RevRocket2NoHurt", 0-7.5, 0, 4, 1, 0, 7.5)
+        PRCK W 0 A_FireCustomMissile("RevRocket2NoHurt",  0-15, 0, 4, 1, 0, 0)
+        goto FireEnd
+     FireEnd:
+        PRCK W 4 
+        PRCK A 4 A_PlaySound("RRELOAD")
+        PRCK BCDE 4
+        PRCK F 4 
+        PRCK G 4  
+        PRCK G 0 
+        Goto Ready 
+     } 
+} 
+actor RevRocket2NoHurt
+{
+    Speed 18
+    Damage 5
+    Radius 8
+    Height 6
+    Scale .55
+    +SEEKERMISSILE
+    PROJECTILE
+    SeeSound "REVRCK"
+    DeathSound "EXPLODE"
+    ExplosionRadius 96
+    ExplosionDamage 12
+    States
+    {
+    Spawn:
+        RRCK A 1 A_SeekerMissile (30,40)
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, CMF_AIMOFFSET|CMF_TRACKOWNER)
+        RRCK A 1 A_PlaySound("HISS")
+        RRCK A 0 A_custommissile("ClownSpark", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-180, 180))
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, CMF_AIMOFFSET|CMF_TRACKOWNER)  
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, CMF_AIMOFFSET|CMF_TRACKOWNER)
+        RRCK A 0 A_custommissile("ClownSpark", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-180, 180))
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, CMF_AIMOFFSET|CMF_TRACKOWNER)  
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, CMF_AIMOFFSET|CMF_TRACKOWNER) 
+        RRCK A 0 A_custommissile("ClownSpark", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-180, 180))
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, CMF_AIMOFFSET|CMF_TRACKOWNER)  
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, CMF_AIMOFFSET|CMF_TRACKOWNER)  
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, CMF_AIMOFFSET|CMF_TRACKOWNER)
+        RRCK A 0 A_custommissile("ClownSpark", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-180, 180))
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, CMF_AIMOFFSET|CMF_TRACKOWNER)
+        RRCK A 0 A_custommissile("ClownSpark", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-180, 180))
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, CMF_AIMOFFSET|CMF_TRACKOWNER)  
+        Loop
+    Death:
+        GLOB A 4 Bright 
+        GLOB B 4 Bright A_Explode(12,96,0)
+        GLOB B 2 Bright A_CustomMissile(HappyCloud, 16, 8, 135, CMF_AIMOFFSET|CMF_TRACKOWNER) 
+        GLOB BBBBBBB 0 A_CustomMissile("Sparkles", 4,4, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-180, 180))
+        GLOB B 2 Bright A_CustomMissile(HappyCloud, 12, 0, 90, CMF_AIMOFFSET|CMF_TRACKOWNER) 
+        GLOB B 2 Bright A_CustomMissile(HappyCloud, 16, -8, -135, CMF_AIMOFFSET|CMF_TRACKOWNER) 
+        GLOB C 2 Bright A_CustomMissile(HappyCloud, 16, 0, -200, CMF_AIMOFFSET|CMF_TRACKOWNER) 
+        GLOB CCCCCCC 0 A_CustomMissile("Sparkles", 4, 4, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-180, 180))
+        GLOB D 2 Bright A_CustomMissile(HappyCloud, 18, 0, 45, CMF_AIMOFFSET|CMF_TRACKOWNER) 
+        GLOB E 2 Bright A_CustomMissile(HappyCloud, 16, 8, 300, CMF_AIMOFFSET|CMF_TRACKOWNER) 
+        GLOB E 2 Bright A_CustomMissile(HappyCloud, 16, 0, 200, CMF_AIMOFFSET|CMF_TRACKOWNER)
+        GLOB EEEEEEE 0 A_CustomMissile("Sparkles", 4, 4, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-180, 180))
+        GLOB F 2 Bright A_CustomMissile(HappyCloud, 22, -8, 315, CMF_AIMOFFSET|CMF_TRACKOWNER) 
+        GLOB G 2 Bright A_CustomMissile(HappyCloud, 16, 0, 270, CMF_AIMOFFSET|CMF_TRACKOWNER) 
+        GLOB G 2 Bright A_CustomMissile(HappyCloud, 12, 8, 180, CMF_AIMOFFSET|CMF_TRACKOWNER) 
+        GLOB H 4 Bright 
+        Stop
+    }
+}
+
+ACTOR CrazyBall2New : CrazyBall2 replaces CrazyBall2
+{
+    Weapon.SelectionOrder 3000
+    Inventory.PickupSound "misc/w_pkup" 
+    Weapon.AmmoType "CzBall" 
+    Weapon.AmmoGive 1 
+    Weapon.AmmoUse 1
+    Inventory.Pickupmessage "You got a crazy ball, use it wisely..." 
+    AttackSound "" 
+    Scale 0.6
+    +Floatbob
+    States 
+    { 
+     Spawn: 
+        CRZY A 0 A_Jump(240,2)
+        CRZY A 0 A_PlaySound("CRZ") 
+        CRZY AAAAAA 8
+        CRZY BCDODCB 2 
+        CRZY A 0 A_Jump(128,3)		//Randomize
+        CRZY AAAAAA 8
+        LOOP       
+     Ready: 
+        HCRZ A 1 A_WeaponReady 
+        LOOP 
+     Deselect: 
+        HCRZ A 0 A_Lower 
+        HCRZ A 1 A_Lower 
+        LOOP 
+     Select: 
+        HCRZ A 0 A_Raise 
+        HCRZ A 1 A_Raise 
+        LOOP 
+     Fire: 
+        HCRZ A 1 A_JumpIfNoAmmo(5) 
+        HCRZ B 0 
+        HCRZ B 6
+        HCRZ B 6
+        TNT1 A 0 A_JumpIfInventory("SpreaderAura2", 0, "FireSpread7")
+        TNT1 A 0 A_JumpIfInventory("SpreaderAura1", 0, "FireSpread3")
+        goto FireNormal
+     FireNormal:
+        HCRZ C 0 A_FireCustomMissile("CrazyBallNew", 0, 1, 5, 5, 0, 0)
+        goto FireEnd
+     FireSpread3:
+        HCRZ C 0 A_FireCustomMissile("CrazyBallNoHurt", 0+15, 0, 5, 5, 0, 0)
+        HCRZ C 0 A_FireCustomMissile("CrazyBallNew",    0, 1, 5, 5, 0, 0)
+        HCRZ C 0 A_FireCustomMissile("CrazyBallNoHurt", 0-15, 0, 5, 5, 0, 0)
+        goto FireEnd
+     FireSpread7:
+        HCRZ C 0 A_FireCustomMissile("CrazyBallNoHurt",  0+15, 0, 5, 5, 0, 0)
+        HCRZ C 0 A_FireCustomMissile("CrazyBallNoHurt", 0+7.5, 0, 5, 5, 0, 7.5)
+        HCRZ C 0 A_FireCustomMissile("CrazyBallNoHurt", 0+7.5, 0, 5, 5, 0, -7.5)
+        HCRZ C 0 A_FireCustomMissile("CrazyBallNew",         0, 1, 5, 5, 0, 0)
+        HCRZ C 0 A_FireCustomMissile("CrazyBallNoHurt", 0-7.5, 0, 5, 5, 0, -7.5)
+        HCRZ C 0 A_FireCustomMissile("CrazyBallNoHurt", 0-7.5, 0, 5, 5, 0, 7.5)
+        HCRZ C 0 A_FireCustomMissile("CrazyBallNoHurt",  0-15, 0, 5, 5, 0, 0)
+        goto FireEnd
+     FireEnd:
+        HCRZ C 10 
+        Goto Select
+     FireNoAmmo:
+        HCRZ C 0
+        GoTo Deselect
+    } 
+} 
+Actor CrazyBallsNoHurt
+{
+    Radius 8
+    Height 6
+    Speed 3
+    Damage 9
+    scale 0.6
+    PROJECTILE
+    ALPHA 0.8
+    SeeSound ""
+    DeathSound ""
+    States
+    {
+    Spawn:
+        CRZY P 2 Bright ThrustThing( (angle*random(-256,256))/360, 4, 0, 0)
+        CRZY Q 2 Bright ThrustThing( (angle*random(-256,256))/360, 4, 0, 0)
+        CRZY R 2 Bright ThrustThing( (angle*random(-256,256))/360, 4, 0, 0)
+        CRZY S 2 Bright ThrustThing( (angle*random(-256,256))/360, 4, 0, 0)
+        CRZY P 2 Bright ThrustThing( (angle*random(-256,256))/360, 4, 0, 0)
+        CRZY Q 2 Bright ThrustThing( (angle*random(-256,-128))/360, 4, 0, 0)
+        CRZY R 2 Bright ThrustThing( (angle*random(-256,-128))/360, 4, 0, 0)
+        CRZY S 2 Bright ThrustThing( (angle*random(-256,256))/360, 4, 0, 0)
+        CRZY Q 2 Bright ThrustThing( (angle*random(-256,256))/360, 4, 0, 0)
+        CRZY P 2 Bright ThrustThing( (angle*random(-256,256))/360, 4, 0, 0)
+        CRZY S 2 Bright ThrustThing( (angle*random(128,256))/360, 4, 0, 0)
+        CRZY R 2 Bright ThrustThing( (angle*random(128,256))/360, 4, 0, 0)
+        CRZY Q 2 Bright ThrustThing( (angle*random(-256,256))/360, 4, 0, 0)
+        CRZY S 2 Bright ThrustThing( (angle*random(-256,256))/360, 4, 0, 0)
+        CRZY R 2 Bright ThrustThing( (angle*random(-256,256))/360, 4, 0, 0)
+        Goto Spawn
+     Death:
+        GLOB B 3 Bright 
+        GLOB A 3 Bright A_Scream
+        GLOB H 3 Bright A_Fall
+        Stop
+    }
+}
+actor CrazyBallNoHurt
+{
+    Radius 8
+    Height 16
+    Speed 40
+    Damage 2
+    Scale .6
+    +ACTIVATEIMPACT
+    +ACTIVATEPCROSS
+    +DROPOFF
+    +MISSILE
+    +NOTELEPORT
+    DropItem BloodSplashBase
+    DropItem Blood
+    DropItem Blood
+    SeeSound ""
+    DeathSound ""
+    ExplosionRadius 128
+    ExplosionDamage 64
+    States
+    {
+    Spawn:
+        CRZY A 3
+        loop
+    Death:
+        CRZY AAAA 20 A_PlaySound("CRZCLIK3") 
+        CRZY BCD 8
+        CRZY D 0 A_Explode(64,128,0)
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 70))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY O 1 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 70))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY O 1 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY O 0 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 0 A_PlaySound("CRZ") 
+        CRZY D 0 A_Jump(1, 2)
+        GoTo Death + 7
+        CRZY D 0 A_Explode(64,128,0)
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 70))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 70))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 0 A_Explode(64,128,0)
+        CRZY O 1 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 70))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 70))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 0 A_PlaySound("CRZ") 
+        CRZY D 0 A_Explode(64,128,0)
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 70))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 2 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 70))
+        CRZY D 2 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 2 A_PlaySound("CRZ") 
+        CRZY D 0 A_Explode(64,128,0)
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 70))
+        CRZY D 0 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 2 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY O 2 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY O 1 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY O 2 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 70))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 2 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 2 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 2 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 0 A_Explode(64,128,0)
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 2 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 2 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY O 2 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY O 2 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY O 2 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY O 1 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 2 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 2 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY O 1 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 0 A_Jump(32, 2)
+        GoTo Death + 80
+        CRZY D 0 A_PlaySound("CRZ") 
+        CRZY D 0 A_Explode(64,128,0)
+        CRZY D 2 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY O 2 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 2 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 2 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY O 3 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY O 2 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 1 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY O 4 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY O 2 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY O 2 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 2 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))	        
+        CRZY O 5 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 2 A_custommissile("CrazyBallsNoHurt", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY O 3 A_custommissile("CrazyBallsNoHurt", 14, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 3 A_custommissile("CrazyBallsNoHurt", 6, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY O 4 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 2 A_custommissile("CrazyBallsNoHurt", 10, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY O 0 A_PlaySound("CRZ") 
+        CRZY D 4 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY O 1 A_custommissile("CrazyBallsNoHurt", 10, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 4 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY O 1 A_custommissile("CrazyBallsNoHurt", 10, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY O 4 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 2 A_custommissile("CrazyBallsNoHurt", 10, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 4 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 2 A_custommissile("CrazyBallsNoHurt", 10, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 4 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 3 A_custommissile("CrazyBallsNoHurt", 10, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 4 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY O 5 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 4 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 5 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 6 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 7 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 8 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 9 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 10 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 11 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 12 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 14 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 17 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 20 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 25 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY D 30 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 35 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY DD 15 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-10, 180))
+        CRZY DD 15 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY DDD 15 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY DDDD 15 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY DDDDD 15 A_custommissile("CrazyBallsNoHurt", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 20 A_PlaySound("CRZ6")
+        CRZY D 20 A_Explode(64,128,0)
+        CRZY C 0 A_PlaySound("CRZCLIK3") 
+        CRZY CBBBB 20
+        CRZY B 20 A_PlaySound("CRZCLIK3") 
+        CRZY B 20
+        PBFF B 3 Bright
+        CRZY D 0 A_custommissile("CrazyFlash", 12,-2,0,2,0)
+        CRZY DDDDDDDDDD 0 A_CustomMissile("Sparkles", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-180, 180))
+        CRZY DD 0 A_custommissile("Popcorn_Shrap1", 2, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY DDDDDDDDDDDDDDDDDDDDDDDDDDDDD 0 A_custommissile("Popcorn_Shrap7", 2, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        PBFF D 0 A_PlaySound("TRANEXP")
+        PBFF D 0 
+        CRZY D 0 A_custommissile("CrazyBits1", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBits2", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        PBFF C 3 Bright A_custommissile("CrazyFlash", 4,2,0,2,0)
+        CRZY CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC 0 A_custommissile("Popcorn_Shrap7", 2, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBits3", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBits4", 12, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        PBFF D 3 Bright A_custommissile("CrazyFlash", 16,-4,0,2,0)
+        CRZY DDDDDDDDDDDDDDDDDDDDDDDDDDDDDD 0 A_custommissile("Popcorn_Shrap7", 2, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBits5", 11, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBits6", 11, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        PBFF E 3 Bright A_custommissile("CrazyFlash", 8,4,0,2,0)
+        CRZY EEEEEEEEEEEEEEEEEEEEEEE 0 A_custommissile("Popcorn_Shrap7", 2, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBits7", 9, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBits8", 9, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBits9", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBits10", 8, 0, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(0, 180))
+        PBFF F 3 Bright 
+        Stop
+    }
+}
+
+actor CrazyBallNew
+{
+    Radius 8
+    Height 16
+    Speed 40
+    Damage 2
+    Scale .6
+    +ACTIVATEIMPACT
+    +ACTIVATEPCROSS
+    +MISSILE
+    +DROPOFF
+    +NOTELEPORT
+    DropItem BloodSplashBase
+    DropItem Blood
+    DropItem Blood
+    SeeSound ""
+    DeathSound ""
+    ExplosionRadius 128
+    ExplosionDamage 64
+    States
+    {
+    Spawn:
+        CRZY A 3
+        loop
+    Death:
+        CRZY AAAA 20 A_PlaySound("CRZCLIK3") 
+        CRZY BCD 8
+        CRZY D 0 A_Explode
+        CRZY D 1 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 70))
+        CRZY D 0 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY O 1 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(-10, 70))
+        CRZY D 0 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(0, 180))
+        CRZY O 1 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY O 0 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 0 A_PlaySound("CRZ") 
+        CRZY D 0 A_Jump(1, 2)
+        GoTo Death + 7
+        CRZY D 0 A_Explode
+        CRZY D 1 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 70))
+        CRZY D 0 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(-10, 70))
+        CRZY D 0 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 0 A_Explode
+        CRZY O 1 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 70))
+        CRZY D 0 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(-10, 70))
+        CRZY D 1 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 0 A_PlaySound("CRZ") 
+        CRZY D 0 A_Explode
+        CRZY D 1 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 70))
+        CRZY D 0 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 2 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(-10, 70))
+        CRZY D 2 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 2 A_PlaySound("CRZ") 
+        CRZY D 0 A_Explode
+        CRZY D 1 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 70))
+        CRZY D 0 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 2 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY O 2 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(0, 180))
+        CRZY O 1 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY O 2 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(-10, 70))
+        CRZY D 1 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 2 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 2 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 2 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 0 A_Explode
+        CRZY D 1 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 2 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 2 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY O 2 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY O 2 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY O 2 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(0, 180))
+        CRZY O 1 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 2 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 2 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY O 1 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 0 A_Jump(32, 2)
+        GoTo Death + 80
+        CRZY D 0 A_PlaySound("CRZ") 
+        CRZY D 0 A_Explode
+        CRZY D 2 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY O 2 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 2 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 2 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(0, 180))
+        CRZY O 3 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY O 2 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 1 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY O 4 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY O 2 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(0, 180))
+        CRZY O 2 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 2 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(0, 180))	        
+        CRZY O 5 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 2 A_custommissile("CrazyBalls", 12, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY O 3 A_custommissile("CrazyBalls", 14, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 3 A_custommissile("CrazyBalls", 6, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY O 4 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 2 A_custommissile("CrazyBalls", 10, 0, random(-180, 180), 2, random(0, 180))
+        CRZY O 0 A_PlaySound("CRZ") 
+        CRZY D 4 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY O 1 A_custommissile("CrazyBalls", 10, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 4 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY O 1 A_custommissile("CrazyBalls", 10, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY O 4 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 2 A_custommissile("CrazyBalls", 10, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 4 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 2 A_custommissile("CrazyBalls", 10, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 4 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 3 A_custommissile("CrazyBalls", 10, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 4 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY O 5 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 4 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 5 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 6 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 7 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 8 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 9 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 10 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 11 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 12 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 14 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 17 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 20 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 25 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY D 30 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 35 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY DD 15 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(-10, 180))
+        CRZY DD 15 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY DDD 15 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY DDDD 15 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY DDDDD 15 A_custommissile("CrazyBalls", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 20 A_PlaySound("CRZ6")
+        CRZY D 20 A_Explode
+        CRZY C 0 A_PlaySound("CRZCLIK3") 
+        CRZY CBBBB 20
+        CRZY B 20 A_PlaySound("CRZCLIK3") 
+        CRZY B 20
+        PBFF B 3 Bright
+        CRZY D 0 A_custommissile("CrazyFlash", 12,-2,0,2,0)
+        CRZY DDDDDDDDDD 0 A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+        CRZY DD 0 A_custommissile("Popcorn_Shrap1", 2, 0, random(-180, 180), 2, random(0, 180))
+        CRZY DDDDDDDDDDDDDDDDDDDDDDDDDDDDD 0 A_custommissile("Popcorn_Shrap7", 2, 0, random(-180, 180), 2, random(0, 180))
+        PBFF D 0 A_PlaySound("TRANEXP")
+		PBFF D 0 
+        CRZY D 0 A_custommissile("CrazyBits1", 12, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBits2", 12, 0, random(-180, 180), 2, random(0, 180))
+        PBFF C 3 Bright A_custommissile("CrazyFlash", 4,2,0,2,0)
+        CRZY CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC 0 A_custommissile("Popcorn_Shrap7", 2, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBits3", 12, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBits4", 12, 0, random(-180, 180), 2, random(0, 180))
+        PBFF D 3 Bright A_custommissile("CrazyFlash", 16,-4,0,2,0)
+        CRZY DDDDDDDDDDDDDDDDDDDDDDDDDDDDDD 0 A_custommissile("Popcorn_Shrap7", 2, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBits5", 11, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBits6", 11, 0, random(-180, 180), 2, random(0, 180))
+        PBFF E 3 Bright A_custommissile("CrazyFlash", 8,4,0,2,0)
+        CRZY EEEEEEEEEEEEEEEEEEEEEEE 0 A_custommissile("Popcorn_Shrap7", 2, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBits7", 9, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBits8", 9, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBits9", 8, 0, random(-180, 180), 2, random(0, 180))
+        CRZY D 0 A_custommissile("CrazyBits10", 8, 0, random(-180, 180), 2, random(0, 180))
+        PBFF F 3 Bright 
+        Stop
+    }
+}
