@@ -386,12 +386,13 @@ ACTOR GoreWormNew replaces GoreWorm
         TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when killing a monster [3+(HP/100)]
         Goto Death
     DeathCheck:
-        TNT1 A 0 A_Jump(255, 3)
-        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
         TNT1 A 0 
         goto Death+1
     Death:
         TNT1 A 0 A_Jump(1, "DeathCheck")
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,random(1,5),0)
         WORM A 5 A_CustomMissile("ZGut2", 0, 0, 30) 
         WORM B 2 A_PlaySound("splat11")
         WORM B 2 A_TossGib
@@ -536,12 +537,13 @@ ACTOR FluffyNew replaces Fluffy2
         TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when killing a monster [3+(HP/100)]
         Goto Death
     DeathCheck:
-        TNT1 A 0 A_Jump(255, 3)
-        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
         TNT1 A 0 
         goto Death+1
     Death:
         TNT1 A 0 A_Jump(1, "DeathCheck")
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,1150,0)
         FLUF JKLMN 10 
         FLUF N 100 
         GoTo Raise
@@ -652,12 +654,13 @@ ACTOR MiniFluffyNew replaces MiniFluffy
         TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when killing a monster [3+(HP/100)]
         Goto Death
     DeathCheck:
-        TNT1 A 0 A_Jump(255, 3)
-        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
         TNT1 A 0 
         goto Death+1
     Death:
         TNT1 A 0 A_Jump(1, "DeathCheck")
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,85,0)
         SBUN DEF 8 
         SBUN G -1
         Stop
@@ -753,12 +756,13 @@ ACTOR JumpingSkullNew replaces JumpingSkull
         TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when killing a monster [3+(HP/100)]
         Goto Death
     DeathCheck:
-        TNT1 A 0 A_Jump(255, 3)
-        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
         TNT1 A 0 
         goto Death+1
     Death:
         TNT1 A 0 A_Jump(1, "DeathCheck")
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,75,0)
         JSKL A 5 A_Scream
         JSKL D 4 A_Fall
         JSKL D 4 A_TossGib
@@ -858,12 +862,13 @@ ACTOR JumpingSkull2New replaces JumpingSkull2 //spawns skull ghosts
         TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when killing a monster [3+(HP/100)]
         Goto Death
     DeathCheck:
-        TNT1 A 0 A_Jump(255, 3)
-        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
         TNT1 A 0 
         goto Death+1
     Death:
         TNT1 A 0 A_Jump(1, "DeathCheck")
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,random(75,80),0)
         JSKL A 5 A_Scream
         JSKL D 4 A_Fall
         JSKL D 4 A_TossGib
@@ -978,12 +983,13 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon
         TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when killing a monster [3+(HP/100)]
         Goto Death
     DeathCheck:
-        TNT1 A 0 A_Jump(255, 3)
-        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
         TNT1 A 0 
         goto Death+1
     Death:
         TNT1 A 0 A_Jump(1, "DeathCheck")
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,24,0)
         BSTN B 3
         BSTN C 3 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
         BSTN D 3 A_Scream
@@ -1129,12 +1135,13 @@ ACTOR BingoNew replaces Bingo
       TNT1 A 0 ACS_ExecuteAlways(850,0,0,7,0) // Give some life when killing a monster [3+(HP/100)]
       Goto Death
     DeathCheck:
-      TNT1 A 0 A_Jump(255, 3)
-      TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+      TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+      TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
       TNT1 A 0 
       goto Death+1
     Death:
       TNT1 A 0 A_Jump(1, "DeathCheck")
+      TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,500,0)
       CHED A 1 A_Scream 
       CHED B 6  A_NoBlocking 
       CHED CD 6
@@ -1233,12 +1240,13 @@ ACTOR TinyBingoNew replaces TinyBingo
       TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when killing a monster [3+(HP/100)]
       Goto Death
    DeathCheck:
-      TNT1 A 0 A_Jump(255, 3)
-      TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+      TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+      TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
       TNT1 A 0 
       goto Death+1
    Death:
       TNT1 A 0 A_Jump(1, "DeathCheck")
+      TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,52,0)
       CHED A 1 A_Scream 
       CHED B 6 A_NoBlocking 
       CHED CD 6
@@ -1359,12 +1367,13 @@ actor BeefyNew replaces Beefy
         TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
         Goto Death
     DeathCheck:
-        TNT1 A 0 A_Jump(255, 3)
-        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
         TNT1 A 0 
         goto Death+1
     Death:
         TNT1 A 0 A_Jump(1, "DeathCheck")
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,180,0)
         CIMP E 8 A_Scream
         CIMP F 4 A_CustomMissile("Gibb3", 20, -1, -60, 1)
         CIMP F 4 A_TossGib
@@ -1391,12 +1400,13 @@ actor BeefyNew replaces Beefy
         CIMP I -1
         Stop
     XDeathCheck:
-        TNT1 A 0 A_Jump(255, 3)
-        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
         TNT1 A 0 
         goto XDeath+1
     XDeath:
         TNT1 A 0 A_Jump(1, "XDeathCheck")
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,180,0)
         CIMP E 4 A_Scream
         CIMP E 4 A_TossGib
         CIMP F 4 A_CustomMissile("Gibb3", 20, 0, -60, 1)
@@ -1485,6 +1495,7 @@ ACTOR BlackBearNew replaces BlackBear
         Loop
     Melee:
         BBER A 1 A_MeleeAttack
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,36,0)
         BBER A 1 A_Scream
         BBER A 1 A_Fall
         BBER A 1 A_Explode  
@@ -1516,12 +1527,13 @@ ACTOR BlackBearNew replaces BlackBear
         TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when killing a monster [3+(HP/100)]
         Goto Death
     DeathCheck:
-        TNT1 A 0 A_Jump(255, 3)
-        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
         TNT1 A 0 
         goto Death+1
     Death:
         TNT1 A 0 A_Jump(1, "DeathCheck")
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,36,0)
         BBER A 1 A_Scream
         BBER A 1 A_Fall
         BBER A 0 A_Jump(200,2) 
@@ -1677,12 +1689,13 @@ actor ClownGhostNew replaces ClownGhost
         TNT1 A 0 ACS_ExecuteAlways(850,0,0,6,0) // Give some life when killing a monster [3+(HP/100)]
         Goto Death
     DeathCheck:
-        TNT1 A 0 A_Jump(255, 3)
-        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
         TNT1 A 0 
         goto Death+1
     Death:
         TNT1 A 0 A_Jump(1, "DeathCheck")
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,350,0)
         GHOS B 1 A_Scream 
         GHOS F 8 A_NoBlocking 
         GHOS E 8 //A_custommissile("ClownSoulFloat1", 8, random(-15, 15), random(-180, 180), 2, random(80, 100))
@@ -1810,12 +1823,13 @@ actor ClownGhost2New replaces ClownGhost2
         TNT1 A 0 ACS_ExecuteAlways(850,0,0,4,0) // Give some life when killing a monster [3+(HP/100)]
         Goto Death
     DeathCheck:
-        TNT1 A 0 A_Jump(255, 3)
-        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
         TNT1 A 0 
         goto Death+1
     Death:
         TNT1 A 0 A_Jump(1, "DeathCheck")
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,175,0)
         GST2 D 1 A_Scream 
         GST2 D 2 A_TossGib
         GST2 E 2 A_CustomMissile("BSplatter", 16, 0,0, 1)
@@ -1950,12 +1964,13 @@ actor BulbyNew replaces Bulby
         TNT1 A 0 ACS_ExecuteAlways(850,0,0,5,0) // Give some life when killing a monster [3+(HP/100)]
         Goto Death
     DeathCheck:
-        TNT1 A 0 A_Jump(255, 3)
-        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
         TNT1 A 0 
         goto Death+1
     Death:
         TNT1 A 0 A_Jump(1, "DeathCheck")
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,230,0)
         LDEM J 1 A_Scream 
         LDEM K 1 A_TossGib
         LDEM K 1 A_CustomMissile("BSplatter", 0, 0, 0, 1) 
@@ -2101,12 +2116,13 @@ actor MegaBulbyNew replaces MegaBulby
         TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when killing a monster [3+(HP/100)]
         Goto Death
     DeathCheck:
-        TNT1 A 0 A_Jump(255, 3)
-        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
         TNT1 A 0 
         goto Death+1
     Death:
         TNT1 A 0 A_Jump(1, "DeathCheck")
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,460,0)
         LDEM J 1 A_Scream 
         LDEM K 1 A_CustomMissile("BSplatter", 0, 0, 0, 1) 
         LDEM K 1 A_TossGib
@@ -2257,12 +2273,13 @@ ACTOR BigBertha2New replaces BigBertha2
       TNT1 A 0 ACS_ExecuteAlways(850,0,0,10,0) // Give some life when killing a monster [3+(HP/100)]
       Goto Death
     DeathCheck:
-      TNT1 A 0 A_Jump(255, 3)
-      TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+      TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+      TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
       TNT1 A 0 
       goto Death+1
     Death:
       TNT1 A 0 A_Jump(1, "DeathCheck")
+      TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,925,0)
       BRTH I 7 A_Scream 
       BRTH J 6  A_NoBlocking 
       BRTH K 6
@@ -2433,12 +2450,13 @@ actor SuperBerthaNew replaces SuperBertha
         TNT1 A 0 ACS_ExecuteAlways(850,0,0,43,0) // Give some life when killing a monster [3+(HP/100)]
         Goto Death
     DeathCheck:
-        TNT1 A 0 A_Jump(255, 3)
-        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
         TNT1 A 0 
         goto Death+1
     Death:
         TNT1 A 0 A_Jump(1, "DeathCheck")
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,120000,0)
         BBTH B 3 A_Scream
         BBTH B 3 
         BBTH B 2 A_CustomMissile("BSplatter", 64, -16, -32, 1)
@@ -2557,12 +2575,13 @@ ACTOR EvilDeadHandNew replaces EvilDeadHand
         TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when killing a monster [3+(HP/100)]
         Goto Death
     DeathCheck:
-        TNT1 A 0 A_Jump(255, 3)
-        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
         TNT1 A 0 
         goto Death+1
     Death:
         TNT1 A 0 A_Jump(1, "DeathCheck")
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,25,0)
         HAND D 5 A_CustomMissile("ZGut2", 0, 0, 30) 
         HAND E 2 A_PlaySound("splat11")
         HAND E 3 A_Scream 
@@ -2740,12 +2759,13 @@ ACTOR BouncingClownNew replaces BouncingClown
         TNT1 A 0 ACS_ExecuteAlways(850,0,0,7,0) // Give some life when killing a monster [3+(HP/100)]
         Goto Death
     DeathCheck:
-        TNT1 A 0 A_Jump(255, 3)
-        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
         TNT1 A 0 
         goto Death+1
     Death:
         TNT1 A 0 A_Jump(1, "DeathCheck")
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,75000,0)
         BCWN D 5 A_Scream
         BCWN E 0
         BCWN E 0 
@@ -2861,12 +2881,13 @@ ACTOR BabyClownNew replaces BabyClown
         TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when killing a monster [3+(HP/100)]
         Goto Death
     DeathCheck:
-        TNT1 A 0 A_Jump(255, 3)
-        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
         TNT1 A 0 
         goto Death+1
     Death:
         TNT1 A 0 A_Jump(1, "DeathCheck")
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,105,0)
         BCWN D 5 A_Scream
         BCWN E 4 A_Fall
         BCWN FFFF 2 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
@@ -2983,12 +3004,13 @@ ACTOR BabyClown2New replaces BabyClown2
         TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when killing a monster [3+(HP/100)]
         Goto Death
     DeathCheck:
-        TNT1 A 0 A_Jump(255, 3)
-        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
         TNT1 A 0 
         goto Death+1
     Death:
         TNT1 A 0 A_Jump(1, "DeathCheck")
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,92,0)
         BCWN D 5 A_Scream
         BCWN E 4 A_Fall
         BCWN FFFF 2 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
@@ -3117,12 +3139,13 @@ actor PennywiseHead2New replaces PennywiseHead
         TNT1 A 0 ACS_ExecuteAlways(850,0,0,7,0) // Give some life when killing a monster [3+(HP/100)]
         Goto Death
     DeathCheck:
-        TNT1 A 0 A_Jump(255, 3)
-        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
         TNT1 A 0 
         goto Death+1
     Death:
         TNT1 A 0 A_Jump(1, "DeathCheck")
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,1125,0)
         CFHD F 1 A_Scream 
         CFHD G 2 A_TossGib
         CFHD H 2 A_CustomMissile("BSplatter", 16, 0,0, 1)
@@ -3295,12 +3318,13 @@ actor PennywiseBoss replaces Pennywise
         TNT1 A 0 ACS_ExecuteAlways(850,0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
         Goto Death
     DeathCheck:
-        TNT1 A 0 A_Jump(255, 3)
-        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
         TNT1 A 0 
         goto Death+1
     Death:
         TNT1 A 0 A_Jump(1, "DeathCheck")
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,540000,0)
         PENY G 8 A_Scream
         PENY GGGG 8
         PENY H 8 

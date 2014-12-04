@@ -417,12 +417,13 @@ ACTOR PennywiseHeadNew replaces Pennywise
         TNT1 A 0 ACS_ExecuteAlways(850,0,0,93,0) // Give some life when killing a monster [3+(HP/100)]
         Goto Death
     DeathCheck:
-        TNT1 A 0 A_Jump(255, 3)
-        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
         TNT1 A 0 
         goto Death+1
     Death:
         TNT1 A 0 A_Jump(1, "DeathCheck")
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,2250,0)
         PENY H 5
         PENY I 10 
         PENY J 10 A_Scream
@@ -524,12 +525,13 @@ ACTOR JumpingSkullNew replaces JumpingSkull
         TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when killing a monster [3+(HP/100)]
         Goto Death
     DeathCheck:
-        TNT1 A 0 A_Jump(255, 3)
-        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
         TNT1 A 0 
         goto Death+1
     Death:
         TNT1 A 0 A_Jump(1, "DeathCheck")
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,65,0)
         JUMP A 5 A_Scream
         JUMP D 8 A_Fall
         JUMP E 8 
@@ -630,12 +632,13 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon
         TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when killing a monster [3+(HP/100)]
         Goto Death
     DeathCheck:
-        TNT1 A 0 A_Jump(255, 3)
-        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
         TNT1 A 0 
         goto Death+1
     Death:
         TNT1 A 0 A_Jump(1, "DeathCheck")
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,24,0)
         BSTN B 3
         BSTN C 3 
         BSTN D 3 A_Scream
@@ -781,12 +784,13 @@ ACTOR BigBerthaNew replaces BigBertha
         TNT1 A 0 ACS_ExecuteAlways(850,0,0,68,0) // Give some life when killing a monster [3+(HP/100)]
         Goto Death
     DeathCheck:
-        TNT1 A 0 A_Jump(255, 3)
-        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,0)    
+        TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
         TNT1 A 0 
         goto Death+1
     Death:
         TNT1 A 0 A_Jump(1, "DeathCheck")
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,97500,0)
         BSTN B 3
         BSTN C 3 
         BSTN D 3 A_Scream
@@ -890,10 +894,38 @@ ACTOR ClownHeadNew replaces ClownHead
         CHED A 4 Bright A_FaceTarget
         CHED A 2 Bright A_CustomMissile("SpawnRck", 28, 12, 0, 1)
         Goto See 
+    Pain.GravityHP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+        Goto See
+    Pain.GravityMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+        Goto See
+    Pain.GravityHPMP:
+        TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+        Goto See
+    Pain.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,2,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Pain
+    Pain.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+        Goto Pain
     Pain: 
         CHED A 4 A_Pain 
         Goto See 
-    Death: 
+    Death.Sceptre:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,2,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+        Goto Death
+    Death.Gauntlets:
+        TNT1 A 0 ACS_ExecuteAlways(850,0,0,7,0) // Give some life when killing a monster [3+(HP/100)]
+        Goto Death
+    DeathCheck:
+        TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+        TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
+        TNT1 A 0 
+        goto Death+1
+    Death:
+        TNT1 A 0 A_Jump(1, "DeathCheck")
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,500,0)
         CHED A 1 A_Scream 
         MISL BC 8 Bright A_NoBlocking 
         Stop 
