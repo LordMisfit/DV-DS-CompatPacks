@@ -432,6 +432,11 @@ ACTOR PennywiseHeadNew replaces Pennywise
         PENY M 10
         PENY N 10
         Stop
+    Ice:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,2250,0,1)
+        PENY H 5 A_GenericFreezeDeath
+        PENY H 1 A_FreezeDeathChunks
+        wait
     }
 }
 
@@ -538,6 +543,11 @@ ACTOR JumpingSkullNew replaces JumpingSkull
         JUMP F 8 
         JUMP GHI 8
         Stop
+    Ice:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,65,0,1)
+        JUMP B 5 A_GenericFreezeDeath
+        JUMP B 1 A_FreezeDeathChunks
+        wait
     }
 }
 
@@ -657,6 +667,11 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon
         TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
         BSTN FGHIJKLM 3
         Stop
+    Ice:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,24,0,1)
+        BSTN B 5 A_GenericFreezeDeath
+        BSTN B 1 A_FreezeDeathChunks
+        wait
     }
 }
 
@@ -797,8 +812,12 @@ ACTOR BigBerthaNew replaces BigBertha
         BSTN E 3 A_Fall
         BSTN FGHIJKLM 3
         Stop
-    }
-    
+    Ice:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,97500,0,1)
+        BSTN B 5 A_GenericFreezeDeath
+        BSTN B 1 A_FreezeDeathChunks
+        wait
+    }    
 }
 
 ACTOR ClownHeadNew replaces ClownHead
@@ -929,6 +948,11 @@ ACTOR ClownHeadNew replaces ClownHead
         CHED A 1 A_Scream 
         MISL BC 8 Bright A_NoBlocking 
         Stop 
+    Ice:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,500,0,1)
+        CHED A 5 A_GenericFreezeDeath
+        CHED A 1 A_FreezeDeathChunks
+        wait
    } 
 } 
 

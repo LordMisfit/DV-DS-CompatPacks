@@ -392,7 +392,6 @@ ACTOR GoreWormNew replaces GoreWorm
         goto Death+1
     Death:
         TNT1 A 0 A_Jump(1, "DeathCheck")
-        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,random(1,5),0,1)
         WORM A 5 A_CustomMissile("ZGut2", 0, 0, 30) 
         WORM B 2 A_PlaySound("splat11")
         WORM B 2 A_TossGib
@@ -551,6 +550,8 @@ ACTOR FluffyNew replaces Fluffy2
        FLUF M 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
        FLUF MLKJ 10 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
        GoTo See
+    Ice:
+        goto Death
     }
 }
 
@@ -664,7 +665,11 @@ ACTOR MiniFluffyNew replaces MiniFluffy
         SBUN DEF 8 
         SBUN G -1
         Stop
-
+    Ice:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,85,0,1)
+        SBUN D 5 A_GenericFreezeDeath
+        SBUN D 1 A_FreezeDeathChunks
+        wait
     } 
 }
 ACTOR JumpingSkullNew replaces JumpingSkull
@@ -776,6 +781,11 @@ ACTOR JumpingSkullNew replaces JumpingSkull
         JSKL H 8 A_CustomMissile("ZGut3", 0, 0, 180) 
         JSKL I -1 
         Stop
+    Ice:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,75,0,1)
+        JSKL B 5 A_GenericFreezeDeath
+        JSKL B 1 A_FreezeDeathChunks
+        wait
     }
 }
 ACTOR JumpingSkull2New replaces JumpingSkull2 //spawns skull ghosts
@@ -887,6 +897,11 @@ ACTOR JumpingSkull2New replaces JumpingSkull2 //spawns skull ghosts
         JSKL H 8 A_CustomMissile("ZGut3", 0, 0, 180) 
         JSKL I -1 
         Stop
+    Ice:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,random(75,80),0,1)
+        JSKL B 5 A_GenericFreezeDeath
+        JSKL B 1 A_FreezeDeathChunks
+        wait
     }
 }
 
@@ -1011,6 +1026,11 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon
         BSTN F 3 A_custommissile("BalloonSoul", 28, 0, random(-180, 180), 2, random(-15, 80))
         BSTN GHIJKLM 3
         Stop
+    Ice:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,24,0,1)
+        BSTN B 5 A_GenericFreezeDeath
+        BSTN B 1 A_FreezeDeathChunks
+        wait
     }
 }
 
@@ -1148,6 +1168,11 @@ ACTOR BingoNew replaces Bingo
       CHED EFGHIJKL 4
       CHED M 4
       Stop 
+    Ice:
+      TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,500,0,1)
+      CHED A 5 A_GenericFreezeDeath
+      CHED A 1 A_FreezeDeathChunks
+      wait
    } 
 } 
 
@@ -1253,6 +1278,11 @@ ACTOR TinyBingoNew replaces TinyBingo
       CHED EFGHIJKL 4
       CHED M 4     
       Stop    
+    Ice:
+      TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,52,0,1)
+      CHED A 5 A_GenericFreezeDeath
+      CHED A 1 A_FreezeDeathChunks
+      wait
    } 
 } 
 
@@ -1435,6 +1465,11 @@ actor BeefyNew replaces Beefy
         CIMP H 3 A_CustomMissile("Gibb3", 4, 0, 0, 1)
         CIMP I -1
         Stop
+    Ice:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,180,0,1)
+        CIMP L 5 A_GenericFreezeDeath
+        CIMP L 1 A_FreezeDeathChunks
+        wait
     }
 }
 
@@ -1545,6 +1580,11 @@ ACTOR BlackBearNew replaces BlackBear
         BBER AAA 0 A_custommissile("BlackSplatter2", 6, 0, random(-180, 180), 2, random(0, 180))		
         BBER A 1
         Stop
+    Ice:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,36,0,1)
+        BBER B 5 A_GenericFreezeDeath
+        BBER B 1 A_FreezeDeathChunks
+        wait
     }
 }
 
@@ -1702,6 +1742,11 @@ actor ClownGhostNew replaces ClownGhost
         GHOS D 8 A_PlaySound("BOONBITE")
         GHOS C 0 A_CustomMissile("Balloon_Black", 8, 0, 0, 1)
         Stop 
+    Ice:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,350,0,1)
+        GHOS A 5 A_GenericFreezeDeath
+        GHOS A 1 A_FreezeDeathChunks
+        wait
    } 
 }
 
@@ -1841,6 +1886,11 @@ actor ClownGhost2New replaces ClownGhost2
         GST2 H 2 A_TossGib
         GST2 H 2 A_TossGib
         Stop   
+    Ice:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,175,0,1)
+        GST2 B 5 A_GenericFreezeDeath
+        GST2 B 1 A_FreezeDeathChunks
+        wait
    }
 }
 
@@ -1991,6 +2041,11 @@ actor BulbyNew replaces Bulby
         LDEM N 2 A_TossGib
         LDEM N -1
         Stop   
+    Ice:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,230,0,1)
+        LDEM J 5 A_GenericFreezeDeath
+        LDEM J 1 A_FreezeDeathChunks
+        wait
    }    
 }
 
@@ -2150,6 +2205,11 @@ actor MegaBulbyNew replaces MegaBulby
         LDEM N 1 A_TossGib
         LDEM N 2 A_IceGuyDie 
         Stop   
+    Ice:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,460,0,1)
+        LDEM J 5 A_GenericFreezeDeath
+        LDEM J 1 A_FreezeDeathChunks
+        wait
    }    
 }
 
@@ -2292,6 +2352,11 @@ ACTOR BigBertha2New replaces BigBertha2
       BRTH N 0 A_CustomMissile("BlackBlob", 12, 18, 0, 1) 
       BRTH O 4     
       Stop    
+    Ice:
+      TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,925,0,1)
+      BRTH A 5 A_GenericFreezeDeath
+      BRTH A 1 A_FreezeDeathChunks
+      wait
    } 
 }
 
@@ -2481,6 +2546,11 @@ actor SuperBerthaNew replaces SuperBertha
         BBTH C 2 A_CustomMissile("BSplatter", 144, 144, 0, 1)
         SPL2 ABCDE 4 A_Fall
         Stop
+    Ice:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,120000,0,1)
+        BBTH C 5 A_GenericFreezeDeath
+        BBTH C 1 A_FreezeDeathChunks
+        wait
    }
 }
 
@@ -2590,6 +2660,11 @@ ACTOR EvilDeadHandNew replaces EvilDeadHand
         HAND G 5 A_Fall 
         HAND H -1 
         Stop 
+    Ice:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,25,0,1)
+        HAND B 5 A_GenericFreezeDeath
+        HAND B 1 A_FreezeDeathChunks
+        wait
     }
 }
 
@@ -2778,6 +2853,11 @@ ACTOR BouncingClownNew replaces BouncingClown
         BCWN JJ 10 
         BCWN J 0 
         Stop
+    Ice:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,75000,0,1)
+        BCWN D 5 A_GenericFreezeDeath
+        BCWN D 1 A_FreezeDeathChunks
+        wait
     }
 }
 
@@ -2900,6 +2980,11 @@ ACTOR BabyClownNew replaces BabyClown
         BCWN M 8 A_CustomMissile("cloud1", 12, 0, 1)
         BCWN N -1 A_CustomMissile("cloud1", 12, 0, 0, 1)
         Stop
+    Ice:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,105,0,1)
+        BCWN D 5 A_GenericFreezeDeath
+        BCWN D 1 A_FreezeDeathChunks
+        wait
     }
 }
 
@@ -3023,6 +3108,11 @@ ACTOR BabyClown2New replaces BabyClown2
         BCWN M 8 A_CustomMissile("cloud1", 12, 0, 1)
         BCWN N -1 A_CustomMissile("cloud1", 12, 0, 0, 1)
         Stop
+    Ice:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,92,0,1)
+        BCWN D 5 A_GenericFreezeDeath
+        BCWN D 1 A_FreezeDeathChunks
+        wait
     }
 }
 
@@ -3156,6 +3246,11 @@ actor PennywiseHead2New replaces PennywiseHead
         CFHD M 2 
         CFHD N 2
         Stop   
+    Ice:
+        TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,1125,0,1)
+        CFHD E 5 A_GenericFreezeDeath
+        CFHD E 1 A_FreezeDeathChunks
+        wait
    }
 }
 
@@ -3448,6 +3543,8 @@ actor PennywiseBoss replaces Pennywise
         PENY YYYYYYYYYYYYYYYYYYYY 5 A_CustomMissile("cloud1", random(0, 8), random(-16, 16), 0, 0, 0)
         PENY Z -1
         Stop
+    Ice:
+        goto Death
     }
 }
 
