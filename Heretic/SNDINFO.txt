@@ -3,30 +3,37 @@
 //
 
 minotaur/sight			minsit
-minotaur/melee			stfpow
-minotaur/attack1		minat1
-minotaur/attack2		minat2
-minotaur/attack3		minat3
+minotaur/melee			minsmh
+minotaur/attack1			minat1
+minotaur/attack2			minat2
+minotaur/attack3			minat3
 minotaur/pain			minpai
 minotaur/death			mindth
 minotaur/active			minact
-minotaur/fx2hit			phohit
-minotaur/fx3hit			phohit
+minotaur/fx2hit			MINFHI
+minotaur/fx3hit			MINFHI
 
 //
 // Wizard sounds
 //
 
-wizard/sight			wizsit
+wizard/sight				wizsit
 wizard/attack			wizatk
-wizard/death			wizdth
-wizard/pain			wizpai
+wizard/death				wizdth
+wizard/pain				wizpai
 wizard/active1			wizact
 $random wizard/active 		{ wizard/sight wizard/active1 }
 
+himp/sight			impsit
+himp/attack			impat1
+himp/pain			imppai
+himp/death			impdth
+himp/active			impsit
+himp/leaderattack		impat2
+
 mummy/sight			mumsit
-mummy/attack1			mumat1
-mummy/attack2			mumat2
+mummy/attack1		mumat1
+mummy/attack2		mumat2
 mummy/pain			mumpai
 mummy/death			mumdth
 mummy/active			mumsit
