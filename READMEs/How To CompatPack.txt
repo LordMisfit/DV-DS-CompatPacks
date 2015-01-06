@@ -1,0 +1,2 @@
+1. Heretic
+ The Heretic CompatPack is intended to be used when running Heretic.wad as the -iwad with DV-DS-ComboPack, OR if you want to add the Heretic Monsters [with some changes like being resurrectable by Archviles, EXP giving, etc] into Doom [via the Summon console command, or just your own custom maps]. The reason it's been done this way is so people don't have to deal with being forced to have the Heretic support bloating up the main ComboPack.
