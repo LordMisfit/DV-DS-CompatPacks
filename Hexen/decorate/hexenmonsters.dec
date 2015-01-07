@@ -636,3 +636,467 @@ ACTOR StalkerLeaderNew : SerpentLeader replaces SerpentLeader
     Wait
   }
 }
+
+ACTOR GreenChaosSerpentNew : Demon1 replaces Demon1
+{
+  var int user_theta;
+  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+  const int ChunkFlags = SXF_TRANSFERTRANSLATION|SXF_ABSOLUTEVELOCITY;
+  States
+  {
+  CheckMapSkillSpawn:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+    Goto Spawn+2
+  CheckMapSkillSee:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+    Goto See+1
+  Spawn:
+    TNT1 A 0 A_Look
+    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+    DEMN AA 10 A_Look
+    Loop
+  See:
+    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSee")
+    DEMN ABCD 4 A_Chase
+    Loop
+
+  Pain.GravityHP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+    Goto See
+  Pain.GravityMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+    Goto See
+  Pain.GravityHPMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+    Goto See
+  Pain.Sceptre:
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+    Goto Pain
+  Death.Sceptre:
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  Pain.Gauntlets:
+    TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+    Goto Pain
+  Death.Gauntlets:
+    TNT1 A 0 ACS_ExecuteAlways(850,0,0,3,0) // Give some life when killing a monster [3+(HP/100)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  DeathCheck:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
+    TNT1 A 0 
+    goto Death+1
+  Death:
+    TNT1 A 0 A_Jump(1, "DeathCheck")
+    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    DEMN HI 6
+    DEMN J 6 A_Scream
+    DEMN K 6 A_NoBlocking
+    DEMN L 6 A_QueueCorpse
+    DEMN MNO 6
+    DEMN P -1
+    Stop
+  XDeathCheck:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
+    TNT1 A 0 
+    goto XDeath+1
+  XDeath:
+    TNT1 A 0 A_Jump(1, "XDeathCheck")
+    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    DEMN H 6
+    DEMN I 0 A_SpawnItemEx("Demon1Chunk1", 0, 0, 45, frandom[DemonChunks](1, 4.984375)*cos(angle+90),
+                           frandom[DemonChunks](1, 4.984375)*sin(angle+90), 8, 90, ChunkFlags)
+    DEMN I 0 A_SpawnItemEx("Demon1Chunk2", 0, 0, 45, frandom[DemonChunks](1, 4.984375)*cos(angle-90),
+                           frandom[DemonChunks](1, 4.984375)*sin(angle-90), 8, 270, ChunkFlags)
+    DEMN I 0 A_SpawnItemEx("Demon1Chunk3", 0, 0, 45, frandom[DemonChunks](1, 4.984375)*cos(angle-90),
+                           frandom[DemonChunks](1, 4.984375)*sin(angle-90), 8, 270, ChunkFlags)
+    DEMN I 0 A_SpawnItemEx("Demon1Chunk4", 0, 0, 45, frandom[DemonChunks](1, 4.984375)*cos(angle-90),
+                           frandom[DemonChunks](1, 4.984375)*sin(angle-90), 8, 270, ChunkFlags)
+    DEMN I 6 A_SpawnItemEx("Demon1Chunk5", 0, 0, 45, frandom[DemonChunks](1, 4.984375)*cos(angle-90),
+                           frandom[DemonChunks](1, 4.984375)*sin(angle-90), 8, 270, ChunkFlags)
+    Goto Death+4
+  Ice:
+    DEMN Q 5 A_FreezeDeath
+    DEMN Q 1 A_FreezeDeathChunks
+    Wait
+  Raise:
+    DEMN ONMLKJIH 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    goto See
+  }
+}
+
+ACTOR BrownChaosSerpentNew : Demon2 replaces Demon2
+{
+  var int user_theta;
+  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+  States
+  {
+  CheckMapSkillSpawn:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+    Goto Spawn+2
+  CheckMapSkillSee:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+    Goto See+1
+  Spawn:
+    TNT1 A 0 A_Look
+    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+    DEM2 AA 10 A_Look
+    Loop
+  See:
+    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSee")
+    DEM2 ABCD 4 A_Chase
+    Loop
+
+  Pain.GravityHP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+    Goto See
+  Pain.GravityMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+    Goto See
+  Pain.GravityHPMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+    Goto See
+  Pain.Sceptre:
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+    Goto Pain
+  Death.Sceptre:
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  Pain.Gauntlets:
+    TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+    Goto Pain
+  Death.Gauntlets:
+    TNT1 A 0 ACS_ExecuteAlways(850,0,0,3,0) // Give some life when killing a monster [3+(HP/100)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  DeathCheck:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
+    TNT1 A 0 
+    goto Death+1
+  Death:
+    TNT1 A 0 A_Jump(1, "DeathCheck")
+    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    DEM2 HI 6
+    DEM2 J 6 A_Scream
+    DEM2 K 6 A_NoBlocking
+    DEM2 L 6 A_QueueCorpse
+    DEM2 MNO 6
+    DEM2 P -1
+    Stop
+
+  XDeathCheck:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
+    TNT1 A 0 
+    goto XDeath+1
+  XDeath:
+    TNT1 A 0 A_Jump(1, "XDeathCheck")
+    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    DEM2 H 6
+    DEM2 I 0 A_SpawnItemEx("Demon2Chunk1", 0, 0, 45, frandom[DemonChunks](1, 4.984375)*cos(angle+90),
+                           frandom[DemonChunks](1, 4.984375)*sin(angle+90), 8, 90, ChunkFlags)
+    DEM2 I 0 A_SpawnItemEx("Demon2Chunk2", 0, 0, 45, frandom[DemonChunks](1, 4.984375)*cos(angle-90),
+                           frandom[DemonChunks](1, 4.984375)*sin(angle-90), 8, 270, ChunkFlags)
+    DEM2 I 0 A_SpawnItemEx("Demon2Chunk3", 0, 0, 45, frandom[DemonChunks](1, 4.984375)*cos(angle-90),
+                           frandom[DemonChunks](1, 4.984375)*sin(angle-90), 8, 270, ChunkFlags)
+    DEM2 I 0 A_SpawnItemEx("Demon2Chunk4", 0, 0, 45, frandom[DemonChunks](1, 4.984375)*cos(angle-90),
+                           frandom[DemonChunks](1, 4.984375)*sin(angle-90), 8, 270, ChunkFlags)
+    DEM2 I 6 A_SpawnItemEx("Demon2Chunk5", 0, 0, 45, frandom[DemonChunks](1, 4.984375)*cos(angle-90),
+                           frandom[DemonChunks](1, 4.984375)*sin(angle-90), 8, 270, ChunkFlags)
+    Goto Death+4
+  Raise:
+    DEM2 ONMLKJIH 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    goto See
+  }
+}
+
+ACTOR WraithNew : Wraith replaces Wraith
+{
+  var int user_theta;
+  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+  States
+  {
+  CheckMapSkillSpawn:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+    Goto Spawn+2
+  CheckMapSkillLook:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+    Goto Look+1
+  CheckMapSkillSee:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+    Goto See+1
+  Spawn:
+    TNT1 A 0 A_Look
+    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+    WRTH A 10
+    WRTH B 5 A_WraithInit
+    Goto Look
+  Look:
+    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillLook")
+    WRTH AB 15 A_Look
+    Loop
+  See:
+    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSee")
+    WRTH ABCD 4 A_WraithChase
+    Loop
+
+  Pain.GravityHP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+    Goto See
+  Pain.GravityMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+    Goto See
+  Pain.GravityHPMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+    Goto See
+  Pain.Sceptre:
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+    Goto Pain
+  Death.Sceptre:
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  Pain.Gauntlets:
+    TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+    Goto Pain
+  Death.Gauntlets:
+    TNT1 A 0 ACS_ExecuteAlways(850,0,0,3,0) // Give some life when killing a monster [3+(HP/100)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  DeathCheck:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
+    TNT1 A 0 
+    goto Death+1
+  Death:
+    TNT1 A 0 A_Jump(1, "DeathCheck")
+    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    WRTH I 4
+    WRTH J 4 A_Scream
+    WRTH KL 4
+    WRTH M 4 A_NoBlocking
+    WRTH N 4 A_QueueCorpse
+    WRTH O 4
+    WRTH PQ 5
+    WRTH R -1
+    Stop
+
+  XDeathCheck:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
+    TNT1 A 0 
+    goto XDeath+1
+  XDeath:
+    TNT1 A 0 A_Jump(1, "XDeathCheck")
+    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    WRT2 A 5
+    WRT2 B 5 A_Scream
+    WRT2 CD 5
+    WRT2 E 5 A_NoBlocking
+    WRT2 F 5 A_QueueCorpse
+    WRT2 G 5
+    WRT2 H -1
+    Stop
+  Ice:
+    WRT2 I 5 A_FreezeDeath
+    WRT2 I 1 A_FreezeDeathChunks
+    Wait
+  Raise:
+    WRT2 QP 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    WRT2 ONMLKJI 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    goto See
+  }
+}
+
+ACTOR WraithBuriedNew : WraithBuried replaces WraithBuried
+{
+  var int user_theta;
+  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+  States
+  {
+  CheckMapSkillLook:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+    Goto Look+1
+  CheckMapSkillChase:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+    Goto Chase+1
+  CheckMapSkillSee:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+    Goto See+1
+
+  Spawn:
+    TNT1 A 0
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+    Goto Look
+  Look:
+    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillLook")
+    WRTH AB 15 A_Look
+    Loop
+  See:
+    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSee")
+    WRTH A 2 A_WraithRaiseInit
+    WRTH A 2 A_WraithRaise
+    WRTH A 2 A_FaceTarget
+    WRTH BB 2 A_WraithRaise
+    Goto See+2
+  Chase:
+    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSee")
+    WRTH ABCD 4 A_WraithChase
+    Loop
+
+
+  Pain.GravityHP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+    Goto See
+  Pain.GravityMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+    Goto See
+  Pain.GravityHPMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+    Goto See
+  Pain.Sceptre:
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+    Goto Pain
+  Death.Sceptre:
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  Pain.Gauntlets:
+    TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+    Goto Pain
+  Death.Gauntlets:
+    TNT1 A 0 ACS_ExecuteAlways(850,0,0,3,0) // Give some life when killing a monster [3+(HP/100)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  DeathCheck:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
+    TNT1 A 0 
+    goto Death+1
+  Death:
+    TNT1 A 0 A_Jump(1, "DeathCheck")
+    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    WRTH I 4
+    WRTH J 4 A_Scream
+    WRTH KL 4
+    WRTH M 4 A_NoBlocking
+    WRTH N 4 A_QueueCorpse
+    WRTH O 4
+    WRTH PQ 5
+    WRTH R -1
+    Stop
+  XDeathCheck:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
+    TNT1 A 0 
+    goto XDeath+1
+  XDeath:
+    TNT1 A 0 A_Jump(1, "XDeathCheck")
+    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    WRT2 A 5
+    WRT2 B 5 A_Scream
+    WRT2 CD 5
+    WRT2 E 5 A_NoBlocking
+    WRT2 F 5 A_QueueCorpse
+    WRT2 G 5
+    WRT2 H -1
+    Stop
+  Raise:
+    WRT2 QP 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    WRT2 ONMLKJI 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    goto See
+  }
+}
+
+ACTOR IceGuyNew : IceGuy replaces IceGuy
+{
+  var int user_theta;
+  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+  DamageFactor "Ice", 0.05
+  States
+  {
+  CheckMapSkillSpawn:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+    Goto Spawn+2
+  CheckMapSkillSee:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+    Goto See+1
+  CheckMapSkillInactive:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
+    Goto Inactive+1
+  Spawn:
+    TNT1 A 0 A_Look
+    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+    ICEY A 10 A_IceGuyLook
+    Loop
+  See:
+    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSee")
+    ICEY A 4 A_Chase
+    ICEY B 4 A_IceGuyChase
+    ICEY CD 4 A_Chase
+    Loop
+
+  Pain.GravityHP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+    Goto See
+  Pain.GravityMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+    Goto See
+  Pain.GravityHPMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+    Goto See
+  Pain.Sceptre:
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+    Goto Pain
+  Death.Sceptre:
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,1,0,0) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  Pain.Gauntlets:
+    TNT1 A 0 ACS_ExecuteAlways(850,0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+    Goto Pain
+  Death.Gauntlets:
+    TNT1 A 0 ACS_ExecuteAlways(850,0,0,3,0) // Give some life when killing a monster [3+(HP/100)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  DeathCheck:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
+    TNT1 A 0 
+    goto Death+1
+  Death:
+    TNT1 A 0 A_Jump(1, "DeathCheck")
+    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    ICEY A 1
+    ICEY A 1 A_IceGuyDie
+    Stop
+  Inactive:
+    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillInactive")
+    ICEY A -1
+    Goto See
+  }
+}
