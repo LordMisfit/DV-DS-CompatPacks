@@ -1,0 +1,5 @@
+clearplayerclasses
+addplayerclass FloraBriscoletti
+addplayerclass FighterPlayer
+addplayerclass ClericPlayer
+addplayerclass MagePlayer
