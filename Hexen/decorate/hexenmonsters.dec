@@ -1,25 +1,17 @@
 ACTOR EttinNew : Ettin replaces Ettin
 {
-  var int user_theta;
+  var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
   States
   {
-  CheckMapSkillSpawn:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto Spawn+2
-  CheckMapSkillSee:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto See+1
   Spawn:
     TNT1 A 0 A_Look
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     ETTN AA 10 A_Look
     Loop
   See:
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSee")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     ETTN ABCD 5 A_Chase
     Loop
 
@@ -62,6 +54,7 @@ ACTOR EttinNew : Ettin replaces Ettin
     ETTN L 4 A_NoBlocking
     ETTN M 4 A_QueueCorpse
     ETTN NOP 4
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     ETTN Q -1
     Stop
 
@@ -81,6 +74,7 @@ ACTOR EttinNew : Ettin replaces Ettin
     ETTB D 4 A_Scream
     ETTB E 4 A_QueueCorpse
     ETTB FGHIJK 4
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     ETTB L -1
     Stop
   Ice:
@@ -88,35 +82,26 @@ ACTOR EttinNew : Ettin replaces Ettin
     ETTN R 1 A_FreezeDeathChunks
     Wait
   Raise:
-    ETTN PONMLKJI 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    ETTN PONMLKJI 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     goto See
   }
 }
 
 ACTOR CentaurNew : Centaur replaces Centaur
 {
-  var int user_theta;
+  var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
   DamageFactor "Thunder", 3
   States
   {
   Spawn:
-  CheckMapSkillSpawn:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto Spawn+2
-  CheckMapSkillSee:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto See+1
-  Spawn:
     TNT1 A 0 A_Look
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     CENT AB 10 A_Look
     Loop
   See:
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSee")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     CENT ABCD 4 A_Chase
     Loop
 
@@ -161,6 +146,7 @@ ACTOR CentaurNew : Centaur replaces Centaur
     CENT PQ 4
     CENT R 4 A_QueueCorpse
     CENT S 4
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     CENT T -1
     Stop
 
@@ -185,40 +171,33 @@ ACTOR CentaurNew : Centaur replaces Centaur
     CTXD H 3
     CTXD I 4
     CTXD J 3
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     CTXD K -1
   Ice:
     CENT U 5 A_FreezeDeath
     CENT U 1 A_FreezeDeathChunks
     Wait
   Raise:
-    CENT TSRQPONMLK 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    CENT TSRQPONMLK 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     goto See
   }
 }
 
 ACTOR SlaughtaurNew : CentaurLeader replaces CentaurLeader
 {
-  var int user_theta;
+  var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
   DamageFactor "Thunder", 3
   States
   {
-  CheckMapSkillSpawn:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto Spawn+2
-  CheckMapSkillSee:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto See+1
   Spawn:
     TNT1 A 0 A_Look
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     CENT AB 10 A_Look
     Loop
   See:
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSee")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     CENT ABCD 4 A_Chase
     Loop
 
@@ -263,6 +242,7 @@ ACTOR SlaughtaurNew : CentaurLeader replaces CentaurLeader
     CENT PQ 4
     CENT R 4 A_QueueCorpse
     CENT S 4
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     CENT T -1
     Stop
 
@@ -287,40 +267,33 @@ ACTOR SlaughtaurNew : CentaurLeader replaces CentaurLeader
     CTXD H 3
     CTXD I 4
     CTXD J 3
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     CTXD K -1
   Ice:
     CENT U 5 A_FreezeDeath
     CENT U 1 A_FreezeDeathChunks
     Wait
   Raise:
-    CENT TSRQPONMLK 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    CENT TSRQPONMLK 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     goto See
   }
 }
 
 ACTOR FireDemonNew : FireDemon replaces FireDemon
 {
-  var int user_theta;
+  var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
   States
   {
-  CheckMapSkillSpawn:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto Spawn+2
-  CheckMapSkillSee:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto See+1
   Spawn:
     TNT1 A 0 A_Look
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     FDMN X 5 Bright
     FDMN EFG 10 Bright A_Look
     Goto Spawn+3
   See:
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSee")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     FDMN E 8 Bright
     FDMN F 6 Bright
     FDMN G 5 Bright
@@ -330,7 +303,7 @@ ACTOR FireDemonNew : FireDemon replaces FireDemon
     FDMN HI 5 Bright
     FDMN J 5 Bright A_UnSetInvulnerable
   Chase:
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     FDMN ABC 5 Bright A_FireDChase
     Loop
 
@@ -346,6 +319,7 @@ ACTOR FireDemonNew : FireDemon replaces FireDemon
     FDMN M 5 A_FaceTarget
     FDMN N 5 A_NoBlocking
     FDMN O 5 A_FiredSplotch
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     Stop
 
   Pain.GravityHP:
@@ -385,6 +359,7 @@ ACTOR FireDemonNew : FireDemon replaces FireDemon
     FDMN D 4 Bright A_FaceTarget
     FDMN L 4 Bright A_Scream
     FDMN L 4 Bright A_NoBlocking
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     FDMN L 200 Bright
     Stop
   Ice:
@@ -392,33 +367,25 @@ ACTOR FireDemonNew : FireDemon replaces FireDemon
     FDMN R 1 A_FreezeDeathChunks
     Wait
   Raise:
-    FDMN LLD 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    FDMN LLD 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     goto Chase
   }
 }
 
 ACTOR BishopNew : Bishop replaces Bishop
 {
-  var int user_theta;
+  var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
   States
   {
-  CheckMapSkillSpawn:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto Spawn+2
-  CheckMapSkillSee:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto See+1
   Spawn:
     TNT1 A 0 A_Look
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     BISH A 10 A_Look
     Loop
   See:
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSee")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     BISH A 2 A_Chase
     BISH A 2 A_BishopChase
     BISH A 2
@@ -470,6 +437,7 @@ ACTOR BishopNew : Bishop replaces Bishop
     BISH LM 4 Bright
     BISH N 4 A_SpawnItemEx("BishopPuff", 0, 0, 40, 0, 0, 0.5)
     BISH O 4 A_QueueCorpse
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     BISH P -1
     Stop
   Ice:
@@ -477,35 +445,27 @@ ACTOR BishopNew : Bishop replaces Bishop
     BISH X 1 A_FreezeDeathChunks
     Wait
   Raise:
-    BISH ONML 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    BISH KJI 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    BISH HG 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    BISH ONML 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    BISH KJI 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    BISH HG 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     goto See
   }
 }
 
 ACTOR StalkerNew : Serpent replaces Serpent
 {
-  var int user_theta;
+  var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
   States
   {
-  CheckMapSkillSpawn:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto Spawn+2
-  CheckMapSkillSee:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto See+1
   Spawn:
     TNT1 A 0 A_Look
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     SSPT H 10 A_Look
     Loop
   See:
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSee")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     SSPT HH 1 A_Chase("Melee", "None", CHF_NIGHTMAREFAST|CHF_NOPLAYACTIVE)
     SSPT H 2 A_SerpentHumpDecide
     Loop
@@ -548,6 +508,7 @@ ACTOR StalkerNew : Serpent replaces Serpent
     SSPT P 4 A_Scream
     SSPT Q 4 A_NoBlocking
     SSPT RSTUVWXYZ 4
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     Stop
   XDeathCheck:
     TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
@@ -563,6 +524,7 @@ ACTOR StalkerNew : Serpent replaces Serpent
     SSXD DE 4
     SSXD FG 3
     SSXD H 3 A_SerpentSpawnGibs
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     Stop
   Ice:
     SSPT [ 5 A_FreezeDeath
@@ -573,26 +535,18 @@ ACTOR StalkerNew : Serpent replaces Serpent
 
 ACTOR StalkerLeaderNew : SerpentLeader replaces SerpentLeader
 {
-  var int user_theta;
+  var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
   States
   {
-  CheckMapSkillSpawn:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto Spawn+2
-  CheckMapSkillSee:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto See+1
   Spawn:
     TNT1 A 0 A_Look
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     SSPT H 10 A_Look
     Loop
   See:
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSee")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     SSPT HH 1 A_Chase("Melee", "None", CHF_NIGHTMAREFAST|CHF_NOPLAYACTIVE)
     SSPT H 2 A_SerpentHumpDecide
     Loop
@@ -635,6 +589,7 @@ ACTOR StalkerLeaderNew : SerpentLeader replaces SerpentLeader
     SSPT P 4 A_Scream
     SSPT Q 4 A_NoBlocking
     SSPT RSTUVWXYZ 4
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     Stop
   XDeathCheck:
     TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
@@ -650,6 +605,7 @@ ACTOR StalkerLeaderNew : SerpentLeader replaces SerpentLeader
     SSXD DE 4
     SSXD FG 3
     SSXD H 3 A_SerpentSpawnGibs
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     Stop
   Ice:
     SSPT [ 5 A_FreezeDeath
@@ -660,27 +616,19 @@ ACTOR StalkerLeaderNew : SerpentLeader replaces SerpentLeader
 
 ACTOR GreenChaosSerpentNew : Demon1 replaces Demon1
 {
-  var int user_theta;
+  var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
   const int ChunkFlags = SXF_TRANSFERTRANSLATION|SXF_ABSOLUTEVELOCITY;
   States
   {
-  CheckMapSkillSpawn:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto Spawn+2
-  CheckMapSkillSee:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto See+1
   Spawn:
     TNT1 A 0 A_Look
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     DEMN AA 10 A_Look
     Loop
   See:
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSee")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     DEMN ABCD 4 A_Chase
     Loop
 
@@ -723,6 +671,7 @@ ACTOR GreenChaosSerpentNew : Demon1 replaces Demon1
     DEMN K 6 A_NoBlocking
     DEMN L 6 A_QueueCorpse
     DEMN MNO 6
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     DEMN P -1
     Stop
   XDeathCheck:
@@ -750,33 +699,25 @@ ACTOR GreenChaosSerpentNew : Demon1 replaces Demon1
     DEMN Q 1 A_FreezeDeathChunks
     Wait
   Raise:
-    DEMN ONMLKJIH 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    DEMN ONMLKJIH 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     goto See
   }
 }
 
 ACTOR BrownChaosSerpentNew : Demon2 replaces Demon2
 {
-  var int user_theta;
+  var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
   States
   {
-  CheckMapSkillSpawn:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto Spawn+2
-  CheckMapSkillSee:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto See+1
   Spawn:
     TNT1 A 0 A_Look
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     DEM2 AA 10 A_Look
     Loop
   See:
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSee")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     DEM2 ABCD 4 A_Chase
     Loop
 
@@ -819,6 +760,7 @@ ACTOR BrownChaosSerpentNew : Demon2 replaces Demon2
     DEM2 K 6 A_NoBlocking
     DEM2 L 6 A_QueueCorpse
     DEM2 MNO 6
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     DEM2 P -1
     Stop
 
@@ -843,42 +785,30 @@ ACTOR BrownChaosSerpentNew : Demon2 replaces Demon2
                            frandom[DemonChunks](1, 4.984375)*sin(angle-90), 8, 270, ChunkFlags)
     Goto Death+4
   Raise:
-    DEM2 ONMLKJIH 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    DEM2 ONMLKJIH 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     goto See
   }
 }
 
 ACTOR WraithNew : Wraith replaces Wraith
 {
-  var int user_theta;
+  var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
   States
   {
-  CheckMapSkillSpawn:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto Spawn+2
-  CheckMapSkillLook:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto Look+1
-  CheckMapSkillSee:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto See+1
   Spawn:
     TNT1 A 0 A_Look
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     WRTH A 10
     WRTH B 5 A_WraithInit
     Goto Look
   Look:
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillLook")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     WRTH AB 15 A_Look
     Loop
   See:
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSee")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     WRTH ABCD 4 A_WraithChase
     Loop
 
@@ -923,6 +853,7 @@ ACTOR WraithNew : Wraith replaces Wraith
     WRTH N 4 A_QueueCorpse
     WRTH O 4
     WRTH PQ 5
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     WRTH R -1
     Stop
 
@@ -940,6 +871,7 @@ ACTOR WraithNew : Wraith replaces Wraith
     WRT2 E 5 A_NoBlocking
     WRT2 F 5 A_QueueCorpse
     WRT2 G 5
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     WRT2 H -1
     Stop
   Ice:
@@ -947,50 +879,37 @@ ACTOR WraithNew : Wraith replaces Wraith
     WRT2 I 1 A_FreezeDeathChunks
     Wait
   Raise:
-    WRT2 QP 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    WRT2 ONMLKJI 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    WRT2 QP 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    WRT2 ONMLKJI 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     goto See
   }
 }
 
 ACTOR WraithBuriedNew : WraithBuried replaces WraithBuried
 {
-  var int user_theta;
+  var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
   States
   {
-  CheckMapSkillLook:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto Look+1
-  CheckMapSkillChase:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto Chase+1
-  CheckMapSkillSee:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto See+1
-
   Spawn:
     TNT1 A 0
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
     Goto Look
   Look:
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillLook")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     WRTH AB 15 A_Look
     Loop
   See:
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSee")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     WRTH A 2 A_WraithRaiseInit
     WRTH A 2 A_WraithRaise
     WRTH A 2 A_FaceTarget
     WRTH BB 2 A_WraithRaise
     Goto See+2
   Chase:
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSee")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     WRTH ABCD 4 A_WraithChase
     Loop
 
@@ -1036,6 +955,7 @@ ACTOR WraithBuriedNew : WraithBuried replaces WraithBuried
     WRTH N 4 A_QueueCorpse
     WRTH O 4
     WRTH PQ 5
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     WRTH R -1
     Stop
   XDeathCheck:
@@ -1052,42 +972,31 @@ ACTOR WraithBuriedNew : WraithBuried replaces WraithBuried
     WRT2 E 5 A_NoBlocking
     WRT2 F 5 A_QueueCorpse
     WRT2 G 5
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     WRT2 H -1
     Stop
   Raise:
-    WRT2 QP 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    WRT2 ONMLKJI 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
+    WRT2 QP 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    WRT2 ONMLKJI 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     goto See
   }
 }
 
 ACTOR IceGuyNew : IceGuy replaces IceGuy
 {
-  var int user_theta;
+  var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
   DamageFactor "Ice", 0.05
   States
   {
-  CheckMapSkillSpawn:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto Spawn+2
-  CheckMapSkillSee:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto See+1
-  CheckMapSkillInactive:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 0 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto Inactive+1
   Spawn:
     TNT1 A 0 A_Look
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     ICEY A 10 A_IceGuyLook
     Loop
   See:
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSee")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     ICEY A 4 A_Chase
     ICEY B 4 A_IceGuyChase
     ICEY CD 4 A_Chase
@@ -1127,11 +1036,12 @@ ACTOR IceGuyNew : IceGuy replaces IceGuy
   Death:
     TNT1 A 0 A_Jump(1, "DeathCheck")
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     ICEY A 1
     ICEY A 1 A_IceGuyDie
     Stop
   Inactive:
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillInactive")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     ICEY A -1
     Goto See
   }

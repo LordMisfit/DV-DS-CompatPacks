@@ -305,7 +305,7 @@ actor BlueBalloon
 // Monsters
 ACTOR PennywiseHeadNew replaces Pennywise
 {
-  var int user_theta;
+  var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -360,21 +360,13 @@ ACTOR PennywiseHeadNew replaces Pennywise
   HitObituary "%o was eaten by the Pennywise the Dancing Clown"
   States
   {
-  CheckMapSkillSpawn:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto Spawn+2
-  CheckMapSkillSee:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto See+1
   Spawn:
     TNT1 A 0 A_Look
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     PENY AB 1 A_Look
     Loop
   See:
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     PENY AB 1 A_Chase
     Loop
   Melee:
@@ -436,6 +428,7 @@ ACTOR PennywiseHeadNew replaces Pennywise
     PENY L 10 
     PENY M 10
     PENY N 10
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     Stop
   Ice:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,2250,0,1)
@@ -447,7 +440,7 @@ ACTOR PennywiseHeadNew replaces Pennywise
 
 ACTOR JumpingSkullNew replaces JumpingSkull
 {
-  var int user_theta;
+  var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -487,21 +480,13 @@ ACTOR JumpingSkullNew replaces JumpingSkull
   HitObituary "%o was bitten by a bouncing skull."
   States
   {
-  CheckMapSkillSpawn:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto Spawn+2
-  CheckMapSkillSee:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto See+1
   Spawn:
     JUMP A 0 A_Look
-    JUMP A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     JUMP A 4 A_Look
     Loop
   See:
-    JUMP A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     JUMP ABCBA 2 A_Chase
     Loop
   Melee:
@@ -552,6 +537,7 @@ ACTOR JumpingSkullNew replaces JumpingSkull
     JUMP E 8 
     JUMP F 8 
     JUMP GHI 8
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     Stop
   Ice:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,65,0,1)
@@ -563,7 +549,7 @@ ACTOR JumpingSkullNew replaces JumpingSkull
 
 ACTOR PossessedBalloonNew replaces PossessedBalloon
 {
-  var int user_theta;
+  var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -605,21 +591,13 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon
   HitObituary "%o wanted to float with all the pretty balloons."
   States
   {
-  CheckMapSkillSpawn:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto Spawn+2
-  CheckMapSkillSee:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto See+1
   Spawn:
     TNT1 A 0 A_Look
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     BSTN A 2 A_Look
     Loop
   See:
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     BSTN A 2 A_Chase
     Loop
   Melee:
@@ -681,6 +659,7 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon
     TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
     TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
     BSTN FGHIJKLM 3
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     Stop
   Ice:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,24,0,1)
@@ -692,7 +671,7 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon
 
 ACTOR BigBerthaNew replaces BigBertha
 {
-  var int user_theta;
+  var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -753,21 +732,13 @@ ACTOR BigBerthaNew replaces BigBertha
   MissileType RevRocket
   States
   {
-  CheckMapSkillSpawn:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto Spawn+2
-  CheckMapSkillSee:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto See+1
   Spawn:
     TNT1 A 0 A_Look
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     BSTN B 2 A_Look
     Loop
   See:
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     BSTN BC 8 A_Chase
     Loop
   Melee:
@@ -831,6 +802,7 @@ ACTOR BigBerthaNew replaces BigBertha
     BSTN D 3 A_Scream
     BSTN E 3 A_Fall
     BSTN FGHIJKLM 3
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     Stop
   Ice:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,97500,0,1)
@@ -842,7 +814,7 @@ ACTOR BigBerthaNew replaces BigBertha
 
 ACTOR ClownHeadNew replaces ClownHead
 { 
-  var int user_theta;
+  var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -890,21 +862,13 @@ ACTOR ClownHeadNew replaces ClownHead
   MissileType RevRocket
   States 
   { 
-  CheckMapSkillSpawn:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto Spawn+2
-  CheckMapSkillSee:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,0,0)
-    TNT1 A 1 A_SetUserVar("user_checkmapskill",user_checkmapskill+1)
-    Goto See+1
   Spawn:
     TNT1 A 0 A_Look
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     CHED A 10  A_Look 
     Loop 
   See: 
-    TNT1 A 0 A_JumpIf(user_checkmapskill < 1,"CheckMapSkillSpawn")
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     CHED A 2 A_PlaySound("DRONE")
     CHED A 2 A_CustomMissile("RFlame", -18, 0, 0, 1)  
     CHED A 2 A_Chase 
@@ -972,6 +936,7 @@ ACTOR ClownHeadNew replaces ClownHead
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,500,0,1)
     CHED A 1 A_Scream 
     MISL BC 8 Bright A_NoBlocking 
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     Stop 
   Ice:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,500,0,1)
