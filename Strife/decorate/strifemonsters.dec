@@ -20,6 +20,15 @@ ACTOR AcolyteNew : Acolyte replaces Acolyte
     AGRD A 6 Fast Slow A_AcolyteBits
     AGRD BCD 6 Fast Slow A_Chase
     Loop
+  Missile:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    AGRD E 8 Fast Slow A_FaceTarget
+    AGRD FE 4 Fast Slow A_ShootGun
+    AGRD F 6 Fast Slow A_ShootGun
+    Goto See
+  Pain:
+    AGRD O 8 Fast Slow A_Pain
+    Goto See
   Pain.GravityHP:
     TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
     Goto See

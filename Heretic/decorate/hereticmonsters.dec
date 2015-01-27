@@ -14,7 +14,21 @@ actor HereticImpNew : HereticImp replaces HereticImp
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     IMPX AABBCCBB 3 A_Chase
     Loop
-
+  Melee:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    IMPX DE 6 A_FaceTarget
+    IMPX F 6 A_CustomMeleeAttack(random[ImpMeAttack](5,12), "himp/attack", "himp/attack")
+    Goto See
+  Missile:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    IMPX A 10 A_FaceTarget
+    IMPX B 6 A_ImpMsAttack
+    IMPX CBAB 6
+    Goto Missile+3
+  Pain:
+    IMPX G 3
+    IMPX G 3 A_Pain
+    Goto See
   Pain.GravityHP:
     TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
     Goto See
@@ -93,7 +107,17 @@ actor HereticImpLeaderNew : HereticImpLeader replaces HereticImpLeader
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     IMPX AABBCCBB 3 A_Chase
     Loop
-
+  Melee:
+    Stop
+  Missile:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    IMPX DE 6 A_FaceTarget
+    IMPX F 6 A_CustomComboAttack("HereticImpBall", 32, random[ImpMsAttack2](5,12), "himp/leaderattack")
+    Goto See
+  Pain:
+    IMPX G 3
+    IMPX G 3 A_Pain
+    Goto See
   Pain.GravityHP:
     TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
     Goto See
@@ -172,7 +196,16 @@ actor MummyNew : Mummy replaces Mummy
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     MUMM ABCD 4 A_Chase
     Loop
-
+  Melee:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    MUMM E 6 A_FaceTarget
+    MUMM F 6 A_CustomMeleeAttack(random[MummyAttack](1,8)*2, "mummy/attack2", "mummy/attack")
+    MUMM G 6
+    Goto See
+  Pain:
+    MUMM H 4
+    MUMM H 4 A_Pain
+    Goto See
   Pain.GravityHP:
     TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
     Goto See
@@ -242,7 +275,16 @@ actor MummyGhostNew : MummyGhost replaces MummyGhost
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     MUMM ABCD 4 A_Chase
     Loop
-
+  Melee:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    MUMM E 6 A_FaceTarget
+    MUMM F 6 A_CustomMeleeAttack(random[MummyAttack](1,8)*2, "mummy/attack2", "mummy/attack")
+    MUMM G 6
+    Goto See
+  Pain:
+    MUMM H 4
+    MUMM H 4 A_Pain
+    Goto See
   Pain.GravityHP:
     TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
     Goto See
@@ -312,7 +354,25 @@ actor MummyLeaderNew : MummyLeader replaces MummyLeader
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     MUMM ABCD 4 A_Chase
     Loop
-
+  Melee:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    MUMM E 6 A_FaceTarget
+    MUMM F 6 A_CustomMeleeAttack(random[MummyAttack](1,8)*2, "mummy/attack2", "mummy/attack")
+    MUMM G 6
+    Goto See
+  Missile:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    MUMM X 5 A_FaceTarget
+    MUMM Y 5 Bright A_FaceTarget
+    MUMM X 5 A_FaceTarget
+    MUMM Y 5 Bright A_FaceTarget
+    MUMM X 5 A_FaceTarget
+    MUMM Y 5 Bright A_CustomComboAttack("MummyFX1", 32, random[MummyAttack2](1,8)*2, "mummy/attack2")
+    Goto See
+  Pain:
+    MUMM H 4
+    MUMM H 4 A_Pain
+    Goto See
   Pain.GravityHP:
     TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
     Goto See
@@ -382,7 +442,25 @@ actor MummyLeaderGhostNew : MummyLeaderGhost replaces MummyLeaderGhost
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     MUMM ABCD 4 A_Chase
     Loop
-
+  Melee:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    MUMM E 6 A_FaceTarget
+    MUMM F 6 A_CustomMeleeAttack(random[MummyAttack](1,8)*2, "mummy/attack2", "mummy/attack")
+    MUMM G 6
+    Goto See
+  Missile:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    MUMM X 5 A_FaceTarget
+    MUMM Y 5 Bright A_FaceTarget
+    MUMM X 5 A_FaceTarget
+    MUMM Y 5 Bright A_FaceTarget
+    MUMM X 5 A_FaceTarget
+    MUMM Y 5 Bright A_CustomComboAttack("MummyFX1", 32, random[MummyAttack2](1,8)*2, "mummy/attack2")
+    Goto See
+  Pain:
+    MUMM H 4
+    MUMM H 4 A_Pain
+    Goto See
   Pain.GravityHP:
     TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
     Goto See
@@ -452,7 +530,20 @@ ACTOR KnightNew : Knight replaces Knight
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     KNIG ABCD 4 A_Chase
     Loop
-
+  Melee:
+  Missile:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    KNIG E 10 A_FaceTarget
+    KNIG F 8 A_FaceTarget
+    KNIG G 8 A_KnightAttack
+    KNIG E 10 A_FaceTarget
+    KNIG F 8 A_FaceTarget
+    KNIG G 8 A_KnightAttack
+    Goto See
+  Pain:
+    KNIG H 3
+    KNIG H 3 A_Pain
+    Goto See
   Pain.GravityHP:
     TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
     Goto See
@@ -521,7 +612,20 @@ ACTOR KnightGhostNew : KnightGhost replaces KnightGhost
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     KNIG ABCD 4 A_Chase
     Loop
-
+  Melee:
+  Missile:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    KNIG E 10 A_FaceTarget
+    KNIG F 8 A_FaceTarget
+    KNIG G 8 A_KnightAttack
+    KNIG E 10 A_FaceTarget
+    KNIG F 8 A_FaceTarget
+    KNIG G 8 A_KnightAttack
+    Goto See
+  Pain:
+    KNIG H 3
+    KNIG H 3 A_Pain
+    Goto See
   Pain.GravityHP:
     TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
     Goto See
@@ -597,7 +701,22 @@ ACTOR WizardNew : Wizard replaces Wizard
     WZRD B 3 A_Chase
     WZRD B 4 A_Chase
     Loop
-
+  Missile:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    WZRD C 4 A_WizAtk1
+    WZRD C 4 A_WizAtk2
+    WZRD C 4 A_WizAtk1
+    WZRD C 4 A_WizAtk2
+    WZRD C 4 A_WizAtk1
+    WZRD C 4 A_WizAtk2
+    WZRD C 4 A_WizAtk1
+    WZRD C 4 A_WizAtk2
+    WZRD D 12 A_WizAtk3
+    Goto See
+  Pain:
+    WZRD E 3 A_GhostOff
+    WZRD E 3 A_Pain
+    Goto See
   Pain.GravityHP:
     TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
     Goto See
@@ -666,7 +785,15 @@ ACTOR IronlichNew : Ironlich replaces Ironlich
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     LICH A 4 A_Chase
     Loop
-
+  Missile:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    LICH A 5 A_FaceTarget
+    LICH B 20 A_LichAttack
+    Goto See
+  Pain:
+    LICH A 4
+    LICH A 4 A_Pain
+    Goto See
   Pain.GravityHP:
     TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
     Goto See
@@ -735,7 +862,16 @@ ACTOR ClinkNew : Clink replaces Clink
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     CLNK ABCD 3 A_Chase
     Loop
-
+  Melee:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    CLNK E 5 A_FaceTarget
+    CLNK F 4 A_FaceTarget
+    CLNK G 7 A_CustomMeleeAttack(random[ClinkAttack](3,9), "clink/attack", "clink/attack")
+    Goto See
+  Pain:
+    CLNK H 3
+    CLNK H 3 A_Pain
+    Goto See
   Pain.GravityHP:
     TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
     Goto See
@@ -804,7 +940,15 @@ ACTOR BeastNew : Beast replaces Beast
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     BEAS ABCDEF 3 A_Chase
     Loop
-
+  Missile:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    BEAS H 10 A_FaceTarget
+    BEAS I 10 A_CustomComboAttack("BeastBall", 32, random[BeastAttack](1,8)*3, "beast/attack")
+    Goto See
+  Pain:
+    BEAS G 3
+    BEAS G 3 A_Pain
+    Goto See
   Pain.GravityHP:
     TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
     Goto See
@@ -900,7 +1044,36 @@ ACTOR MaulotaurNew : Minotaur replaces Minotaur
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     MNTR ABCD 5 A_MinotaurChase
     Loop
-
+  Melee:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    MNTR V 10 A_FaceTarget
+    MNTR W 7 A_FaceTarget
+    MNTR X 12 A_MinotaurAtk1
+    Goto See
+  Missile:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    MNTR V 10 A_MinotaurDecide
+    MNTR Y 4 A_FaceTarget
+    MNTR Z 9 A_MinotaurAtk2
+    Goto See
+  Hammer:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    MNTR V 10 A_FaceTarget
+    MNTR W 7 A_FaceTarget
+    MNTR X 12 A_MinotaurAtk3
+    Goto See
+  HammerLoop:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    MNTR X 12
+    Goto Hammer
+  Charge:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    MNTR U 2 A_MinotaurCharge
+    Loop
+  Pain:
+    MNTR E 3
+    MNTR E 6 A_Pain
+    Goto See
   Pain.GravityHP:
     TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
     Goto See
@@ -1003,7 +1176,17 @@ ACTOR SnakeNew : Snake replaces Snake
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     SNKE ABCD 4 A_Chase
     Loop
-
+  Missile:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    SNKE FF 5 A_FaceTarget
+    SNKE FFF 4 A_CustomMissile("SnakeProjA", 32, 0, 0, CMF_CHECKTARGETDEAD)
+    SNKE FFF 5 A_FaceTarget
+    SNKE F 4 A_CustomMissile("SnakeProjB", 32, 0, 0, CMF_CHECKTARGETDEAD)
+    Goto See
+  Pain:
+    SNKE E 3
+    SNKE E 3 A_Pain
+    Goto See
   Pain.GravityHP:
     TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
     Goto See
@@ -1072,7 +1255,22 @@ ACTOR DSparilMountedNew : Sorcerer1 replaces Sorcerer1
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     SRCR ABCD 5 A_Sor1Chase
     Loop
-
+  Missile:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    SRCR Q 7 A_FaceTarget
+    SRCR R 6 A_FaceTarget
+    SRCR S 10 A_Srcr1Attack
+    Goto See
+  Missile2:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    SRCR S 10 A_FaceTarget
+    SRCR Q 7 A_FaceTarget
+    SRCR R 6 A_FaceTarget
+    SRCR S 10 A_Srcr1Attack
+    Goto See
+  Pain:
+    SRCR Q 6 A_Sor1Pain
+    Goto See
   Pain.GravityHP:
     TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
     Goto See
@@ -1148,7 +1346,20 @@ ACTOR DSparilUnmountedNew : Sorcerer2 replaces Sorcerer2
     SOR2 DEF 4
     SOR2 G 12 A_PlaySound("dsparil/sight", CHAN_BODY, 1, FALSE, ATTN_NONE)
     Goto See
-
+  Pain:
+    SOR2 Q 3
+    SOR2 Q 6 A_Pain
+    Goto See
+  Missile:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    SOR2 R 9 A_Srcr2Decide
+    SOR2 S 9 A_FaceTarget
+    SOR2 T 20 A_Srcr2Attack
+    Goto See
+  Teleport:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0) // makes sure D'Sparil is as stealth as possible when proceeding to teleport if flagged as stealth
+    SOR2 LKJIHG 6
+    Goto See
   Pain.GravityHP:
     TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
     Goto See
