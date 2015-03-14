@@ -338,13 +338,16 @@ ACTOR PennywiseHeadNew replaces Pennywise
   DamageFactor "Magic", 1.25
   Painchance "Holy", 160
   Painchance "Magic", 100
+
+  PainChance 80
+  Painchance "Fist", 120 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 120 // Fist attacks have a +50% chance of stunning an enemy
  
   Health 250
   Radius 29
   Height 56
   Speed 30
   Mass 250
-  PainChance 80
   MONSTER 
   +FLOORCLIP
   +NOGRAVITY
@@ -460,12 +463,15 @@ ACTOR JumpingSkullNew replaces JumpingSkull
   Painchance "Holy", 140
   Painchance "Magic", 87
 
+  PainChance 70
+  Painchance "Fist", 105 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 105 // Fist attacks have a +50% chance of stunning an enemy
+
   Health 30
   Radius 8
   Height 11
   Speed 9
   Mass 20
-  PainChance 70
   MONSTER 
   +FLOORCLIP 
   +RANDOMIZE 
@@ -568,12 +574,15 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon
   DamageFactor "Magic", 1.5
   Painchance "Magic", 75
 
+  PainChance 50
+  Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
+
   Health 15
   Radius 15
   Height 40
   Speed 2
   Mass 20
-  PainChance 50
   MONSTER 
   +LOOKALLAROUND
   +FLOORCLIP
@@ -719,13 +728,16 @@ ACTOR BigBerthaNew replaces BigBertha
   DamageFactor "Magic", 1.5
   Painchance "Magic", 75
 
+  PainChance 50
+  Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
+
   Scale 12
   Health 6500
   Radius 64
   Height 128
   Speed 6
   Mass 800
-  PainChance 50
   MONSTER
   +NORADIUSDMG 
   MELEEDAMAGE 4
@@ -842,11 +854,14 @@ ACTOR ClownHeadNew replaces ClownHead
   Painchance "Holy", 255
   Painchance "Magic", 160
 
+  PainChance 128
+  Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
+
   Health 400 
   Speed 5 
   Radius 16
   Height 48
-  PainChance 128
   Mass 300
   Meleedamage 1 
   REACTIONTIME 8 

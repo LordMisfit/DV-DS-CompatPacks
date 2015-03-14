@@ -3,6 +3,11 @@ ACTOR AcolyteNew : Acolyte replaces Acolyte
   var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  Painchance 150
+  Painchance "Fist", 225 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 225 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:

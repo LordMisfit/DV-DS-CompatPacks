@@ -3,6 +3,11 @@ ACTOR EttinNew : Ettin replaces Ettin
   var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  Painchance 60
+  Painchance "Fist", 90 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 90 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:
@@ -103,6 +108,11 @@ ACTOR EttinGhostNew : EttinMash replaces EttinMash
   +NOICEDEATH
   RenderStyle Translucent
   Alpha 0.4
+
+  Painchance 60
+  Painchance "Fist", 90 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 90 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:
@@ -190,6 +200,11 @@ ACTOR CentaurNew : Centaur replaces Centaur
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
   DamageFactor "Thunder", 3
+
+  Painchance 135
+  Painchance "Fist", 201 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 201 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:
@@ -303,6 +318,11 @@ ACTOR CentaurGhostNew : CentaurMash replaces CentaurMash
   +NOICEDEATH
   RenderStyle Translucent
   Alpha 0.4
+
+  Painchance 135
+  Painchance "Fist", 201 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 201 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:
@@ -394,6 +414,11 @@ ACTOR SlaughtaurNew : CentaurLeader replaces CentaurLeader
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
   DamageFactor "Thunder", 3
+
+  Painchance 96
+  Painchance "Fist", 144 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 144 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:
@@ -507,6 +532,11 @@ ACTOR FireDemonNew : FireDemon replaces FireDemon
   var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  Painchance 1
+  Painchance "Fist", 32
+  Painchance "Gauntlets", 32
+
   States
   {
   Spawn:
@@ -608,6 +638,11 @@ ACTOR BishopNew : Bishop replaces Bishop
   var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  Painchance 110
+  Painchance "Fist", 165 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 165 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:
@@ -703,6 +738,11 @@ ACTOR StalkerNew : Serpent replaces Serpent
   var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  Painchance 96
+  Painchance "Fist", 144 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 144 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:
@@ -803,6 +843,11 @@ ACTOR StalkerLeaderNew : SerpentLeader replaces SerpentLeader
   var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  Painchance 96
+  Painchance "Fist", 144 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 144 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:
@@ -908,6 +953,11 @@ ACTOR GreenChaosSerpentNew : Demon1 replaces Demon1
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
   const int ChunkFlags = SXF_TRANSFERTRANSLATION|SXF_ABSOLUTEVELOCITY;
+
+  Painchance 50
+  Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:
@@ -1018,6 +1068,11 @@ ACTOR GreenChaosSerpentGhostNew : Demon1Mash replaces Demon1Mash
   +NOICEDEATH
   RenderStyle Translucent
   Alpha 0.4
+
+  Painchance 50
+  Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:
@@ -1113,6 +1168,11 @@ ACTOR BrownChaosSerpentNew : Demon2 replaces Demon2
   var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  Painchance 50
+  Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:
@@ -1219,6 +1279,11 @@ ACTOR BrownChaosSerpentGhostNew : Demon2Mash replaces Demon2Mash
   +NOICEDEATH
   RenderStyle Translucent
   Alpha 0.4
+
+  Painchance 50
+  Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:
@@ -1315,6 +1380,11 @@ ACTOR WraithNew : Wraith replaces Wraith
   var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  Painchance 25
+  Painchance "Fist", 38 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 38 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:
@@ -1425,6 +1495,11 @@ ACTOR WraithBuriedNew : WraithBuried replaces WraithBuried
   var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  Painchance 25
+  Painchance "Fist", 38 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 38 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:
@@ -1539,6 +1614,11 @@ ACTOR IceGuyNew : IceGuy replaces IceGuy
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
   DamageFactor "Ice", 0.05
+
+  Painchance 144
+  Painchance "Fist", 216 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 216 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:

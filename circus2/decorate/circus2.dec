@@ -320,7 +320,6 @@ ACTOR GoreWormNew replaces GoreWorm
   Height 4
   Speed 3
   Mass 20
-  PainChance 200
   MONSTER 
   +FLOORCLIP +RANDOMIZE 
   scale 0.75
@@ -330,7 +329,12 @@ ACTOR GoreWormNew replaces GoreWorm
   DeathSound ""
   ActiveSound "HAND1"
   MeleeSound "SKULBITE"
-  Obituary "%o duh" 
+  Obituary "Um... how the hell did %o die?!" 
+
+  PainChance 200
+  Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:
@@ -433,12 +437,15 @@ ACTOR FluffyNew replaces Fluffy2
   Painchance "Holy", 160
   Painchance "Magic", 100
 
+  PainChance 80
+  Painchance "Fist", 120 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 120 // Fist attacks have a +50% chance of stunning an enemy
+
   Health 1000
   Radius 25
   Height 56
   Speed 40
   Mass 250
-  PainChance 80
   MONSTER
   +FLOORCLIP +NOCLIP
   +NOLIFTDROP
@@ -577,12 +584,15 @@ ACTOR MiniFluffyNew replaces MiniFluffy
   Painchance "Holy", 160
   Painchance "Magic", 100
 
+  PainChance 80
+  Painchance "Fist", 120 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 120 // Fist attacks have a +50% chance of stunning an enemy
+
   Health 60
   Radius 8
   Height 25
   Speed 6
   Mass 40
-  PainChance 80
   MONSTER
   +FLOORCLIP
   MELEEDAMAGE 1
@@ -688,12 +698,15 @@ ACTOR JumpingSkullNew replaces JumpingSkull
   Painchance "Holy", 180
   Painchance "Magic", 112
 
+  PainChance 90
+  Painchance "Fist", 135 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 135 // Fist attacks have a +50% chance of stunning an enemy
+
   Health 40
   Radius 8
   Height 20
   Speed 9
   Mass 20
-  PainChance 90
   MONSTER 
   DropItem ClownSouls 10
   +FLOORCLIP +RANDOMIZE +COUNTKILL +CANPASS   
@@ -801,6 +814,10 @@ ACTOR JumpingSkull2New replaces JumpingSkull2 //spawns skull ghosts
   DamageFactor "Magic", 1.25
   Painchance "Holy", 180
   Painchance "Magic", 112
+
+  PainChance 70
+  Painchance "Fist", 105 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 105 // Fist attacks have a +50% chance of stunning an enemy
 
   Health 40
   Speed 10
@@ -915,13 +932,16 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon
   DamageFactor "Magic", 1.5
   Painchance "Magic", 75
 
+  PainChance 50
+  Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
+
   Health 15
   Radius 15
   Height 40
   Speed 2
   FloatSpeed 3
   Mass 20
-  PainChance 50
   MONSTER 
   +LOOKALLAROUND
   +FLOORCLIP
@@ -1049,11 +1069,14 @@ ACTOR BingoNew replaces Bingo
   Painchance "Holy", 255
   Painchance "Magic", 160
 
+  PainChance 128
+  Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
+
   Health 400 
   Speed 5 
   Radius 18
   Height 56
-  PainChance 128
   Mass 300
   Meleedamage 1 
   REACTIONTIME 8 
@@ -1182,11 +1205,14 @@ ACTOR TinyBingoNew replaces TinyBingo
   Painchance "Holy", 255
   Painchance "Magic", 160
 
+  PainChance 128
+  Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
+
   Health 35 
   Speed 6 
   Radius 9
   Height 24
-  PainChance 128
   Mass 300
   Meleedamage 1 
   REACTIONTIME 8 
@@ -1294,11 +1320,14 @@ actor BeefyNew replaces Beefy
   Painchance "Holy", 255
   Painchance "Magic", 250
 
+  PainChance 200
+  Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
+
   Health 120
   Radius 20
   Height 56
   Speed 8
-  PainChance 200
   MONSTER 
   DropItem ClownSouls 20
   +FLOORCLIP
@@ -1472,12 +1501,15 @@ ACTOR BlackBearNew replaces BlackBear
   Painchance "Holy", 180
   Painchance "Magic", 112
 
+  PainChance 90
+  Painchance "Fist", 135 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 135 // Fist attacks have a +50% chance of stunning an enemy
+
   Health 8
   Radius 8
   Height 20
   Speed 9
   Mass 20
-  PainChance 90
   MONSTER 
   +FLOORCLIP +NOCLIP +RANDOMIZE +COUNTKILL +CANPASS +DONTOVERLAP 
   Scale 0.75
@@ -1599,11 +1631,14 @@ actor ClownGhostNew replaces ClownGhost
   Painchance "Holy", 255
   Painchance "Magic", 192
 
+  PainChance 128
+  Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
+
   Health 300 
   Speed 5 
   Radius 16
   Height 48
-  PainChance 128
   Mass 400
   Meleedamage 1 
   gibhealth -400
@@ -1761,11 +1796,14 @@ actor ClownGhost2New replaces ClownGhost2
   Painchance "Holy", 255
   Painchance "Magic", 192
 
+  PainChance 128
+  Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
+
   Health 150
   Speed 6 
   Radius 16
   Height 48
-  PainChance 128
   Mass 400
   Meleedamage 3 
   REACTIONTIME 8 
@@ -1898,11 +1936,14 @@ actor BulbyNew replaces Bulby
   Painchance "Holy", 255
   Painchance "Magic", 160
 
+  PainChance 128
+  Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
+
   Health 200 
   Speed 5 
   Radius 16
   Height 32
-  PainChance 128
   Mass 400
   Meleedamage 1 
   Scale .7
@@ -2065,11 +2106,14 @@ actor MegaBulbyNew replaces MegaBulby
   Painchance "Holy", 128
   Painchance "Magic", 80
 
+  PainChance 64
+  Painchance "Fist", 96 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 96 // Fist attacks have a +50% chance of stunning an enemy
+
   Health 400 
   Speed 6 
   Radius 32
   Height 64
-  PainChance 64
   Mass 400
   Meleedamage 1 
   Scale 1.5
@@ -2232,11 +2276,14 @@ ACTOR BigBertha2New replaces BigBertha2
   DamageFactor "Magic", 1.5
   Painchance "Magic", 192
 
+  PainChance 128
+  Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
+
   Health 675 
   Speed 6 
   Radius 24
   Height 92
-  PainChance 128
   Mass 500
   Meleedamage 1 
   REACTIONTIME 8 
@@ -2383,11 +2430,14 @@ actor SuperBerthaNew replaces SuperBertha
   DamageFactor "Magic", 1.5
   Painchance "Magic", 192
 
+  PainChance 128
+  Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
+
   Health 6000 
   Speed 7 
   Radius 50
   Height 144
-  PainChance 128
   Mass 40000
   Meleedamage 1 
   REACTIONTIME 8 
@@ -2547,12 +2597,15 @@ ACTOR EvilDeadHandNew replaces EvilDeadHand
   Painchance "Holy", 255
   Painchance "Magic", 250
 
+  PainChance 200
+  Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
+
   Health 20
   Radius 8
   Height 16
   Speed 5
   Mass 20
-  PainChance 200
   MONSTER 
   +FLOORCLIP +RANDOMIZE 
   scale 0.75
@@ -2699,12 +2752,15 @@ ACTOR BouncingClownNew replaces BouncingClown
   Painchance "Holy", 50
   Painchance "Magic", 31
 
+  PainChance 25
+  Painchance "Fist", 38 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 38 // Fist attacks have a +50% chance of stunning an enemy
+
   Health 6000
   Radius 24
   Height 112
   Speed 11
   Mass 2000
-  PainChance 25
   MONSTER 
   +FLOORCLIP +RANDOMIZE +COUNTKILL +CANPASS
   MELEEDAMAGE 3
@@ -2853,12 +2909,15 @@ ACTOR BabyClownNew replaces BabyClown
   Painchance "Holy", 255
   Painchance "Magic", 250
 
+  PainChance 200
+  Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
+
   Health 88
   Radius 8
   Height 32
   Speed 15
   Mass 60
-  PainChance 200
   MONSTER 
   Scale 0.25
   DropItem ClownSouls 64
@@ -2978,12 +3037,15 @@ ACTOR BabyClown2New replaces BabyClown2
   Painchance "Holy", 255
   Painchance "Magic", 250
 
+  PainChance 200
+  Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
+
   Health 75
   Radius 8
   Height 32
   Speed 15
   Mass 60
-  PainChance 200
   MONSTER 
   Scale 0.25
   DropItem ClownSouls 64
@@ -3114,11 +3176,14 @@ actor PennywiseHead2New replaces PennywiseHead
   Painchance "Holy", 255
   Painchance "Magic", 160
 
+  PainChance 128
+  Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
+
   Health 450
   Speed 11 
   Radius 16
   Height 48
-  PainChance 128
   Mass 400
   Meleedamage 3 
   REACTIONTIME 8 
@@ -3273,17 +3338,20 @@ actor PennywiseBoss replaces Pennywise
   dropitem RandomPowerupSpawner 1
   dropitem FloraRandomArmor
 
+  PainChance 224
+  Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
+
   Health 9000
   Radius 40
   Height 112
   Speed 8
-  PainChance 224
   MONSTER 
   minmissilechance 40
   scale 1.25
   +FLOORCLIP +NORADIUSDMG +FULLVOLACTIVE +NOTARGET
   SeeSound ""
-  PainSound "PENHURT"	
+  PainSound "PENHURT"
   DeathSound ""
   ActiveSound "ITACTIVE"
   MeleeSound "imp/melee"

@@ -3,6 +3,11 @@ actor HereticImpNew : HereticImp replaces HereticImp
  var int user_theta; var int user_isstealth;
  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+ Painchance 200
+ Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+ Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
+
  states
  {
   Spawn:
@@ -96,6 +101,11 @@ actor HereticImpLeaderNew : HereticImpLeader replaces HereticImpLeader
  var int user_theta; var int user_isstealth;
  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+ Painchance 200
+ Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+ Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
+
  states
  {
   Spawn:
@@ -185,6 +195,11 @@ actor MummyNew : Mummy replaces Mummy
  var int user_theta; var int user_isstealth;
  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+ Painchance 128
+ Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+ Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
+
  states
  {
   Spawn:
@@ -264,6 +279,11 @@ actor MummyGhostNew : MummyGhost replaces MummyGhost
  var int user_theta; var int user_isstealth;
  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+ Painchance 128
+ Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+ Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
+
  states
  {
   Spawn:
@@ -343,6 +363,11 @@ actor MummyLeaderNew : MummyLeader replaces MummyLeader
  var int user_theta; var int user_isstealth;
  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+ Painchance 64
+ Painchance "Fist", 96 // Fist attacks have a +50% chance of stunning an enemy
+ Painchance "Gauntlets", 96 // Fist attacks have a +50% chance of stunning an enemy
+
  states
  {
   Spawn:
@@ -431,6 +456,11 @@ actor MummyLeaderGhostNew : MummyLeaderGhost replaces MummyLeaderGhost
  var int user_theta; var int user_isstealth;
  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+ Painchance 64
+ Painchance "Fist", 96 // Fist attacks have a +50% chance of stunning an enemy
+ Painchance "Gauntlets", 96 // Fist attacks have a +50% chance of stunning an enemy
+
  states
  {
   Spawn:
@@ -519,6 +549,11 @@ ACTOR KnightNew : Knight replaces Knight
   var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  Painchance 100
+  Painchance "Fist", 150 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 150 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:
@@ -601,6 +636,11 @@ ACTOR KnightGhostNew : KnightGhost replaces KnightGhost
   var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  Painchance 100
+  Painchance "Fist", 150 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 150 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:
@@ -683,6 +723,11 @@ ACTOR WizardNew : Wizard replaces Wizard
   var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  Painchance 64
+  Painchance "Fist", 96 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 96 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:
@@ -774,6 +819,11 @@ ACTOR IronlichNew : Ironlich replaces Ironlich
   var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  Painchance 32
+  Painchance "Fist", 48 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 48 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:
@@ -851,6 +901,11 @@ ACTOR ClinkNew : Clink replaces Clink
   var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  Painchance 32
+  Painchance "Fist", 48 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 48 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:
@@ -929,6 +984,11 @@ ACTOR BeastNew : Beast replaces Beast
   var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  Painchance 100
+  Painchance "Fist", 150 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 150 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:
@@ -1029,6 +1089,11 @@ ACTOR MaulotaurNew : Minotaur replaces Minotaur
   var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  Painchance 25
+  Painchance "Fist", 38 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 38 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:
@@ -1165,6 +1230,11 @@ ACTOR SnakeNew : Snake replaces Snake
   var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  Painchance 48
+  Painchance "Fist", 72 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 72 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:
@@ -1244,6 +1314,11 @@ ACTOR DSparilMountedNew : Sorcerer1 replaces Sorcerer1
   var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  Painchance 56
+  Painchance "Fist", 84 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 84 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:
@@ -1327,6 +1402,11 @@ ACTOR DSparilUnmountedNew : Sorcerer2 replaces Sorcerer2
   var int user_theta; var int user_isstealth;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  Painchance 32
+  Painchance "Fist", 48 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 48 // Fist attacks have a +50% chance of stunning an enemy
+
   States
   {
   Spawn:
