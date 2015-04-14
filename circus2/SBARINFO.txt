@@ -571,6 +571,7 @@ statusbar fullscreen, fullscreenoffsets // ZDoom HUD
    }
   }
 
+/*
   usesammo
   {
    //secondary ammo and inventory
@@ -599,6 +600,19 @@ statusbar fullscreen, fullscreenoffsets // ZDoom HUD
    inventorybarnotvisible
    {
     drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, HUDFONT_DOOM, -14, -3, -26, -20, untranslated;
+   }
+  }
+*/
+
+  inventorybarnotvisible
+  {
+   InInventory FloraUsingHellcoreWeapon, 1
+   {
+    drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, HUDFONT_DOOM, -14, -131, -26, -155, untranslated;
+   }
+   else
+   {
+    drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, HUDFONT_DOOM, -14, -99, -26, -123, untranslated;
    }
   }
 
@@ -729,7 +743,7 @@ statusbar normal // Standard Doom Status bar
  }
  IsSelected FistFlora
  {
-  drawimage "FISTB0", 23, 180, center;
+  drawimage "FFISA0", 23, 180, center, 28, 10, forcescale;
  }
  IsSelected DoubleBladedChainsaw
  {
@@ -747,7 +761,11 @@ statusbar normal // Standard Doom Status bar
  {
   drawimage "SERPB0", 23, 180, center;
  }
- IsSelected SauronGauntlets, SauronGauntletsIllucia
+ IsSelected SauronGauntlets
+ {
+  drawimage "GAUNB0", 23, 180, center;
+ }
+ IsSelected SauronGauntletsIllucia
  {
   drawimage "GAUNB0", 23, 180, center;
  }
@@ -755,6 +773,7 @@ statusbar normal // Standard Doom Status bar
  {
   drawimage "GAUNB0", 23, 180, center;
  }
+
  IsSelected Pistol, Pistol2
  {
   drawimage "PISTB0", 23, 180, center;
@@ -799,7 +818,6 @@ statusbar normal // Standard Doom Status bar
  {
   drawimage "BFUGB0", 23, 180, center;
  }
-
 
  IsSelected ImpClaw
  {
@@ -1047,11 +1065,7 @@ statusbar normal // Standard Doom Status bar
   drawimage translatable "STFBANY", 143, 169;
  }
 
- drawselectedinventory alternateonempty, INDEXFONT, 143, 168
- {
  drawmugshot "STF", 5, 143, 168;
- }
-
  Ininventory SauronGauntletsItem, 1
  {
   drawimage "WGNTB0", 168, 168;
@@ -1064,7 +1078,7 @@ statusbar normal // Standard Doom Status bar
  {
   drawimage "RINGB0", 170, 192;
  }
-
+ drawselectedinventory INDEXFONT, 288, 136;
 }
 
 statusbar inventory // Standard bar overlay (ZDoom Addition)
