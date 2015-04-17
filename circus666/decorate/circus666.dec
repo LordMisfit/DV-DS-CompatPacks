@@ -162,19 +162,31 @@ actor GreenBalloon replaces BallGreen
   +CANNOTPUSH
   +NOBLOCKMONST 
   DropItem Clip 51
+  DropItem Clip 10
   DropItem ClipBox 10
+  DropItem ClipBox 2
   DropItem Shell 51
+  DropItem Shell 10
   DropItem ShellBox 10
+  DropItem ShellBox 2
   DropItem RocketAmmo 51
+  DropItem RocketAmmo 10
   DropItem RocketBox 10
+  DropItem RocketBox 2
   DropItem Cell 51
+  DropItem Cell 10
   DropItem CellPack 10
+  DropItem CellPack 2
   DropItem HealthBonus 40
+  DropItem HealthBonus 8
   DropItem ArmorBonus 40
+  DropItem ArmorBonus 8
   DropItem Berserk 1
   DropItem Medikit 5
+  DropItem Medikit 1
   DropItem Stimpack 10
-  DropItem RandomPowerup 1
+  DropItem Stimpack 2
+  DropItem RandomPowerupSpawner 1
   DropItem DiarisLongBow 1
   DropItem DiarisArrow 1
   DropItem DiarisArrowQuiver 1

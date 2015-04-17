@@ -162,18 +162,30 @@ actor GreenBalloon replaces Balloon_Green
   +CANNOTPUSH
   +NOBLOCKMONST 
   DropItem Clip 51
+  DropItem Clip 10
   DropItem ClipBox 10
+  DropItem ClipBox 2
   DropItem Shell 51
+  DropItem Shell 10
   DropItem ShellBox 10
+  DropItem ShellBox 2
   DropItem RocketAmmo 51
+  DropItem RocketAmmo 10
   DropItem RocketBox 10
+  DropItem RocketBox 2
   DropItem Cell 51
+  DropItem Cell 10
   DropItem CellPack 10
+  DropItem CellPack 2
   DropItem HealthBonus 40
+  DropItem HealthBonus 8
   DropItem ArmorBonus 40
+  DropItem ArmorBonus 8
   DropItem Berserk 1
   DropItem Medikit 5
+  DropItem Medikit 1
   DropItem Stimpack 10
+  DropItem Stimpack 2
   DropItem RandomPowerupSpawner 1
   DropItem DiarisLongBow 1
   DropItem DiarisArrow 1
@@ -3897,46 +3909,69 @@ ACTOR GoreBalloonNew : GoreBalloon replaces GoreBalloon
     BLNN J -1 
     LOOP 
   Ready: 
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") == 2, 6)
     BLNN ABCD 6 A_WeaponReady 
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") != 2, 5)
+    BLNF ABCD 6 A_WeaponReady 
+    TNT1 A 0
     LOOP 
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") == 2, 4)
     BLNN AA 1 
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") != 2, 3)
+    BLNF AA 1 
+    TNT1 A 0
     Goto Deselect
   Deselect: 
-    BLNN E 1 A_Lower 
-    BLNN E 1 A_Lower 
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") == 2, 6)
+    BLNN EEEE 1 A_Lower 
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") != 2, 5)
+    BLNF EEEE 1 A_Lower 
+    TNT1 A 0
     Loop
   Select: 
-    BLNN E 1 A_Raise 
-    BLNN E 1 A_Raise 
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") == 2, 6)
+    BLNN EEEE 1 A_Raise 
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") != 2, 5)
+    BLNF EEEE 1 A_Raise 
+    TNT1 A 0
     LOOP 
   Fire: 
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") == 2, 5)
     BLNN A 1 
     BLNN FG 2
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") != 2, 4)
+    BLNF A 1 
+    BLNF FG 2
+    TNT1 A 0
     TNT1 A 0 ACS_NamedExecuteAlways("StartTensionCountDown")
     TNT1 A 0 A_JumpIfInventory("SpreaderAura2", 0, "FireSpread7")
     TNT1 A 0 A_JumpIfInventory("SpreaderAura1", 0, "FireSpread3")
     goto FireNormal
   FireNormal:
-    BLNN I 0 A_FireCustomMissile("GoreBalloon666", 0, 1, 4, 1, 0, 0)
+    TNT1 A 0 A_FireCustomMissile("GoreBalloon666", 0, 1, 4, 1, 0, 0)
     goto FireEnd
   FireSpread3:
-    BLNN I 0 A_FireCustomMissile("GoreBalloon666NoHurt", 0+15, 0, 4, 1, 0, 0)
-    BLNN I 0 A_FireCustomMissile("GoreBalloon666",      0, 1, 4, 1, 0, 0)
-    BLNN I 0 A_FireCustomMissile("GoreBalloon666NoHurt", 0-15, 0, 4, 1, 0, 0)
+    TNT1 A 0 A_FireCustomMissile("GoreBalloon666NoHurt", 0+15, 0, 4, 1, 0, 0)
+    TNT1 A 0 A_FireCustomMissile("GoreBalloon666",      0, 1, 4, 1, 0, 0)
+    TNT1 A 0 A_FireCustomMissile("GoreBalloon666NoHurt", 0-15, 0, 4, 1, 0, 0)
     goto FireEnd
   FireSpread7:
-    BLNN I 0 A_FireCustomMissile("GoreBalloon666NoHurt",  0+15, 0, 4, 1, 0, 0)
-    BLNN I 0 A_FireCustomMissile("GoreBalloon666NoHurt", 0+7.5, 0, 4, 1, 0, 7.5)
-    BLNN I 0 A_FireCustomMissile("GoreBalloon666NoHurt", 0+7.5, 0, 4, 1, 0, -7.5)
-    BLNN I 0 A_FireCustomMissile("GoreBalloon666",       0, 1, 4, 1, 0, 0)
-    BLNN I 0 A_FireCustomMissile("GoreBalloon666NoHurt", 0-7.5, 0, 4, 1, 0, -7.5)
-    BLNN I 0 A_FireCustomMissile("GoreBalloon666NoHurt", 0-7.5, 0, 4, 1, 0, 7.5)
-    BLNN I 0 A_FireCustomMissile("GoreBalloon666NoHurt",  0-15, 0, 4, 1, 0, 0)
+    TNT1 A 0 A_FireCustomMissile("GoreBalloon666NoHurt",  0+15, 0, 4, 1, 0, 0)
+    TNT1 A 0 A_FireCustomMissile("GoreBalloon666NoHurt", 0+7.5, 0, 4, 1, 0, 7.5)
+    TNT1 A 0 A_FireCustomMissile("GoreBalloon666NoHurt", 0+7.5, 0, 4, 1, 0, -7.5)
+    TNT1 A 0 A_FireCustomMissile("GoreBalloon666",       0, 1, 4, 1, 0, 0)
+    TNT1 A 0 A_FireCustomMissile("GoreBalloon666NoHurt", 0-7.5, 0, 4, 1, 0, -7.5)
+    TNT1 A 0 A_FireCustomMissile("GoreBalloon666NoHurt", 0-7.5, 0, 4, 1, 0, 7.5)
+    TNT1 A 0 A_FireCustomMissile("GoreBalloon666NoHurt",  0-15, 0, 4, 1, 0, 0)
     goto FireEnd
   FireEnd:
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") == 2, 5)
     BLNN I 6
     BLNN IH 6
-    BLNN A 0 
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") != 2, 4)
+    BLNF I 6
+    BLNF IH 6
+    TNT1 A 0 
     Goto Select
   } 
 }
