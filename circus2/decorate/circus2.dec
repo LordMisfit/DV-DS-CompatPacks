@@ -269,10 +269,10 @@ actor BlueBalloon replaces Balloon_Blue
   DropItem RandomSeedDropForced 8
   DropItem RandomSeedDropForced 8
   DropItem RandomSeedDropForced 8
-  DropItem RandomPowerup 2
-  DropItem RandomPowerup 2
-  DropItem RandomPowerup 2
-  DropItem RandomPowerup 2
+  DropItem RandomPowerupSpawner 2
+  DropItem RandomPowerupSpawner 2
+  DropItem RandomPowerupSpawner 2
+  DropItem RandomPowerupSpawner 2
   DropItem DiarisArrow 8
   DropItem DiarisArrowQuiver 8
   DropItem DiarisLongBow 4
