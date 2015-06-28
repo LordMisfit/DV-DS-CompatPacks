@@ -1,6 +1,6 @@
 ACTOR EttinNew : Ettin replaces Ettin
 {
-  var int user_theta; var int user_isstealth;
+  var int user_theta; var int user_isstealth; var int user_basespeed;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -101,7 +101,7 @@ ACTOR EttinNew : Ettin replaces Ettin
 
 ACTOR EttinGhostNew : EttinMash replaces EttinMash
 {
-  var int user_theta; var int user_isstealth;
+  var int user_theta; var int user_isstealth; var int user_basespeed;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
   +NOBLOOD
@@ -196,7 +196,7 @@ ACTOR EttinGhostNew : EttinMash replaces EttinMash
 
 ACTOR CentaurNew : Centaur replaces Centaur
 {
-  var int user_theta; var int user_isstealth;
+  var int user_theta; var int user_isstealth; var int user_basespeed;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
   DamageFactor "Thunder", 3
@@ -308,7 +308,7 @@ ACTOR CentaurNew : Centaur replaces Centaur
 
 ACTOR CentaurGhostNew : CentaurMash replaces CentaurMash
 {
-  var int user_theta; var int user_isstealth;
+  var int user_theta; var int user_isstealth; var int user_basespeed;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
   DamageFactor "Thunder", 3
@@ -410,7 +410,7 @@ ACTOR CentaurGhostNew : CentaurMash replaces CentaurMash
 
 ACTOR SlaughtaurNew : CentaurLeader replaces CentaurLeader
 {
-  var int user_theta; var int user_isstealth;
+  var int user_theta; var int user_isstealth; var int user_basespeed;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
   DamageFactor "Thunder", 3
@@ -529,7 +529,7 @@ ACTOR SlaughtaurNew : CentaurLeader replaces CentaurLeader
 
 ACTOR FireDemonNew : FireDemon replaces FireDemon
 {
-  var int user_theta; var int user_isstealth;
+  var int user_theta; var int user_isstealth; var int user_basespeed;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -635,7 +635,7 @@ ACTOR FireDemonNew : FireDemon replaces FireDemon
 
 ACTOR BishopNew : Bishop replaces Bishop
 {
-  var int user_theta; var int user_isstealth;
+  var int user_theta; var int user_isstealth; var int user_basespeed;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -735,7 +735,7 @@ ACTOR BishopNew : Bishop replaces Bishop
 
 ACTOR StalkerNew : Serpent replaces Serpent
 {
-  var int user_theta; var int user_isstealth;
+  var int user_theta; var int user_isstealth; var int user_basespeed;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -840,7 +840,7 @@ ACTOR StalkerNew : Serpent replaces Serpent
 
 ACTOR StalkerLeaderNew : SerpentLeader replaces SerpentLeader
 {
-  var int user_theta; var int user_isstealth;
+  var int user_theta; var int user_isstealth; var int user_basespeed;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -949,7 +949,7 @@ ACTOR StalkerLeaderNew : SerpentLeader replaces SerpentLeader
 
 ACTOR GreenChaosSerpentNew : Demon1 replaces Demon1
 {
-  var int user_theta; var int user_isstealth;
+  var int user_theta; var int user_isstealth; var int user_basespeed;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
   const int ChunkFlags = SXF_TRANSFERTRANSLATION|SXF_ABSOLUTEVELOCITY;
@@ -1059,7 +1059,7 @@ ACTOR GreenChaosSerpentNew : Demon1 replaces Demon1
 
 ACTOR GreenChaosSerpentGhostNew : Demon1Mash replaces Demon1Mash
 {
-  var int user_theta; var int user_isstealth;
+  var int user_theta; var int user_isstealth; var int user_basespeed;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
   +NOBLOOD
@@ -1165,7 +1165,7 @@ ACTOR GreenChaosSerpentGhostNew : Demon1Mash replaces Demon1Mash
 
 ACTOR BrownChaosSerpentNew : Demon2 replaces Demon2
 {
-  var int user_theta; var int user_isstealth;
+  var int user_theta; var int user_isstealth; var int user_basespeed;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -1270,7 +1270,7 @@ ACTOR BrownChaosSerpentNew : Demon2 replaces Demon2
 
 ACTOR BrownChaosSerpentGhostNew : Demon2Mash replaces Demon2Mash
 {
-  var int user_theta; var int user_isstealth;
+  var int user_theta; var int user_isstealth; var int user_basespeed;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
   +NOBLOOD
@@ -1377,7 +1377,7 @@ ACTOR BrownChaosSerpentGhostNew : Demon2Mash replaces Demon2Mash
 
 ACTOR WraithNew : Wraith replaces Wraith
 {
-  var int user_theta; var int user_isstealth;
+  var int user_theta; var int user_isstealth; var int user_basespeed;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -1492,7 +1492,7 @@ ACTOR WraithNew : Wraith replaces Wraith
 
 ACTOR WraithBuriedNew : WraithBuried replaces WraithBuried
 {
-  var int user_theta; var int user_isstealth;
+  var int user_theta; var int user_isstealth; var int user_basespeed;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -1610,7 +1610,7 @@ ACTOR WraithBuriedNew : WraithBuried replaces WraithBuried
 
 ACTOR IceGuyNew : IceGuy replaces IceGuy
 {
-  var int user_theta; var int user_isstealth;
+  var int user_theta; var int user_isstealth; var int user_basespeed;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
   DamageFactor "Ice", 0.05
