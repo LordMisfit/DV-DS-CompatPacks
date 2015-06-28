@@ -1,0 +1,13 @@
+// Replaces The Old Afrit/Balrog [DEH] with the proper DV-DS Balrogs [so they're not effortless fights comparitively by the time you encounter them.
+Actor CommanderKeen
+{
+ +ISMONSTER
+ +RANDOMIZE
+ states
+ {
+  Spawn:
+   TNT1 A 0 
+   TNT1 A 0 A_SpawnItemEx("FlyingBalrog",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_NOCHECKPOSITION,0,tid)
+   stop
+ }
+}
