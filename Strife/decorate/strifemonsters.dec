@@ -106,3 +106,73 @@ ACTOR AcolyteNew : Acolyte replaces Acolyte
     goto See
   }
 }
+
+ACTOR AcolyteBlueNew : AcolyteNew replaces AcolyteBlue
+{
+  Health 60
+  Translation 6
+}
+
+ACTOR AcolyteDGreenNew : AcolyteNew replaces AcolyteDGreen
+{
+  +MISSILEMORE
+  +MISSILEEVENMORE
+  Translation 3
+}
+
+ACTOR AcolyteGoldNew : AcolyteNew replaces AcolyteGold
+{
+  +MISSILEMORE
+  +MISSILEEVENMORE
+  Translation 4
+}
+
+ACTOR AcolyteGrayNew : AcolyteNew replaces AcolyteGray
+{
+  +MISSILEMORE
+  +MISSILEEVENMORE
+  Translation 2
+}
+
+ACTOR AcolyteLGreenNew : AcolyteNew replaces AcolyteLGreen
+{
+  Health 60
+  Translation 6
+}
+
+ACTOR AcolyteRedNew : AcolyteNew replaces AcolyteRed
+{
+  +MISSILEMORE
+  +MISSILEEVENMORE
+  Translation 2
+}
+
+ACTOR AcolyteRustNew : AcolyteNew replaces AcolyteRust
+{
+  +MISSILEMORE
+  +MISSILEEVENMORE
+  Translation 2
+}
+
+ACTOR AcolyteShadowNew : AcolyteNew replaces AcolyteShadow
+{
+  +MISSILEMORE
+  DropItem "ClipOfBullets"
+  States
+  {
+  See:
+    AGRD A 6 A_BeShadowyFoe
+    Goto Super::See+1
+  Pain:
+    AGRD O 0 Fast Slow A_SetShadow
+    AGRD O 8 Fast Slow A_Pain
+    Goto See
+  }
+}
+
+ACTOR AcolyteTanNew : AcolyteNew replaces AcolyteTan
+{
+  +MISSILEMORE
+  +MISSILEEVENMORE
+  DropItem "ClipOfBullets"
+}
