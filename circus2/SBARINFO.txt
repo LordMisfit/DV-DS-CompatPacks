@@ -1,5 +1,5 @@
 /*******************************************************************************
- *                         DEFAULT DOOM STATUS BAR
+ *               DEFAULT DOOM STATUS BAR [CIRCUS2 VERSION]
  *******************************************************************************
  * If you wish to include this file into a custom status bar please use the 
  * following command:
@@ -14,6 +14,7 @@ monospacefonts true, "0";
 
 statusbar fullscreen, fullscreenoffsets // ZDoom HUD
 {
+ drawinventorybar Doom, alwaysshow, alwaysshowcounter, translucent, 7, INDEXFONT, -106+center, -31;
  InInventory DVDSOldHUD
  {
  InInventory not PlayerDeathFadeOut, 1
@@ -1095,5 +1096,5 @@ statusbar inventory // Standard bar overlay (ZDoom Addition)
 
 statusbar inventoryfullscreen, fullscreenoffsets // ZDoom HUD overlay.
 {
- drawinventorybar Doom, translucent, 7, INDEXFONT, -106+center, -31;
+// drawinventorybar Doom, translucent, 7, INDEXFONT, -106+center, -31;
 }
