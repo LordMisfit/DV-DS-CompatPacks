@@ -4,6 +4,8 @@ ACTOR AcolyteNew : Acolyte replaces Acolyte
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
+  DamageFactor "Thunder", 1.25
+
   Painchance 150
   Painchance "Fist", 225 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Gauntlets", 225 // Fist attacks have a +50% chance of stunning an enemy
@@ -68,6 +70,7 @@ ACTOR AcolyteNew : Acolyte replaces Acolyte
   Death:
     TNT1 A 0 A_Jump(1, "DeathCheck")
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     AGRD G 4
     AGRD H 4 A_Scream
     AGRD I 4
@@ -184,4 +187,620 @@ ACTOR AcolyteTanNew : AcolyteNew replaces AcolyteTan
   +MISSILEMORE
   +MISSILEEVENMORE
   DropItem "ClipOfBullets"
+}
+
+ACTOR TemplarNew : Templar replaces Templar
+{
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  DamageFactor "Thunder", 1.5
+
+  Painchance 100
+  Painchance "Fist", 150 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 150 // Fist attacks have a +50% chance of stunning an enemy
+
+  ConversationID 62
+  +NOBLOOD
+  +SEESDAGGERS
+  +NOSPLASHALERT
+  DropItem "EnergyPod"
+
+  States
+  {
+  Spawn:
+    TNT1 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    PGRD A 5 A_Look2
+    Loop
+    PGRD B 10
+    Loop
+    PGRD C 10
+    Loop
+    PGRD B 10 A_Wander
+    Loop
+  See:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    PGRD AABBCCDD 3 A_Chase
+    Loop
+  Melee:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    PGRD E 8 A_FaceTarget
+    PGRD F 8 A_CustomMeleeAttack(random[ReaverMelee](1, 8)*3, "reaver/blade")
+    Goto See
+  Missile:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    PGRD G 8 Bright A_FaceTarget
+    PGRD H 8 Bright A_TemplarAttack
+    Goto See
+  Pain:
+    PGRD A 2
+    PGRD A 2 A_Pain
+    Goto See
+
+  Pain.GravityHP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+    Goto See
+  Pain.GravityMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+    Goto See
+  Pain.GravityHPMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+    Goto See
+  Pain.Sceptre:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 
+    Goto Pain
+  Death.Sceptre:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  Pain.Gauntlets:
+    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+    Goto Pain
+  Death.Gauntlets:
+    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  DeathCheck:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
+    TNT1 A 0 
+    goto Death+1
+  Death:
+    TNT1 A 0 A_Jump(1, "DeathCheck")
+    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    PGRD I 4 A_TossGib
+    PGRD J 4 A_Scream
+    PGRD K 4 A_TossGib
+    PGRD L 4 A_NoBlocking
+    PGRD MN 4
+    PGRD O 4 A_TossGib
+    PGRD "PQRSTUVWXYZ[" 4
+    PGRD "\" -1
+    Stop
+
+  Ice:
+    PGRD A 5 A_FreezeDeath
+    PGRD A 1 A_FreezeDeathChunks
+    Wait
+  Raise:
+    PGRD "\" 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    PGRD "PQRSTUVWXYZ[" 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    PGRD ONMLKJI 4
+    goto See
+  }
+}
+
+ACTOR InquisitorNew : Inquisitor replaces Inquisitor
+{
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  DamageFactor "Thunder", 1.75
+
+  ConversationID 93
+  +DROPOFF
+  +NOBLOOD
+  +BOSS
+  +FLOORCLIP
+  +DONTMORPH
+  +NORADIUSDMG
+
+  States
+  {
+  Spawn:
+    TNT1 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ROB3 AB 10 A_Look
+    Loop
+  See:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ROB3 B 3 A_InquisitorWalk
+    ROB3 B 3 A_Chase
+    ROB3 CCDD 4 A_Chase
+    ROB3 E 3 A_InquisitorWalk
+    ROB3 E 3 A_InquisitorDecide
+    Loop
+  Missile:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    ROB3 A 2 A_InquisitorDecide
+    ROB3 F 6 A_FaceTarget
+    ROB3 G 8 Bright A_ReaverRanged
+    ROB3 G 8 A_ReaverRanged
+    Goto See
+  Grenade:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    ROB3 K 12 A_FaceTarget
+    ROB3 J 6 Bright A_InquisitorAttack
+    ROB3 K 12
+    Goto See
+  Jump:
+    ROB3 H 8 Bright A_InquisitorJump
+    ROB3 I 4 Bright A_InquisitorCheckLand
+    ROB3 H 4 Bright A_InquisitorCheckLand
+    Goto Jump+1
+
+  Pain.GravityHP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+    Goto See
+  Pain.GravityMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+    Goto See
+  Pain.GravityHPMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+    Goto See
+  Pain.Sceptre:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 
+    Goto See
+  Death.Sceptre:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  Pain.Gauntlets:
+    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+    Goto See
+  Death.Gauntlets:
+    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  DeathCheck:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
+    TNT1 A 0 
+    goto Death+1
+  Death:
+    TNT1 A 0 A_Jump(1, "DeathCheck")
+    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    ROB3 L 0 A_StopSoundEx("Item")
+    ROB3 L 4 A_TossGib
+    ROB3 M 4 A_Scream
+    ROB3 N 4 A_TossGib
+    ROB3 O 4 Bright A_Explode(128, 128, 1, 1)
+    ROB3 P 4 Bright A_TossGib
+    ROB3 Q 4 Bright A_NoBlocking
+    ROB3 RSTUV 4 A_TossGib
+    ROB3 W 4 Bright A_Explode(128, 128, 1, 1)
+    ROB3 XY 4 Bright A_TossGib
+    ROB3 Z 4 A_TossGib
+    ROB3 "[" 4 A_TossGib
+    ROB3 "\" 3 A_TossGib
+    ROB3 "]" 3 Bright A_Explode(128, 128, 1, 1)
+    RBB3 A 3 Bright A_TossArm
+    RBB3 B 3 Bright A_TossGib
+    RBB3 CD 3 A_TossGib
+    RBB3 E -1
+    Stop
+  Raise:
+    RBB3 CDBA 3 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ROB3 "]" 3 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ROB3 "\" 3 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ROB3 "[" 3 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ROB3 ZYXWVUTSRQPONML 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    goto See
+  }
+}
+
+ACTOR ReaverNew : Reaver replaces Reaver
+{
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  DamageFactor "Thunder", 1.75
+
+  ConversationID 52
+  Painchance 128
+  Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
+
+  +NOBLOOD
+  +INCOMBAT
+  States
+  {
+  Spawn:
+    TNT1 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ROB1 A 10 A_Look
+    Loop
+  See:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ROB1 BBCCDDEE 3 A_Chase
+    Loop
+  Melee:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    ROB1 H 6 Slow A_FaceTarget
+    ROB1 I 8 Slow A_CustomMeleeAttack(random[ReaverMelee](1, 8)*3, "reaver/blade")
+    ROB1 H 6 Slow
+    Goto See
+  Missile:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    ROB1 F 8 Slow A_FaceTarget
+    ROB1 G 11 Slow Bright A_ReaverRanged
+    Goto See
+  Pain:
+    ROB1 A 2 Slow
+    ROB1 A 2 A_Pain
+    Goto See
+
+  Pain.GravityHP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+    Goto See
+  Pain.GravityMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+    Goto See
+  Pain.GravityHPMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+    Goto See
+  Pain.Sceptre:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 
+    Goto Pain
+  Death.Sceptre:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  Pain.Gauntlets:
+    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+    Goto Pain
+  Death.Gauntlets:
+    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  DeathCheck:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
+    TNT1 A 0 
+    goto Death+1
+  Death:
+    TNT1 A 0 A_Jump(1, "DeathCheck")
+    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    ROB1 J 6
+    ROB1 K 6 A_Scream
+    ROB1 L 5
+    ROB1 M 5 A_NoBlocking
+    ROB1 NOP 5
+    ROB1 Q 6 A_Explode(32, 32, 1, 1)
+    ROB1 R -1
+    Stop
+  XDeathCheck:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
+    TNT1 A 0 
+    goto XDeath+1
+  XDeath:
+    TNT1 A 0 A_Jump(1, "DeathCheck")
+    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    ROB1 L 5 A_TossGib
+    ROB1 M 5 A_Scream
+    ROB1 N 5 A_TossGib
+    ROB1 O 5 A_NoBlocking
+    ROB1 P 5 A_TossGib
+    Goto Death+10
+  Raise:
+    ROB1 Q 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ROB1 PONML 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ROB1 KJ 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    goto See
+
+  }
+}
+
+ACTOR CrusaderNew : Crusader replaces Crusader
+{
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  DamageFactor "Thunder", 1.75
+
+  ConversationID 63
+  Painchance 128
+  Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
+
+  +FLOORCLIP
+  +DONTMORPH
+  +MISSILEMORE
+  +INCOMBAT
+  +NOICEDEATH
+  +NOBLOOD
+
+  States
+  {
+  Spawn:
+    TNT1 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ROB2 Q 10 A_Look
+    Loop
+  See:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ROB2 AABBCCDD 3 A_Chase
+    Loop
+  Missile:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    ROB2 E 3 Slow A_FaceTarget
+    ROB2 F 2 Slow Bright A_CrusaderChoose
+    ROB2 E 2 Slow Bright A_CrusaderSweepLeft
+    ROB2 F 3 Slow Bright A_CrusaderSweepLeft
+    ROB2 EF 2 Slow Bright A_CrusaderSweepLeft
+    ROB2 EFE 2 Slow Bright A_CrusaderSweepRight
+    ROB2 F 2 Slow A_CrusaderRefire
+    Loop
+  Pain:
+    ROB2 D 1 Slow A_Pain
+    Goto See
+
+  Pain.GravityHP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+    Goto See
+  Pain.GravityMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+    Goto See
+  Pain.GravityHPMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+    Goto See
+  Pain.Sceptre:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 
+    Goto Pain
+  Death.Sceptre:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  Pain.Gauntlets:
+    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+    Goto Pain
+  Death.Gauntlets:
+    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  DeathCheck:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
+    TNT1 A 0 
+    goto Death+1
+  Death:
+    TNT1 A 0 A_Jump(1, "DeathCheck")
+    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    ROB2 G 3 A_Scream
+    ROB2 H 5 A_TossGib
+    ROB2 I 4 Bright A_TossGib
+    ROB2 J 4 Bright A_Explode(64, 64, 1, 1)
+    ROB2 K 4 Bright A_Fall
+    ROB2 L 4 A_Explode(64, 64, 1, 1)
+    ROB2 MN 4 A_TossGib
+    ROB2 O 4 A_Explode(64, 64, 1, 1)
+    ROB2 P -1 A_CrusaderDeath
+    Stop
+
+  Raise:
+    ROB2 ONMLKJI 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ROB2 H 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ROB2 G 3 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    goto See
+  }
+}
+
+ACTOR SentinelNew : Sentinel replaces Sentinel
+{
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  DamageFactor "Thunder", 1.75
+
+  ConversationID 91
+  Painchance 255
+  Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
+
+  +SPAWNCEILING
+  +NOGRAVITY
+  +DROPOFF
+  +NOBLOOD
+  +NOBLOCKMONST
+  +INCOMBAT
+  +MISSILEMORE
+  +LOOKALLAROUND
+  +NEVERRESPAWN
+
+  States
+  {
+  Spawn:
+    TNT1 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    SEWR A 10 A_Look
+    Loop
+  See:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    SEWR A 6 A_SentinelBob
+    SEWR A 6 A_Chase
+    Loop
+  Missile:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    SEWR B 4 A_FaceTarget
+    SEWR C 8 Bright A_SentinelAttack
+    SEWR C 4 Bright A_SentinelRefire
+    Goto Missile+2
+  Pain:
+    SEWR D 5 A_Pain
+    Goto Missile+3
+
+  Pain.GravityHP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+    Goto See
+  Pain.GravityMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+    Goto See
+  Pain.GravityHPMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+    Goto See
+  Pain.Sceptre:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 
+    Goto Pain
+  Death.Sceptre:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  Pain.Gauntlets:
+    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+    Goto Pain
+  Death.Gauntlets:
+    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  DeathCheck:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
+    TNT1 A 0 
+    goto Death+1
+  Death:
+    TNT1 A 0 A_Jump(1, "DeathCheck")
+    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    SEWR D 7 A_Fall
+    SEWR E 8 Bright A_TossGib
+    SEWR F 5 Bright A_Scream
+    SEWR GH 4 Bright A_TossGib
+    SEWR I 4
+    SEWR J 5
+    Stop
+  }
+}
+
+ACTOR StalkerNew : Stalker replaces Stalker
+{
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  DamageFactor "Thunder", 1.75
+
+  ConversationID 92
+  PainChance 40
+  Painchance "Fist", 60 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 60 // Fist attacks have a +50% chance of stunning an enemy
+
+  +NOGRAVITY
+  +DROPOFF
+  +NOBLOOD
+  +SPAWNCEILING
+  +INCOMBAT
+  +NOVERTICALMELEERANGE
+
+  States
+  {
+  Spawn:
+    TNT1 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    STLK A 1 A_StalkerLookInit
+    Loop
+  LookCeiling:
+    STLK A 10 A_Look
+    Loop
+  LookFloor:
+    STLK J 10 A_Look
+    Loop
+  See:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    STLK A 1 Slow A_StalkerChaseDecide
+    STLK ABB 3 Slow A_Chase
+    STLK C 3 Slow A_StalkerWalk
+    STLK C 3 Slow A_Chase
+    Loop
+  Melee:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    STLK J 3 Slow A_FaceTarget
+    STLK K 3 Slow A_StalkerAttack
+  SeeFloor:
+    STLK J 3 A_StalkerWalk
+    STLK KK 3 A_Chase
+    STLK L 3 A_StalkerWalk
+    STLK L 3 A_Chase
+    Loop
+  Pain:
+    STLK L 1 A_Pain
+    Goto See
+  Drop:
+    STLK C 2 A_StalkerDrop
+    STLK IHGFED 3
+    Goto SeeFloor
+
+  Pain.GravityHP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+    Goto See
+  Pain.GravityMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+    Goto See
+  Pain.GravityHPMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+    Goto See
+  Pain.Sceptre:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 
+    Goto Pain
+  Death.Sceptre:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  Pain.Gauntlets:
+    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+    Goto Pain
+  Death.Gauntlets:
+    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  DeathCheck:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
+    TNT1 A 0 
+    goto Death+1
+  Death:
+    TNT1 A 0 A_Jump(1, "DeathCheck")
+    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    STLK O 4
+    STLK P 4 A_Scream
+    STLK QRST 4
+    STLK U 4 A_NoBlocking
+    STLK VW 4
+    STLK "XYZ[" 4 Bright
+    Stop
+  }
 }
