@@ -1,0 +1,74 @@
+ACTOR Mana1New : Ammo replaces Mana1
+{
+	Game Hexen
+	SpawnID 11
+	Inventory.Amount 15
+	Inventory.MaxAmount 200
+	Ammo.BackpackAmount 15
+	Ammo.BackpackMaxAmount 200
+	Radius 8
+	Height 8
+	+FLOATBOB
+	+NOGRAVITY
+	Inventory.Icon "MAN1I0"
+	Inventory.PickupMessage "$TXT_MANA_1"
+	States
+	{
+	Spawn:
+        TNT1 A 0 NoDelay A_SpawnItemEx("DoomSpellMana",0,0,0,0,0,0,0,0,0)
+        TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,56)
+        TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,206)
+   	    TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,243)
+		Stop
+	}
+}
+
+ACTOR Mana2New : Ammo replaces Mana2
+{
+	Game Hexen
+	SpawnID 11
+	Inventory.Amount 15
+	Inventory.MaxAmount 200
+	Ammo.BackpackAmount 15
+	Ammo.BackpackMaxAmount 200
+	Radius 8
+	Height 8
+	+FLOATBOB
+	+NOGRAVITY
+	Inventory.Icon "MAN1I0"
+	Inventory.PickupMessage "$TXT_MANA_1"
+	States
+	{
+	Spawn:
+        TNT1 A 0 NoDelay A_SpawnItemEx("DoomSpellMana",0,0,0,0,0,0,0,0,0)
+        TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,56)
+        TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,206)
+   	    TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,243)
+		Stop
+	}
+}
+
+ACTOR Mana3New : Ammo replaces Mana3
+{
+	Game Hexen
+	SpawnID 11
+	Inventory.Amount 15
+	Inventory.MaxAmount 200
+	Ammo.BackpackAmount 15
+	Ammo.BackpackMaxAmount 200
+	Radius 8
+	Height 8
+	+FLOATBOB
+	+NOGRAVITY
+	Inventory.Icon "MAN1I0"
+	Inventory.PickupMessage "$TXT_MANA_1"
+	States
+	{
+	Spawn:
+        TNT1 A 0 NoDelay A_SpawnItemEx("DoomSpellMana2",0,0,0,0,0,0,0,0,0)
+        TNT1 A 0 A_SpawnItemEx("DoomSpellMana2",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,56)
+        TNT1 A 0 A_SpawnItemEx("DoomSpellMana2",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,206)
+   	    TNT1 A 0 A_SpawnItemEx("DoomSpellMana2",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,243)
+		Stop
+	}
+}

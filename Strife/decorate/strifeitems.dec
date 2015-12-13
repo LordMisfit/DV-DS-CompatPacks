@@ -1,0 +1,73 @@
+ACTOR MedPatch : HealthPickup 2011
+{
+	Game Strife
+	ConversationID 125, 121, 124
+	Health -10
+	+FLOORCLIP
+	+INVENTORY.INVBAR
+	Inventory.MaxAmount 99
+	Tag "$TAG_MEDPATCH"
+	Inventory.Icon "I_STMP"
+	Inventory.PickupMessage "$TXT_MEDPATCH"
+	HealthPickup.Autouse 3
+	States
+	{
+    SpawnHerb:
+        TNT1 A 0 A_SpawnItemEx("MedicinalHerb",0,0,0,0,0,0,0,0,0)
+        goto Idle
+	Spawn:
+		STMP A 0 NoDelay A_Jump(64,"SpawnHerb")
+	Idle:
+		STMP A -1
+		Stop
+	}
+}
+
+ACTOR MedicalKit : HealthPickup 2012
+{
+	Game Strife
+	ConversationID 126, 122, 125
+	Health -25
+	+FLOORCLIP
+	+INVENTORY.INVBAR
+	Inventory.MaxAmount 99
+	Tag "$TAG_MEDICALKIT"
+	Inventory.Icon "I_MDKT"
+	Inventory.PickupMessage "$TXT_MEDICALKIT"
+	HealthPickup.Autouse 3
+	States
+	{
+    SpawnHerb:
+        TNT1 A 0 A_SpawnItemEx("StrongMedicine",0,0,0,0,0,0,0,0,0)
+        goto Idle
+	Spawn:
+		STMP A 0 NoDelay A_Jump(64,"SpawnHerb")
+	Idle:
+		MDKT A -1
+		Stop
+	}
+}
+
+ACTOR SurgeryKit : HealthPickup 83
+{
+	Game Strife
+	ConversationID 127, 123, 126
+	+FLOORCLIP
+	+INVENTORY.INVBAR
+	Health -100
+	Inventory.MaxAmount 5
+	Tag "$TAG_SURGERYKIT"
+	Inventory.Icon "I_FULL"
+	Inventory.PickupMessage "$TXT_SURGERYKIT"
+	States
+	{
+    SpawnHerb:
+        TNT1 A 0 A_SpawnItemEx("SpecialMedicine",0,0,0,0,0,0,0,0,0)
+        goto Idle
+	Spawn:
+		STMP A 0 NoDelay A_Jump(64,"SpawnHerb")
+	Idle:
+		FULL AB 35
+		Loop
+	}
+}
