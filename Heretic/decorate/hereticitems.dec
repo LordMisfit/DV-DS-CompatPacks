@@ -1,0 +1,53 @@
+ACTOR ArtiHealth : CustomInventory // HealthPickup
+{
+  +DONTGIB
+  +COUNTITEM
+  +FLOATBOB
+  +INVENTORY.PICKUPFLASH
+  +INVENTORY.FANCYPICKUPSOUND
+  +INVENTORY.INVBAR
+  +INVENTORY.HUBPOWER
+  +INVENTORY.PERSISTENTPOWER
+  +INVENTORY.KEEPDEPLETED
+  Inventory.DefMaxAmount
+  Inventory.Icon ARTIPTN2
+  Inventory.PickupSound "misc/p_pkup"
+  Inventory.PickupMessage "$TXT_ARTIHEALTH" // "QUARTZ FLASK"
+  Tag "$TAG_ARTIHEALTH"
+  States
+  {
+  Spawn:
+    PTN2 ABC 4
+    Loop
+  Use:
+    TNT1 A 0 ACS_NamedExecuteAlways("UseCustomInventoryItem",0,-1)
+	fail
+  }
+}
+
+ACTOR ArtiSuperHealth : CustomInventory // HealthPickup
+{
+  +DONTGIB
+  +COUNTITEM
+  +FLOATBOB
+  +INVENTORY.PICKUPFLASH
+  +INVENTORY.FANCYPICKUPSOUND
+  +INVENTORY.INVBAR
+  +INVENTORY.HUBPOWER
+  +INVENTORY.PERSISTENTPOWER
+  +INVENTORY.KEEPDEPLETED
+  Inventory.DefMaxAmount
+  Inventory.Icon ARTISPHL
+  Inventory.PickupSound "misc/p_pkup"
+  Inventory.PickupMessage "$TXT_ARTISUPERHEALTH" // "MYSTIC URN"
+  Tag "$TAG_ARTISUPERHEALTH"
+  States
+  {
+  Spawn:
+    SPHL A 350
+    Loop
+  Use:
+    TNT1 A 0 ACS_NamedExecuteAlways("UseCustomInventoryItem",0,-2)
+	fail
+  }
+}
