@@ -2,7 +2,7 @@ ACTOR MedPatch : HealthPickup 2011
 {
 	Game Strife
 	ConversationID 125, 121, 124
-	Health -10
+	Health 10
 	+FLOORCLIP
 	+INVENTORY.INVBAR
 	Inventory.MaxAmount 99
@@ -27,7 +27,7 @@ ACTOR MedicalKit : HealthPickup 2012
 {
 	Game Strife
 	ConversationID 126, 122, 125
-	Health -25
+	Health 25
 	+FLOORCLIP
 	+INVENTORY.INVBAR
 	Inventory.MaxAmount 99
@@ -55,7 +55,7 @@ ACTOR SurgeryKit : HealthPickup 83
 	+FLOORCLIP
 	+INVENTORY.INVBAR
 	Health -100
-	Inventory.MaxAmount 5
+	Inventory.MaxAmount 99
 	Tag "$TAG_SURGERYKIT"
 	Inventory.Icon "I_FULL"
 	Inventory.PickupMessage "$TXT_SURGERYKIT"

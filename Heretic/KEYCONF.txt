@@ -1,3 +1,2 @@
 clearplayerclasses
 addplayerclass FloraBriscoletti
-addplayerclass HereticPlayer
