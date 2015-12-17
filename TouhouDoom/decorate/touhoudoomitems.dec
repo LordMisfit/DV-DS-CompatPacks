@@ -1,0 +1,167 @@
+ACTOR BlueManaNew : BMana replaces BMana
+{
+	States
+	{
+	Spawn:
+        TNT1 A 0
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,0,0,0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,40)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,202)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,242)
+		Stop
+	}
+}
+ACTOR BigBlueManaNew : BBMana replaces BBMana
+{
+	States
+	{
+	Spawn:
+        TNT1 A 0
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana2",0,0,0,0,0,0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana2",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,20)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana2",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,101)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana2",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,121)
+		Stop
+	}
+}
+ACTOR SmallBlueManaNew : SBMana replaces SBMana
+{
+	States
+	{
+	Spawn:
+        TNT1 A 0
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,0,0,0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,80)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,229)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,249)
+		Stop
+	}
+}
+ACTOR MediumBlueManaNew : MBMana replaces MBMana
+{
+	States
+	{
+	Spawn:
+        TNT1 A 0
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,0,0,0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,60)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,215)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,245)
+		Stop
+	}
+}
+ACTOR GreenManaNew : GMana replaces GMana
+{
+	States
+	{
+	Spawn:
+        TNT1 A 0
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,0,0,0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,40)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,202)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,242)
+		Stop
+	}
+}
+ACTOR BigGreenManaNew : GBigMana replaces GBigMana
+{
+	States
+	{
+	Spawn:
+        TNT1 A 0
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana2",0,0,0,0,0,0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana2",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,20)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana2",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,101)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana2",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,121)
+		Stop
+	}
+}
+ACTOR SmallGreenManaNew : GSmallMana replaces GSmallMana
+{
+	States
+	{
+	Spawn:
+        TNT1 A 0
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,0,0,0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,80)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,229)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,249)
+		Stop
+	}
+}
+ACTOR MediumGreenManaNew : MGMana replaces MGMana
+{
+	States
+	{
+	Spawn:
+        TNT1 A 0
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,0,0,0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,60)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,215)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,245)
+		Stop
+	}
+}
+
+ACTOR CombinedManaNew : CMana replaces CMana
+{
+	States
+	{
+	Spawn:
+        TNT1 A 0
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana3",0,0,0,0,0,0,0,0,0)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana3",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,80)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana3",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,229)
+		TNT1 A 0 A_SpawnItemEx("DoomSpellMana3",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,249)
+		Stop
+	}
+}
+
+ACTOR CWeapStaff1New : CWeapStaff1 replaces CWeapStaff1
+{
+  States
+  {
+   FloraDetected: // bonus will be turned into something else
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,64)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,224)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,248)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,254)
+
+    TNT1 A 0 A_CheckFlag("DROPPED","FloraDetectedEnd") // Only a natural spawned weapon will drop extra health bonuses [and a tiny chance for a Max Health Bonus or Seed].
+    //TNT1 A 0 A_PrintBold("Not Dropped - Shotgun")
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,64)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,224)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,248)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,254)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,64)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,224)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,248)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,254)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,64)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,224)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,248)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,254)
+    TNT1 A 0 A_SpawnItemEx("MaxHealthBonusREAL",random(-3,3),random(-3,3),0,random(-1,1),random(-1,1),random(-1,1),0,0,255)
+    TNT1 A 0 A_SpawnItemEx("RandomSeedDropForcedAlways",random(-3,3),random(-3,3),0,random(-1,1),random(-1,1),random(-1,1),0,0,255)
+    TNT1 A 0 A_SpawnItemEx("Backpack",random(-3,3),random(-3,3),0,random(-1,1),random(-1,1),random(-1,1),0,0,252)
+
+   FloraDetectedEnd:
+    TNT1 A 0 
+    TNT1 A 0 A_SpawnItemEx("DiarisLongBow",0,0,0,0,0,0,0,0,254)
+    TNT1 A 0 A_FadeOut(1.0)
+    Loop
+
+   Spawn:
+    TNT1 A 0
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+   Idle:
+    TNT1 A 0 A_SpawnItemEx("CWeapStaff1",0,0,0,0,0,0,0,0,0)
+    TNT1 A 0 A_FadeOut(1.0)
+    Loop
+  }
+}
