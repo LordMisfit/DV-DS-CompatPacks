@@ -1,6 +1,6 @@
 actor HereticImpNew : HereticImp replaces HereticImp
 {
- var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+ var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -98,7 +98,7 @@ actor HereticImpNew : HereticImp replaces HereticImp
 
 actor HereticImpLeaderNew : HereticImpLeader replaces HereticImpLeader
 {
- var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+ var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -192,7 +192,7 @@ actor HereticImpLeaderNew : HereticImpLeader replaces HereticImpLeader
 
 actor MummyNew : Mummy replaces Mummy
 {
- var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+ var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -276,7 +276,7 @@ actor MummyNew : Mummy replaces Mummy
 
 actor MummyGhostNew : MummyGhost replaces MummyGhost
 {
- var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+ var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -360,7 +360,7 @@ actor MummyGhostNew : MummyGhost replaces MummyGhost
 
 actor MummyLeaderNew : MummyLeader replaces MummyLeader
 {
- var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+ var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -453,7 +453,7 @@ actor MummyLeaderNew : MummyLeader replaces MummyLeader
 
 actor MummyLeaderGhostNew : MummyLeaderGhost replaces MummyLeaderGhost
 {
- var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+ var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -546,7 +546,7 @@ actor MummyLeaderGhostNew : MummyLeaderGhost replaces MummyLeaderGhost
 
 ACTOR KnightNew : Knight replaces Knight
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -633,7 +633,7 @@ ACTOR KnightNew : Knight replaces Knight
 
 ACTOR KnightGhostNew : KnightGhost replaces KnightGhost
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -720,7 +720,7 @@ ACTOR KnightGhostNew : KnightGhost replaces KnightGhost
 
 ACTOR WizardNew : Wizard replaces Wizard
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -816,7 +816,7 @@ ACTOR WizardNew : Wizard replaces Wizard
 
 ACTOR IronlichNew : Ironlich replaces Ironlich
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -898,7 +898,7 @@ ACTOR IronlichNew : Ironlich replaces Ironlich
 
 ACTOR ClinkNew : Clink replaces Clink
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -981,7 +981,7 @@ ACTOR ClinkNew : Clink replaces Clink
 
 ACTOR BeastNew : Beast replaces Beast
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -1086,7 +1086,7 @@ ACTOR BeastNew : Beast replaces Beast
 
 ACTOR MaulotaurNew : Minotaur replaces Minotaur
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -1227,7 +1227,7 @@ ACTOR MaulotaurNew : Minotaur replaces Minotaur
 
 ACTOR SnakeNew : Snake replaces Snake
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -1311,7 +1311,7 @@ ACTOR SnakeNew : Snake replaces Snake
 
 ACTOR DSparilMountedNew : Sorcerer1 replaces Sorcerer1
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -1399,7 +1399,7 @@ ACTOR DSparilMountedNew : Sorcerer1 replaces Sorcerer1
 
 ACTOR DSparilUnmountedNew : Sorcerer2 replaces Sorcerer2
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 

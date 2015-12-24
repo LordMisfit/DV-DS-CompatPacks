@@ -3,7 +3,7 @@
 //*****************
 ACTOR Fairy1New : Fairy1 replaces Fairy1 31134
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -122,7 +122,7 @@ ACTOR Fairy1New : Fairy1 replaces Fairy1 31134
 
 ACTOR Fairy2New : Fairy2 replaces Fairy2 31135
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -252,7 +252,7 @@ ACTOR Fairy2New : Fairy2 replaces Fairy2 31135
 
 ACTOR Fairy3New : Fairy3 replaces Fairy3 31151
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -403,7 +403,7 @@ ACTOR Fairy4New : Fairy4 replaces Fairy4 31150
   Painchance "Fist", 15 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Gauntlets", 15 // Fist attacks have a +50% chance of stunning an enemy
 
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -556,7 +556,7 @@ ACTOR Fairy4New : Fairy4 replaces Fairy4 31150
 
 ACTOR Fairy5New : Fairy5 replaces Fairy5 31157
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -693,7 +693,7 @@ ACTOR Fairy5New : Fairy5 replaces Fairy5 31157
 //********************************************
 ACTOR RumiaMidBossNew : RumiaMidBoss replaces RumiaMidBoss 31200
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -858,7 +858,7 @@ ACTOR RumiaMidBossNew : RumiaMidBoss replaces RumiaMidBoss 31200
 
 ACTOR RumiaNew : Rumia replaces Rumia 31199
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -1070,7 +1070,7 @@ ACTOR RumiaNew : Rumia replaces Rumia 31199
 //********************************
 ACTOR DaiyouseiNew : Daiyousei replaces Daiyousei 31153
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -1276,7 +1276,7 @@ ACTOR DaiyouseiNew : Daiyousei replaces Daiyousei 31153
 //*********************************
 ACTOR CirnoNew : Cirno replaces Cirno 31154
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -1494,7 +1494,7 @@ ACTOR CirnoNew : Cirno replaces Cirno 31154
 
 ACTOR MeilingMidBossNew : MeilingMidBoss replaces MeilingMidBoss 31155
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
@@ -1658,7 +1658,7 @@ ACTOR MeilingMidBossNew : MeilingMidBoss replaces MeilingMidBoss 31155
 
 ACTOR MeilingNew : Meiling replaces Meiling 31156
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed;
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
