@@ -71,3 +71,123 @@ ACTOR SurgeryKit : HealthPickup 83
 		Loop
 	}
 }
+
+// MONEY :V
+// Spawns the 10 Gold pickup plus a possible few extra coins
+ACTOR Gold10New : Gold10 replaces Gold10
+{
+  Inventory.Amount 10
+  Tag "$TAG_10GOLD" // "10 gold"
+  Inventory.PickupMessage "$TXT_10GOLD" // "You picked up 10 gold."
+  States
+  {
+  Spawn:
+    CRED A 0 
+    CRED A 0 A_SpawnItemEx("Gold10Actual",0,0,0,0,0,0,0,0,0)
+    CRED A 0 A_SpawnItemEx("Coin",random(-3,3),random(-3,3),random(-3,3),random(-3,3),random(-3,3),random(-3,3),0,0,64)
+    CRED A 0 A_SpawnItemEx("Coin",random(-3,3),random(-3,3),random(-3,3),random(-3,3),random(-3,3),random(-3,3),0,0,64)
+    CRED A 0 A_SpawnItemEx("Coin",random(-3,3),random(-3,3),random(-3,3),random(-3,3),random(-3,3),random(-3,3),0,0,128)
+    CRED A 0 A_SpawnItemEx("Coin",random(-3,3),random(-3,3),random(-3,3),random(-3,3),random(-3,3),random(-3,3),0,0,128)
+    CRED A 0 A_SpawnItemEx("Coin",random(-3,3),random(-3,3),random(-3,3),random(-3,3),random(-3,3),random(-3,3),0,0,192)
+    CRED A 0 A_SpawnItemEx("Coin",random(-3,3),random(-3,3),random(-3,3),random(-3,3),random(-3,3),random(-3,3),0,0,192)
+    Stop
+  }
+}
+
+// The proper "10 Gold" pickup
+ACTOR Gold10Actual : Coin
+{
+  Inventory.Amount 10
+  Tag "$TAG_10GOLD" // "10 gold"
+  Inventory.PickupMessage "$TXT_10GOLD" // "You picked up 10 gold."
+  States
+  {
+  Spawn:
+    CRED A -1
+    Stop
+  }
+}
+
+ACTOR Gold25New : Gold25 replaces Gold25
+{
+  Inventory.Amount 25
+  Tag "$TAG_25GOLD" // "25 gold"
+  Inventory.PickupMessage "$TXT_25GOLD" // "You picked up 25 gold."
+  States
+  {
+  Spawn:
+    SACK A 0 
+    SACK A 0 A_SpawnItemEx("Gold25Actual",0,0,0,0,0,0,0,0,0)
+    SACK A 0 A_SpawnItemEx("Gold10Actual",random(-3,3),random(-3,3),random(-3,3),random(-3,3),random(-3,3),random(-3,3),0,0,112)
+    SACK A 0 A_SpawnItemEx("Gold10Actual",random(-3,3),random(-3,3),random(-3,3),random(-3,3),random(-3,3),random(-3,3),0,0,224)
+    SACK A 0 A_SpawnItemEx("Gold10Actual",random(-3,3),random(-3,3),random(-3,3),random(-3,3),random(-3,3),random(-3,3),0,0,240)
+    SACK A 0 A_SpawnItemEx("Coin",random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),0,0,32)
+    SACK A 0 A_SpawnItemEx("Coin",random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),0,0,64)
+    SACK A 0 A_SpawnItemEx("Coin",random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),0,0,96)
+    SACK A 0 A_SpawnItemEx("Coin",random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),0,0,128)
+    SACK A 0 A_SpawnItemEx("Coin",random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),0,0,160)
+    SACK A 0 A_SpawnItemEx("Coin",random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),0,0,192)
+    SACK A 0 A_SpawnItemEx("Coin",random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),0,0,224)
+    Stop
+  }
+}
+
+ACTOR Gold25Actual : Coin
+{
+  Inventory.Amount 25
+  Tag "$TAG_25GOLD" // "25 gold"
+  Inventory.PickupMessage "$TXT_25GOLD" // "You picked up 25 gold."
+  States
+  {
+  Spawn:
+    SACK A -1
+    Stop
+  }
+}
+
+ACTOR Gold50New : Gold50 replaces Gold50
+{
+  Inventory.Amount 50
+  Tag "$TAG_50GOLD" // "50 gold"
+  Inventory.PickupMessage "$TXT_50GOLD" // "You picked up 50 gold."
+  States
+  {
+  Spawn:
+    CHST A 0 
+    CHST A 0 A_SpawnItemEx("Gold50Actual",0,0,0,0,0,0,0,0,0)
+    CHST A 0 A_SpawnItemEx("Gold25Actual",random(-3,3),random(-3,3),random(-3,3),random(-3,3),random(-3,3),random(-3,3),0,0,224)
+    CHST A 0 A_SpawnItemEx("Gold25Actual",random(-3,3),random(-3,3),random(-3,3),random(-3,3),random(-3,3),random(-3,3),0,0,224)
+    CHST A 0 A_SpawnItemEx("Gold25Actual",random(-3,3),random(-3,3),random(-3,3),random(-3,3),random(-3,3),random(-3,3),0,0,160)
+    CHST A 0 A_SpawnItemEx("Gold10Actual",random(-4,4),random(-4,4),random(-4,4),random(-4,4),random(-4,4),random(-4,4),0,0,224)
+    CHST A 0 A_SpawnItemEx("Gold10Actual",random(-4,4),random(-4,4),random(-4,4),random(-4,4),random(-4,4),random(-4,4),0,0,224)
+    CHST A 0 A_SpawnItemEx("Gold10Actual",random(-4,4),random(-4,4),random(-4,4),random(-4,4),random(-4,4),random(-4,4),0,0,160)
+    CHST A 0 A_SpawnItemEx("Coin",random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),0,0,32)
+    CHST A 0 A_SpawnItemEx("Coin",random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),0,0,32)
+    CHST A 0 A_SpawnItemEx("Coin",random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),0,0,64)
+    CHST A 0 A_SpawnItemEx("Coin",random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),0,0,64)
+    CHST A 0 A_SpawnItemEx("Coin",random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),0,0,96)
+    CHST A 0 A_SpawnItemEx("Coin",random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),0,0,96)
+    CHST A 0 A_SpawnItemEx("Coin",random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),0,0,128)
+    CHST A 0 A_SpawnItemEx("Coin",random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),0,0,128)
+    CHST A 0 A_SpawnItemEx("Coin",random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),0,0,160)
+    CHST A 0 A_SpawnItemEx("Coin",random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),0,0,160)
+    CHST A 0 A_SpawnItemEx("Coin",random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),0,0,192)
+    CHST A 0 A_SpawnItemEx("Coin",random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),0,0,192)
+    CHST A 0 A_SpawnItemEx("Coin",random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),0,0,224)
+    CHST A 0 A_SpawnItemEx("Coin",random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),random(-5,5),0,0,224)
+    Stop
+  }
+}
+
+ACTOR Gold50Actual : Coin
+{
+  Inventory.Amount 50
+  Tag "$TAG_50GOLD" // "50 gold"
+  Inventory.PickupMessage "$TXT_50GOLD" // "You picked up 50 gold."
+  States
+  {
+  Spawn:
+    CHST A -1
+    Stop
+  }
+}
