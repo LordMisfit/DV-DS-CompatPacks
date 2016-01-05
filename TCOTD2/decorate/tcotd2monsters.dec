@@ -717,7 +717,7 @@ ACTOR NightmareNew : KDiZDNightmare replaces KDiZDNightmare
   }
 }
 
-ACTOR SirenNightmareNew : KDiZDNightmareNew replaces SirenNightmare
+ACTOR SirenNightmareNew : NightmareNew replaces SirenNightmare
 {
     SpawnID 247
     Health 300
