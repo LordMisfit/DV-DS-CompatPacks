@@ -3,6 +3,7 @@ ACTOR ApprenticeNew : ApprenticeofDsparil replaces ApprenticeofDsparil
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+  Health 1250
 
   PainChance 100
   Painchance "Fist", 150 // Fist attacks have a +50% chance of stunning an enemy
@@ -219,6 +220,7 @@ ACTOR LargeSpiderNew : LargeSpider replaces LargeSpider
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+  Health 375
 
   States
   {
@@ -639,7 +641,7 @@ ACTOR ThrallNew : Thrall replaces Thrall
    } 
 }
 
-ACTOR KDiZDNightmareNew : KDiZDNightmare replaces KDiZDNightmare
+ACTOR NightmareNew : KDiZDNightmare replaces KDiZDNightmare
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
@@ -935,6 +937,8 @@ ACTOR ShadowNew : Shadow replaces Shadow
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+  OBITUARY "%o was assassinated by a shadow."
+  Health 750
 
   PainChance 200
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
