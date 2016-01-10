@@ -1,3 +1,158 @@
+//***********************
+//**Weapom Replacements**
+//***********************
+// Slot 4 Hellcore [replaces 2nd weapons in Hexen]
+actor FWeapAxeNew : RandomSpawner replaces FWeapAxe
+{
+    DropItem "DiarisLongbow"
+    DropItem "ImpClawCI"
+    DropItem "DarkImpClawCI"
+    DropItem "CacodemonEyeCI"
+    DropItem "CacolanternEyeCI"
+    DropItem "AbaddonEyeCI"
+    DropItem "KnightFistCI"
+}
+actor CWeapStaffNew : RandomSpawner replaces CWeapStaff
+{
+    DropItem "DiarisLongbow"
+    DropItem "ImpClawCI"
+    DropItem "DarkImpClawCI"
+    DropItem "CacodemonEyeCI"
+    DropItem "CacolanternEyeCI"
+    DropItem "AbaddonEyeCI"
+    DropItem "KnightFistCI"
+}
+actor MWeapFrostNew : RandomSpawner replaces MWeapFrost
+{
+    DropItem "DiarisLongbow"
+    DropItem "ImpClawCI"
+    DropItem "DarkImpClawCI"
+    DropItem "CacodemonEyeCI"
+    DropItem "CacolanternEyeCI"
+    DropItem "AbaddonEyeCI"
+    DropItem "KnightFistCI"
+}
+
+// Slot 5 Hellcore [replaces 3rd weapons in Hexen]
+actor FWeapHammerNew : RandomSpawner replaces FWeapHammer
+{
+    DropItem "DiarisLongbow"
+    DropItem "IncarnateSkullCI"
+    DropItem "BaronFistCI"
+    DropItem "BelphegorFistCI"
+    DropItem "BruiserFistCI"
+    DropItem "ArchonFistCI"
+    DropItem "PyroFistCI"
+}
+actor CWeapFlameNew : RandomSpawner replaces CWeapFlame
+{
+    DropItem "DiarisLongbow"
+    DropItem "IncarnateSkullCI"
+    DropItem "BaronFistCI"
+    DropItem "BelphegorFistCI"
+    DropItem "BruiserFistCI"
+    DropItem "ArchonFistCI"
+    DropItem "PyroFistCI"
+}
+actor MWeapLightningNew : RandomSpawner replaces MWeapLightning
+{
+    DropItem "DiarisLongbow"
+    DropItem "IncarnateSkullCI"
+    DropItem "BaronFistCI"
+    DropItem "BelphegorFistCI"
+    DropItem "BruiserFistCI"
+    DropItem "ArchonFistCI"
+    DropItem "PyroFistCI"
+}
+
+actor FWeaponPiece1New : RandomSpawner replaces FWeaponPiece1
+{
+    DropItem "DiarisLongbow"
+    DropItem "BalrogFistCI"
+    DropItem "ArchvileHandCI"
+    DropItem "DiabloistHandCI"
+}
+actor FWeaponPiece2New : RandomSpawner replaces FWeaponPiece2
+{
+    DropItem "DiarisLongbow"
+    DropItem "BalrogFistCI"
+    DropItem "ArchvileHandCI"
+    DropItem "DiabloistHandCI"
+}
+actor FWeaponPiece3New : RandomSpawner replaces FWeaponPiece3
+{
+    DropItem "DiarisLongbow"
+    DropItem "BalrogFistCI"
+    DropItem "ArchvileHandCI"
+    DropItem "DiabloistHandCI"
+}
+actor FWeapQuietusNew : RandomSpawner replaces FWeapQuietus
+{
+    DropItem "DiarisLongbow"
+    DropItem "BalrogFistCI"
+    DropItem "ArchvileHandCI"
+    DropItem "DiabloistHandCI"
+}
+actor CWeaponPiece1New : RandomSpawner replaces CWeaponPiece1
+{
+    DropItem "DiarisLongbow"
+    DropItem "BalrogFistCI"
+    DropItem "ArchvileHandCI"
+    DropItem "DiabloistHandCI"
+}
+actor CWeaponPiece2New : RandomSpawner replaces CWeaponPiece2
+{
+    DropItem "DiarisLongbow"
+    DropItem "BalrogFistCI"
+    DropItem "ArchvileHandCI"
+    DropItem "DiabloistHandCI"
+}
+actor CWeaponPiece3New : RandomSpawner replaces CWeaponPiece3
+{
+    DropItem "DiarisLongbow"
+    DropItem "BalrogFistCI"
+    DropItem "ArchvileHandCI"
+    DropItem "DiabloistHandCI"
+}
+actor CWeapWraithvergeNew : RandomSpawner replaces CWeapWraithverge
+{
+    DropItem "DiarisLongbow"
+    DropItem "BalrogFistCI"
+    DropItem "ArchvileHandCI"
+    DropItem "DiabloistHandCI"
+}
+actor MWeaponPiece1New : RandomSpawner replaces MWeaponPiece1
+{
+    DropItem "DiarisLongbow"
+    DropItem "BalrogFistCI"
+    DropItem "ArchvileHandCI"
+    DropItem "DiabloistHandCI"
+}
+actor MWeaponPiece2New : RandomSpawner replaces MWeaponPiece2
+{
+    DropItem "DiarisLongbow"
+    DropItem "BalrogFistCI"
+    DropItem "ArchvileHandCI"
+    DropItem "DiabloistHandCI"
+}
+actor MWeaponPiece3New : RandomSpawner replaces MWeaponPiece3
+{
+    DropItem "DiarisLongbow"
+    DropItem "BalrogFistCI"
+    DropItem "ArchvileHandCI"
+    DropItem "DiabloistHandCI"
+}
+actor MWeapBloodscourgeNew : RandomSpawner replaces MWeapBloodscourge
+{
+    DropItem "DiarisLongbow"
+    DropItem "BalrogFistCI"
+    DropItem "ArchvileHandCI"
+    DropItem "DiabloistHandCI"
+}
+
+//*******************
+//**Mana Conversion**
+//*******************
 ACTOR Mana1New : Ammo replaces Mana1
 {
 	Game Hexen
@@ -19,6 +174,10 @@ ACTOR Mana1New : Ammo replaces Mana1
         TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,56)
         TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,206)
    	    TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,243)
+   	    TNT1 A 0 A_SpawnItemEx("DiarisArrow",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,224)
+   	    TNT1 A 0 A_SpawnItemEx("DiarisArrow",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,224)
+   	    TNT1 A 0 A_SpawnItemEx("DiarisArrowQuiver",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,252)
+   	    TNT1 A 0 A_SpawnItemEx("DiarisArrowQuiver",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,252)
 		Stop
 	}
 }
@@ -44,6 +203,10 @@ ACTOR Mana2New : Ammo replaces Mana2
         TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,56)
         TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,206)
    	    TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,243)
+   	    TNT1 A 0 A_SpawnItemEx("DiarisArrow",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,224)
+   	    TNT1 A 0 A_SpawnItemEx("DiarisArrow",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,224)
+   	    TNT1 A 0 A_SpawnItemEx("DiarisArrowQuiver",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,252)
+   	    TNT1 A 0 A_SpawnItemEx("DiarisArrowQuiver",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,252)
 		Stop
 	}
 }
@@ -69,8 +232,82 @@ ACTOR Mana3New : Ammo replaces Mana3
         TNT1 A 0 A_SpawnItemEx("DoomSpellMana2",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,56)
         TNT1 A 0 A_SpawnItemEx("DoomSpellMana2",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,206)
    	    TNT1 A 0 A_SpawnItemEx("DoomSpellMana2",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,243)
+   	    TNT1 A 0 A_SpawnItemEx("DiarisArrow",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,192)
+   	    TNT1 A 0 A_SpawnItemEx("DiarisArrow",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,192)
+   	    TNT1 A 0 A_SpawnItemEx("DiarisArrowQuiver",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,248)
+   	    TNT1 A 0 A_SpawnItemEx("DiarisArrowQuiver",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,248)
 		Stop
 	}
+}
+
+//****************
+//**Health Items**
+//****************
+ACTOR CrystalVialNew : CustomInventory replaces CrystalVial
+{
+  +FLOATBOB
+  Inventory.Amount 10
+  Inventory.PickupMessage "$TXT_ITEMHEALTH" // "CRYSTAL VIAL"
+  States
+  {
+    VimstoneSpawn:
+     TNT1 A 0 A_Jump(4,"VimstoneSpawn2")    
+     goto Spawn+2
+    VimstoneSpawn2:
+     TNT1 A 0 A_Jump(64,3)    
+     TNT1 A 0 A_SpawnItemEx("LesserVimstone",0,0,0,0,0,0,0,0,0)  
+     TNT1 A 0 A_Jump(256,2)    
+     TNT1 A 0 A_SpawnItemEx("GreaterVimstone",0,0,0,0,0,0,0,0,0)  
+     TNT1 A 0 
+     goto Spawn+2
+
+    Herb1:
+     TNT1 A 0 A_SpawnItemEx("MedicinalHerb",0,0,0,0,0,0,0,0,0)
+     TNT1 A 0 A_SpawnItemEx("MedicinalHerb",0,0,0,random(-3,3),random(-3,3),random(-3,3),0,0,224)
+     TNT1 A 0 A_SpawnItemEx("MedicinalHerb",0,0,0,random(-3,3),random(-3,3),random(-3,3),0,0,252)
+     TNT1 A 0 A_SpawnItemEx("MedicinalHerb",0,0,0,random(-3,3),random(-3,3),random(-3,3),0,0,255)
+     TNT1 A 0 A_Jump(32,"Idle")
+     TNT1 A 0 A_FadeOut(1.0)
+     stop
+
+    Herb2:
+     TNT1 A 0 A_SpawnItemEx("StrongMedicine",0,0,0,0,0,0,0,0,0)
+     TNT1 A 0 A_SpawnItemEx("StrongMedicine",0,0,0,random(-3,3),random(-3,3),random(-3,3),0,0,224)
+     TNT1 A 0 A_SpawnItemEx("StrongMedicine",0,0,0,random(-3,3),random(-3,3),random(-3,3),0,0,252)
+     TNT1 A 0 A_SpawnItemEx("StrongMedicine",0,0,0,random(-3,3),random(-3,3),random(-3,3),0,0,255)
+     TNT1 A 0 A_Jump(32,"Idle")
+     TNT1 A 0 A_FadeOut(1.0)
+     stop
+
+    Herb3:
+     TNT1 A 0 A_SpawnItemEx("SpecialMedicine",0,0,0,0,0,0,0,0,0)
+     TNT1 A 0 A_SpawnItemEx("SpecialMedicine",0,0,0,random(-3,3),random(-3,3),random(-3,3),0,0,224)
+     TNT1 A 0 A_SpawnItemEx("SpecialMedicine",0,0,0,random(-3,3),random(-3,3),random(-3,3),0,0,252)
+     TNT1 A 0 A_SpawnItemEx("SpecialMedicine",0,0,0,random(-3,3),random(-3,3),random(-3,3),0,0,255)
+     TNT1 A 0 A_Jump(32,"Idle")
+     TNT1 A 0 A_FadeOut(1.0)
+     stop
+
+   TurnIntoHerb:
+     TNT1 A 0 A_Jump(144,"Herb1")
+     TNT1 A 0 A_Jump(112,"Herb2")
+     goto Herb3
+
+  Spawn:
+    TNT1 A 0
+    TNT1 A 0 A_Jump(16,"VimstoneSpawn")    
+    TNT1 A 0 A_Jump(36,"TurnIntoHerb") 
+  Idle:
+    PTN1 ABC 3
+    loop
+  Success:
+    TNT1 A 0 ACS_NamedExecuteAlways("PickupMedicalItem",0,0,0,0)
+    Stop
+  Pickup:
+    TNT1 A 0 ACS_NamedExecuteWithResult("CheckHealthLevels",0,0,0)
+    TNT1 A 0 A_JumpIf(args[3] == 1,"Success")
+    Fail
+  }
 }
 
 ACTOR ArtiHealth : CustomInventory // HealthPickup

@@ -1,0 +1,20 @@
+clearepisodes
+episode map0a
+{
+ name = "Hexen: Beyond Heretic"
+ key = "H"
+}
+
+//*********************
+//**Classic Doom Maps**
+//*********************
+map MAP0A "Skip Map"
+{
+ levelnum = 1020
+ next = "MAP01"
+ cluster = 32
+ par = 1
+ sucktime = 1
+ aircontrol = 1.0
+ NoIntermission
+}
