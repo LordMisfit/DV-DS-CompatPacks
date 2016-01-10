@@ -1,3 +1,40 @@
+clearskills
+skill baby
+{
+	SpawnFilter = Baby
+	Name = "Lost in the World..."
+	Key = "i"
+}
+
+skill easy
+{
+	SpawnFilter = Easy
+	Name = "Still a Bit Scared..."
+	Key = "h"
+}
+
+skill normal
+{
+	SpawnFilter = Normal
+	Name = "A Long Journey Awaits..."
+	Key = "h"
+	DefaultSkill
+}
+
+skill hard
+{
+	SpawnFilter = Hard
+	Name = "It's Getting Messy..."
+	Key = "u"
+}
+
+skill nightmare
+{
+	SpawnFilter = Nightmare
+	Name = "Korax's Revenge!!"
+	Key = "n"
+}
+
 clearepisodes
 episode map0a
 {

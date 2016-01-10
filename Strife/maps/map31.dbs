@@ -1,0 +1,40 @@
+type = "Doom Builder Map Settings Configuration";
+gameconfig = "Strife.cfg";
+strictpatches = 0;
+
+maps
+{
+	
+	MAP31
+	{
+		
+		grid
+		{
+			background = "";
+			backoffsetx = 0;
+			backoffsety = 0;
+			backscalex = 100;
+			backscaley = 100;
+			backsource = 0;
+			gridsize = 8;
+		}
+		
+		
+		resources
+		{
+			
+			resource0
+			{
+				type = 0;
+				location = "C:\\Other Stuff\\ZdooM\\STRIFE1.WAD";
+				option1 = 0;
+				option2 = 0;
+				notfortesting = 0;
+			}
+			
+		}
+		
+	}
+	
+}
+

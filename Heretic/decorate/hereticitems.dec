@@ -1,3 +1,15 @@
+actor SilverShieldNew : RandomSpawner replaces SilverShield
+{
+    DropItem "MaxHealthBonusReal", 255, 98
+    DropItem "FloraRandomArmorAlwaysDrop", 255, 2
+}
+
+actor EnchantedShieldNew : RandomSpawner replaces EnchantedShield
+{
+    DropItem "MaxHealthBonusReal", 255, 96
+    DropItem "FloraRandomArmorAlwaysDrop", 255, 4
+}
+
 ACTOR CrystalVialNew : CustomInventory replaces CrystalVial
 {
   +FLOATBOB
