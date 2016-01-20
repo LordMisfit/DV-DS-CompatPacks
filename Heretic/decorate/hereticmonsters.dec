@@ -1,3 +1,5 @@
+// Heretic Friendlys
+
 actor HereticImpNew : HereticImp replaces HereticImp
 {
  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
@@ -95,6 +97,13 @@ actor HereticImpNew : HereticImp replaces HereticImp
     goto See
  }
 }
+actor FHereticImp : HereticImpNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
+}
 
 actor HereticImpLeaderNew : HereticImpLeader replaces HereticImpLeader
 {
@@ -189,6 +198,13 @@ actor HereticImpLeaderNew : HereticImpLeader replaces HereticImpLeader
     goto See
  }
 }
+actor FHereticImpLeader : HereticImpLeaderNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
+}
 
 actor MummyNew : Mummy replaces Mummy
 {
@@ -273,6 +289,13 @@ actor MummyNew : Mummy replaces Mummy
     goto See
  }
 }
+actor FMummy : MummyNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
+}
 
 actor MummyGhostNew : MummyGhost replaces MummyGhost
 {
@@ -356,6 +379,13 @@ actor MummyGhostNew : MummyGhost replaces MummyGhost
     MUMM ONMLKJI 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     goto See
  }
+}
+actor FMummyGhost : MummyGhostNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
 }
 
 actor MummyLeaderNew : MummyLeader replaces MummyLeader
@@ -450,6 +480,13 @@ actor MummyLeaderNew : MummyLeader replaces MummyLeader
     goto See
  }
 }
+actor FMummyLeader : MummyLeaderNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
+}
 
 actor MummyLeaderGhostNew : MummyLeaderGhost replaces MummyLeaderGhost
 {
@@ -543,6 +580,13 @@ actor MummyLeaderGhostNew : MummyLeaderGhost replaces MummyLeaderGhost
     goto See
  }
 }
+actor FMummyLeaderGhost : MummyLeaderGhostNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
+}
 
 ACTOR KnightNew : Knight replaces Knight
 {
@@ -630,6 +674,13 @@ ACTOR KnightNew : Knight replaces Knight
     goto See
   }
 }
+actor FKnight : KnightNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
+}
 
 ACTOR KnightGhostNew : KnightGhost replaces KnightGhost
 {
@@ -716,6 +767,13 @@ ACTOR KnightGhostNew : KnightGhost replaces KnightGhost
     KNIG NMLKJI 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     goto See
   }
+}
+actor FKnightGhost : KnightGhostNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
 }
 
 ACTOR WizardNew : Wizard replaces Wizard
@@ -813,6 +871,13 @@ ACTOR WizardNew : Wizard replaces Wizard
     goto See
   }
 }
+actor FWizard : WizardNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
+}
 
 ACTOR IronlichNew : Ironlich replaces Ironlich
 {
@@ -894,6 +959,13 @@ ACTOR IronlichNew : Ironlich replaces Ironlich
     LICH HGFEDC 7 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     goto See
   }
+}
+actor FIronlich : IronlichNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
 }
 
 ACTOR ClinkNew : Clink replaces Clink
@@ -977,6 +1049,13 @@ ACTOR ClinkNew : Clink replaces Clink
     CLNK JI 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     goto See
   }
+}
+actor FClink : ClinkNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
 }
 
 ACTOR BeastNew : Beast replaces Beast
@@ -1082,6 +1161,13 @@ ACTOR BeastNew : Beast replaces Beast
     BEAS J 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     goto See
   }
+}
+actor FBeast : BeastNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
 }
 
 ACTOR MaulotaurNew : Minotaur replaces Minotaur
@@ -1224,6 +1310,13 @@ ACTOR MaulotaurNew : Minotaur replaces Minotaur
     goto See
   }
 }
+actor FMaulotaur : MaulotaurNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
+}
 
 ACTOR SnakeNew : Snake replaces Snake
 {
@@ -1307,6 +1400,13 @@ ACTOR SnakeNew : Snake replaces Snake
     SNKE PONMLKJIHG 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     goto See
   }
+}
+actor FSnake : SnakeNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
 }
 
 ACTOR DSparilMountedNew : Sorcerer1 replaces Sorcerer1

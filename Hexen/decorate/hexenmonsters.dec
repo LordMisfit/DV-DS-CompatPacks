@@ -99,6 +99,13 @@ ACTOR EttinNew : Ettin replaces Ettin
     goto See
   }
 }
+actor FEttin : EttinNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
+}
 
 ACTOR EttinGhostNew : EttinMash replaces EttinMash
 {
@@ -306,6 +313,13 @@ ACTOR CentaurNew : Centaur replaces Centaur
     CENT TSRQPONMLK 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     goto See
   }
+}
+actor FCentaur : CentaurNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
 }
 
 ACTOR CentaurGhostNew : CentaurMash replaces CentaurMash
@@ -529,6 +543,13 @@ ACTOR SlaughtaurNew : CentaurLeader replaces CentaurLeader
     goto See
   }
 }
+actor FSlaughtaur : SlaughtaurNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
+}
 
 ACTOR FireDemonNew : FireDemon replaces FireDemon
 {
@@ -636,6 +657,13 @@ ACTOR FireDemonNew : FireDemon replaces FireDemon
     goto Chase
   }
 }
+actor FFireDemon : FireDemonNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
+}
 
 ACTOR BishopNew : Bishop replaces Bishop
 {
@@ -736,6 +764,13 @@ ACTOR BishopNew : Bishop replaces Bishop
     BISH HG 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     goto See
   }
+}
+actor FBishop : BishopNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
 }
 
 ACTOR StalkerNew : Serpent replaces Serpent
@@ -842,6 +877,13 @@ ACTOR StalkerNew : Serpent replaces Serpent
     SSPT [ 1 A_FreezeDeathChunks
     Wait
   }
+}
+actor FStalker : StalkerNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
 }
 
 ACTOR StalkerLeaderNew : SerpentLeader replaces SerpentLeader
@@ -953,6 +995,13 @@ ACTOR StalkerLeaderNew : SerpentLeader replaces SerpentLeader
     Wait
   }
 }
+actor FStalkerLeader : StalkerLeaderNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
+}
 
 ACTOR GreenChaosSerpentNew : Demon1 replaces Demon1
 {
@@ -1063,6 +1112,13 @@ ACTOR GreenChaosSerpentNew : Demon1 replaces Demon1
     DEMN ONMLKJIH 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     goto See
   }
+}
+actor FGreenChaosSerpent : GreenChaosSerpentNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
 }
 
 ACTOR GreenChaosSerpentGhostNew : Demon1Mash replaces Demon1Mash
@@ -1274,6 +1330,13 @@ ACTOR BrownChaosSerpentNew : Demon2 replaces Demon2
     DEM2 ONMLKJIH 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     goto See
   }
+}
+actor FBrownChaosSerpent : BrownChaosSerpentNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
 }
 
 ACTOR BrownChaosSerpentGhostNew : Demon2Mash replaces Demon2Mash
@@ -1498,6 +1561,13 @@ ACTOR WraithNew : Wraith replaces Wraith
     goto See
   }
 }
+actor FWraith : WraithNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
+}
 
 ACTOR WraithBuriedNew : WraithBuried replaces WraithBuried
 {
@@ -1693,6 +1763,13 @@ ACTOR IceGuyNew : IceGuy replaces IceGuy
     Goto See
   }
 }
+actor FIceGuy : IceGuyNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
+}
 
 ACTOR HeresiarchNew : Heresiarch replaces Heresiarch
 {
@@ -1787,6 +1864,13 @@ ACTOR HeresiarchNew : Heresiarch replaces Heresiarch
     SORC A -1
     Goto See
   }
+}
+actor FHeresiarch : HeresiarchNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
 }
 
 ACTOR KoraxNew : Korax replaces Korax
@@ -1966,6 +2050,13 @@ ACTOR DragonNew : Dragon replaces Dragon
     DRAG M -1
     Stop
   }
+}
+actor FDragon : DragonNew
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
 }
 
 ACTOR ClericBossNew : ClericBoss replaces ClericBoss
