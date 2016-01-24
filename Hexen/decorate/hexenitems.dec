@@ -68,6 +68,7 @@ ACTOR ArtiInvulnerability2New : CustomInventory replaces ArtiInvulnerability2
   +INVENTORY.HUBPOWER
   +INVENTORY.PERSISTENTPOWER
   +INVENTORY.KEEPDEPLETED
+  Inventory.MaxAmount 99
   Inventory.RespawnTics 4230
   Inventory.Icon ARTIDEFN
   Inventory.PickupMessage "$TXT_ARTIINVULNERABILITY2" // "ICON OF THE DEFENDER"
@@ -87,7 +88,7 @@ ACTOR ArtiHealingRadiusNew : CustomInventory replaces ArtiHealingRadius
 {
   +COUNTITEM
   +FLOATBOB
-  Inventory.DefMaxAmount
+  Inventory.MaxAmount 99
   +INVENTORY.INVBAR
   +INVENTORY.PICKUPFLASH
   +INVENTORY.FANCYPICKUPSOUND
@@ -122,8 +123,9 @@ actor FlechetteReplacer : RandomSpawner replaces ArtiPoisonBag
     DropItem "ArtiBoostMana", 96, 3
     DropItem "YggdrasilDew", 96, 3
     DropItem "LesserVimstone", 96, 3
-    DropItem "GreaterVimstone", 96, 1
+    DropItem "ArtiHealingRadiusNew" 96, 3
 
+    DropItem "GreaterVimstone", 96, 1
     DropItem "RandomArmorNew", 96, 1
 }
 actor ArtiPoisonBag1New : FlechetteReplacer replaces ArtiPoisonBag1 { }
@@ -143,8 +145,9 @@ actor ArtiBlastRadiusNew : FlechetteReplacer replaces ArtiBlastRadius
     DropItem "ArtiBoostMana", 96, 3
     DropItem "YggdrasilDew", 96, 3
     DropItem "LesserVimstone", 96, 3
-    DropItem "GreaterVimstone", 96, 1
+    DropItem "ArtiHealingRadiusNew" 96, 3
 
+    DropItem "GreaterVimstone", 96, 1
     DropItem "RandomArmorNew", 96, 1
 }
 
@@ -511,7 +514,7 @@ ACTOR ArtiHealthNew : CustomInventory replaces ArtiHealth
   +INVENTORY.HUBPOWER
   +INVENTORY.PERSISTENTPOWER
   +INVENTORY.KEEPDEPLETED
-  Inventory.DefMaxAmount
+  Inventory.MaxAmount 99
   Inventory.Icon ARTIPTN2
   Inventory.PickupSound "misc/p_pkup"
   Inventory.PickupMessage "$TXT_ARTIHEALTH" // "QUARTZ FLASK"
@@ -538,7 +541,7 @@ ACTOR ArtiSuperHealthNew : CustomInventory replaces ArtiSuperHealth
   +INVENTORY.HUBPOWER
   +INVENTORY.PERSISTENTPOWER
   +INVENTORY.KEEPDEPLETED
-  Inventory.DefMaxAmount
+  Inventory.MaxAmount 99
   Inventory.Icon ARTISPHL
   Inventory.PickupSound "misc/p_pkup"
   Inventory.PickupMessage "$TXT_ARTISUPERHEALTH" // "MYSTIC URN"
@@ -566,7 +569,7 @@ ACTOR ArtiBoostManaNew : CustomInventory replaces ArtiBoostMana
     +INVENTORY.HUBPOWER
     +INVENTORY.PERSISTENTPOWER
     +INVENTORY.KEEPDEPLETED
-	Inventory.DefMaxAmount
+    Inventory.MaxAmount 99
 	Inventory.Icon "ARTIBMAN"
 	Inventory.PickupSound "misc/p_pkup"
 	Inventory.PickupMessage "$TXT_ARTIBOOSTMANA"

@@ -773,6 +773,33 @@ actor FBishop : BishopNew
  dropitem NoItemSpawn 1
 }
 
+ACTOR BishopFXNew : BishopFX replaces BishopFX
+{
+  Radius 10
+  Height 6
+  Speed 10
+  Damage 1
+  Projectile
+  +SEEKERMISSILE
+  -ACTIVATEIMPACT
+  -ACTIVATEPCROSS
+  +STRIFEDAMAGE
+  DamageType "Magic"
+  RenderStyle Add
+  DeathSound "BishopMissileExplode"
+  States
+  {
+  Spawn:
+    BPFX ABAB 1 Bright A_BishopMissileWeave
+    BPFX B 0 Bright A_SeekerMissile(2, 3)
+    Loop
+  Death:
+    BPFX CDEF 4 Bright
+    BPFX GH 3 Bright
+    Stop
+  }
+}
+
 ACTOR StalkerNew : Serpent replaces Serpent
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
@@ -1872,7 +1899,59 @@ actor FHeresiarch : HeresiarchNew
  Species "FriendlyMonsters"
  dropitem NoItemSpawn 1
 }
+ACTOR SorcFX1New : SorcFX1 replaces SorcFX1
+{
+  Speed 7
+  Radius 5
+  Height 5
+  Projectile
+  -ACTIVATEIMPACT
+  -ACTIVATEPCROSS
+  -NOGRAVITY
+  +FULLVOLDEATH
+  +CANBOUNCEWATER
+  +NOWALLBOUNCESND
+  BounceFactor 1.0
+  DamageType "Magic"
+  +HEXENBOUNCE
+  SeeSound "SorcererBallBounce"
+  DeathSound "SorcererHeadScream"
 
+  States
+  {
+  Spawn:
+    SBS1 A 2 Bright
+    SBS1 BCD 3 Bright A_SorcFX1Seek
+    Loop
+  Death:
+    FHFX S 2 Bright A_Explode(30, 128)
+    FHFX SS 6 Bright
+    Stop
+  }
+}
+ACTOR SorcFX4New : SorcFX4 replaces SorcFX4
+{
+  Speed 12
+  Radius 10
+  Height 10
+  Projectile
+  DamageType "Magic"
+  -ACTIVATEIMPACT
+  -ACTIVATEPCROSS
+  DeathSound "SorcererBallExplode"
+
+  States
+  {
+  Spawn:
+    SBS4 ABC 2 Bright A_SorcFX4Check
+    Loop
+  Death:
+    SBS4 D 2 Bright
+    SBS4 E 2 Bright A_Explode(20, 128)
+    SBS4 FGH 2 Bright
+    Stop
+  }
+}
 ACTOR KoraxNew : Korax replaces Korax
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
@@ -2177,6 +2256,61 @@ ACTOR ClericBossNew : ClericBoss replaces ClericBoss
     Stop
   }
 }
+ACTOR HolyMissileNew : HolyMissile replaces HolyMissile
+{
+  Speed 30
+  Radius 15
+  Height 8
+  Damage 4
+  Projectile
+  DamageType "Holy"
+  -ACTIVATEIMPACT
+  -ACTIVATEPCROSS
+  +EXTREMEDEATH
+
+  States
+  {
+  Spawn:
+    SPIR PPPP 3 Bright A_SpawnItemEx("HolyMissilePuff")
+  Death:
+    SPIR P 1 Bright A_CHolyAttack2
+    Stop
+  }
+}
+ACTOR HolySpiritNew : HolySpirit replaces HolySpirit
+{
+  Health 105
+  Speed 12
+  Radius 10
+  Height 6
+  Damage 3
+  Projectile
+  +RIPPER
+  +SEEKERMISSILE
+  +FOILINVUL
+  +SKYEXPLODE
+  +NOEXPLODEFLOOR
+  +CANBLAST
+  +EXTREMEDEATH
+  DamageType "Holy"
+  RenderStyle Translucent
+  Alpha 0.4
+  DeathSound "SpiritDie"
+  Obituary "$OB_MPCWEAPWRAITHVERGE"
+
+  States
+  {
+  Spawn:
+    SPIR AAB 2 A_CHolySeek
+    SPIR B 2 A_CHolyCheckScream
+    Loop
+  Death:
+    SPIR D 4
+    SPIR E 4 A_Scream
+    SPIR FGHI 4
+    Stop
+  }
+}
 
 ACTOR FighterBossNew : FighterBoss replaces FighterBoss
 {
@@ -2293,6 +2427,36 @@ ACTOR FighterBossNew : FighterBoss replaces FighterBoss
     FDTH T 4 Bright
     FDTH U 5 Bright
     FDTH V 4 Bright
+    Stop
+  }
+}
+ACTOR FSwordMissileNew : FSwordMissile replaces FSwordMissile
+{
+  Speed 30
+  Radius 16
+  Height 8
+  Damage 8
+  Projectile
+  +EXTREMEDEATH
+  DamageType "Magic"
+  RenderStyle Add
+  DeathSound "FighterSwordExplode"
+  Obituary "$OB_MPFWEAPQUIETUS"
+
+  States
+  {
+  Spawn:
+    FSFX ABC 3 Bright
+    Loop
+  Death:
+    FSFX D 4 Bright
+    FSFX E 3 Bright A_FSwordFlames
+    FSFX F 4 Bright A_Explode(64, 128, 0)
+    FSFX G 3 Bright
+    FSFX H 4 Bright
+    FSFX I 3 Bright
+    FSFX J 4 Bright
+    FSFX KLM 3 Bright
     Stop
   }
 }
@@ -2416,6 +2580,32 @@ ACTOR MageBossNew : MageBoss replaces MageBoss
     FDTH T 4 Bright
     FDTH U 5 Bright
     FDTH V 4 Bright
+    Stop
+  }
+}
+ACTOR MageStaffFX2New : MageStaffFX2 replaces MageStaffFX2
+{
+  Speed 17
+  Height 8
+  Damage 4
+  DamageType "Fire"
+  Projectile
+  +SEEKERMISSILE
+  +SCREENSEEKER
+  +EXTREMEDEATH
+  DeathSound "MageStaffExplode"
+  Obituary "$OB_MPMWEAPBLOODSCOURGE"
+
+  States
+  {
+  Spawn:
+    MSP2 ABCD 2 Bright A_MStaffTrack
+    Loop
+  Death:
+    MSP2 E 4 Bright A_SetTranslucent(1, 1)
+    MSP2 F 5 Bright A_Explode(80, 192, 0)
+    MSP2 GH 5 Bright
+    MSP2 I 4 Bright
     Stop
   }
 }
