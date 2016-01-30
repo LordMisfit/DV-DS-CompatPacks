@@ -429,11 +429,18 @@ ACTOR SlaughtaurNew : CentaurLeader replaces CentaurLeader
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+  DamageFactor "Normal", 0.75
+  DamageFactor "Magic", 1.334
   DamageFactor "Thunder", 3
+  //Translation "81:96=85:92", "97:121=101:113", "0:32=4:20", "33:50=37:45"
+  //Translation "81:96=203:210", "97:121=203:210", "0:32=154:163", "33:50=154:163"
+  Translation "81:96=85:92", "97:121=101:113", "0:32=128:145", "33:50=128:145"  
 
-  Painchance 96
-  Painchance "Fist", 144 // Fist attacks have a +50% chance of stunning an enemy
-  Painchance "Gauntlets", 144 // Fist attacks have a +50% chance of stunning an enemy
+  Health 325
+  Speed 12.5
+  Painchance 84
+  Painchance "Fist", 126 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 126 // Fist attacks have a +50% chance of stunning an enemy
 
   States
   {
@@ -448,9 +455,9 @@ ACTOR SlaughtaurNew : CentaurLeader replaces CentaurLeader
     Loop
   Melee:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    CENT H 5 A_FaceTarget
-    CENT I 4 A_FaceTarget
-    CENT J 7 A_CustomMeleeAttack(random[CentaurAttack](3, 9))
+    CENT H 4 A_FaceTarget
+    CENT I 3 A_FaceTarget
+    CENT J 6 A_CustomMeleeAttack(random[CentaurAttack](4, 10))
     Goto See
   Missile:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
@@ -460,9 +467,9 @@ ACTOR SlaughtaurNew : CentaurLeader replaces CentaurLeader
     CENT F 8 Bright A_CustomMissile("CentaurFX", 45, 0, 0, CMF_AIMOFFSET)
     Goto See
   Pain:
-    CENT G 6 A_Pain
-    CENT G 6 A_SetReflectiveInvulnerable
-    CENT EEE 15 A_CentaurDefend
+    CENT G 5 A_Pain
+    CENT G 5 A_SetReflectiveInvulnerable
+    CENT EEE 17 A_CentaurDefend
     CENT E 1 A_UnsetReflectiveInvulnerable
     Goto See
   Pain.GravityHP:

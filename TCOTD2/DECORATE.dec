@@ -1,1 +1,2 @@
+#include "decorate/tcotd2items.dec"
 #include "decorate/tcotd2monsters.dec"

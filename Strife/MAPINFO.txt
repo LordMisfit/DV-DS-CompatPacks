@@ -1,0 +1,57 @@
+clearskills
+skill baby
+{
+	SpawnFilter = Baby
+	Name = "Lost in the World..."
+	Key = "i"
+}
+
+skill easy
+{
+	SpawnFilter = Easy
+	Name = "Still a Bit Scared..."
+	Key = "h"
+}
+
+skill normal
+{
+	SpawnFilter = Normal
+	Name = "A Long Journey Awaits..."
+	Key = "h"
+	DefaultSkill
+}
+
+skill hard
+{
+	SpawnFilter = Hard
+	Name = "It's Getting Messy..."
+	Key = "u"
+}
+
+skill nightmare
+{
+	SpawnFilter = Nightmare
+	Name = "The Order's Revenge!!"
+	Key = "n"
+}
+
+clearepisodes
+episode mapaa
+{
+ name = "Strife: The Quest for the Sigil"
+ key = "S"
+}
+
+//*********************
+//**Classic Doom Maps**
+//*********************
+map MAPAA "Skip Map"
+{
+ levelnum = 1020
+ next = "MAP02"
+ cluster = 32
+ par = 1
+ sucktime = 1
+ aircontrol = 1.0
+ NoIntermission
+}

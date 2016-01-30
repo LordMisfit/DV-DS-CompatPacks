@@ -1924,7 +1924,7 @@ ACTOR MeilingNew : Meiling replaces Meiling 31156
     FIRE A 0 BRIGHT A_CustomMissile("ArchvileFirex",0,0,-90,2)
     FIRE A 0 BRIGHT A_CustomMissile("ArchvileFirex",0,0,-120,2)
     FIRE A 0 BRIGHT A_CustomMissile("ArchvileFirex",0,0,-150,2)
-    TNT1 A 100
+    TNT1 A 105
     TNT1 A 1 Exit_Normal(0)
     Stop
   Ice:
