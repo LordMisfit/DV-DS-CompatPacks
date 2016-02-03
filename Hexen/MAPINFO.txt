@@ -47,9 +47,9 @@ episode map0b
  key = "H"
 }
 
-//*********************
-//**Classic Doom Maps**
-//*********************
+//**********************
+//**Classic Hexen Maps**
+//**********************
 map MAP0A "Skip Map"
 {
  levelnum = 1020
@@ -71,3 +71,4 @@ map MAP0b "Skip Map"
  aircontrol = 1.0
  NoIntermission
 }
+
