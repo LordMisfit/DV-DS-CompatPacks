@@ -926,6 +926,8 @@ ACTOR StalkerLeaderNew : SerpentLeader replaces SerpentLeader
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
+  Translation "51:67=51:59", "186:202=186:194", "233:239=235:239", "33:50=33:41", "0:32=0:16"  
+
   Painchance 96
   Painchance "Fist", 144 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Gauntlets", 144 // Fist attacks have a +50% chance of stunning an enemy
