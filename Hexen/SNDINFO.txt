@@ -71,3 +71,20 @@ IceGuyActive            frosty1
 IceGuyAttack            frosty2
 IceGuyMissileExplode    shards1b
 
+
+
+// Vampire [New]
+
+vampire/see VAMPSEE
+vampire/beam VAMPBEAM
+vampire/bats BATATK
+vampire/death VAMPDETH
+vampire/pain VAMPPAIN
+monster/blur dsblur
+
+vampireblood1 vampbl01
+vampireblood2 vampbl02
+vampireblood3 vampbl03
+
+$random vampireblood { vampireblood1 vampireblood2 vampireblood3 }
+$limit vampireblood 1
