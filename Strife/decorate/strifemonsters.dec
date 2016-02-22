@@ -276,7 +276,20 @@ ACTOR TemplarNew : Templar replaces Templar
   Missile:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
     PGRD G 8 Bright A_FaceTarget
-    PGRD H 8 Bright A_TemplarAttack
+    AGRD F 0 A_PlaySound ("templar/shoot", CHAN_WEAPON)
+    PGRD H 0 A_FaceTarget
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckHitscanType") == 0, "BulletShot1")
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckHitscanType") == 1, "TracerShot1")
+
+   BulletShot1:
+    PGRD H 0 A_CustomBulletAttack (11.25, 7, 10, 2*random(1,4), "MaulerPuff", 2048, CBAF_NORANDOM) // A_TemplarAttack
+    goto EndMissile
+   TracerShot1:
+    PGRD HHHHHHHHHH 0 A_CustomMissile("StrifeMaulerTracer", 32, 12, frandom(-5.625,5.625), CMF_OFFSETPITCH, frandom(-3.5,3.5))
+    goto EndMissile
+
+  EndMissile:
+    PGRD H 8 Bright 
     Goto See
   Pain:
     PGRD A 2
