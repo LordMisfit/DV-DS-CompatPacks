@@ -377,8 +377,33 @@ ACTOR InquisitorNew : Inquisitor replaces Inquisitor
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
     ROB3 A 2 A_InquisitorDecide
     ROB3 F 6 A_FaceTarget
-    ROB3 G 8 Bright A_ReaverRanged
-    ROB3 G 8 A_ReaverRanged
+
+    AGRD F 0 A_PlaySound ("reaver/attack", CHAN_WEAPON)
+    AGRD F 0 A_FaceTarget
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckHitscanType") == 0, "BulletShot1")
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckHitscanType") == 1, "TracerShot1")
+
+   BulletShot1:
+    ROB3 G 0 Bright A_CustomBulletAttack(11.0, 0, 3, random(1,8) * 3, "StrifePuff", 0, CBAF_NORANDOM) // A_ReaverRanged
+	goto EndMissile1
+   TracerShot1:
+    ROB3 GGG 0 Bright A_CustomMissile("StrifeReaverBulletTracer", 80, -28, frandom(-5.5,5.5), CMF_OFFSETPITCH, frandom(-0.0,0.0))
+	goto EndMissile1
+  EndMissile1:
+    ROB3 G 8
+    AGRD F 0 A_PlaySound ("reaver/attack", CHAN_WEAPON)
+    AGRD F 0 A_FaceTarget
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckHitscanType") == 0, "BulletShot2")
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckHitscanType") == 1, "TracerShot2")
+
+   BulletShot2:
+    ROB3 G 0 A_CustomBulletAttack(11.0, 0, 3, random(1,8) * 3, "StrifePuff", 0, CBAF_NORANDOM) // A_ReaverRanged
+	goto EndMissile2
+   TracerShot2:
+    ROB3 GGG 0 A_CustomMissile("StrifeReaverBulletTracer", 80, -28, frandom(-5.5,5.5), CMF_OFFSETPITCH, frandom(-0.0,0.0))
+	goto EndMissile2
+  EndMissile2:
+    ROB3 G 8 
     Goto See
   Grenade:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
@@ -501,7 +526,7 @@ ACTOR ReaverNew : Reaver replaces Reaver
     ROB1 G 0 Slow Bright A_CustomBulletAttack(11.0, 0, 3, random(1,8) * 3, "StrifePuff", 0, CBAF_NORANDOM) // A_ReaverRanged
     goto EndMissile
    TracerShot1:
-    ROB1 GGG 0 Slow Bright A_CustomMissile("StrifeReaverBulletTracer", 32, 12, frandom(-5.5,5.5), CMF_OFFSETPITCH, frandom(-0.0,0.0))
+    ROB1 GGG 0 Slow Bright A_CustomMissile("StrifeReaverBulletTracer", 32, -12, frandom(-5.5,5.5), CMF_OFFSETPITCH, frandom(-0.0,0.0))
     goto EndMissile
 	
   EndMissile:
