@@ -2005,10 +2005,12 @@ ACTOR HeresiarchNew : Heresiarch replaces Heresiarch
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
+  DamageFactor "Normal", 0.833
   Painchance 10
   Painchance "Fist", 15 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Gauntlets", 15 // Fist attacks have a +50% chance of stunning an enemy
 
+  +AVOIDMELEE
   States
   {
   Spawn:
@@ -2159,6 +2161,7 @@ ACTOR KoraxNew : Korax replaces Korax
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
+  DamageFactor "Normal", 0.667
   Painchance 20
   Painchance "Fist", 30 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Gauntlets", 30 // Fist attacks have a +50% chance of stunning an enemy
@@ -2259,10 +2262,12 @@ ACTOR DragonNew : Dragon replaces Dragon
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
+  DamageFactor "Normal", 0.833
   PainChance 128
   Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
 
+  +AVOIDMELEE
   States
   {
   Spawn:
@@ -2345,9 +2350,12 @@ ACTOR ClericBossNew : ClericBoss replaces ClericBoss
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
+  DamageFactor "Normal", 0.833
   PainChance 50
   Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
+
+  +AVOIDMELEE
 
   States
   {
@@ -2519,9 +2527,12 @@ ACTOR FighterBossNew : FighterBoss replaces FighterBoss
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
+  DamageFactor "Normal", 0.833
   PainChance 50
   Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
+
+  +AVOIDMELEE
 
   States
   {
@@ -2668,9 +2679,12 @@ ACTOR MageBossNew : MageBoss replaces MageBoss
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
 
+  DamageFactor "Normal", 0.833
   PainChance 50
   Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
+
+  +AVOIDMELEE
 
   States
   {
@@ -2836,6 +2850,7 @@ ACTOR VampireDVDS : Bishop
   MONSTER
   +FLOORCLIP
   +DONTHURTSPECIES
+  +AVOIDMELEE
   -NOGRAVITY
   -FLOAT
   Obituary "A Vampire drained all of %o's life."
@@ -2982,14 +2997,22 @@ ACTOR VampireDVDS : Bishop
     VAM1 P -1 
     Stop 
   Ice:
-    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
-    VAM1 J 5 A_FreezeDeath
-    VAM1 J 1 A_FreezeDeathChunks
+    VAM1 C 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    VAM1 C 5 A_GenericFreezeDeath
+    VAM1 C 1 A_FreezeDeathChunks
     Wait
    Raise: 
     VAM1 PONMLKJIHG 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     Goto See
    } 
+}
+
+actor FVampire : VampireDVDS
+{
+ -COUNTKILL 
+ +FRIENDLY +THRUSPECIES +DONTHARMSPECIES
+ Species "FriendlyMonsters"
+ dropitem NoItemSpawn 1
 }
 
 Actor VampirePainBlur
