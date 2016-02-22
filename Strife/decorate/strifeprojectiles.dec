@@ -1,0 +1,79 @@
+// General Bullet Tracers
+
+ACTOR StrifeGenBulletTracer : FastProjectile
+{
+   Damage ((Random(1,5) * 3))
+   Damagetype "Bullet"
+   Radius 1
+   Height 1
+   Mass 5
+   Speed 80
+   PROJECTILE
+   +DONTREFLECT
+   +BLOODSPLATTER
+   +NODAMAGETHRUST
+   Renderstyle Add
+   Alpha 1.0
+   Scale 0.5
+   decal BulletChip
+   States
+   {
+   Spawn:
+      TNT1 A 0 bright
+      TNT1 A 0 bright A_SpawnItemEx("ZombieBulletTracerTrail",-15.0,0,0,0,0,0,0,128,0)
+      TNT1 A 0 bright A_SpawnItemEx("ZombieBulletTracerTrail",-12.5,0,0,0,0,0,0,128,0)
+      TNT1 A 0 bright A_SpawnItemEx("ZombieBulletTracerTrail",-10.0,0,0,0,0,0,0,128,0)
+      TNT1 A 0 bright A_SpawnItemEx("ZombieBulletTracerTrail",-7.5,0,0,0,0,0,0,128,0)
+      TNT1 A 0 bright A_SpawnItemEx("ZombieBulletTracerTrail",-5.0,0,0,0,0,0,0,128,0)
+      TNT1 A 0 bright A_SpawnItemEx("ZombieBulletTracerTrail",-2.5,0,0,0,0,0,0,128,0)
+	  TNT1 A 1 bright A_SpawnItemEx("ZombieBulletTracerTrail",0.0,0,0,0,0,0,0,128,0)
+      loop
+   XDeath:
+      TNT1 A 1 //A_SpawnItem("StrifePuff")
+      stop
+   Death:
+   Crash:
+      TNT1 A 1 A_SpawnItem("StrifePuff")
+      stop
+   }
+}
+
+ACTOR StrifeGenBulletTracerCrisis : StrifeGenBulletTracer
+{
+   Damage ((Random(1,5) * 3) * 30)
+   States
+   {
+   Spawn:
+      TNT1 A 0 bright
+      TNT1 A 0 bright A_SpawnItemEx("StrifeGenBulletTracerTrail",-15.0,0,0,0,0,0,0,128,0)
+      TNT1 A 0 bright A_SpawnItemEx("StrifeGenBulletTracerTrail",-12.5,0,0,0,0,0,0,128,0)
+      TNT1 A 0 bright A_SpawnItemEx("StrifeGenBulletTracerTrail",-10.0,0,0,0,0,0,0,128,0)
+      TNT1 A 0 bright A_SpawnItemEx("StrifeGenBulletTracerTrail",-7.5,0,0,0,0,0,0,128,0)
+      TNT1 A 0 bright A_SpawnItemEx("StrifeGenBulletTracerTrail",-5.0,0,0,0,0,0,0,128,0)
+      TNT1 A 0 bright A_SpawnItemEx("StrifeGenBulletTracerTrail",-2.5,0,0,0,0,0,0,128,0)
+	  TNT1 A 1 bright A_SpawnItemEx("StrifeGenBulletTracerTrail",0.0,0,0,0,0,0,0,128,0)
+      loop
+   }
+}
+
+actor StrifeGenBulletTracerTrail
+{
+  Radius 1
+  Height 1
+  Speed 0
+  Damage 0
+  Projectile
+  +CLIENTSIDEONLY
+  +NOINTERACTION
+  +NOCLIP
+  +DONTSPLASH
+  Scale 0.5
+  Renderstyle Add
+  States
+  {
+  Spawn:
+    CTAC A 2 bright
+    stop
+  }
+}
+
