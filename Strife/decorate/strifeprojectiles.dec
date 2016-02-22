@@ -214,6 +214,16 @@ ACTOR StrifeMaulerTracerCrisis : StrifeMaulerTracer
    }
 }
 
+ACTOR StrifeMaulerTracerRetail : StrifeMaulerTracer
+{
+   Damage ((Random(1,5) * 3))
+}
+
+ACTOR StrifeMaulerTracerRetailCrisis : StrifeMaulerTracer
+{
+   Damage ((Random(1,5) * 3) * 30)
+}
+
 actor StrifeMaulerTracerTrail
 {
   Radius 1
