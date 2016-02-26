@@ -150,7 +150,7 @@ Size 48
 Offset 0 48 0
 }
 
-Object Vampire
+Object VampireDVDS
 {
 Frame VAM1E { Light VampireFire1 }
 Frame VAM1F { Light VampireFire2 }
