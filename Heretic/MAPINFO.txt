@@ -97,7 +97,7 @@ map E3M8 lookup "HHUSTR_E3M8"
 
 map E4M8 lookup "HHUSTR_E4M8"
 {
- next = "EndGame4"
+ next = "E5M1"
  secretnext = "E4M9"
  sky1 = "SKY1"
  cluster = 4
