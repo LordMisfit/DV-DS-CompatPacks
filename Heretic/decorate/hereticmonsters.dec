@@ -786,6 +786,9 @@ ACTOR WizardNew : Wizard replaces Wizard
   Painchance "Fist", 96 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Gauntlets", 96 // Fist attacks have a +50% chance of stunning an enemy
 
+  Obituary "%o was cursed by a Disciple of D'Sparil."
+  HitObituary "%o was scratched by a Disciple of D'Sparil."
+
   States
   {
   Spawn:
@@ -804,6 +807,13 @@ ACTOR WizardNew : Wizard replaces Wizard
     WZRD B 3 A_Chase
     WZRD B 4 A_Chase
     Loop
+  Melee:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    WZRD N 6 A_FaceTarget
+	WZRD O 6 A_FaceTarget
+	//TNT1 A 0 A_PlaySound("nosferati/attack")
+	WZRD P 12 A_CustomMeleeAttack(random(1,5)*8, "wizard/melee", none, melee, true)
+	Goto See
   Missile:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
     WZRD C 4 A_WizAtk1
@@ -863,8 +873,8 @@ ACTOR WizardNew : Wizard replaces Wizard
     Stop
   Ice:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
-    WZRD E 5 A_GenericFreezeDeath
-    WZRD E 1 A_FreezeDeathChunks
+    WZRD Q 5 A_FreezeDeath
+    WZRD Q 1 A_FreezeDeathChunks
     wait
   Raise:
     WZRD MLKJIHGF 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
