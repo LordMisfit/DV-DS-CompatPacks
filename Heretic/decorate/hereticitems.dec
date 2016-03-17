@@ -1,15 +1,18 @@
 ACTOR ArtiTimeBombNew : ArtiTimeBomb replaces ArtiTimeBomb
 {
+  Inventory.MaxAmount 99
   Tag "Time Bomb of the Ancients: Explodes after a short time."
 }
 
 ACTOR ArtiTorchNew : ArtiTorch replaces ArtiTorch
 {
+  Inventory.MaxAmount 99
   Tag "Torch: Lights up an area for a short time."
 }
 
 ACTOR ArtiEggNew : ArtiEgg replaces ArtiEgg
 {
+  Inventory.MaxAmount 99
   Tag "Torpol's Morph Ovum: Transforms up to eleven enemies into chickens."
   States
   {
@@ -34,6 +37,7 @@ ACTOR ArtiEggNew : ArtiEgg replaces ArtiEgg
   
 ACTOR ArtiTeleportNew : ArtiTeleport replaces ArtiTeleport
 {
+  Inventory.MaxAmount 99
   Tag "Darchala's Chaos Device: Teleports you away to near a level's entry point."
 }
   
@@ -62,6 +66,7 @@ ACTOR ArtiInvisibilityNew : CustomInventory replaces ArtiInvisibility
   Inventory.Icon ARTIINVS
   Inventory.PickupMessage "$TXT_ARTIINVISIBILITY"
   Tag "ShadowSphere: Gives partial invisiblity for 90 seconds"
+  Inventory.MaxAmount 99
   States
   {
   Spawn:
@@ -127,6 +132,7 @@ ACTOR ArtiInvulnerabilityNew : CustomInventory replaces ArtiInvulnerability
   +INVENTORY.HUBPOWER
   +INVENTORY.PERSISTENTPOWER
   +INVENTORY.KEEPDEPLETED
+  Inventory.MaxAmount 99
   Inventory.RespawnTics 4230
   Inventory.Icon ARTIINVU
   Inventory.PickupMessage "$TXT_ARTIINVULNERABILITY" // "RING OF INVINCIBILITY"
@@ -241,6 +247,7 @@ ACTOR ArtiHealthNew : CustomInventory replaces ArtiHealth
   Inventory.PickupSound "misc/p_pkup"
   Inventory.PickupMessage "$TXT_ARTIHEALTH" // "QUARTZ FLASK"
   Tag "$TAG_ARTIHEALTH"
+  Inventory.MaxAmount 99
   States
   {
   Spawn:
@@ -268,6 +275,7 @@ ACTOR ArtiSuperHealthNew : CustomInventory replaces ArtiSuperHealth
   Inventory.PickupSound "misc/p_pkup"
   Inventory.PickupMessage "$TXT_ARTISUPERHEALTH" // "MYSTIC URN"
   Tag "$TAG_ARTISUPERHEALTH"
+  Inventory.MaxAmount 99
   States
   {
   Spawn:

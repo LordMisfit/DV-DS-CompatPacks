@@ -29,16 +29,19 @@ ACTOR ArtiPorkNew : ArtiPork replaces ArtiPork
   
 ACTOR ArtiDarkServantNew : ArtiDarkServant replaces ArtiDarkServant
 {
+  Inventory.MaxAmount 99
   Tag "Dark Servant: Summons a friendly Maulotaur to fight for you."
 }
   
 ACTOR ArtiTeleportOtherNew : ArtiTeleportOther replaces ArtiTeleportOther
 {
+  Inventory.MaxAmount 99
   Tag "Banishment Device: Teleports away the first creature it hits."
 }
   
 ACTOR ArtiTeleportNew : ArtiTeleport replaces ArtiTeleport
 {
+  Inventory.MaxAmount 99
   Tag "Chaos Device: Teleports you away to near a level's entry point."
 }
   

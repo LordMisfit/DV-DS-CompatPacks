@@ -157,7 +157,7 @@ ACTOR MiniSpiderNew : MiniSpider replaces MiniSpider
   States
   {
   Spawn:
-    TNT1 A 0 A_Look
+    MNTR A 0 A_Look
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     MNTR AB 10 A_Look
     Loop
@@ -225,7 +225,7 @@ ACTOR LargeSpiderNew : LargeSpider replaces LargeSpider
   States
   {
   Spawn:
-    TNT1 A 0 A_Look
+    MNTR A 0 A_Look
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     MNTR AB 10 A_Look
     Loop

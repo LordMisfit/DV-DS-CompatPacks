@@ -40,7 +40,7 @@ ACTOR StrifeGenBulletTracer : FastProjectile
 
 ACTOR StrifeGenBulletTracerCrisis : StrifeGenBulletTracer
 {
-   Damage ((Random(1,5) * 3) * 30)
+   Damage ((Random(1,5) * 3) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
    States
    {
    Spawn:
@@ -119,7 +119,7 @@ ACTOR StrifeReaverBulletTracer : FastProjectile
 
 ACTOR StrifeReaverBulletTracerCrisis : StrifeGenBulletTracer
 {
-   Damage ((Random(1,8) * 3) * 30)
+   Damage ((Random(1,8) * 3) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
    States
    {
    Spawn:
@@ -198,7 +198,7 @@ ACTOR StrifeMaulerTracer : FastProjectile
 
 ACTOR StrifeMaulerTracerCrisis : StrifeMaulerTracer
 {
-   Damage ((Random(1,4) * 2) * 30)
+   Damage ((Random(1,4) * 2) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
    States
    {
    Spawn:
@@ -221,7 +221,7 @@ ACTOR StrifeMaulerTracerRetail : StrifeMaulerTracer
 
 ACTOR StrifeMaulerTracerRetailCrisis : StrifeMaulerTracer
 {
-   Damage ((Random(1,5) * 3) * 30)
+   Damage ((Random(1,5) * 3) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
 }
 
 actor StrifeMaulerTracerTrail

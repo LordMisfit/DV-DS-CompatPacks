@@ -6,7 +6,7 @@ ACTOR MedPatch : HealthPickup 2011
 	+FLOORCLIP
 	+INVENTORY.INVBAR
 	Inventory.MaxAmount 99
-	Tag "$TAG_MEDPATCH"
+	Tag "MedicIal Patch: Restores 10 HP."
 	Inventory.Icon "I_STMP"
 	Inventory.PickupMessage "$TXT_MEDPATCH"
 	HealthPickup.Autouse 3
@@ -31,7 +31,7 @@ ACTOR MedicalKit : HealthPickup 2012
 	+FLOORCLIP
 	+INVENTORY.INVBAR
 	Inventory.MaxAmount 99
-	Tag "$TAG_MEDICALKIT"
+	Tag "Medicial Kit: Restores 25 HP."
 	Inventory.Icon "I_MDKT"
 	Inventory.PickupMessage "$TXT_MEDICALKIT"
 	HealthPickup.Autouse 3
@@ -56,7 +56,7 @@ ACTOR SurgeryKit : HealthPickup 83
 	+INVENTORY.INVBAR
 	Health -100
 	Inventory.MaxAmount 99
-	Tag "$TAG_SURGERYKIT"
+	Tag "Surgery Kit: Fully restores all HP."
 	Inventory.Icon "I_FULL"
 	Inventory.PickupMessage "$TXT_SURGERYKIT"
 	States
