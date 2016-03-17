@@ -246,7 +246,7 @@ ACTOR ArtiHealthNew : CustomInventory replaces ArtiHealth
   Inventory.Icon ARTIPTN2
   Inventory.PickupSound "misc/p_pkup"
   Inventory.PickupMessage "$TXT_ARTIHEALTH" // "QUARTZ FLASK"
-  Tag "$TAG_ARTIHEALTH"
+  Tag "Quartz Flask: Recovers 25-30% HP to 105% of Maximum"
   Inventory.MaxAmount 99
   States
   {
@@ -274,7 +274,7 @@ ACTOR ArtiSuperHealthNew : CustomInventory replaces ArtiSuperHealth
   Inventory.Icon ARTISPHL
   Inventory.PickupSound "misc/p_pkup"
   Inventory.PickupMessage "$TXT_ARTISUPERHEALTH" // "MYSTIC URN"
-  Tag "$TAG_ARTISUPERHEALTH"
+  Tag "Mystic Urn: Recovers 100-110% HP to 192.5% of Maximum"
   Inventory.MaxAmount 99
   States
   {
