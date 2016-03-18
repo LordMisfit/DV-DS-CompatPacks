@@ -1,0 +1,37 @@
+clearepisodes
+episode map00
+{
+ name = "City of the Damned - Apocalypse"
+ key = "D"
+}
+
+map map01 "City of the Damned - Apocalypse"
+{
+ cluster = 1
+ music = D_DM2TTL
+ sky1 = "SKYB", 0.0
+ horizwallshade = "+8"
+ vertwallshade = "0"
+ noinfighting
+ nointermission
+ next = EndPic, "VICTORY2"
+}
+
+cluster 1
+{
+ music = "D_TENSE"
+ flat = "BKACH94"
+ exittext =
+ "It is over.",
+ "",
+ "What's left is an abandoned and desolate",
+ "city in the silence of the dark night.",
+ "",
+ "Thamuz is dead and only his green and",
+ "gloomy remains witness his short visit",
+ "in our world.",
+ "",
+ "With killing the arch-demon you also",
+ "banished his minions back to were they",
+ "came from."
+}

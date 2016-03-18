@@ -1,2 +1,3 @@
+#include "decorate/RES_DATA.dec"
 #include "decorate/tcotd2items.dec"
 #include "decorate/tcotd2monsters.dec"
