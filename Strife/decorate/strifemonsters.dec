@@ -2,7 +2,7 @@ ACTOR AcolyteNew : Acolyte replaces Acolyte
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+  var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
 
   DamageFactor "Thunder", 1.25
 
@@ -238,7 +238,7 @@ ACTOR TemplarNew : Templar replaces Templar
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+  var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
 
   DamageFactor "Thunder", 1.5
 
@@ -377,7 +377,7 @@ ACTOR InquisitorNew : Inquisitor replaces Inquisitor
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+  var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
 
   DamageFactor "Thunder", 1.75
 
@@ -516,7 +516,7 @@ ACTOR ReaverNew : Reaver replaces Reaver
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+  var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
 
   DamageFactor "Thunder", 1.75
 
@@ -640,7 +640,7 @@ ACTOR CrusaderNew : Crusader replaces Crusader
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+  var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
 
   DamageFactor "Thunder", 1.75
 
@@ -739,7 +739,7 @@ ACTOR SentinelNew : Sentinel replaces Sentinel
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+  var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
 
   DamageFactor "Thunder", 1.75
 
@@ -829,7 +829,7 @@ ACTOR OStalkerNew : Stalker replaces Stalker
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+  var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
 
   DamageFactor "Thunder", 1.75
 
@@ -932,7 +932,7 @@ ACTOR CeilingTurretNew : CeilingTurret replaces CeilingTurret
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; // For checking if a monster has been given Skill/Map inventory items yet.
+  var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
 
   DamageFactor "Thunder", 1.25
 
