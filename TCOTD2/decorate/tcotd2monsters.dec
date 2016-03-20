@@ -855,14 +855,17 @@ Actor ClayDevilNew : ClayDevil replaces ClayDevil
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
 
-  painchance 96
-  Painchance "Fist", 144 // Fist attacks have a +50% chance of stunning an enemy
-  Painchance "Gauntlets", 144 // Fist attacks have a +50% chance of stunning an enemy
+  painchance 48
+  Painchance "Fist", 72 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Gauntlets", 72 // Fist attacks have a +50% chance of stunning an enemy
 
   health 160 // Double Health
   DamageFactor "Normal", 0.5 // Double Resistance to most
   DamageFactor "Magic", 0.5 // Double Resistance to most
   DamageFactor "Fire", 2
+  DamageFactor "Ice", 0.75
+  DamageFactor "Thunder", 0.75
+  DamageFactor "Shock", 0.75
   +NOTARGETSWITCH
   +AVOIDMELEE
   +NOTARGET
