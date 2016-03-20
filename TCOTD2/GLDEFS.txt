@@ -1097,43 +1097,6 @@ Object ThrallShot1
  Frame CFX4F { Light ThrallShotX_4 }
 }
 
-Object Incarnate
-{
- Frame INCAU { Light Incarnate }
- Frame INCXA { Light IncarnateX_1 }
- Frame INCXB { Light IncarnateX_2 }
- Frame INCXC { Light IncarnateX_3 }
- Frame INCXD { Light IncarnateX_4 }
- Frame INCXE { Light IncarnateX_5 }
- Frame INCXF { Light IncarnateX_6 }
- Frame INCXG { Light IncarnateX_7 }
- Frame INCXH { Light IncarnateX_8 }
- Frame INCXI { Light IncarnateX_9 }
- Frame INCXJ { Light IncarnateX_10 }
-}
-
-Object HS
-{
- Frame HADEE { Light HadesSphere_1 }
- Frame HADEF { Light HadesSphere_2 }
- Frame HADEG { Light HadesSphere_3 }
- Frame HADEH { Light HadesSphere_4 }
- Frame HADEA { Light HadesSphere }
- Frame HADEB { Light HadesSphere }
- Frame HADEC { Light HadesSphere }
- Frame HADED { Light HadesSphere }
- Frame HADEG { Light HadesSphere }
-}
-
-Object HSBoom
-{
- Frame HADEM { Light HadesBoom_1 }
- Frame HADEN { Light HadesBoom_2 }
- Frame HADEO { Light HadesBoom_3 }
- Frame HADEP { Light HadesBoom_4 }
- Frame HADEQ { Light HadesBoom_5 }
-}
-
 Object ShadowBall
 {
  Frame SBALA { Light ShadowBall }
