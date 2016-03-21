@@ -4290,9 +4290,11 @@ actor ExMark : SwitchableDecoration 31999
 
 actor PushPuzz 31998
 {
+  Health 2000000000
   MONSTER
   radius 12
   height 48
+  +CANTSEEK
   +PUSHABLE
   +SOLID
   +NOBLOOD
@@ -4472,6 +4474,7 @@ Goto ready
   }
 }
 
+/*
 ACTOR Sawedoff_ : Weapon 27010
 {
   SpawnID 33
@@ -4553,13 +4556,14 @@ ACTOR Sawedoff_ : Weapon 27010
 	  stop
   }
 } 
-
+*/
 
 actor sawedoffcheck : puzzleitem
 {
 inventory.maxamount 1
 }
 
+/*
 actor Thompson_ : DoomWeapon 27012
 {
    Game Doom
@@ -4677,7 +4681,7 @@ scale 0.5
 	goto ready
    }
 } 
-
+*/
 ACTOR AutoShotgunClip : Ammo 
 {
    Inventory.MaxAmount 2 
@@ -5280,7 +5284,6 @@ ACTOR DogTrail_ : DogTrail replaces DogTrail
 Actor TommyGunCultist : ShotgunCultist replaces ShotgunCultist
 {
   DropItem "ClipBox" 80 //so let's make him leave ammo with about 78% chance
-  DropItem "Thompson_" 0 //and a Tommy-gun with 10% chance
 }
 
 // Remember, that amount of ammo dropped by an enemy, as well as amount of ammo given
@@ -5295,15 +5298,14 @@ Actor TommyGunCultist : ShotgunCultist replaces ShotgunCultist
 
 Actor PumpCultist : ChainGunCultist replaces ChainGunCultist 
 {
-  DropItem "Shell2" 80  // even if he does, he drops only 2 shells, so you don't get too much ammo
-  DropItem "Sawedoff_" 0
+  DropItem "Shells2" 80  // even if he does, he drops only 2 shells, so you don't get too much ammo
 }
 
 // This ammo is dropped by shotgun cultist, therefore the amount is reduced twice
 // so I make it the same as usual shotgun ammo (as it'll become 2 instead of 4 naturally 
 // when cultist drops it), but make additional sprite which shows 2 shells.
 
-Actor Shell2 : Shell
+Actor Shells2 : Shell
 {
 inventory.pickupmessage "Picked up 2 shotgun shells"
 states
