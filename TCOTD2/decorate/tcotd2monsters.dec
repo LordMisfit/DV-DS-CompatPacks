@@ -1802,6 +1802,11 @@ ACTOR ThamuzNew : Thamuz replaces Thamuz
 
   states
   {
+  ResetLevel:
+    TNT1 A 1 A_Look
+    TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    TNT1 A 1 A_SetUserVar("user_ressurrectstr",user_ressurrectstr+random(30,60))
+    TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
   Spawn:
     TNT1 A 0 A_Look
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -1947,6 +1952,11 @@ Actor TchernobogNew : ThamuzNew replaces Tchernobog
   Bloodcolor "aa 00 00"
   states
   {
+  ResetLevel:
+    TNT1 A 1 A_Look
+    TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    TNT1 A 1 A_SetUserVar("user_ressurrectstr",user_ressurrectstr+random(30,60))
+    TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
   Spawn:
     TNT1 A 0 A_Look
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
