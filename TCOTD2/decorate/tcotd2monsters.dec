@@ -3,7 +3,8 @@ ACTOR ApprenticeNew : ApprenticeofDsparil replaces ApprenticeofDsparil
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
-  Health 1250
+  Health 2500
+  DamageFactor "Normal", 0.5
 
   PainChance 100
   Painchance "Fist", 150 // Fist attacks have a +50% chance of stunning an enemy
@@ -154,7 +155,8 @@ ACTOR MiniSpiderNew : MiniSpider replaces MiniSpider
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
-
+  health 38 // 15
+  
   States
   {
   Spawn:
@@ -225,7 +227,7 @@ ACTOR LargeSpiderNew : LargeSpider replaces LargeSpider
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
-  Health 525
+  Health 525 // 150
   DamageFactor "Normal", 0.75
 
   States
@@ -303,7 +305,7 @@ ACTOR TommyGunCultistNew : ShotgunCultist replaces ShotgunCultist
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
 
-  health 88
+  health 125 // 40,60,80,100,125
   painchance 170
   PainChance "Shock", 255
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
@@ -442,7 +444,7 @@ ACTOR TommyGunCultistNew : ShotgunCultist replaces ShotgunCultist
 
 ACTOR ShotgunCultistNew : TommyGunCultistNew replaces ChainGunCultist
 {
-  Health 80
+  Health 125 // 40,60,80,100,125
   painchance 170
   PainChance "Shock", 255
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
@@ -560,12 +562,15 @@ ACTOR HellHoundNew : HotDog replaces HotDog
   } 
 }
 
+// Magic Using Cultist
 ACTOR ThrallNew : Thrall replaces Thrall
 { 
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
-
+  health 125 // 40,60,80,100,125
+  DamageFactor "Magic", 0.75
+  
   PainChance 200
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
@@ -661,7 +666,8 @@ ACTOR NightmareNew : KDiZDNightmare replaces KDiZDNightmare
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
-
+  health 175 // 100
+  
   PainChance 144
   Painchance "Fist", 216 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Gauntlets", 216 // Fist attacks have a +50% chance of stunning an enemy
@@ -736,6 +742,7 @@ ACTOR NightmareNew : KDiZDNightmare replaces KDiZDNightmare
 ACTOR SirenNightmareNew : NightmareNew replaces SirenNightmare
 {
     SpawnID 247
+    health 525 // 300
     Health 300
     Radius 10
     Height 30
@@ -756,7 +763,8 @@ actor VulgarNew : Vulgar replaces Vulgar
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
-
+  health 135 // 100
+  
   painchance 120
   Painchance "Fist", 180 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Gauntlets", 180 // Fist attacks have a +50% chance of stunning an enemy
@@ -1148,6 +1156,7 @@ ACTOR SoulHarvesterNew : SoulHarvester replaces SoulHarvester
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+  Health 175 // 120
 
   PainChance 120
   Painchance "Fist", 180 // Fist attacks have a +50% chance of stunning an enemy
@@ -1247,7 +1256,9 @@ ACTOR ESoulNew : ESoul replaces ESoul
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
-
+  health 230 // 150
+  DamageFactor "Holy", 1.75
+  
   painchance 128
   Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
@@ -1331,6 +1342,8 @@ ACTOR DEWraithNew : DEWraith replaces DEWraith
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+  Health 80 // 50
+  DamageFactor "Holy", 1.75
 
   PainChance 64 
   Painchance "Fist", 96 // Fist attacks have a +50% chance of stunning an enemy
@@ -1412,7 +1425,11 @@ ACTOR ButcherZombieNew : Fatty replaces Fatty
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
-
+  Health 1090 // 308,436,630,850,1090
+  DamageFactor "Normal", 0.75
+  DamageFactor "Fire", 2
+  DamageFactor "Holy", 1.5
+  
   painchance 96
   Painchance "Fist", 144 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Gauntlets", 144 // Fist attacks have a +50% chance of stunning an enemy
@@ -1607,6 +1624,11 @@ actor BloodZombieNew : ZombieBlood replaces ZombieBlood
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  Health 220 // 68,90,130,170,220
+  DamageFactor "Normal", 0.75
+  DamageFactor "Fire", 2
+  DamageFactor "Holy", 1.5
 
   painchance 40
   Painchance "Fist", 60 // Fist attacks have a +50% chance of stunning an enemy

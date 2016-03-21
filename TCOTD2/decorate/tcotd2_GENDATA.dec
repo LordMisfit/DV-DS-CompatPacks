@@ -2626,10 +2626,10 @@ ACTOR Fatty 25010
   obituary "%o BUMPED INTO A FAT ZOMBIE"
   hitobituary "%o was cut up by a bloated butcher zombie"
   Health 400
-dropitem "heart" 128
+  dropitem "heart" 128
   gibhealth 20
   meleesound "twix"
-PainChance "SHOCK", 255
+  PainChance "SHOCK", 255
   Radius 12
   Height 56
   Mass 500
@@ -5418,8 +5418,8 @@ speed 12
 gravity 0.8
 damage 0
 }
- actor ZombieBlood 31002 // Callum Sanderson :3
- 
+
+actor ZombieBlood 31002 // Callum Sanderson :3 
 {
   +BOSSDEATH // so I DONT SCREW UP TORMENTORS COMPLICATED MAPSCRIPTZZZ
   scale 0.45
@@ -5427,10 +5427,10 @@ damage 0
   Radius 12
   Height 56
   Mass 500
-	meleerange 70
+  meleerange 70
   health 200
   gibhealth 20
-PainChance "SHOCK", 255
+  PainChance "SHOCK", 255
   meleedamage 5
   meleerange 56
   painchance 40
