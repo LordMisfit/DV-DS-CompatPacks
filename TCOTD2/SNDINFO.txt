@@ -1,3 +1,6 @@
+breakglass1 DSBGLASS
+breakvent1  DSBVENT
+
 bloodsplat1 dsblud01
 bloodsplat2 dsblud02
 bloodsplat3 dsblud03

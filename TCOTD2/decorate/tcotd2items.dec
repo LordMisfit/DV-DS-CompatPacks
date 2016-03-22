@@ -1,17 +1,17 @@
-Actor PitchforkChecker : CustomInventory replaces Pitchfork
+Actor PitchforkChecker : CustomInventory replaces Pitchfork 30876
 {
   States
   {
    Spawn:
-    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,64)
+    XFOR A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,64)
 
-    TNT1 A 0 A_CheckFlag("DROPPED","FloraDetectedEnd") // Only a natural spawned weapon will drop extra health bonuses [and a tiny chance for a Max Health Bonus or Seed].
+    XFOR A 0 A_CheckFlag("DROPPED","FloraDetectedEnd") // Only a natural spawned weapon will drop extra health bonuses [and a tiny chance for a Max Health Bonus or Seed].
     //TNT1 A 0 A_PrintBold("Not Dropped - Chaingun")
-    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,64)
-    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,64)
-    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,64)
-    TNT1 A 0 A_SpawnItemEx("MaxHealthBonusREAL",random(-3,3),random(-3,3),0,random(-1,1),random(-1,1),random(-1,1),0,0,253)
-    TNT1 A 0 A_SpawnItemEx("RandomSeedDropForcedAlways",random(-3,3),random(-3,3),0,random(-1,1),random(-1,1),random(-1,1),0,0,254)
+    XFOR A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,64)
+    XFOR A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,64)
+    XFOR A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,64)
+    XFOR A 0 A_SpawnItemEx("MaxHealthBonusREAL",random(-3,3),random(-3,3),0,random(-1,1),random(-1,1),random(-1,1),0,0,253)
+    XFOR A 0 A_SpawnItemEx("RandomSeedDropForcedAlways",random(-3,3),random(-3,3),0,random(-1,1),random(-1,1),random(-1,1),0,0,254)
 
    FloraDetectedEnd:
     TNT1 A 0 
@@ -21,14 +21,14 @@ Actor PitchforkChecker : CustomInventory replaces Pitchfork
   }
 }
 
-Actor BloodPistolChecker : CustomInventory replaces PistolBlood
+Actor BloodPistolChecker : CustomInventory replaces PistolBlood 19999
 {
   States
   {
    Spawn:
-    TNT1 A 0 A_SpawnItemEx("HealthBonus",12,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,96)
-    TNT1 A 0 A_SpawnItemEx("HealthBonus",-12,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,254)
-    TNT1 A 0 A_FadeOut(1.0)
+    PIPP A 0 A_SpawnItemEx("HealthBonus",12,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,96)
+    PIPP A 0 A_SpawnItemEx("HealthBonus",-12,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,254)
+    PIPP A 0 A_FadeOut(1.0)
     stop
   }
 }
