@@ -891,7 +891,7 @@ MONSTER
 +FloorClip
 +FireResist
 +DontHurtSpecies
-OBITUARY "%o burned alive by a hellhound."
+OBITUARY "%o was burned alive by a hellhound."
 HITOBITUARY "A hellhound had %o for dinner."
 SEESOUND "monster/dogsit"
 ATTACKSOUND "monster/dogatk"
