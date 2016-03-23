@@ -238,6 +238,8 @@ Actor SnowSpawner_512 23333
 
 Actor FogCloud_Generator 9918
 {
+ height 32
+ radius 32
  +Missile
  +NoBlockmap
  +NoGravity
@@ -248,11 +250,12 @@ Actor FogCloud_Generator 9918
  States
  {
   Spawn:
-   TNT1 A 0
-   TNT1 A 0 A_Jump(128,1,2)
+   XSMK A 0
+   TNT1 A 0 A_Jump(128,1,2,3,4)
    TNT1 A 0 A_SpawnItemEx ("FogCloud_V1", 0, 0, random(0, 32), 0, 0, 0, 0, 128)
    TNT1 A 0 A_SpawnItemEx ("FogCloud_V2", 0, 0, random(0, 32), 0, 0, 0, 0, 128)
    TNT1 A 0 A_SpawnItemEx ("FogCloud_V2", 0, 0, random(0, 32), 0, 0, 0, 0, 128)
+   XSMK A 0
    stop
  }
 }
@@ -272,7 +275,7 @@ Actor FogCloud_V1
  States
  {
   Spawn:
-   TNT1 A 0
+   XSMK A 0
    XSMK AAAAAAAAAAAAAAAAAAAA 10 A_FadeIn(0.002)
    XSMK AAAAAAAAAAAAAAAAAAAA 10 A_FadeOut(0.002)
    loop
@@ -284,7 +287,7 @@ Actor FogCloud_V2 : FogCloud_V1
  States
  {
   Spawn:
-   TNT1 A 0
+   XSMK A 0
    XSMK AAAAAAAAAAAAAA 10 A_FadeIn(0.002)
    XSMK AAAAAAAAAAAAAA 10 A_FadeOut(0.002)
    loop
@@ -296,7 +299,7 @@ Actor FogCloud_V3 : FogCloud_V1
  States
  {
   Spawn:
-   TNT1 A 0
+   XSMK A 0
    XSMK AAAAAAAAAAAAAA 13 A_FadeIn(0.002)
    XSMK AAAAAAAAAAAAAA 13 A_FadeOut(0.002)
    loop
