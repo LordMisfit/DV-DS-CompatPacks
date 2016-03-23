@@ -668,20 +668,9 @@ ACTOR ThrallNew : Thrall replaces Thrall 30119
     CULT M -1 
     Stop
 
-  XDeathCheck:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 A_SpawnItemEx("TheOneRing",0,0,0,0,0,0,0,0,254)    
-    TNT1 A 0 
-    goto XDeath+1
   XDeath:
-    TNT1 A 0 A_Jump(1, "XDeathCheck")
-    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
-    CULT N 5 A_Scream
-    CULT O 5 A_XScream 
-    CULT P 5 A_NoBlocking 
-    CULT QRSTUV 5 
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
-    CULT W -1 
+    Goto Death
+
   Raise: 
     CULT MLKJHI 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     Goto See 
