@@ -1,0 +1,62 @@
+gameinfo
+{
+titlepage = "UNLOVED" 
+titlemusic = "D_NORTT"
+creditpage = "UNLOCRED"
+titletime = 30
+pagetime = 15
+borderflat = "TMTLFL7"
+}
+clearepisodes
+
+episode MAP00
+{
+name ="HOUSE OF MEMORIES"
+}
+map MAP01 "Alone"
+{
+cluster =1
+music ="D_ALONE"
+nointermission
+checkswitchrange
+evenlighting
+}
+map MAP02 "The Basement's Basement" 
+{
+cluster =1
+music ="D_BASEM"
+nointermission
+checkswitchrange
+evenlighting
+}
+map MAP03 "Living Room" 
+{
+cluster =1
+music ="D_DIRTY"
+nointermission
+checkswitchrange
+evenlighting
+}
+map MAP04 "The Halls Below"
+{
+cluster =1
+music ="D_CASTLE"
+nointermission
+checkswitchrange
+evenlighting
+}
+map MAP05 "Lost Childhood"
+{
+cluster =1
+music ="D_JYNWEY"
+nointermission
+checkswitchrange
+evenlighting
+}
+clusterdef 1
+{
+hub
+exittext = "THANK YOU FOR PLAYING. :V"
+pic = "UNLOEND"
+music = "D_ALGMAN" 
+}

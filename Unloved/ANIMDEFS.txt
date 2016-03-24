@@ -1,0 +1,478 @@
+WARP texture wredliq
+WARP texture wskulli2
+WARP texture wskullic
+WARP texture wskullie
+WARP texture wskullig
+WARP texture wskullim
+WARP texture wskullin
+WARP texture wskulliq
+WARP2 texture wslime01
+WARP texture wslime02
+WARP2 texture wwater01
+WARP texture wlava01
+WARP texture WSLIME03
+WARP texture WSLIMH
+WARP2 texture WDWATR01
+
+texture WLLATFL1
+ pic WLLATFL1 tics 8
+ pic WLLATFL2 tics 8
+ pic WLLATFL3 tics 8
+
+texture WLLBLOD1
+ pic WLLBLOD1 tics 8
+ pic WLLBLOD2 tics 8
+ pic WLLBLOD3 tics 8
+
+texture WLLSLIM1
+ pic WLLSLIM1 tics 8
+ pic WLLSLIM2 tics 8
+ pic WLLSLIM3 tics 8
+
+texture CANDLES1
+ pic CANDLES1 tics 8
+ pic CANDLES2 tics 8
+ pic CANDLES3 tics 8
+
+texture DOORXNF1
+ pic DOORXNF1 tics 8
+ pic DOORXNF2 tics 8
+ pic DOORXNF3 tics 8
+
+texture DOORXNV1
+ pic DOORXNV1 tics 8
+ pic DOORXNV2 tics 8
+ pic DOORXNV3 tics 8
+
+texture ELECDOR1
+ pic ELECDOR1 tics 8
+ pic ELECDOR2 tics 8
+ pic ELECDOR3 tics 8
+
+texture ELECDOR4
+ pic ELECDOR4 tics 8
+ pic ELECDOR5 tics 8
+ pic ELECDOR6 tics 8
+
+texture GLAVA1
+ pic GLAVA1 tics 8
+ pic GLAVA2 tics 8 
+ pic GLAVA3 tics 8
+
+texture FLTAAWA1
+ pic FLTAAWA1 tics 8
+ pic FLTAAWA2 tics 8
+ pic FLTAAWA3 tics 8
+
+texture FLTMUD1
+ pic FLTMUD1 tics 8
+ pic FLTMUD2 tics 8
+ pic FLTMUD3 tics 8
+
+texture FLTTEL21
+ pic FLTTEL21 tics 8
+ pic FLTTEL22 tics 8
+ pic FLTTEL23 tics 8
+ pic FLTTEL24 tics 8
+
+texture FLTTEL31
+ pic FLTTEL31 tics 8
+ pic FLTTEL32 tics 8
+ pic FLTTEL33 tics 8
+ pic FLTTEL34 tics 8
+
+texture FLTTEL41
+ pic FLTTEL41 tics 8
+ pic FLTTEL42 tics 8
+ pic FLTTEL43 tics 8
+ pic FLTTEL44 tics 8
+
+texture lvwalla1
+ pic lvwalla1 tics 8
+ pic lvwalla2 tics 8
+ pic lvwalla3 tics 8
+
+texture lvwallb1
+ pic lvwallb1 tics 8
+ pic lvwallb2 tics 8
+ pic lvwallb3 tics 8
+
+texture lvwallc1
+ pic lvwallc1 tics 8
+ pic lvwallc2 tics 8
+ pic lvwallc3 tics 8
+
+switch SW3ON on sound Switch1 pic SW3OFF tics 0
+switch SW3OFF off sound Switch2 pic SW3ON tics 0
+
+switch SW8ON on sound Switch1 pic SW8OFF tics 0
+switch SW8OFF off sound Switch2 pic SW8ON tics 0
+
+switch SW9ON on sound Switch1 pic SW9OFF tics 0
+switch SW9OFF off sound Switch2 pic SW9ON tics 0
+
+switch SW10ON on sound Switch1 pic SW10OFF tics 0
+switch SW10OFF off sound Switch2 pic SW10ON tics 0
+
+switch SWATB00 on sound Switch1 pic SWATB01 tics 0
+switch SWATB01 off sound Switch2 pic SWATB00 tics 0
+
+switch SWTION on sound Switch1 pic SWTIOFF tics 0
+switch SWTIOFF off sound Switch2 pic SWTION tics 0
+
+switch SWTRION on sound Switch1 pic SWTRIOFF tics 0
+switch SWTRIOFF off sound Switch2 pic SWTRION tics 0
+
+switch SW50ON on sound Switch1 pic SW50OFF tics 0
+switch SW50OFF off sound Switch2 pic SW50ON tics 0
+
+switch SW51ON on sound Switch1 pic SW51OFF tics 0
+switch SW51OFF off sound Switch2 pic SW51ON tics 0
+
+
+//////////
+
+flat AHEART01
+	pic AHEART01 tics 5
+	pic AHEART02 tics 5
+	pic AHEART03 tics 5
+	pic AHEART04 tics 5
+
+flat AHEART05
+	pic AHEART05 tics 5
+	pic AHEART06 tics 5
+
+flat ANUK01
+	pic ANUK01 tics 6
+	pic ANUK02 tics 6
+	pic ANUK03 tics 6
+	pic ANUK04 tics 6
+	pic ANUK05 tics 6
+	pic ANUK06 tics 6
+	pic ANUKE07 tics 6
+
+flat ASLIM01
+	pic ASLIM01 tics 6
+	pic ASLIM02 tics 6
+	pic ASLIM03 tics 6
+	pic ASLIM04 tics 6
+	pic ASLIM05 tics 6
+	pic ASLIM06 tics 6
+	pic ASLIM07 tics 6
+
+flat ASLMR01
+	pic ASLMR01 tics 4
+	pic ASLMR02 tics 4
+	pic ASLMR03 tics 4
+	pic ASLMR04 tics 4
+	pic ASLMR05 tics 4
+	pic ASLMR06 tics 4
+	pic ASLMR07 tics 4
+	pic ASLMR08 tics 4
+
+flat ASNAKE01
+	pic ASNAKE01 tics 5
+	pic ASNAKE02 tics 5
+	pic ASNAKE03 tics 5
+	pic ASNAKE04 tics 5
+
+flat AWATER01
+	pic AWATER01 tics 3
+	pic AWATER02 tics 3
+	pic AWATER03 tics 3
+	pic AWATER04 tics 3
+	pic AWATER05 tics 3
+	pic AWATER06 tics 3
+	pic AWATER07 tics 3
+	pic AWATER08 tics 3
+	pic AWATER09 tics 3
+	pic AWATER10 tics 3
+
+warp flat ALAVA0W
+warp flat ANUK0w
+warp flat ASLIM0W
+warp flat ASLMR0W
+warp flat ABLOOD09
+
+texture BABWAS01
+	pic BABWAS01 tics 5
+	pic BABWAS02 tics 5
+	pic BABWAS03 tics 5
+	pic BABWAS04 tics 5
+
+texture BBEIL01
+	pic BBEIL01 tics 4
+	pic BBEIL02 tics 4
+	pic BBEIL03 tics 4
+	pic BBEIL04 tics 4
+	pic BBEIL05 tics 4
+	pic BBEIL06 tics 4
+	pic BBEIL07 tics 4
+	pic BBEIL06 tics 4
+	pic BBEIL05 tics 4
+	pic BBEIL04 tics 4
+	pic BBEIL03 tics 4
+	pic BBEIL02 tics 4
+
+texture BBUBBL01
+	pic BBUBBL01 tics 3
+	pic BBUBBL02 tics 3
+	pic BBUBBL03 tics 3
+	pic BBUBBL04 tics 3
+
+texture BCLOCK04
+	pic BCLOCK04 tics 5
+	pic BCLOCK05 tics 5
+	pic BLCOCK06 tics 5
+	pic BCLOCK07 tics 5
+	pic BCLOCK08 tics 5
+	pic BCLOCK07 tics 5
+	pic BLCOCK06 tics 5
+	pic BCLOCK05 tics 5	
+	
+texture BELEC01
+	pic BELEC01 tics 4
+	pic BELEC02 tics 4
+	pic BELEC03 tics 4
+
+texture BELECB2
+	pic BELECB2 tics 4
+	pic BELECB3 tics 4
+
+texture BFLAG01
+	pic BFLAG01 tics 3
+	pic BFLAG02 tics 3
+	pic BFLAG03 tics 3
+	pic BFLAG04 tics 3
+	pic BFLAG05 tics 3
+	pic BFLAG06 tics 3
+	pic BFLAG07 tics 3
+	pic BFLAG08 tics 3
+
+texture BHEAD01
+	pic BHEAD01 rand 3 6
+	pic BHEAD02 rand 3 6
+
+texture BHEAD04
+	pic BHEAD04 rand 3 6
+	pic BHEAD05 rand 3 6
+
+texture BHEART01
+	pic BHEART01 tics 5
+	pic BHEART02 tics 5
+	pic BHEART03 tics 5
+	pic BHEART04 tics 5
+
+texture BHEART05
+	pic BHEART05 tics 5
+	pic BHEART06 tics 5
+
+texture BLAVB01
+	pic BLAVB01 tics 4
+	pic BLAVB02 tics 4
+	pic BLAVB03 tics 4
+	pic BLAVB04 tics 4
+
+texture BLBULB01
+	pic BLBULB01 tics 5
+	pic BLBULB02 tics 5
+	pic BLBULB03 tics 5
+
+texture BNUK01
+	pic BNUK01 tics 4
+	pic BNUK02 tics 4
+	pic BNUK03 tics 4
+	pic BNUK04 tics 4
+	pic BNUK05 tics 4
+	pic BNUK06 tics 4
+	pic BNUKE07 tics 4
+
+texture BSAW01
+	pic BSAW01 tics 4
+	pic BSAW02 tics 4
+	pic BSAW03 tics 4
+
+texture BSAW04
+	pic BSAW04 tics 4
+	pic BSAW05 tics 4
+	pic BSAW06 tics 4
+
+texture BSAWB1
+	pic BSAWB1 tics 4
+	pic BSAWB2 tics 4
+	pic BSAWB3 tics 4
+
+texture BSAWB1B
+	pic BSAWB1B tics 4
+	pic BSAWB2B tics 4
+	pic BSAWB3B tics 4
+
+texture BSCHACH4
+	pic BSCHACH4 tics 3
+	pic BSCHACH5 tics 3
+	pic BSCHACH6 tics 3
+
+texture BSLIM01
+	pic BSLIM01 tics 6
+	pic BSLIM02 tics 6
+	pic BSLIM03 tics 6
+	pic BSLIM04 tics 6
+	pic BSLIM05 tics 6
+	pic BSLIM06 tics 6
+	pic BSLIM07 tics 6
+
+texture BSLMR01
+	pic BSLMR01 tics 4
+	pic BSLMR02 tics 4
+	pic BSLMR03 tics 4
+	pic BSLMR04 tics 4
+	pic BSLMR05 tics 4
+	pic BSLMR06 tics 4
+	pic BSLMR07 tics 4
+	pic BSLMR08 tics 4
+
+texture BSNAKE01
+	pic BSNAKE01 tics 5
+	pic BSNAKE02 tics 5
+	pic BSNAKE03 tics 5
+	pic BSNAKE04 tics 5
+
+texture BVORTEX1
+	pic BVORTEX1 tics 4
+	pic BVORTEX3 tics 4
+	pic BVORTEX4 tics 4
+	pic BVORTEX5 tics 4
+	pic BVORTEX6 tics 4
+
+texture BVORTEX7
+	pic BVORTEX7 tics 4
+	pic BVORTEX8 tics 4
+	pic BVORTEX9 tics 4
+	pic BVORTEXA tics 4
+
+texture BWATER01
+	pic BWATER01 tics 3
+	pic BWATER02 tics 3
+	pic BWATER03 tics 3
+	pic BWATER04 tics 3
+	pic BWATER05 tics 3
+	pic BWATER06 tics 3
+	pic BWATER07 tics 3
+	pic BWATER08 tics 3
+	pic BWATER09 tics 3
+	pic BWATER10 tics 3
+
+texture BWAVE01
+	pic BWAVE01 tics 5
+	pic BWAVE02 tics 5
+	pic BWAVE03 tics 5
+
+warp texture BINFERNO
+
+
+switch doom 3 BSW01A on sound DSSWTCHN pic BSW01B tics 0
+switch doom 3 BSW02A on sound DSSWTCHN pic BSW02B tics 0
+switch doom 3 BSW03A on sound DSSWTCHN pic BSW03B tics 0
+switch doom 3 BSW04A on sound DSSWTCHN pic BSW04B tics 0
+switch doom 3 BSW05A on sound DSSWTCHN pic BSW05B tics 0
+switch doom 3 BSW06A on sound DSSWTCHN pic BSW06B tics 0
+switch doom 3 BSW07A on sound DSSWTCHN pic BSW07B tics 0
+
+/////////////
+
+texture qplanet1
+pic 1 tics 5
+pic 2 tics 5
+pic 3 tics 5
+pic 4 tics 5
+
+texture qbaseb1
+pic 1 tics 5
+pic 2 tics 5
+
+texture qmtlsw1
+pic 1 tics 5
+pic 2 tics 5
+pic 3 tics 5
+pic 4 tics 5
+
+texture qskull1
+pic 1 tics 5
+pic 2 tics 5
+pic 3 tics 5
+
+texture qbuta1
+pic 1 tics 5
+pic 2 tics 5
+pic 3 tics 5
+
+texture qbutb1
+pic 1 tics 5
+pic 2 tics 5
+pic 3 tics 5
+
+texture qslipp1
+pic 1 tics 5
+pic 2 tics 5
+pic 3 tics 5
+pic 4 tics 5
+pic 5 tics 5
+pic 6 tics 5
+pic 7 tics 5
+
+flat qslip1
+pic 1 tics 5
+pic 2 tics 5
+pic 3 tics 5
+pic 4 tics 5
+pic 5 tics 5
+pic 6 tics 5
+pic 7 tics 5
+
+warp flat qlava
+warp flat qslime1
+warp flat qslime2
+warp flat qwater1
+warp flat qwater2
+warp flat qwater3
+warp flat qtelept
+
+/////////
+
+Switch TSW4A on pic TSW4B tics 0
+Switch TMTLSW1A on pic TMTLSW1B tics 0
+Switch TMTLSW2A on pic TMTLSW2B tics 0
+Switch TMTLSW3A on pic TMTLSW3B tics 0 
+Switch T2SW01A on pic T2SW01B tics 0
+Switch T2SW02A on pic T2SW02B tics 0
+
+warp flat TLAVFL0
+warp flat TSLIMEFL
+warp flat TWARP01
+warp flat TWARP02
+warp flat TWARP03
+warp flat TWARP04
+
+texture THEDWL1A
+   allowdecals
+   pic THEDWL1A tics 5
+   pic THEDWL1B tics 5
+   pic THEDWL1C tics 5
+   pic THEDWL1D tics 5
+   pic THEDWL1C tics 5
+   pic THEDWL1B tics 5
+   
+texture TLIGWL1A
+  allowdecals
+  pic TLIGWL1A tics 5
+  pic TLIGWL1B tics 5
+  pic TLIGWL1C tics 5
+  pic TLIGWL1D tics 5
+  pic TLIGWL1E tics 5
+  pic TLIGWL1D tics 5
+  pic TLIGWL1C tics 5
+  pic TLIGWl1B tics 5
+
+
+// This Texture Pack was Converted and Compiled by Tormentor667
+// Get more @ http://www.tormentor667.de
