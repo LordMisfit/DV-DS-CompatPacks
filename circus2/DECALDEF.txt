@@ -1,0 +1,133 @@
+stretcher SpStetcher
+{
+   GoalY 3
+   StretchStart 0
+   StretchTime 100
+}
+slider SpSlider 
+{
+   DistY -40
+   SlideStart 0
+   SlideTime 100
+}
+combiner SplatDripper
+{
+	SpStetcher
+	SpSlider 
+}
+
+decal BSplat1
+   {
+       pic SPL2E0
+       shade "8F 02 02"
+       randomflipx
+       randomflipy
+       animator SplatDripper
+   }
+decal BSplat2
+   {
+       pic SPL2D0
+       shade "8F 02 02"
+       randomflipx
+       randomflipy
+       animator SplatDripper
+   }
+decal BSplat3
+   {
+       pic BBLDA0
+       shade "8F 02 02"
+       randomflipx
+       randomflipy
+   }
+decal BSplat4
+   {
+       pic BBLDB0
+       shade "8F 02 02"
+       randomflipx
+       randomflipy
+   }
+decal BSplat5
+   {
+       pic BBLDC0
+       shade "8F 02 02"
+       randomflipx
+       randomflipy
+   }
+decal BSplat6
+   {
+       pic BBLDD0
+       shade "8F 02 02"
+       randomflipx
+       randomflipy
+   }
+decal Poster1 50
+   {
+       pic CPSTA0
+       x-scale 0.25
+       y-scale 0.25
+       //shade "8F 02 02" 
+   }  
+decal Poster2 51
+   {
+       pic EDEDA0
+       x-scale 0.25
+       y-scale 0.25
+   }   
+decal Poster3 52
+   {
+       pic PSTRB0
+       x-scale 0.25
+       y-scale 0.25
+   } 
+decal Poster4 53
+   {
+       pic PSTRC0
+       x-scale 0.25
+       y-scale 0.25
+   }
+decal Poster5 54
+   {
+       pic PSTRD0
+       x-scale 0.25
+       y-scale 0.25
+   } 
+decal Painting1 1
+   {
+       pic PNTTA0
+       x-scale 0.15
+       y-scale 0.15
+   }
+decal Painting2 2
+   {
+       pic PNTTB0
+       x-scale 0.15
+       y-scale 0.15
+   }
+decal Painting3 3
+   {
+       pic PNTTC0
+       x-scale 0.25
+       y-scale 0.25
+   }
+decal Painting4 4
+   {
+       pic PNTTD0
+       x-scale 0.25
+       y-scale 0.25
+   }
+decal Painting5 5
+   {
+       pic PNTTE0
+       x-scale 0.25
+       y-scale 0.25
+   }
+decalgroup BloodSplats
+   {
+       BSplat1		1
+       BSplat2		1
+       BSplat3		1
+       BSplat4		1
+       BSplat5		1
+       BSplat6		1
+   }
+generator FlyingGut		BloodSplats

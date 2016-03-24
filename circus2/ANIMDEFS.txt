@@ -1,0 +1,4 @@
+warp flat asoup
+
+SWITCH sw1clown off sound MISC1 pic sw2clown tics 0
+SWITCH sw2clown on sound CSWITCH  pic sw1clown tics 0
