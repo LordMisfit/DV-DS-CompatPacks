@@ -1199,3 +1199,157 @@ Icon/Wrath WRATH
 
 Icon/Death ICODEATH
 Icon/Pain ICOPAIN
+
+darkinquisitor/sight inqalert
+darkinquisitor/pain inqpain
+darkinquisitor/death inqdeath
+darkinquisitor/empfire inqempfi
+darkinquisitor/empdie inqempex
+darkinquisitor/bigdeathexpl inqbigxp
+darkinquisitor/deathexplosion inqdthxp
+darkinquisitor/step step2
+darkinquisitor/darkmatterdie inqdrkxp
+darkinquisitor/flight inqfly
+
+inqv1 inqact1
+inqv2 inqact2
+inqv3 inqact3
+inqv4 inqact4
+inqv5 inqact5  
+inqv6 inqact6
+inqv7 inqact7  
+inqv8 inqact8  
+$RANDOM darkinquisitor/active { inqv1 inqv2 inqv3 inqv4 inqv5 inqv6 inqv7 inqv8 }
+
+darkinquisitor/darkmatterfire INQDRKFI
+
+shrapnel1 shrapnl1
+shrapnel2 shrapnl2
+shrapnel3 shrapnl3
+$RANDOM darkinquisitor/shrapnel { shrapnel1 shrapnel2 shrapnel3 }
+
+LaserCannon/Fire	DSLASERF
+$limit LaserCannon/Fire	0
+
+LaserCannon/End		DSLSREND
+$limit LaserCannon/End	0
+
+DSROBDI1	DSROBDI1
+DSROBDI2	DSROBDI2
+DSROBDI3	DSROBDI3
+DSROBDI4	DSROBDI4
+
+$random Robot/Death	{ DSROBDI1 DSROBDI2 DSROBDI3 DSROBDI4 }
+
+DSROBPN1	DSROBPN1
+DSROBPN2	DSROBPN2
+DSROBPN3	DSROBPN3
+DSROBPN4	DSROBPN4
+
+$random Robot/Pain	{ DSROBPN1 DSROBPN2 DSROBPN3 DSROBPN4 }
+
+Robot/Step	DSROBSTP
+$limit Robot/Step 0
+
+Robot/Fall	DSROBFAL
+
+zombie/rifle dsrifle
+
+PainLord/Death DIA2DETH
+
+$RANDOM PainLord/Sight { lordsee1 lordsee2 lordsee3 }
+lordsee1 DIA2SIG1
+lordsee2 DIA2SIG2
+lordsee3 DIA2SIG3
+
+$RANDOM PainLord/Pain { lordpai1 lordpai2 }
+lordpai1 DIABLOH1
+lordpai2 DIABLOH2
+
+painlord/barrageball 64firsht
+painlord/barrageballblast 64firxpl
+painlord/ripper spit6
+painlord/ripperex impact3
+painlord/floorfire darkflam
+painlord/darkmatterdie sorblexp
+painlord/deathfire dslgfire
+painlord/deathexpl grenlx1a
+painlord/darkmatter mage4
+PainLord/Melee 64claw
+monster/heltel dsheltel
+
+malephar/sight	malepsit
+malephar/pain	maleppai
+malephar/death	malepdth
+malephar/active	malepact
+Fire/charge  FIRECHAR
+Fire/fire    FBFIRE
+weapons/fbexpl                  dsfrbxpl
+
+$limit fire/fire 0
+
+$random SlaughterExplosion 		{ wep/rckt1 wep/rckt2 wep/rckt3 wep/rckt4 }
+wep/rckt1 			dsboom1
+wep/rckt2 			dsboom2
+wep/rckt3 			dsboom3
+wep/rckt4 			dsboom4
+
+$RANDOM Goreimp/Death { goredeath1 goredeath2 }
+goredeath1 GOREDEA1
+goredeath2 GOREDEA2
+
+$RANDOM Goreimp/Sight { goresight1 goresight2 }
+goresight1 GORESIG1
+goresight2 GORESIG2
+
+$RANDOM Goreimp/Pain { gorepain1 gorepain2 }
+gorepain1 GOREPAI1
+gorepain2 GOREPAI2
+
+$RANDOM Goreimp/Active { goreactive1 goreactive2 }
+goreactive1 GOREACT1
+goreactive2 GOREACT2
+
+////////////////////////
+// Terminator sounds  //
+////////////////////////
+
+monster/termsit tsight
+monster/termpin tpain1
+monster/termdth tdeath
+monster/brufir dsbrufir
+weapons/hellex dshellex
+
+$random Terminator/termact { termact1 termact2 }
+termact1		dsteract
+termact2		dsteact2
+$random Terminator/terstepA { terstep1 terstep2 }
+terstep1		 dststep1
+terstep2		 dststep2
+Terminator/terstepB dststep3
+Terminator/tershotA dstshot1
+Terminator/tershotB dstshot2
+
+chesSEE1	chesSEE1
+chesSEE2	chesSEE2
+chesSEE3	chesSEE3
+$random ches/see { chesSEE1 chesSEE2 chesSEE3}
+
+chesact1	chesact1
+chesact2	chesact2
+chesact3	chesact3
+$random ches/act { chesact1 chesact2 chesact3}
+
+ChesFire	chesfire
+ChesHit		cheshit
+ChesFlame	CHESFLME
+
+Balot/Active	BALRACTI
+Balor/Ball	BALRBALL
+Balor/BallHit	BALRBHIT
+Balor/Death	BALRDEAT
+Balor/Explode	BALREXPL
+Balor/Melee	BALRMHIT
+Balor/Pain	BALRPAIN
+Balor/Sight	BALRSIGH
+Balor/Teleport	BALRTELE

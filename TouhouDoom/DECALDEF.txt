@@ -86,3 +86,14 @@ decalgroup DEBFGLightning
 Generator DevastatorBall                DevScorch
 Generator DevastatorBall2               DoomImpScorch
 Generator LiteShot                      LiteScorch
+
+decal ChesScorch
+{
+	pic SHSTG0
+	add 1.0
+	fullbright
+	animator GoAway2
+	lowerdecal BigScorch
+}
+
+generator BalorBall scorch
