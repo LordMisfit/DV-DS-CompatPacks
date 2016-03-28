@@ -1,3 +1,131 @@
+// ?
+masterspark               yukasprk
+
+// Remilia
+orbattack		orbattac
+orbpdeath		orbpdeat
+orbpain     	orbpain
+remsee			remsee
+lildead         lildead
+ufodead         ufodead
+ufoattack       ufoattac
+ufosee          ufosee
+nuewater        nuewater
+neardead        neardead
+atdead          atdead
+water           water
+ufosummon       ufosummo
+nuefire         nuefire
+remhit          remhit
+realdead        realdead
+bats            bats
+poof            holy3
+woosh           woosh3
+remihurt        remihurt
+remishot        remishot
+dashing         dashing
+doorcrack       drcrk5a
+ykridth         ykridth
+ykrisee         ykrisee
+ykripai         ykripai
+lazer           lazer
+scarlett        scarlett
+
+$limit remishot 0
+
+// Medivile
+medi/sight medisee
+medi/active medipain
+medi/pain medipain
+medi/death medidth
+
+// ?
+FANTASYSEAL FANTASYS
+
+// ?
+bigmissile bigmissi
+weakspin spin1
+strongspin spin2
+
+// Utsuho
+PyroCannon/Hit		PYRCHIT
+PyroCannon/Explosion	PYRCEXPL
+PyroCannon/Flare	PYRCFLAR
+Utsuho/alert        UNYUALAR
+Flamethrower/Flame	FMTRFLAM
+weapons/incendf	                dsincndf
+weapons/incendx	                dsincndx
+weapons/fbexpl                  dsfrbxpl
+$Limit PyroCannon/Explosion	0
+$Limit PyroCannon/Flare		0
+
+// Cirno
+9missile               9MISSILE
+weapons/hrlexp dshrlexp
+weapons/hrlfir dshrlfir
+
+$random 9/sight { 9/sight1 9/sight2 }
+9/sight1    9SIGH1
+9/sight2    9SIGH2
+
+$random 9/idle { 9/idle1 9/idle2 9/idle3 }
+9/idle1     9ACT1
+9/idle2     9ACT2
+9/idle3     9ACT3
+
+$random 9/warn { 9/warn1 9/warn2 }
+9/warn1     9WARN1
+9/warn2     9WARN2
+
+9/death     9DEATH
+
+// Koishi
+koishi/meleewarn    KOASIGHT
+koishi/meleehit     SPLBLOOD
+
+// ?
+RedDot/RailFire	    SRZMFIR2
+RedDot/Charge		SRZMCHRG
+RedDot/Death        DSDEVEXP
+
+// Shinki
+Shinki/dead    SHNKIDED
+
+// Pusher Orb?
+weapons/devexp                dsdevexp
+weapons/devzap                dsdevzap
+monster/hadsit                dshadsit
+monster/haddth                dshaddth
+monster/hadtel                dshadtel
+weapons/gntidl                dsgntidl
+
+PusherOrb/Thrown			DMBALLTH
+PusherOrb/Charged			DMBALLCH
+PusherOrb/Explode			MAGICEXP
+PusherOrb/Push				DARKMATT
+
+// Flandre
+$RANDOM BFlan/Laugh { bflanlaugh1 bflanlaugh2 bflanlaugh3 bflanlaugh4 }
+bflanlaugh1			BFLALAF
+bflanlaugh2			BFLALAF2
+bflanlaugh3			BFLALAF3
+bflanlaugh4			BFLALAF4
+
+BFlan/Death			BFLADED
+BFlan/Whispers		AMBIWHIS
+BFlan/EvilWhisper	BFLANWHI
+BFlan/Heart			HEART
+BFlan/Attack		DEATHDEF
+BFlan/Drain			BLDDRAIN
+BFlan/Draw			LAZDRAW
+BFlan/Swing			LAZSWING
+
+Ambient/Hell1		HELLAMB1
+Ambient/Hell2		HELLAMB2
+Ambient/Hell3		HELLAMB3
+
+//
+
 FighterPunchMiss        punchmis
 FighterPunchHitWall     punch8
 FighterPunchHitThing    mumpun5

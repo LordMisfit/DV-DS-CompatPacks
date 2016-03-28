@@ -1,3 +1,216 @@
+FlickerLight2 PinkFlame
+{
+Offset 0 0 0
+Color 0.65 0.30 0.50
+Size 30
+SecondarySize 40
+Interval 2.0
+}
+
+Object PinkFire
+{
+Frame PNKF { Light PinkFlame }
+}
+
+FlickerLight2 PyroSpawnAB
+{
+Color 1.0 0.7 0.0
+Offset 0 30 0
+Size 50
+SecondarySize 70
+Interval 0.0125
+}
+
+PointLight PyroDeathA
+{
+Color 1.0 0.9 0.0
+Offset 0 20 0
+Size 70
+}
+
+PointLight PyroDeathB
+{
+Color 1.0 0.9 0.0
+Offset 0 20 0
+Size 120
+}
+
+PointLight PyroDeathC
+{
+Color 1.0 0.9 0.0
+Offset 0 20 0
+Size 150
+}
+
+PointLight PyroDeathD
+{
+Color 1.0 0.9 0.0
+Offset 0 20 0
+Size 180
+}
+
+PointLight PyroDeathE
+{
+Color 1.0 0.9 0.0
+Offset 0 20 0
+Size 200
+}
+
+PointLight PyroDeathF
+{
+Color 1.0 0.9 0.0
+Offset 0 20 0
+Size 220
+}
+
+PointLight PyroDeathG
+{
+Color 1.0 0.9 0.0
+Offset 0 20 0
+Size 230
+}
+
+PointLight PyroDeathH
+{
+Color 1.0 0.9 0.0
+Offset 0 20 0
+Size 240
+}
+
+PointLight PyroDeathI
+{
+Color 1.0 0.9 0.0
+Offset 0 20 0
+Size 245
+}
+
+PointLight PyroDeathJ
+{
+Color 1.0 0.9 0.0
+Offset 0 20 0
+Size 250
+}
+
+PointLight PyroDeathK
+{
+Color 1.0 0.9 0.0
+Offset 0 20 0
+Size 255
+}
+
+PointLight PyroDeathL
+{
+Color 0.95 0.95 0.0
+Offset 0 20 0
+Size 260
+}
+
+PointLight PyroDeathM
+{
+Color 0.9 0.9 0.0
+Offset 0 20 0
+Size 262
+}
+
+PointLight PyroDeathN
+{
+Color 0.9 0.8 0.0
+Offset 0 20 0
+Size 263
+}
+
+PointLight PyroDeathO
+{
+Color 0.9 0.7 0.0
+Offset 0 20 0
+Size 262
+}
+
+PointLight PyroDeathP
+{
+Color 0.95 0.6 0.0
+Offset 0 20 0
+Size 260
+}
+
+PointLight PyroDeathQ
+{
+Color 0.85 0.5 0.0
+Offset 0 20 0
+Size 255
+}
+
+PointLight PyroDeathR
+{
+Color 0.6 0.4 0.0
+Offset 0 20 0
+Size 250
+}
+
+PointLight PyroDeathS
+{
+Color 0.4 0.3 0.0
+Offset 0 20 0
+Size 245
+}
+
+PointLight PyroDeathT
+{
+Color 0.2 0.2 0.0
+Offset 0 20 0
+Size 240
+}
+
+PointLight PyroDeathU
+{
+Color 0.125 0.1 0.0
+Offset 0 20 0
+Size 230
+}
+
+Object UtsuhoPyroOrb
+{
+Frame PBALA { Light PyroSpawnAB }
+Frame PBALB { Light PyroSpawnAB }
+Frame PYXPA { Light PyroDeathA }
+Frame PYXPB { Light PyroDeathB }
+Frame PYXPC { Light PyroDeathC }
+Frame PYXPD { Light PyroDeathD }
+Frame PYXPE { Light PyroDeathE }
+Frame PYXPF { Light PyroDeathF }
+Frame PYXPG { Light PyroDeathG }
+Frame PYXPH { Light PyroDeathH }
+Frame PYXPI { Light PyroDeathI }
+Frame PYXPJ { Light PyroDeathJ }
+Frame PYXPK { Light PyroDeathK }
+Frame PYXPL { Light PyroDeathL }
+Frame PYXPM { Light PyroDeathM }
+Frame PYXPN { Light PyroDeathN }
+Frame PYXPO { Light PyroDeathO }
+Frame PYXPP { Light PyroDeathP }
+Frame PYXPQ { Light PyroDeathQ }
+Frame PYXPR { Light PyroDeathR }
+Frame PYXPS { Light PyroDeathS }
+Frame PYXPT { Light PyroDeathT }
+Frame PYXPU { Light PyroDeathU }
+}
+
+
+
+FlickerLight2 DropFlame
+{
+Offset 0 0 0
+Color 0.15 0.04 0.0
+Size 20
+SecondarySize 30
+Interval 2.0
+}
+
+Object DropFire
+{
+Frame FLME { Light DropFlame }
+}
+
 pointlight CultLight1
 {
     color 255 0 0
