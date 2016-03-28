@@ -1,0 +1,3649 @@
+// ItemsWeaps Decorate
+actor Spawner : Health
+{ 
+  Inventory.Amount 0
+  Inventory.MaxAmount 999
+  Inventory.RespawnTics 175
+  +INVENTORY.QUIET
+  -COUNTITEM
+}
+
+ACTOR MWeapWand1 : MWeapWand 31118
+{
+}
+
+ACTOR BMana : Ammo 31117
+{
+	SpawnID 11
+	Inventory.Amount 20
+	Inventory.MaxAmount 300
+	Ammo.BackpackAmount 40
+	Ammo.BackpackMaxAmount 700
+	Radius 8
+	Height 8
+	+FLOATBOB
+	Inventory.Icon "MANBA0"
+	Inventory.PickupMessage "Picked up a blue mana pack"
+	States
+	{
+	Spawn:
+		MAN1 ABCDEFGHI 4 Bright
+		Loop
+	}
+}
+ACTOR BBMana : BMana 31116
+{
+	Inventory.Amount 50
+        scale 1.3
+	Inventory.PickupMessage "Picked up a big blue mana pack"
+}
+ACTOR SBMana : BMana 31115
+{
+	Inventory.Amount 10
+        scale 0.6
+	Inventory.PickupMessage "Picked up a small blue mana pack"
+}
+ACTOR MBMana : BMana 31114
+{
+	Inventory.Amount 30
+        scale 1.15
+	Inventory.PickupMessage "Picked up a medium blue mana pack"
+}
+ACTOR GMana : Ammo 31113
+{
+	SpawnID 12
+	Inventory.Amount 20
+	Inventory.MaxAmount 300
+	Ammo.BackpackAmount 40
+	Ammo.BackpackMaxAmount 700
+	Radius 8
+	Height 8
+	+FLOATBOB
+	Inventory.Icon "MANGA0"
+	Inventory.PickupMessage "Picked up a green mana pack"
+	States
+	{
+	Spawn:
+		MAN2 ABCDEFGHIJKLMNOP 4 Bright
+		Loop
+	}
+}
+ACTOR GBigMana : GMana 31112
+{
+	Inventory.Amount 50
+        scale 1.3
+	Inventory.PickupMessage "Picked up a big green mana pack"
+}
+ACTOR GSmallMana : GMana 31111
+{
+	Inventory.Amount 10
+        scale 0.6
+	Inventory.PickupMessage "Picked up a small green mana pack"
+}
+ACTOR MGMana : GMana 31110
+{
+	Inventory.Amount 30
+        scale 1.15
+	Inventory.PickupMessage "Picked up a medium green mana pack"
+}
+ACTOR CMana : CustomInventory 31109
+{
+	SpawnID 75
+	Radius 8
+	Height 8
+	+FLOATBOB
+	Inventory.PickupMessage "$TXT_MANA_BOTH"
+	States
+	{
+	Spawn:
+		MAN3 ABCDEFGHIJKLMNOP 4 Bright
+		Loop
+	Pickup:
+		TNT1 A 0 A_GiveInventory("GMana", 50)
+		TNT1 A 0 A_GiveInventory("BMana", 50)
+		Stop
+	}
+}
+
+ACTOR CWeapStaff1 : CWeapStaff 31107
+{
+        Weapon.AmmoType "BMana"
+        weapon.Ammogive 20
+	Weapon.AmmoUse 1
+   states
+   {
+   Spawn:
+    WCSS A 3
+    loop
+   }
+}
+ACTOR MWeapBloodScourge1 : MWeapBloodScourge 31102
+{
+        Weapon.AmmoType "GMana"
+        weapon.Ammogive 40
+	Weapon.AmmoUse 10
+        Weapon.AmmoType2 "BMana"
+        weapon.Ammogive2 40
+	Weapon.AmmoUse2 10
+        +WEAPON.PRIMARY_USES_BOTH
+   states
+   {
+   Spawn:
+    BLOS A 3
+    loop
+   }
+}
+
+ACTOR EtherealCrossbow : Weapon replaces Crossbow 31099
+{
+  Weapon.AmmoUse 1
+  Weapon.AmmoGive 10
+  Weapon.AmmoType "EtherealArrows"
+  Weapon.YAdjust 15
+  Inventory.PickupMessage "You got the Ethereal Crossbow!"
+  Tag "EtherealCrossbow"
+  DamageType "Ethereal"
+  States
+  {
+  Spawn:
+    WBOW A -1
+    Stop
+  Ready:
+    CRBW AAAAAABBBBBBCCCCCC 1 A_WeaponReady
+    Loop
+  Deselect:
+    CRBW A 1 A_Lower
+    Loop
+  Select:
+    CRBW A 1 A_Raise
+    Loop
+  Fire:
+    CRBW D 0 A_FireCustomMissile ("CrossbowFX1", 0, 1, 0, 3)
+	CRBW D 0 A_FireCustomMissile ("CrossbowFX3", -4.5, 0, -2, 3)
+    CRBW D 6 A_FireCustomMissile ("CrossbowFX3",  4.5, 0,  2, 3)
+    CRBW EFGH 3
+    CRBW AB 4
+    CRBW C 5 A_ReFire
+    Goto Ready
+  }
+}
+
+Actor EtherealArrows : Ammo 31098
+{
+  Inventory.PickupMessage "Picked up some ethereal arrows."
+  Inventory.Amount 5
+  Inventory.MaxAmount 50
+  Ammo.BackpackAmount 5
+  Ammo.BackpackMaxAmount 100
+  Inventory.Icon "INAMBOW"
+  States
+  {
+  Spawn:
+    AMC1 A -1 
+    Stop
+  }
+}
+
+Actor EtherealQuiver : EtherealArrows 31097
+{
+  Inventory.PickupMessage "Picked up a quiver of ethereal arrows."
+  Inventory.Amount 20
+  States
+  {
+  Spawn:
+    AMC2 ABC 5
+    Loop
+  }
+}
+
+Actor DragonClaw : Weapon replaces Blaster 31096
+{
+  +BLOODSPLATTER
+  Weapon.AmmoUse1 1
+  Weapon.AmmoUse2 10
+  Weapon.AmmoGive 30
+  Weapon.YAdjust 15
+  Weapon.AmmoType1 "ClawAmmo"
+  Weapon.AmmoType2 "ClawAmmo"
+  Inventory.PickupMessage "You got the Dragon Claw!"
+  Tag "DragonClaw"
+  DamageType "Claw"
+  States
+  {
+  Spawn:
+    WBLS A -1
+    Stop
+  Ready:
+    BLSR A 1 A_WeaponReady
+    Loop
+  Deselect:
+    BLSR A 1 A_Lower
+    Loop
+  Select:
+    BLSR A 1 A_Raise
+    Loop
+  Fire:
+    BLSR BC 3
+  Hold:
+    BLSR D 0 A_PlaySound("weapons/blastershoot", CHAN_WEAPON)
+	BLSR D 0 A_GunFlash
+    BLSR D 2 A_FireBullets(random(5, 6), 0, 1, 5, "BlasterPuff")
+    BLSR CB 2
+    BLSR A 0 A_ReFire
+    Goto Ready
+  AltFire:
+    BLSR BC 0
+  AltHold:
+    BLSR D 3 A_FireCustomMissile("BlasterFX1")
+    BLSR CB 4
+    BLSR A 0 A_ReFire
+    Goto Ready
+  }
+}
+
+Actor ClawAmmo : Ammo 31095
+{
+  Inventory.PickupMessage "$TXT_AMMOBLASTER1"
+  Inventory.Amount 10
+  Inventory.MaxAmount 200
+  Ammo.BackpackAmount 10
+  Ammo.BackpackMaxAmount 400
+  Inventory.Icon "INAMBST"
+  States
+  {
+  Spawn:
+    AMB1 ABC 4
+    Loop
+  }
+}
+
+Actor ClawHefty : ClawAmmo 31094
+{
+  Inventory.PickupMessage "$TXT_AMMOBLASTER2"
+  Inventory.Amount 25
+  States
+  {
+  Spawn:
+    AMB2 ABC 4
+    Loop
+  }
+}
+
+Actor NecromancerGauntlets : Gauntlets 31093
+{
+
+}
+
+Actor GoldenWand : Weapon replaces GoldWand 31092
+{
+  +BLOODSPLATTER
+  Weapon.AmmoGive 25
+  Weapon.AmmoUse 1
+  Weapon.AmmoType "ElvenAmmo"
+  Weapon.YAdjust 5
+  Inventory.PickupMessage "You got the Gold Wand!"
+  Tag "GoldenWand"
+  DamageType "GoldWand"
+  States
+  {
+  Spawn:
+    GWAN A -1
+    Stop
+  Ready:
+    GWND A 1 A_WeaponReady
+    Loop
+  Deselect:
+    GWND A 1 A_Lower
+    Loop
+  Select:
+    GWND A 1 A_Raise
+    Loop
+  Fire:
+    GWND B 3
+	BLSR D 0 A_PlaySound("weapons/wandhit", CHAN_WEAPON)
+	BLSR D 0 A_GunFlash
+    GWND C 5 A_FireBullets(random(5, 6), 0, 1, random(2, 3), "GoldWandPuff1")
+    GWND D 3
+    GWND D 0 A_ReFire
+    Goto Ready
+  }
+}
+
+Actor ElvenAmmo : Ammo 31091
+{
+  Inventory.PickupMessage "$TXT_AMMOGOLDWAND1"
+  Inventory.Amount 10
+  Inventory.MaxAmount 100
+  Ammo.BackpackAmount 10
+  Ammo.BackpackMaxAmount 200
+  Inventory.Icon "INAMGLD"
+  States
+  {
+  Spawn:
+    AMG1 A -1 
+    Stop
+  }
+}
+
+Actor ElvenGeode : ElvenAmmo 31090
+{
+  Inventory.PickupMessage "$TXT_AMMOGOLDWAND2"
+  Inventory.Amount 50
+  States
+  {
+  Spawn:
+    AMG2 ABC 4
+    Loop
+  }
+}
+
+Actor HellStaff : Weapon replaces SkullRod 31083
+{
+  Weapon.AmmoUse1 1
+  Weapon.AmmoUse2 10
+  Weapon.AmmoGive1 50
+  Weapon.YAdjust 15
+  Weapon.AmmoType1 "HellStaffAmmo"
+  Weapon.AmmoType2 "HellStaffAmmo"
+  Inventory.PickupMessage "You now wield the Hell Staff!"
+  Tag "HellStaff"
+  Damagetype "HellStaff"
+  States
+  {
+  Spawn:
+    WSKL A -1
+    Stop
+  Ready:
+    HROD A 1 A_WeaponReady
+    Loop
+  Deselect:
+    HROD A 1 A_Lower
+    Loop
+  Select:
+    HROD A 1 A_Raise
+    Loop
+  Fire:
+    HROD AB 4 A_FireCustomMissile("HornRodFX12")
+    HROD B 0 A_ReFire
+    Goto Ready
+  AltFire:
+    HROD C 2
+    HROD D 3
+    HROD E 2
+    HROD F 3
+    HROD G 4 A_FireCustomMissile("HornRodFX2")
+    HROD F 2
+    HROD E 3
+    HROD D 2
+    HROD C 2 A_ReFire
+    Goto Ready
+  }
+}
+
+ACTOR HornRodFX12 : HornRodFX1
+{
+  Radius 12
+  Height 8
+  Speed 22
+  Damage 6
+  Projectile
+  +WINDTHRUST
+  -NOBLOCKMAP
+  RenderStyle Add
+  DamageType "HellStaff"
+  SeeSound "weapons/hornrodshoot"
+  DeathSound "weapons/hornrodhit"
+  Obituary "$OB_MPSKULLROD"
+  States
+  {
+  Spawn:
+    FX00 AB 6 Bright
+    Loop
+  Death:
+    FX00 HI 5 Bright
+    FX00 JK 4 Bright
+    FX00 LM 3 Bright
+    Stop
+  }
+}
+
+Actor HellStaffAmmo : Ammo 31082
+{
+  Inventory.PickupMessage "Picked up some lesser hell runes."
+  Inventory.Amount 20
+  Inventory.MaxAmount 200
+  Ammo.BackpackAmount 20
+  Ammo.BackpackMaxAmount 400
+  Inventory.Icon "INAMRAM"
+  States
+  {
+  Spawn:
+    AMS1 AB 5
+    Loop
+  }
+}
+
+Actor HellStaffHefty : HellStaffAmmo 31081
+{
+  Inventory.PickupMessage "Picked up some greater hell runes."
+  Inventory.Amount 100
+  States
+  {
+  Spawn:
+    AMS2 AB 5
+    Loop
+  }
+}
+
+Actor NailGunMG : Weapon 28100
+{
+//$Category "ZDoom Weapon pack"
+  Weapon.AmmoUse 1
+  Weapon.AmmoGive 25
+  Weapon.KickBack 40
+  Weapon.AmmoType "Nails"
+  Inventory.PickupSound "Misc/W_PkUp"
+  Inventory.PickupMessage "You got the NailGun!"
+  Obituary "%o was nailed by %k."
+  States
+  {
+  Spawn:
+    NLMG F -1
+    Loop
+  Select:
+    NLMG A 1 A_Raise
+    Loop
+  Deselect:
+    NLMG A 1 A_Lower
+    Loop
+  Ready:
+    NLMG A 1 A_WeaponReady
+    Loop
+  Fire:
+    NLMG B 0 A_PlayWeaponSound("Weapons/NailMGFire")
+    NLMG B 2 A_FireCustomMissile("MGNail", Random(4, -4), 1, -3, 0, 0, Random(2, -2))
+    NLMG B 0 Bright A_Light2
+    NLMG C 1
+    NLMG A 1
+    NLMG D 0 A_PlayWeaponSound("Weapons/NailMGFire")
+    NLMG D 2 A_FireCustomMissile("MGNail", Random(4, -4), 1, 3, 0, 0, Random(2, -2))
+    NLMG D 0 Bright A_Light2
+    NLMG E 1
+    NLMG A 1
+    NLMG E 0 A_Light0
+    Goto Ready
+  }
+}
+
+Actor Nails : Ammo 28101
+{
+  Radius 16
+  Height 8
+  Inventory.PickupMessage "Picked up a Box of Nails"
+  Inventory.Icon "NLPJI0"
+  Inventory.Amount 25
+  Inventory.MaxAmount 125
+  Ammo.BackpackAmount 25
+  Ammo.BackpackMaxAmount 250
+  States
+  {
+  Spawn:
+    NBOX A -1
+    Stop
+  }
+}
+
+Actor MGNail
+{
+  Projectile
+  Radius 3
+  Height 3
+  Speed 44
+  Damage 4
+  Scale 0.5
+  +BloodSplatter
+  SeeSound ""
+  DeathSound ""
+  Decal BulletChip
+  States
+  {
+  Spawn:
+    NLPJ A 1 A_SpawnItemEx("NailBlur", 0, 0, 0, 1, 0, 0, 180, 128)
+    NLPJ A 0 A_PlaySound("Weapons/NailFlight")
+    Loop
+  Crash:
+  Death:
+    NLPJ B 0 A_PlaySound("Weapons/NailHit")
+    NLPJ BCDEFG 2
+    Stop
+  XDeath:
+    NLPJ B 0 A_PlaySound("Weapons/NailHitBleed")
+    NLPJ BCDEFG 2
+    Stop
+  }
+}
+
+Actor NailBlur       
+{
+  Height 8
+  Radius 1
+  Damage 0
+  Scale 0.6
+  Speed 0.2
+  RenderStyle Translucent
+  Alpha 0.5
+  +NoGravity
+  +DropOff
+  +NoTeleport
+  States
+  {
+  Spawn:
+    NLPJ A 1 A_FadeOut(0.4)
+    Loop
+  }
+}
+
+Actor STRailgun : DoomWeapon 28102
+{
+//$Category "ZDoom Weapon pack"
+  Radius 20
+  Height 16
+  Weapon.Selectionorder 100
+  Weapon.AmmoUse 10
+  Weapon.AmmoGive 40
+  Weapon.AmmoType "Cell"
+  Inventory.Pickupmessage "You got the railgun!"
+  Obituary "%o was railed by %k."
+  Decal RailScorch
+  States
+  {
+  Ready:
+    RLGG A 1 A_WeaponReady
+    Loop
+  Deselect:
+    RLGG A 1 A_Lower
+    Loop
+  Select:
+    RLGG A 1 A_Raise
+    Loop
+  Fire:
+    RLGG E 12 A_FireRailgun
+    RLGG F 6 A_CheckForReload(4, "Reloaded")
+    RLGG GHIJK 6
+    RLGG L 6 A_ResetReloadCounter
+  Reloaded:
+    RLGG A 6
+    RLGG M 0 A_ReFire
+    Goto Ready
+  Flash:
+    TNT1 A 5 bright A_Light1
+    TNT1 A 5 bright A_Light2
+    TNT1 A 0 bright A_Light0
+    Goto LightDone
+  Spawn:
+    RAIL A -1
+    Stop
+  }
+}
+
+ACTOR STMinigun : Weapon 28104
+{
+ //$Category "ZDoom Weapon pack"
+ Weapon.AmmoType "Clip"
+ Weapon.AmmoGive 20
+ Weapon.AmmoUse 1
+ Inventory.PickupSound "misc/w_pkup"
+ Inventory.PickupMessage "Picked up a minigun!"
+ Obituary "%o was shredded by %k's minigun."
+ AttackSound "weapons/minigunfire"
+ States
+ {
+  Spawn:
+   MNGN A -1
+   Loop
+  Ready:
+   MNGG A 1 A_WeaponReady
+   Loop
+  Deselect:
+   MNGG A 1 A_Lower
+   Loop
+  Select:
+   MNGG A 1 A_Raise
+   Loop
+  Fire:
+   MNGG A 0 A_GunFlash
+   MNGG A 2 A_FireBullets(5, 1, 1, 5)
+   MNGG B 2 A_FireBullets(5, 1, 1, 5)
+   MNGG B 0 A_ReFire
+   MNGG B 2
+   MNGG A 5
+   MNGG B 8
+   MNGG A 11
+   MNGG B 14
+   MNGG A 17
+   goto Ready
+  Flash:
+   MNGF A 3 BRIGHT A_Light1
+   MNGF B 3 BRIGHT A_Light0
+   Stop
+ }
+}
+
+Actor ScarletScepter : Weapon 31119
+{
+  Obituary "%o was bloodied up by %k"
+  Radius 20
+  Height 12
+  Inventory.PickupMessage "You now possess the legendary Scarlet Scepter!"
+  Weapon.AmmoType1 "GMana"
+  Weapon.AmmoUse1 4
+  Weapon.AmmoType2 "GMana"
+  Weapon.AmmoUse2 8
+  Weapon.AmmoGive 60
+  Weapon.KickBack -10
+  States
+  {
+  Ready:
+    BDSP B 1 A_WeaponReady
+    Loop
+  Select:
+    BDSP B 1 A_Raise
+    Loop
+  Deselect:
+    BDSP B 1 A_Lower
+    Loop
+  Fire:
+    BDSP B 4
+	BDSP C 1
+    BDSP C 0 A_PlayWeaponSound("remishot")
+    BDSP C 0 A_FireCustomMissile("lilorb", Random(-5, -3), 0, 0, 0, 0, Random(-2, 2))
+    BDSP C 0 A_FireCustomMissile("lilorb", Random(5, 3), 0, 0, 0, 0, Random(-2, 2))
+    BDSP C 0 A_FireCustomMissile("lilorb", Random(-3, 3), 0, 0, 0, 0, Random(3, 1))
+    BDSP C 0 A_FireCustomMissile("lilorb", Random(-3, 3), 0, 0, 0, 0, Random(-3, -1))
+    BDSP C 0 A_FireCustomMissile("Bigorb", 0, 1, 0, 0, 0, 0)
+	BDSP C 5 Bright
+    BDSP B 6
+    BDSP B 5 A_ReFire
+    BDSP B 5
+    Goto Ready
+  AltFire:
+    BDSP DEFG 5
+	BDSP H 9 A_RailAttack(200, 0, 1, "Red", "White")
+	BDSP GFED 5
+	BDSP D 0 A_Refire
+	Goto Ready
+  Spawn:
+    BDSP A -1
+    Loop
+   }
+}
+
+Actor FantasyWand : Weapon 31124
+{
+  Inventory.PickupSound "Misc/W_PkUp"
+  Inventory.PickupMessage "You have acquired the Fantasy Wand!"
+  Obituary "%o was seared by %k"
+  Weapon.AmmoType "GMana"
+  Weapon.AmmoGive 50
+  Weapon.AmmoUse 10
+  States
+  {
+  Spawn:
+    LTBR A -1
+    Loop
+  Select:
+    LTBR M 1 A_Raise
+    Loop
+  Deselect:
+    LTBR O 0 A_StopSoundEx("SoundSlot7")
+    LTBR O 0 A_JumpIfInventory("GMana", 1, 1)
+    Goto Deselect2
+    LTBR ON 4 Bright
+    LTBR M 4
+    LTBR M 1 A_Lower
+    Goto Deselect+5
+  Ready:
+    LTBR M 4 A_JumpIfInventory("GMana", 1, 1)
+    Goto Ready2
+    LTBR N 0 A_PlaySoundEx("Weapons/Lightbringer/Recharge", "SoundSlot6", 0)
+    LTBR NO 4 Bright
+    LTBR B 0 Bright A_JumpIfInventory("GMana", 1, 1)
+    Goto Ready2
+    LTBR B 0 Bright A_StopSoundEx("SoundSlot7")
+    LTBR BBBBCCCCDDDDEEEE 1 Bright A_WeaponReady
+    Goto Ready+4
+  Fire:
+    LTBR F 0 A_Jump(256, "red", "green", "yellow", "blue")
+  Goto Ready
+  red:
+    LTBR F 0 A_PlayWeaponSound("Weapons/Lightbringer/Fire") 
+    LTBR F 3 Bright A_PlaySoundEx("Weapons/SunStaffhit", "SoundSlot7", 0)
+    LTBR G 3 Bright Offset (0,34) A_FireCustomMissile("FantasySealRed", 0, 1, 0, 0)
+    LTBR H 3 Bright Offset (0,36)
+    LTBR I 3 Bright Offset (0,32)
+    LTBR BCD 3 Bright
+    LTBR A 0 A_Refire
+    LTBR I 0 A_JumpIfInventory("GMana", 1, 1)
+    Goto NoAmmo
+    LTBR I 0
+    Goto Ready+4
+  green:
+    LTBR F 0 A_PlayWeaponSound("Weapons/Lightbringer/Fire") 
+    LTBR F 3 Bright A_PlaySoundEx("Weapons/SunStaffhit", "SoundSlot7", 0)
+    LTBR G 3 Bright Offset (0,34) A_FireCustomMissile("FantasySealGreen", 0, 1, 0, 0)
+    LTBR H 3 Bright Offset (0,36)
+    LTBR I 3 Bright Offset (0,32)
+    LTBR BCD 3 Bright
+    LTBR A 0 A_Refire
+    LTBR I 0 A_JumpIfInventory("GMana", 1, 1)
+    Goto NoAmmo
+    LTBR I 0
+    Goto Ready+4
+  yellow:
+    LTBR F 0 A_PlayWeaponSound("Weapons/Lightbringer/Fire") 
+    LTBR F 3 Bright A_PlaySoundEx("Weapons/SunStaffhit", "SoundSlot7", 0)
+    LTBR G 3 Bright Offset (0,34) A_FireCustomMissile("FantasySealYellow", 0, 1, 0, 0)
+    LTBR H 3 Bright Offset (0,36)
+    LTBR I 3 Bright Offset (0,32)
+    LTBR BCD 3 Bright
+    LTBR A 0 A_Refire
+    LTBR I 0 A_JumpIfInventory("GMana", 1, 1)
+    Goto NoAmmo
+    LTBR I 0
+    Goto Ready+4
+  blue:
+    LTBR F 0 A_PlayWeaponSound("Weapons/Lightbringer/Fire") 
+    LTBR F 3 Bright A_PlaySoundEx("Weapons/SunStaffhit", "SoundSlot7", 0)
+    LTBR G 3 Bright Offset (0,34) A_FireCustomMissile("FantasySealBlue", 0, 1, 0, 0)
+    LTBR H 3 Bright Offset (0,36)
+    LTBR I 3 Bright Offset (0,32)
+    LTBR BCD 3 Bright
+    LTBR A 0 A_Refire
+    LTBR I 0 A_JumpIfInventory("GMana", 1, 1)
+    Goto NoAmmo
+    LTBR I 0
+    Goto Ready+4
+  NoAmmo:
+    LTBR ON 4 Bright
+    Goto Ready2
+  Deselect2:
+    LTBR M 1 A_Lower
+    Loop
+  Ready2:
+    LTBR M 0 A_StopSoundEx("SoundSlot7")
+    LTBR M 0 A_JumpIfInventory("GMana", 1, "Ready")
+    LTBR M 1 A_WeaponReady
+    Loop
+  }
+}
+
+actor SpellBinder : Weapon 31126
+{
+Inventory.PickupSound "weapons/lightningstarter"
+Inventory.PickupMessage "You possess the Spell Binder!"
+weapon.ammogive1 60
+weapon.ammotype1 "BMana"
+weapon.ammouse1 20
+Obituary "%o didn't want to be spell binded by %k."
+states
+{
+Ready:
+SPLB ABC 4 A_WeaponReady
+Goto Ready
+Select:
+SPLB A 1 A_Raise
+loop
+Deselect:
+SPLB A 1 A_Lower
+loop
+Fire:
+SPLB A 5 A_PlaySound ("weapons/lightningstarter")
+SPLB ABCABCABCA 3
+SPLB D 8
+SPLB E 2
+SPLB F 2 A_PlayWeaponSound ("weapons/lightningstarter")
+SPLB EFEFEF 2 A_PlaySound ("weapons/waveidle")
+Goto Hold
+Hold:
+SPLB O 0 A_PlaySound ("weapons/waveidle")
+SPLB EFEF 2
+SPLB E 2 A_ReFire
+SPLB FEF 3
+SPLB V 0 A_PlayWeaponSound ("weapons/waveidle")
+SPLB E 1 A_PlayWeaponSound ("weapons/wavelaunch")
+SPLB F 7 A_FireCustomMissile("Slicer",0,1,0,0)
+SPLB EFEF 2
+SPLB G 6
+Goto Ready
+Spawn:
+HRAD ABCDEFGHIJKLMNOP 1
+loop
+}
+}
+
+actor Slicer
+{
+  spawnid 128
+  obituary "%o was sliced in two by %k's SpellBinded Slicer."
+  radius 4
+  height 6
+  speed 25
+  damage 6
+  renderstyle Add
+  alpha 0.75
+  attacksound "weapon/disckill"
+  PROJECTILE
+  +SEEKERMISSILE
+  +RIPPER
+  +EXTREMEDEATH
+  +LOOKALLAROUND
+  +FRIENDLY
+  states
+  {
+  Spawn:
+    PROJ A 0 bright A_SeekerMissile (20,30)  
+    PROJ A 2 bright A_PlaySound ("weapons/rotating")
+    PROJ A 0 bright A_SeekerMissile (20,30)
+    PROJ B 2 bright 
+    PROJ A 0 bright A_SeekerMissile (20,30)
+    PROJ C 2 bright 
+    PROJ A 0 bright A_SeekerMissile (20,30)
+    PROJ D 2 bright 
+    PROJ A 0 bright A_SeekerMissile (20,30)    
+    PROJ E 2 bright 
+    PROJ A 0 bright A_SeekerMissile (20,30)    
+    PROJ F 2 bright 
+    PROJ A 0 bright A_SeekerMissile (20,30)    
+    PROJ G 2 bright 
+    PROJ A 0 bright A_SeekerMissile (20,30)    
+    PROJ H 2 bright 
+    PROJ A 0 bright A_SeekerMissile (20,30)
+    PROJ A 2 bright 
+    PROJ A 0 bright A_SeekerMissile (20,30)
+    PROJ B 2 bright 
+    PROJ A 0 bright A_SeekerMissile (20,30)
+    PROJ C 2 bright 
+    PROJ A 0 bright A_SeekerMissile (20,30)
+    PROJ D 2 bright 
+    PROJ A 0 bright A_SeekerMissile (20,30)    
+    PROJ E 2 bright 
+    PROJ A 0 bright A_SeekerMissile (20,30)    
+    PROJ F 2 bright 
+    PROJ A 0 bright A_SeekerMissile (20,30)    
+    PROJ G 2 bright 
+    PROJ A 0 bright A_SeekerMissile (20,30)    
+    PROJ H 2 bright 
+    loop
+  Death:
+    BFE1 D 0 A_PlaySound("weapons/wavedeath")
+    BFE1 D 8 Bright A_Explode
+    BFE1 EF 8 bright  A_FadeOut(0.10)
+    stop
+  }
+}
+
+Actor WandOfDarkness : Weapon 31127
+{
+  Inventory.PickupSound "Misc/W_PkUp"
+  Inventory.PickupMessage "You have acquired the Wand of Darkness!"
+  Obituary "%o was burned by %k"
+  Weapon.AmmoType "WandOfEmbersAmmo"
+  Weapon.AmmoGive 20
+  Weapon.AmmoUse 1
+  States
+  {
+  Spawn:
+    WEMB A -1
+    Loop
+  Select:
+    WEMB B 1 A_Raise
+    Loop
+  Deselect:
+    WEMB B 1 A_Lower
+    Loop
+  Ready:
+    WEMB B 1 A_WeaponReady
+    Loop
+  Fire:
+    WEMB C 0 A_PlaySoundEx("Weapons/WandOfEmbers/Open", "SoundSlot6", 0)
+    WEMB E 2 Bright
+  Hold:
+    WEMB E 0 A_PlayWeaponSound("remishot")
+    WEMB F 0 A_FireCustomMissile("WeakDarknessOrb", Random(-5, -3), 0, 0, 0, 0, Random(-2, 2))
+    WEMB F 0 A_FireCustomMissile("WeakDarknessOrb", Random(5, 3), 0, 0, 0, 0, Random(-2, 2))
+    WEMB F 0 A_FireCustomMissile("WeakDarknessOrb", Random(-3, 3), 0, 0, 0, 0, Random(3, 1))
+    WEMB F 0 A_FireCustomMissile("WeakDarknessOrb", Random(-3, 3), 0, 0, 0, 0, Random(-3, -1))
+    WEMB F 0 A_FireCustomMissile("StrongDarknessOrb", 0, 1, 0, 0, 0, 0)
+    WEMB FG 5 Bright
+    WEMB D 6
+    WEMB C 5 A_ReFire
+    WEMB B 6
+    Goto Ready
+  }
+}
+
+Actor WandOfEmbersAmmo : Ammo 31128
+{
+  Inventory.PickupMessage "Darkness Ruby"
+  Inventory.Amount 10
+  Inventory.MaxAmount 100
+  Ammo.BackpackAmount 10
+  Ammo.BackpackMaxAmount 200
+  Inventory.Icon "WEMAA0"
+  States
+  {
+  Spawn:
+    WEMA ABC 8 Bright
+    Loop
+  }
+}
+
+Actor WandOfEmbersHefty : WandOfEmbersAmmo 31129
+{
+  Inventory.PickupMessage "Large Darkness Ruby"
+  Inventory.Amount 25
+  States
+  {
+  Spawn:
+    WEMA DEF 8 Bright
+    Loop
+  }
+}
+
+ACTOR WeakDarknessOrb
+{
+  Radius 5
+  Speed 12
+  Height 4
+  damage (random(1,1)*10)
+  Scale 0.5
+  Projectile
+  -ACTIVATEIMPACT
+  -ACTIVATEPCROSS
+  +strifedamage
+  RenderStyle Translucent
+  Alpha 0.7
+  DeathSound "lildead"
+  States
+  {
+  Spawn:
+    RMBL AB 4 Bright
+    Loop
+  Death:
+    RMBL CDE 8 Bright
+    Stop
+  }
+}
+
+ACTOR StrongDarknessOrb
+{
+  Radius 10
+  Speed 20
+  Height 10
+  damage (random(1,1)*50)
+  Scale 1
+  Projectile
+  -ACTIVATEIMPACT
+  -ACTIVATEPCROSS
+  +strifedamage
+  RenderStyle Translucent
+  Alpha 0.7
+  DeathSound "Orbpdeath"
+  States
+  {
+  Spawn:
+    RMBL AB 4 Bright
+    Loop
+  Death:
+    RMBL CDE 8 Bright
+    Stop
+  }
+}
+
+ACTOR SapphireStaff : Weapon
+{
+  Weapon.KickBack 0
+  Weapon.YAdjust 9
+  Weapon.AmmoType "BMana"
+  Weapon.AmmoUse 1
+  Weapon.AmmoGive 20
+  Tag "Sapphire Staff"
+  Inventory.PickupMessage "You have acquired the Sapphire Staff!"
+  States
+  {
+  Spawn:
+    SPW2 C -1
+    Loop
+  Select:
+    SPW2 A 1 A_Raise
+    Loop
+  Deselect:
+    SPW2 A 1 A_Lower
+    Loop
+  Ready:
+    SPW2 A 1 A_WeaponReady
+    Loop
+  Fire:
+    SPW2 A 2
+    SPW2 B 4 Bright Offset(0, 48) A_FireCustomMissile("MageWandMissile",random(-1, 1))
+    SPW2 A 2 Offset(0, 40)
+    SPW2 A 2 Offset(0, 36) A_ReFire
+    Goto Ready
+  }
+}
+
+ACTOR UltimateHellStaff : Weapon
+{
+  Weapon.KickBack 0
+  Weapon.YAdjust 0
+  Weapon.AmmoType1 "HellStaffAmmo"
+  Weapon.AmmoType2 "HellStaffAmmo"
+  Weapon.AmmoUse1 1
+  Weapon.AmmoUse2 20
+  Weapon.AmmoGive 20
+  Tag "Ultimate Hell Staff"
+  Inventory.PickupMessage "You have acquired the Ultimate Hell Staff!"
+  States
+  {
+  Spawn:
+    HLS2 F -1
+    Loop
+  Select:
+    HLS2 A 1 A_Raise
+    Loop
+  Deselect:
+    HLS2 A 1 A_Lower
+    Loop
+  Ready:
+    HLS2 ABCDCBA 4 A_WeaponReady
+    Loop
+  Fire:
+    HLS2 D 1
+    HLS2 E 2 Bright Offset(0, 48) A_FireCustomMissile("HornRodFX13")
+    HLS2 D 1 Offset(0, 40)
+    HLS2 D 1 Offset(0, 36) A_ReFire
+    Goto Ready
+  AltFire:
+	HLS2 ABCD 5
+	HLS2 G 4 Bright Offset(0, 48) A_FireCustomMissile("HellStaffLightning")
+	HLS2 D 2 Offset(0, 40)
+    HLS2 D 2 Offset(0, 36) A_ReFire
+	Goto Ready
+  }
+}
+
+ACTOR HellStaffLightning : FastProjectile
+{
+  Radius 12
+  Height 8
+  Speed 60
+  Damage 10
+  RenderStyle Add
+  SeeSound "weapons/blastershoot"
+  States
+  {
+  Spawn:
+    HL2L ABCD 6 Bright
+    Loop
+  Death:
+	TNT1 A 0 A_CustomMissile("DarkThunderStrike0",0,0,0,0)
+	TNT1 A 0 A_CustomMissile("ThunderRunnerNull0",0,0,0,0)
+	TNT1 A 0 A_CustomMissile("BlasterShot9Null0",0,0,0,0)
+    FX18 A 3 Bright 
+    FX18 B 3 Bright
+    FX18 CDEFG 4 Bright
+    Stop
+  }
+}
+
+ACTOR HornRodFX13 : HornRodFX12
+{
+  Radius 12
+  Height 8
+  Speed 22
+  Damage 10
+  Scale 0.7
+  Projectile
+  +WINDTHRUST
+  -NOBLOCKMAP
+  RenderStyle Add
+  DamageType "HellStaff"
+  SeeSound "Hellstaff2/shot"
+  DeathSound "weapons/hornrodhit"
+  Obituary "$OB_MPSKULLROD"
+  States
+  {
+  Spawn:
+    FX00 CDEF 6 Bright
+    Loop
+  Death:
+    FX00 HI 5 Bright
+    FX00 JK 4 Bright
+    FX00 LM 3 Bright
+    Stop
+  }
+}
+
+ACTOR CrimsonStaff : Weapon
+{
+Weapon.AmmoUse 5
+Weapon.AmmoGive 40
+Weapon.Slotnumber 5
+Weapon.AmmoType1 "CultAmmo"
+Inventory.PickupMessage "You have acquired the Crimson Staff!"
+Tag "Crimson Staff"
+States
+{
+Ready:
+	CSIH A 1 A_WeaponReady
+	Loop 
+Deselect:
+	CSIH A 1 A_Lower
+	Loop
+Select:
+	CSIH A 1 A_Raise
+	Loop
+Fire:
+	TNT1 A 0 A_playsound("cult/fire")
+	CSIH AA 1
+	TNT1 AAAA 0 A_FireCustomMissile("CultShot1",frandom(-12,12),0,0,0,1,frandom(-4,4))
+	CSIH B 4 Bright A_FireCustomMissile("CultShot1")//,frandom(-12,12),1,0,0,1,frandom(-4,4))
+	CSIH CDE 3 Bright
+	CSIH FGHAA 2 Bright
+	TNT1 A 0 A_Refire
+	Goto Ready
+Spawn:
+	TSOG A -1
+	Stop
+}
+}
+
+ACTOR CultShot1
+{
+Radius 6
+Height 16
+Speed 35
+Damage (Frandom(3,6))
+Projectile
+Bouncecount 6
+Wallbouncefactor 2
++RANDOMIZE
++RIPPER
++HEXENBOUNCE
++CANBOUNCEWATER
+RenderStyle Add
+DamageType "Crimson"
+scale .75
+SeeSound ""
+DeathSound "cult/hit"
+Decal "Scorch"
+States
+{
+Spawn:
+	SCBL A 1 BRIGHT A_SpawnItemEX("CultTrail1")
+	TNT1 AAA 0 A_Cstaffmissileslither
+	SCBL A 1 BRIGHT A_SpawnItemEX("CultTrail1")
+	TNT1 AAA 0 A_Cstaffmissileslither
+	SCBL A 1 BRIGHT A_SpawnItemEX("CultTrail1")
+	TNT1 AAA 0 A_Cstaffmissileslither
+	SCBL B 1 BRIGHT A_SpawnItemEX("CultTrail1")
+	TNT1 AAA 0 A_Cstaffmissileslither
+	SCBL B 1 BRIGHT A_SpawnItemEX("CultTrail1")
+	TNT1 AAA 0 A_Cstaffmissileslither
+	SCBL B 1 BRIGHT A_SpawnItemEX("CultTrail1")
+	TNT1 AAA 0 A_Cstaffmissileslither
+	SCBL C 1 BRIGHT A_SpawnItemEX("CultTrail1")
+	TNT1 AAA 0 A_Cstaffmissileslither
+	SCBL C 1 BRIGHT A_SpawnItemEX("CultTrail1")
+	TNT1 AAA 0 A_Cstaffmissileslither
+	SCBL C 1 BRIGHT A_SpawnItemEX("CultTrail1")
+	TNT1 AAA 0 A_Cstaffmissileslither
+	SCBL D 1 BRIGHT A_SpawnItemEX("CultTrail1")
+	TNT1 AAA 0 A_Cstaffmissileslither
+	SCBL D 1 BRIGHT A_SpawnItemEX("CultTrail1")
+	TNT1 AAA 0 A_Cstaffmissileslither
+	SCBL D 1 BRIGHT A_SpawnItemEX("CultTrail1")
+	TNT1 AAA 0 A_Cstaffmissileslither
+	Loop
+Death:
+	SCBL EEEEFFFGGH 2 BRIGHT
+	Stop
+}
+}
+
+ACTOR CultTrail1
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle ADD
+alpha 0.5
+scale .5
+States
+{
+Spawn:
+TNT1 A 0 A_Jump(256,"A","B")
+A:
+CSFT AABBCCDDEE 1 BRIGHT //A_fadeout(0.05)
+Stop
+A:
+CSFT FFGGHHIIJJ 1 BRIGHT //A_fadeout(0.05)
+Stop
+}
+}
+
+Actor MaybeFire : CustomInventory
+{
+Inventory.MaxAmount 0
++Inventory.AutoActivate
+States
+{
+Spawn:
+TNT1 A 1
+Fail
+Use:
+TNT1 A 0 A_Jump(224,"DoNothingWE")
+TNT1 A 0 A_CustomMissile("CultShot3",0,0,Frandom(0,360),Random(1,-1)*frandom(0,8))
+Stop
+DoNothingWE:
+TNT1 A 0
+Stop
+}
+}
+
+ACTOR CultAmmo : Ammo 31120
+{
+Inventory.PickupMessage "A small sphere of crimson energy."
+Inventory.Amount 30
+Inventory.MaxAmount 333
+Ammo.BackpackAmount 40
+Ammo.BackpackMaxAmount 666
+Inventory.Icon "COTLC0"
+renderstyle ADD
+alpha 0.9
+States
+{
+Spawn:
+	COTL ABC 4 BRIGHT
+	Loop
+}
+}
+
+ACTOR LargeCultAmmo : CultAmmo 31121
+{
+Inventory.PickupMessage "A Large sphere of crimson energy."
+Inventory.Amount 60
+Inventory.MaxAmount 333
+Ammo.BackpackAmount 90
+Ammo.BackpackMaxAmount 666
+Inventory.Icon "COTSC0"
+renderstyle ADD
+alpha 0.9
+States
+{
+Spawn:
+	COTS ABC 4 BRIGHT
+	Loop
+}
+}
+
+actor FuzzyPlasma // edited from Doom's standard plasmaball actor
+{
+  Radius 13
+  Height 8
+  Speed 30
+  Damage 4
+  Decal DoomImpScorch
+  Projectile
+  +RANDOMIZE
+  RenderStyle Add
+  Alpha 0.75
+  SeeSound ""
+  DeathSound "fuzzy/pdeath"
+  Obituary "%o was left decayed by %k's Plasmatic Rifle"
+  States
+  {
+  Spawn:
+	PLZM F 0
+	PLZM F 0 A_SpawnItemEx("FuzzyPlasmaTrail")
+    PLZM F 1 bright
+	PLZM G 0 A_SpawnItemEx("FuzzyPlasmaTrail")
+	PLZM G 1 bright
+    loop
+  Death:
+	PLZM H 0
+	PLZM H 0 A_Explode(8, 32)
+    PLZM HIJKL 3 bright
+    stop
+  }
+}
+
+ACTOR FuzzyPlasmaTrail
+{
+  RenderStyle Translucent
+  Alpha 0.75
+  Scale 0.7
+  +NOBLOCKMAP
+  +NOGRAVITY
+  +NOCLIP
+  +DONTSPLASH
+  +NOTELEPORT
+  States
+  {
+  Spawn:
+    PLZM M 0
+	PLZM M 1 A_SetTranslucent(0.70, 1)
+	PLZM N 1 A_SetTranslucent(0.65, 1)
+	PLZM M 1 A_SetTranslucent(0.60, 1)
+	PLZM N 1 A_SetTranslucent(0.55, 1)
+	PLZM M 1 A_SetTranslucent(0.50, 1)
+	PLZM N 1 A_SetTranslucent(0.45, 1)
+	PLZM M 1 A_SetTranslucent(0.40, 1)
+	PLZM N 1 A_SetTranslucent(0.35, 1)
+	PLZM M 1 A_SetTranslucent(0.20, 1)
+	PLZM N 1 A_SetTranslucent(0.15, 1)
+	PLZM M 1 A_SetTranslucent(0.10, 1)
+	PLZM N 1 A_SetTranslucent(0.05, 1)
+    Stop
+  }
+}
+
+actor UACPlasmaticRifle : Weapon Replaces PlasmaRifle
+{
+  Weapon.SelectionOrder 100
+  Weapon.AmmoUse 1
+  Weapon.AmmoGive 50
+  Weapon.AmmoType "Cell"
+  Weapon.SlotNumber 6
+  //Weapon.BobStyle Alpha
+  Inventory.PickupMessage "UAC Standard Plasmatic Rifle"
+  States
+  {
+  Ready:
+    PLZM A 1 A_WeaponReady
+    Loop
+  Deselect:
+    PLZM A 1 A_Lower
+	//TNT1 AA 0 A_Lower
+    Loop
+  Select:
+    PLZM A 1 A_Raise
+	//TNT1 AA 0 A_Raise
+    Loop
+  Fire:
+    PLZM A 0
+	PLZM A 0 A_FireCustomMissile("FuzzyPlasma",0,1,0,0)
+	PLZM A 0 A_PlaySound("fuzzy/plasma")
+	PLZM B 2 BRIGHT
+	PLZM C 2
+	PLZM D 6 A_ReFire
+    Goto Ready
+  Spawn:
+    PLZM E -1
+    Stop
+  }
+}
+
+
+// Adramalech
+Actor Adramalech
+{
+//$Category "ZDoom Monster pack"
+  Obituary "%o felt the anti-fantasy power."
+  Health 20000 
+  Radius 192
+  Height 200 
+  Mass 1000 
+  Speed 20
+  PainChance 20
+  Scale 2
+  Monster
+  +NoTarget
+  +FloorClip
+  +Boss
+  +MissileEvenMore
+  +MissileMore
+  +NoRadiusDmg
+  SeeSound "Aramalech/Sight" 
+  PainSound "Aramalech/Pain" 
+  ActiveSound "Aramalech/Idle"
+  DeathSound "Aramalech/Death"
+  States 
+  {
+  Spawn: 
+    IDEM AB 10 A_Look 
+    Loop 
+  See: 
+    IDEM A 3 A_Metal 
+    IDEM ABB 3 A_Chase 
+    IDEM C 3 A_Metal 
+    IDEM CDD 3 A_Chase 
+    IDEM E 3 A_Metal 
+    IDEM EFF 3 A_Chase 
+    Loop 
+  Missile:
+	IDEM A 0 Bright A_Playsound ("Aramalech/Attack", 0, 2.0)
+    IDEM A 0 Bright A_Jump (210, "Devastator", "InsanityPlasma", "Crimson")
+	IDEM A 0 Bright A_Jump (256, "FantasyWand")
+	Goto See
+  Devastator:
+    IDEM A 20 A_FaceTarget
+    IDEM T 0 Bright A_Playsound ("weapons/devchr", 0, 2.0)
+    IDEM T 5 Bright A_FaceTarget
+    IDEM T 5 Bright A_FaceTarget
+    IDEM T 5 Bright A_FaceTarget
+    IDEM T 5 Bright A_FaceTarget
+	IDEM U 0 bright A_PlaySound ("weapons/devfir", 0, 2.0)
+    IDEM U 10 Bright A_CustomMissile ("DevastatorBall", 70,0,0)
+    IDEM T 0 Bright A_Jump (128,"InsanityPlasma")
+    IDEM T 0 Bright A_Playsound ("weapons/devchr", 0, 2.0)
+    IDEM T 5 Bright A_FaceTarget
+    IDEM T 5 Bright A_FaceTarget
+    IDEM T 5 Bright A_FaceTarget
+    IDEM T 5 Bright A_FaceTarget
+	IDEM U 0 bright A_PlaySound ("weapons/devfir", 0, 2.0)
+    IDEM U 10 Bright A_CustomMissile ("DevastatorBall", 70,0,0)
+    IDEM T 0 Bright A_Jump (192,"InsanityPlasma")
+    Goto See
+  Crimson:
+    IDEM A 20 A_FaceTarget
+    IDEM T 5 Bright A_FaceTarget
+    IDEM T 5 Bright A_FaceTarget
+	IDEM U 0 bright A_playsound("cult/fire", 0, 2.0)
+	IDEM U 0 Bright A_CustomMissile ("CultShot1", 70,0,frandom(-12,12))
+	IDEM U 0 Bright A_CustomMissile ("CultShot1", 70,0,frandom(-12,12))
+	IDEM U 0 Bright A_CustomMissile ("CultShot1", 70,0,frandom(-12,12))
+	IDEM U 0 Bright A_CustomMissile ("CultShot1", 70,0,frandom(-12,12))
+	IDEM U 0 Bright A_CustomMissile ("CultShot1", 70,0,frandom(-12,12))
+    IDEM U 10 Bright A_CustomMissile ("CultShot1", 70,0,frandom(-12,12))
+    IDEM T 0 Bright A_Jump (128,"InsanityPlasma")
+    IDEM T 5 Bright A_FaceTarget
+    IDEM T 5 Bright A_FaceTarget
+	IDEM U 0 bright A_playsound("cult/fire", 0, 2.0)
+	IDEM U 0 Bright A_CustomMissile ("CultShot1", 70,0,frandom(-12,12))
+	IDEM U 0 Bright A_CustomMissile ("CultShot1", 70,0,frandom(-12,12))
+	IDEM U 0 Bright A_CustomMissile ("CultShot1", 70,0,frandom(-12,12))
+	IDEM U 0 Bright A_CustomMissile ("CultShot1", 70,0,frandom(-12,12))
+	IDEM U 0 Bright A_CustomMissile ("CultShot1", 70,0,frandom(-12,12))
+    IDEM U 10 Bright A_CustomMissile ("CultShot1", 70,0,frandom(-12,12))
+    IDEM T 0 Bright A_Jump (192,"InsanityPlasma")
+    Goto See
+  FantasyWand:
+	IDEM T 1
+	IDEM T 0 A_Playsound("Adramalech/Rage", 0, 2.0)
+    IDEM A 20 A_FaceTarget
+    IDEM T 0 Bright A_Playsound("Weapons/Lightbringer/Recharge", 0, 2.0)
+    IDEM T 12 Bright A_FaceTarget
+	IDEM T 0 A_PlaySound("Weapons/Lightbringer/Fire", 0, 2.0)
+    IDEM U 3 Bright A_CustomMissile ("FantasySealRed", 70,0,0)
+	IDEM T 12 Bright A_FaceTarget
+	IDEM T 0 A_PlaySound("Weapons/Lightbringer/Fire", 0, 2.0)
+    IDEM U 3 Bright A_CustomMissile ("FantasySealRed", 70,0,0)
+	IDEM T 12 Bright A_FaceTarget
+	IDEM T 0 A_PlaySound("Weapons/Lightbringer/Fire", 0, 2.0)
+    IDEM U 3 Bright A_CustomMissile ("FantasySealRed", 70,0,0)
+	IDEM T 12 Bright A_FaceTarget
+	IDEM T 0 A_PlaySound("Weapons/Lightbringer/Fire", 0, 2.0)
+    IDEM U 3 Bright A_CustomMissile ("FantasySealRed", 70,0,0)
+	IDEM T 12 Bright A_FaceTarget
+	IDEM T 0 A_PlaySound("Weapons/Lightbringer/Fire", 0, 2.0)
+    IDEM U 3 Bright A_CustomMissile ("FantasySealRed", 70,0,0)
+    Goto See
+  InsanityPlasma:
+        IDEM A 20 A_FaceTarget
+        IDEM G 1 A_FaceTarget
+		IDEM U 0 bright A_playsound("cult/fire", 0, 2.0)
+        IDEM H 0 A_CustomMissile ("InsanityPlasma", 38, 20, 0) 
+        IDEM H 0 A_CustomMissile ("InsanityPlasma", 38, 20, 4)
+        IDEM H 0 A_CustomMissile ("InsanityPlasma", 38, 20, -4)
+        IDEM H 0 A_CustomMissile ("InsanityPlasma", 38, -32, 0) 
+        IDEM H 0 A_CustomMissile ("InsanityPlasma", 38, -32, 4)
+        IDEM H 3 A_CustomMissile ("InsanityPlasma", 38, -32, -4)
+        IDEM G 1 A_FaceTarget
+		IDEM U 0 bright A_playsound("cult/fire", 0, 2.0)
+        IDEM H 0 A_CustomMissile ("InsanityPlasma", 38, 20, 0) 
+        IDEM H 0 A_CustomMissile ("InsanityPlasma", 38, 20, 4)
+        IDEM H 0 A_CustomMissile ("InsanityPlasma", 38, 20, -4)
+        IDEM H 0 A_CustomMissile ("InsanityPlasma", 38, -32, 0) 
+        IDEM H 0 A_CustomMissile ("InsanityPlasma", 38, -32, 4)
+        IDEM H 3 A_CustomMissile ("InsanityPlasma", 38, -32, -4)
+        IDEM G 0 A_SpidRefire
+        Goto InsanityPlasma+1
+  Pain: 
+    IDEM I 3 
+    IDEM I 3 A_Pain 
+    Goto See 
+  Death: 
+	IDEM I 3 A_Pain
+	IDEM I 20
+    IDEM J 20 Bright A_Scream
+    IDEM K 10 Bright A_NoBlocking 
+    IDEM LMNOPQR 10 Bright
+    IDEM S 30 
+    IDEM S -1 A_BossDeath 
+    Stop 
+   } 
+}
+
+Actor MastermindRocket : Rocket
+{
+  Speed 30
+  Damage 10
+  Scale 0.7
+  Radius 9
+  Height 7
+  States
+  {
+  Death:
+    MISL B 8 Bright A_Explode(40, 90)
+    MISL C 6 Bright
+    MISL D 4 Bright
+    Stop
+  }
+}
+
+Actor SuccRocket3
+{
+	Projectile
+	Speed 10
+	Damage 10000
+	Radius 8
+	Height 12
+	+SKYEXPLODE
+	+THRUACTORS
+	Scale 0.6
+	SeeSound ""
+	DeathSound "weapons/rocklx"
+	States
+	{
+	Spawn:
+		TNT1 a 0 
+		TNT1 A 0 A_PlaySound("weapons/rocklf",5,1.0,0,ATTN_NONE)
+		TNT1 A 0 ThrustThingZ(0,random(1,2),0,1)
+		TNT1 AAA 0 Bright A_SpawnItemEx("SuccRocket1Trail",0,0,0,0,0,0,0,32)
+		MISL A 1 Bright
+		Goto Spawn+2
+	Death:
+		TNT1 A 0 A_PlaySound("weapons/rocklx",5,1.0,0,ATTN_NONE)
+		TNT1 a 0 A_SpawnItemEx("RocketExplo",0,0,-10,0,0,0,0,32)
+		TNT1 A 1 A_CustomMissile("SuccRocket3SwarmSpawner",0,0,0)
+		Stop
+	}
+}
+
+ACTOR SuccRocket3SwarmSpawner
+{
+	Radius 1
+	Height 1
+	Speed 0
+	+ISMONSTER
+	+LOOKALLAROUND
+	RENDERSTYLE NONE
+	States
+	{
+	Spawn:
+		PLAY A 1 A_Look
+		Loop
+	See:
+		PLAY A 0 A_CustomMissile("SuccRocket3Swarm",0,0,0)
+		PLAY A 0 A_CustomMissile("SuccRocket3Swarm",0,0,30)
+		PLAY A 0 A_CustomMissile("SuccRocket3Swarm",0,0,60)
+		PLAY A 0 A_CustomMissile("SuccRocket3Swarm",0,0,90)
+		PLAY A 0 A_CustomMissile("SuccRocket3Swarm",0,0,120)
+		PLAY A 0 A_CustomMissile("SuccRocket3Swarm",0,0,150)
+		PLAY A 0 A_CustomMissile("SuccRocket3Swarm",0,0,180)
+		PLAY A 0 A_CustomMissile("SuccRocket3Swarm",0,0,-30)
+		PLAY A 0 A_CustomMissile("SuccRocket3Swarm",0,0,-60)
+		PLAY A 0 A_CustomMissile("SuccRocket3Swarm",0,0,-90)
+		PLAY A 0 A_CustomMissile("SuccRocket3Swarm",0,0,-120)
+		PLAY A 0 A_CustomMissile("SuccRocket3Swarm",0,0,-150)
+		SWRM A 999
+		Stop
+	}
+}
+
+Actor SuccRocket3Swarm 
+{
+	Projectile
+	+FORCERADIUSDMG
+	+EXTREMEDEATH
+	+SEEKERMISSILE
+	Radius 12
+	Height 12
+	Speed 13
+	Damage 5
+	SeeSound ""
+	DeathSound "weapons/rocklx"
+	Scale 0.18
+	DamageType "Succorbenoth"
+	Translation "0:255=%[0.0,0.0,0.0]:[1.0,1.0,2.0]", "176:191=176:191", "32:47=32:47"
+	States
+	{
+	Spawn:
+		MISL A 0 
+		MISL A 0 A_SpawnItemEx("SuccRocket1Trail",0,0,0,0,0,0,0,32)
+		MISL A 2 A_SeekerMissile(10,11,0,0,0)
+		Loop
+	Death:
+		TNT1 A 0 A_Explode(10,128,1)
+		TNT1 A 3 A_SpawnItemEx("MiniRocketExplo",0,0,0,0,0,0,0,32)
+		Stop
+	}
+}
+
+Actor SuccRocket1Trail
+{
+	+NOINTERACTION
+	States
+	{
+	Spawn:
+		TNT1 A 0 
+		TNT1 A 0 A_SpawnItemEx("SuccRocketSmoke",-5,random(2,-2),random(2,-2),0,0,0,0,32)
+		TNT1 A 0 A_SpawnItemEx("SuccRocketXtra",-5,0,0,0,frandom(1,-1),frandom(-0.2,-1),0,32,190)
+		TNT1 A 10
+		Stop
+	}
+}
+
+Actor SuccRocketSmoke
+{
+	var int user_count;
+	+FORCEXYBILLBOARD
+	+NOINTERACTION
+	RenderStyle Add
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_SetUserVar("user_count",20)
+	SizeLoop:
+		TNT1 A 0 A_SetScale((user_count*0.01))
+		TNT1 A 0 A_JumpIf(user_count>=120,"LoopEnd") 
+		PUFF D 2 Bright A_FadeOut(0.06)
+		TNT1 A 0 A_SetUserVar("user_count",user_count+5)
+		Loop      
+	LoopEnd:
+		PUFF D 2 Bright A_FadeOut(0.1)
+		Wait
+	}
+}
+
+Actor SuccRocketXtra
+{
+	+NOINTERACTION
+	RenderStyle Add
+	Scale 0.2
+	States
+	{
+	Spawn:
+		PUFF A 1 Bright A_FadeOut(0.03)
+		Loop
+	}
+}
+
+actor InsanityPlasma
+{
+  Radius 13
+  Height 8
+  Speed 30
+  Damage 4
+  Decal DoomImpScorch
+  Projectile
+  +RANDOMIZE
+  RenderStyle Add
+  Alpha 0.75
+  SeeSound "fuzzy/plasma"
+  DeathSound "fuzzy/pdeath"
+  States
+  {
+  Spawn:
+	IPLZ F 0
+	IPLZ F 0 A_SpawnItemEx("InsanityPlasmaTrail")
+    IPLZ F 1 bright
+	IPLZ G 0 A_SpawnItemEx("InsanityPlasmaTrail")
+	IPLZ G 1 bright
+    loop
+  Death:
+	IPLZ H 0
+	IPLZ H 0 A_Explode(8, 32)
+    IPLZ HIJKL 3 bright
+    stop
+  }
+}
+
+ACTOR InsanityPlasmaTrail
+{
+  RenderStyle Translucent
+  Alpha 0.75
+  Scale 0.7
+  +NOBLOCKMAP
+  +NOGRAVITY
+  +NOCLIP
+  +DONTSPLASH
+  +NOTELEPORT
+  States
+  {
+  Spawn:
+    IPLZ M 0
+	IPLZ M 1 A_SetTranslucent(0.70, 1)
+	IPLZ N 1 A_SetTranslucent(0.65, 1)
+	IPLZ M 1 A_SetTranslucent(0.60, 1)
+	IPLZ N 1 A_SetTranslucent(0.55, 1)
+	IPLZ M 1 A_SetTranslucent(0.50, 1)
+	IPLZ N 1 A_SetTranslucent(0.45, 1)
+	IPLZ M 1 A_SetTranslucent(0.40, 1)
+	IPLZ N 1 A_SetTranslucent(0.35, 1)
+	IPLZ M 1 A_SetTranslucent(0.20, 1)
+	IPLZ N 1 A_SetTranslucent(0.15, 1)
+	IPLZ M 1 A_SetTranslucent(0.10, 1)
+	IPLZ N 1 A_SetTranslucent(0.05, 1)
+    Stop
+  }
+}
+
+ACTOR DevastatorBall
+{
+   Radius 12
+   Height 8
+   Speed 30
+   Damage 256
+   PROJECTILE
+   ExplosionRadius 256
+   ExplosionDamage 320
+   RENDERSTYLE ADD
+   ALPHA 0.90
+   Damagetype "Normal"
+   +THRUGHOST
+   DeathSound "weapons/devexp"
+   States
+   {
+   Spawn:
+      DBAL AB 4 Bright 
+      DBAL A 4 Bright A_Explode (128,128,1)
+      DBAL A 0 Bright A_Jump (160,3)
+      DBAL AAA 0 Bright A_CustomMissile("LiteShot",0,0,Random(0,360))
+      DBAL B 4 Bright A_Explode (128,128,1)
+      DBAL B 0 Bright A_Jump (160,3)
+      DBAL BBB 0 Bright A_CustomMissile("LiteShot",0,0,Random(0,360))
+      Goto Spawn+2
+   Death:
+      DBAL C 5 Bright 
+      DBAL D 5 Bright A_Explode
+      DBAL D 0 Bright A_CustomMissile("DevastatorBall2",0,0,18,2)
+      DBAL D 0 Bright A_CustomMissile("DevastatorBall2",0,0,36,2)
+      DBAL D 0 Bright A_CustomMissile("DevastatorBall2",0,0,54,2)
+      DBAL D 0 Bright A_CustomMissile("DevastatorBall2",0,0,72,2)
+      DBAL D 0 Bright A_CustomMissile("DevastatorBall2",0,0,90,2)
+      DBAL D 0 Bright A_CustomMissile("DevastatorBall2",0,0,108,2)
+      DBAL D 0 Bright A_CustomMissile("DevastatorBall2",0,0,126,2)
+      DBAL D 0 Bright A_CustomMissile("DevastatorBall2",0,0,144,2)
+      DBAL D 0 Bright A_CustomMissile("DevastatorBall2",0,0,144,2)
+      DBAL D 0 Bright A_CustomMissile("DevastatorBall2",0,0,162,2)
+      DBAL D 0 Bright A_CustomMissile("DevastatorBall2",0,0,180,2)
+      DBAL D 0 Bright A_CustomMissile("DevastatorBall2",0,0,196,2)
+      DBAL D 0 Bright A_CustomMissile("DevastatorBall2",0,0,216,2)
+      DBAL D 0 Bright A_CustomMissile("DevastatorBall2",0,0,234,2)
+      DBAL D 0 Bright A_CustomMissile("DevastatorBall2",0,0,252,2)
+      DBAL D 0 Bright A_CustomMissile("DevastatorBall2",0,0,270,2)
+      DBAL D 0 Bright A_CustomMissile("DevastatorBall2",0,0,288,2)
+      DBAL D 0 Bright A_CustomMissile("DevastatorBall2",0,0,306,2)
+      DBAL D 0 Bright A_CustomMissile("DevastatorBall2",0,0,324,2)
+      DBAL D 0 Bright A_CustomMissile("DevastatorBall2",0,0,342,2)
+      DBAL EFG 5 Bright A_Explode
+      DBAL HI 3 Bright
+      stop
+   }
+}
+
+ACTOR DevastatorBall2
+{
+   Radius 8
+   Height 8
+   Speed 16
+   Damage 11
+   PROJECTILE
+   RENDERSTYLE ADD
+   ALPHA 0.90
+   ExplosionRadius 64
+   ExplosionDamage 128
+   Damagetype "Normal"
+   +THRUGHOST
+   SeeSound "weapons/devbal"
+   DeathSound "weapons/devex2" 
+   States
+   {
+   Spawn:
+      DBA2 AB 4 Bright
+      Loop
+   Death:
+      DBA2 C 1 Bright
+      DBA2 C 3 Bright A_Explode
+      DBA2 DE 4 Bright
+      Stop
+   }
+}
+
+ACTOR LiteShot
+{
+   Radius 8
+   Height 12
+   Speed 32
+   Damage 15
+   PROJECTILE
+   RENDERSTYLE ADD
+   ALPHA 0.85
+   Damagetype "Lightning"
+   +THRUGHOST
+   SeeSound "weapons/devlit"
+   DeathSound "weapons/devzap" 
+   States
+   {
+   Spawn:
+      DLIT AAABBBCCC 1 Bright A_SpawnItem ("LiteTrail",0,0,0)
+      Loop
+   Death:
+      DLIT DEFGHIJKLMNO 1 Bright
+      Stop
+   }
+}
+
+ACTOR LiteTrail
+{
+   Radius 1
+   Height 1
+   PROJECTILE
+   RENDERSTYLE ADD
+   ALPHA 0.67
+   States
+   {
+   Spawn:
+      DLIT ABC 3 Bright
+      stop
+   }
+}
+
+Actor DevPuff
+{
+   Radius 3
+   Height 3
+   RENDERSTYLE ADD
+   ALPHA 0.75
+   +ALWAYSPUFF
+   +PUFFONACTORS
+   +NOGRAVITY
+   DeathSound "weapons/buzz"
+   States
+   {
+   Spawn:
+      DLIT JKLJKLJKL 3 Bright
+      stop
+   Crash:
+      NULL A 1 Bright
+      stop
+   }
+}
+
+//============
+// Inferno Viscount
+//============
+
+ACTOR InfernoViscount 18022
+{
+//$Category "ZDoom Monster pack"
+   spawnid 255
+   Health 1500
+   Radius 36
+   Height 96
+   Mass 1800
+   Speed 8
+   PainChance 35
+   Monster
+   Scale 1.25
+   +FLOORCLIP
+   +MISSILEEVENMORE
+   BloodColor "Green"
+   SeeSound "baron/sight"
+   PainSound "baron/pain"
+   DeathSound "baron/death"
+   ActiveSound "baron/active"
+   Translation "16:47=96:111", "112:127=182:191"
+   BloodColor "FF0900"
+   Obituary "%o was slain by an inferno viscount."
+   States
+   {
+   Spawn:
+      BOSS AB 10 A_Look 
+      Loop
+   See:
+      BOSS AABBCCDD 4 A_Chase
+      Loop
+   Missile:
+      BOSS EF 6 A_FaceTarget
+      BOSS G 0 A_CustomMissile("BaronBall2",45,0,-20+(random(5,-5)))
+      BOSS G 0 A_CustomMissile("BaronBall2",45,0,20+(random(5,-5)))
+      BOSS G 6 A_CustomMissile("BaronBall2Big",45,0,0)
+      Goto See
+   Pain:
+      BOSS H  2
+      BOSS H  2 A_Pain
+      Goto See
+	Pain.Stunner:
+	BOSS H 2 A_ChangeFlag("NoPain", 1)
+	BOSS H 300 A_Pain
+	BOSS H 0 A_ChangeFlag("NoPain", 0)
+	goto See
+   Death:
+      BOSS I  8
+      BOSS J  8 A_Scream
+      BOSS K  8
+      BOSS L  8 A_NoBlocking
+      BOSS MN 8
+      BOSS O -1 A_BossDeath   
+      Stop
+   Raise:
+      BOSS O 8
+      BOSS NMLKJI  8
+      Goto See
+  Pain.Cube:
+    TNT1 A 0 A_GiveToTarget ("Stimpack", 1)
+    Goto Pain+1
+  Death.Cube:
+    TNT1 A 0 A_GiveToTarget ("Stimpack", 2)
+    Goto Death+1
+   }
+}
+
+Actor BaronBall2 : BaronBall
+{
+   Translation "112:127=182:191"
+   RenderStyle Translucent
+   Alpha 0.9
+}
+
+ACTOR BaronBall2Big
+{
+   Radius 6
+   Height 8
+   Speed 25
+   Damage 14
+   Projectile 
+   +RANDOMIZE
+   RenderStyle Translucent
+   Alpha 0.9
+   Scale 1.1
+   SeeSound "fatso/attack"
+   DeathSound "fatso/shotx"
+   States
+   {
+   Spawn:
+      TNT1 A 0
+      MANF AAABBB 1 BRIGHT A_SpawnItemEx("BB2BigTrail",-3,0,0,0,0,0,0,32)
+      Loop
+   Death:
+      TNT1 A 0 A_Explode(64,64,0)
+      MISL BBBBBBCCCCCDDDDD 1 BRIGHT A_FadeOut(0.03)
+      MISL D 1 A_FadeOut
+      Wait
+   }
+}
+
+Actor BB2BigTrail 
+{
+   +NOINTERACTION
+   RenderStyle Translucent
+   Alpha 0.9
+   Scale 0.7
+   States
+   {
+   Spawn:
+      TNT1 A 1
+      BAL1 CCCDDDEEE 1 Bright A_FadeOut(0.08)
+      Wait
+   }
+}
+
+// Enhanced Cacodemon
+
+ACTOR EnhancedCacodemon 18011
+{ 
+	//$Category "ZDoom Monster pack"
+   Health 300
+   Speed 8 
+   Radius 31
+   Height 56
+   PainChance 128
+   Mass 400
+   Meleedamage 6 
+   REACTIONTIME 8 
+   MONSTER
+   +NOGRAVITY
+   +FLOAT
+   SeeSound "caco/sight"
+   PainSound "caco/pain"
+   DeathSound "caco/death"
+   ActiveSound "caco/active"
+   HitObituary "%o was mowed down by an enhanced cacodemon." 
+   Obituary "%o was made into a snack by the enhanced cacodemon." 
+   States 
+   { 
+   Spawn: 
+      ENCD A 10 A_Look 
+      Loop 
+   See: 
+      ENCD A 3 A_Chase 
+      Loop 
+   Missile: 
+      ENCD BC 5 A_FaceTarget 
+      ENCD B 0 bright A_CustomMissile("CacodemonBall", 24, 0, 0, 1)
+      ENCD B 0 bright A_CustomMissile("CacodemonBall", 24, 0, -8, 1)
+      ENCD B 5 bright A_CustomMissile("CacodemonBall", 24, 0, 8, 1)
+      Goto See 
+   Pain: 
+      ENCD D 4 
+      ENCD D 4 A_Pain 
+      ENCD D 5 
+      Goto See 
+   Death: 
+      ENCD E 8 
+      ENCD F 8 A_Scream 
+      ENCD GH 8 
+      ENCD I 8 A_NoBlocking 
+      ENCD J -1 A_SetFloorClip
+      Stop 
+   Raise: 
+      ENCD J 8 A_UnsetFloorClip
+      ENCD IHGFE 8 
+      Goto See 
+   } 
+}
+
+// D3 Mancubus
+Actor D3Mancubus 18015
+{
+  obituary "%o was flamed by a mancubus"
+  health 1000
+  radius 41
+  height 64
+  scale 1.1
+  mass 2000
+  speed 6
+  painchance 16
+  painchance "Stunner", 128
+  painchance "Cube", 256
+  PainSound "Fatterso/Pain"
+  SeeSound "Fatterso/Sight"
+  DeathSound "Fatterso/Death"
+  ActiveSound "Fatterso/Active"
+  MONSTER
+  +FLOORCLIP
+  +DONTHURTSPECIES
+  DropItem "DemonicEnergy" 256
+  states
+  {
+  Spawn:
+    3MNC AAAAAAAAAA 1 A_Look
+    3MNC AAAAAAAAAA 1 A_Look
+    3MNC AAAAAAAAAA 1 A_Look
+    3MNC A 0 A_JumpIf(Args[1] > 0, 2)
+    3MNC A 0 A_Jump(8, 2)
+    3MNC A 0
+    Loop
+    3MNC A 0 A_PlaySound("Fatterso/Idle")
+    Loop
+  See:
+    3MNC A 0 A_JumpIf(Args[0] > 0, "See2")
+    3MNC AABBCC 4 A_Chase
+    3MNC D 0 A_PlaySound("Fatterso/Step")
+    3MNC DDEEFF 4 A_Chase
+    3MNC A 0 A_PlaySound("Fatterso/Step")
+    loop
+  See2:
+    3MNC A 0 A_Chase("", "Missile", 18)
+    3MNC A 2 A_FaceTarget
+    Loop
+  Missile:
+    3MNC GGGG 4 A_FaceTarget
+    3MNC J 4 A_CustomMissile("FattersoBall", 28, 33, 0)
+    3MNC KKK 4 A_FaceTarget
+    3MNC K 0 A_SpidReFire
+    3MNC I 4 A_CustomMissile("FattersoBall", 28, -33, 0)
+    3MNC KKK 4 A_FaceTarget
+    3MNC K 0 A_SpidReFire
+    3MNC J 4 A_CustomMissile("FattersoBall", 28, 33, 0)
+    3MNC KKK 4 A_FaceTarget
+    3MNC K 0 A_SpidReFire
+    3MNC I 4 A_CustomMissile("FattersoBall", 28, -33, 0)
+    3MNC KKK 4 A_FaceTarget
+    Goto See
+  Pain:
+    3MNC L 3
+    3MNC L 3 A_Pain
+    Goto See
+    Pain.Stunner:
+    3MNC L 2 A_ChangeFlag("NoPain", 1)
+    3MNC L 300 A_Pain
+    3MNC L 0 A_ChangeFlag("NoPain", 0)
+    goto See
+  Death:
+    TNT1 A 0 A_GiveToTarget ("CubeAmmo", 1)
+    3MNC M 10
+    3MNC N 10 A_Scream
+    3MNC O 8 A_NoBlocking
+    3MNC PQRSTU 8
+    3MNC V -1    
+    Stop
+  Raise:
+    3MNC VUTSRQPONM 6
+    Goto See
+  Pain.Cube:
+    TNT1 A 0 A_GiveToTarget ("Stimpack", 10)
+    Goto Pain+1
+  Death.Cube:
+    TNT1 A 0 A_GiveToTarget ("Stimpack", 10)
+    Goto Death+1
+  }
+}
+
+Actor FattersoBall
+{
+  Radius 6
+  Height 8
+  Speed 20
+  Damage 7
+  Projectile 
+  +RANDOMIZE
+  RenderStyle Add
+  Alpha 0.6
+  Scale 0.7
+  SeeSound "Fatterso/Fireball"
+  DeathSound "Fatterso/FireballHit"
+  Decal Scorch
+  States
+  {
+  Spawn:
+    MANF AAAABBBB 1 Bright A_SpawnItemEx("FattersoBallTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+    Loop
+  Death:
+    MISL B 6 Bright A_Explode(20, 128, 0)
+    MISL C 4 Bright
+    MISL D 3 Bright
+    Stop
+  }
+}
+
+Actor FattersoBallTrail
+{
+  Radius 0
+  Height 0
+  Speed 0
+  Damage 0
+  Scale 0.8
+  Alpha 0.6
+  Renderstyle Add
+  PROJECTILE
+  +DONTREFLECT
+  states
+  {
+  Spawn:
+    MANF AABB 2 Bright A_FadeOut(0.25)
+    loop
+  }
+}
+
+//==========Mapper notes
+
+//If the first argument is non-0, it will stand in the same place
+//and won't play the active sound.
+
+//If the second argument is non-0, it will never play the idle sound
+//(it still plays the active sound, when it is active).
+
+//Revenant2
+
+Actor Revenant2 : Revenant 18017
+{
+//$Category "ZDoom Monster pack"
+  Obituary "%o couldn't dodge the revenant's fireball."
+  Hitobituary "%o was knocked the fuck out by a revenant!"
+  Health 300
+  Radius 20
+  Height 56
+  Mass 500
+  Speed 10
+  Painchance 100
+  Painchance "Stunner", 128
+  painchance "Cube", 255
+  Seesound "HDRevenant/sight"
+  Painsound "HDRevenant/pain"
+  Deathsound "HDRevenant/death"
+  Activesound "HDRevenant/active"
+  MONSTER
+  +FLOORCLIP
+  +LONGMELEERANGE
+  +MISSILEMORE
+  +DONTHURTSPECIES
+  +FASTMELEE
+  DropItem "RocketPile" 256
+  states
+  {
+  Spawn:
+    GSKL AB 10 A_Look
+    loop
+  See:
+    GSKL AABBCCDDEEFF 2 A_Chase
+    loop
+  Melee:
+    GSKL G 0 A_FaceTarget
+    GSKL G 6 A_SkelWhoosh
+    GSKL H 6 A_FaceTarget
+    GSKL I 0 A_SkelFist
+    GSKL I 6 A_SkelFist
+    goto See
+  Missile:
+    GSKL J 0 bright A_FaceTarget
+    GSKL J 10 bright A_FaceTarget
+    GSKL K 2 A_CustomMissile("RevenantTracer",56,10)
+    GSKL K 8 A_CustomMissile("RevenantTracer",56,-10)
+    GSKL K 10 A_FaceTarget
+    goto See
+  Pain:
+    GSKL L 5
+    GSKL L 5 A_Pain
+    goto See
+    Pain.Stunner:
+    GSKL L 2 A_ChangeFlag("NoPain", 1)
+    GSKL L 300 A_Pain
+    GSKL L 0 A_ChangeFlag("NoPain", 0)
+    goto See
+  Death:
+    TNT1 A 0 A_GiveToTarget ("CubeAmmo", 1)
+    GSKL LM 7
+    GSKL N 7 A_Scream
+    GSKL O 7 A_NoBlocking
+    GSKL P 7
+    GSKL Q -1
+    stop
+  Raise:
+    GSKL QPONML 5
+    goto See
+  Pain.Cube:
+    TNT1 A 0 A_GiveToTarget ("Stimpack", 10)
+    Goto Pain+1
+  Death.Cube:
+    TNT1 A 0 A_GiveToTarget ("Stimpack", 10)
+    Goto Death+1
+  }
+}
+
+// Orobas - Baron type 3
+actor Orobas
+{
+//$Category "ZDoom Monster pack"
+  spawnid 3
+  obituary "%o was pulverized by Orobas."
+  health 10000
+  radius 64
+  height 104
+  scale 1.8
+  mass 10000
+  speed 8
+  Translation "16:47=[51,51,51]:[0,0,0]", "48:79=[48,48,48]:[0,0,0]", "112:127=[102,102,255]:[0,0,128]", "1:2=[0,0,0]:[0,0,0]", "236:239=[48,48,48]:[0,0,0]", "13:15=[16,16,16]:[0,0,0]", "128:151=[64,64,64]:[0,0,0]"
+  painchance 5
+  meleedamage 30
+  seesound "evlba/sight"
+  painsound "baron/pain"
+  deathsound "evlba/death"
+  activesound "baron/active"
+  bloodcolor blue
+  MONSTER
+  +FLOORCLIP
+  +BOSSDEATH
+  +BOSS
+  +MISSILEMORE
+  +MISSILEEVENMORE
+  +NOFEAR
+  +DONTMORPH
+  states
+  {
+  Spawn:
+    BOSS AB 10 A_Look
+    loop
+  See:
+    BOSS AABBCCDD 2 A_Chase
+    loop
+  Missile:
+    NULL A 0 A_Jump(100,"Missile2","Missile3","Missile4","Missile5","Missile6")
+	BOSS EF 5 A_FaceTarget
+    BOSS G 5 A_CustomComboAttack("EvilBall1",50,25,"imp/melee")
+    goto See
+  Missile2:
+	BOSS E 4 A_FaceTarget
+    BOSS E 2 A_CustomMissile("EvilBaronBall",100,40,random(-30,30))
+    BOSS E 2 A_CustomMissile("EvilBaronBall",100,40,random(-30,30))    
+    BOSS E 2 A_CustomMissile("EvilBaronBall",100,40,random(-30,30))
+    BOSS E 2 A_CustomMissile("EvilBaronBall",100,40,random(-30,30)) 	
+    BOSS E 2 A_CustomMissile("EvilBaronBall",100,40,random(-30,30))
+    BOSS E 2 A_CustomMissile("EvilBaronBall",100,40,random(-30,30)) 	
+    BOSS E 2 A_CustomMissile("EvilBaronBall",100,40,random(-30,30))
+    BOSS E 2 A_CustomMissile("EvilBaronBall",100,40,random(-30,30)) 	
+    BOSS E 2 A_CustomMissile("EvilBaronBall",100,40,random(-30,30))
+    BOSS E 2 A_CustomMissile("EvilBaronBall",100,40,random(-30,30)) 	
+    BOSS E 2 A_CustomMissile("EvilBaronBall",100,40,random(-30,30))
+    BOSS E 2 A_CustomMissile("EvilBaronBall",100,40,random(-30,30)) 	
+    BOSS E 2 A_CustomMissile("EvilBaronBall",100,40,random(-30,30))
+    BOSS E 2 A_CustomMissile("EvilBaronBall",100,40,random(-30,30)) 	
+    BOSS E 2 A_CustomMissile("EvilBaronBall",100,40,random(-30,30))
+    BOSS E 2 A_CustomMissile("EvilBaronBall",100,40,random(-30,30))     	
+	goto See
+  Missile3:
+    BOSS EF 5 A_FaceTarget
+	BOSS A 0 A_SetInvulnerable
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,0)
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,5)  
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,-5)  
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,10)  
+	BOSS G 5 A_CustomMissile("EvilBaronBall",50,0,-10)  
+    BOSS EF 5 A_FaceTarget
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,0)
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,5)  
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,-5)  
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,10)  
+	BOSS G 5 A_CustomMissile("EvilBaronBall",50,0,-10)  
+    BOSS EF 5 A_FaceTarget
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,0)
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,5)  
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,-5)  
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,10)  
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,-10)  	
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,15)
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,-15)  
+	BOSS A 0 A_UnSetInvulnerable
+	goto See
+  Missile4:
+    BOSS EF 5 A_FaceTarget
+	BOSS G 5 A_CustomMissile("EvilBaronBall2",50,0,0)
+    BOSS EF 5 A_FaceTarget
+	BOSS G 5 A_CustomMissile("EvilBaronBall2",50,0,0)  
+    BOSS EF 5 A_FaceTarget
+	BOSS G 5 A_CustomMissile("EvilBaronBall2",50,0,0)
+	goto See
+  Missile5:
+    BOSS EF 8 A_FaceTarget
+	BOSS G 0 A_CustomMissile("EvilBall1",50,0,0)
+	BOSS G 0 A_CustomMissile("EvilBall1",50,0,5)  
+	BOSS G 8 A_CustomMissile("EvilBall1",50,0,-5)  
+	BOSS EF 8 A_FaceTarget
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,0)
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,5)  
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,-5)  
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,10)  
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,-10)  	
+	BOSS G 0 A_CustomMissile("EvilBall1",50,0,15)  
+	BOSS G 8 A_CustomMissile("EvilBall1",50,0,-15)
+	goto See
+  Missile6:
+    BOSS EF 3 A_FaceTarget
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,0)
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,5)  
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,-5)  
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,10)  
+	BOSS G 3 A_CustomMissile("EvilBaronBall",50,0,-10)  
+    BOSS EF 3 A_FaceTarget
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,0)
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,5)  
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,-5)  
+	BOSS G 0 A_CustomMissile("EvilBaronBall",50,0,10)  
+	BOSS G 3 A_CustomMissile("EvilBaronBall",50,0,-10)     
+	BOSS EF 0 A_SpidRefire
+	goto Missile6+2
+  Pain:
+    BOSS H 2
+    BOSS H 2 A_Pain
+    goto See
+  Death:
+    BOSS I 8
+    BOSS J 8 A_Scream
+    BOSS K 8
+    BOSS L 8 A_NoBlocking
+    BOSS MN 8
+    BOSS O -1 A_BossDeath
+    stop
+  Raise:
+    BOSS ONMLKJI 8
+    goto See
+  }
+}
+
+actor EvilBall1
+{
+  Game Doom
+  SpawnID 128
+  Translation "112:127=[0,0,183]:[0,0,0]", "224:231=[255,255,255]:[48,48,48]"
+  Radius 52
+  Height 24
+  Scale 1.5
+  Speed 20
+  Damage 80
+  Renderstyle Add
+  Alpha 0.75
+  DeathSound "weapons/bfgx"
+  SeeSound "baron/attack"
+  Projectile
+  +RANDOMIZE
+  States
+  {
+  Spawn:
+    BFS1 A 1 bright A_SpawnItemEX("Trail1",-28)
+    BFS1 B 1 bright A_SpawnItemEX("Trail2",-28)    
+	loop
+  Death:
+    BFE1 AB 8 bright
+    BFE1 C 0 bright A_Burst("EvilBall2")  
+	BFE1 C 8 bright A_FadeOut(0.05)
+    BFE1 DEF 8 bright
+    stop
+  }
+}
+
+actor EvilBall2: EvilBall1
+{
+  Game Doom
+  SpawnID 128
+  Radius 6
+  Height 3
+  Scale 0.2
+  Speed 20
+  Damage 4
+  Renderstyle Add
+  Alpha 0.75
+  DeathSound "weapons/bfgx"
+  Projectile
+  +RANDOMIZE
+  -NOGRAVITY
+  +LOWGRAVITY
+  States
+  {
+  Spawn:
+    BFS1 A 2 bright A_SpawnItemEX("Trail3",-12)
+    BFS1 B 2 bright A_SpawnItemEX("Trail4",-12)    
+	loop
+  Death:
+    BFE1 AB 8 bright
+	BFE1 C 8 bright A_FadeOut(0.05)
+    BFE1 DEF 8 bright
+    stop
+  }
+}
+
+actor Trail1: EvilBall1
+{
+    RenderStyle Add
+	Alpha 0.96
+	Speed 0
+	Damage 0
+	PROJECTILE
+	+NOCLIP
+	States
+	{
+	  Spawn:
+	  BFS1 A 4 bright A_FadeOut(0.05)
+	  stop
+  }
+}
+
+actor Trail2: EvilBall1
+{
+    RenderStyle Add
+	Alpha 0.96
+	Speed 0
+	Damage 0
+	PROJECTILE
+	+NOCLIP
+	States
+	{
+	  Spawn:
+	  BFS1 B 4 bright A_FadeOut(0.05)
+	  stop
+  }
+}
+
+actor Trail3: EvilBall2
+{
+    RenderStyle Add
+	Alpha 0.96
+	Speed 0
+	Damage 0
+	PROJECTILE
+	+NOCLIP
+	States
+	{
+	  Spawn:
+	  BFS1 A 4 bright A_FadeOut(0.05)
+	  stop
+  }
+}
+
+actor Trail4: EvilBall2
+{
+    RenderStyle Add
+	Alpha 0.96
+	Speed 0
+	Damage 0
+	PROJECTILE
+	+NOCLIP
+	States
+	{
+	  Spawn:
+	  BFS1 B 4 bright A_FadeOut(0.05)
+	  stop
+  }
+}
+
+
+actor EvilBall3: EvilBall2
+{
+    damage 7
+	speed 25
+	PROJECTILE
+	+NOGRAVITY
+	-LOWGRAVITY
+}
+
+actor EvilBaronBall: BaronBall
+{
+    damage 12
+	speed 20
+	translation "112:127=[53,53,255]:[0,0,128]"
+	renderstyle normal
+	alpha 1
+}
+
+actor EvilBaronBall2: EvilBaronBall
+{
+    damage 60
+	speed 15
+	scale 2.0
+	height 22
+	radius 24
+}
+
+// Hectic
+Actor Hectic 18020
+{
+//$Category "ZDoom Monster pack"
+	Species Hectic
+	Scale 1.25
+	Radius 24
+	Height 87
+	Mass 3000
+	Health 2750
+	Speed 10
+	PainChance 27
+	MeleeDamage 14
+	BloodColor white
+	Monster
+		+Boss
+		+Bright
+		+DontGib
+		+DontHarmClass
+		+DontHarmSpecies
+		+DontHurtSpecies
+		+FloorClip
+		+MissileMore
+		+MissileEvenMore
+		+NoRadiusDMG
+		+NoTarget
+		+QuicktoRetaliate
+		+Telestomp
+	Obituary "%o was DOOM'd by Hectic."
+	HitObituary "%o was running like a little girl because Hectic kicked %p ass."
+	SeeSound "Hectic/Sight"
+	PainSound "Hectic/Pain"
+	DeathSound "Hectic/Death"
+	ActiveSound "Hectic/Active"
+	MeleeSound "Baron/Melee"
+	States
+{
+	Spawn:
+		XXXX B 1 A_Look
+		Loop
+	See:
+		XXXX A 0 A_AlertMonsters
+		XXXX AABBCCDD 3 A_Chase
+		Loop
+	Missile:
+		TNT1 A 0 A_Jump (128, "Attack", "Attack2X", "SuperAttack", "BallofDeath", "Babies")
+	Attack:
+		XXXX E 0 A_JumpIfHealthLower (1000, "Attack2X")
+		XXXX EF 6 A_FaceTarget
+		XXXX GGGG 3 A_CustomMissile ("HecticBall", 34, 0, random (-8, 8), 0, random (-4, 4))
+		Goto See
+	Attack2X:
+		XXXX EF 5 A_FaceTarget
+		XXXX GGGG 2 A_CustomMissile ("HecticBall", 34, 0, random (-6, 6), 0, random (-3, 3))
+		XXXX HI 5 A_FaceTarget
+		XXXX JJJJ 2 A_CustomMissile ("HecticBall", 34, 0, random (-6, 6), 0, random (-3, 3))
+		Goto See
+	SuperAttack:
+		XXXX K 8 A_FaceTarget
+		XXXX L 6 A_FaceTarget
+		XXXX MMMMMMM 0 A_CustomMissile ("HecticBall", 34, 0, random (-10, 10), 0, random (-2, 2))
+		XXXX M 7 A_CustomMissile ("HecticBall", 34, 0, random (-10, 10), 0, random (-2, 2))
+		XXXX L 7 A_FaceTarget
+		XXXX K 8 A_FaceTarget
+		XXXX L 6 A_FaceTarget
+		XXXX MMMMMMM 0 A_CustomMissile ("HecticBall", 34, 0, random (-10, 10), 0, random (-2, 2))
+		XXXX M 7 A_CustomMissile ("HecticBall", 34, 0, random (-10, 10), 0, random (-2, 2))
+		XXXX L 7 A_FaceTarget
+		XXXX K 8 A_FaceTarget
+		XXXX L 6 A_FaceTarget
+		XXXX MMMMMMM 0 A_CustomMissile ("HecticBall", 34, 0, random (-10, 10), 0, random (-2, 2))
+		XXXX M 7 A_CustomMissile ("HecticBall", 34, 0, random (-10, 10), 0, random (-2, 2))
+		Goto See
+	BallofDeath:
+		XXXX KL 10 A_FaceTarget
+		XXXX M 10 A_Custommissile ("BallofDeath", 34, 0, 0)
+		Goto See
+	Babies:
+		XXXX EF 6 A_FaceTarget
+		XXXX G 6 A_Custommissile ("CubeofDeath", 34, 0, 10)
+		XXXX HI 6 A_FaceTarget
+		XXXX J 6 A_Custommissile ("CubeofDeath", 34, 0,-10)
+		Goto See
+    Melee:
+		TNT1 A 0 A_Jump (256, "RightHandScratch", "LeftHandScratch", "DoubleScratch")
+	RightHandScratch:
+		XXXX EF 5 A_FaceTarget
+		XXXX G 5 A_ComboAttack
+		Goto See
+	LeftHandScratch:
+		XXXX HI 5 A_FaceTarget
+		XXXX J 5 A_ComboAttack
+		Goto See
+		DoubleScratch:
+		XXXX KL 5 A_FaceTarget
+		XXXX M 0 A_ComboAttack
+		XXXX M 5 A_ComboAttack
+		Goto See
+	Pain:
+		XXXX N 5 A_Pain
+		Goto See
+	Death:
+		XXXX N 35 A_Scream
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		XXXX N 1 A_CustomMissile ("BossFlamer2", random (20, 42), random (-4, 4), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_SpawnItem ("BurningDeathSpawner2", 0, 0)
+		TNT1 A 0 A_Fall
+		Stop
+		}
+}
+
+Actor HecticJr 6670
+{
+	Species Hectic
+	Scale 0.6
+	Radius 6
+	Height 36
+	Mass 800
+	Health 55
+	Speed 5
+	PainChance 160
+	MeleeDamage 2
+	BloodColor white
+	Monster
+		+Bright
+		+DontGib
+		+DontHarmClass
+		+DontHarmSpecies
+		+DontHurtSpecies
+		+FloorClip
+		+QuicktoRetaliate
+	Obituary "%o couldn't resist the Hectic Jr.'s balls."
+	HitObituary "%o was raped by Hectic Jr."
+	SeeSound "HecticJr/sight"
+	PainSound "HecticJr/pain"
+	DeathSound "HecticJr/death"
+	ActiveSound "HecticJr/active"
+	MeleeSound "Baron/melee"
+	States
+{
+	Spawn:
+		XXYX B 1 A_Look 
+		Loop
+	See:
+		XXYX AABBCCDD 3 A_Chase
+		Loop
+	Missile:
+		TNT1 A 0 A_Jump (128, "Single")
+		TNT1 A 0 A_Jump (128, "Double")
+	Single:
+		XXYX E 0 A_JumpIfHealthLower (40, "Double") 
+		XXYX EF 6 A_FaceTarget
+		XXYX G 6 A_Custommissile ("LittleHecticBall", 17, 0, 0)
+		Goto See
+	Double:
+		XXYX EF 3 A_FaceTarget
+		XXYX G 0 A_Custommissile ("LittleHecticBall", 17, 0, 4)
+		XXYX G 3 A_Custommissile ("LittleHecticBall", 17, 0, 0)
+		XXYX HI 3 A_FaceTarget
+		XXYX J 0 A_Custommissile ("LittleHecticBall", 17, 0, 0)
+		XXYX J 3 A_Custommissile ("LittleHecticBall", 17, 0,-4)
+		Goto See
+	Melee:
+		TNT1 A 0 A_Jump (256, "RightHandScratch", "LeftHandScratch")
+	RightHandScratch:
+		XXYX EF 5 A_FaceTarget
+		XXYX G 5 A_ComboAttack
+		Goto See
+	LeftHandScratch:
+		XXYX HI 5 A_FaceTarget
+		XXYX J 5 A_ComboAttack
+		Goto See
+	Pain:
+		XXYX K 16 A_Pain
+		Goto See
+	Death:
+		XXYX K 35 A_Scream
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		XXYX K 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_SpawnItem ("BurningDeathSpawner2L", 0, 0)
+		TNT1 A 0 A_Fall
+		Stop
+		}
+}
+
+Actor HecticBall
+{
+	Decal BaronScorch
+	Scale 1.25
+	Radius 6
+	Height 9
+	Speed 15
+	Damage 9
+	Projectile
+	+Bright
+	RenderStyle Normal
+	SeeSound "imp/attack"
+	DeathSound "imp/shotx"
+	States
+{
+	Spawn:
+		YYYY AAAABBBB 1
+		YYYY A 0 A_Custommissile ("MiniHecticBall", 0, 0, random (175, 195))
+		YYYY A 0 A_Custommissile ("MiniHecticBall", 0, 0, random (175, 195))
+		Loop
+	Death:
+		YYYY CDEFGHI 3
+		Stop
+		}
+}
+
+Actor LittleHecticBall
+{
+	Decal BaronScorch
+	Scale 0.6
+	Radius 4
+	Height 4
+	Speed 12
+	Damage 3
+	Projectile
+		+Bright
+	RenderStyle Normal
+	SeeSound "imp/attack"
+	DeathSound "imp/shotx"
+	States
+	{
+	Spawn:
+		YYYY AAAABBBB 1
+	Loop
+	Death:
+		YYYY CDEFGHI 3
+	Stop
+	}
+}
+
+
+Actor MiniHecticBall
+{
+	Decal BaronScorch
+	Scale 0.3
+	Radius 2
+	Height 2
+	Speed 10
+	Damage 1
+	Projectile
+		+Bright
+	RenderStyle Normal
+	SeeSound "imp/attack"
+	DeathSound "imp/shotx"
+	States
+{
+	Spawn:
+		YYYY AAAABBBB 1
+		Loop
+	Death:
+		YYYY CDEFGHI 3
+		Stop
+		}
+}
+
+Actor CubeofDeath : PlasmaBall
+{
+	Scale 0.75
+	Speed 9
+	Damage 0
+		+DoomBounce
+		+DehExplosion
+		+NoBounceSound
+	RenderStyle Normal
+	SeeSound "brain/spit"
+	DeathSound "barrel/Explode"
+	States
+{
+	Spawn:
+		GCUB ABCABCABC 6
+		GCUB A 0 A_Stop
+		GCUB ABCABC 6
+	Death:
+		CCCC C 0 A_CustomMissile ("SpawnFireProj", 0, 0, 45)
+		CCCC C 0 A_CustomMissile ("SpawnFireProj", 0, 0, 45+90)
+		CCCC C 0 A_CustomMissile ("SpawnFireProj", 0, 0, 45+180)
+		CCCC C 0 A_CustomMissile ("SpawnFireProj", 0, 0, 45+270)
+		CCCC C 0 A_SpawnItem ("SpawnFireSmall", 0, 0)
+		CCCC C 0 A_SpawnItem ("HecticJr", 0, 0)
+		CCCC CDE 5 Bright
+		Stop
+		}
+}
+
+Actor BallofDeath
+{
+	Scale 1.50
+	Radius 15
+	Height 17
+	Speed 8
+	Damage 100
+	ExplosionDamage 84
+	ExplosionRadius 97
+	Projectile
+		+Bright
+		+ExtremeDeath
+		+ForceRadiusDMG
+		+SeekerMissile
+	RenderStyle Normal
+	SeeSound "DeathBall/Shoot"
+	DeathSound "DeathBall/Explode"
+	DontHurtShooter
+	States
+{
+    Spawn:
+		ZZZZ AB 1 A_Tracer2
+		Loop
+	Death:
+		ZZZZ C 6 A_Explode
+		ZZZZ DE 6
+		Stop
+		}
+}
+
+Actor BossBlower2
+{
+	Speed 4
+	Radius 1
+	Height 1
+	Projectile
+		+Invisible
+	States
+{
+	Spawn:
+		TNT1 A 2 
+		TNT1 A 0 A_SpawnItem ("BossAsploder2", 0, random (-5, 5))
+		TNT1 A 2 
+		TNT1 A 0 A_SpawnItem ("BossAsploder2", 0, random (-5, 5))
+	Death:
+		TNT1 A 0
+		Stop
+		}
+}
+
+Actor BossAsploder2
+{
+	Translation "80:93=112:127"
+	Scale 0.6
+		+Bright
+		+NoGravity
+	States
+{
+	Spawn:
+		AAAA JKLMN 3 A_FadeOut (0.018)
+		Stop
+		}
+}
+
+Actor BossFlamer2
+{
+Speed 6
+Radius 1
+Height 1
+Projectile
++Invisible
+States
+{
+	Spawn:
+		TNT1 A 2 
+		TNT1 A 0 A_SpawnItem ("BossFlame2", 0, random (-5, 5))
+		TNT1 A 2 
+		TNT1 A 0 A_SpawnItem ("BossFlame2", 0, random (-5, 5))
+	Death:
+		TNT1 A 0
+		Stop
+		}
+}
+
+Actor BossFlame2
+{
+	Translation "160:167=112:127"
+	Scale 0.6
+		+Bright
+		+NoGravity
+	RenderStyle Add
+	Alpha 0.7
+	States
+{
+	Spawn:
+		FIRE A 0 A_PlaySound ("vile/firecrkl")
+		FIRE ABCDEFGH 3
+		Goto Death
+	Death:
+		FIRE H 1
+		Stop
+		}
+}
+
+Actor BossBlower2L
+{
+	Scale 0.6
+	Speed 4
+	Radius 1
+	Height 1
+	Projectile
+	+Invisible
+	States
+{
+	Spawn:
+		TNT1 A 2 
+		TNT1 A 0 A_SpawnItem ("BossAsploder2L", 0, random (-5, 5))
+		TNT1 A 2 
+		TNT1 A 0 A_SpawnItem ("BossAsploder2L", 0, random (-5, 5))
+	Death:
+		TNT1 A 0
+	Stop
+	}
+}
+
+Actor BossAsploder2L
+{
+	Translation "80:93=112:127"
+	Scale 0.36
+		+Bright
+		+NoGravity
+	States
+{
+	Spawn:
+		AAAA JKLMN 3 A_FadeOut (0.018)
+		Stop
+		}
+}
+
+Actor BossFlamer2L
+{
+	Scale 0.6
+	Speed 6
+	Radius 1
+	Height 1
+	Projectile
+	+Invisible
+	States
+{
+	Spawn:
+		TNT1 A 2 
+		TNT1 A 0 A_SpawnItem ("BossFlame2L", 0, random (-5, 5))
+		TNT1 A 2 
+		TNT1 A 0 A_SpawnItem ("BossFlame2L", 0, random (-5, 5))
+	Death:
+		TNT1 A 0
+		Stop
+		}
+}
+
+Actor BossFlame2L
+{
+	Translation "160:167=112:127"
+	Scale 0.36
+	+Bright
+	+NoGravity
+	RenderStyle Add
+	Alpha 0.7
+	States
+{
+	Spawn:
+		FIRE A 0 A_PlaySound ("vile/firecrkl")
+		FIRE ABCDEFGH 3
+		Goto Death
+	Death:
+		FIRE H 1
+		Stop
+		}
+}
+
+Actor BurningDeathSpawner2
+{
+States
+{
+	Spawn:
+		TNT1 A 2
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3", 4, 0, 0, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3", 4, 0, 20, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3", 4, 0, 40, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3", 4, 0, 60, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3", 4, 0, 80, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3", 4, 0, 100, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3", 4, 0, 120, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3", 4, 0, 140, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3", 4, 0, 160, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3", 4, 0, 180, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3", 4, 0, 200, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3", 4, 0, 220, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3", 4, 0, 240, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3", 4, 0, 260, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3", 4, 0, 280, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3", 4, 0, 300, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3", 4, 0, 320, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3", 4, 0, 340, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3", 4, 0, 0, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3", 4, 0, 60, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3", 4, 0, 120, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3", 4, 0, 180, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3", 4, 0, 240, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3", 4, 0, 300, 1)
+		TNT1 A 0 A_PlaySound ("Hectics/GoToHell")
+		Stop
+		}
+}
+
+Actor DeadBossBurningDeath3
+{
+	Translation "160:167=112:127"
+	Height 1
+	Radius 1
+	Speed 2
+	Projectile
+	+Bright
+	RenderStyle Add
+	Alpha 0.7
+	States
+  {
+	Spawn:
+		FIRE ABCD 2
+		Goto Death
+	Death:
+		FIRE EFGH 2
+		Stop
+	}
+}
+
+Actor BurningDeathSpawner2L
+{
+	States
+{
+	Spawn:
+		TNT1 A 2
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3L", 4, 0, 0, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3L", 4, 0, 20, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3L", 4, 0, 40, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3L", 4, 0, 60, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3L", 4, 0, 80, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3L", 4, 0, 100, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3L", 4, 0, 120, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3L", 4, 0, 140, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3L", 4, 0, 160, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3L", 4, 0, 180, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3L", 4, 0, 200, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3L", 4, 0, 220, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3L", 4, 0, 240, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3L", 4, 0, 260, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3L", 4, 0, 280, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3L", 4, 0, 300, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3L", 4, 0, 320, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3L", 4, 0, 340, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3L", 4, 0, 0, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3L", 4, 0, 60, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3L", 4, 0, 120, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3L", 4, 0, 180, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3L", 4, 0, 240, 1)
+		TNT1 A 0 A_CustomMissile ("DeadBossBurningDeath3L", 4, 0, 300, 1)
+		TNT1 A 0 A_PlaySound ("Hectics/GoToHell")
+		Stop
+		}
+}
+
+Actor DeadBossBurningDeath3L
+{
+	Translation "160:167=112:127"
+	Scale 0.6
+	Height 1
+	Radius 1
+	Speed 2
+	Projectile
+	+Bright
+	RenderStyle Add
+	Alpha 0.7
+	States
+{
+    Spawn:
+		FIRE ABCD 2
+		Goto Death
+    Death:
+		FIRE EFGH 2
+		Stop
+	}
+}
+
+Actor SpawnFireProj : ArchvileFire
+{
+	Translation "160:167=112:127"
+	Scale 0.65
+	Speed 2
+	Projectile
+		+NoClip
+	Alpha 0.5
+}
+
+Actor SpawnFireSmall : ArchvileFire
+{
+	Translation "160:167=112:127"
+	Scale 0.8
+}
+
+Actor HecticJrDeath
+{
+	Scale 0.6
+	Radius 6
+	Height 34
+	Mass 800
+	States
+{
+    Spawn:
+		TNT1 A 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossFlamer2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 1 A_CustomMissile ("BossBlower2L", random (10, 21), random (-2, 2), random (0, 359), 2, random (-10, 10))
+		TNT1 A 0 A_Fall
+		Stop
+		}
+}
+
+// Doomed Imp
+Actor DoomedImp : DoomImp 18065
+{
+//$Category "ZDoom Monster pack"
+    Health 600
+    Radius 34
+    Height 95
+    Speed 10
+	Scale 1.7
+    PainChance 20
+	Mass 1000
+	BloodColor "DarkGrey"
+    MONSTER 
+    +FLOORCLIP
+    SeeSound "DoomedImp/Sight"
+    PainSound "DoomedImp/Pain"
+    DeathSound "DoomedImp/Death"
+    ActiveSound "DoomedImp/Active"
+    Obituary "%o was doomed by the doomed imp."
+    HitObituary "%o was slashed by the doomed imp."
+    States
+    {
+    Spawn:
+      TRO4 AB 10 A_Look
+      Loop
+    See:
+      TRO4 AABBCCDD 3 A_Chase
+      Loop
+    Melee:
+    Missile:
+	  TRO4 EF 8 A_FaceTarget
+      TNT1 A 0 A_Jump(128, "LightningBall")
+      TRO4 G 6 A_CustomComboAttack("DoomedImpBall",45,6,"imp/melee")
+	  TRO4 EF 5 A_FaceTarget
+	  TRO4 G 4 A_CustomComboAttack("DoomedImpBall",45,6,"imp/melee")
+	  TRO4 EF 5 A_FaceTarget
+	  TRO4 G 4 A_CustomComboAttack("DoomedImpBall",45,6,"imp/melee")
+      Goto See
+	LightningBall:
+      TRO4 G 6 A_CustomComboAttack("DoomedImpLightningBall",45,6,"imp/melee")
+	  TRO4 EF 5 A_FaceTarget
+	  TRO4 G 4 A_CustomComboAttack("DoomedImpLightningBall",45,6,"imp/melee")
+	  TRO4 EF 5 A_FaceTarget
+	  TRO4 G 4 A_CustomComboAttack("DoomedImpLightningBall",45,6,"imp/melee")
+	  Goto See
+    Pain:
+      TRO4 H 2
+      TRO4 H 2 A_Pain
+      Goto See
+    Death:
+      TRO4 I 8
+      TRO4 J 8 A_Scream
+      TRO4 K 6
+      TRO4 L 6 A_NoBlocking
+      TRO4 M -1
+      Stop
+    XDeath:
+      TROO N 5
+      TROO O 5 A_XScream
+      TROO P 5
+      TROO Q 5 A_NoBlocking
+      TROO RST 5
+      TROO U -1
+      Stop
+    Raise:
+      TRO4 ML 8
+      TRO4 KJI 6
+      Goto See
+    }
+} 
+
+Actor DoomedImpBall
+{
+    Radius 6
+    Scale 1.75
+    Height 8
+    Speed 10
+    FastSpeed 20
+    Damage 8
+    PROJECTILE
+    +RANDOMIZE
+    RenderStyle Add
+    Alpha 1
+    Decal DoomImpScorch
+    SeeSound "imp/attack"
+    DeathSound "imp/shotx"
+    States
+    {
+    Spawn:
+      BAL1 AB 4 bright
+      Loop
+    Death:
+      BAL1 CDE 6 bright
+      Stop
+    }
+}
+
+
+ACTOR DoomedImpLightningBall
+{
+  Radius 6
+  Height 8
+  Speed 30
+  FastSpeed 50
+  Damage 5
+  Projectile
+  Scale 1.5
+  +RANDOMIZE
+  RenderStyle Add
+  Alpha 1
+  SeeSound "caco/attack"
+  DeathSound "caco/shotx"
+  States
+  {
+  Spawn:
+    BAL2 AB 4 Bright
+    Loop
+  Death:
+    BAL2 CDE 6 Bright
+   Stop
+  }
+}

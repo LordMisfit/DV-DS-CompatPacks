@@ -1,0 +1,725 @@
+pointlight CultLight1
+{
+    color 255 0 0
+    size 24
+}
+
+pointlight CultLight2
+{
+    color 255 0 0
+    size 16
+}
+
+pointlight CultLight3
+{
+    color 255 0 0
+    size 8
+}
+
+object CultShot1
+{
+    frame SCBPA { light CultLight2 }
+    frame SCBPB { light CultLight2 }
+	frame SCBPC { light CultLight2 }
+	frame SCBPD { light CultLight2 }
+
+    frame SCBLE { light CultLight1 }
+    frame SCBLF { light CultLight2 }
+    frame SCBLG { light CultLight3 }
+}
+
+object CultShot1
+{
+    frame SCBLA { light CultLight2 }
+    frame SCBLB { light CultLight2 }
+	frame SCBLC { light CultLight2 }
+	frame SCBLD { light CultLight2 }
+
+    frame SCBLE { light CultLight1 }
+    frame SCBLF { light CultLight2 }
+    frame SCBLG { light CultLight3 }
+}
+
+object CultTrail1
+{
+    frame CSFTA0F0 { light CultLight2 }
+}
+
+object CultShot2
+{
+    frame SCB2A { light CultLight2 }
+    frame SCB2B { light CultLight2 }
+    frame SCB2C { light CultLight2 }
+	frame SCB2D { light CultLight2 }
+	frame SCB2E { light CultLight2 }
+	frame SCB2F { light CultLight2 }
+
+    frame SSBLG { light CultLight1 }
+    frame SSBLH { light CultLight1 }
+    frame SSBLI { light CultLight1 }
+    frame SSBLJ { light CultLight2 }
+    frame SSBLK { light CultLight2 }
+	frame SSBLL { light CultLight2 }
+	frame SSBLM { light CultLight2 }
+	frame SSBLN { light CultLight3 }
+	frame SSBLO { light CultLight3 }
+	frame SSBLP { light CultLight3 }
+	frame SSBLQ { light CultLight3 }
+}
+
+object CultTrail3
+{
+    frame SCB2 { light CultLight2 }
+}
+
+object CultAmmo
+{
+    frame COTS { light CultLight2 }
+}
+
+pointlight FUZZYBALL
+{
+    color 0.2 0.2 0.6
+    size 56
+}
+
+flickerlight FUZZY_X1
+{
+    color 0.3 0.3 0.6
+    size 80
+    secondarySize 88
+    chance 0.4
+}
+
+flickerlight FUZZY_X2
+{
+    color 0.2 0.2 0.4
+    size 64
+    secondarySize 72
+    chance 0.4
+}
+
+flickerlight FUZZY_X3
+{
+    color 0.0 0.0 0.1
+    size 8
+    secondarySize 16
+    chance 0.4
+}
+
+object FuzzyPlasma
+{
+    frame PLZMF { light FUZZYBALL }
+
+    frame PLZMG { light FUZZY_X1 }
+    frame PLZMH { light FUZZY_X1 }
+    frame PLZMI { light FUZZY_X2 }
+    frame PLZMJ { light FUZZY_X3 }
+}
+
+//Dynamic lights
+
+PointLight DemolisherAttack11
+{
+Color 1.0 1.0 0.0
+Size 64
+Offset 0 30 0
+}
+
+PointLight DemolisherAttack12
+{
+Color 1.0 1.0 0.0
+Size 92
+Offset 0 30 0
+}
+
+PointLight DemolisherAttack21
+{
+Color 0.3 1.0 0.3
+Size 64
+Offset 0 30 0
+}
+
+PointLight DemolisherAttack22
+{
+Color 0.3 1.0 0.3
+Size 96
+Offset 0 30 0
+}
+
+Pointlight DemolisherExplode1
+{
+Color 1.0 0.3 0.0
+Size 48
+}
+
+Pointlight DemolisherExplode2
+{
+Color 1.0 0.3 0.0
+Size 56
+}
+
+Pointlight DemolisherExplode3
+{
+Color 1.0 0.5 0.0
+Size 64
+}
+
+Pointlight DemolisherExplode4
+{
+Color 1.0 0.5 0.0
+Size 80
+}
+
+Pointlight DemolisherExplode5
+{
+Color 1.0 0.5 0.0
+Size 96
+}
+
+Pointlight DemolisherExplode6
+{
+Color 1.0 0.5 0.0
+Size 128
+}
+
+Pointlight DemolisherExplode7
+{
+Color 0.6 0.2 0.0
+Size 96
+}
+
+Pointlight DemolisherExplode8
+{
+Color 0.5 0.0 0.0
+Size 64
+}
+
+Pointlight DemolisherExplode9
+{
+Color 0.3 0.0 0.0
+Size 32
+}
+
+Object InsanityDemolisher
+{
+Frame IDEMG { Light DemolisherAttack11 }
+Frame IDEMH { Light DemolisherAttack12 }
+Frame IDEMT { Light DemolisherAttack21 }
+Frame IDEMU { Light DemolisherAttack22 }
+Frame IDEMJ { Light DemolisherExplode1 }
+Frame IDEMK { Light DemolisherExplode2 }
+Frame IDEML { Light DemolisherExplode3 }
+Frame IDEMM { Light DemolisherExplode4 }
+Frame IDEMN { Light DemolisherExplode5 }
+Frame IDEMO { Light DemolisherExplode6 }
+Frame IDEMP { Light DemolisherExplode7 }
+Frame IDEMQ { Light DemolisherExplode8 }
+Frame IDEMR { Light DemolisherExplode9 }
+}
+
+//Brightmaps
+
+
+BrightMap Sprite IDEMG1
+{
+Map BMDEMOG1
+DisableFullBright
+}
+
+BrightMap Sprite IDEMG2G8
+{
+Map BMDEMOG2
+DisableFullBright
+}
+
+BrightMap Sprite IDEMG3G7
+{
+Map BMBLACK
+DisableFullBright
+}
+
+BrightMap Sprite IDEMG4G6
+{
+Map BMBLACK
+DisableFullBright
+}
+
+BrightMap Sprite IDEMG5
+{
+Map BMBLACK
+DisableFullBright
+}
+
+BrightMap Sprite IDEMH1
+{
+Map BMDEMOH1
+DisableFullBright
+}
+
+BrightMap Sprite IDEMH2H8
+{
+Map BMDEMOH2
+DisableFullBright
+}
+
+BrightMap Sprite IDEMH3H7
+{
+Map BMDEMOH3
+DisableFullBright
+}
+
+BrightMap Sprite IDEMH4H6
+{
+Map BMDEMOH4
+DisableFullBright
+}
+
+BrightMap Sprite IDEMH5
+{
+Map BMDEMOH5
+DisableFullBright
+}
+
+BrightMap Sprite IDEMJ0
+{
+Map BMDEMOJ0
+DisableFullBright
+}
+
+BrightMap Sprite IDEMK0
+{
+Map BMDEMOK0
+DisableFullBright
+}
+
+BrightMap Sprite IDEML0
+{
+Map BMDEMOL0
+DisableFullBright
+}
+
+BrightMap Sprite IDEMM0
+{
+Map BMDEMOM0
+DisableFullBright
+}
+
+BrightMap Sprite IDEMN0
+{
+Map BMDEMON0
+DisableFullBright
+}
+
+BrightMap Sprite IDEMO0
+{
+Map BMDEMOO0
+DisableFullBright
+}
+
+BrightMap Sprite IDEMP0
+{
+Map BMDEMOP0
+DisableFullBright
+}
+
+BrightMap Sprite IDEMQ0
+{
+Map BMDEMOQ0
+DisableFullBright
+}
+
+BrightMap Sprite IDEMR0
+{
+Map BMDEMOR0
+DisableFullBright
+}
+
+BrightMap Sprite IDEMT1
+{
+Map BMDEMOT1
+DisableFullBright
+}
+
+BrightMap Sprite IDEMT2T8
+{
+Map BMDEMOT2
+DisableFullBright
+}
+
+BrightMap Sprite IDEMT3T7
+{
+Map BMDEMOT3
+DisableFullBright
+}
+
+BrightMap Sprite IDEMT4T6
+{
+Map BMBLACK
+DisableFullBright
+}
+
+BrightMap Sprite IDEMT5
+{
+Map BMBLACK
+DisableFullBright
+}
+
+BrightMap Sprite IDEMU1
+{
+Map BMDEMOU1
+DisableFullBright
+}
+
+BrightMap Sprite IDEMU2U8
+{
+Map BMDEMOU2
+DisableFullBright
+}
+
+BrightMap Sprite IDEMU3U7
+{
+Map BMDEMOU3
+DisableFullBright
+}
+
+BrightMap Sprite IDEMU4U6
+{
+Map BMDEMOU4
+DisableFullBright
+}
+
+BrightMap Sprite IDEMU5
+{
+Map BMDEMOU5
+DisableFullBright
+}
+
+
+BrightMap Sprite ENCDA1
+{
+Map BMENCDA1
+DisableFullBright
+}
+
+BrightMap Sprite ENCDA2A8
+{
+Map BMENCDA2
+DisableFullBright
+}
+
+BrightMap Sprite ENCDA3A7
+{
+Map BMENCDA3
+DisableFullBright
+}
+
+BrightMap Sprite ENCDB1
+{
+Map BMENCDB1
+DisableFullBright
+}
+
+BrightMap Sprite ENCDB2B8
+{
+Map BMENCDB2
+DisableFullBright
+}
+
+BrightMap Sprite ENCDB3B7
+{
+Map BMENCDB3
+DisableFullBright
+}
+
+BrightMap Sprite ENCDB4B6
+{
+Map BMENCDB4
+DisableFullBright
+}
+
+BrightMap Sprite ENCDB5
+{
+Map BMENCDB5
+DisableFullBright
+}
+
+BrightMap Sprite ENCDC1
+{
+Map BMENCDC1
+DisableFullBright
+}
+
+BrightMap Sprite ENCDC2C8
+{
+Map BMENCDC2
+DisableFullBright
+}
+
+BrightMap Sprite ENCDC3C7
+{
+Map BMENCDC3
+DisableFullBright
+}
+
+BrightMap Sprite ENCDC4C6
+{
+Map BMENCDC4
+DisableFullBright
+}
+
+BrightMap Sprite ENCDC5
+{
+Map BMENCDC5
+DisableFullBright
+}
+
+BrightMap Sprite ENCDD1
+{
+Map BMENCDD1
+DisableFullBright
+}
+
+BrightMap Sprite ENCDD2D8
+{
+Map BMENCDD2
+DisableFullBright
+}
+
+BrightMap Sprite ENCDD3D7
+{
+Map BMENCDD3
+DisableFullBright
+}
+
+BrightMap Sprite ENCDE0
+{
+Map BMENCDE0
+DisableFullBright
+}
+
+Object FattersoBall
+{
+    frame MANFA { light IMPBALL }
+    frame MANFB { light IMPBALL }
+    frame MISLB { light ROCKET_X1 }
+    frame MISLC { light ROCKET_X2 }
+    frame MISLD { light ROCKET_X3 }
+}
+
+PointLight Hectic1
+{
+Color 1.0 1.0 1.0
+Size 150
+}
+
+Object Hectic
+{
+Frame XXXXA { Light Hectic1 }
+Frame XXXXB { Light Hectic1 }
+Frame XXXXC { Light Hectic1 }
+Frame XXXXD { Light Hectic1 }
+Frame XXXXE { Light Hectic1 }
+Frame XXXXF { Light Hectic1 }
+Frame XXXXG { Light Hectic1 }
+Frame XXXXH { Light Hectic1 }
+Frame XXXXI { Light Hectic1 }
+Frame XXXXJ { Light Hectic1 }
+Frame XXXXK { Light Hectic1 }
+Frame XXXXL { Light Hectic1 }
+Frame XXXXM { Light Hectic1 }
+Frame XXXXN { Light Hectic1 }
+}
+
+PointLight HecticJr1
+{
+Color 1.0 1.0 1.0
+Size 70
+}
+
+Object HecticJr
+{
+Frame XXYXA { Light HecticJr1 }
+Frame XXYXB { Light HecticJr1 }
+Frame XXYXC { Light HecticJr1 }
+Frame XXYXD { Light HecticJr1 }
+Frame XXYXE { Light HecticJr1 }
+Frame XXYXF { Light HecticJr1 }
+Frame XXYXG { Light HecticJr1 }
+Frame XXYXH { Light HecticJr1 }
+Frame XXYXI { Light HecticJr1 }
+Frame XXYXJ { Light HecticJr1 }
+Frame XXYXK { Light HecticJr1 }
+}
+
+
+Pointlight HecticBall1
+{
+Color 1.0 1.0 1.0
+Size 80
+}
+
+Pointlight HecticBall2
+{
+Color 0.7 0.7 0.7
+Size 100
+}
+
+Pointlight HecticBall3
+{
+Color 0.4 0.4 0.4
+Size 120
+}
+
+Pointlight HecticBall4
+{
+Color 0.2 0.2 0.2
+Size 140
+}
+
+Object HecticBall
+{
+Frame YYYYA { Light HecticBall1 }
+Frame YYYYB { Light HecticBall1 }
+Frame YYYYC { Light HecticBall2 }
+Frame YYYYD { Light HecticBall3 }
+Frame YYYYE { Light HecticBall4 }
+}
+
+Pointlight LittleHecticBall1
+{
+Color 1.0 1.0 1.0
+Size 38
+}
+
+Pointlight LittleHecticBall2
+{
+Color 0.7 0.7 0.7
+Size 48
+}
+
+Pointlight LittleHecticBall3
+{
+Color 0.4 0.4 0.4
+Size 58
+}
+
+Pointlight LittleHecticBall3
+{
+Color 0.2 0.2 0.2
+Size 67
+}
+
+Object LittleHecticBall
+{
+Frame YYYYA { Light LittleHecticBall1 }
+Frame YYYYB { Light LittleHecticBall1 }
+Frame YYYYC { Light LittleHecticBall2 }
+Frame YYYYD { Light LittleHecticBall3 }
+Frame YYYYE { Light LittleHecticBall4 }
+}
+
+Pointlight MiniHecticBall1
+{
+Color 1.0 1.0 1.0
+Size 19
+}
+
+Pointlight MiniHecticBall2
+{
+Color 0.7 0.7 0.7
+Size 24
+}
+
+Pointlight MiniHecticBall3
+{
+Color 0.4 0.4 0.4
+Size 29
+}
+
+Pointlight MiniHecticBall3
+{
+Color 0.2 0.2 0.2
+Size 34
+}
+
+Object MiniHecticBall
+{
+Frame YYYYA { Light MiniHecticBall1 }
+Frame YYYYB { Light MiniHecticBall1 }
+Frame YYYYC { Light MiniHecticBall2 }
+Frame YYYYD { Light MiniHecticBall3 }
+Frame YYYYE { Light MiniHecticBall4 }
+}
+
+
+PointLight BallofDeath1
+{
+Color 0.8 0.8 0.8
+Size 61
+}
+
+PointLight BallofDeath2
+{
+Color 0.7 0.7 0.7
+Size 88
+}
+PointLight BallofDeath3
+{
+Color 0.5 0.5 0.5
+Size 61
+}
+
+PointLight BallofDeath4
+{
+Color 0.3 0.3 0.3
+Size 43
+}
+
+Object BallofDeath
+{
+Frame ZZZZA { Light BallofDeath1 }
+Frame ZZZZB { Light BallofDeath1 }
+Frame ZZZZC { Light BallofDeath2 }
+Frame ZZZZD { Light BallofDeath3 }
+Frame ZZZZE { Light BallofDeath4 }
+}
+
+pointlight LARGEIMPBALL
+{
+    color 1.0 0.5 0.0
+    size 112
+}
+
+flickerlight LARGEIMPBALL_X1
+{
+    color 0.7 0.2 0.0
+    size 140
+    secondarySize 154
+    chance 0.25
+}
+
+flickerlight LARGEIMPBALL_X2
+{
+    color 0.4 0.0 0.0
+    size 168
+    secondarySize 182
+    chance 0.25
+}
+
+flickerlight LARGEIMPBALL_X3
+{
+    color 0.2 0.0 0.0
+    size 196
+    secondarySize 210
+    chance 0.25
+}
+
+object LargeImpBall
+{
+    frame BAL1A { light LARGEIMPBALL }
+    frame BAL1B { light LARGEIMPBALL }
+    frame BAL1C { light LARGEIMPBALL_X1 }
+    frame BAL1D { light LARGEIMPBALL_X2 }
+    frame BAL1E { light LARGEIMPBALL_X3 }
+}
