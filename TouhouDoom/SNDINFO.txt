@@ -1,3 +1,23 @@
+// ??
+
+$RANDOM MReimu/Active { MRACT1 MRACT2 MRACT3 MRACT4 MRACT5 MRACT6 MRACT7 }
+MRACT1 MRACT1
+MRACT2 MRACT2
+MRACT3 MRACT3
+MRACT4 MRACT4
+MRACT5 MRACT5
+MRACT6 MRACT6
+MRACT7 MRACT7
+
+MReimu/Pain MRPAI
+
+$RANDOM MReimu/Attack { MRATTA1 MRATTA2 MRATTA3 }
+MRATTA1 MRATTA1
+MRATTA2 MRATTA2
+MRATTA3 MRATTA3
+
+MReimu/Melee MRMELEE
+
 // ?
 masterspark               yukasprk
 
@@ -1353,3 +1373,83 @@ Balor/Melee	BALRMHIT
 Balor/Pain	BALRPAIN
 Balor/Sight	BALRSIGH
 Balor/Teleport	BALRTELE
+
+monster/dknhit dsdknhit
+monster/dknsit dsdknsit
+monster/dknpai dsdknpai
+monster/dkndth dsdkndth
+monster/dknact dsdknact
+monster/dknswg dsdknswg
+
+monster/dkndrt dsdkndrt
+weapons/firex2 dsfirex2
+monster/dknmsl dsdknmsl
+weapons/boom1 dsboom1
+weapons/boltfi dsboltfi
+weapons/firex4 dsfirex4
+weapons/scorch dsscorch
+
+Afrit/CometFire FRITCMFR
+Afrit/CometHit	FRITCMHT
+Afrit/Hellfire	FRITFIRE
+
+ironlich/sight		hedsit
+ironlich/pain		hedpai
+ironlich/active		hedact
+ironlich/death		heddth
+
+MageStaffFire		mage4
+MageStaffExplode	mageball
+WraithSight		raith5a
+WraithActive		raith3
+WraithPain		raith4a
+WraithAttack		raith1b
+WraithMissileFire	impfire2
+WraithMissileExplode	impact3
+
+FlameBreath		FLAMEB
+CurseActive		CURSEACT
+CurseHit		CURSEHIT
+
+monster/sensit dssensit
+monster/senpai dssenpai
+monster/sendth dssendth
+monster/senact dssenact
+monster/cubsit dscubsit
+weapons/bounc1 dsbounc1
+monster/cubfly dscubfly
+monster/cubdth dscubdth
+weapons/boltfi dsboltfi
+monster/disht1 dsdisht1
+weapons/firsfi dsfirsfi
+weapons/maceex dsmaceex
+weapons/bigbrn dsbigbrn
+weapons/firex3 dsfirex3
+weapons/smlbrn dssmlbrn
+
+zombie/unmaker			DSUNMKER
+zombie/unpower			DSUNMKPO
+
+aldhivas/sight		ATOMSEE
+aldhivas/active		ATOMIDLE
+aldhivas/pain		ATOMPAIN
+aldhivas/death		ATOMDIE
+soulshot			SRZMFIR1
+
+lavdsit			lavdsit
+lavddie			lavddie
+beast/attack		bstatk
+weapons/phoenixpowshoot	phopow
+weapons/phoenixhit	phohit
+
+Fear/Sight FEARSEES
+Fear/Active FEARACTS
+Fear/Pain FEARPAIN
+Fear/Death FEARDIES
+Fear/Eyes FEAREYES
+
+cbaron/sight	cbarnsit
+cbaron/pain	cbarnpai
+cbaron/death	cbarndth
+cbaron/active	cbarnact
+cbaron/metal	cmetal
