@@ -80,7 +80,7 @@ OakTree
        Height 112
 }
 
-ACTOR Pennywise 32119
+ACTOR Pennywise //32119
 {
     Health 100
     Radius 29
@@ -293,7 +293,7 @@ States
     }
 }
 
-ACTOR PossessedBalloon 3115
+ACTOR PossessedBalloon //3115
 {
     Health 15
     Radius 15
@@ -353,7 +353,7 @@ ACTOR PossessedBalloon 3115
         Stop
     }
 }
-ACTOR BigBertha : PossessedBalloon 3225
+ACTOR BigBertha : PossessedBalloon //3225
 {
     Scale 12
     Health 6500
@@ -456,7 +456,7 @@ States
         Stop
     }
 }
-ACTOR JumpingSkull 3117
+ACTOR JumpingSkull //3117
 {
     Health 30
     Radius 8
@@ -505,7 +505,7 @@ ACTOR JumpingSkull 3117
 }
 /*=======================*/
 //******************************************************************************************
-ACTOR ClownHead 3206
+ACTOR ClownHead //3206
 { 
    Health 400 
    Speed 5 

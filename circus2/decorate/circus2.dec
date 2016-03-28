@@ -688,7 +688,7 @@ ACTOR MiniFluffyNew replaces MiniFluffy
   } 
 }
 
-ACTOR JumpingSkullNew replaces JumpingSkull
+ACTOR JumpingSkullNew replaces JumpingSkull 32121
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
@@ -805,7 +805,7 @@ ACTOR JumpingSkullNew replaces JumpingSkull
     wait
   }
 }
-ACTOR JumpingSkull2New replaces JumpingSkull2 //spawns skull ghosts
+ACTOR JumpingSkull2New replaces JumpingSkull2 3646 //spawns skull ghosts
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
@@ -924,7 +924,7 @@ ACTOR JumpingSkull2New replaces JumpingSkull2 //spawns skull ghosts
   }
 }
 
-ACTOR PossessedBalloonNew replaces PossessedBalloon
+ACTOR PossessedBalloonNew replaces PossessedBalloon 3115
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;

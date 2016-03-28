@@ -502,7 +502,7 @@ ACTOR MiniFluffy 3194
 
     } 
 }
-ACTOR JumpingSkull 32121
+ACTOR JumpingSkull //32121
 {
     Health 40
     Radius 8
@@ -554,7 +554,7 @@ ACTOR JumpingSkull 32121
         Stop
     }
 }
-ACTOR JumpingSkull2 : JumpingSkull 3646 //spawns skull ghosts
+ACTOR JumpingSkull2 : JumpingSkull //3646 //spawns skull ghosts
 {
     Health 40
     Speed 10
@@ -2256,7 +2256,7 @@ States
         Stop
     }
 }
-ACTOR PossessedBalloon 3115
+ACTOR PossessedBalloon //3115
 {
     Health 15
     Radius 15

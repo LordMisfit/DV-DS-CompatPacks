@@ -1,6 +1,8 @@
 ACTOR ApprenticeNew : ApprenticeofDsparil replaces ApprenticeofDsparil 30000
 {
-  //$Category TCOTD:A Monsters
+  //$Angled
+  //$Color 12
+  //$Category "TCOTD:A Monsters/Raven Style"
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
@@ -160,7 +162,9 @@ ACTOR ApprenticeNew : ApprenticeofDsparil replaces ApprenticeofDsparil 30000
 
 ACTOR MiniSpiderNew : MiniSpider replaces MiniSpider 22290
 {
-  //$Category TCOTD:A Monsters
+  //$Angled
+  //$Color 12
+  //$Category "TCOTD:A Monsters/Blood Style"
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
@@ -233,7 +237,9 @@ ACTOR MiniSpiderNew : MiniSpider replaces MiniSpider 22290
 
 ACTOR LargeSpiderNew : LargeSpider replaces LargeSpider 22291
 {
-  //$Category TCOTD:A Monsters
+  //$Angled
+  //$Color 12
+  //$Category "TCOTD:A Monsters/Blood Style"
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
@@ -311,7 +317,9 @@ ACTOR LargeSpiderNew : LargeSpider replaces LargeSpider 22291
 
 ACTOR TommyGunCultistNew : ShotgunCultist replaces ShotgunCultist 29011
 {
-  //$Category TCOTD:A Monsters
+  //$Angled
+  //$Color 12
+  //$Category "TCOTD:A Monsters/Blood Style"
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
@@ -458,7 +466,9 @@ ACTOR TommyGunCultistNew : ShotgunCultist replaces ShotgunCultist 29011
 
 ACTOR ShotgunCultistNew : TommyGunCultistNew replaces ChainGunCultist 29010
 {
-  //$Category TCOTD:A Monsters
+  //$Angled
+  //$Color 12
+  //$Category "TCOTD:A Monsters/Blood Style"
   Health 125 // 40,60,80,100,125
   painchance 170
   PainChance "Shock", 255
@@ -478,7 +488,9 @@ ACTOR ShotgunCultistNew : TommyGunCultistNew replaces ChainGunCultist 29010
 
 ACTOR HellHoundNew : HotDog replaces HotDog 30121
 { 
-  //$Category TCOTD:A Monsters
+  //$Angled
+  //$Color 12
+  //$Category "TCOTD:A Monsters/Blood Style"
   health 750
   DamageFactor "Normal", 0.875
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
@@ -586,7 +598,9 @@ ACTOR HellHoundNew : HotDog replaces HotDog 30121
 // Magic Using Cultist
 ACTOR ThrallNew : Thrall replaces Thrall 30119
 { 
-  //$Category TCOTD:A Monsters
+  //$Angled
+  //$Color 12
+  //$Category "TCOTD:A Monsters/Raven Style"
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
@@ -679,7 +693,9 @@ ACTOR ThrallNew : Thrall replaces Thrall 30119
 
 ACTOR NightmareNew : KDiZDNightmare replaces KDiZDNightmare 26000
 {
-  //$Category TCOTD:A Monsters
+  //$Angled
+  //$Color 12
+  //$Category "TCOTD:A Monsters/Doom Style"
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
@@ -758,7 +774,9 @@ ACTOR NightmareNew : KDiZDNightmare replaces KDiZDNightmare 26000
 
 ACTOR SirenNightmareNew : NightmareNew replaces SirenNightmare 31111
 {
-  //$Category TCOTD:A Monsters
+    //$Angled
+    //$Color 12
+    //$Category "TCOTD:A Monsters/Doom Style"
     health 525 // 300
     Health 300
     Radius 10
@@ -777,7 +795,9 @@ ACTOR SirenNightmareNew : NightmareNew replaces SirenNightmare 31111
 
 actor VulgarNew : Vulgar replaces Vulgar
 {
-  //$Category TCOTD:A Monsters
+  //$Angled
+  //$Color 12
+  //$Category "TCOTD:A Monsters/Doom Style"
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
@@ -882,7 +902,9 @@ actor VulgarNew : Vulgar replaces Vulgar
 
 Actor ClayDevilNew : ClayDevil replaces ClayDevil
 {
-  //$Category TCOTD:A Monsters
+  //$Angled
+  //$Color 12
+  //$Category "TCOTD:A Monsters/Others"
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
@@ -1055,7 +1077,9 @@ Actor ClayDevilNew : ClayDevil replaces ClayDevil
 
 ACTOR ShadowNew : Shadow replaces Shadow 3126
 {
-  //$Category TCOTD:A Monsters
+  //$Angled
+  //$Color 12
+  //$Category "TCOTD:A Monsters/Doom Style"
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
@@ -1075,7 +1099,7 @@ ACTOR ShadowNew : Shadow replaces Shadow 3126
     TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
   Spawn:
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    TROX A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
 	TROX A 15
 	TROX AAA 1 A_Chase
 	TROX A 0 A_CustomMissile("ShadowGhostA", 0, 0, 0)
@@ -1178,7 +1202,9 @@ ACTOR ShadowNew : Shadow replaces Shadow 3126
 
 ACTOR SoulHarvesterNew : SoulHarvester replaces SoulHarvester 3117
 {
-  //$Category TCOTD:A Monsters
+  //$Angled
+  //$Color 12
+  //$Category "TCOTD:A Monsters/Doom Style"
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
@@ -1279,7 +1305,9 @@ ACTOR SoulHarvesterNew : SoulHarvester replaces SoulHarvester 3117
 
 ACTOR ESoulNew : ESoul replaces ESoul 29012
 { 
-  //$Category TCOTD:A Monsters
+  //$Angled
+  //$Color 12
+  //$Category "TCOTD:A Monsters/Doom Style"
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
@@ -1366,7 +1394,9 @@ ACTOR ESoulNew : ESoul replaces ESoul 29012
 
 ACTOR DEWraithNew : DEWraith replaces DEWraith 30106
 { 
-  //$Category TCOTD:A Monsters
+  //$Angled
+  //$Color 12
+  //$Category "TCOTD:A Monsters/Raven Style"
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
@@ -1450,7 +1480,9 @@ ACTOR DEWraithNew : DEWraith replaces DEWraith 30106
 
 ACTOR ButcherZombieNew : Fatty replaces Fatty 25010
 {
-  //$Category TCOTD:A Monsters
+  //$Angled
+  //$Color 12
+  //$Category "TCOTD:A Monsters/Blood Style"
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
@@ -1648,7 +1680,9 @@ ACTOR ButcherZombieNew : Fatty replaces Fatty 25010
 
 actor BloodZombieNew : ZombieBlood replaces ZombieBlood 31002
 {
-  //$Category TCOTD:A Monsters
+  //$Angled
+  //$Color 12
+  //$Category "TCOTD:A Monsters/Blood Style"
   obituary "A zombie 'axed' %o a question. :V"
 
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
@@ -1844,13 +1878,15 @@ actor ThamuzApocalypseDefendMode : PowerProtection
 
 ACTOR ThamuzNew : Thamuz replaces Thamuz 7228
 {
-  //$Category TCOTD:A Monsters
+  //$Angled
+  //$Color 12
+  //$Category "TCOTD:A Monsters/Boss"
   Radius 40
   Height 110
   Bloodcolor "00 aa 00"
   Scale 1.1
   Health 32000
-  DamageFactor "Normal", 0.50
+  DamageFactor "Normal", 0.375
   Mass 40000
   OBITUARY "%o fell before the might of Thamuz, the Dark God."
 
@@ -2011,7 +2047,9 @@ ACTOR ThamuzNew : Thamuz replaces Thamuz 7228
 
 Actor TchernobogNew : ThamuzNew replaces Tchernobog 7258
 {
-  //$Category TCOTD:A Monsters
+  //$Angled
+  //$Color 12
+  //$Category "TCOTD:A Monsters/Boss"
   Radius 40
   Height 110
   Health 21333

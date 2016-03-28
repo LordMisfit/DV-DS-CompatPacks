@@ -1,25 +1,11 @@
 ACTOR PointLightTCOTD : PointLight replaces PointLight 9800 
 { 
-  Alpha 0.0
-  RenderStyle Add 
-  States
-  {
-  Spawn:
-    SHBA C -1
-    Stop
-  }
+  //$Sprite "SHBAC0"
 }
 
 ACTOR PointLightFlickerRandomTCOTD : PointLightFlickerRandom replaces PointLightFlickerRandom 9804 
 { 
-  Alpha 0.0
-  RenderStyle Add 
-  States
-  {
-  Spawn:
-    SHBA D -1
-    Stop
-  }
+  //$Sprite "SHBAD0"
 }
 
 ///////////////////
@@ -4306,6 +4292,7 @@ actor Feder 31801
 actor ExMark : SwitchableDecoration 31999
 {
   //$Category TCOTD:A Stuff
+  //$Sprite "EXCLA0"
   Radius 1
   Height 1
   RENDERSTYLE ADD
