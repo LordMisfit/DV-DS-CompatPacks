@@ -1453,3 +1453,110 @@ cbaron/pain	cbarnpai
 cbaron/death	cbarndth
 cbaron/active	cbarnact
 cbaron/metal	cmetal
+
+$RANDOM harvester/sight { shsight1 shsight2 }
+shsight1 shsight1
+shsight2 shsight2
+
+$RANDOM harvester/death { shdeath1 shdeath2 }
+shdeath1 shdeath1
+shdeath2 shdeath2
+
+harvester/scream shfbscrm
+
+harvester/ghost shghscrm
+
+DWizard/See			DWIZDSIT
+DWizard/Pain		DWIZDPIN
+DWizard/Death		DWIZDDTH
+DWizard/Active		DWIZDACT
+
+WDProj/Fire			DWPRJFIR
+$limit WDProj/Fire 0
+WDProj/Xplode		DWPRJXPL
+$limit WDProj/Xplode 0
+
+monster/acosit dsacosit
+monster/acopai dsacopai
+monster/acodth dsacodth
+monster/acoact dsacoact
+monster/blur dsblur
+monster/acosht dsacosht
+monster/acohit dsacohit
+
+monster/wiksit                  dswiksit
+$random monster/wikact		{ monster/wikac1    monster/wikac2 }
+monster/wikac1                  dswikac1
+monster/wikac2                  dswikac2
+monster/wikatk                  dswikatk
+monster/wikpai                  dswikpai
+monster/wikdth                  dswikdth
+weapons/firmfi                  dsfirmfi
+weapons/firex5                  dsfirex5
+monster/tenpn1                  dstenpn1
+monster/tenpn2                  dstenpn2
+
+monster/ghlsit dsghlsit
+monster/ghlhit dsghlhit
+monster/ghlpai dsghlpai
+monster/ghldth dsghldth
+monster/ghlact dsghlact
+monster/ghlswg dsghlswg
+weapons/skulfi dsskulfi
+weapons/bloodx dsbloodx
+weapons/poof1 dspoof1
+
+cbaron/sight	cbarnsit
+cbaron/pain	cbarnpai
+cbaron/death	cbarndth
+cbaron/active	cbarnact
+cbaron/metal	cmetal
+
+$RANDOM CIMPSIT { CIMPSIT1 CIMPSIT2 }
+CIMPSIT1	CIMPCIT1
+CIMPSIT2	CIMPSIT2
+$RANDOM CIMPDTH { CIMPDTH1 CIMPDTH2 }
+CIMPDTH1	CIMPDTH1
+CIMPDTH2	CIMPDTH2
+CIMPPAIN	CIMPPAIN
+CIMPACT		CIMPACT
+
+LordOfHeresy/sight DSLOHSIT
+LordOfHeresy/act DSLOHACT
+LordOfHeresy/death DSLOHDTH
+
+$RANDOM monster/dvlsit { monster/dvlsi1 monster/dvlsi2 }
+monster/dvlsi1 dsdvlsi1
+monster/dvlsi2 dsdvlsi2
+
+monster/dvlpai dsdvlpai
+$RANDOM monster/dvldth { monster/dvldt1 monster/dvldt2 }
+monster/dvldt1 dsdvldt1
+monster/dvldt2 dsdvldt2
+
+monster/dvlact dsdvlact
+
+$random Shadow/active { act1 act2 }
+act1			SHDACT1
+act2			SHDACT2
+$random Shadow/pain { pain1 pain2 }
+pain1			SHDPAIN1
+pain2			SHDPAIN2
+Shadow/attack		SHDATTAK
+Shadow/death		SHDDEATH
+
+monster/dissit dsdissit
+
+monster/disdth dsdisdth
+monster/disact dsdisact
+monster/blur dsblur
+monster/disat1 dsdisat1
+monster/disat2 dsdisat2
+monster/disht1 dsdisht1
+monster/disht2 dsdisht2
+
+squire/sight DSSQRSIT
+squire/death DSSQRDTH
+
+fireball/fire dsfirmfi
+fireball/hit dsfirex3
