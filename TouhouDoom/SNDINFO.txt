@@ -1046,3 +1046,156 @@ doomedimppain2 DMDIMPP2
 $RANDOM DoomedImp/Active { doomedimpactive1 doomedimpactive2 }
 doomedimpactive1 DMDIMPID
 doomedimpactive2 DMDIMPI2
+
+monster/malsit maplhsit
+monster/malpai malphpai
+monster/maldth maplhdth
+monster/malact malphact
+monster/malatk malphatk
+monster/malawake malphawa
+summon/ambient   hereamb
+MageLightningFire dslight
+Hectebus/ballx	DSHFBXPL
+weapons/justfi dsjustfi
+weapons/gntini dsgntini
+weapons/devexp dsdevexp
+weapons/bwoosh dsbwoosh
+weapons/firex2 dsfirex2
+weapons/devzap dsdevzap
+weapons/gnthit dsgnthit
+monster/hadsit dshadsit
+monster/bomb FIREBALL
+monster/explode DSCMTEXP
+darkthunder/charge   DSZEUSRD
+darkthunder/charge2  DSZEUSFR
+darkthunder/fire     DSTHLTNG
+darkthunder/death    DSCCBOOM
+darkvile/fire        DSVILATK
+darkice/shot         DSCULATK
+darkice/death        DSFLAMST
+darkvile/death       DVILDETH
+weapons/blastershot  DSBLSHOT
+DMBall/Impact	DMC_IMPX
+BHole/Suck		DMC_VOID
+BHole/Explosion	DMC_XPLD
+$limit DMBall/Impact 0
+$limit BHole/Suck 0
+$limit BHole/Explosion 0
+
+$RANDOM Cacolord/Death { cacolorddeath1 cacolorddeath2 }
+cacolorddeath1 CACLRDD1
+cacolorddeath2 CACLRDD2
+
+$RANDOM Cacolord/Sight { cacolordsight1 cacolordsight2 }
+cacolordsight1 CACLRDS1
+cacolordsight2 CACLRDS2
+
+$RANDOM Cacolord/Pain { cacolordpain1 cacolordpain2 cacolordpain3 }
+cacolordpain1 CACLRDP1
+cacolordpain2 CACLRDS2
+cacolordpain3 CACLRDS3
+
+$RANDOM Cacolord/Active { cacolordactive1 cacolordactive2 cacolordactive3 cacolordactive4 cacolordactive5 }
+cacolordactive1 CACLRDA1
+cacolordactive2 CACLRDA2
+cacolordactive3 CACLRDA3
+cacolordactive4 CACLRDA4
+cacolordactive5 CACLRDA5
+
+$RANDOM Husk/Death { huskdeath1 huskdeath2 }
+huskdeath1 HUSKDEA1
+huskdeath2 HUSKDEA2
+
+$RANDOM Husk/Sight { husksight1 husksight2 }
+husksight1 HUSSIGH1
+husksight2 HUSSIGH2
+
+$RANDOM Husk/Pain { huskpain1 huskpain2 huskpain3 }
+huskpain1 HUSKPAI1
+huskpain2 HUSKPAI2
+huskpain3 HUSKPAI3
+
+$RANDOM Husk/Active { huskactive1 huskactive2 }
+huskactive1 HUSKIDL1
+huskactive2 HUSKIDL2
+
+
+Husk/Warn  HUSKWARN
+Fire/charge  FIRECHAR
+Fire/fire    FBFIRE
+cbaron/metal	cmetal
+BarrelFire/Start	DSFIRSTA
+
+BarrelFire/Loop		DSFIRLOP
+$limit BarrelFire/Loop	0
+
+$RANDOM Demibus/Death { demibusdeath1 demibusdeath2 }
+demibusdeath1 DEMBUSD1
+demibusdeath2 DEMBUSD2
+
+Demibus/Sight DEMBUSSI
+
+$RANDOM Demibus/Pain { demibuspain1 demibuspain2 }
+demibuspain1 DEMBUSP1
+demibuspain2 DEMBUSP2
+
+$RANDOM Demibus/Active { demibusactive1 demibusactive2 }
+demibusactive1 DEMBUSA1
+demibusactive2 DEMBUSA2
+
+$RANDOM Demibus/Attack { demibusattack1 demibusattack2 demibusattack3 }
+demibusattack1 DEMATTA1
+demibusattack2 DEMATTA2
+demibusattack3 DEMATTA3
+
+$RANDOM Demibus/Rage { demibusrage1 demibusrage2 }
+demibusrage1 DEMRAGE1
+demibusrage2 DEMRAGE2
+
+DemonSight              sbtsit5
+DemonActive             sbtsit5
+DemonPain               minact1
+DemonAttack             dematk2
+DemonDeath              sbtdth3
+DemonMissileFire        impfire2
+DemonMissileExplode     impact3
+
+WraithSight             raith5a
+WraithActive            raith3
+WraithPain              raith4a
+WraithAttack            raith1b
+WraithDeath             rathdth2
+WraithMissileFire       impfire2
+WraithMissileExplode    impact3
+
+EttinSight              cent2
+EttinActive             cent2
+EttinPain               cent1
+EttinAttack             ethit1
+EttinDeath              cntdth1
+
+FireDemonSpawn          spawn3
+FireDemonActive         fired5
+FireDemonPain           fired2
+FireDemonAttack         spit6
+FireDemonMissileHit     firedhit
+FireDemonDeath          fired3
+
+ghost/pain ghospain
+ghost/death ghosdeth
+ghost/ghosthigh ghosdieh
+
+Icon/WorthIt WORTHIT
+Icon/MadeItThisFar MADEITTH
+Icon/Welcome WELCOME
+Icon/Confess CONFESS
+Icon/Greed GREED
+Icon/Gluttony GLUTTONY
+Icon/Envy ENVY
+Icon/Sloth SLOTH
+Icon/Pride PRIDE
+Icon/Lust LUST
+Icon/Wrath WRATH
+
+Icon/Death ICODEATH
+Icon/Pain ICOPAIN
