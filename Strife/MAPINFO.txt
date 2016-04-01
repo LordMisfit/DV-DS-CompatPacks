@@ -47,7 +47,7 @@ episode mapaa
 //*********************
 map MAPAA "Skip Map"
 {
- levelnum = 1020
+ levelnum = 1030
  next = "MAP02"
  cluster = 32
  par = 1
