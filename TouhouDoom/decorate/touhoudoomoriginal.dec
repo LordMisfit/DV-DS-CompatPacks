@@ -88,14 +88,6 @@ actor CacoSpawner : RandomSpawner
 	DropItem "CacolanternClone" 	256 1
 }
 
-actor FatsoSpawner : RandomSpawner
-{
-	+ISMONSTER
-	DropItem "Fatso" 	256 10
-	DropItem "D3Mancubus" 	256 4
-	DropItem "Hectebus" 	256 3
-}
-
 actor ArachSpawner : RandomSpawner
 {
 	+ISMONSTER
@@ -1332,7 +1324,7 @@ ACTOR RemiFriendly : Remilia 21100
   }
 }
 	
-ACTOR Rumia 31199
+ACTOR Rumia //31199
 {
 //$Category "Touhou Characters"
   floatspeed 8
@@ -1540,7 +1532,7 @@ ACTOR StrongRumiaOrb
   }
 }
 
-ACTOR RumiaMidBoss 31200
+ACTOR RumiaMidBoss //31200
 {
 //$Category "Touhou Characters"
   floatspeed 4
@@ -1656,7 +1648,7 @@ ACTOR RumiaMidBoss 31200
   }
 }
 
-ACTOR Fairy1 31134
+ACTOR Fairy1 //31134
 {
 //$Category "Touhou Characters"
   floatspeed 8
@@ -1727,7 +1719,7 @@ ACTOR Fairy1 31134
   }
 }
 
-ACTOR Fairy2 31135
+ACTOR Fairy2 //31135
 {
 //$Category "Touhou Characters"
   floatspeed 8
@@ -1857,7 +1849,7 @@ ACTOR StrongFairyOrb
   }
 }
 
-ACTOR Fairy4 31150
+ACTOR Fairy4 //31150
 {
 //$Category "Touhou Characters"
   floatspeed 8
@@ -1968,7 +1960,7 @@ ACTOR Fairy4 31150
   }
 }
 
-ACTOR Fairy3 31151
+ACTOR Fairy3 //	
 {
 //$Category "Touhou Characters"
   floatspeed 8
@@ -2141,7 +2133,7 @@ ACTOR FairyBeam
   }
 }
 
-ACTOR Fairy5 31157
+ACTOR Fairy5 //31157
 {
 //$Category "Touhou Characters"
   floatspeed 8
@@ -2227,7 +2219,7 @@ ACTOR Fairy5 31157
   }
 }
 
-ACTOR Daiyousei 31153
+ACTOR Daiyousei //31153
 {
 //$Category "Touhou Characters"
   floatspeed 8
@@ -2474,7 +2466,7 @@ ACTOR DaiBeamTrail
 	}
 }
 
-ACTOR Cirno 31154
+ACTOR Cirno //31154
 {
 //$Category "Touhou Characters"
   floatspeed 8
@@ -2812,7 +2804,7 @@ ACTOR StrongCirnoOrb
    }
 }
 
-ACTOR MeilingMidBoss 31155
+ACTOR MeilingMidBoss //31155
 {
 //$Category "Touhou Characters"
   floatspeed 8
@@ -2993,7 +2985,7 @@ ACTOR StrongMeiOrb
   }
 }
 
-ACTOR Meiling 31156
+ACTOR Meiling //31156
 {
   floatspeed 8
   Speed 8
@@ -10261,68 +10253,6 @@ ACTOR FirebombShot
    }
 }
 
-ACTOR FirebombExplosion1
-{
-   Radius 11
-   Height 8
-   Speed 18
-   Damage 6
-   +NOBLOCKMAP 
-   +DROPOFF 
-   +MISSILE 
-   +ACTIVATEIMPACT 
-   +ACTIVATEPCROSS 
-   ExplosionDamage 128
-   ExplosionRadius 144
-   Obituary "%o was killed by a Firebomb explosion."
-   States
-   {
-   Spawn:
-      FRME A 1 Bright
-      Loop
-   Death:
-      FRME A 0
-      FRME A 0 A_PlaySound("weapons/fbexpl")
-      FRME A 3 Bright A_Explode
-      FRME B 1 Bright
-      FRME B 2 Bright A_CustomMissile("FirebombExplosion2",25,0,180)
-      FRME CDEFGHIJKLMNOPQRS 3 Bright
-      Stop
-   }
-}
-
-ACTOR FirebombExplosion2 : FirebombExplosion1
-{
-   ExplosionRadius 136
-   States
-   {
-   Death:
-      FRME A 0
-      FRME A 0 A_PlaySound("weapons/fbexpl")
-      FRME A 3 Bright A_Explode
-      FRME B 1 Bright
-      FRME B 2 Bright A_CustomMissile("FirebombExplosion3",20,0,180)
-      FRME CDEFGHIJKLMNOPQRS 3 Bright
-      Stop
-   }
-}
-
-ACTOR FirebombExplosion3 : FirebombExplosion1
-{
-   Speed 14
-   Damage 5
-   ExplosionRadius 128
-   States
-   {
-   Death:
-      FRME A 0
-      FRME A 0 A_PlaySound("weapons/fbexpl")
-      FRME A 3 Bright A_Explode
-      FRME BCDEFGHIJKLMNOPQRS 3 Bright
-      Stop
-   }
-}
-
 ACTOR FirebombMissileTrail
 {
    Radius 4
@@ -10692,46 +10622,46 @@ ACTOR Koishi 31175
     BOS4 A 1 A_SetTranslucent(1.0)
     BOS4 Q 0 A_PlaySoundEx("Arcus/BurningAura","SoundSlot8")
     BOS4 Q 1 A_FaceTarget
-	BOS4 Q 0 A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
+	BOS4 Q 0 //A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
 	BOS4 Q 1 A_FaceTarget
-	BOS4 Q 0 A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
+	BOS4 Q 0 //A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
 	BOS4 Q 1 A_FaceTarget
-	BOS4 Q 0 A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
+	BOS4 Q 0 //A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
 	BOS4 Q 1 A_FaceTarget
-	BOS4 Q 0 A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
+	BOS4 Q 0 //A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
 	BOS4 Q 1 A_FaceTarget
-	BOS4 Q 0 A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
+	BOS4 Q 0 //A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
 	BOS4 Q 1 A_FaceTarget
-	BOS4 Q 0 A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
+	BOS4 Q 0 //A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
 	BOS4 Q 1 A_FaceTarget
-	BOS4 Q 0 A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
+	BOS4 Q 0 //A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
 	BOS4 Q 1 A_FaceTarget
-    BOS4 Q 0 A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
+    BOS4 Q 0 //A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
 	BOS4 Q 1 A_FaceTarget
-	BOS4 Q 0 A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
+	BOS4 Q 0 //A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
 	BOS4 Q 1 A_FaceTarget
-	BOS4 Q 0 A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
+	BOS4 Q 0 //A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
 	BOS4 Q 1 A_FaceTarget
-	BOS4 Q 0 A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
+	BOS4 Q 0 //A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
 	BOS4 Q 1 A_FaceTarget
-	BOS4 Q 0 A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
+	BOS4 Q 0 //A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
 	BOS4 Q 1 A_FaceTarget
-	BOS4 Q 0 A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
+	BOS4 Q 0 //A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
 	BOS4 Q 1 A_FaceTarget
-	BOS4 Q 0 A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
+	BOS4 Q 0 //A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
 	BOS4 Q 1 A_FaceTarget
-	BOS4 Q 0 A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
+	BOS4 Q 0 //A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
 	BOS4 Q 1 A_FaceTarget
-	BOS4 Q 0 A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
+	BOS4 Q 0 //A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
 	BOS4 Q 1 A_FaceTarget
-	BOS4 Q 0 A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
+	BOS4 Q 0 //A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
 	BOS4 Q 1 A_FaceTarget
-	BOS4 Q 0 A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
+	BOS4 Q 0 //A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
 	BOS4 Q 1 A_FaceTarget
-	BOS4 Q 0 A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
+	BOS4 Q 0 //A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
 	BOS4 Q 1 A_FaceTarget
-	BOS4 Q 0 A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
-	BOS4 Q 0 A_CustomMissile("ImmolationBolt",28,0,0,0)
+	BOS4 Q 0 //A_SpawnItemEx("FlameDroplet",Random(-24,24),Random(-24,24),1)
+	BOS4 Q 0 //A_CustomMissile("ImmolationBolt",28,0,0,0)
 	BOS4 A 1 A_PlaySound("weakspin")
     BOS4 A 1 A_SetTranslucent(0.90)
     BOS4 A 1 A_SetTranslucent(0.80)
@@ -13831,184 +13761,7 @@ ACTOR PusherExplosive
   }
 }
 
-
-
-
-
-
-
-
-ACTOR StormShot1
-{
-   Radius 12
-   Height 6
-   Speed 30
-   Damage 50
-   PROJECTILE
-   RENDERSTYLE ADD
-   Alpha 0.80
-   Damagetype lightning
-   +THRUGHOST
-   +NODAMAGETHRUST
-   +FORCEXYBILLBOARD
-   DeathSound "weapons/devexp"
-   States
-   {
-   Spawn:
-      LFX1 STUVW 1 Bright
-      LFX1 W 0 Bright A_CustomMissile("StormLite1",0,0,90,6)
-      LFX1 W 0 Bright A_CustomMissile("StormLite1",0,0,270,6)
-      loop
-   Death:
-      LFX1 STUVWSTUVWSTUVWSTUVWSTUVWSTUVWSTUVWSTUVWSTUVWSTUVWSTUVWSTUVW 1 Bright A_Explode(16,32,0)
-      stop
-   }
-}
-
-ACTOR StormShot2 : StormShot1
-{
-   Damage 100
-   States
-   {
-   Spawn:
-      TNT1 A 2
-      LFX2 KLMNO 1 Bright
-      LFX2 O 0 Bright A_CustomMissile("StormLite2",0,0,90,6)
-      LFX2 O 0 Bright A_CustomMissile("StormLite2",0,0,270,6)
-      Goto Spawn+1
-   Death:
-      LFX2 KLMNO 1 Bright A_Explode(32,64,0)
-      LFX2 KKKKKK 0 Bright A_SpawnItemEx("StormBolt",0,0,0,4,0,0,random(0,359),0,0)
-      LFX2 LMNO 1 Bright A_Explode(32,64,0)
-      stop
-   }
-}
-
-ACTOR StormStrike1
-{
-   Radius 16
-   Height 1
-   Speed 90
-   Damage 2
-   PROJECTILE
-   Damagetype lightning
-   RENDERSTYLE ADD
-   Alpha 0.75
-   +THRUGHOST
-   +RIPPER
-   +NODAMAGETHRUST
-   +STRIFEDAMAGE
-   DeathSound "weapons/devzap"
-   States
-   {
-   Spawn:
-      LFX1 IJKLM 1 Bright A_Explode(64,64,0)
-      loop
-   Death:
-      LFX1 NOPQR 2 Bright
-      stop
-   }
-}
-
-ACTOR StormBolt : StormStrike1
-{
-   Speed 4
-   Radius 8
-   Height 16
-   Damage 1
-   Damagetype lightning
-   SeeSound "weapons/none"
-   DeathSound "weapons/gntidl"
-   YScale 4.0
-   XScale 2.0
-   ReactionTime 35
-   +FLOORHUGGER
-   +HEXENBOUNCE
-   -NOGRAVITY
-   States
-   {
-   Spawn:
-      LFX2 F 1 Bright A_Explode(16,64,0)
-      LFX2 F 0 Bright A_CustomMissile("StormBolt2",16,0,0,6,90)
-      LFX2 F 0 ThrustThing(random(0,255),1,0,0)
-      LFX2 G 1 Bright A_Explode(16,64,0)
-      LFX2 G 0 Bright A_CustomMissile("StormBolt2",16,0,0,6,90)
-      LFX2 H 1 Bright A_Explode(16,64,0)
-      LFX2 H 0 Bright A_CustomMissile("StormBolt2",16,0,0,6,90)
-      LFX2 I 1 Bright A_Explode(16,64,0)
-      LFX2 I 0 Bright A_CustomMissile("StormBolt2",16,0,0,6,90)
-      LFX2 J 1 Bright A_Explode(16,64,0)
-      LFX2 J 0 Bright A_CustomMissile("StormBolt2",16,0,0,6,90)
-      LFX2 J 0 Bright A_CountDown
-      loop
-   Death:
-      LFX2 FGHIJ 2 Bright A_Explode(16,64,0)
-      stop
-   }
-}
-
-ACTOR StormBolt2 : StormStrike1
-{
-   Speed 184
-   Damage 1
-   Height 15
-   Radius 8
-   Damagetype lightning
-   SeeSound "Monster/hadtel"
-   DeathSound "Monster/hadsit"
-   +RIPPER
-   +NOGRAVITY
-   States
-   {
-   Spawn:
-      TNT1 A 1 Bright A_Explode(16,64,0)
-      loop
-   Death:
-      TNT1 A 1 Bright
-      stop
-   }
-}
-
-ACTOR StormLite1
-{
-   Radius 6
-   Height 12
-   Speed 32
-   Damage 5
-   PROJECTILE
-   RENDERSTYLE ADD
-   Alpha 0.80
-   Damagetype lightning
-   DeathSound "weapons/devzap"
-   +THRUGHOST
-   +RIPPER
-   +FORCEXYBILLBOARD
-   States
-   {
-   Spawn:
-      DLIT ABC 1 Bright
-      Loop
-   Death:
-      DLIT DEFGHIJKLMNO 1 Bright
-      Stop
-   }
-}
-
-ACTOR StormLite2 : StormLite1
-{
-   Speed 64
-   Damage 10
-   States
-   {
-   Spawn:
-      LFX1 XYZ 1 Bright
-      Loop
-   Death:
-      LFX1 STUVW 3 Bright
-      Stop
-   }
-}
-
+// Nega Flandre
 ACTOR BloodyFlandre 31193
 {
 //$Category "Touhou Characters"
@@ -17019,7 +16772,7 @@ Actor D3Mancubus 18015
     3MNC L 0 A_ChangeFlag("NoPain", 0)
     goto See
   Death:
-    TNT1 A 0 A_GiveToTarget ("CubeAmmo", 1)
+    TNT1 A 0 //A_GiveToTarget ("CubeAmmo", 1)
     3MNC M 10
     3MNC N 10 A_Scream
     3MNC O 8 A_NoBlocking
@@ -17150,7 +16903,7 @@ Actor Revenant2 : Revenant 18017
     GSKL L 0 A_ChangeFlag("NoPain", 0)
     goto See
   Death:
-    TNT1 A 0 A_GiveToTarget ("CubeAmmo", 1)
+    TNT1 A 0 //A_GiveToTarget ("CubeAmmo", 1)
     GSKL LM 7
     GSKL N 7 A_Scream
     GSKL O 7 A_NoBlocking
@@ -19711,31 +19464,6 @@ ACTOR AcolyteSpawnOrb
 }
 
 
-ACTOR ChshireFlame
-{
-Radius 4
-Height 6
-Speed 28
-Damage 1
-PROJECTILE
-+STRIFEDAMAGE
-+NOTIMEFREEZE
-+BLOODLESSIMPACT
-+RIPPER
-RENDERSTYLE ADD
-ALPHA 0.8
-SeeSound "ChesFlame"
-States
-{
-Spawn:
-CHFR ABCDEFGHIJKLMOP 1 Bright
-Stop
-Death:
-CHFR HIJKLMOP 1 Bright
-Stop
-}
-}
-
 ACTOR MalphasLightningBall
 {
 Radius 6
@@ -22215,59 +21943,6 @@ ACTOR PainLordDarkMatterBall
 	}
 }
 
-ACTOR ShadowVaporSpawner
-{
-+NOINTERACTION
-RenderStyle none
-States
-{
-Spawn:
-	NULL A 0
-	NULL AAAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("ShadowVapor",0,0,0,random(4,-4),random(4,-4),random(4,-4),random(0,359),32)
-	PLAY A 2
-	PLAY BCDEF 4
-	Stop
-}
-}
-
-ACTOR ShadowVapor
-{
-PROJECTILE
-+RIPPER
-+RANDOMIZE
-Damagetype Disintegrate
-Damage (1)
-Speed 0
-Radius 2
-Height 2
-renderstyle Translucent
-Scale 0.65
-Alpha 0.4
-+DOOMBOUNCE
-+BLOODLESSIMPACT
-States
-{
-Spawn:
-	VPXS MNOPQRSTUVWXYZ 1 Bright A_FadeOut(0.018)
-	VPXS ABC 2 A_FadeOut(0.018)
-	Stop
-}
-}
-
-ACTOR DarkMatterSpark
-{
-    RenderStyle translucent
-    Scale 0.75
-    Alpha 0.5
-    PROJECTILE
-    States
-    {
-    Spawn:
-	VPXS ABCDEFGHIJKL 1 Bright A_FadeOut(0.04)
-	Loop
-    }
-}
-
 ACTOR PainLordDeathExplosionSpawner
 {
 +NOINTERACTION
@@ -22556,192 +22231,6 @@ ACTOR MalepharFireball
 		MISL D 4 Bright
 		Stop
 	}
-}
-
-ACTOR BarrelFlames
-{
-  Radius 16
-  Height 24
-  ReactionTime 30
-  damagetype "fire"
-  renderstyle Add
-  Projectile
-  +NODAMAGETHRUST
-  +BLOODLESSIMPACT
-  -NOGRAVITY
-  -DROPOFF
-  -MISSILE
-  -ACTIVATEIMPACT
-  -ACTIVATEPCROSS
-  
-  States
-  {
-  Spawn:
-    OILS A 0 bright
-    OILS A 4 bright A_PlaySoundEx ("BarrelFire/Loop", "SoundSlot5", 1)
-    OILS A 0 bright A_PlaySoundEx ("BarrelFire/Start", "SoundSlot6")
-    OILS BC 4 bright
-  FireLoop:
-    OILF AB 4 bright
-    OILF C 4 bright A_Explode (5, 40)
-    OILF C 0 bright A_CountDown
-    Loop
-  Death:
-    OILS CB 4 bright
-    OILS A 4 bright A_StopSoundEx ("SoundSlot5")
-    Stop
-  }
-}
-
-
-ACTOR FireballSmokeTrail
-{
-	RenderStyle Translucent
-	Alpha 0.55
-	Scale 0.45
-	reactiontime 4
-	+NOBLOCKMAP +NOCLIP +NOGRAVITY
-	States
-	{
-	Spawn:
-		RSMK ABCDE 1
-		RSMK E 0 A_CountDown
-		Loop
-		
-	Death:
-		RSMK E 5 A_SetTranslucent(0.75, 0)
-		RSMK E 5 A_SetTranslucent(0.50, 0)
-		RSMK E 5 A_SetTranslucent(0.25, 0)
-		RSMK E 5 A_SetTranslucent(0.0, 0)
-		Stop
-		
-	}
-}
-
-
-ACTOR SmokeTrailXFire
-{
-	RenderStyle Translucent
-	Alpha 0.55
-	Scale 0.45
-	+NOBLOCKMAP +NOCLIP +NOGRAVITY
-	States
-	{
-	Spawn:
-		RSMK ABCDE 1
-		Stop
-	}
-}
-
-ACTOR FirebombShot
-{
-   Radius 11
-   Height 8
-   Speed 22
-   Damage 21
-   PROJECTILE
-   ExplosionDamage 128
-   ExplosionRadius 160
-   DeathSound "weapons/fbexpl"
-   Obituary "%o was killed by a Firebomb missile."
-   States
-   {
-   Spawn:
-      FRMS A 0 Bright A_PlaySound("weapons/missfly")
-      FRMS A 2 Bright A_CustomMissile("FireballSmokeTrail",0,0,0)
-      FRMS A 2 Bright A_CustomMissile("FireballSmokeTrail",0,0,0)
-      FRMS A 2 Bright A_CustomMissile("FireballSmokeTrail",0,0,0)
-      FRMS A 2 Bright A_CustomMissile("FireballSmokeTrail",0,0,0)
-      FRMS A 2 Bright A_CustomMissile("FireballSmokeTrail",0,0,0)
-      FRMS A 2 Bright A_CustomMissile("FireballSmokeTrail",0,0,0)
-      FRMS A 2 Bright A_CustomMissile("FireballSmokeTrail",0,0,0)
-      FRMS A 2 Bright A_CustomMissile("FireballSmokeTrail",0,0,0)
-      FRMS A 2 Bright A_CustomMissile("FireballSmokeTrail",0,0,0)
-      FRMS A 2 Bright A_CustomMissile("FireballSmokeTrail",0,0,0)
-      FRMS A 2 Bright A_CustomMissile("FireballSmokeTrail",0,0,0)
-      FRMS A 2 Bright A_CustomMissile("FireballSmokeTrail",0,0,0)
-      FRMS A 2 Bright A_CustomMissile("FireballSmokeTrail",0,0,0)
-      FRMS A 2 Bright A_CustomMissile("FireballSmokeTrail",0,0,0)
-      FRMS A 2 Bright A_CustomMissile("FireballSmokeTrail",0,0,0)
-      FRMS A 2 Bright A_CustomMissile("FireballSmokeTrail",0,0,0)
-      FRMS A 2 Bright A_CustomMissile("FireballSmokeTrail",0,0,0)
-      FRMS A 2 Bright A_CustomMissile("FireballSmokeTrail",0,0,0)
-      FRMS A 2 Bright A_CustomMissile("FireballSmokeTrail",0,0,0)
-      FRMS A 2 Bright A_CustomMissile("FireballSmokeTrail",0,0,0)
-      FRMS A 2 Bright A_CustomMissile("FireballSmokeTrail",0,0,0)
-      FRMS A 2 Bright A_CustomMissile("FireballSmokeTrail",0,0,0)
-      Loop
-   Death:
-      FRME A 3 Bright A_Explode
-      FRME B 0 A_CustomMissile("FirebombExplosion1",1,0,45)
-      FRME B 0 A_CustomMissile("FirebombExplosion1",1,0,135)
-      FRME B 0 A_CustomMissile("FirebombExplosion1",1,0,225)
-      FRME B 0 A_CustomMissile("FirebombExplosion1",1,0,315)
-      FRME BCDEFGHIJKLMNOPQRS 3 Bright
-      Stop
-   }
-}
-
-ACTOR FirebombExplosion1
-{
-   Radius 11
-   Height 8
-   Speed 18
-   Damage 6
-   +NOBLOCKMAP 
-   +DROPOFF 
-   +MISSILE 
-   +ACTIVATEIMPACT 
-   +ACTIVATEPCROSS 
-   ExplosionDamage 128
-   ExplosionRadius 144
-   Obituary "%o was killed by a Firebomb explosion."
-   States
-   {
-   Spawn:
-      FRME A 1 Bright
-      Loop
-   Death:
-      FRME A 0
-      FRME A 0 A_PlaySound("weapons/fbexpl")
-      FRME A 3 Bright A_Explode
-      FRME B 1 Bright
-      FRME B 2 Bright A_CustomMissile("FirebombExplosion2",25,0,180)
-      FRME CDEFGHIJKLMNOPQRS 3 Bright
-      Stop
-   }
-}
-
-ACTOR FirebombExplosion2 : FirebombExplosion1
-{
-   ExplosionRadius 136
-   States
-   {
-   Death:
-      FRME A 0
-      FRME A 0 A_PlaySound("weapons/fbexpl")
-      FRME A 3 Bright A_Explode
-      FRME B 1 Bright
-      FRME B 2 Bright A_CustomMissile("FirebombExplosion3",20,0,180)
-      FRME CDEFGHIJKLMNOPQRS 3 Bright
-      Stop
-   }
-}
-
-ACTOR FirebombExplosion3 : FirebombExplosion1
-{
-   Speed 14
-   Damage 5
-   ExplosionRadius 128
-   States
-   {
-   Death:
-      FRME A 0
-      FRME A 0 A_PlaySound("weapons/fbexpl")
-      FRME A 3 Bright A_Explode
-      FRME BCDEFGHIJKLMNOPQRS 3 Bright
-      Stop
-   }
 }
 
 Actor GoreImp : DoomImp 18037
@@ -23816,7 +23305,7 @@ painchance "Cube", 256
         BALR H 0
         Goto Missile+20
     Death:
-    TNT1 A 0 A_GiveToTarget ("CubeAmmo", 1)
+    TNT1 A 0 //A_GiveToTarget ("CubeAmmo", 1)
         BALR H 16 A_Pain
         PYXP A 0 A_KillChildren
         PYXP A 0 bright A_Scream
@@ -25035,32 +24524,6 @@ Actor CometTail
   }
 }
 
-Actor CometDeathGlow : CometTail
-{
-  Scale 2.0
-  Alpha 0.6
-  States
-  {
-  Spawn:
-    FRTB ABCDEFGHI 3 Bright
-    Stop
-  }
-}
-
-Actor CometDeath
-{
-  Projectile
-  RenderStyle Add
-  +NoClip
-  Alpha 0.7
-  States
-  {
-  Spawn:
-    COMT FGHI 3 Bright
-    Stop
-  }
-}
-
 Actor OrbitComet : Comet
 {
   SeeSound ""
@@ -25593,22 +25056,6 @@ Actor SentGMissile
   }
 }
 
-Actor BarbTrail
-{   
-  Radius 0
-  Height 1
-  Projectile
-  RenderStyle Add
-  Alpha 0.75
-  States
-  {
-  Spawn:
-    TNT1 A 1 Bright
-    SSFX ABCDEFGH 2 Bright
-    Stop 
-  }
-}
-
 Actor SentRMissile
 {
   Radius 5
@@ -25631,23 +25078,6 @@ Actor SentRMissile
     SEF1 DEFG 5 Bright A_Explode(32, 64)
     SEF1 H 5 Bright
     Stop
-  }
-}
-
-Actor RedPuff
-{   
-  Radius 0
-  Height 1
-  Speed 0
-  Projectile
-  RenderStyle Add
-  Alpha 0.85
-  States
-  {
-  Spawn:
-    TNT1 A 3 Bright
-    RPUF ABCDE 3 Bright
-    Stop 
   }
 }
 
@@ -25781,7 +25211,7 @@ painchance "Cube", 256
     ZUNM G 0 A_ChangeFlag("NoPain", 0)
     goto See
   Death:
-    TNT1 A 0 A_GiveToTarget ("CubeAmmo", 1)
+    TNT1 A 0 //A_GiveToTarget ("CubeAmmo", 1)
     ZUNM H 5
     ZUNM I 5 A_Scream
     ZUNM J 5 A_NoBlocking
@@ -25791,7 +25221,7 @@ painchance "Cube", 256
     ZUNM N -1
     stop
   XDeath:
-    TNT1 A 0 A_GiveToTarget ("CubeAmmo", 1)
+    TNT1 A 0 //A_GiveToTarget ("CubeAmmo", 1)
     ZUNM O 5
     ZUNM P 5 A_XScream
     ZUNM Q 5 A_NoBlocking
@@ -26404,7 +25834,7 @@ painchance "Cube", 256
     CBOS H 0 A_ChangeFlag("NoPain", 0)
     goto See
   Death:
-    TNT1 A 0 A_GiveToTarget ("CubeAmmo", 1)
+    TNT1 A 0 //A_GiveToTarget ("CubeAmmo", 1)
     CBOS I 8
     CBOS J 8 A_Scream
     CBOS K 8 bright A_Playsound("world/barrelx")
@@ -26516,29 +25946,29 @@ painchance "Cube", 256
       goto See
   FlameThrower:
     CBOS E 20 A_FaceTarget 
-    CBOS F 1 A_CustomMissile ("FTFire",32,16,0,0,0)
+    CBOS F 1 //A_CustomMissile ("FTFire",32,16,0,0,0)
     CBOS F 0 A_FaceTarget 
-    CBOS F 1 A_CustomMissile ("FTFire",32,16,0,0,0)
+    CBOS F 1 //A_CustomMissile ("FTFire",32,16,0,0,0)
     CBOS F 0 A_FaceTarget 
-    CBOS F 1 A_CustomMissile ("FTFire",32,16,0,0,0)
+    CBOS F 1 //A_CustomMissile ("FTFire",32,16,0,0,0)
     CBOS F 0 A_FaceTarget 
-    CBOS F 1 A_CustomMissile ("FTFire",32,16,0,0,0)
+    CBOS F 1 //A_CustomMissile ("FTFire",32,16,0,0,0)
     CBOS F 0 A_FaceTarget 
-    CBOS F 1 A_CustomMissile ("FTFire",32,16,0,0,0)
+    CBOS F 1 //A_CustomMissile ("FTFire",32,16,0,0,0)
     CBOS F 0 A_FaceTarget 
-    CBOS F 1 A_CustomMissile ("FTFire",32,16,0,0,0)
+    CBOS F 1 //A_CustomMissile ("FTFire",32,16,0,0,0)
     CBOS F 0 A_FaceTarget 
-    CBOS F 1 A_CustomMissile ("FTFire",32,16,0,0,0)
+    CBOS F 1 //A_CustomMissile ("FTFire",32,16,0,0,0)
     CBOS F 0 A_FaceTarget 
-    CBOS F 1 A_CustomMissile ("FTFire",32,16,0,0,0)
+    CBOS F 1 //A_CustomMissile ("FTFire",32,16,0,0,0)
     CBOS F 0 A_FaceTarget 
-    CBOS F 1 A_CustomMissile ("FTFire",32,16,0,0,0)
+    CBOS F 1 //A_CustomMissile ("FTFire",32,16,0,0,0)
     CBOS F 0 A_FaceTarget 
-    CBOS F 1 A_CustomMissile ("FTFire",32,16,0,0,0)
+    CBOS F 1 //A_CustomMissile ("FTFire",32,16,0,0,0)
     CBOS F 0 A_FaceTarget 
-    CBOS F 1 A_CustomMissile ("FTFire",32,16,0,0,0)
+    CBOS F 1 //A_CustomMissile ("FTFire",32,16,0,0,0)
     CBOS F 0 A_FaceTarget 
-    CBOS F 1 A_CustomMissile ("FTFire",32,16,0,0,0)
+    CBOS F 1 //A_CustomMissile ("FTFire",32,16,0,0,0)
     CBOS E 5
       goto See 
  Pain:
@@ -27809,7 +27239,7 @@ painchance "Cube", 256
     TRO2 H 0 A_ChangeFlag("NoPain", 0)
     goto See
   Death:
-    TNT1 A 0 A_GiveToTarget ("CubeAmmo", 1)
+    TNT1 A 0 //A_GiveToTarget ("CubeAmmo", 1)
     TRO2 I 8
     TRO2 J 8 A_Scream
     TRO2 K 6
@@ -27817,7 +27247,7 @@ painchance "Cube", 256
     TRO2 M -1
     stop
   XDeath:
-    TNT1 A 0 A_GiveToTarget ("CubeAmmo", 1)
+    TNT1 A 0 //A_GiveToTarget ("CubeAmmo", 1)
     TRO2 N 5
     TRO2 O 5 A_XScream
     TRO2 P 5
@@ -28080,7 +27510,7 @@ painchance "Cube", 256
 	PRIM H 0 A_ChangeFlag("NoPain", 0)
 	goto See
     Death:
-    TNT1 A 0 A_GiveToTarget ("CubeAmmo", 1)
+    TNT1 A 0 //A_GiveToTarget ("CubeAmmo", 1)
         PRIM N 5 A_SpawnItemEx (PyroImpExplosion, 0, 0, 30)
         PRIM O 5 A_XScream
         PRIM P 5
