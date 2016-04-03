@@ -1753,7 +1753,7 @@ actor BloodZombieNew : ZombieBlood replaces ZombieBlood 31002
 actor ThamuzApocalypseDefendMode : PowerProtection
 {
  damagefactor "normal", 0.20 
- inventory.icon "NULLA0"
+ inventory.icon ""
  Powerup.Duration 2147483646
 }
 

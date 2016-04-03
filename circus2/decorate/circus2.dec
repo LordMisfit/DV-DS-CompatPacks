@@ -321,12 +321,6 @@ ACTOR GoreWormNew replaces GoreWorm
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
 
-  dropitem DoomSpellMana1 2 50
-  dropitem HealthBonus 1
-  dropitem ArmorBonus 1
-  dropitem MaxHealthBonus 1
-  dropitem FloraRandomArmor
-
   Health 20
   Radius 8
   Height 4
