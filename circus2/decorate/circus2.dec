@@ -5,8 +5,12 @@ actor BloodNonSolid : Blood
 }
 
 // Items
-actor RedBalloon replaces Balloon_Red
+actor RedBalloon replaces Balloon_Red 3112
 {
+  //$Angled
+  //$Color 11
+  //$Category "Happy Time Circus/Balloons"
+
   Radius 12
   Height 40
   HEALTH 2
@@ -64,14 +68,22 @@ actor RedBalloon replaces Balloon_Red
     Stop
   }
 }
-actor RedBalloon2 : RedBalloon replaces Balloon_Red2
+actor RedBalloon2 : RedBalloon replaces Balloon_Red2 3114
 {
+  //$Angled
+  //$Color 11
+  //$Category "Happy Time Circus/Balloons"
+
   +SHOOTABLE -NOGRAVITY -HEXENBOUNCE +PUSHABLE -FLOATBOB -SPAWNFLOAT
   -NOLIFTDROP -DONTOVERLAP +CANNOTPUSH +NOBLOCKMONST +CANPASS +DROPOFF
 }
 
-actor YellowBalloon replaces Balloon_Yellow
+actor YellowBalloon replaces Balloon_Yellow 3113
 {
+  //$Angled
+  //$Color 11
+  //$Category "Happy Time Circus/Balloons"
+
   Radius 12
   Height 40
   HEALTH 2
@@ -144,8 +156,12 @@ actor YellowBalloon replaces Balloon_Yellow
   }
 }
 
-actor GreenBalloon replaces Balloon_Green
+actor GreenBalloon replaces Balloon_Green 3116
 {
+  //$Angled
+  //$Color 11
+  //$Category "Happy Time Circus/Balloons"
+
   Radius 12
   Height 40
   HEALTH 2
@@ -234,8 +250,12 @@ actor GreenBalloon replaces Balloon_Green
   }
 }
 
-actor BlueBalloon replaces Balloon_Blue
+actor BlueBalloon replaces Balloon_Blue 3193
 {
+  //$Angled
+  //$Color 11
+  //$Category "Happy Time Circus/Balloons"
+
   Radius 12
   Height 40
   HEALTH 2
@@ -315,11 +335,15 @@ actor BlueBalloon replaces Balloon_Blue
 
 // Monsters
 
-ACTOR GoreWormNew replaces GoreWorm
+ACTOR GoreWormNew replaces GoreWorm 30031
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  //$Angled
+  //$Color 12
+  //$Category "Happy Time Circus/Monsters"
 
   Health 20
   Radius 8
@@ -393,6 +417,7 @@ ACTOR GoreWormNew replaces GoreWorm
     Goto Death
   Death:
     WORM A 5 A_CustomMissile("ZGut2", 0, 0, 30) 
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     WORM B 2 A_PlaySound("splat11")
     WORM B 2 A_TossGib
     WORM B 3 A_Scream 
@@ -403,11 +428,15 @@ ACTOR GoreWormNew replaces GoreWorm
   }
 }
 
-ACTOR FluffyNew replaces Fluffy2
+ACTOR FluffyNew replaces Fluffy2 32120
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  //$Angled
+  //$Color 12
+  //$Category "Happy Time Circus/Monsters"
 
   dropitem DoomSpellMana2 192 125
   dropitem DoomSpellMana2 192 125
@@ -539,6 +568,7 @@ ACTOR FluffyNew replaces Fluffy2
     Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,1150,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     FLUF JKLMN 10 
     FLUF N 100 
     GoTo Raise
@@ -551,11 +581,15 @@ ACTOR FluffyNew replaces Fluffy2
   }
 }
 
-ACTOR MiniFluffyNew replaces MiniFluffy
+ACTOR MiniFluffyNew replaces MiniFluffy 3194
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  //$Angled
+  //$Color 12
+  //$Category "Happy Time Circus/Monsters"
 
   dropitem DoomSpellMana2 24 125
   dropitem DoomSpellMana2 24 125
@@ -653,6 +687,7 @@ ACTOR MiniFluffyNew replaces MiniFluffy
     Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,85,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     SBUN DEF 8 
     SBUN G -1
     Stop
@@ -669,6 +704,10 @@ ACTOR JumpingSkullNew replaces JumpingSkull 32121
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  //$Angled
+  //$Color 12
+  //$Category "Happy Time Circus/Monsters"
 
   dropitem DoomSpellMana1 16 50
   dropitem GreenArmor 2
@@ -755,6 +794,7 @@ ACTOR JumpingSkullNew replaces JumpingSkull 32121
     Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,75,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     JSKL A 5 A_Scream
     JSKL D 4 A_Fall
     JSKL D 4 A_TossGib
@@ -780,6 +820,10 @@ ACTOR JumpingSkull2New replaces JumpingSkull2 3646 //spawns skull ghosts
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  //$Angled
+  //$Color 12
+  //$Category "Happy Time Circus/Monsters"
 
   dropitem DoomSpellMana1 16 50
   dropitem GreenArmor 2
@@ -862,6 +906,7 @@ ACTOR JumpingSkull2New replaces JumpingSkull2 3646 //spawns skull ghosts
     Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,random(75,80),0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     JSKL A 5 A_Scream
     JSKL D 4 A_Fall
     JSKL D 4 A_TossGib
@@ -893,6 +938,10 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon 3115
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  //$Angled
+  //$Color 12
+  //$Category "Happy Time Circus/Monsters"
 
   dropitem DoomSpellMana1 8 50
   dropitem GreenArmor 1
@@ -983,6 +1032,7 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon 3115
     Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,24,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     BSTN B 3
     BSTN C 3 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
     BSTN D 3 A_Scream
@@ -1012,11 +1062,15 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon 3115
   }
 }
 
-ACTOR BingoNew replaces Bingo
+ACTOR BingoNew replaces Bingo 4110
 { 
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  //$Angled
+  //$Color 12
+  //$Category "Happy Time Circus/Monsters"
 
   dropitem DoomSpellMana2 76 125
   dropitem GreenArmor 2
@@ -1135,6 +1189,7 @@ ACTOR BingoNew replaces Bingo
     Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,500,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     CHED A 1 A_Scream 
     CHED B 6  A_NoBlocking 
     CHED CD 6
@@ -1149,11 +1204,15 @@ ACTOR BingoNew replaces Bingo
   } 
 } 
 
-ACTOR TinyBingoNew replaces TinyBingo
+ACTOR TinyBingoNew replaces TinyBingo 4179
 { 
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  //$Angled
+  //$Color 12
+  //$Category "Happy Time Circus/Monsters"
 
   dropitem DoomSpellMana1 76 50
   dropitem GreenArmor 4
@@ -1240,6 +1299,7 @@ ACTOR TinyBingoNew replaces TinyBingo
     Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,52,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     CHED A 1 A_Scream 
     CHED B 6 A_NoBlocking 
     CHED CD 6
@@ -1254,11 +1314,15 @@ ACTOR TinyBingoNew replaces TinyBingo
   } 
 } 
 
-actor BeefyNew replaces Beefy
+actor BeefyNew replaces Beefy 4333
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  //$Angled
+  //$Color 12
+  //$Category "Happy Time Circus/Monsters"
 
   dropitem DoomSpellMana1 24 50
   dropitem DoomSpellMana1 24 50
@@ -1294,8 +1358,8 @@ actor BeefyNew replaces Beefy
   DeathSound "GHS2PAN"
   ActiveSound "BEEFY"
   MeleeSound "imp/melee"
-  Obituary "%o was killed by beefy."
-  HitObituary "%o was killed by beefy."
+  Obituary "%o was killed by beefy the clown."
+  HitObituary "%o was scratched by beefy the clown."
   MissileHeight 32
   MissileType MyBall2
   States
@@ -1366,6 +1430,7 @@ actor BeefyNew replaces Beefy
     Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,180,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     CIMP E 8 A_Scream
     CIMP F 4 A_CustomMissile("Gibb3", 20, -1, -60, 1)
     CIMP F 4 A_TossGib
@@ -1393,6 +1458,7 @@ actor BeefyNew replaces Beefy
     Stop
   XDeath:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,180,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     CIMP E 4 A_Scream
     CIMP E 4 A_TossGib
     CIMP F 4 A_CustomMissile("Gibb3", 20, 0, -60, 1)
@@ -1429,11 +1495,15 @@ actor BeefyNew replaces Beefy
   }
 }
 
-ACTOR BlackBearNew replaces BlackBear
+ACTOR BlackBearNew replaces BlackBear 3191
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  //$Angled
+  //$Color 12
+  //$Category "Happy Time Circus/Monsters"
 
   dropitem DoomSpellMana1 8 50
   dropitem HealthBonus 1
@@ -1441,6 +1511,9 @@ ACTOR BlackBearNew replaces BlackBear
   dropitem MaxHealthBonus 1
   dropitem RandomPowerupSpawner 1
   dropitem FloraRandomArmor
+
+  HitObituary "%o was exploded to bits by a tiny bear effigy."
+  Obituary "%o was exploded to bits by a tiny bear effigy."
 
   DamageFactor "Holy", 2
   DamageFactor "Magic", 1.25
@@ -1520,6 +1593,7 @@ ACTOR BlackBearNew replaces BlackBear
     Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,36,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     BBER A 1 A_Scream
     BBER A 1 A_Fall
     BBER A 0 A_Jump(200,2) 
@@ -1539,11 +1613,15 @@ ACTOR BlackBearNew replaces BlackBear
   }
 }
 
-actor ClownGhostNew replaces ClownGhost
+actor ClownGhostNew replaces ClownGhost 32128
 { 
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  //$Angled
+  //$Color 12
+  //$Category "Happy Time Circus/Monsters"
 
   dropitem DoomSpellMana1 24 50
   dropitem DoomSpellMana1 24 50
@@ -1593,6 +1671,7 @@ actor ClownGhostNew replaces ClownGhost
   DeathSound "GHSTDIE"
   ActiveSound "GIDLE"  
   MeleeSound "imp/melee"
+  HitObituary "%o got bit by a clown ghost." 
   Obituary "%o got killed by a clown ghost." 
   MissileHeight 12
   MissileType SkullSeeker2 
@@ -1683,6 +1762,7 @@ actor ClownGhostNew replaces ClownGhost
     Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,350,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     GHOS B 1 A_Scream 
     GHOS F 8 A_NoBlocking 
     GHOS E 8 //A_custommissile("ClownSoulFloat1", 8, random(-15, 15), random(-180, 180), 2, random(80, 100))
@@ -1697,11 +1777,15 @@ actor ClownGhostNew replaces ClownGhost
   } 
 }
 
-actor ClownGhost2New replaces ClownGhost2
+actor ClownGhost2New replaces ClownGhost2 31211
 { 
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  //$Angled
+  //$Color 12
+  //$Category "Happy Time Circus/Monsters"
 
   dropitem DoomSpellMana1 24 50
   dropitem DoomSpellMana2 24 125
@@ -1751,7 +1835,8 @@ actor ClownGhost2New replaces ClownGhost2
   DeathSound "GHS2PAN"
   ActiveSound "GHS2ACT"
   MeleeSound "imp/melee"
-  Obituary "%o got killed by a clown ghost." 
+  HitObituary "%o got ripped up by a flaming clown ghost." 
+  Obituary "%o got incinerated by a flaming clown ghost." 
   MissileHeight 15
   MissileType Ghost2Ball
   States 
@@ -1818,6 +1903,7 @@ actor ClownGhost2New replaces ClownGhost2
     Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,175,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     GST2 D 1 A_Scream 
     GST2 D 2 A_TossGib
     GST2 E 2 A_CustomMissile("BSplatter", 16, 0,0, 1)
@@ -1837,11 +1923,15 @@ actor ClownGhost2New replaces ClownGhost2
   }
 }
 
-actor BulbyNew replaces Bulby
+actor BulbyNew replaces Bulby 3906
 { 
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  //$Angled
+  //$Color 12
+  //$Category "Happy Time Circus/Monsters"
 
   dropitem DoomSpellMana1 24 50
   dropitem DoomSpellMana2 24 125
@@ -1883,6 +1973,7 @@ actor BulbyNew replaces Bulby
   DeathSound "BOTTLE2"
   ActiveSound "BULBSEE"  
   MeleeSound "imp/melee"
+  HitObituary "%o got electroshocked by Bulby." 
   Obituary "%o got killed by Bulby." 
   MissileType BulbyBall
   States 
@@ -1960,6 +2051,7 @@ actor BulbyNew replaces Bulby
     Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,230,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     LDEM J 1 A_Scream 
     LDEM K 1 A_TossGib
     LDEM K 1 A_CustomMissile("BSplatter", 0, 0, 0, 1) 
@@ -1988,11 +2080,15 @@ actor BulbyNew replaces Bulby
   }    
 }
 
-actor MegaBulbyNew replaces MegaBulby
+actor MegaBulbyNew replaces MegaBulby 3989
 { 
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  //$Angled
+  //$Color 12
+  //$Category "Happy Time Circus/Monsters"
 
   dropitem DoomSpellMana1 24 50
   dropitem DoomSpellMana2 24 125
@@ -2047,6 +2143,7 @@ actor MegaBulbyNew replaces MegaBulby
   DeathSound "GHSTPAIN"
   ActiveSound "GHSTATT"
   MeleeSound "imp/melee"
+  HitObituary "%o got electroshocked by Mega Bulby." 
   Obituary "%o got killed by Mega Bulby." 
   MissileType BulbyBall3
   States 
@@ -2113,6 +2210,7 @@ actor MegaBulbyNew replaces MegaBulby
     Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,460,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     LDEM J 1 A_Scream 
     LDEM K 1 A_CustomMissile("BSplatter", 0, 0, 0, 1) 
     LDEM K 1 A_TossGib
@@ -2148,11 +2246,15 @@ actor MegaBulbyNew replaces MegaBulby
   }    
 }
 
-ACTOR BigBertha2New replaces BigBertha2
+ACTOR BigBertha2New replaces BigBertha2 3192
 { 
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  //$Angled
+  //$Color 12
+  //$Category "Happy Time Circus/Monsters"
 
   dropitem DoomSpellMana1 24 50
   dropitem DoomSpellMana1 24 50
@@ -2270,6 +2372,7 @@ ACTOR BigBertha2New replaces BigBertha2
     Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,925,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     BRTH I 7 A_Scream 
     BRTH J 6  A_NoBlocking 
     BRTH K 6
@@ -2290,11 +2393,15 @@ ACTOR BigBertha2New replaces BigBertha2
   } 
 }
 
-actor SuperBerthaNew replaces SuperBertha
+actor SuperBerthaNew replaces SuperBertha 14768
 { 
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  //$Angled
+  //$Color 12
+  //$Category "Happy Time Circus/Monsters"
 
   dropitem DoomSpellMana3 24 350
   dropitem DoomSpellMana3 24 350
@@ -2361,7 +2468,7 @@ actor SuperBerthaNew replaces SuperBertha
   DeathSound "GHSTDIE"
   ActiveSound "BCLICK5"
   MeleeSound "imp/melee"
-  Obituary "%o got bit into the stratosphere by Super Bertha." 
+  Obituary "%o got launched into the stratosphere by Super Bertha." 
   Scale 1.25
   DamageFactor "Normal", 0.33
   DamageFactor "Sceptre", 1
@@ -2447,6 +2554,7 @@ actor SuperBerthaNew replaces SuperBertha
     Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,120000,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     BBTH B 3 A_Scream
     BBTH B 3 
     BBTH B 2 A_CustomMissile("BSplatter", 64, -16, -32, 1)
@@ -2479,11 +2587,15 @@ actor SuperBerthaNew replaces SuperBertha
   }
 }
 
-ACTOR EvilDeadHandNew replaces EvilDeadHand
+ACTOR EvilDeadHandNew replaces EvilDeadHand 32212
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  //$Angled
+  //$Color 12
+  //$Category "Happy Time Circus/Monsters"
 
   dropitem DoomSpellMana1 8 50
   dropitem GreenArmor 1
@@ -2519,7 +2631,8 @@ ACTOR EvilDeadHandNew replaces EvilDeadHand
   DeathSound "HAND3"
   ActiveSound "HAND1"
   MeleeSound "SKULBITE"
-  Obituary "%o was scratched by the Evil Dead hand." 
+  HitObituary "%o was choked to death by the Evil Dead hand." 
+  Obituary "%o was choked to death by the Evil Dead hand." 
   States
   {
   Spawn:
@@ -2588,11 +2701,15 @@ ACTOR EvilDeadHandNew replaces EvilDeadHand
   }
 }
 
-ACTOR BouncingClownNew replaces BouncingClown
+ACTOR BouncingClownNew replaces BouncingClown 4822
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  //$Angled
+  //$Color 12
+  //$Category "Happy Time Circus/Monsters"
 
   dropitem DoomSpellMana3 24 350
   dropitem DoomSpellMana3 24 350
@@ -2667,7 +2784,8 @@ ACTOR BouncingClownNew replaces BouncingClown
   DeathSound "GAURD12"
   ActiveSound "GAURD11"
   MeleeSound "BCHOMP"
-  HitObituary "%o was killed by a bouncing clown."
+  HitObituary "%o was eaten by a bouncing popcorn clown."
+  Obituary "%o was killed by a bouncing popcorn clown."
   PainChance "Magic", 128
   PainChance "Melee", 128
   PainChance "Sceptre", 256
@@ -2755,6 +2873,7 @@ ACTOR BouncingClownNew replaces BouncingClown
     Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,75000,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     BCWN D 5 A_Scream
     BCWN E 0
     BCWN E 0 
@@ -2775,11 +2894,15 @@ ACTOR BouncingClownNew replaces BouncingClown
   }
 }
 
-ACTOR BabyClownNew replaces BabyClown
+ACTOR BabyClownNew replaces BabyClown 4823
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  //$Angled
+  //$Color 12
+  //$Category "Happy Time Circus/Monsters"
 
   dropitem DoomSpellMana3 24 350
   dropitem GreenArmor 8
@@ -2820,7 +2943,8 @@ ACTOR BabyClownNew replaces BabyClown
   DeathSound "BYHURT"
   ActiveSound "BYCLWN"
   MeleeSound "CLWNBITE"
-  HitObituary "%o was killed by a bouncing clown."
+  HitObituary "%o was eaten by a bouncing popcorn clown."
+  Obituary "%o was killed by a bouncing popcorn clown."
   States
   {
   Spawn:
@@ -2877,6 +3001,7 @@ ACTOR BabyClownNew replaces BabyClown
     Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,105,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     BCWN D 5 A_Scream
     BCWN E 4 A_Fall
     BCWN FFFF 2 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
@@ -2897,11 +3022,15 @@ ACTOR BabyClownNew replaces BabyClown
   }
 }
 
-ACTOR BabyClown2New replaces BabyClown2
+ACTOR BabyClown2New replaces BabyClown2 4825
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  //$Angled
+  //$Color 12
+  //$Category "Happy Time Circus/Monsters"
 
   dropitem DoomSpellMana3 24 350
   dropitem GreenArmor 8
@@ -2942,7 +3071,8 @@ ACTOR BabyClown2New replaces BabyClown2
   DeathSound "BYHURT"
   ActiveSound "BYCLWN"
   MeleeSound "CLWNBITE"
-  HitObituary "%o was killed by a bouncing clown."
+  HitObituary "%o was eaten by a bouncing popcorn clown."
+  Obituary "%o was killed by a bouncing popcorn clown."
   States
   {
   Spawn:
@@ -3000,6 +3130,7 @@ ACTOR BabyClown2New replaces BabyClown2
     Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,92,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     BCWN D 5 A_Scream
     BCWN E 4 A_Fall
     BCWN FFFF 2 A_custommissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
@@ -3020,11 +3151,15 @@ ACTOR BabyClown2New replaces BabyClown2
   }
 }
 
-actor PennywiseHead2New replaces PennywiseHead
+actor PennywiseHead2New replaces PennywiseHead 14421
 { 
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  //$Angled
+  //$Color 12
+  //$Category "Happy Time Circus/Monsters"
 
   dropitem DoomSpellMana3 24 350
   dropitem DoomSpellMana3 24 350
@@ -3136,6 +3271,7 @@ actor PennywiseHead2New replaces PennywiseHead
     Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,1125,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     CFHD F 1 A_Scream 
     CFHD G 2 A_TossGib
     CFHD H 2 A_CustomMissile("BSplatter", 16, 0,0, 1)
@@ -3154,11 +3290,15 @@ actor PennywiseHead2New replaces PennywiseHead
   }
 }
 
-actor PennywiseBoss replaces Pennywise
+actor PennywiseBoss replaces Pennywise 3672
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_monsterlevel;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  //$Angled
+  //$Color 12
+  //$Category "Happy Time Circus/Bosses"
 
   dropitem DoomSpellMana3 24 350
   dropitem DoomSpellMana3 24 350
@@ -3216,7 +3356,7 @@ actor PennywiseBoss replaces Pennywise
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
 
-  Health 9000
+  Health 45000
   Radius 40
   Height 112
   Speed 8
@@ -3238,11 +3378,11 @@ actor PennywiseBoss replaces Pennywise
   PainChance "Melee", 252
   PainChance "Sceptre", 256
   PainChance "Holy", 256
-  DamageFactor "Sceptre", 1.25
-  DamageFactor "Magic", 1.33
-  DamageFactor "Holy", 1.33
-  DamageFactor "Melee", 1
-  DamageFactor "Normal", 0.9
+  DamageFactor "Sceptre", 2
+  DamageFactor "Magic", 1.75
+  DamageFactor "Holy", 1.75
+  DamageFactor "Melee", 1.5
+  DamageFactor "Normal", 0.67
 
   States
   {
@@ -3313,6 +3453,7 @@ actor PennywiseBoss replaces Pennywise
     Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,540000,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     PENY G 8 A_Scream
     PENY GGGG 8
     PENY H 8 
@@ -3443,7 +3584,7 @@ actor PennywiseBoss replaces Pennywise
 
 
 // Weapons
-ACTOR PopcornGunNew : PopcornGun replaces PopcornGun
+ACTOR PopcornGunNew : PopcornGun replaces PopcornGun 30204
 {
   Weapon.SelectionOrder 100
   Inventory.PickupSound "misc/w_pkup" 
@@ -3749,7 +3890,7 @@ ACTOR PopcornGunNew : PopcornGun replaces PopcornGun
   } 
 }
 
-ACTOR GoreBalloonNew : GoreBalloon replaces GoreBalloon
+ACTOR GoreBalloonNew : GoreBalloon replaces GoreBalloon 30030
 {
   Weapon.SelectionOrder 1500
   Inventory.PickupSound "misc/w_pkup" 
@@ -3892,7 +4033,7 @@ actor GoreBalloon666NoHurt
   }
 }
 
-ACTOR ClownGrenadeNew : ClownGrenade replaces ClownGrenade
+ACTOR ClownGrenadeNew : ClownGrenade replaces ClownGrenade 30029
 {
   Weapon.SelectionOrder 1400
   Inventory.PickupSound "misc/w_pkup" 
@@ -4032,7 +4173,7 @@ Actor GrenadeSpark2NoHurt
   }
 }
 
-ACTOR GutFlingerNew : GutFlinger replaces GutFlinger
+ACTOR GutFlingerNew : GutFlinger replaces GutFlinger 30028
 {
   Weapon.SelectionOrder 1150
   Inventory.PickupSound "misc/w_pkup" 
@@ -4139,7 +4280,7 @@ actor FlyingGutNoHurt
   }
 }
 
-ACTOR GasRocketLauncherNew : GasRocketLauncher replaces GasRocketLauncher
+ACTOR GasRocketLauncherNew : GasRocketLauncher replaces GasRocketLauncher 30203
 {
   Weapon.SelectionOrder 1050
   Inventory.PickupSound "misc/w_pkup" 
@@ -4254,7 +4395,7 @@ actor RevRocket2NoHurt
   }
 }
 
-ACTOR CrazyBall2New : CrazyBall2 replaces CrazyBall2
+ACTOR CrazyBall2New : CrazyBall2 replaces CrazyBall2 30205
 {
   Weapon.SelectionOrder 3000
   Inventory.PickupSound "misc/w_pkup" 

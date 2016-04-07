@@ -171,6 +171,10 @@ Clownkey22
 }
 ACTOR ClownSouls : Ammo 30201
 {
+  //$NotAngled
+  //$Color 19
+  //$Category "Happy Time Circus/Ammo"
+
    Scale 1.0
    +FloatBob 
    Inventory.Amount 6
@@ -187,7 +191,7 @@ ACTOR ClownSouls : Ammo 30201
       Loop
    }
 }
-ACTOR GoreWorm 30031
+ACTOR GoreWorm //30031
 {
     Health 20
     Radius 8
@@ -382,7 +386,7 @@ actor GreenDropSpawn : Rain  6661
       	}
 }
 //=========================================================================
-ACTOR Fluffy2 32120
+ACTOR Fluffy2 //32120
 {
     Health 100
     Radius 25
@@ -453,7 +457,7 @@ ACTOR Fluffy2 32120
        GoTo See
     }
 }
-ACTOR MiniFluffy 3194
+ACTOR MiniFluffy //3194
 {
     Health 60
     Radius 8
@@ -717,7 +721,7 @@ ACTOR JSkull_Image3
         	STOP 
     	}
 }
-ACTOR Bingo 4110
+ACTOR Bingo //4110
 { 
    Health 400 
    Speed 5 
@@ -792,7 +796,7 @@ ACTOR Bingo 4110
      
    } 
 } 
-ACTOR TinyBingo : Bingo 4179
+ACTOR TinyBingo : Bingo //4179
 { 
    Health 35 
    Speed 6 
@@ -952,7 +956,7 @@ actor HappyCloud
         Stop 
     } 
 } 
-actor ClownGhost 32128
+actor ClownGhost //32128
 { 
    Health 300 
    Speed 5 
@@ -1130,7 +1134,7 @@ actor ClownSoulFloat4 : ClownSoulFloat1
         Stop
     }
 }
-actor ClownGhost2 31211
+actor ClownGhost2 //31211
 { 
    Health 150
    Speed 6 
@@ -1151,8 +1155,8 @@ actor ClownGhost2 31211
    DeathSound "GHS2PAN"
    ActiveSound "GHS2ACT"
    MeleeSound "imp/melee"
-   Obituary "%o got killed by a clown ghost." 
-    MissileHeight 15
+   Obituary "%o got killed by a flaming clown ghost." 
+   MissileHeight 15
    MissileType Ghost2Ball
    States 
    { 
@@ -1194,7 +1198,7 @@ actor ClownGhost2 31211
        	Stop   
    }
 }
-actor Bulby 3906
+actor Bulby //3906
 { 
    Health 200 
    Speed 5 
@@ -1280,7 +1284,7 @@ actor Bulby 3906
       	Stop   
    }    
 }
-actor MegaBulby : Bulby 3989
+actor MegaBulby : Bulby //3989
 { 
    Health 400 
    Speed 6 
@@ -1404,7 +1408,7 @@ actor BulbyGib3 3907
         Loop
     }
 }
-actor Beefy 4333
+actor Beefy //4333
 {
     Health 120
     Radius 20
@@ -1515,7 +1519,7 @@ actor Beefy 4333
         Stop
     }
 }
-ACTOR BlackBear 3191
+ACTOR BlackBear //3191
 {
     Health 8
     Radius 8
@@ -1627,7 +1631,7 @@ ACTOR BlackSplatter3
 		Stop
 	}
 } 
-ACTOR BigBertha2 3192
+ACTOR BigBertha2 //3192
 { 
    Health 675 
    Speed 6 
@@ -1936,6 +1940,10 @@ actor Gibb5 3982
 }
 actor Balloon_Black 4175
 {
+  //$Angled
+  //$Color 11
+  //$Category "Happy Time Circus/Balloons"
+
 Radius 12
 Height 40
 HEALTH 2
@@ -2034,7 +2042,7 @@ actor SkullSeeker2 : SkullSeeker
 
 
 //================Balloons===============================================
-actor Balloon_Red 3112
+actor Balloon_Red //3112
 {
 Radius 12
 Height 40
@@ -2078,7 +2086,7 @@ States
 }
 /*=======================*/
 
-actor Balloon_Yellow 3113
+actor Balloon_Yellow //3113
 {
 Radius 12
 Height 40
@@ -2108,7 +2116,7 @@ States
 }
 /*=======================*/
 
-actor Balloon_Red2 3114
+actor Balloon_Red2 //3114
 {
 Radius 12
 Height 40
@@ -2149,7 +2157,7 @@ States
         Stop
     }
 }
-actor Balloon_Green 3116
+actor Balloon_Green //3116
 {
 Radius 12
 Height 40
@@ -2193,7 +2201,7 @@ States
         Stop
     }
 }
-actor Balloon_Blue 3193
+actor Balloon_Blue //3193
 {
 Radius 12
 Height 40
@@ -2229,6 +2237,10 @@ States
 }
 actor Balloon_Rotten 4787
 {
+  //$Angled
+  //$Color 11
+  //$Category "Happy Time Circus/Balloons"
+
 Radius 12
 Height 40
 HEALTH 2
@@ -3732,7 +3744,7 @@ actor ZGut2
         Stop
     }
 }
-ACTOR EvilDeadHand 32212
+ACTOR EvilDeadHand //32212
 {
     Health 20
     Radius 8
@@ -4187,7 +4199,7 @@ actor CottonCandy4 14767
       Loop
      }
 }
-actor PennywiseHead 14421
+actor PennywiseHead //14421
 { 
    Health 450
    Speed 11 
@@ -4305,8 +4317,12 @@ ACTOR CCloud2 3676
         Stop
     }
 }
-ACTOR GutFlinger : Weapon 30028
+ACTOR GutFlinger : Weapon //30028
 {
+  //$NotAngled
+  //$Color 14
+  //$Category "Happy Time Circus/Weapons"
+
      Weapon.SelectionOrder 1150
      Inventory.PickupSound "misc/w_pkup" 
      Weapon.AmmoType "ClownSouls" 
@@ -4369,8 +4385,12 @@ actor SpiralBall
 //======================ClownGrenade=====================================
 //========================================================================
 //========================================================================
-ACTOR ClownGrenade : Weapon 30029
+ACTOR ClownGrenade : Weapon //30029
 {
+  //$NotAngled
+  //$Color 14
+  //$Category "Happy Time Circus/Weapons"
+
      Weapon.SelectionOrder 1400
      Inventory.PickupSound "misc/w_pkup" 
      Weapon.AmmoType "CGrenadeAmmo" 
@@ -4487,6 +4507,10 @@ Actor GrenadeSpark2
 }
 ACTOR CGrenadeAmmo: Ammo 30215
 {
+  //$NotAngled
+  //$Color 19
+  //$Category "Happy Time Circus/Ammo"
+
    +FloatBob 
    Scale .5
    Inventory.Amount 6
@@ -4508,8 +4532,12 @@ ACTOR CGrenadeAmmo: Ammo 30215
 //========================================================================
 //========================================================================
 //========================================================================
-ACTOR GoreBalloon : Weapon 30030
+ACTOR GoreBalloon : Weapon //30030
 {
+  //$NotAngled
+  //$Color 14
+  //$Category "Happy Time Circus/Weapons"
+
      Weapon.SelectionOrder 1500
      Inventory.PickupSound "misc/w_pkup" 
      Weapon.AmmoType "GoreBalloons" 
@@ -4609,6 +4637,10 @@ actor GoreBalloon666
 }
 ACTOR GoreBalloons : Ammo 30202
 {
+  //$NotAngled
+  //$Color 19
+  //$Category "Happy Time Circus/Ammo"
+
    Scale .2
    Inventory.Amount 6
    Inventory.MaxAmount 50
@@ -4628,8 +4660,12 @@ ACTOR GoreBalloons : Ammo 30202
 //============================================================================
 //============================================================================
 //============================================================================
-ACTOR GasRocketLauncher : Weapon 30203
+ACTOR GasRocketLauncher : Weapon //30203
 {
+  //$NotAngled
+  //$Color 14
+  //$Category "Happy Time Circus/Weapons"
+
      Weapon.SelectionOrder 1050
      Inventory.PickupSound "misc/w_pkup" 
      Weapon.AmmoType "ClownSouls" 
@@ -4669,8 +4705,12 @@ actor RevRocket2 : RevRocket
     Speed 18
     Damage 5
 }
-ACTOR PopcornGun : Weapon 30204
+ACTOR PopcornGun : Weapon //30204
 {
+  //$NotAngled
+  //$Color 14
+  //$Category "Happy Time Circus/Weapons"
+
      Weapon.SelectionOrder 100
      Inventory.PickupSound "misc/w_pkup" 
      Weapon.AmmoType "PopcornPiece" 
@@ -4733,6 +4773,10 @@ ACTOR PopcornGun : Weapon 30204
 }
 ACTOR PopcornPiece : Ammo 4832
 {
+  //$NotAngled
+  //$Color 19
+  //$Category "Happy Time Circus/Ammo"
+
    Scale 0.25
    +FloatBob 
    +DONTOVERLAP
@@ -5062,7 +5106,7 @@ ACTOR CrawlingPopcorn 4815
     Speed 1
     Mass 20
     PainChance 200
-    MONSTER 
+    //MONSTER 
     +FLOORCLIP +RANDOMIZE 
     -COUNTKILL
     scale 0.25
@@ -5149,8 +5193,12 @@ ACTOR CrawlingPopcorn2 : CrawlingPopcorn 4824 //doesn't die off
     }
 }
 
-ACTOR CrazyBall2 : Weapon 30205
+ACTOR CrazyBall2 : Weapon //30205
 {
+  //$NotAngled
+  //$Color 14
+  //$Category "Happy Time Circus/Weapons"
+
      Weapon.SelectionOrder 3000
      Inventory.PickupSound "misc/w_pkup" 
      Weapon.AmmoType "CzBall" 
@@ -5569,6 +5617,10 @@ Actor CrazyBalls
 }
 actor MegaClownSoul : ClownSouls 30206
 {
+  //$NotAngled
+  //$Color 19
+  //$Category "Happy Time Circus/Ammo"
+
   inventory.pickupmessage "You picked up a mega clown soul."
   inventory.amount 50
   Inventory.PickupSound "misc/p_pkup"
@@ -5762,7 +5814,7 @@ ACTOR PennywiseFace 14766
    		Stop
 	}
 }
-actor SuperBertha  14768
+actor SuperBertha //14768
 { 
    Health 4000 
    Speed 7 
@@ -5779,7 +5831,7 @@ actor SuperBertha  14768
    DeathSound "GHSTDIE"
    ActiveSound "BCLICK5"
    MeleeSound "imp/melee"
-   Obituary "%o got killed by a clown ghost." 
+   Obituary "%o got bit into the stratosphere by Super Bertha." 
    Scale 1.25
    States
     {
@@ -5855,7 +5907,7 @@ actor SuperBertha  14768
         Stop
     }
 }
-ACTOR BouncingClown 4822
+ACTOR BouncingClown //4822
 {
     Health 400
     Radius 24
@@ -5932,7 +5984,7 @@ ACTOR BouncingClown 4822
   	Stop
     }
 }
-ACTOR BabyClown 4823
+ACTOR BabyClown //4823
 {
     Health 88
     Radius 8
@@ -5990,7 +6042,7 @@ ACTOR BabyClown 4823
         Stop
     }
 }
-ACTOR BabyClown2 4825
+ACTOR BabyClown2 //4825
 {
     Health 75
     Radius 8
@@ -6076,7 +6128,7 @@ actor PennySeeker
     }
 }
 
-actor Pennywise 3672
+actor Pennywise //3672
 {
     Health 600
     Radius 40
@@ -6834,7 +6886,11 @@ actor PopcornBag3 4829
 }
 ACTOR CzBall : Ammo 4835
 {
-   Scale 0.6
+  //$NotAngled
+  //$Color 19
+  //$Category "Happy Time Circus/Ammo"
+
+  Scale 0.6
    +FloatBob 
    Inventory.Amount 1
    Inventory.MaxAmount 25

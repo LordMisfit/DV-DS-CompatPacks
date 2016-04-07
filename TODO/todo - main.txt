@@ -1,4 +1,0 @@
-Major Things:
-
--Balance out Drops of DV-DS stuff in Circus666 & Circus2 [in progress]
--Fix DoomEdNum 20000 for Bush/Fusion Arachnotron & Web2/FusionArachnotron
