@@ -133,6 +133,7 @@ ACTOR AcolyteNew : Acolyte replaces Acolyte
   Ice:
     TNT1 A 0 A_GiveToTarget ("Coin", random(3,8))
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
     AGRD O 5 A_FreezeDeath
     AGRD O 1 A_FreezeDeathChunks
     Wait
@@ -344,6 +345,7 @@ ACTOR TemplarNew : Templar replaces Templar
   Ice:
     TNT1 A 0 A_GiveToTarget ("Coin", random(6,12))
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
     PGRD A 5 A_FreezeDeath
     PGRD A 1 A_FreezeDeathChunks
     Wait

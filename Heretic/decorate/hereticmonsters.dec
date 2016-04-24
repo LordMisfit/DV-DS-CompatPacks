@@ -76,6 +76,7 @@ actor HereticImpNew : HereticImp replaces HereticImp
     Wait
   Ice:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
     IMPX G 5 A_GenericFreezeDeath
     IMPX G 1 A_FreezeDeathChunks
     wait
@@ -165,6 +166,7 @@ actor HereticImpLeaderNew : HereticImpLeader replaces HereticImpLeader
     Wait
   Ice:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
     IMPX G 5 A_GenericFreezeDeath
     IMPX G 1 A_FreezeDeathChunks
     wait
@@ -251,6 +253,7 @@ actor MummyNew : Mummy replaces Mummy
     Stop
   Ice:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
     MUMM H 5 A_GenericFreezeDeath
     MUMM H 1 A_FreezeDeathChunks
     wait
@@ -336,6 +339,7 @@ actor MummyGhostNew : MummyGhost replaces MummyGhost
     Stop
   Ice:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
     MUMM H 5 A_GenericFreezeDeath
     MUMM H 1 A_FreezeDeathChunks
     wait
@@ -430,6 +434,7 @@ actor MummyLeaderNew : MummyLeader replaces MummyLeader
     Stop
   Ice:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
     MUMA H 5 A_GenericFreezeDeath
     MUMA H 1 A_FreezeDeathChunks
     wait
@@ -524,6 +529,7 @@ actor MummyLeaderGhostNew : MummyLeaderGhost replaces MummyLeaderGhost
     Stop
   Ice:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
     MUMA H 5 A_GenericFreezeDeath
     MUMA H 1 A_FreezeDeathChunks
     wait
@@ -612,6 +618,7 @@ ACTOR KnightNew : Knight replaces Knight
     Stop
   Ice:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
     KNIG H 5 A_GenericFreezeDeath
     KNIG H 1 A_FreezeDeathChunks
     wait
@@ -700,6 +707,7 @@ ACTOR KnightGhostNew : KnightGhost replaces KnightGhost
     Stop
   Ice:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
     KNIG H 5 A_GenericFreezeDeath
     KNIG H 1 A_FreezeDeathChunks
     wait
@@ -807,6 +815,7 @@ ACTOR WizardNew : Wizard replaces Wizard
     Stop
   Ice:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
     WZRD Q 5 A_FreezeDeath
     WZRD Q 1 A_FreezeDeathChunks
     wait
@@ -890,6 +899,7 @@ ACTOR IronlichNew : Ironlich replaces Ironlich
     Stop
   Ice:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
     LICH A 5 A_GenericFreezeDeath
     LICH A 1 A_FreezeDeathChunks
     wait
@@ -973,6 +983,7 @@ ACTOR ClinkNew : Clink replaces Clink
     Stop
   Ice:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
     CLNK H 5 A_GenericFreezeDeath
     CLNK H 1 A_FreezeDeathChunks
     wait
@@ -1068,6 +1079,7 @@ ACTOR BeastNew : Beast replaces Beast
     Stop
   Ice:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
     BEAS G 5 A_GenericFreezeDeath
     BEAS G 1 A_FreezeDeathChunks
     wait
@@ -1204,6 +1216,7 @@ ACTOR MaulotaurNew : Minotaur replaces Minotaur
     Stop
   Ice:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
     MNTR E 5 A_GenericFreezeDeath
     MNTR E 1 A_FreezeDeathChunks
     wait
@@ -1302,6 +1315,7 @@ ACTOR SnakeNew : Snake replaces Snake
     Stop
   Ice:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
     SNKE E 5 A_GenericFreezeDeath
     SNKE E 1 A_FreezeDeathChunks
     wait
