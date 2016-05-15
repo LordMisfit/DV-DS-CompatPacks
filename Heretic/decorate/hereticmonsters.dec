@@ -1338,6 +1338,7 @@ ACTOR DSparilMountedNew : Sorcerer1 replaces Sorcerer1
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
 
+  Health 24000
   Painchance 56
   Painchance "Fist", 84 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Gauntlets", 84 // Fist attacks have a +50% chance of stunning an enemy
@@ -1421,6 +1422,7 @@ ACTOR DSparilUnmountedNew : Sorcerer2 replaces Sorcerer2
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
 
+  Health 56000
   Painchance 32
   Painchance "Fist", 48 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Gauntlets", 48 // Fist attacks have a +50% chance of stunning an enemy
