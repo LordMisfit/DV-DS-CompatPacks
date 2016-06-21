@@ -1953,6 +1953,7 @@ ACTOR KoraxNew : Korax replaces Korax
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
   
+  Speed 20
   Health 80000
   DamageFactor "Normal", 0.667
   Painchance 20
