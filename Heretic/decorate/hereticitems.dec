@@ -1,3 +1,8 @@
+ACTOR GauntletsNew : RandomSpawner replaces Gauntlets
+{
+    DropItem "BerserkSphere", 255, 255
+}
+
 ACTOR ArtiTimeBombNew : ArtiTimeBomb replaces ArtiTimeBomb
 {
   Inventory.MaxAmount 99

@@ -1353,6 +1353,7 @@ ACTOR DSparilMountedNew : Sorcerer1 replaces Sorcerer1
     Loop
   See:
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+//    SRCR A 0 Thing_ChangeTID(0,1222)
     SRCR ABCD 5 A_Sor1Chase
     Loop
   Missile:
@@ -1437,6 +1438,7 @@ ACTOR DSparilUnmountedNew : Sorcerer2 replaces Sorcerer2
     Loop
   See:
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+//    SOR2 A 0 Thing_ChangeTID(0,1222)
     SOR2 MNOP 4 A_Chase
     Loop
   Rise:

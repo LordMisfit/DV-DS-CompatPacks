@@ -1821,6 +1821,7 @@ ACTOR HeresiarchNew : Heresiarch replaces Heresiarch
     Wait
   See:
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+//    SORC A 0 Thing_ChangeTID(0,1222)
     SORC ABCD 5 A_Chase
     Loop
 
@@ -1969,6 +1970,7 @@ ACTOR KoraxNew : Korax replaces Korax
     Loop
   See:
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+//    KORX A 0 Thing_ChangeTID(0,1222)
     KORX AAA 3 A_KoraxChase
     KORX B 3 A_Chase
     KORX BBB 3 A_KoraxChase
@@ -2152,6 +2154,7 @@ ACTOR ClericBossNew : ClericBoss replaces ClericBoss
     Wait
   See:
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+//    CLER A 0 Thing_ChangeTID(0,1222)
     CLER ABCD 4 A_FastChase
     Loop
   Pain:
@@ -2319,6 +2322,7 @@ ACTOR FighterBossNew : FighterBoss replaces FighterBoss
     Wait
   See:
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+//    PLAY A 0 Thing_ChangeTID(0,1222)
     PLAY ABCD 4 A_FastChase
     Loop
   Pain:
@@ -2461,6 +2465,7 @@ ACTOR MageBossNew : MageBoss replaces MageBoss
     Wait
   See:
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+//    MAGE A 0 Thing_ChangeTID(0,1222)
     MAGE ABCD 4 A_FastChase
     Loop
   Pain:
