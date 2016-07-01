@@ -162,6 +162,57 @@ ACTOR CrossbowNew : Crossbow replaces Crossbow
   }
 }
 
+ACTOR DualCrossbowNew : CrossbowNew
+{
+  Weapon.AmmoUse1 1
+  Weapon.AmmoUse2 1
+  Weapon.AmmoType1 "CrossbowAmmo"
+  Weapon.AmmoType2 "CrossbowAmmo"
+  Tag "Dual Ethereal Crossbows"
+  States
+  {
+  Spawn:
+    WBOW A -1
+    Stop
+  Ready:
+    CRBD AAAAAABBBBBBCCCCCC 1 A_WeaponReady
+    Loop
+  Deselect:
+    CRBD A 1 { A_Lower; A_Lower; }
+    Loop
+  Select:
+    CRBD A 1 { A_Raise; A_Raise; }
+    Loop
+  Fire:
+    CRBD DE 6 // A_FireCrossbowPL1
+	{
+     A_FireCustomMissile ("CrossbowFX1",    0, 1,  0, 3);
+     A_FireCustomMissile ("CrossbowFX3", -4.5, 0, -2, 3);
+     A_FireCustomMissile ("CrossbowFX3",  4.5, 0,  2, 3);
+	}
+    CRBD FGH 3
+    CRBD AB 4
+    CRBD C 5 A_ReFire
+    Goto Ready
+  AltFire:
+    CRBD DE 5 // A_FireCrossbowPL2
+	{
+     A_FireCustomMissile ("CrossbowFX2",    0, 1,  0, 3);
+     A_FireCustomMissile ("CrossbowFX2", -4.5, 0, -2, 3);
+     A_FireCustomMissile ("CrossbowFX2",  4.5, 0,  2, 3);
+     A_FireCustomMissile ("CrossbowFX3",   -9, 0, -4, 3);
+     A_FireCustomMissile ("CrossbowFX3",    9, 0,  4, 3);
+	}
+    CRBD F 3
+    CRBD G 2
+    CRBD H 3
+    CRBD A 3
+    CRBD B 3
+    CRBD C 4 A_ReFire
+    Goto Ready
+  }
+}
+
 ACTOR DragonClawNew : Blaster replaces Blaster
 {
   Weapon.AmmoUse1 1
