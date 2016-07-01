@@ -291,3 +291,21 @@ ACTOR ArtiSuperHealthNew : CustomInventory replaces ArtiSuperHealth
 	fail
   }
 }
+
+actor BagOfHoldingNew : CustomInventory replaces BagOfHolding
+{
+  Height 26
+  +COUNTITEM
+  +FLOATBOB
+  Inventory.PickupMessage "$TXT_ITEMBAGOFHOLDING"
+  States
+  {
+   Spawn:
+    BAGH A -1 
+    Stop
+   Pickup:
+    TNT1 A 0 
+    TNT1 A 0 ACS_NamedExecuteAlways("GrabBackpack",0,0,0,0) // Backpack Script
+    Stop
+  }
+}
