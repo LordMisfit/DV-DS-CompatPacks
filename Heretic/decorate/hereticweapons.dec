@@ -52,3 +52,55 @@ ACTOR GoldWandNew : GoldWand replaces GoldWand
     Goto Ready
   }
 }
+
+
+ACTOR CrossbowNew : Crossbow replaces Crossbow
+{
+  Weapon.AmmoUse1 1
+  Weapon.AmmoUse2 1
+  Weapon.AmmoType1 "CrossbowAmmo"
+  Weapon.AmmoType2 "CrossbowAmmo"
+  States
+  {
+  Spawn:
+    WBOW A -1
+    Stop
+  Ready:
+    CRBW AAAAAABBBBBBCCCCCC 1 A_WeaponReady
+    Loop
+  Deselect:
+    CRBW A 1 A_Lower
+    Loop
+  Select:
+    CRBW A 1 A_Raise
+    Loop
+  Fire:
+    CRBW D 6 // A_FireCrossbowPL1
+	{
+     A_FireCustomMissile ("CrossbowFX1",    0, 1,  0, 3);
+     A_FireCustomMissile ("CrossbowFX3", -4.5, 0, -2, 3);
+     A_FireCustomMissile ("CrossbowFX3",  4.5, 0,  2, 3);
+	}
+    CRBW EFGH 3
+    CRBW AB 4
+    CRBW C 5 A_ReFire
+    Goto Ready
+  AltFire:
+    CRBW D 5 // A_FireCrossbowPL2
+	{
+     A_FireCustomMissile ("CrossbowFX2",    0, 1,  0, 3);
+     A_FireCustomMissile ("CrossbowFX2", -4.5, 0, -2, 3);
+     A_FireCustomMissile ("CrossbowFX2",  4.5, 0,  2, 3);
+     A_FireCustomMissile ("CrossbowFX3",   -9, 0, -4, 3);
+     A_FireCustomMissile ("CrossbowFX3",    9, 0,  4, 3);
+	}
+    CRBW E 3
+    CRBW F 2
+    CRBW G 3
+    CRBW H 2
+    CRBW A 3
+    CRBW B 3
+    CRBW C 4 A_ReFire
+    Goto Ready
+  }
+}
