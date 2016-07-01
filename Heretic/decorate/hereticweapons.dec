@@ -202,3 +202,45 @@ ACTOR DragonClawNew : Blaster replaces Blaster
     Goto Ready
   }
 }
+
+ACTOR DualDragonClawNew : DragonClawNew
+{
+  Weapon.AmmoUse1 1
+  Weapon.AmmoUse2 1
+  Weapon.AmmoType1 "BlasterAmmo"
+  Weapon.AmmoType2 "BlasterAmmo"
+  Tag "Dual Dragon Claws"
+  States
+  {
+  Spawn:
+    WBLS A -1
+    Stop
+  Ready:
+    DBLS A 1 A_WeaponReady
+    Loop
+  Deselect:
+    DBLS A 1 { A_Lower; A_Lower; }
+    Loop
+  Select:
+    DBLS A 1 { A_Raise; A_Raise; }
+    Loop
+  Fire:
+    DBLS BC 3
+  Hold:
+    DBLS DE 2 // A_FireBlasterPL1
+    {
+	 A_PlaySound("weapons/blastershoot",1);
+     A_FireBullets(5.625,0,1,(4*random(1,8)),"BlasterPuff",1);
+	}
+    DBLS FG 2
+    DBLS A 0 A_ReFire
+    Goto Ready
+  AltFire:
+    DBLS BC 0
+  AltHold:
+    DBLS DE 3 A_FireCustomMissile("BlasterFX1")
+    DBLS FG 4
+    DBLS A 0 A_ReFire
+    Goto Ready
+  }
+}
