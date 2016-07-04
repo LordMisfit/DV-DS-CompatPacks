@@ -1491,7 +1491,7 @@ ACTOR PhoenixRodNew : PhoenixRod replaces PhoenixRod
     PHNX C 7
     {
      ACS_NamedExecuteAlways("StartTensionCountDown");
-	 if (CountInv("SpreaderAura2",AAPTR_PLAYER1) > 0)
+     if (CountInv("SpreaderAura2",AAPTR_PLAYER1) > 0)
 	 {
       // Angle + 15, Pitch + 0
       A_SetAngle(angle+15);
@@ -1536,6 +1536,7 @@ ACTOR PhoenixRodNew : PhoenixRod replaces PhoenixRod
 	 {
  	  A_FireCustomMissile("PhoenixFX1New",0,0);
 	 }
+     A_Recoil(4);
 	}
     PHNX DB 4
     PHNX B 0 A_ReFire
