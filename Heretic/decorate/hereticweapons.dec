@@ -1331,8 +1331,16 @@ ACTOR HellStaffNew : SkullRod replaces SkullRod
   States
   {
   Spawn:
-    WSKL A -1
-    Stop
+    WSKL A 0 NoDelay
+	{
+	 if (CountInv("HellStaffNew",AAPTR_PLAYER1) > 0)
+	 {
+	  A_SpawnItemEx("DualHellStaffNew");
+	  A_FadeOut(1,1);
+	 }
+	}
+    WSKL A 1
+    Loop
   Ready:
     HROD A 1 A_WeaponReady
     Loop
