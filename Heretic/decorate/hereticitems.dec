@@ -1,7 +1,8 @@
 ACTOR GauntletsNew : RandomSpawner replaces Gauntlets
 {
     DropItem "BerserkSphere", 255, 224
-    DropItem "GoldWandNew", 255, 32
+    DropItem "GoldWandNew", 255, 16
+    DropItem "SuperCrossbowNew", 255, 16
 }
 
 ACTOR ArtiTimeBombNew : ArtiTimeBomb replaces ArtiTimeBomb
