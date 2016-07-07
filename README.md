@@ -1,0 +1,93 @@
+DV-DS-CompatPacks [Deus Vult Doomspell Edition Combination Package - Compatiblity Patches for Various WADs/other Doom-engine games]
+
+- Allows you to properly run DV-DS in Doom 1 mode, as it adds some sprites/actors that don't appear normally in Doom 1 like the Super Shotgun, Chaingunners, etc. It will also add a custom intermission map for Episode 4: Thy Flesh Consumed.
+
+- Allows you to run DV-DS with other games on the Doom engine, such as Heretic, Hexen & Strife. However only Flora is playable currently in these modes. Corvus, Baratus, Daedolon, Parias, and StrifeGuy aren't available as classes at this time, but might be implemented at later dates. :P
+
+- Includes compatiability patches and PK3 files for the following wads/etc. Though keep in mind some of these are currently incomplete.
+	- Happy Time Circus [666] (loaded as a subfolder)
+	- Happy Time Circus 2 (loaded as a subfolder)
+	- "Doom Upstart Mapping Project: Episode 1" aka "DUMP" (loaded as a PK3 file)
+	- "Doom Upstart Mapping Project: Episode 2" aka "DUMP-2" (loaded as a PK3 file)
+	- Epic (loaded as a WAD file)
+	- Epic 2 (loaded as a WAD file)
+	- Going Down (loaded as both a WAD file and a subfolder)
+	- Hell Ground (loaded as a subfolder)
+	- Resurgence (loaded as a subfolder) [you also need to download "resurge.wad" to run with it]
+	- Scythe 2 (loaded as a subfolder) [you also need to download "scythe2.wad" to run with it]
+	- Sitnatla [Heretic mapset by ArgonianLord] (loaded as a PK3 file)
+	- Switcheroom (loaded as a PK3 file) 
+	- The City of the Damned: Apocalypse (loaded as a subfolder)
+	- Touhou Doom [incomplete] (loaded as a subfolder)
+	- Unloved [incomplete] (loaded as a subfolder)
+	- Valiant: Vaccinated Edition (loaded as a WAD file)
+	- Void [incomplete] (loaded as a WAD file)
+
+- 10xu.pk3 is included for extra 'fun' and can be loaded with any of these or even the non CompatPack games.
+
+
+HOW TO INSTALL / RUN / ETC:
+
+ - Important - Make absolutely sure you got DV-DS-ComboPack [@ https://github.com/LordMisfit/DV-DS-ComboPack ] working right before you do anything here. Refer to that repository's README.md file for more information.
+
+ - Installing 1 - Make sure you unzip the entire "DV-DS-CompatPacks" folder inside the zip file to your designated GZDoom folder. Do not try to install the subfolders within into "DV-DS-ComboPacks" or into your main GZDoom folder, or you've done flapped it up and have to do everything up to this point on both repositories over again. :V
+ - TL;DR: So basically make sure "DV-DS-ComboPacks" & "DV-DS-CompatPacks" are seperate subfolders in your main GZDoom folder. :P
+
+ - Running - 1. There is no launcher packed for use with DV-DS-CompatPacks, you'll have to rely on command lines for now. My general method is to create a batch [.bat] file and name it something you'll remember. Remember you can right click a .bat file and "edit" them to change the command line used inside.
+
+ - Running - 2. To run Heretic w/ DV-DS Command line: "start gzdoom.exe -iwad heretic.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Heretic" +hud_scale 0 exit" 
+ - Note: DV-DS highly recommends using "hud_scale 0" for HUDs, so keep that in mind if you play this and go back to a different mod and your hud looks odd, you'll likely need to enter "hud_scale 1" or so in your console when you play said other mod. :P
+ - Note: Hexen's patch can also be loaded with Heretic if you want to use the console to "summon" the monsters from Hexen in Heretic. Just add "DV-DS-CompatPacks/Hexen" in the above command line BEFORE "DV-DS-CompatPacks/Heretic" to do so.
+ - Note: Putting "start" and "exit" around a command line makes the CMD prompt that pops up immediately disappear so you don't have to manually close the window after the command runs. However if you're making a shortcut that's not a .bat file, you don't need "start" or "exit" in those command lines.
+
+ - Running - 3. To run Hexen w/ DV-DS Command line: "start gzdoom.exe -iwad hexen.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Hexen" +hud_scale 0 exit" 
+
+ - Running - 4. To run Strife w/ DV-DS Command line: "start gzdoom.exe -iwad strife1.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Strife" +hud_scale 0 exit" 
+
+ - Running - 5. To run Happy Time Circus [666] w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/circus666" +hud_scale 0 exit" 
+
+ - Running - 6. To run Happy Time Circus 2 w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/circus2" +hud_scale 0 exit" 
+
+ - Running - 7. To run DUMP-1 w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-Compatpacks/DUMP-dvds.pk3" +hud_scale 0 exit"
+ - Important: DUMP-1 & DUMP-2's "remove everything on level start" feature is removed in these versions due to the mod's RPG nature, and resetting everything per level would destroy the mod's main function gameplay wise.
+
+ - Running - 8. To run DUMP-2 w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-Compatpacks/DUMP2-dvds.pk3" +hud_scale 0 exit" 
+ - Important: DUMP-1 & DUMP-2's "remove everything on level start" feature is removed in these versions due to the mod's RPG nature, and resetting everything per level would destroy the mod's main function gameplay wise.
+
+ - Running - 9. To run Epic [1] w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-Compatpacks/epic-dvds.wad" +hud_scale 0 exit" 
+
+ - Running - 10. To run Epic 2 w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-Compatpacks/epic2-dvds.wad" +hud_scale 0 exit" 
+
+ - Running - 11. To run Going Down w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-Compatpacks/goingdown-DVDS.wad" "DV-DS-Compatpacks/GoingDown" +hud_scale 0 exit" 
+
+ - Running - 12. To run Hell Ground w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/hellground" +hud_scale 0 exit" 
+
+ - Running - 13. To run Resurgence w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" resurge.wad "DV-DS-Compatpacks/Resurgence" +hud_scale 0 exit"
+ - Note: DV-DS-CompatPacks does not come with resurge.wad by default, you need to download that yourself. The CompatPack for this mostly replaces the Afrits that the wad's DEH replaces the CommanderKeens with, with the Flying Balrog proper where they have dynamic stats, etc.
+
+ - Running - 14. To run Scythe 2 w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" scythe2.wad "DV-DS-Compatpacks/Scythe2" +hud_scale 0 exit"
+ - Note: DV-DS-CompatPacks does not come with scythe2.wad by default, you need to download that yourself. The CompatPack for this mostly replaces the Afrits that the wad's DEH replaces the CommanderKeens with, with the Flying Balrog proper where they have dynamic stats, etc.
+
+ - Running - 15. To run Sitnalta w/ DV-DS Command line: "start gzdoom.exe -iwad heretic.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Heretic" "DV-DS-CompatPacks/Sitnalta-DVDS.pk3" +hud_scale 0 exit"
+ - Note: This is the only Heretic levelset CompatPack included at the moment, and again you can load the Hexen compatpack here as well if you want [see Running - 2.], though it doesn't actually matter in this mapset.
+
+ - Running - 16. To run Switcheroom w/ DV-DS Command line: "start gzdoom.exe -iwad doom.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Doom" "DV-DS-CompatPacks/swtchrm-DVDS.wad" +hud_scale 0 exit" 
+ - Note: This is an Ultimate Doom specfic mapset.
+
+ - Running - 16. To run The City of the Damned: Apocalypse w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/TCOTD2" +hud_scale 0 exit" 
+ - Note: It's only one level, and Flora is the only playable class in this one, but boy did this patch take a while to make, since I actually did a bunch of ACS modifying for the level itself and things don't exactly work 1 to 1 how they do in the original version, plus Flora will actually put her two cents in for all the notes and events that happen in this one. >.>
+
+ - Running - 17. To run Touhou Doom w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/TouhouDoom" +hud_scale 0 exit" 
+ - Note: This one is incomplete and likely based on a pretty old version of the mod, so I don't recommend messing with it besides for the first 3 maps or so. :P
+
+ - Running - 18. To run Unloved w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Unloved" +hud_scale 0 exit" 
+ - Note: This one is incomplete to a degree since some monsters aren't fully supported for stat changes/EXP yet. It'll be worked on more at some point in the future, so play at your own 'risk', I guess? :o
+
+ - Running - 19. To run Valiant: Vaccinated Edition w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/valve-DVDS.wad" +hud_scale 0 exit" 
+
+ - Running - 20. To run Void w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/void-DVDS.wad" +hud_scale 0 exit" 
+ - Note: This one is incomplete, and I'm not sure if it'll be finished anytime soon. It's there as more of an attempt to edit it since I liked this particular map. :P
+
+ - Important: If you're playing in pure Doom 2 or Doom 1 mode [and or using a Doom 1 or 2 mapset], you'll get three "episodes" in the start up menu. The first two are the Deus Vult [1] and Deus Vult 2 "campaigns", and then a third that reflects the game you loaded up. That third episode is for playing Doom 1/2/Plutonia/TNT's actual levels, or the mapset you're loading with it. The DV episodes are named in their own name format and don't conflict with the other stuff, and thus are seperated in their own "episodes".
+
+ - Important: The "Deus Vult" and "Deus Vult II" episodes do NOT appear when playing in Heretic, Hexen or Strife modes, as they heavily rely on Doom-specfic resources which are not normally present while playing the other Doom engine games. You can still warp to those maps ["warp" or "changemap" console commands] but they won't function 100%. :P
