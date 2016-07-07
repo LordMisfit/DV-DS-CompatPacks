@@ -5,7 +5,7 @@ DV-DS-CompatPacks [Deus Vult Doomspell Edition Combination Package - Compatiblit
 - Allows you to run DV-DS with other games on the Doom engine, such as Heretic, Hexen & Strife. However only Flora is playable currently in these modes. Corvus, Baratus, Daedolon, Parias, and StrifeGuy aren't available as classes at this time, but might be implemented at later dates. :P
 
 - Includes compatiability patches and PK3 files for the following wads/etc. Though keep in mind some of these are currently incomplete.
-	- Happy Time Circus [666] (loaded as a subfolder)
+	- Happy Time Circus (loaded as a subfolder)
 	- Happy Time Circus 2 (loaded as a subfolder)
 	- "Doom Upstart Mapping Project: Episode 1" aka "DUMP" (loaded as a PK3 file)
 	- "Doom Upstart Mapping Project: Episode 2" aka "DUMP-2" (loaded as a PK3 file)
@@ -15,13 +15,13 @@ DV-DS-CompatPacks [Deus Vult Doomspell Edition Combination Package - Compatiblit
 	- Hell Ground (loaded as a subfolder)
 	- Resurgence (loaded as a subfolder) [you also need to download "resurge.wad" to run with it]
 	- Scythe 2 (loaded as a subfolder) [you also need to download "scythe2.wad" to run with it]
-	- Sitnatla [Heretic mapset by ArgonianLord] (loaded as a PK3 file)
+	- Sitnatla (Heretic mapset by ArgonianLord) (loaded as a PK3 file)
 	- Switcheroom (loaded as a PK3 file) 
 	- The City of the Damned: Apocalypse (loaded as a subfolder)
-	- Touhou Doom [incomplete] (loaded as a subfolder)
-	- Unloved [incomplete] (loaded as a subfolder)
+	- Touhou Doom (incomplete) (loaded as a subfolder)
+	- Unloved (incomplete) (loaded as a subfolder)
 	- Valiant: Vaccinated Edition (loaded as a WAD file)
-	- Void [incomplete] (loaded as a WAD file)
+	- Void (incomplete) (loaded as a WAD file)
 
 - 10xu.pk3 is included for extra 'fun' and can be loaded with any of these or even the non CompatPack games.
 
