@@ -1,10 +1,17 @@
 ACTOR ArtiTorchNew : ArtiTorch replaces ArtiTorch
 {
+  +DONTGIB
+  inventory.maxamount 99
+  inventory.InterHubAmount 99
   Tag "Torch: Lights up an area for a short time."
 }
 
 ACTOR ArtiPorkNew : ArtiPork replaces ArtiPork
 {
+  +DONTGIB
+  inventory.maxamount 99
+  inventory.InterHubAmount 99
+  
   Tag "Porkulator: Transforms up to eleven enemies into pigs."
   States
   {
@@ -29,25 +36,38 @@ ACTOR ArtiPorkNew : ArtiPork replaces ArtiPork
   
 ACTOR ArtiDarkServantNew : ArtiDarkServant replaces ArtiDarkServant
 {
-  Inventory.MaxAmount 99
+  +DONTGIB
+  inventory.maxamount 99
+  inventory.InterHubAmount 99
+  
   Tag "Dark Servant: Summons a friendly Maulotaur to fight for you."
 }
   
 ACTOR ArtiTeleportOtherNew : ArtiTeleportOther replaces ArtiTeleportOther
 {
-  Inventory.MaxAmount 99
+  +DONTGIB
+  inventory.maxamount 99
+  inventory.InterHubAmount 99
+  
   Tag "Banishment Device: Teleports away the first creature it hits."
 }
   
 ACTOR ArtiTeleportNew : ArtiTeleport replaces ArtiTeleport
 {
-  Inventory.MaxAmount 99
+  +DONTGIB
+  inventory.maxamount 99
+  inventory.InterHubAmount 99
+  
   Tag "Chaos Device: Teleports you away to near a level's entry point."
 }
   
 ACTOR ArtiSpeedBootsNew : CustomInventory replaces ArtiSpeedBoots
 {
+  +DONTGIB
   +FLOATBOB
+  inventory.maxamount 99
+  inventory.InterHubAmount 99
+  
   Inventory.Icon ARTISPED
   Inventory.PickupMessage "$TXT_ARTISPEED" // "BOOTS OF SPEED"
   Tag "$TAG_ARTISPEED"
@@ -64,7 +84,11 @@ ACTOR ArtiSpeedBootsNew : CustomInventory replaces ArtiSpeedBoots
 }
 ACTOR ArtiFlyNew : CustomInventory replaces ArtiFly
 {
+  +DONTGIB
   +FLOATBOB
+  inventory.maxamount 99
+  inventory.InterHubAmount 99
+  
   Inventory.RespawnTics 4230
   Inventory.Icon ARTISOAR
   Inventory.PickupMessage "$TXT_ARTIFLY" // "WINGS OF WRATH"
@@ -107,6 +131,7 @@ ACTOR ArtiFlyNew : CustomInventory replaces ArtiFly
 
 ACTOR ArtiInvulnerability2New : CustomInventory replaces ArtiInvulnerability2
 {
+  +DONTGIB
   +COUNTITEM
   +FLOATBOB
   +INVENTORY.INVBAR
@@ -115,7 +140,9 @@ ACTOR ArtiInvulnerability2New : CustomInventory replaces ArtiInvulnerability2
   +INVENTORY.HUBPOWER
   +INVENTORY.PERSISTENTPOWER
   +INVENTORY.KEEPDEPLETED
-  Inventory.MaxAmount 99
+  inventory.maxamount 99
+  inventory.InterHubAmount 99
+  
   Inventory.RespawnTics 4230
   Inventory.Icon ARTIDEFN
   Inventory.PickupMessage "$TXT_ARTIINVULNERABILITY2" // "ICON OF THE DEFENDER"
@@ -133,9 +160,12 @@ ACTOR ArtiInvulnerability2New : CustomInventory replaces ArtiInvulnerability2
 
 ACTOR ArtiHealingRadiusNew : CustomInventory replaces ArtiHealingRadius
 {
+  +DONTGIB
   +COUNTITEM
   +FLOATBOB
-  Inventory.MaxAmount 99
+  inventory.maxamount 99
+  inventory.InterHubAmount 99
+  
   +INVENTORY.INVBAR
   +INVENTORY.PICKUPFLASH
   +INVENTORY.FANCYPICKUPSOUND
@@ -158,6 +188,7 @@ ACTOR ArtiHealingRadiusNew : CustomInventory replaces ArtiHealingRadius
 }
 actor FlechetteReplacer : RandomSpawner replaces ArtiPoisonBag
 {
+   +DONTGIB
     DropItem "CrystalVial", 96, 18
     DropItem "ArtiHealth", 96, 18
     DropItem "MedicinalHerb", 96, 14
@@ -180,6 +211,7 @@ actor ArtiPoisonBag2New : FlechetteReplacer replaces ArtiPoisonBag2 { }
 actor ArtiPoisonBag3New : FlechetteReplacer replaces ArtiPoisonBag3 { }
 actor ArtiBlastRadiusNew : FlechetteReplacer replaces ArtiBlastRadius 
 { 
+  +DONTGIB
     DropItem "CrystalVial", 96, 18
     DropItem "ArtiHealth", 96, 18
     DropItem "MedicinalHerb", 96, 14
@@ -203,36 +235,42 @@ actor ArtiBlastRadiusNew : FlechetteReplacer replaces ArtiBlastRadius
 //**********************
 actor RandomArmorNew : RandomSpawner replaces ArtiBoostArmor
 {
+  +DONTGIB
     DropItem "FloraRandomArmorAlwaysDrop", 12, 96
     DropItem "SauronHelmet", 64, 2
     DropItem "SauronGauntlets", 64, 2
 }
 actor ArtiBoostArmorNew : RandomSpawner replaces ArtiBoostArmor
 {
+  +DONTGIB
     DropItem "FloraRandomArmorAlwaysDrop", 48, 96
     DropItem "SauronHelmet", 255, 2
     DropItem "SauronGauntlets", 255, 2
 }
 actor PlatinumHelmNew : RandomSpawner replaces PlatinumHelm
 {
+  +DONTGIB
     DropItem "FloraRandomArmorAlwaysDrop", 24, 96
     DropItem "SauronHelmet", 255, 2
     DropItem "SauronGauntlets", 255, 2
 }
 actor AmuletOfWardingNew : RandomSpawner replaces AmuletOfWarding
 {
+  +DONTGIB
     DropItem "FloraRandomArmorAlwaysDrop", 24, 96
     DropItem "SauronHelmet", 255, 2
     DropItem "SauronGauntlets", 255, 2
 }
 actor FalconShieldNew : RandomSpawner replaces FalconShield
 {
+  +DONTGIB
     DropItem "FloraRandomArmorAlwaysDrop", 24, 96
     DropItem "SauronHelmet", 255, 2
     DropItem "SauronGauntlets", 255, 2
 }
 actor MeshArmorNew : RandomSpawner replaces MeshArmor
 {
+  +DONTGIB
     DropItem "FloraRandomArmorAlwaysDrop", 24, 96
     DropItem "SauronHelmet", 255, 2
     DropItem "SauronGauntlets", 255, 2
@@ -244,6 +282,7 @@ actor MeshArmorNew : RandomSpawner replaces MeshArmor
 // Slot 4 Hellcore [replaces 2nd weapons in Hexen]
 actor FWeapAxeNew : RandomSpawner replaces FWeapAxe
 {
+  +DONTGIB
     DropItem "DiarisLongbow"
     DropItem "ImpClawCI"
     DropItem "DarkImpClawCI"
@@ -254,6 +293,7 @@ actor FWeapAxeNew : RandomSpawner replaces FWeapAxe
 }
 actor CWeapStaffNew : RandomSpawner replaces CWeapStaff
 {
+  +DONTGIB
     DropItem "DiarisLongbow"
     DropItem "ImpClawCI"
     DropItem "DarkImpClawCI"
@@ -264,6 +304,7 @@ actor CWeapStaffNew : RandomSpawner replaces CWeapStaff
 }
 actor MWeapFrostNew : RandomSpawner replaces MWeapFrost
 {
+  +DONTGIB
     DropItem "DiarisLongbow"
     DropItem "ImpClawCI"
     DropItem "DarkImpClawCI"
@@ -276,6 +317,7 @@ actor MWeapFrostNew : RandomSpawner replaces MWeapFrost
 // Slot 5 Hellcore [replaces 3rd weapons in Hexen]
 actor FWeapHammerNew : RandomSpawner replaces FWeapHammer
 {
+  +DONTGIB
     DropItem "DiarisLongbow"
     DropItem "IncarnateSkullCI"
     DropItem "BaronFistCI"
@@ -286,6 +328,7 @@ actor FWeapHammerNew : RandomSpawner replaces FWeapHammer
 }
 actor CWeapFlameNew : RandomSpawner replaces CWeapFlame
 {
+  +DONTGIB
     DropItem "DiarisLongbow"
     DropItem "IncarnateSkullCI"
     DropItem "BaronFistCI"
@@ -296,6 +339,7 @@ actor CWeapFlameNew : RandomSpawner replaces CWeapFlame
 }
 actor MWeapLightningNew : RandomSpawner replaces MWeapLightning
 {
+  +DONTGIB
     DropItem "DiarisLongbow"
     DropItem "IncarnateSkullCI"
     DropItem "BaronFistCI"
@@ -307,6 +351,7 @@ actor MWeapLightningNew : RandomSpawner replaces MWeapLightning
 
 actor FWeaponPiece1New : RandomSpawner replaces FWeaponPiece1
 {
+  +DONTGIB
     DropItem "DiarisLongbow"
     DropItem "BalrogFistCI"
     DropItem "ArchvileHandCI"
@@ -314,6 +359,7 @@ actor FWeaponPiece1New : RandomSpawner replaces FWeaponPiece1
 }
 actor FWeaponPiece2New : RandomSpawner replaces FWeaponPiece2
 {
+  +DONTGIB
     DropItem "DiarisLongbow"
     DropItem "BalrogFistCI"
     DropItem "ArchvileHandCI"
@@ -321,6 +367,7 @@ actor FWeaponPiece2New : RandomSpawner replaces FWeaponPiece2
 }
 actor FWeaponPiece3New : RandomSpawner replaces FWeaponPiece3
 {
+  +DONTGIB
     DropItem "DiarisLongbow"
     DropItem "BalrogFistCI"
     DropItem "ArchvileHandCI"
@@ -328,6 +375,7 @@ actor FWeaponPiece3New : RandomSpawner replaces FWeaponPiece3
 }
 actor FWeapQuietusNew : RandomSpawner replaces FWeapQuietus
 {
+  +DONTGIB
     DropItem "DiarisLongbow"
     DropItem "BalrogFistCI"
     DropItem "ArchvileHandCI"
@@ -335,6 +383,7 @@ actor FWeapQuietusNew : RandomSpawner replaces FWeapQuietus
 }
 actor CWeaponPiece1New : RandomSpawner replaces CWeaponPiece1
 {
+  +DONTGIB
     DropItem "DiarisLongbow"
     DropItem "BalrogFistCI"
     DropItem "ArchvileHandCI"
@@ -342,6 +391,7 @@ actor CWeaponPiece1New : RandomSpawner replaces CWeaponPiece1
 }
 actor CWeaponPiece2New : RandomSpawner replaces CWeaponPiece2
 {
+  +DONTGIB
     DropItem "DiarisLongbow"
     DropItem "BalrogFistCI"
     DropItem "ArchvileHandCI"
@@ -349,6 +399,7 @@ actor CWeaponPiece2New : RandomSpawner replaces CWeaponPiece2
 }
 actor CWeaponPiece3New : RandomSpawner replaces CWeaponPiece3
 {
+  +DONTGIB
     DropItem "DiarisLongbow"
     DropItem "BalrogFistCI"
     DropItem "ArchvileHandCI"
@@ -356,6 +407,7 @@ actor CWeaponPiece3New : RandomSpawner replaces CWeaponPiece3
 }
 actor CWeapWraithvergeNew : RandomSpawner replaces CWeapWraithverge
 {
+  +DONTGIB
     DropItem "DiarisLongbow"
     DropItem "BalrogFistCI"
     DropItem "ArchvileHandCI"
@@ -363,6 +415,7 @@ actor CWeapWraithvergeNew : RandomSpawner replaces CWeapWraithverge
 }
 actor MWeaponPiece1New : RandomSpawner replaces MWeaponPiece1
 {
+  +DONTGIB
     DropItem "DiarisLongbow"
     DropItem "BalrogFistCI"
     DropItem "ArchvileHandCI"
@@ -370,6 +423,7 @@ actor MWeaponPiece1New : RandomSpawner replaces MWeaponPiece1
 }
 actor MWeaponPiece2New : RandomSpawner replaces MWeaponPiece2
 {
+  +DONTGIB
     DropItem "DiarisLongbow"
     DropItem "BalrogFistCI"
     DropItem "ArchvileHandCI"
@@ -377,6 +431,7 @@ actor MWeaponPiece2New : RandomSpawner replaces MWeaponPiece2
 }
 actor MWeaponPiece3New : RandomSpawner replaces MWeaponPiece3
 {
+  +DONTGIB
     DropItem "DiarisLongbow"
     DropItem "BalrogFistCI"
     DropItem "ArchvileHandCI"
@@ -384,6 +439,7 @@ actor MWeaponPiece3New : RandomSpawner replaces MWeaponPiece3
 }
 actor MWeapBloodscourgeNew : RandomSpawner replaces MWeapBloodscourge
 {
+  +DONTGIB
     DropItem "DiarisLongbow"
     DropItem "BalrogFistCI"
     DropItem "ArchvileHandCI"
@@ -395,6 +451,7 @@ actor MWeapBloodscourgeNew : RandomSpawner replaces MWeapBloodscourge
 //*******************
 ACTOR Mana1New : Ammo replaces Mana1
 {
+  +DONTGIB
 	Game Hexen
 	SpawnID 11
 	Inventory.Amount 15
@@ -424,6 +481,7 @@ ACTOR Mana1New : Ammo replaces Mana1
 
 ACTOR Mana2New : Ammo replaces Mana2
 {
+  +DONTGIB
 	Game Hexen
 	SpawnID 11
 	Inventory.Amount 15
@@ -453,6 +511,7 @@ ACTOR Mana2New : Ammo replaces Mana2
 
 ACTOR Mana3New : Ammo replaces Mana3
 {
+  +DONTGIB
 	Game Hexen
 	SpawnID 11
 	Inventory.Amount 15
@@ -485,6 +544,7 @@ ACTOR Mana3New : Ammo replaces Mana3
 //****************
 ACTOR CrystalVialNew : CustomInventory replaces CrystalVial
 {
+  +DONTGIB
   +FLOATBOB
   Inventory.Amount 10
   Inventory.PickupMessage "$TXT_ITEMHEALTH" // "CRYSTAL VIAL"
@@ -561,7 +621,9 @@ ACTOR ArtiHealthNew : CustomInventory replaces ArtiHealth
   +INVENTORY.HUBPOWER
   +INVENTORY.PERSISTENTPOWER
   +INVENTORY.KEEPDEPLETED
-  Inventory.MaxAmount 99
+  inventory.maxamount 99
+  inventory.InterHubAmount 99
+  
   Inventory.Icon ARTIPTN2
   Inventory.PickupSound "misc/p_pkup"
   Inventory.PickupMessage "$TXT_ARTIHEALTH" // "QUARTZ FLASK"
@@ -588,7 +650,9 @@ ACTOR ArtiSuperHealthNew : CustomInventory replaces ArtiSuperHealth
   +INVENTORY.HUBPOWER
   +INVENTORY.PERSISTENTPOWER
   +INVENTORY.KEEPDEPLETED
-  Inventory.MaxAmount 99
+  inventory.maxamount 99
+  inventory.InterHubAmount 99
+  
   Inventory.Icon ARTISPHL
   Inventory.PickupSound "misc/p_pkup"
   Inventory.PickupMessage "$TXT_ARTISUPERHEALTH" // "MYSTIC URN"
@@ -616,7 +680,9 @@ ACTOR ArtiBoostManaNew : CustomInventory replaces ArtiBoostMana
     +INVENTORY.HUBPOWER
     +INVENTORY.PERSISTENTPOWER
     +INVENTORY.KEEPDEPLETED
-    Inventory.MaxAmount 99
+    inventory.maxamount 99
+    inventory.InterHubAmount 99
+    
 	Inventory.Icon "ARTIBMAN"
 	Inventory.PickupSound "misc/p_pkup"
 	Inventory.PickupMessage "$TXT_ARTIBOOSTMANA"

@@ -45,6 +45,11 @@ episode e1ma
 //*********************
 //**Classic Doom Maps**
 //*********************
+gamedefaults
+{
+ KeepFullInventory
+}
+
 map E1MA "Skip Map"
 {
  levelnum = 1010
@@ -63,7 +68,6 @@ map E1M8 lookup "HHUSTR_E1M8"
  secretnext = "E1M9"
  sky1 = "SKY1"
  cluster = 1
- nointermission
  ironlichspecial
  specialaction_lowerfloortohighest
  music = "MUS_E1M8"
@@ -88,7 +92,6 @@ map E3M8 lookup "HHUSTR_E3M8"
  secretnext = "E3M9"
  sky1 = "SKY3"
  cluster = 3
- nointermission
  dsparilspecial
  specialaction_lowerfloortohighest
  specialaction_killmonsters
@@ -101,7 +104,6 @@ map E4M8 lookup "HHUSTR_E4M8"
  secretnext = "E4M9"
  sky1 = "SKY1"
  cluster = 4
- nointermission
  ironlichspecial
  specialaction_lowerfloortohighest
  specialaction_killmonsters
@@ -121,3 +123,42 @@ map E5M8 lookup "HHUSTR_E5M8"
  music = "MUS_E2M8"
 }
 
+cluster 1
+{
+	flat = "FLOOR25"
+	music = "MUS_CPTD"
+	exittext = lookup, "HE1TEXT"
+}
+
+cluster 2
+{
+	flat = "FLATHUH1"
+	music = "MUS_CPTD"
+	exittext = lookup, "HE2TEXT"
+}
+
+cluster 3
+{
+	flat = "FLTWAWA2"
+	music = "MUS_CPTD"
+	exittext = lookup, "HE3TEXT"
+}
+
+cluster 4
+{
+	flat = "FLOOR28"
+	music = "MUS_CPTD"
+	exittext = lookup, "HE4TEXT"
+}
+
+cluster 5
+{
+	flat = "FLOOR08"
+	music = "MUS_CPTD"
+	exittext = lookup, "HE5TEXT"
+}
+
+cluster 6
+{
+	flat = "FLOOR25"
+}
