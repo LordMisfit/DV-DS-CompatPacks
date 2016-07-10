@@ -763,6 +763,14 @@ ACTOR CrossbowNew : Crossbow replaces Crossbow
   Spawn:
     WBOW A 0 NoDelay
 	{
+	 if (random(1,10) == 25)
+	 {
+	  A_SpawnItemEx("DiarisLongBow");
+	  A_FadeOut(1,1);
+	 }
+	}
+    WBOW A 0
+	{
 	 if (random(1,10) == 10)
 	 {
 	  A_SpawnItemEx("SuperCrossbowNew");
