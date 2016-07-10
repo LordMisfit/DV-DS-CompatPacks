@@ -157,8 +157,3 @@ cluster 5
 	music = "MUS_CPTD"
 	exittext = lookup, "HE5TEXT"
 }
-
-cluster 6
-{
-	flat = "FLOOR25"
-}
