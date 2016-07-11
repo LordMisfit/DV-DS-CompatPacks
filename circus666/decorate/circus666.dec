@@ -376,12 +376,12 @@ ACTOR PennywiseHeadNew replaces Pennywise 32119
   States
   {
   Spawn:
-    TNT1 A 0 A_Look
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    PENY A 0 A_Look
+    PENY A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     PENY AB 1 A_Look
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    PENY A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     PENY AB 1 A_Chase
     Loop
   Melee:
@@ -496,11 +496,11 @@ ACTOR JumpingSkullNew replaces JumpingSkull 3117
   {
   Spawn:
     JUMP A 0 A_Look
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    JUMP A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     JUMP A 4 A_Look
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    JUMP A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     JUMP ABCBA 2 A_Chase
     Loop
   Melee:
@@ -605,12 +605,12 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon 3115
   States
   {
   Spawn:
-    TNT1 A 0 A_Look
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    BSTN A 0 A_Look
+    BSTN A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     BSTN A 2 A_Look
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    BSTN A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     BSTN A 2 A_Chase
     Loop
   Melee:
@@ -745,12 +745,12 @@ ACTOR BigBerthaNew replaces BigBertha 3225
   States
   {
   Spawn:
-    TNT1 A 0 A_Look
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    BSTN A 0 A_Look
+    BSTN A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     BSTN B 2 A_Look
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    BSTN A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     BSTN BC 8 A_Chase
     Loop
   Melee:
@@ -875,12 +875,12 @@ ACTOR ClownHeadNew replaces ClownHead 3206
   States 
   { 
   Spawn:
-    TNT1 A 0 A_Look
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    CHED A 0 A_Look
+    CHED A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     CHED A 10  A_Look 
     Loop 
   See: 
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    CHED A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     CHED A 2 A_PlaySound("DRONE")
     CHED A 2 A_CustomMissile("RFlame", -18, 0, 0, 1)  
     CHED A 2 A_Chase 

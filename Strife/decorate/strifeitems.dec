@@ -6,6 +6,8 @@ ACTOR LeatherArmorNew : LeatherArmor replaces LeatherArmor
   +INVENTORY.AUTOACTIVATE
   +INVENTORY.INVBAR
   Inventory.MaxAmount 5
+  inventory.InterHubAmount 5
+  
   Inventory.Icon "I_ARM2"
   Inventory.PickupMessage "$TXT_LEATHERARMOR" // "You picked up the Leather Armor."
   Armor.SaveAmount 100
@@ -32,6 +34,8 @@ ACTOR MetalArmorNew : MetalArmor replaces MetalArmor
   +INVENTORY.AUTOACTIVATE
   +INVENTORY.INVBAR
   Inventory.MaxAmount 3
+  inventory.InterHubAmount 3
+  
   Inventory.Icon "I_ARM1"
   Inventory.PickupMessage "$TXT_METALARMOR" // "You picked up the Metal Armor."
   Armor.SaveAmount 200
@@ -62,7 +66,9 @@ ACTOR MedPatch : HealthPickup 2011
 	Health 10
 	+FLOORCLIP
 	+INVENTORY.INVBAR
-	Inventory.MaxAmount 99
+    inventory.maxamount 99
+    inventory.InterHubAmount 99
+    
 	Tag "MedicIal Patch: Restores 10 HP."
 	Inventory.Icon "I_STMP"
 	Inventory.PickupMessage "$TXT_MEDPATCH"
@@ -87,7 +93,9 @@ ACTOR MedicalKit : HealthPickup 2012
 	Health 25
 	+FLOORCLIP
 	+INVENTORY.INVBAR
-	Inventory.MaxAmount 99
+    inventory.maxamount 99
+    inventory.InterHubAmount 99
+    
 	Tag "Medicial Kit: Restores 25 HP."
 	Inventory.Icon "I_MDKT"
 	Inventory.PickupMessage "$TXT_MEDICALKIT"
@@ -112,7 +120,9 @@ ACTOR SurgeryKit : HealthPickup 83
 	+FLOORCLIP
 	+INVENTORY.INVBAR
 	Health -100
-	Inventory.MaxAmount 99
+    inventory.maxamount 99
+    inventory.InterHubAmount 99
+    
 	Tag "Surgery Kit: Fully restores all HP."
 	Inventory.Icon "I_FULL"
 	Inventory.PickupMessage "$TXT_SURGERYKIT"

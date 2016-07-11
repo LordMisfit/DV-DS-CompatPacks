@@ -5,7 +5,7 @@ DV-DS-CompatPacks [Deus Vult Doomspell Edition Combination Package - Compatiblit
 - Allows you to run DV-DS with other games on the Doom engine, such as Heretic, Hexen & Strife. However only Flora is playable currently in these modes. Corvus, Baratus, Daedolon, Parias, and StrifeGuy aren't available as classes at this time, but might be implemented at later dates. :P
 
 - Includes compatiability patches and PK3 files for the following wads/etc. Though keep in mind some of these are currently incomplete.
-	- Happy Time Circus (loaded as a subfolder)
+	- Happy Time Circus [666] (loaded as a subfolder)
 	- Happy Time Circus 2 (loaded as a subfolder)
 	- "Doom Upstart Mapping Project: Episode 1" aka "DUMP" (loaded as a PK3 file)
 	- "Doom Upstart Mapping Project: Episode 2" aka "DUMP-2" (loaded as a PK3 file)
@@ -15,13 +15,13 @@ DV-DS-CompatPacks [Deus Vult Doomspell Edition Combination Package - Compatiblit
 	- Hell Ground (loaded as a subfolder)
 	- Resurgence (loaded as a subfolder) [you also need to download "resurge.wad" to run with it]
 	- Scythe 2 (loaded as a subfolder) [you also need to download "scythe2.wad" to run with it]
-	- Sitnatla (Heretic mapset by ArgonianLord) (loaded as a PK3 file)
+	- Sitnatla [Heretic mapset by ArgonianLord] (loaded as a PK3 file)
 	- Switcheroom (loaded as a PK3 file) 
 	- The City of the Damned: Apocalypse (loaded as a subfolder)
-	- Touhou Doom (incomplete) (loaded as a subfolder)
-	- Unloved (incomplete) (loaded as a subfolder)
+	- Touhou Doom [incomplete] (loaded as a subfolder)
+	- Unloved [incomplete] (loaded as a subfolder)
 	- Valiant: Vaccinated Edition (loaded as a WAD file)
-	- Void (incomplete) (loaded as a WAD file)
+	- Void [incomplete] (loaded as a WAD file)
 
 - 10xu.pk3 is included for extra 'fun' and can be loaded with any of these or even the non CompatPack games.
 
@@ -74,21 +74,19 @@ HOW TO INSTALL / RUN / ETC:
  - Running - 16. To run Switcheroom w/ DV-DS Command line: "start gzdoom.exe -iwad doom.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Doom" "DV-DS-CompatPacks/swtchrm-DVDS.wad" +hud_scale 0 exit" 
  - Note: This is an Ultimate Doom specfic mapset.
 
- - Running - 17. To run The City of the Damned: Apocalypse w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/TCOTD2" +hud_scale 0 exit" 
+ - Running - 16. To run The City of the Damned: Apocalypse w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/TCOTD2" +hud_scale 0 exit" 
  - Note: It's only one level, and Flora is the only playable class in this one, but boy did this patch take a while to make, since I actually did a bunch of ACS modifying for the level itself and things don't exactly work 1 to 1 how they do in the original version, plus Flora will actually put her two cents in for all the notes and events that happen in this one. >.>
 
- - Running - 18. To run Touhou Doom w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/TouhouDoom" +hud_scale 0 exit" 
+ - Running - 17. To run Touhou Doom w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/TouhouDoom" +hud_scale 0 exit" 
  - Note: This one is incomplete and likely based on a pretty old version of the mod, so I don't recommend messing with it besides for the first 3 maps or so. :P
 
- - Running - 19. To run Unloved w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Unloved" +hud_scale 0 exit" 
+ - Running - 18. To run Unloved w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Unloved" +hud_scale 0 exit" 
  - Note: This one is incomplete to a degree since some monsters aren't fully supported for stat changes/EXP yet. It'll be worked on more at some point in the future, so play at your own 'risk', I guess? :o
 
- - Running - 20. To run Valiant: Vaccinated Edition w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/valve-DVDS.wad" +hud_scale 0 exit" 
+ - Running - 19. To run Valiant: Vaccinated Edition w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/valve-DVDS.wad" +hud_scale 0 exit" 
 
- - Running - 21. To run Void w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/void-DVDS.wad" +hud_scale 0 exit" 
+ - Running - 20. To run Void w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/void-DVDS.wad" +hud_scale 0 exit" 
  - Note: This one is incomplete, and I'm not sure if it'll be finished anytime soon. It's there as more of an attempt to edit it since I liked this particular map. :P
-
- - Extra. You can also add "DV-DS-CompatPacks/10xu.pk3" into any of the above command lines [before +hud_scale 0] to make things even more nuts. :V
 
  - Important: If you're playing in pure Doom 2 or Doom 1 mode [and or using a Doom 1 or 2 mapset], you'll get three "episodes" in the start up menu. The first two are the Deus Vult [1] and Deus Vult 2 "campaigns", and then a third that reflects the game you loaded up. That third episode is for playing Doom 1/2/Plutonia/TNT's actual levels, or the mapset you're loading with it. The DV episodes are named in their own name format and don't conflict with the other stuff, and thus are seperated in their own "episodes".
 

@@ -13,12 +13,12 @@ actor HereticImpNew : HereticImp replaces HereticImp
  states
  {
   Spawn:
-    TNT1 A 0 A_Look
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    IMPX A 0 A_Look
+    IMPX A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     IMPX ABCB 10 A_Look
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    IMPX A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     IMPX AABBCCBB 3 A_Chase
     Loop
   Melee:
@@ -107,18 +107,18 @@ actor HereticImpLeaderNew : HereticImpLeader replaces HereticImpLeader
  states
  {
   Spawn:
-    TNT1 A 0 A_Look
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    IMPX A 0 A_Look
+    IMPX A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     IMPX ABCB 10 A_Look
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    IMPX A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     IMPX AABBCCBB 3 A_Chase
     Loop
   Melee:
     Stop
   Missile:
-    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    IMPX D 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
     IMPX DE 6 A_FaceTarget
     IMPX F 6 A_CustomComboAttack("HereticImpBall", 32, random[ImpMsAttack2](5,12), "himp/leaderattack")
     Goto See
@@ -197,12 +197,12 @@ actor MummyNew : Mummy replaces Mummy
  states
  {
   Spawn:
-    TNT1 A 0 A_Look
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MUMM A 0 A_Look
+    MUMM A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     MUMM AB 10 A_Look
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MUMM A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     MUMM ABCD 4 A_Chase
     Loop
   Melee:
@@ -283,12 +283,12 @@ actor MummyGhostNew : MummyGhost replaces MummyGhost
  states
  {
   Spawn:
-    TNT1 A 0 A_Look
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MUMM A 0 A_Look
+    MUMM A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     MUMM AB 10 A_Look
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MUMM A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     MUMM ABCD 4 A_Chase
     Loop
   Melee:
@@ -369,12 +369,12 @@ actor MummyLeaderNew : MummyLeader replaces MummyLeader
  states
  {
   Spawn:
-    TNT1 A 0 A_Look
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MUMA A 0 A_Look
+    MUMA A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     MUMA AB 10 A_Look
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MUMA A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     MUMA ABCD 4 A_Chase
     Loop
   Melee:
@@ -464,12 +464,12 @@ actor MummyLeaderGhostNew : MummyLeaderGhost replaces MummyLeaderGhost
  states
  {
   Spawn:
-    TNT1 A 0 A_Look
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MUMA A 0 A_Look
+    MUMA A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     MUMA AB 10 A_Look
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MUMA A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     MUMA ABCD 4 A_Chase
     Loop
   Melee:
@@ -559,12 +559,12 @@ ACTOR KnightNew : Knight replaces Knight
   States
   {
   Spawn:
-    TNT1 A 0 A_Look
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    KNIG A 0 A_Look
+    KNIG A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     KNIG AB 10 A_Look
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    KNIG A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     KNIG ABCD 4 A_Chase
     Loop
   Melee:
@@ -648,12 +648,12 @@ ACTOR KnightGhostNew : KnightGhost replaces KnightGhost
   States
   {
   Spawn:
-    TNT1 A 0 A_Look
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    KNIG A 0 A_Look
+    KNIG A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     KNIG AB 10 A_Look
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    KNIG A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     KNIG ABCD 4 A_Chase
     Loop
   Melee:
@@ -740,12 +740,12 @@ ACTOR WizardNew : Wizard replaces Wizard
   States
   {
   Spawn:
-    TNT1 A 0 A_Look
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    WZRD A 0 A_Look
+    WZRD A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     WZRD AB 10 A_Look
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    WZRD A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     WZRD A 3 A_Chase
     WZRD A 4 A_Chase
     WZRD A 3 A_Chase
@@ -845,12 +845,12 @@ ACTOR IronlichNew : Ironlich replaces Ironlich
   States
   {
   Spawn:
-    TNT1 A 0 A_Look
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    LICH A 0 A_Look
+    LICH A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     LICH A 10 A_Look
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    LICH A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     LICH A 4 A_Chase
     Loop
   Missile:
@@ -929,12 +929,12 @@ ACTOR ClinkNew : Clink replaces Clink
   States
   {
   Spawn:
-    TNT1 A 0 A_Look
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    CLNK A 0 A_Look
+    CLNK A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     CLNK AB 10 A_Look
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    CLNK A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     CLNK ABCD 3 A_Chase
     Loop
   Melee:
@@ -1014,12 +1014,12 @@ ACTOR BeastNew : Beast replaces Beast
   States
   {
   Spawn:
-    TNT1 A 0 A_Look
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    BEAS A 0 A_Look
+    BEAS A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     BEAS AB 10 A_Look
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    BEAS A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     BEAS ABCDEF 3 A_Chase
     Loop
   Missile:
@@ -1116,16 +1116,16 @@ ACTOR MaulotaurNew : Minotaur replaces Minotaur
   States
   {
   Spawn:
-    TNT1 A 0 A_Look
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MNTR A 0 A_Look
+    MNTR A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     MNTR AB 10 A_MinotaurLook
     Loop
   Roam:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MNTR A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     MNTR ABCD 5 A_MinotaurRoam
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MNTR A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     MNTR ABCD 5 A_MinotaurChase
     Loop
   Melee:
@@ -1259,12 +1259,12 @@ ACTOR SnakeNew : Snake replaces Snake
   States
   {
   Spawn:
-    TNT1 A 0 A_Look
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    SNKE A 0 A_Look
+    SNKE A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     SNKE AB 10 A_Look
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    SNKE A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     SNKE ABCD 4 A_Chase
     Loop
   Missile:
@@ -1347,12 +1347,12 @@ ACTOR DSparilMountedNew : Sorcerer1 replaces Sorcerer1
   States
   {
   Spawn:
-    TNT1 A 0 A_Look
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    SRCR A 0 A_Look
+    SRCR A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     SRCR AB 10 A_Look
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    SRCR A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
 //    SRCR A 0 Thing_ChangeTID(0,1222)
     SRCR ABCD 5 A_Sor1Chase
     Loop
@@ -1432,18 +1432,18 @@ ACTOR DSparilUnmountedNew : Sorcerer2 replaces Sorcerer2
   States
   {
   Spawn:
-    TNT1 A 0 A_Look
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    SOR2 A 0 A_Look
+    SOR2 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     SOR2 MN 10 A_Look
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    SOR2 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
 //    SOR2 A 0 Thing_ChangeTID(0,1222)
     SOR2 MNOP 4 A_Chase
     Loop
   Rise:
-    TNT1 A 0 
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    SOR2 A 0 
+    SOR2 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     SOR2 AB 4
     SOR2 C 4 A_PlaySound("dsparil/rise", CHAN_BODY, 1, FALSE, ATTN_NONE)
     SOR2 DEF 4

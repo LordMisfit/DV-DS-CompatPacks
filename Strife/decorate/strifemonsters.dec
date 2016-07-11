@@ -13,7 +13,7 @@ ACTOR AcolyteNew : Acolyte replaces Acolyte
   States
   {
   Spawn:
-    TNT1 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    AGRD A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     AGRD A 5 A_Look2
     Wait
     AGRD B 8 A_ClearShadow
@@ -23,7 +23,7 @@ ACTOR AcolyteNew : Acolyte replaces Acolyte
     AGRD ABCDABCD 5 A_Wander
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    AGRD A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     AGRD A 6 Fast Slow A_AcolyteBits
     AGRD BCD 6 Fast Slow A_Chase
     Loop
@@ -244,7 +244,7 @@ ACTOR TemplarNew : Templar replaces Templar
   States
   {
   Spawn:
-    TNT1 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    PGRD A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     PGRD A 5 A_Look2
     Loop
     PGRD B 10
@@ -254,7 +254,7 @@ ACTOR TemplarNew : Templar replaces Templar
     PGRD B 10 A_Wander
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    PGRD A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     PGRD AABBCCDD 3 A_Chase
     Loop
   Melee:
@@ -376,11 +376,11 @@ ACTOR InquisitorNew : Inquisitor replaces Inquisitor
   States
   {
   Spawn:
-    TNT1 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ROB3 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     ROB3 AB 10 A_Look
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ROB3 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     ROB3 B 3 A_InquisitorWalk
     ROB3 B 3 A_Chase
     ROB3 CCDD 4 A_Chase
@@ -508,11 +508,11 @@ ACTOR ReaverNew : Reaver replaces Reaver
   States
   {
   Spawn:
-    TNT1 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ROB1 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     ROB1 A 10 A_Look
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ROB1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     ROB1 BBCCDDEE 3 A_Chase
     Loop
   Melee:
@@ -625,11 +625,11 @@ ACTOR CrusaderNew : Crusader replaces Crusader
   States
   {
   Spawn:
-    TNT1 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ROB2 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     ROB2 Q 10 A_Look
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ROB2 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     ROB2 AABBCCDD 3 A_Chase
     Loop
   Missile:
@@ -721,11 +721,11 @@ ACTOR SentinelNew : Sentinel replaces Sentinel
   States
   {
   Spawn:
-    TNT1 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    SEWR A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     SEWR A 10 A_Look
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    SEWR A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     SEWR A 6 A_SentinelBob
     SEWR A 6 A_Chase
     Loop
@@ -802,7 +802,7 @@ ACTOR OStalkerNew : Stalker replaces Stalker
   States
   {
   Spawn:
-    TNT1 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    STLK A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     STLK A 1 A_StalkerLookInit
     Loop
   LookCeiling:
@@ -901,11 +901,11 @@ ACTOR CeilingTurretNew : CeilingTurret replaces CeilingTurret
   States
   {
   Spawn:
-    TNT1 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    TURT A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     TURT A 5 A_TurretLook
     Loop
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    TURT A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     TURT A 2 A_Chase
     Loop
   Missile:

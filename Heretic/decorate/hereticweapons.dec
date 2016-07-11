@@ -1,6 +1,8 @@
 // ****************
 // ***** AMMO *****
 // ****************
+
+
 ACTOR GoldWandAmmoNew : GoldWandAmmo { }
 ACTOR GoldWandHeftyNew : GoldWandHefty { }
 ACTOR CrossbowAmmoNew : CrossbowAmmo { }
