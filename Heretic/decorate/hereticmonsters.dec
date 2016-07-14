@@ -1498,7 +1498,7 @@ ACTOR DSparilUnmountedNew : Sorcerer2 replaces Sorcerer2
     SDTH DE 7
     SDTH F 7 A_Sor2DthLoop
     SDTH G 6 A_PlaySound("dsparil/explode", CHAN_BODY, 1, FALSE, ATTN_NONE)
-    SDTH H 6
+    SDTH H 6 A_SpawnItemEx("DSparilStaff",0,0,0,random(-12,12),random(-12,12),random(-12,12))
     SDTH I 18
     SDTH J 6 A_NoBlocking
     SDTH K 6 A_PlaySound("dsparil/bones", CHAN_BODY, 1, FALSE, ATTN_NONE)
