@@ -125,7 +125,7 @@ actor YellowBalloon replaces BallYel
     BNYL B 0 A_DropItem("DiabloistHandCI",1,1)
     BNYL B 0 A_DropItem("BalrogFistCI",1,1)
     BNYL B 0 A_DropItem("Chainsaw",1,1)
-    BNYL B 0 A_DropItem("DualPistolsChecker",1,1)
+    BNYL B 0 A_DropItem("Pistol",1,1)
     BNYL B 0 A_DropItem("Shotgun",1,1)
     BNYL B 0 A_DropItem("SuperShotgun",1,1)
     BNYL B 0 A_DropItem("Chaingun",1,1)

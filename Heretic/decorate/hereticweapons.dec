@@ -2413,6 +2413,19 @@ ACTOR MaceFX2New : MaceFX2 { DamageType "Magic" }
 ACTOR MaceFX3New : MaceFX3 { DamageType "Magic" }
 ACTOR MaceFX4New : MaceFX4 { DamageType "Magic"}
 
+ACTOR MaceSpawnerNew : MaceSpawner replaces MaceSpawner
+{
+  +NOSECTOR
+  +NOBLOCKMAP
+  States
+  {
+  Spawn:
+    TNT1 A 1
+    TNT1 A -1 A_SpawnItemEx("FiremaceNew")
+    Stop
+  }
+}
+
 ACTOR FiremaceNew : Mace replaces Mace
 {
   Weapon.AmmoUse1 1
