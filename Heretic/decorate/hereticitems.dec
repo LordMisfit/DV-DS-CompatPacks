@@ -1,10 +1,11 @@
 ACTOR GauntletsNew : RandomSpawner replaces Gauntlets
 {
-    DropItem "BerserkSphere", 255, 127
+    DropItem "BerserkSphere", 255, 95
     DropItem "RandomSeedDropForced", 255, 32
     DropItem "DiarisLongbow", 255, 32
     DropItem "GoldWandNew", 255, 32
     DropItem "SuperCrossbowNew", 255, 32
+    DropItem "RandomHellcoreWeapon", 255, 32
     DropItem "FyggForced", 255, 1
 }
 
