@@ -1361,7 +1361,28 @@ ACTOR DualCrossbowNew : CrossbowNew
   }
 }
 
-ACTOR RipperNew : Ripper { DamageType "Magic" }
+ACTOR RipperNew
+{
+  DamageType "Magic" 
+  Radius 8
+  Height 6
+  Speed 14
+  Damage (ACS_NamedExecuteWithResult("GetHitScanDMG",24)) // 1
+  Projectile
+  +RIPPER
+  DeathSound "weapons/blasterpowhit"
+  Obituary "$OB_MPPBLASTER"
+  States
+  {
+  Spawn:
+    FX18 M 4
+    FX18 N 5
+    Loop
+  Death:
+    FX18 OPQRS 4 Bright
+    Stop
+  }
+}
 ACTOR BlasterPuffNew : BlasterPuff { DamageType "Magic" }
 ACTOR BlasterFX1New : BlasterFX1 
 {
