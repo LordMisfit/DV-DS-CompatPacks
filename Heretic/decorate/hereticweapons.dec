@@ -4078,7 +4078,7 @@ actor DSparilStaff : weapon
 	DSPS A 1 { A_Lower; A_Lower; }
 	Loop
   Fire:
-	DSPS A 6
+	DSPS A 3
 	DSPS A 4 A_PlayWeaponSound("dsparil/attack")
 	DSPS B 4 bright
 	DSPS C 4 bright
@@ -4134,7 +4134,7 @@ actor DSparilStaff : weapon
 	DSPS A 4 A_ReFire
 	goto ready
   AltFire:
-	DSPS A 10
+	DSPS A 5
 	DSPS A 4 A_PlayWeaponSound("dsparil/attack")
 	DSPS D 4 bright
 	{ 
@@ -4157,7 +4157,7 @@ actor DSparilStaff : weapon
       // Angle + 0, Pitch + 0
       A_SetPitch(pitch+7.5);
       A_SetAngle(angle-7.5);
-	  A_FireCustomMissile("Sorcerer2FX3",25,0,1);
+	  A_FireCustomMissile("Sorcerer2FX3",25,1,0);
   	  A_FireCustomMissile("Sorcerer2FX3",-25,0,0);
       // Angle - 7.5, Pitch - 7.5
       A_SetAngle(angle-7.5);
@@ -4183,7 +4183,7 @@ actor DSparilStaff : weapon
 	  A_FireCustomMissile("Sorcerer2FX3",25,0,0);
   	  A_FireCustomMissile("Sorcerer2FX3",-25,0,0);
       A_SetAngle(angle-15);
-	  A_FireCustomMissile("Sorcerer2FX3",25,0,1);
+	  A_FireCustomMissile("Sorcerer2FX3",25,1,0);
   	  A_FireCustomMissile("Sorcerer2FX3",-25,0,0);
       A_SetAngle(angle-15);
 	  A_FireCustomMissile("Sorcerer2FX3",25,0,0);
@@ -4192,7 +4192,7 @@ actor DSparilStaff : weapon
 	 }
 	 else
 	 {
-	  A_FireCustomMissile("Sorcerer2FX3",25,0,1);
+	  A_FireCustomMissile("Sorcerer2FX3",25,1,0);
   	  A_FireCustomMissile("Sorcerer2FX3",-25,0,0);
 	 }
 	}
@@ -4231,7 +4231,56 @@ actor DualDSparilStaff : DSparilStaff
 	DSPD A 3
 	DSPD A 4 A_PlayWeaponSound("dsparil/attack")
 	DSPD B 4 bright A_PlayWeaponSound("dsparil/attack")
-	DSPD CD 4 bright
+	DSPD C 4 bright
+	{
+     ACS_NamedExecuteAlways("StartTensionCountDown");
+	 if (CountInv("SpreaderAura2",AAPTR_PLAYER1) > 0)
+	 {
+      // Angle + 15, Pitch + 0
+      A_SetAngle(angle+15);
+      A_FireCustomMissile("Sorcerer2FX1New",0,0);
+      // Angle + 7.5, Pitch + 7.5
+      A_SetAngle(angle-7.5);
+      A_SetPitch(pitch+7.5);
+      A_FireCustomMissile("Sorcerer2FX1New",0,0);
+      // Angle + 7.5, Pitch - 7.5
+      A_SetPitch(pitch-15);
+      A_FireCustomMissile("Sorcerer2FX1New",0,0);
+      // Angle + 0, Pitch + 0
+      A_SetPitch(pitch+7.5);
+      A_SetAngle(angle-7.5);
+      A_FireCustomMissile("Sorcerer2FX1New",0,1);
+      // Angle - 7.5, Pitch - 7.5
+      A_SetAngle(angle-7.5);
+      A_SetPitch(pitch-7.5);
+      A_FireCustomMissile("Sorcerer2FX1New",0,0);
+      // Angle - 7.5, Pitch + 7.5
+      A_SetPitch(pitch+15);
+      A_FireCustomMissile("Sorcerer2FX1New",0,0);
+      // Angle - 15, Pitch + 0
+      A_SetPitch(pitch-7.5);
+      A_SetAngle(angle-7.5);
+      A_FireCustomMissile("Sorcerer2FX1New",0,0);
+      // Reset
+      A_SetAngle(angle+15);
+	 }
+	 else
+	 if (CountInv("SpreaderAura1",AAPTR_PLAYER1) > 0)
+	 {
+      A_SetAngle(angle+15);
+      A_FireCustomMissile("Sorcerer2FX1New",0,0);
+      A_SetAngle(angle-15);
+      A_FireCustomMissile("Sorcerer2FX1New",0,1);
+      A_SetAngle(angle-15);
+      A_FireCustomMissile("Sorcerer2FX1New",0,0);
+      A_SetAngle(angle+15);
+	 }
+	 else
+	 {
+      A_FireCustomMissile("Sorcerer2FX1New",0,1);
+	 }
+	}
+	DSPD D 4 bright
 	{
      ACS_NamedExecuteAlways("StartTensionCountDown");
 	 if (CountInv("SpreaderAura2",AAPTR_PLAYER1) > 0)
@@ -4287,7 +4336,7 @@ actor DualDSparilStaff : DSparilStaff
 	DSPD A 5
 	DSPD F 4 A_PlayWeaponSound("dsparil/attack")
 	DSPD G 0 A_PlayWeaponSound("dsparil/attack")
-	DSPD GH 4 bright
+	DSPD G 4 bright
 	{ 
      ACS_NamedExecuteAlways("StartTensionCountDown");
 	 if (CountInv("SpreaderAura2",AAPTR_PLAYER1) > 0)
@@ -4308,7 +4357,7 @@ actor DualDSparilStaff : DSparilStaff
       // Angle + 0, Pitch + 0
       A_SetPitch(pitch+7.5);
       A_SetAngle(angle-7.5);
-	  A_FireCustomMissile("Sorcerer2FX3",25,0,1);
+	  A_FireCustomMissile("Sorcerer2FX3",25,1,0);
   	  A_FireCustomMissile("Sorcerer2FX3",-25,0,0);
       // Angle - 7.5, Pitch - 7.5
       A_SetAngle(angle-7.5);
@@ -4334,7 +4383,7 @@ actor DualDSparilStaff : DSparilStaff
 	  A_FireCustomMissile("Sorcerer2FX3",25,0,0);
   	  A_FireCustomMissile("Sorcerer2FX3",-25,0,0);
       A_SetAngle(angle-15);
-	  A_FireCustomMissile("Sorcerer2FX3",25,0,1);
+	  A_FireCustomMissile("Sorcerer2FX3",25,1,0);
   	  A_FireCustomMissile("Sorcerer2FX3",-25,0,0);
       A_SetAngle(angle-15);
 	  A_FireCustomMissile("Sorcerer2FX3",25,0,0);
@@ -4343,11 +4392,70 @@ actor DualDSparilStaff : DSparilStaff
 	 }
 	 else
 	 {
-	  A_FireCustomMissile("Sorcerer2FX3",25,0,1);
+	  A_FireCustomMissile("Sorcerer2FX3",25,1,0);
   	  A_FireCustomMissile("Sorcerer2FX3",-25,0,0);
 	 }
 	}
 	DSPD H 4 bright
+	{ 
+     ACS_NamedExecuteAlways("StartTensionCountDown");
+	 if (CountInv("SpreaderAura2",AAPTR_PLAYER1) > 0)
+	 {
+      // Angle + 15, Pitch + 0
+      A_SetAngle(angle+15);
+	  A_FireCustomMissile("Sorcerer2FX3",25,0,0);
+  	  A_FireCustomMissile("Sorcerer2FX3",-25,0,0);
+      // Angle + 7.5, Pitch + 7.5
+      A_SetAngle(angle-7.5);
+      A_SetPitch(pitch+7.5);
+	  A_FireCustomMissile("Sorcerer2FX3",25,0,0);
+  	  A_FireCustomMissile("Sorcerer2FX3",-25,0,0);
+      // Angle + 7.5, Pitch - 7.5
+      A_SetPitch(pitch-15);
+	  A_FireCustomMissile("Sorcerer2FX3",25,0,0);
+  	  A_FireCustomMissile("Sorcerer2FX3",-25,0,0);
+      // Angle + 0, Pitch + 0
+      A_SetPitch(pitch+7.5);
+      A_SetAngle(angle-7.5);
+	  A_FireCustomMissile("Sorcerer2FX3",25,1,0);
+  	  A_FireCustomMissile("Sorcerer2FX3",-25,0,0);
+      // Angle - 7.5, Pitch - 7.5
+      A_SetAngle(angle-7.5);
+      A_SetPitch(pitch-7.5);
+	  A_FireCustomMissile("Sorcerer2FX3",25,0,0);
+  	  A_FireCustomMissile("Sorcerer2FX3",-25,0,0);
+      // Angle - 7.5, Pitch + 7.5
+      A_SetPitch(pitch+15);
+	  A_FireCustomMissile("Sorcerer2FX3",25,0,0);
+  	  A_FireCustomMissile("Sorcerer2FX3",-25,0,0);
+      // Angle - 15, Pitch + 0
+      A_SetPitch(pitch-7.5);
+      A_SetAngle(angle-7.5);
+	  A_FireCustomMissile("Sorcerer2FX3",25,0,0);
+  	  A_FireCustomMissile("Sorcerer2FX3",-25,0,0);
+      // Reset
+      A_SetAngle(angle+15);
+	 }
+	 else
+	 if (CountInv("SpreaderAura1",AAPTR_PLAYER1) > 0)
+	 {
+      A_SetAngle(angle+15);
+	  A_FireCustomMissile("Sorcerer2FX3",25,0,0);
+  	  A_FireCustomMissile("Sorcerer2FX3",-25,0,0);
+      A_SetAngle(angle-15);
+	  A_FireCustomMissile("Sorcerer2FX3",25,1,0);
+  	  A_FireCustomMissile("Sorcerer2FX3",-25,0,0);
+      A_SetAngle(angle-15);
+	  A_FireCustomMissile("Sorcerer2FX3",25,0,0);
+  	  A_FireCustomMissile("Sorcerer2FX3",-25,0,0);
+      A_SetAngle(angle+15);
+	 }
+	 else
+	 {
+	  A_FireCustomMissile("Sorcerer2FX3",25,1,0);
+  	  A_FireCustomMissile("Sorcerer2FX3",-25,0,0);
+	 }
+	}
 	DSPD I 4 bright
 	DSPD A 4 bright A_ReFire
 	goto Ready
