@@ -632,6 +632,7 @@ ACTOR MiniFluffyNew replaces MiniFluffy 3194
   HitObituary "%o was playing with Fluffy!"
   States 
   {
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
   Spawn:
     RAIN B 0 A_Look
     RAIN B 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -748,6 +749,7 @@ ACTOR JumpingSkullNew replaces JumpingSkull 32121
   HitObituary "%o was bitten by a bouncing skull."
   States
   {
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
   Spawn:
     JSKL A 0 A_Look
     JSKL A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -860,6 +862,7 @@ ACTOR JumpingSkull2New replaces JumpingSkull2 3646 //spawns skull ghosts
   ALPHA 0.67
   States
   {
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
   Spawn:
     JSKL A 0 A_Look
     JSKL A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -989,6 +992,7 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon 3115
   HitObituary "%o wanted to float with all the pretty balloons."
   States
   {
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
   Spawn:
     BSTN A 0 A_Look
     BSTN A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -1123,6 +1127,7 @@ ACTOR BingoNew replaces Bingo 4110
   MissileType RevRocket
   States 
   { 
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
   Spawn:
     CHED A 0 A_Look
     CHED A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -1258,6 +1263,7 @@ ACTOR TinyBingoNew replaces TinyBingo 4179
   MissileType MyBall
   States 
   { 
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
   Spawn:
     CHED A 0 A_Look
     CHED A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -1370,6 +1376,7 @@ actor BeefyNew replaces Beefy 4333
   MissileType MyBall2
   States
   {
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
   Spawn:
     CIMP A 0 A_Look
     CIMP A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -1550,6 +1557,7 @@ ACTOR BlackBearNew replaces BlackBear 3191
   ExplosionDamage 11
   States
   {
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
   Spawn:
     BBER A 0 A_Look
     BBER A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -1685,6 +1693,7 @@ actor ClownGhostNew replaces ClownGhost 32128
   MissileType SkullSeeker2 
   States 
   { 
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
   Spawn:
     GHOS C 0 A_Look
     GHOS C 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -1850,6 +1859,7 @@ actor ClownGhost2New replaces ClownGhost2 31211
   MissileType Ghost2Ball
   States 
   { 
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
   Spawn:
     GST2 A 0 A_Look
     GST2 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -1988,6 +1998,7 @@ actor BulbyNew replaces Bulby 3906
   MissileType BulbyBall
   States 
   { 
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
   Spawn:
     LDEM A 0 A_Look
     LDEM A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -2159,6 +2170,7 @@ actor MegaBulbyNew replaces MegaBulby 3989
   MissileType BulbyBall3
   States 
   { 
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
   Spawn:
     LDEM G 0 A_Look
     LDEM G 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -2329,6 +2341,7 @@ ACTOR BigBertha2New replaces BigBertha2 3192
   MissileType BlackBear
   States 
   { 
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
   Spawn:
     BRTH A 0 A_Look
     BRTH A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -2489,6 +2502,7 @@ actor SuperBerthaNew replaces SuperBertha 14768
   DamageFactor "Magic", 0.875
   States
   {
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
   Spawn:
     BRTH A 0 A_Look
     BRTH A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -2649,6 +2663,7 @@ ACTOR EvilDeadHandNew replaces EvilDeadHand 32212
   Obituary "%o was choked to death by the Evil Dead hand." 
   States
   {
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
   Spawn:
     HAND A 0 A_Look
     HAND A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -2812,6 +2827,7 @@ ACTOR BouncingClownNew replaces BouncingClown 4822
   DamageFactor "Normal", 0.125 // Most other damage doesn't work well [1/8th normal damage]
   States
   {
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
   Spawn:
     BCWN A 0 A_Look
     BCWN A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -2963,6 +2979,7 @@ ACTOR BabyClownNew replaces BabyClown 4823
   Obituary "%o was killed by a bouncing popcorn clown."
   States
   {
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
   Spawn:
     BCWN A 0 A_Look
     BCWN A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -3092,6 +3109,7 @@ ACTOR BabyClown2New replaces BabyClown2 4825
   Obituary "%o was killed by a bouncing popcorn clown."
   States
   {
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
   Spawn:
     CRWL A 0 A_Look
     CRWL A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -3233,6 +3251,7 @@ actor PennywiseHead2New replaces PennywiseHead 14421
   MissileType Ghost2Ball
   States 
   { 
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
   Spawn:
     CFHD A 0 A_Look
     CFHD A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -3405,6 +3424,7 @@ actor PennywiseBoss replaces Pennywise 3672
 
   States
   {
+  Pain.Charm: Goto See
   Spawn:
     PLIT J 0 A_Look
     PLIT J 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
