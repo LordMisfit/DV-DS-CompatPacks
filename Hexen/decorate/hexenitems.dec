@@ -1,20 +1,7 @@
 ACTOR ArtiTorchNew : RandomSpawner replaces ArtiTorch
 {
     +DONTGIB
-    DropItem "CrystalVial", 96, 18
-    DropItem "ArtiHealth", 96, 18
-    DropItem "MedicinalHerb", 96, 14
-    DropItem "ArtiSuperHealth", 96, 14
-    DropItem "StrongMedicine", 96, 10
-    DropItem "SpecialMedicine", 96, 10
-    DropItem "PaxaPunch", 96, 5
-    DropItem "MercuryBandana", 96, 5
-    DropItem "ArtiBoostMana", 96, 3
-    DropItem "YggdrasilDew", 96, 3
-    DropItem "LesserVimstone", 96, 3
-    DropItem "ArtiHealingRadiusNew" 96, 3
-    DropItem "GreaterVimstone", 96, 1
-    DropItem "RandomArmorNew", 96, 1
+    DropItem "RandomMagicSpawner", 256
 }
 
 ACTOR ArtiPorkNew : ArtiPork replaces ArtiPork
@@ -474,14 +461,17 @@ ACTOR Mana1New : Ammo replaces Mana1
 	States
 	{
 	Spawn:
-        TNT1 A 0 NoDelay A_SpawnItemEx("DoomSpellMana",0,0,0,0,0,0,0,0,0)
-        TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,56)
-        TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,206)
-   	    TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,243)
-   	    TNT1 A 0 A_SpawnItemEx("DiarisArrow",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,224)
-   	    TNT1 A 0 A_SpawnItemEx("DiarisArrow",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,224)
-   	    TNT1 A 0 A_SpawnItemEx("DiarisArrowQuiver",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,252)
-   	    TNT1 A 0 A_SpawnItemEx("DiarisArrowQuiver",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,252)
+        TNT1 A 0 NoDelay
+        {
+		 A_SpawnItemEx("DoomSpellMana",0,0,0,0,0,0,0,0,0);
+         A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,56);
+         A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,206);
+   	     A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,243);
+   	     A_SpawnItemEx("DiarisArrow",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,224);
+   	     A_SpawnItemEx("DiarisArrow",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,224);
+   	     A_SpawnItemEx("DiarisArrowQuiver",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,252);
+   	     A_SpawnItemEx("DiarisArrowQuiver",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,252);
+		}
 		Stop
 	}
 }
@@ -504,14 +494,17 @@ ACTOR Mana2New : Ammo replaces Mana2
 	States
 	{
 	Spawn:
-        TNT1 A 0 NoDelay A_SpawnItemEx("DoomSpellMana",0,0,0,0,0,0,0,0,0)
-        TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,56)
-        TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,206)
-   	    TNT1 A 0 A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,243)
-   	    TNT1 A 0 A_SpawnItemEx("DiarisArrow",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,224)
-   	    TNT1 A 0 A_SpawnItemEx("DiarisArrow",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,224)
-   	    TNT1 A 0 A_SpawnItemEx("DiarisArrowQuiver",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,252)
-   	    TNT1 A 0 A_SpawnItemEx("DiarisArrowQuiver",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,252)
+        TNT1 A 0 NoDelay
+        {
+		 A_SpawnItemEx("DoomSpellMana",0,0,0,0,0,0,0,0,0);
+         A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,56);
+         A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,206);
+   	     A_SpawnItemEx("DoomSpellMana",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,243);
+   	     A_SpawnItemEx("DiarisArrow",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,224);
+   	     A_SpawnItemEx("DiarisArrow",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,224);
+   	     A_SpawnItemEx("DiarisArrowQuiver",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,252);
+   	     A_SpawnItemEx("DiarisArrowQuiver",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,252);
+		}
 		Stop
 	}
 }
@@ -534,14 +527,17 @@ ACTOR Mana3New : Ammo replaces Mana3
 	States
 	{
 	Spawn:
-        TNT1 A 0 NoDelay A_SpawnItemEx("DoomSpellMana2",0,0,0,0,0,0,0,0,0)
-        TNT1 A 0 A_SpawnItemEx("DoomSpellMana2",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,56)
-        TNT1 A 0 A_SpawnItemEx("DoomSpellMana2",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,206)
-   	    TNT1 A 0 A_SpawnItemEx("DoomSpellMana2",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,243)
-   	    TNT1 A 0 A_SpawnItemEx("DiarisArrow",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,192)
-   	    TNT1 A 0 A_SpawnItemEx("DiarisArrow",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,192)
-   	    TNT1 A 0 A_SpawnItemEx("DiarisArrowQuiver",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,248)
-   	    TNT1 A 0 A_SpawnItemEx("DiarisArrowQuiver",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,248)
+        TNT1 A 0 NoDelay
+        {
+		 A_SpawnItemEx("DoomSpellMana2",0,0,0,0,0,0,0,0,0);
+         A_SpawnItemEx("DoomSpellMana2",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,56);
+         A_SpawnItemEx("DoomSpellMana2",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,206);
+   	     A_SpawnItemEx("DoomSpellMana2",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,243);
+   	     A_SpawnItemEx("DiarisArrow",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,192);
+   	     A_SpawnItemEx("DiarisArrow",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,192);
+   	     A_SpawnItemEx("DiarisArrowQuiver",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,248);
+   	     A_SpawnItemEx("DiarisArrowQuiver",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,0,248);
+		}
 		Stop
 	}
 }
@@ -713,6 +709,7 @@ Actor Pottery1New : Pottery1 replaces Pottery1
  {
   Death:
     POT1 A 0 A_SpawnItemEx("RandomHerbSpawner",random(-8,8),random(-8,8),0,random(-8,8),random(-8,8),0,0,SXF_NOCHECKPOSITION,192,tid)
+    POT1 A 0 A_SpawnItemEx("RandomMagicSpawner",random(-8,8),random(-8,8),0,random(-8,8),random(-8,8),0,0,SXF_NOCHECKPOSITION,222,tid)
     POT1 A 0 A_SpawnItemEx("RandomSeedDropAlways",random(-8,8),random(-8,8),0,random(-8,8),random(-8,8),0,0,SXF_NOCHECKPOSITION,252,tid)
     POT1 A 0 A_PotteryExplode
     Stop
@@ -725,6 +722,7 @@ Actor Pottery2New : Pottery2 replaces Pottery2
  {
   Death:
     POT1 A 0 A_SpawnItemEx("RandomHerbSpawner",random(-8,8),random(-8,8),0,random(-8,8),random(-8,8),0,0,SXF_NOCHECKPOSITION,208,tid)
+    POT1 A 0 A_SpawnItemEx("RandomMagicSpawner",random(-8,8),random(-8,8),0,random(-8,8),random(-8,8),0,0,SXF_NOCHECKPOSITION,231,tid)
     POT1 A 0 A_SpawnItemEx("RandomSeedDropAlways",random(-8,8),random(-8,8),0,random(-8,8),random(-8,8),0,0,SXF_NOCHECKPOSITION,253,tid)
     POT1 A 0 A_PotteryExplode
     Stop
@@ -737,6 +735,7 @@ Actor Pottery3New : Pottery3 replaces Pottery3
  {
   Death:
     POT1 A 0 A_SpawnItemEx("RandomHerbSpawner",random(-8,8),random(-8,8),0,random(-8,8),random(-8,8),0,0,SXF_NOCHECKPOSITION,224,tid)
+    POT1 A 0 A_SpawnItemEx("RandomMagicSpawner",random(-8,8),random(-8,8),0,random(-8,8),random(-8,8),0,0,SXF_NOCHECKPOSITION,239,tid)
     POT1 A 0 A_SpawnItemEx("RandomSeedDropAlways",random(-8,8),random(-8,8),0,random(-8,8),random(-8,8),0,0,SXF_NOCHECKPOSITION,254,tid)
     POT1 A 0 A_PotteryExplode
     Stop
