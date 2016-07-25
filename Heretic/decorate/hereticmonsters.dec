@@ -197,6 +197,8 @@ actor HereticImpLeaderNew : HereticImpLeader replaces HereticImpLeader
  Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
  Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
 
+ Translation "141:141=144:144", "145:160=145:153", "248:254=248:251", "66:94=66:80", "95:110=95:103"
+
  states
  {
   Spawn:
