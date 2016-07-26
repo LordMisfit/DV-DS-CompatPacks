@@ -24,7 +24,7 @@ ACTOR ChickenNew : Chicken replaces Chicken
   Obituary "$OB_CHICKEN"
   States
   {
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); A_ChangeTID(0,1000) } Goto See
   Spawn:
     CHKN A 0 A_Look
     CHKN A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -106,7 +106,7 @@ actor HereticImpNew : HereticImp replaces HereticImp
 
  states
  {
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); A_ChangeTID(0,1000) } Goto See
   Spawn:
     IMPX A 0 A_Look
     IMPX A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -203,7 +203,7 @@ actor HereticImpLeaderNew : HereticImpLeader replaces HereticImpLeader
 
  states
  {
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); A_ChangeTID(0,1000) } Goto See
   Spawn:
     IMPX A 0 A_Look
     IMPX A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -294,7 +294,7 @@ actor MummyNew : Mummy replaces Mummy
 
  states
  {
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); A_ChangeTID(0,1000) } Goto See
   Spawn:
     MUMM A 0 A_Look
     MUMM A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -381,7 +381,7 @@ actor MummyGhostNew : MummyGhost replaces MummyGhost
 
  states
  {
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); A_ChangeTID(0,1000) } Goto See
   Spawn:
     MUMM A 0 A_Look
     MUMM A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -468,7 +468,7 @@ actor MummyLeaderNew : MummyLeader replaces MummyLeader
 
  states
  {
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); A_ChangeTID(0,1000) } Goto See
   Spawn:
     MUMA A 0 A_Look
     MUMA A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -564,7 +564,7 @@ actor MummyLeaderGhostNew : MummyLeaderGhost replaces MummyLeaderGhost
 
  states
  {
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); A_ChangeTID(0,1000) } Goto See
   Spawn:
     MUMA A 0 A_Look
     MUMA A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -660,7 +660,7 @@ ACTOR KnightNew : Knight replaces Knight
 
   States
   {
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); A_ChangeTID(0,1000) } Goto See
   Spawn:
     KNIG A 0 A_Look
     KNIG A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -750,7 +750,7 @@ ACTOR KnightGhostNew : KnightGhost replaces KnightGhost
 
   States
   {
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); A_ChangeTID(0,1000) } Goto See
   Spawn:
     KNIG A 0 A_Look
     KNIG A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -843,7 +843,7 @@ ACTOR WizardNew : Wizard replaces Wizard
 
   States
   {
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); A_ChangeTID(0,1000) } Goto See
   Spawn:
     WZRD A 0 A_Look
     WZRD A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -949,7 +949,7 @@ ACTOR IronlichNew : Ironlich replaces Ironlich
 
   States
   {
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); A_ChangeTID(0,1000) } Goto See
   Spawn:
     LICH A 0 A_Look
     LICH A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -1034,7 +1034,7 @@ ACTOR ClinkNew : Clink replaces Clink
 
   States
   {
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); A_ChangeTID(0,1000) } Goto See
   Spawn:
     CLNK A 0 A_Look
     CLNK A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -1120,7 +1120,7 @@ ACTOR BeastNew : Beast replaces Beast
 
   States
   {
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); A_ChangeTID(0,1000) } Goto See
   Spawn:
     BEAS A 0 A_Look
     BEAS A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -1223,7 +1223,7 @@ ACTOR MaulotaurNew : Minotaur replaces Minotaur
   +AVOIDMELEE
   States
   {
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); A_ChangeTID(0,1000) } Goto See
   Spawn:
     MNTR A 0 A_Look
     MNTR A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -1367,7 +1367,7 @@ ACTOR SnakeNew : Snake replaces Snake
 
   States
   {
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); A_ChangeTID(0,1000) } Goto See
   Spawn:
     SNKE A 0 A_Look
     SNKE A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
