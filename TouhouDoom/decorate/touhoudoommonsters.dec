@@ -39,7 +39,7 @@ ACTOR Fairy1New : Fairy1 replaces Fairy1 31134
   HitObituary "%o got wrecked by a fairy. Disappointing, is it not?"
   States
   {
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); A_ChangeTID(0,1000) } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See
   Spawn:
     FAR1 A 0 A_Look
     FAR1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -151,7 +151,7 @@ ACTOR Fairy2New : Fairy2 replaces Fairy2 31135
   HitObituary "%o got wrecked by a fairy."
   States
   {
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); A_ChangeTID(0,1000) } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See
   Spawn:
     FAR1 A 0 A_Look
     FAR1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -276,7 +276,7 @@ ACTOR Fairy3New : Fairy3 replaces Fairy3 31151
   HitObituary "%o got wrecked by a fairy."
   States
   {
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); A_ChangeTID(0,1000) } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See
   Spawn:
     FAR2 A 0 A_Look
     FAR2 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -418,7 +418,7 @@ ACTOR Fairy4New : Fairy4 replaces Fairy4 31150
   HitObituary "%o got wrecked by a fairy."
   States
   {
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); A_ChangeTID(0,1000) } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See
   Spawn:
     FAR2 A 0 A_Look
     FAR2 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -570,7 +570,7 @@ ACTOR Fairy5New : Fairy5 replaces Fairy5 31157
   HitObituary "%o got wrecked by a fairy."
   States
   {
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); A_ChangeTID(0,1000) } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See
   Spawn:
     FAR3 A 0 A_Look
     FAR3 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)

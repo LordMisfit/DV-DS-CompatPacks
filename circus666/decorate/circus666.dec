@@ -375,7 +375,7 @@ ACTOR PennywiseHeadNew replaces Pennywise 32119
   HitObituary "%o was eaten by the Pennywise the Dancing Clown"
   States
   {
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); A_ChangeTID(0,1000) } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See
   Spawn:
     PENY A 0 A_Look
     PENY A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -495,7 +495,7 @@ ACTOR JumpingSkullNew replaces JumpingSkull 3117
   HitObituary "%o was bitten by a bouncing skull."
   States
   {
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); A_ChangeTID(0,1000) } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See
   Spawn:
     JUMP A 0 A_Look
     JUMP A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -606,7 +606,7 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon 3115
   HitObituary "%o wanted to float with all the pretty balloons."
   States
   {
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); A_ChangeTID(0,1000) } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See
   Spawn:
     BSTN A 0 A_Look
     BSTN A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -878,7 +878,7 @@ ACTOR ClownHeadNew replaces ClownHead 3206
   MissileType RevRocket
   States 
   { 
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); A_ChangeTID(0,1000) } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See
   Spawn:
     CHED A 0 A_Look
     CHED A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)

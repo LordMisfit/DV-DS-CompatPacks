@@ -212,17 +212,6 @@ ACTOR CrystalVialNew : CustomInventory replaces CrystalVial
   Inventory.PickupMessage "$TXT_ITEMHEALTH" // "CRYSTAL VIAL"
   States
   {
-    VimstoneSpawn:
-     TNT1 A 0 A_Jump(4,"VimstoneSpawn2")    
-     goto Spawn+2
-    VimstoneSpawn2:
-     TNT1 A 0 A_Jump(64,3)    
-     TNT1 A 0 A_SpawnItemEx("LesserVimstone",0,0,0,0,0,0,0,0,0)  
-     TNT1 A 0 A_Jump(256,2)    
-     TNT1 A 0 A_SpawnItemEx("GreaterVimstone",0,0,0,0,0,0,0,0,0)  
-     TNT1 A 0 
-     goto Spawn+2
-
     Herb1:
      TNT1 A 0 A_SpawnItemEx("MedicinalHerb",0,0,0,0,0,0,0,0,0)
      TNT1 A 0 A_SpawnItemEx("MedicinalHerb",0,0,0,random(-3,3),random(-3,3),random(-3,3),0,0,224)
@@ -257,7 +246,26 @@ ACTOR CrystalVialNew : CustomInventory replaces CrystalVial
 
   Spawn:
     TNT1 A 0
-    TNT1 A 0 A_Jump(16,"VimstoneSpawn")    
+    TNT1 A 0
+	{
+	 // Monster Munchies
+	 if (random(1,128) <= 1)
+	 {
+	  A_SpawnItemEx("MonsterMunchies",0,0,0,random(-4,4),random(-4,4),random(-4,4),0,0,0);
+	 }
+	 // Vimstones
+	 if (random(1,1024) <= 1)
+	 {
+	  if (random(1,4) <= 3)
+	  {
+	   A_SpawnItemEx("LesserVimstone",0,0,0,0,0,0,0,0,0);
+	  }
+	  else
+	  {
+       A_SpawnItemEx("GreaterVimstone",0,0,0,0,0,0,0,0,0);
+	  }
+	 }
+	}
     TNT1 A 0 A_Jump(36,"TurnIntoHerb") 
   Idle:
     PTN1 ABC 3
@@ -362,6 +370,11 @@ actor BagOfHoldingNew : CustomInventory replaces BagOfHolding
      if (Random(1,1000) <= 333) { A_SpawnItemEx("DiarisArrow",0,0,0,random(-5,5),random(-5,5),0); }
      if (Random(1,1000) <= 167) { A_SpawnItemEx("DiarisArrow",0,0,0,random(-5,5),random(-5,5),0); }
      if (Random(1,1000) <=  84) { A_SpawnItemEx("DiarisArrowQuiver",0,0,0,random(-5,5),random(-5,5),0); }
+
+     if (Random(1,1000) <= 125) { A_SpawnItemEx("MonsterMunchies",0,0,0,random(-5,5),random(-5,5),0); }
+     if (Random(1,1000) <= 125) { A_SpawnItemEx("MonsterMunchies",0,0,0,random(-5,5),random(-5,5),0); }
+     if (Random(1,1000) <= 125) { A_SpawnItemEx("MonsterMunchies",0,0,0,random(-5,5),random(-5,5),0); }
+     if (Random(1,1000) <= 125) { A_SpawnItemEx("MonsterMunchies",0,0,0,random(-5,5),random(-5,5),0); }
 	}
    Idle:
     BAGH A -1 
