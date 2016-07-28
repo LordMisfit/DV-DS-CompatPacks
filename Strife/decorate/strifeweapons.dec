@@ -169,6 +169,21 @@ Actor NNSigil : Weapon
    }
 }
 
+ACTOR SpectralLightningBaseNew : SpectralLightningBase replaces SpectralLightningBase { +SPECTRAL DamageType "Sigil" }
+ACTOR SpectralLightningBall1New : SpectralLightningBall1 replaces SpectralLightningBall1 { +SPECTRAL DamageType "Sigil" }
+ACTOR SpectralLightningBall2New : SpectralLightningBall2 replaces SpectralLightningBall2 { +SPECTRAL DamageType "Sigil" }
+ACTOR SpectralLightningDeath1New : SpectralLightningDeath1 replaces SpectralLightningDeath1 { +SPECTRAL DamageType "Sigil" }
+ACTOR SpectralLightningDeath2New : SpectralLightningDeath2 replaces SpectralLightningDeath2 { +SPECTRAL DamageType "Sigil" }
+ACTOR SpectralLightningDeathShortNew : SpectralLightningDeathShort replaces SpectralLightningDeathShort { +SPECTRAL DamageType "Sigil" }
+ACTOR SpectralLightningBigBall1New : SpectralLightningBigBall1 replaces SpectralLightningBigBall1 { +SPECTRAL DamageType "Sigil" }
+ACTOR SpectralLightningBigBall2New : SpectralLightningBigBall2 replaces SpectralLightningBigBall2 { +SPECTRAL DamageType "Sigil" }
+ACTOR SpectralLightningV1New : SpectralLightningV1 replaces SpectralLightningV1 { +SPECTRAL DamageType "Sigil" }
+ACTOR SpectralLightningV2New : SpectralLightningV2 replaces SpectralLightningV2 { +SPECTRAL DamageType "Sigil" }
+ACTOR SpectralLightningH1New : SpectralLightningH1 replaces SpectralLightningH1 { +SPECTRAL DamageType "Sigil" }
+ACTOR SpectralLightningH2New : SpectralLightningH2 replaces SpectralLightningH2 { +SPECTRAL DamageType "Sigil" }
+ACTOR SpectralLightningH3New : SpectralLightningH3 replaces SpectralLightningH3 { +SPECTRAL DamageType "Sigil" }
+ACTOR SpectralLightningSpotNew : SpectralLightningSpot replaces SpectralLightningSpot { +SPECTRAL DamageType "Sigil" }
+
 Actor NNSigil3AttackCounter : Inventory
 {
    Inventory.MaxAmount 20
@@ -182,6 +197,7 @@ DamageType NNSigilUse
 Actor NNSigilLightningSpot : SpectralLightningSpot
 {
    +SPECTRAL //This flag is needed, otherwise the SpectralLightningV1/V2
+   DamageType "Sigil"
    States    //actors won't damage the spectres. Wierd.
    {
    Spawn:
@@ -199,6 +215,7 @@ Actor NNSigilLightningSpot : SpectralLightningSpot
 Actor NNSigilLightningBigV : SpectralLightningBigV1
 {
    Decal "BaronScorch"
+   DamageType "Sigil"
    States
    {
    Spawn:
