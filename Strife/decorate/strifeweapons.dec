@@ -177,8 +177,8 @@ ACTOR SpectralLightningDeath2New : SpectralLightningDeath2 replaces SpectralLigh
 ACTOR SpectralLightningDeathShortNew : SpectralLightningDeathShort replaces SpectralLightningDeathShort { +SPECTRAL DamageType "Sigil" }
 ACTOR SpectralLightningBigBall1New : SpectralLightningBigBall1 replaces SpectralLightningBigBall1 { +SPECTRAL DamageType "Sigil" }
 ACTOR SpectralLightningBigBall2New : SpectralLightningBigBall2 replaces SpectralLightningBigBall2 { +SPECTRAL DamageType "Sigil" }
-ACTOR SpectralLightningV1New : SpectralLightningV1 replaces SpectralLightningV1 { +SPECTRAL DamageType "Sigil" }
-ACTOR SpectralLightningV2New : SpectralLightningV2 replaces SpectralLightningV2 { +SPECTRAL DamageType "Sigil" }
+ACTOR SpectralLightningV1New : SpectralLightningV1 replaces SpectralLightningV1 { +SPECTRAL DamageType "Sigil" DamageType "SpectralLow" }
+ACTOR SpectralLightningV2New : SpectralLightningV2 replaces SpectralLightningV2 { +SPECTRAL DamageType "Sigil" DamageType "SpectralLow" }
 ACTOR SpectralLightningH1New : SpectralLightningH1 replaces SpectralLightningH1 { +SPECTRAL DamageType "Sigil" }
 ACTOR SpectralLightningH2New : SpectralLightningH2 replaces SpectralLightningH2 { +SPECTRAL DamageType "Sigil" }
 ACTOR SpectralLightningH3New : SpectralLightningH3 replaces SpectralLightningH3 { +SPECTRAL DamageType "Sigil" }
