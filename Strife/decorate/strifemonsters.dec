@@ -1,4 +1,496 @@
-// PEASENTS
+// PEASANTS
+ACTOR PeasantNew : Peasant replaces Peasant
+{
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel;
+  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+  var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  Health 31
+  PainChance 200
+  Speed 8
+  Radius 20
+  Height 56
+  Monster
+  +NEVERTARGET
+  -COUNTKILL
+  +NOSPLASHALERT
+  +FLOORCLIP
+  +JUSTHIT
+  MinMissileChance 150
+  MaxStepHeight 16
+  MaxDropoffHeight 32
+  SeeSound "peasant/sight"
+  AttackSound "peasant/attack"
+  PainSound "peasant/pain"
+  DeathSound "peasant/death"
+  HitObituary "$OB_PEASANT" // "%o should have never picked a fight with a civilian."
+  States
+  {
+  Spawn:
+    PEAS A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    PEAS A 10 A_Look2
+    Loop
+  See:
+    PEAS A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    PEAS AABBCCDD 5 A_Wander
+    Goto Spawn
+  Melee:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    PEAS E 10 A_FaceTarget
+    PEAS F 8 A_CustomMeleeAttack(2*random[PeasantAttack](1, 5)+2)
+    PEAS E 8
+    Goto See
+  Pain:
+    PEAS O 3
+    PEAS O 3 A_Pain
+    Goto Melee
+  Wound:
+    PEAS G 5
+    PEAS H 10 A_GetHurt
+    PEAS I 6
+    Goto Wound+1
+  Pain.GravityHP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+    Goto See
+  Pain.GravityMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+    Goto See
+  Pain.GravityHPMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+    Goto See
+  Pain.Sceptre:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 
+    Goto Pain
+  Death.Sceptre:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  Pain.Gauntlets:
+    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+    Goto Pain
+  Death.Gauntlets:
+    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  Death:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    PEAS G 5
+    PEAS H 5 A_Scream
+    PEAS I 6
+    PEAS J 5 A_NoBlocking
+    PEAS K 5
+    PEAS L 6
+    PEAS M 8
+    PEAS N 1400
+    GIBS U 5
+    GIBS V 1400
+    Stop
+  XDeath:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    GIBS M 5 A_TossGib
+    GIBS N 5 A_XScream
+    GIBS O 5 A_NoBlocking
+    GIBS PQRS 4 A_TossGib
+    Goto Death+9
+  Burn:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    BURN A 3 Bright A_PlaySoundEx("human/imonfire", "Voice")
+    BURN B 3 Bright A_DropFire
+    BURN C 3 Bright A_Wander
+    BURN D 3 Bright A_NoBlocking
+    BURN E 5 Bright A_DropFire
+    BURN FGH 5 Bright A_Wander
+    BURN I 5 Bright A_DropFire
+    BURN JKL 5 Bright A_Wander
+    BURN M 5 Bright A_DropFire
+    BURN NOPQPQ 5 Bright
+    BURN RSTU 7 Bright
+    BURN V -1
+    Stop
+  Disintegrate:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    DISR A 5 A_PlaySoundEx("misc/disruptordeath", "Voice")
+    DISR BC 5
+    DISR D 5 A_NoBlocking
+    DISR EF 5
+    DISR GHIJ 4
+    MEAT D 700
+    Stop
+  }
+}
+
+ACTOR Peasant1New : PeasantNew replaces Peasant1
+{
+  ConversationID 6
+  Speed 4
+}
+
+ACTOR Peasant2New : PeasantNew replaces Peasant2
+{
+  ConversationID 7
+  Speed 5
+}
+
+ACTOR Peasant3New : PeasantNew replaces Peasant3
+{
+  ConversationID 8
+  Speed 5
+}
+
+ACTOR Peasant4New : PeasantNew replaces Peasant4
+{
+  ConversationID 9
+  Translation 0
+  Speed 7
+}
+
+ACTOR Peasant5New : PeasantNew replaces Peasant5
+{
+  ConversationID 10
+  Translation 0
+  Speed 7
+}
+
+ACTOR Peasant6New : PeasantNew replaces Peasant6
+{
+  ConversationID 11
+  Translation 0
+  Speed 7
+}
+
+ACTOR Peasant7New : PeasantNew replaces Peasant7
+{
+  ConversationID 12
+  Translation 2
+}
+
+ACTOR Peasant8New : PeasantNew replaces Peasant8
+{
+  ConversationID 13
+  Translation 2
+}
+
+ACTOR Peasant9New : PeasantNew replaces Peasant9
+{
+  ConversationID 14
+  Translation 2
+}
+
+ACTOR Peasant10New : PeasantNew replaces Peasant10
+{
+  ConversationID 15
+  Translation 1
+}
+
+ACTOR Peasant11New : PeasantNew replaces Peasant11
+{
+  ConversationID 16
+  Translation 1
+}
+
+ACTOR Peasant12New : PeasantNew replaces Peasant12
+{
+  ConversationID 17
+  Translation 1
+}
+
+ACTOR Peasant13New : PeasantNew replaces Peasant13
+{
+  ConversationID 18
+  Translation 3
+}
+
+ACTOR Peasant14New : PeasantNew replaces Peasant14
+{
+  ConversationID 19
+  Translation 3
+}
+
+ACTOR Peasant15New : PeasantNew replaces Peasant15
+{
+  ConversationID 20
+  Translation 3
+}
+
+ACTOR Peasant16New : PeasantNew replaces Peasant16
+{
+  ConversationID 21
+  Translation 5
+}
+
+ACTOR Peasant17New : PeasantNew replaces Peasant17
+{
+  ConversationID 22
+  Translation 5
+}
+
+ACTOR Peasant18New : PeasantNew replaces Peasant18
+{
+  ConversationID 23
+  Translation 5
+}
+
+ACTOR Peasant19New : PeasantNew replaces Peasant19
+{
+  ConversationID 24
+  Translation 4
+}
+
+ACTOR Peasant20New : PeasantNew replaces Peasant20
+{
+  ConversationID 25
+  Translation 4
+}
+
+ACTOR Peasant21New : PeasantNew replaces Peasant21
+{
+  ConversationID 26
+  Translation 4
+}
+
+ACTOR Peasant22New : PeasantNew replaces Peasant22
+{
+  ConversationID 27
+  Translation 6
+}
+
+// BEGGARS
+ACTOR BeggarNew : Beggar replaces Beggar // Base Class
+{
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel;
+  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+  var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  Health 20
+  PainChance 250
+  Speed 3
+  Radius 20
+  Height 56
+  Monster
+  +JUSTHIT
+  -COUNTKILL
+  +NOSPLASHALERT
+  MinMissileChance 150
+  Tag "$TAG_BEGGAR" // "Beggar"
+  MaxStepHeight 16
+  MaxDropoffHeight 32
+  HitObituary "$OB_BEGGAR" // "%o was beaten to death by the poor."
+  AttackSound "beggar/attack"
+  PainSound "beggar/pain"
+  DeathSound "beggar/death"
+
+  States
+  {
+  Spawn:
+    BEGR A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    BEGR A 10 A_Look
+    Loop
+  See:
+    BEGR A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    BEGR AABBCC 4 A_Wander
+    Loop
+  Melee:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    BEGR D 8
+    BEGR D 8 A_CustomMeleeAttack(2*random[PeasantAttack](1, 5)+2)
+    BEGR E 1 A_Chase
+    BEGR D 8 A_SentinelRefire
+    Loop
+  Pain:
+    BEGR A 3 A_Pain
+    BEGR A 3 A_Chase
+    Goto Melee
+  Pain.GravityHP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+    Goto See
+  Pain.GravityMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+    Goto See
+  Pain.GravityHPMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+    Goto See
+  Pain.Sceptre:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 
+    Goto Pain
+  Death.Sceptre:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  Pain.Gauntlets:
+    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+    Goto Pain
+  Death.Gauntlets:
+    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  Death:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    BEGR F 4
+    BEGR G 4 A_Scream
+    BEGR H 4
+    BEGR I 4 A_NoBlocking
+    BEGR JKLM 4
+    BEGR N -1
+    Stop
+  XDeath:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    BEGR F 5 A_TossGib
+    GIBS M 5 A_TossGib
+    GIBS N 5 A_XScream
+    GIBS O 5 A_NoBlocking
+    GIBS PQRST 4 A_TossGib
+    GIBS U 5
+    GIBS V 1400
+    Stop
+  Burn:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    BURN A 3 Bright A_PlaySoundEx("human/imonfire", "Voice")
+    BURN B 3 Bright A_DropFire
+    BURN C 3 Bright A_Wander
+    BURN D 3 Bright A_NoBlocking
+    BURN E 5 Bright A_DropFire
+    BURN FGH 5 Bright A_Wander
+    BURN I 5 Bright A_DropFire
+    BURN JKL 5 Bright A_Wander
+    BURN M 5 Bright A_DropFire
+    BURN NOPQPQ 5 Bright
+    BURN RSTU 7 Bright
+    BURN V -1
+    Stop
+  Disintegrate:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    DISR A 5 A_PlaySoundEx("misc/disruptordeath", "Voice")
+    DISR BC 5
+    DISR D 5 A_NoBlocking
+    DISR EF 5
+    DISR GHIJ 4
+    MEAT D 700
+    Stop
+  }
+}
+
+ACTOR Beggar1New : BeggarNew replaces Beggar1 
+{
+  ConversationID 38
+}
+
+ACTOR Beggar2New : BeggarNew replaces Beggar2 
+{
+  ConversationID 39
+}
+
+ACTOR Beggar3New : BeggarNew replaces Beggar3 
+{
+  ConversationID 40
+}
+
+ACTOR Beggar4New : BeggarNew replaces Beggar4 
+{
+  ConversationID 41
+}
+
+ACTOR Beggar5New : BeggarNew replaces Beggar5 
+{
+  ConversationID 42
+}
+
+// MERCHANTS
+ACTOR MerchantNew : Merchant replaces Merchant
+{
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel;
+  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+  var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+
+  Health 94
+  PainChance 256 // a merchant should always enter the pain state when getting hurt
+  Radius 20
+  Height 56
+  Mass 5000
+  CrushPainSound "misc/pcrush"
+  +SOLID
+  +SHOOTABLE
+  +NOTDMATCH
+  +NOSPLASHALERT
+  +NODAMAGE
+  States
+  {
+  Spawn:
+    MRST A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MRST A 10 A_Look2
+    Loop
+    MRLK A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MRLK A 30 A_ActiveSound
+    Loop
+    MRLK B 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MRLK B 30
+    Loop
+    MRBD A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MRBD ABCDEDCB 4
+    MRBD A 5
+    MRBD F 6
+    Loop
+  See:
+  Pain:
+    MRPN A 1
+    MRPN A 2 A_AlertMonsters
+    MRPN B 3 A_Pain
+    MRPN C 3
+    MRPN D 9 Door_CloseWaitOpen(999, 64, 960)
+    MRPN C 4
+    MRPN B 3
+    MRPN A 3 A_ClearSoundTarget
+    Goto Spawn
+  Yes:
+    MRYS A 20
+    // Fall through
+  Greetings:
+    MRGT ABCDEFGHI 5
+    Goto Spawn
+  No:
+    MRNO AB 6
+    MRNO C 10
+    MRNO BA 6
+    Goto Greetings
+  }
+}
+
+ACTOR WeaponSmithNew : MerchantNew replaces WeaponSmith
+{
+  ConversationID 2
+  PainSound "smith/pain"
+  Tag "$TAG_WEAPONSMITH" // "Weapon Smith"
+}
+
+ACTOR BarKeepNew : MerchantNew replaces BarKeep
+{
+  ConversationID 3
+  Translation 4
+  PainSound "barkeep/pain"
+  ActiveSound "barkeep/active"
+  Tag "$TAG_BARKEEP" // "Bar Keep"
+}
+
+ACTOR ArmorerNew : MerchantNew replaces Armorer
+{
+  ConversationID 4
+  Translation 5
+  PainSound "armorer/pain"
+  Tag "$TAG_ARMORER" // "Armorer"
+}
+
+ACTOR MedicNew : MerchantNew replaces Medic
+{
+  ConversationID 5
+  Translation 6
+  PainSound "medic/pain"
+  Tag "$TAG_MEDIC" // "Medic"
+}
 
 // THE FRONT
 ACTOR RebelNew : Rebel replaces Rebel // Base class for Rebels
@@ -97,6 +589,30 @@ ACTOR RebelNew : Rebel replaces Rebel // Base class for Rebels
     RGIB DEF 3 A_TossGib
     RGIB G 3
     RGIB H 1400
+    Stop
+  Burn:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    BURN A 3 Bright A_PlaySoundEx("human/imonfire", "Voice")
+    BURN B 3 Bright A_DropFire
+    BURN C 3 Bright A_Wander
+    BURN D 3 Bright A_NoBlocking
+    BURN E 5 Bright A_DropFire
+    BURN FGH 5 Bright A_Wander
+    BURN I 5 Bright A_DropFire
+    BURN JKL 5 Bright A_Wander
+    BURN M 5 Bright A_DropFire
+    BURN NOPQPQ 5 Bright
+    BURN RSTU 7 Bright
+    BURN V -1
+    Stop
+  Disintegrate:
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    DISR A 5 A_PlaySoundEx("misc/disruptordeath", "Voice")
+    DISR BC 5
+    DISR D 5 A_NoBlocking
+    DISR EF 5
+    DISR GHIJ 4
+    MEAT D 700
     Stop
   }
 }
@@ -281,6 +797,34 @@ ACTOR AcolyteNew : Acolyte replaces Acolyte
     AGRD MLKJ 3 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     AGRD IHG 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     goto See
+  Burn:
+    TNT1 A 0 A_GiveToTarget ("Coin", random(3,8))
+    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    BURN A 3 Bright A_PlaySoundEx("human/imonfire", "Voice")
+    BURN B 3 Bright A_DropFire
+    BURN C 3 Bright A_Wander
+    BURN D 3 Bright A_NoBlocking
+    BURN E 5 Bright A_DropFire
+    BURN FGH 5 Bright A_Wander
+    BURN I 5 Bright A_DropFire
+    BURN JKL 5 Bright A_Wander
+    BURN M 5 Bright A_DropFire
+    BURN NOPQPQ 5 Bright
+    BURN RSTU 7 Bright
+    BURN V -1
+    Stop
+  Disintegrate:
+    TNT1 A 0 A_GiveToTarget ("Coin", random(3,8))
+    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    DISR A 5 A_PlaySoundEx("misc/disruptordeath", "Voice")
+    DISR BC 5
+    DISR D 5 A_NoBlocking
+    DISR EF 5
+    DISR GHIJ 4
+    MEAT D 700
+    Stop
   }
 }
 
