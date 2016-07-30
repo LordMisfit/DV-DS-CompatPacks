@@ -1,3 +1,27 @@
+ACTOR PoisonBoltNew : PoisonBolt replaces PoisonBolt
+{
+  Speed 30
+  Radius 10
+  Height 10
+  Damage 50
+  Projectile
+  +STRIFEDAMAGE
+  DamageType "PoisonBolt"
+  MaxStepHeight 4
+  SeeSound "misc/swish"
+  ActiveSound "misc/swish"
+  Obituary "$OB_MPPOISONBOLT" // "%o recieved a lethal dose of %k's wrath."
+  States
+  {
+  Spawn:
+    ARWP A 10 A_LoopActiveSound
+    Loop
+  Death:
+    AROW A 1
+    Stop
+  }
+}
+
 ACTOR StrifeCrossbowNew : StrifeCrossbow replaces StrifeCrossbow
 {
   ConversationID 194
@@ -48,7 +72,7 @@ ACTOR StrifeCrossbow2New : StrifeCrossbow2 replaces StrifeCrossbow2
     Loop
   Fire:
     XBOW H 3
-    XBOW B 6 A_FireArrow("PoisonBolt")
+    XBOW B 6 A_FireArrow("PoisonBoltNew")
     XBOW C 4
     XBOW D 6
     XBOW E 3
