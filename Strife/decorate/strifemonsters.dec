@@ -1745,7 +1745,7 @@ ACTOR ProgrammerNew : Programmer replaces Programmer
   DeathSound "programmer/death"
   ActiveSound "programmer/active"
   Obituary "$OB_PROGRAMMER" // "%o was deleted by the Programmer."
-  DropItem "Sigil1"
+  //DropItem "Sigil1"
 
   States
   {
@@ -1820,7 +1820,11 @@ ACTOR ProgrammerNew : Programmer replaces Programmer
     PRGR S 6 Bright
     PRGR TUVW 5 Bright
     PRGR X 32 Bright
-    PRGR X -1 Bright A_ProgrammerDeath
+    PRGR X -1 Bright // A_ProgrammerDeath
+	{
+ 	 A_GiveInventory("Sigil1",1,AAPTR_PLAYER1); // Programmer dead
+ 	 A_GiveInventory("ProgLevelEnder",1,AAPTR_PLAYER1); // Programmer dead
+	}
     Stop
   XDeath:
     goto Death
@@ -2419,7 +2423,12 @@ ACTOR AlienSpectre1New : AlienSpectre1 replaces AlienSpectre1
     AL1P LM 5 Bright
     AL1P N 5 Bright A_SpectreChunkLarge
     AL1P OPQ 5 Bright
-    AL1P R 5 Bright A_AlienSpectreDeath
+    AL1P R 5 Bright // A_AlienSpectreDeath
+	{
+	 Floor_LowerToLowest(999,0);
+	 A_PlaySound("svox/voc95",2,1.0,0,ATTN_NONE);
+	 SendToCommunicator(95,0,0,0);
+	}
     Stop
   XDeath:
     goto Death
@@ -2437,7 +2446,7 @@ ACTOR AlienSpectre2New : AlienSpectre2 replaces AlienSpectre2
   Health 1200
   PainChance 50
   Radius 24
-  DropItem "Sigil2"
+  //DropItem "Sigil2"
   -SPECTRAL
 
   DamageFactor "Normal", 0.0001 // 0.01% damage from most attacks. :P
@@ -2533,7 +2542,14 @@ ACTOR AlienSpectre2New : AlienSpectre2 replaces AlienSpectre2
     AL1P LM 5 Bright
     AL1P N 5 Bright A_SpectreChunkLarge
     AL1P OPQ 5 Bright
-    AL1P R 5 Bright A_AlienSpectreDeath
+    AL1P R 5 Bright // A_AlienSpectreDeath
+	{
+	 A_PrintBold("YOU HAVE SLAIN THE BISHOP!");
+	 A_PlaySound("svox/voc74",2,1.0,0,ATTN_NONE);
+	 SendToCommunicator(74,0,0,0);
+ 	 A_GiveInventory("Sigil2",1,AAPTR_PLAYER1); // Bishop dead
+ 	 A_GiveInventory("QuestItem21",1,AAPTR_PLAYER1); // Bishop dead
+	}
     Stop
   XDeath:
     goto Death
@@ -2552,7 +2568,7 @@ ACTOR AlienSpectre3New : AlienSpectre3 replaces AlienSpectre3
   PainChance 50
   Radius 24
   +SPAWNCEILING
-  DropItem "Sigil3"
+  //DropItem "Sigil3"
   -SPECTRAL
 
   DamageFactor "SpectralLow", 0 // Sigil level 1 cannot hurt them
@@ -2648,7 +2664,32 @@ ACTOR AlienSpectre3New : AlienSpectre3 replaces AlienSpectre3
     AL1P LM 5 Bright
     AL1P N 5 Bright A_SpectreChunkLarge
     AL1P OPQ 5 Bright
-    AL1P R 5 Bright A_AlienSpectreDeath
+    AL1P R 5 Bright // A_AlienSpectreDeath
+	{
+	 A_PrintBold("THE ORACLE HAS FALLEN!");
+	 Thing_Destroy(900, 0); // Kill all Oracles.
+	 Door_Open(222, 8);
+	 A_GiveInventory("QuestItem23",1,AAPTR_PLAYER1); // Oracle dead
+	 
+     // If bishop is dead, mark Oracle as dead.
+	 if(CountInv("QuestItem21",AAPTR_PLAYER1) > 0)
+	 {
+	  A_GiveInventory("QuestItem22",1,AAPTR_PLAYER1); // Oracle dead
+	 }
+
+	 if(CountInv("QuestItem24",AAPTR_PLAYER1) > 0) // If Macil is already dead...
+	 {
+ 	  A_PlaySound("svox/voc85",2,1.0,0,ATTN_NONE);
+  	  A_GiveInventory("Sigil5",1,AAPTR_PLAYER1);
+	  SendToCommunicator(85,0,0,0); // You wield the power of the complete sigil.
+	 }
+	 else // If Macil still alive...
+	 {
+ 	  A_PlaySound("svox/voc87",2,1.0,0,ATTN_NONE);
+ 	  A_GiveInventory("Sigil3",1,AAPTR_PLAYER1);
+	  SendToCommunicator(87,0,0,0); // Macil is calling us back...
+	 }
+	}
     Stop
   XDeath:
     goto Death
@@ -2763,7 +2804,31 @@ ACTOR AlienSpectre4New : AlienSpectre4 replaces AlienSpectre4
     AL1P LM 5 Bright
     AL1P N 5 Bright A_SpectreChunkLarge
     AL1P OPQ 5 Bright
-    AL1P R 5 Bright A_AlienSpectreDeath
+    AL1P R 5 Bright // A_AlienSpectreDeath
+	{
+	 A_PrintBold("MACIL HAS BEEN PUT OUT OF HIS MISERY!");
+	 A_GiveInventory("QuestItem24",1,AAPTR_PLAYER1); // Oracle dead
+	 
+	 if(CountInv("QuestItem23",AAPTR_PLAYER1) > 0) // If Oracle is already dead...
+	 {
+ 	  A_GiveInventory("Sigil4",1,AAPTR_PLAYER1);
+	 }
+	 else
+	 {
+ 	  A_GiveInventory("Sigil3",1,AAPTR_PLAYER1);
+	 }
+
+	 if(CountInv("QuestItem25",AAPTR_PLAYER1) > 0) // If Loremaster is dead
+	 {
+ 	  A_PlaySound("svox/voc106",2,1.0,0,ATTN_NONE);
+	  SendToCommunicator(106,0,0,0); // Back to the factory for another Sigil!
+	 }
+	 else // If Conversion Chapel mission not complete...
+	 {
+ 	  A_PlaySound("svox/voc79",2,1.0,0,ATTN_NONE);
+	  SendToCommunicator(79,0,0,0); // Richter has taken over. Macil is a snake.
+	 }
+	}
     Stop
   XDeath:
     goto Death
@@ -2877,7 +2942,25 @@ ACTOR AlienSpectre5New : AlienSpectre5 replaces AlienSpectre5
     AL1P LM 5 Bright
     AL1P N 5 Bright A_SpectreChunkLarge
     AL1P OPQ 5 Bright
-    AL1P R 5 Bright A_AlienSpectreDeath
+    AL1P R 5 Bright // A_AlienSpectreDeath
+	{
+	 A_PrintBold("MACIL HAS BEEN PUT OUT OF HIS MISERY!");
+	 Floor_LowerToLowest(666, 8);
+	 A_GiveInventory("QuestItem25",1,AAPTR_PLAYER1); // Loremaster dead
+	 
+	 if(CountInv("QuestItem24",AAPTR_PLAYER1) > 0) // If Oracle is already dead...
+	 {
+ 	  A_GiveInventory("Sigil5",1,AAPTR_PLAYER1);
+ 	  A_PlaySound("svox/voc85",2,1.0,0,ATTN_NONE);
+	  SendToCommunicator(85,0,0,0); // Back to the factory for another Sigil!
+	 }
+	 else
+	 {
+ 	  A_GiveInventory("Sigil4",1,AAPTR_PLAYER1);
+ 	  A_PlaySound("svox/voc83",2,1.0,0,ATTN_NONE);
+	  SendToCommunicator(83,0,0,0); // Another Sigil piece. Woohoo!
+	 }
+	}
     Stop
   XDeath:
     goto Death

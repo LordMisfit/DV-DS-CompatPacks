@@ -1,3 +1,6 @@
+// Bag/Satchel
+
+// Armor
 ACTOR LeatherArmorNew : LeatherArmor replaces LeatherArmor
 {
   Radius 20
