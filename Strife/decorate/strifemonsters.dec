@@ -2425,7 +2425,7 @@ ACTOR AlienSpectre1New : AlienSpectre1 replaces AlienSpectre1
     AL1P OPQ 5 Bright
     AL1P R 5 Bright // A_AlienSpectreDeath
 	{
-	 Floor_LowerToLowest(999,0);
+	 Floor_LowerToLowest(999, 8);
 	 A_PlaySound("svox/voc95",2,1.0,0,ATTN_NONE);
 	 SendToCommunicator(95,0,0,0);
 	}
