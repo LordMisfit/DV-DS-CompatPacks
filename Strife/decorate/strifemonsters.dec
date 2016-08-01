@@ -2944,7 +2944,7 @@ ACTOR AlienSpectre5New : AlienSpectre5 replaces AlienSpectre5
     AL1P OPQ 5 Bright
     AL1P R 5 Bright // A_AlienSpectreDeath
 	{
-	 A_PrintBold("MACIL HAS BEEN PUT OUT OF HIS MISERY!");
+	 A_PrintBold("THE LOREMASTER NOW FOREVER RESTS!");
 	 Floor_LowerToLowest(666, 8);
 	 A_GiveInventory("QuestItem25",1,AAPTR_PLAYER1); // Loremaster dead
 	 
