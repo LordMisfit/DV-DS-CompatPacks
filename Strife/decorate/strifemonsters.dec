@@ -1947,7 +1947,7 @@ ACTOR OracleNew : Oracle replaces Oracle
   +NOBLOOD
   +NEVERRESPAWN
   DamageFactor "Fire", 0.5
-  DamageFactor "SpectralLow", 0 // Sigil level 1 cannot hurt them
+  DamageFactor "SpectralLow", 0.25 // Sigil level 1 can barely hurt them
   MaxDropoffHeight 32
   Tag "$TAG_ORACLE" // "Oracle"
   DropItem "Meat"
@@ -2086,7 +2086,7 @@ ACTOR Macil2New : Macil2 replaces Macil2
   DropItem "None"
   -SPECTRAL
 
-  DamageFactor "SpectralLow", 0 // Sigil level 1 cannot hurt them
+  DamageFactor "SpectralLow", 0.125 // Sigil level 1 cannot hurt them
   DamageFactor "Normal", 0.0001 // 0.01% damage from most attacks. :P
   // After this, set all vulnerablities to what you want them to have to what you want. :P
   DamageFactor "Sceptre", 1
@@ -2330,6 +2330,7 @@ ACTOR AlienSpectre1New : AlienSpectre1 replaces AlienSpectre1
   +NOICEDEATH
   -SPECTRAL
 
+  DamageFactor "SpectralLow", 1 // Sigil level 1 can hurt them
   DamageFactor "Normal", 0.0001 // 0.01% damage from most attacks. :P
   // After this, set all vulnerablities to what you want them to have to what you want. :P
   DamageFactor "Sceptre", 1
@@ -2449,6 +2450,7 @@ ACTOR AlienSpectre2New : AlienSpectre2 replaces AlienSpectre2
   //DropItem "Sigil2"
   -SPECTRAL
 
+  DamageFactor "SpectralLow", 0.75 // Sigil level 1 can mostly hurt them
   DamageFactor "Normal", 0.0001 // 0.01% damage from most attacks. :P
   // After this, set all vulnerablities to what you want them to have to what you want. :P
   DamageFactor "Sceptre", 1
@@ -2571,7 +2573,7 @@ ACTOR AlienSpectre3New : AlienSpectre3 replaces AlienSpectre3
   //DropItem "Sigil3"
   -SPECTRAL
 
-  DamageFactor "SpectralLow", 0 // Sigil level 1 cannot hurt them
+  DamageFactor "SpectralLow", 0.5 // Sigil level 1 can somewhat hurt them
   DamageFactor "Normal", 0.0001 // 0.01% damage from most attacks. :P
   // After this, set all vulnerablities to what you want them to have to what you want. :P
   DamageFactor "Sceptre", 1
@@ -2710,7 +2712,7 @@ ACTOR AlienSpectre4New : AlienSpectre4 replaces AlienSpectre4
   DropItem "Sigil4"
   -SPECTRAL
 
-  DamageFactor "SpectralLow", 0 // Sigil level 1 cannot hurt them
+  DamageFactor "SpectralLow", 0.25 // Sigil level 1 can barely hurt them
   DamageFactor "Normal", 0.0001 // 0.01% damage from most attacks. :P
   // After this, set all vulnerablities to what you want them to have to what you want. :P
   DamageFactor "Sceptre", 1
@@ -2849,7 +2851,7 @@ ACTOR AlienSpectre5New : AlienSpectre5 replaces AlienSpectre5
   DropItem "Sigil5"
   -SPECTRAL
 
-  DamageFactor "SpectralLow", 0 // Sigil level 1 cannot hurt them
+  DamageFactor "SpectralLow", 0 // Sigil level 1 cannot hurt them at all
   DamageFactor "Normal", 0.0001 // 0.01% damage from most attacks. :P
   // After this, set all vulnerablities to what you want them to have to what you want. :P
   DamageFactor "Sceptre", 1
