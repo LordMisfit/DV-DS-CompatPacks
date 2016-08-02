@@ -1,4 +1,30 @@
 // Bag/Satchel
+ACTOR AmmoSatchelNew : CustomInventory replaces AmmoSatchel
+{
+  ConversationID 187
+  +FLOORCLIP
+  Inventory.Icon "I_BKPK"
+  Tag "$TAG_AMMOSATCHEL" // "Ammo Satchel"
+  Inventory.PickupMessage "$TXT_AMMOSATCHEL" // "You picked up the ammo satchel."
+  States
+  {
+  Spawn:
+    TNT1 A 0 NoDelay
+	{
+     if (Random(1,1000) <= 125) { A_SpawnItemEx("MonsterMunchies",0,0,0,random(-5,5),random(-5,5),0); }
+     if (Random(1,1000) <= 125) { A_SpawnItemEx("MonsterMunchies",0,0,0,random(-5,5),random(-5,5),0); }
+     if (Random(1,1000) <= 125) { A_SpawnItemEx("MonsterMunchies",0,0,0,random(-5,5),random(-5,5),0); }
+     if (Random(1,1000) <= 125) { A_SpawnItemEx("MonsterMunchies",0,0,0,random(-5,5),random(-5,5),0); }
+	}
+  Idle:
+    BKPK A -1
+    Stop
+  Pickup:
+    TNT1 A 0 
+    TNT1 A 0 ACS_NamedExecuteAlways("GrabBackpack",0,0,0,0) // Backpack Script
+    Stop
+  }
+}
 
 // Armor
 ACTOR LeatherArmorNew : LeatherArmor replaces LeatherArmor
