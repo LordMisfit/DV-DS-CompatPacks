@@ -472,20 +472,109 @@ Actor NNSigil : Weapon
    }
 }
 
-ACTOR SpectralLightningBaseNew : SpectralLightningBase replaces SpectralLightningBase { +SPECTRAL DamageType "Sigil" }
-ACTOR SpectralLightningBall1New : SpectralLightningBall1 replaces SpectralLightningBall1 { +SPECTRAL DamageType "Sigil" }
-ACTOR SpectralLightningBall2New : SpectralLightningBall2 replaces SpectralLightningBall2 { +SPECTRAL DamageType "Sigil" }
-ACTOR SpectralLightningDeath1New : SpectralLightningDeath1 replaces SpectralLightningDeath1 { +SPECTRAL DamageType "Sigil" }
-ACTOR SpectralLightningDeath2New : SpectralLightningDeath2 replaces SpectralLightningDeath2 { +SPECTRAL DamageType "Sigil" }
-ACTOR SpectralLightningDeathShortNew : SpectralLightningDeathShort replaces SpectralLightningDeathShort { +SPECTRAL DamageType "Sigil" }
-ACTOR SpectralLightningBigBall1New : SpectralLightningBigBall1 replaces SpectralLightningBigBall1 { +SPECTRAL DamageType "Sigil" }
-ACTOR SpectralLightningBigBall2New : SpectralLightningBigBall2 replaces SpectralLightningBigBall2 { +SPECTRAL DamageType "Sigil" }
-ACTOR SpectralLightningV1New : SpectralLightningV1 replaces SpectralLightningV1 { +SPECTRAL DamageType "Sigil" DamageType "SpectralLow" }
-ACTOR SpectralLightningV2New : SpectralLightningV2 replaces SpectralLightningV2 { +SPECTRAL DamageType "Sigil" DamageType "SpectralLow" }
-ACTOR SpectralLightningH1New : SpectralLightningH1 replaces SpectralLightningH1 { +SPECTRAL DamageType "Sigil" }
-ACTOR SpectralLightningH2New : SpectralLightningH2 replaces SpectralLightningH2 { +SPECTRAL DamageType "Sigil" }
-ACTOR SpectralLightningH3New : SpectralLightningH3 replaces SpectralLightningH3 { +SPECTRAL DamageType "Sigil" }
-ACTOR SpectralLightningSpotNew : SpectralLightningSpot replaces SpectralLightningSpot { +SPECTRAL DamageType "Sigil" }
+ACTOR SpectralLightningBaseNew : SpectralLightningBase replaces SpectralLightningBase 
+{
+ +STRIFEDAMAGE
+ +SPECTRAL 
+ DamageType "Sigil"
+
+  States
+  {
+  Death:
+    ZAP1 B 3 A_Explode(ACS_NamedExecuteWithResult("GetSigilDamage",0,0), ACS_NamedExecuteWithResult("GetSigilDamage",0,1))
+    ZAP1 A 3 
+	{
+     if (random(1,256) > 96)
+	 {
+	  A_AlertMonsters;
+	 }
+	}
+    ZAP1 BCDEFE 3
+    ZAP1 DCB 2
+    ZAP1 A 1
+    Stop
+  }
+}
+
+ACTOR SpectralLightningBall1New : SpectralLightningBall1 replaces SpectralLightningBall1
+{
+ +SPECTRAL 
+ DamageType "Sigil" 
+ Damage (ACS_NamedExecuteWithResult("GetSigilDamage",1,0)) // 70
+}
+ACTOR SpectralLightningBall2New : SpectralLightningBall2 replaces SpectralLightningBall2
+{
+ +SPECTRAL 
+ DamageType "Sigil" 
+ Damage (ACS_NamedExecuteWithResult("GetSigilDamage",2,0)) // 20
+}
+
+ACTOR SpectralLightningDeath1New : SpectralLightningDeath1 replaces SpectralLightningDeath1
+{
+ +SPECTRAL 
+ DamageType "Sigil" 
+}
+ACTOR SpectralLightningDeath2New : SpectralLightningDeath2 replaces SpectralLightningDeath2
+{
+ +SPECTRAL 
+ DamageType "Sigil" 
+}
+ACTOR SpectralLightningDeathShortNew : SpectralLightningDeathShort replaces SpectralLightningDeathShort
+{
+ +SPECTRAL 
+ DamageType "Sigil" 
+}
+
+ACTOR SpectralLightningBigBall1New : SpectralLightningBigBall1 replaces SpectralLightningBigBall1
+{
+ +SPECTRAL 
+ DamageType "Sigil" 
+}
+ACTOR SpectralLightningBigBall2New : SpectralLightningBigBall2 replaces SpectralLightningBigBall2
+{
+ +SPECTRAL 
+ DamageType "Sigil" 
+}
+
+ACTOR SpectralLightningV1New : SpectralLightningV1 replaces SpectralLightningV1 
+{ 
+ +SPECTRAL 
+ DamageType "Sigil" 
+ DamageType "SpectralLow" 
+ Damage (ACS_NamedExecuteWithResult("GetSigilDamage",3,0)) // 120
+}
+ACTOR SpectralLightningV2New : SpectralLightningV2 replaces SpectralLightningV2
+{ 
+ +SPECTRAL 
+ DamageType "Sigil" 
+ DamageType "SpectralLow" 
+ Damage (ACS_NamedExecuteWithResult("GetSigilDamage",4,0)) // 60
+}
+
+ACTOR SpectralLightningH1New : SpectralLightningH1 replaces SpectralLightningH1
+{
+ +SPECTRAL 
+ DamageType "Sigil" 
+ Damage (ACS_NamedExecuteWithResult("GetSigilDamage",5,0)) // 70
+}
+ACTOR SpectralLightningH2New : SpectralLightningH2 replaces SpectralLightningH2
+{
+ +SPECTRAL 
+ DamageType "Sigil" 
+ Damage (ACS_NamedExecuteWithResult("GetSigilDamage",6,0)) // 20
+}
+ACTOR SpectralLightningH3New : SpectralLightningH3 replaces SpectralLightningH3
+{
+ +SPECTRAL 
+ DamageType "Sigil" 
+ Damage (ACS_NamedExecuteWithResult("GetSigilDamage",7,0)) // 10
+}
+
+ACTOR SpectralLightningSpotNew : SpectralLightningSpot replaces SpectralLightningSpot
+{
+ +SPECTRAL 
+ DamageType "Sigil" 
+}
 
 Actor NNSigil3AttackCounter : Inventory
 {
