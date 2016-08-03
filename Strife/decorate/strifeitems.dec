@@ -168,7 +168,27 @@ ACTOR SurgeryKit : HealthPickup 83
 	}
 }
 
+
 // MONEY :V
+ACTOR CoinNew : Coin replaces Coin
+{
+  +DROPPED
+  +NOTDMATCH
+  +FLOORCLIP
+  Inventory.MaxAmount 0x7fffffff
+  +INVENTORY.INVBAR
+  Tag "$TAG_COIN" // "coin"
+  Inventory.Icon "I_COIN"
+  Inventory.PickupMessage "$TXT_COIN" // "You picked up the coin."
+  Inventory.PickupSound "Grabbed/Coins"  
+  States
+  {
+  Spawn:
+    COIN A -1
+    Stop
+  }
+}
+
 // Spawns the 10 Gold pickup plus a possible few extra coins
 ACTOR Gold10New : Gold10 replaces Gold10
 {
@@ -196,6 +216,7 @@ ACTOR Gold10Actual : Coin
   Inventory.Amount 10
   Tag "$TAG_10GOLD" // "10 gold"
   Inventory.PickupMessage "$TXT_10GOLD" // "You picked up 10 gold."
+  Inventory.PickupSound "Grabbed/Coins"  
   States
   {
   Spawn:
@@ -233,6 +254,7 @@ ACTOR Gold25Actual : Coin
   Inventory.Amount 25
   Tag "$TAG_25GOLD" // "25 gold"
   Inventory.PickupMessage "$TXT_25GOLD" // "You picked up 25 gold."
+  Inventory.PickupSound "Grabbed/Coins"  
   States
   {
   Spawn:
@@ -280,6 +302,7 @@ ACTOR Gold50Actual : Coin
   Inventory.Amount 50
   Tag "$TAG_50GOLD" // "50 gold"
   Inventory.PickupMessage "$TXT_50GOLD" // "You picked up 50 gold."
+  Inventory.PickupSound "Grabbed/Coins"  
   States
   {
   Spawn:
