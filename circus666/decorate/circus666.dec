@@ -375,7 +375,7 @@ ACTOR PennywiseHeadNew replaces Pennywise 32119
   HitObituary "%o was eaten by the Pennywise the Dancing Clown"
   States
   {
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See  Pain.Heal1: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,0); } Goto See  Pain.Heal2: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,1); } Goto See  Pain.Heal3: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,2); } Goto See  Pain.Heal4: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,3); } Goto See Goto See
   Spawn:
     PENY A 0 A_Look
     PENY A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -495,7 +495,7 @@ ACTOR JumpingSkullNew replaces JumpingSkull 3117
   HitObituary "%o was bitten by a bouncing skull."
   States
   {
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See  Pain.Heal1: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,0); } Goto See  Pain.Heal2: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,1); } Goto See  Pain.Heal3: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,2); } Goto See  Pain.Heal4: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,3); } Goto See Goto See
   Spawn:
     JUMP A 0 A_Look
     JUMP A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -606,7 +606,7 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon 3115
   HitObituary "%o wanted to float with all the pretty balloons."
   States
   {
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See  Pain.Heal1: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,0); } Goto See  Pain.Heal2: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,1); } Goto See  Pain.Heal3: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,2); } Goto See  Pain.Heal4: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,3); } Goto See Goto See
   Spawn:
     BSTN A 0 A_Look
     BSTN A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -747,7 +747,7 @@ ACTOR BigBerthaNew replaces BigBertha 3225
   MissileType RevRocket
   States
   {
-  Pain.Charm: Goto See
+  Pain.Charm: Goto See  Pain.Heal1: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,0); } Goto See  Pain.Heal2: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,1); } Goto See  Pain.Heal3: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,2); } Goto See  Pain.Heal4: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,3); } Goto See Goto See  Pain.Heal1: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,0); } Goto See  Pain.Heal2: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,1); } Goto See  Pain.Heal3: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,2); } Goto See  Pain.Heal4: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,3); } Goto See
   Spawn:
     BSTN A 0 A_Look
     BSTN A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -878,7 +878,7 @@ ACTOR ClownHeadNew replaces ClownHead 3206
   MissileType RevRocket
   States 
   { 
-  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Teleport"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See  Pain.Heal1: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,0); } Goto See  Pain.Heal2: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,1); } Goto See  Pain.Heal3: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,2); } Goto See  Pain.Heal4: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,3); } Goto See Goto See
   Spawn:
     CHED A 0 A_Look
     CHED A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
