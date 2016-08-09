@@ -203,11 +203,15 @@ ACTOR AssaultGunNew : AssaultGun replaces AssaultGun
    FloraDetected: // bonus will be turned into something else
     TNT1 A 0
 	{
-	 if (random(1,256) <= 6)
+	 if (random(1,256) <= 32)
+	 {
+      A_SpawnItemEx("RandomHellcoreWeapon",0,0,0,0,0,0,0,0,0);
+	 }
+	 if (random(1,256) <= 16)
 	 {
       A_SpawnItemEx("DiarisLongBow",0,0,0,0,0,0,0,0,0);
 	 }
-	 if (random(1,256) <= 6)
+	 if (random(1,256) <= 4)
 	 {
       A_SpawnItemEx("DiarisArrow",0,0,0,0,0,0,0,0,0);
 	 }
@@ -254,11 +258,15 @@ ACTOR AssaultGunStandingNew : AssaultGunStanding replaces AssaultGunStanding
    FloraDetected: // bonus will be turned into something else
     TNT1 A 0
 	{
-	 if (random(1,256) <= 6)
+	 if (random(1,256) <= 32)
+	 {
+      A_SpawnItemEx("RandomHellcoreWeapon",0,0,0,0,0,0,0,0,0);
+	 }
+	 if (random(1,256) <= 16)
 	 {
       A_SpawnItemEx("DiarisLongBow",0,0,0,0,0,0,0,0,0);
 	 }
-	 if (random(1,256) <= 6)
+	 if (random(1,256) <= 4)
 	 {
       A_SpawnItemEx("DiarisArrow",0,0,0,0,0,0,0,0,0);
 	 }
@@ -357,7 +365,11 @@ ACTOR MiniMissileLauncherNew : MiniMissileLauncher replaces MiniMissileLauncher
    FloraDetected: // bonus will be turned into something else
     TNT1 A 0
 	{
-	 if (random(1,256) <= 6)
+	 if (random(1,256) <= 48)
+	 {
+      A_SpawnItemEx("RandomHellcoreWeapon",0,0,0,0,0,0,0,0,0);
+	 }
+	 if (random(1,256) <= 24)
 	 {
       A_SpawnItemEx("DiarisLongBow",0,0,0,0,0,0,0,0,0);
 	 }
@@ -407,7 +419,34 @@ ACTOR FlameThrowerNew : FlameThrower replaces FlameThrower
   ConversationID 190
   States
   {
-  Spawn:
+   FloraDetected: // bonus will be turned into something else
+    TNT1 A 0
+	{
+	 if (random(1,256) <= 64)
+	 {
+      A_SpawnItemEx("RandomHellcoreWeapon",0,0,0,0,0,0,0,0,0);
+	 }
+	 if (random(1,256) <= 32)
+	 {
+      A_SpawnItemEx("DiarisLongBow",0,0,0,0,0,0,0,0,0);
+	 }
+	 if (random(1,256) <= 8)
+	 {
+      A_SpawnItemEx("DiarisArrow",0,0,0,0,0,0,0,0,0);
+	 }
+	 A_FadeOut(1.0);
+	}
+    Loop
+
+   Spawn:
+    TNT1 A 0
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+  Idle:
     FLAM A -1
     Stop
   Ready:
@@ -505,11 +544,15 @@ ACTOR StrifeGrenadeLauncherNew : StrifeGrenadeLauncher replaces StrifeGrenadeLau
    FloraDetected: // bonus will be turned into something else
     TNT1 A 0
 	{
-	 if (random(1,256) <= 6)
+	 if (random(1,256) <= 64)
+	 {
+      A_SpawnItemEx("RandomHellcoreWeapon",0,0,0,0,0,0,0,0,0);
+	 }
+	 if (random(1,256) <= 32)
 	 {
       A_SpawnItemEx("DiarisLongBow",0,0,0,0,0,0,0,0,0);
 	 }
-	 if (random(1,256) <= 6)
+	 if (random(1,256) <= 8)
 	 {
       A_SpawnItemEx("DiarisArrow",0,0,0,0,0,0,0,0,0);
 	 }
@@ -661,11 +704,15 @@ ACTOR MaulerNew : Mauler replaces Mauler
    FloraDetected: // bonus will be turned into something else
     TNT1 A 0
 	{
-	 if (random(1,256) <= 6)
+	 if (random(1,256) <= 256)
+	 {
+      A_SpawnItemEx("RandomHellcoreWeapon",0,0,0,0,0,0,0,0,0);
+	 }
+	 if (random(1,256) <= 64)
 	 {
       A_SpawnItemEx("DiarisLongBow",0,0,0,0,0,0,0,0,0);
 	 }
-	 if (random(1,256) <= 6)
+	 if (random(1,256) <= 16)
 	 {
       A_SpawnItemEx("DiarisArrow",0,0,0,0,0,0,0,0,0);
 	 }
