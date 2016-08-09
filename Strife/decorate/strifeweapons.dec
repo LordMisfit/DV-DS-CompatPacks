@@ -4,7 +4,7 @@ ACTOR ElectricBoltNew : ElectricBolt replaces ElectricBolt
   Speed 30
   Radius 10
   Height 10
-  Damage 50
+  Damage (ACS_NamedExecuteWithResult("GetHitScanDMG",25)) // 50
   Projectile
   +STRIFEDAMAGE
   +NOBLOCKMAP
@@ -35,7 +35,7 @@ ACTOR PoisonBoltNew : PoisonBolt replaces PoisonBolt
   Speed 30
   Radius 10
   Height 10
-  Damage 50
+  Damage (ACS_NamedExecuteWithResult("GetHitScanDMG",26)) // 50
   Projectile
   +STRIFEDAMAGE
   DamageType "PoisonBolt"
