@@ -310,3 +310,270 @@ ACTOR Gold50Actual : Coin
     Stop
   }
 }
+
+// Shop Displays
+ACTOR BaseProp // Used for the basic properties of shop displays
+{
+  Height 16
+  Radius 16
+  +SOLID
+  States
+  {
+  Spawn:
+    TNT1 A -1
+    Stop
+  }
+ 
+}
+
+ACTOR AssaultGunProp : BaseProp 25001
+{
+  //$NotAngled
+  //$Color 11
+  //$Category "DV-DS Props/Strife"
+  Tag "Assault Gun [Prop]"
+  States
+  {
+  Spawn:
+    RIFL A -1
+    Stop
+  }
+}
+
+ACTOR AssaultGunStandingProp : BaseProp 25002
+{
+  //$NotAngled
+  //$Color 11
+  //$Category "DV-DS Props/Strife"
+  Tag "Assault Gun (Standing) [Prop]"
+  States
+  {
+  Spawn:
+    RIFL B -1
+    Stop
+  }
+}
+
+ACTOR ClipOfBulletsProp : BaseProp 25003
+{
+  //$NotAngled
+  //$Color 11
+  //$Category "DV-DS Props/Strife"
+  Tag "Clip of Bullets [Prop]"
+  States
+  {
+  Spawn:
+    BLIT A -1
+    Stop
+  }
+}
+
+ACTOR BoxOfBulletsProp : BaseProp 25004
+{
+  //$NotAngled
+  //$Color 11
+  //$Category "DV-DS Props/Strife"
+  Tag "Box of Bullets [Prop]"
+  States
+  {
+  Spawn:
+    BBOX A -1
+    Stop
+  }
+}
+
+ACTOR AmmoSatchelProp : BaseProp 25005
+{
+  //$NotAngled
+  //$Color 11
+  //$Category "DV-DS Props/Strife"
+  Tag "Ammo Satchel [Prop]"
+  States
+  {
+  Spawn:
+    BKPK A -1
+    Stop
+  }
+}
+
+ACTOR ElectricBoltsProp : BaseProp 25006
+{
+  //$NotAngled
+  //$Color 11
+  //$Category "DV-DS Props/Strife"
+  Tag "Electric Bolts [Prop]"
+  States
+  {
+  Spawn:
+    XQRL A -1
+    Stop
+  }
+}
+
+ACTOR LeatherArmorProp : BaseProp 25007
+{
+  //$NotAngled
+  //$Color 11
+  //$Category "DV-DS Props/Strife"
+  Tag "Leather Armor [Prop]"
+  States
+  {
+  Spawn:
+    ARM4 A -1
+    Stop
+  }
+}
+
+ACTOR MetalArmorProp : BaseProp 25008
+{
+  //$NotAngled
+  //$Color 11
+  //$Category "DV-DS Props/Strife"
+  Tag "Metal Armor [Prop]"
+  States
+  {
+  Spawn:
+    ARM3 A -1
+    Stop
+  }
+}
+
+ACTOR EnvironmentalSuitProp : BaseProp 25009
+{
+  //$NotAngled
+  //$Color 11
+  //$Category "DV-DS Props/Strife"
+  Tag "Environmental Suit [Prop]"
+  States
+  {
+  Spawn:
+    MASK A -1
+    Stop
+  }
+}
+
+ACTOR MedPatchProp : BaseProp 25010
+{
+  //$NotAngled
+  //$Color 11
+  //$Category "DV-DS Props/Strife"
+  Tag "Medical Patch [Prop]"
+  States
+  {
+  Spawn:
+    STMP A -1
+    Stop
+  }
+}
+
+ACTOR MedicalKitProp : BaseProp 25011
+{
+  //$NotAngled
+  //$Color 11
+  //$Category "DV-DS Props/Strife"
+  Tag "Medical Kit [Prop]"
+  States
+  {
+  Spawn:
+    MDKT A -1
+    Stop
+  }
+}
+
+ACTOR SurgeryKitProp : BaseProp 25012
+{
+  //$NotAngled
+  //$Color 11
+  //$Category "DV-DS Props/Strife"
+  Tag "Surgery Kit [Prop]"
+  States
+  {
+  Spawn:
+    FULL AB 35
+    Loop
+  }
+}
+
+ACTOR MiniMissilesProp : BaseProp 25013
+{
+  //$NotAngled
+  //$Color 11
+  //$Category "DV-DS Props/Strife"
+  Tag "Mini Missiles [Prop]"
+  States
+  {
+  Spawn:
+    MSSL A -1
+    Loop
+  }
+}
+
+ACTOR CrateOfMissilesProp : BaseProp 25014
+{
+  //$NotAngled
+  //$Color 11
+  //$Category "DV-DS Props/Strife"
+  Tag "Crate Of Missiles [Prop]"
+  States
+  {
+  Spawn:
+    ROKT A -1
+    Loop
+  }
+}
+
+ACTOR EnergyPodProp : BaseProp 25015
+{
+  //$NotAngled
+  //$Color 11
+  //$Category "DV-DS Props/Strife"
+  Tag "Energy Pod [Prop]"
+  States
+  {
+  Spawn:
+    BRY1 AB 6
+    Loop
+  }
+}
+
+ACTOR EnergyPackProp : BaseProp 25016
+{
+  //$NotAngled
+  //$Color 11
+  //$Category "DV-DS Props/Strife"
+  Tag "Energy Pack [Prop]"
+  States
+  {
+  Spawn:
+    CPAC AB 6
+    Loop
+  }
+}
+
+ACTOR HEGrenadeRoundsProp : BaseProp 25017
+{
+  //$NotAngled
+  //$Color 11
+  //$Category "DV-DS Props/Strife"
+  Tag "HE Grenade Rounds [Prop]"
+  States
+  {
+  Spawn:
+    GRN1 A -1
+    Loop
+  }
+}
+
+ACTOR PhosphorusGrenadeRoundsProp : BaseProp 25018
+{
+  //$NotAngled
+  //$Color 11
+  //$Category "DV-DS Props/Strife"
+  Tag "Phosphorus Grenade Rounds [Prop]"
+  States
+  {
+  Spawn:
+    GRN2 A -1
+    Loop
+  }
+}
