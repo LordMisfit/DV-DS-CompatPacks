@@ -126,6 +126,74 @@ ACTOR StrifeCrossbow2New : StrifeCrossbow2 replaces StrifeCrossbow2
   }
 }
 
+// Bullet Clip
+ACTOR ClipOfBulletsNew : ClipOfBullets replaces ClipOfBullets
+{
+  States
+  {
+   FloraDetected: // bonus will be turned into something else
+    TNT1 A 0
+	{
+	 if (random(1,256) <= 1)
+	 {
+      A_SpawnItemEx("DiarisArrow",0,0,0,0,0,0,0,0,0);
+	 }
+	 if (random(1,256) <= 48)
+	 {
+      A_SpawnItemEx("DoomSpellMana",0,0,0,0,0,0,0,0,0);
+	 }
+	 A_FadeOut(1.0);
+	}
+    Loop
+
+   Spawn:
+    TNT1 A 0
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+   Idle:
+    BLIT A -1
+    Stop
+  }
+}
+
+// Box of Bullets
+ACTOR BoxOfBulletsNew : BoxOfBullets replaces BoxOfBullets
+{
+  States
+  {
+   FloraDetected: // bonus will be turned into something else
+    TNT1 A 0
+	{
+	 if (random(1,256) <= 3)
+	 {
+      A_SpawnItemEx("DiarisArrow",0,0,0,0,0,0,0,0,0);
+	 }
+	 if (random(1,256) <= 144)
+	 {
+      A_SpawnItemEx("DoomSpellMana",0,0,0,0,0,0,0,0,0);
+	 }
+     A_FadeOut(1.0);
+	}
+    Loop
+
+   Spawn:
+    TNT1 A 0
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+   Idle:
+    BBOX A -1
+    Stop
+  }
+}
+
 // Assault Gun
 ACTOR AssaultGunNew : AssaultGun replaces AssaultGun
 {
@@ -162,6 +230,74 @@ ACTOR AssaultGunStandingNew : AssaultGunStanding replaces AssaultGunStanding
   {
   Spawn:
     RIFL B -1
+    Stop
+  }
+}
+
+// Mini Missiles
+ACTOR MiniMissilesNew : MiniMissiles replaces MiniMissiles
+{
+  States
+  {
+   FloraDetected: // bonus will be turned into something else
+    TNT1 A 0
+	{
+	 if (random(1,256) <= 1)
+	 {
+      A_SpawnItemEx("DiarisArrow",0,0,0,0,0,0,0,0,0);
+	 }
+	 if (random(1,256) <= 48)
+	 {
+      A_SpawnItemEx("DoomSpellMana",0,0,0,0,0,0,0,0,0);
+	 }
+	 A_FadeOut(1.0);
+	}
+    Loop
+
+   Spawn:
+    TNT1 A 0
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+   Idle:
+    MSSL A -1
+    Stop
+  }
+}
+
+// Crate Of Missiles
+ACTOR CrateOfMissilesNew : CrateOfMissiles replaces CrateOfMissiles
+{
+  States
+  {
+   FloraDetected: // bonus will be turned into something else
+    TNT1 A 0
+	{
+	 if (random(1,256) <= 3)
+	 {
+      A_SpawnItemEx("DiarisArrow",0,0,0,0,0,0,0,0,0);
+	 }
+	 if (random(1,256) <= 144)
+	 {
+      A_SpawnItemEx("DoomSpellMana",0,0,0,0,0,0,0,0,0);
+	 }
+     A_FadeOut(1.0);
+	}
+    Loop
+
+   Spawn:
+    TNT1 A 0
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+   Idle:
+    ROKT A -1
     Stop
   }
 }
@@ -218,6 +354,74 @@ ACTOR FlameThrowerNew : FlameThrower replaces FlameThrower
     FLMF A 2 A_FireFlamer
     FLMF B 3 A_ReFire
     Goto Ready
+  }
+}
+
+// HE Grenade Rounds
+ACTOR HEGrenadeRoundsNew : HEGrenadeRounds replaces HEGrenadeRounds
+{
+  States
+  {
+   FloraDetected: // bonus will be turned into something else
+    TNT1 A 0
+	{
+	 if (random(1,256) <= 3)
+	 {
+      A_SpawnItemEx("DiarisArrow",0,0,0,0,0,0,0,0,0);
+	 }
+	 if (random(1,256) <= 144)
+	 {
+      A_SpawnItemEx("DoomSpellMana",0,0,0,0,0,0,0,0,0);
+	 }
+	 A_FadeOut(1.0);
+	}
+    Loop
+
+   Spawn:
+    TNT1 A 0
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+   Idle:
+    MSSL A -1
+    Stop
+  }
+}
+
+// Phosphorus Grenades
+ACTOR PhosphorusGrenadeRoundsNew : PhosphorusGrenadeRounds replaces PhosphorusGrenadeRounds
+{
+  States
+  {
+   FloraDetected: // bonus will be turned into something else
+    TNT1 A 0
+	{
+	 if (random(1,256) <= 3)
+	 {
+      A_SpawnItemEx("DiarisArrow",0,0,0,0,0,0,0,0,0);
+	 }
+	 if (random(1,256) <= 144)
+	 {
+      A_SpawnItemEx("DoomSpellMana",0,0,0,0,0,0,0,0,0);
+	 }
+     A_FadeOut(1.0);
+	}
+    Loop
+
+   Spawn:
+    TNT1 A 0
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+   Idle:
+    ROKT A -1
+    Stop
   }
 }
 
@@ -284,6 +488,74 @@ ACTOR StrifeGrenadeLauncher2New : StrifeGrenadeLauncher2 replaces StrifeGrenadeL
   Flash2:
     GREF D 5 Bright A_Light2
     Goto LightDone
+  }
+}
+
+// Energy Pod
+ACTOR EnergyPodNew : EnergyPod replaces EnergyPod
+{
+  States
+  {
+   FloraDetected: // bonus will be turned into something else
+    TNT1 A 0
+	{
+	 if (random(1,256) <= 5)
+	 {
+      A_SpawnItemEx("DiarisArrow",0,0,0,0,0,0,0,0,0);
+	 }
+	 if (random(1,256) <= 240)
+	 {
+      A_SpawnItemEx("DoomSpellMana",0,0,0,0,0,0,0,0,0);
+	 }
+	 A_FadeOut(1.0);
+	}
+    Loop
+
+   Spawn:
+    TNT1 A 0
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+   Idle:
+    MSSL A -1
+    Stop
+  }
+}
+
+// Energy Pack
+ACTOR EnergyPackNew : EnergyPack replaces EnergyPack
+{
+  States
+  {
+   FloraDetected: // bonus will be turned into something else
+    TNT1 A 0
+	{
+	 if (random(1,256) <= 15)
+	 {
+      A_SpawnItemEx("DiarisArrow",0,0,0,0,0,0,0,0,0);
+	 }
+	 if (random(1,256) <= 240)
+	 {
+      A_SpawnItemEx("DoomSpellMana2",0,0,0,0,0,0,0,0,0);
+	 }
+     A_FadeOut(1.0);
+	}
+    Loop
+
+   Spawn:
+    TNT1 A 0
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+   Idle:
+    ROKT A -1
+    Stop
   }
 }
 
