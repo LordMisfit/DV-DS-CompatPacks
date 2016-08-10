@@ -1,0 +1,16 @@
+// Decompiled by Universal Strife Dialog Compiler.
+
+namespace = "Strife";
+include = "SCRIPT00";
+
+conversation
+{
+	actor = 6;
+	page
+	{
+		name = "SECURITY COMPLE";
+		dialog = "THIS IS WHERE YOU GET THE PLANS FOR THE CENTRAL ADMINISTRATION.";
+		drop = 0;
+		link = 0;
+	}
+}

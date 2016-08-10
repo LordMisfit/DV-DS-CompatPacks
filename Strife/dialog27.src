@@ -1,0 +1,29 @@
+// Decompiled by Universal Strife Dialog Compiler.
+
+namespace = "Strife";
+include = "SCRIPT00";
+
+conversation
+{
+	actor = 12;
+	page
+	{
+		dialog = "THE MASTER DOESN'T LIKE VISITORS.  HE LIKES ALL OF HIS WORK TO REMAIN UNDISTURBED. I'VE GOT TO GO GET FRESH PARTS FROM THE STORAGE ROOM.  I THINK HE SAID A LEG AND AN ARM.  OH, WELL NO TIME TO TALK ANYMORE.  I'D LEAVE BEFORE HE FINDS YOU.";
+		drop = 0;
+		link = 0;
+		choice
+		{
+			text = "WHY'S THAT.";
+			yesmessage = "BECAUSE, I TOLD YOU HE DOESN'T LIKE VISITORS!";
+			nomessage = "NO.  you don't have what i want for the  WHY'S THAT.!";
+			nextpage = 2;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		dialog = "YOU KNOW, YOU'RE ABOUT THE RIGHT SIZE FOR ONE OF THE ACOLYTE'S UNIFORMS.";
+		drop = 0;
+		link = 0;
+	}
+}

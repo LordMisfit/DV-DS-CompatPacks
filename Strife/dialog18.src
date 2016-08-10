@@ -1,0 +1,58 @@
+// Decompiled by Universal Strife Dialog Compiler.
+
+namespace = "Strife";
+include = "SCRIPT00";
+
+conversation
+{
+	actor = 58;
+	page
+	{
+		name = "WAREHOUSE GUARD";
+		dialog = "WHAT IS IT?";
+		drop = 156;
+		link = 0;
+		choice
+		{
+			text = "JUST LOOKING AROUND.";
+			cost
+			{
+				item = 168;
+				amount = 0;
+			}
+			displaycost = false;
+			yesmessage = "JUST KEEP OUT OF THE WAY.";
+			nomessage = "NO.  you don't have what i want for the  JUST LOOKING AROUND.!";
+			nextpage = 2;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		name = "WAREHOUSE GUARD";
+		dialog = "THE TEMPLARS WILL BE HERE SOON TO PICK UP THEIR NEW MAULERS.  IF YOU GET IN THEIR WAY YOU'RE A DEAD MAN.";
+		drop = 156;
+		link = 0;
+		choice
+		{
+			text = "MAULERS?";
+			cost
+			{
+				item = 168;
+				amount = 0;
+			}
+			displaycost = false;
+			yesmessage = "THE TEMPLAR'S FAVORITE WEAPON.";
+			nomessage = "NO.  you don't have what i want for the  MAULERS?!";
+			nextpage = 3;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		name = "WAREHOUSE GUARD";
+		dialog = "THEY CAME IN EARLIER. THAT'S WHAT ALL THE SECURITY'S ABOUT.  I GOT A CHANCE TO LOOK AT THEM WHEN I LOCKED UP.  NOBODY'S SUPPOSED TO GO IN OR OUT OF THERE UNTIL THE REST OF THE PLATOON COMES TO CLAIM THEIR WEAPONS.";
+		drop = 156;
+		link = 0;
+	}
+}
