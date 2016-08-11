@@ -135,7 +135,6 @@ conversation
 		choice
 		{
 			text = "TERRIBLY SORRY, BUT YOU'LL TO FREE MY COMRADES... OR DIE.";
-			nomessage = "NO.  you don't have what i want for the  FREE MY COMRADES OR DIE!!";
 			giveitem = 301;
 			nextpage = 2;
 			closedialog = false;
@@ -152,7 +151,6 @@ conversation
 		choice
 		{
 			text = "HMM... CAN YOU LEND ME A HAND THEN?";
-			nomessage = "NO.  you don't have what i want for the  CAN YOU LEND ME A HAND THEN?!";
 			nextpage = 3;
 			closedialog = true;
 		}

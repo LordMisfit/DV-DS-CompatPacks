@@ -207,7 +207,6 @@ conversation
 		choice
 		{
 			text = "I DON'T CARE ABOUT YOUR DAMN MONEY, YOU SICK PSYCHOPATH!";
-			nomessage = "NO.  you don't have what i want for the  ALL RIGHT, I'LL LET YOU GO.!";
 			giveitem = 301;
 			nextpage = 2;
 			closedialog = false;
@@ -255,8 +254,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "HA HA... SO WHAT SHOULD I DO ONCE I'M IN?";
-			nomessage = "NO.  you don't have what i want for the  WHAT SHOULD I DO ONCE I'M IN?!";
+			text = "OH HAH HAH... SO WHAT SHOULD I DO ONCE I'M IN?";
 			nextpage = 3;
 			closedialog = false;
 		}
@@ -271,8 +269,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "WELL, HOPE THIS I.D. WORKS.";
-			nomessage = "NO.  you don't have what i want for the  BOY I HOPE THIS I.D. WORKS.!";
+			text = "WELL, I HOPE THIS I.D. WORKS.";
 			log = "LOG1012";
 			nextpage = 4;
 			closedialog = true;
@@ -319,7 +316,6 @@ conversation
 		choice
 		{
 			text = "HUH, WEAPONS EH?";
-			nomessage = "NO.  you don't have what i want for the  WEAPONS?!";
 			nextpage = 2;
 			closedialog = false;
 		}
@@ -335,7 +331,6 @@ conversation
 		choice
 		{
 			text = "WHAT KIND OF WEAPONS?";
-			nomessage = "NO.  you don't have what i want for the  WHAT KIND OF WEAPONS?!";
 			nextpage = 3;
 			closedialog = false;
 		}
@@ -366,7 +361,6 @@ conversation
 		choice
 		{
 			text = "I'M THE REPLACEMENT WORKER.";
-			nomessage = "NO.  you don't have what i want for the  I'M THE REPLACEMENT WORKER.!";
 			nextpage = 2;
 			closedialog = false;
 		}
@@ -386,7 +380,6 @@ conversation
 		choice
 		{
 			text = "SO WHERE'S THE POWER CRYSTAL?";
-			nomessage = "NO.  you don't have what i want for the  WHERE'S THE POWER CRYSTAL?!";
 			log = "LOG1013";
 			giveitem = 140;
 			nextpage = 3;
@@ -449,7 +442,6 @@ conversation
 		choice
 		{
 			text = "HERE, HERE'S MY I.D. CARD.";
-			nomessage = "NO.  you don't have what i want for the  HERE, HERE'S MY CARD.!";
 			giveitem = 301;
 			nextpage = 2;
 			closedialog = false;
@@ -496,7 +488,6 @@ conversation
 		choice
 		{
 			text = "YEAH, I CAN'T WAIT TO START.";
-			nomessage = "NO.  you don't have what i want for the  YEAH, CAN'T WAIT TO START.!";
 			nextpage = 2;
 			closedialog = false;
 		}
@@ -512,7 +503,6 @@ conversation
 		choice
 		{
 			text = "SO, WHERE'S THE CRYSTAL?";
-			nomessage = "NO.  you don't have what i want for the  WHERE'S THE CRYSTAL?!";
 			nextpage = 3;
 			closedialog = false;
 		}
@@ -528,7 +518,6 @@ conversation
 		choice
 		{
 			text = "AND WHERE'S THE CRYSTAL AGAIN?";
-			nomessage = "NO.  you don't have what i want for the  WHERE'S THE CRYSTAL AGAIN?!";
 			log = "LOG1014";
 			giveitem = 141;
 			nextpage = 4;
@@ -546,7 +535,6 @@ conversation
 		choice
 		{
 			text = "*SIGH* FINE.";
-			nomessage = "NO.  you don't have what i want for the  OK.!";
 			nextpage = 5;
 			closedialog = true;
 		}

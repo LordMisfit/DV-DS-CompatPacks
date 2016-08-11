@@ -52,7 +52,6 @@ conversation
 		choice
 		{
 			text = "OKAY, SO YOU WANT HIS UNIFORM?";
-			nomessage = "NO.  you don't have what i want for the  YOU WANT HIS UNIFORM?!";
 			log = "LOG1015";
 			nextpage = 4;
 			closedialog = false;
@@ -110,7 +109,6 @@ conversation
 		choice
 		{
 			text = "SO AGAIN, WHERE'S THE GATE MECHANISM?";
-			nomessage = "NO.  you don't have what i want for the  WHERE'S THE GATE MECHANISM?!";
 			giveitem = 302;
 			nextpage = 7;
 			closedialog = false;
@@ -127,7 +125,6 @@ conversation
 		choice
 		{
 			text = "IS THERE ANYTHING ELSE YOU CAN DO?";
-			nomessage = "NO.  you don't have what i want for the  ANYTHING ELSE YOU CAN DO?!";
 			nextpage = 8;
 			closedialog = false;
 		}
@@ -143,7 +140,6 @@ conversation
 		choice
 		{
 			text = "ALRIGHT, THANKS FOR YOUR HELP.";
-			nomessage = "NO.  you don't have what i want for the  THANKS FOR YOUR HELP.!";
 			log = "LOG1016";
 			nextpage = 9;
 			closedialog = true;

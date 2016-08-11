@@ -224,5 +224,4 @@ conversation
 		drop = 0;
 		link = 0;
 	}
-
 }

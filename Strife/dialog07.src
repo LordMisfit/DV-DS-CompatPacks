@@ -76,7 +76,6 @@ conversation
 		choice
 		{
 			text = "SORRY, I'VE HEARD TOO MANY THINGS ABOUT HIM BEING QUITE REAL. YOU'RE NOT FOOLING ME.";
-			nomessage = "NO.  you don't have what i want for the  WELL, WHAT'S THE TRUTH THEN?!";
 			nextpage = 2;
 			closedialog = false;
 		}

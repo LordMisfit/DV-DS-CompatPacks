@@ -59,7 +59,6 @@ conversation
 		choice
 		{
 			text = "HOPE THAT'S WORKING OUT FOR YOU...";
-			nomessage = "NO.  you don't have what i want for the  OK PAL, WHATEVER.!";
 			nextpage = 4;
 			closedialog = true;
 		}

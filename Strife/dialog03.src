@@ -17,14 +17,12 @@ conversation
 		choice
 		{
 			text = "VERY WELL, I WILL HELP YOU...";
-			nomessage = "NO.  you don't have what i want for the  ALL RIGHT, I ACCEPT.!";
 			nextpage = 4;
 			closedialog = false;
 		}
 		choice
 		{
 			text = "SORRY, BUT NO THANKS...";
-			nomessage = "NO.  you don't have what i want for the  NO THANKS!!";
 			nextpage = 2;
 			closedialog = false;
 		}
@@ -40,14 +38,12 @@ conversation
 		choice
 		{
 			text = "FINE, WE'LL DO IT YOUR WAY...";
-			nomessage = "NO.  you don't have what i want for the  ALL RIGHT, I'M IN!!";
 			nextpage = 4;
 			closedialog = false;
 		}
 		choice
 		{
 			text = "I'M SORRY, DID I STUTTER...?";
-			nomessage = "NO.  you don't have what i want for the  NO THANKS.!";
 			giveitem = 301;
 			nextpage = 3;
 			closedialog = false;
@@ -73,7 +69,6 @@ conversation
 		choice
 		{
 			text = "SO WHAT DO I NEED TO DO FIRST?";
-			nomessage = "NO.  you don't have what i want for the  WHERE DO I START?!";
 			nextpage = 5;
 			closedialog = false;
 		}
@@ -89,7 +84,6 @@ conversation
 		choice
 		{
 			text = "OKAY THEN, POINT ME IN THE RIGHT DIRECTION.";
-			nomessage = "NO.  you don't have what i want for the  I THINK I CAN HANDLE IT.!";
 			giveitem = 134;
 			nextpage = 6;
 			closedialog = false;
@@ -106,7 +100,6 @@ conversation
 		choice
 		{
 			text = "AH, THE GOVERNOR, I'VE HEARD ABOUT HIM...";
-			nomessage = "NO.  you don't have what i want for the  I'LL SEE TO IT.!";
 			log = "LOG1006";
 			giveitem = 172;
 			nextpage = 7;
@@ -137,7 +130,6 @@ conversation
 		choice
 		{
 			text = "WE'LL DO THAT. SO WHAT'S NEXT?";
-			nomessage = "NO.  you don't have what i want for the  I WILL. WHAT'S NEXT?!";
 			giveitem = 309;
 			nextpage = 9;
 			closedialog = false;
@@ -154,7 +146,6 @@ conversation
 		choice
 		{
 			text = "WELL, WE'RE OFF THEM.";
-			nomessage = "NO.  you don't have what i want for the  WE'LL GET IT.!";
 			log = "LOG1011";
 			giveitem = 135;
 			nextpage = 10;
@@ -185,7 +176,6 @@ conversation
 		choice
 		{
 			text = "YES, WHAT'S THE STORY ABOUT THE \"PROGRAMMER\"?";
-			nomessage = "NO.  you don't have what i want for the  TELL ME WHAT WE KNOW.!";
 			log = "LOG1017";
 			giveitem = 343;
 			nextpage = 12;
@@ -203,7 +193,6 @@ conversation
 		choice
 		{
 			text = "YEAH, IT'S TIME TO TAKE HIM DOWN!";
-			nomessage = "NO.  you don't have what i want for the  LET ME AT 'EM!!";
 			giveitem = 309;
 			nextpage = 13;
 			closedialog = false;
@@ -474,7 +463,7 @@ conversation
 			}
 			displaycost = false;
 			yesmessage = "ALL RIGHT, THIS SHOULD KEEP YOU GOING FOR A WHILE.";
-			nomessage = "SORRY, CAN'T.  I'M JUST FOLLOWING MACIL'S ORDERS.";
+			nomessage = "SORRY, CAN'T. I'M JUST FOLLOWING MACIL'S ORDERS.";
 			giveitem = 307;
 			nextpage = 3;
 			closedialog = true;

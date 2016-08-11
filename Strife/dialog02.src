@@ -118,7 +118,7 @@ conversation
 				amount = 500;
 			}
 			displaycost = true;
-			yesmessage = "HERE YOU GO.";
+			yesmessage = "HERE YOU GO. THIS SHOULD HELP YOU OUT A LOT!";
 			nomessage = "YOU CAN'T AFFORD THAT RIGHT NOW.";
 			giveitem = 363; // DiarisLongbow
 			nextpage = 1;
@@ -133,7 +133,7 @@ conversation
 				amount = 85;
 			}
 			displaycost = true;
-			yesmessage = "THANKS.";
+			yesmessage = "THANKS. THESE ARROWS GO WELL WITH THAT LONG BOW.";
 			nomessage = "YOU NEED MORE GOLD FOR THOSE.";
 			giveitem = 364; // DiarisArrow
 			nextpage = 1;
@@ -148,7 +148,7 @@ conversation
 				amount = 405;
 			}
 			displaycost = true;
-			yesmessage = "HERE'S YOUR AMMO.";
+			yesmessage = "MORE ARROWS FOR YOUR LONG BOW, MISS.";
 			nomessage = "MAYBE SOME OTHER TIME.";
 			giveitem = 365; // DiarisArrowQuiver
 			nextpage = 1;
@@ -165,7 +165,6 @@ conversation
 		{
 			text = "THANK YOU.";
 			yesmessage = "GLAD TO BE OF SERVICE.";
-			nomessage = "NO.  you don't have what i want for the  THANKS.!";
 			giveitem = 172;
 			nextpage = 3;
 			closedialog = false;
@@ -187,7 +186,6 @@ conversation
 			}
 			displaycost = false;
 			yesmessage = "FOR NOW. YOU'LL LEARN MORE LATER.";
-			nomessage = "NO.  you don't have what i want for the  IS THAT IT?!";
 			giveitem = 307;
 			nextpage = 4;
 			closedialog = false;
@@ -404,7 +402,6 @@ conversation
 		{
 			text = "WHAT GATE?";
 			yesmessage = "THE SEWER OVERFLOW GATE.";
-			nomessage = "NO.  you don't have what i want for the  WHAT GATE?!";
 		}
 	}
 }
@@ -822,7 +819,6 @@ conversation
 		{
 			text = "YES, I'M READY.";
 			yesmessage = "WELL THEN, THIS WON'T TAKE BUT A SECOND. THERE, DONE ALREADY.";
-			nomessage = "";
 			giveitem = 306;
 			nextpage = 3;
 			closedialog = false;
@@ -1386,7 +1382,6 @@ conversation
 				amount = 1;
 			}
 			displaycost = false;
-			nomessage = "NO.  you don't have what i want for the  THANKS.!";
 			log = "LOG1009";
 			giveitem = 304;
 			nextpage = 8;
@@ -1440,7 +1435,6 @@ conversation
 		choice
 		{
 			text = "FINE BY ME.";
-			nomessage = "NO.  you don't have what i want for the  FINE BY ME.!";
 			log = "LOG1009";
 			giveitem = 304;
 			nextpage = 8;
@@ -1452,14 +1446,13 @@ conversation
 		name = "GOVERNOR MOUREL";
 		panel = "M_PEAS7";
 		voice = "GOV6A1";
-		dialog = "SO YOU'RE THE FOOL WHO STOLE THE CHALICE?  I'M GOING TO HAVE YOU ARRESTED AS A REBEL THIEF... THEREBY ENHANCING MY POSITION WITH THE   ORDER.  HOW DOES IT FEEL TO BE AN UNWITTING PAWN? I'LL GIVE YOU A HINT, IT'S GONNA' HURT. ";
+		dialog = "SO YOU'RE THE FOOL WHO STOLE THE CHALICE?  I'M GOING TO HAVE YOU ARRESTED AS A REBEL THIEF... THEREBY ENHANCING MY POSITION WITH THE ORDER. HOW DOES IT FEEL TO BE AN UNWITTING PAWN? I'LL GIVE YOU A HINT, IT'S GONNA' HURT. ";
 		drop = 301;
 		link = 0;
 		choice
 		{
 			text = "NOT AS MUCH AS IT WILL FOR YOU.";
 			yesmessage = "WAIT, WHAT DID YOU SAY?!";
-			nomessage = "";
 			giveitem = 301;
 		}
 	}
@@ -1480,14 +1473,12 @@ conversation
 		choice
 		{
 			text = "WHAT DO YOU HAVE IN MIND?";
-			nomessage = "NO.  you don't have what i want for the  SURE, WHY NOT.!";
 			nextpage = 3;
 			closedialog = false;
 		}
 		choice
 		{
-			text = "NO THANKS.";
-			nomessage = "NO.  you don't have what i want for the  NO THANKS.!";
+			text = "SORRY, NO THANKS.";
 			giveitem = 301;
 			nextpage = 2;
 			closedialog = false;
@@ -1512,8 +1503,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "AN ASSASSINATION?";
-			nomessage = "NO.  you don't have what i want for the  WILL IT BE WORTH THE EFFORT?!";
+			text = "AN ASSASSINATION? I HOPE THIS IS REALLY WORTH IT...";
 			log = "LOG1003";
 			nextpage = 4;
 			closedialog = false;
@@ -1529,8 +1519,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "THANKS, I'll Need it.";
-			nomessage = "NO.  you don't have what i want for the  THANKS, I'll Need it.!";
+			text = "THANKS, I'LL PROBABLY NEED IT.";
 			giveitem = 194;
 			nextpage = 5;
 			closedialog = false;
@@ -1551,7 +1540,6 @@ conversation
 		choice
 		{
 			text = "ALRIGHT, I'LL GET HIM.";
-			nomessage = "NO.  you don't have what i want for the  I'LL GET HIM.!";
 			nextpage = 6;
 			closedialog = true;
 		}
@@ -1595,7 +1583,6 @@ conversation
 		choice
 		{
 			text = "OH DO I? TELL ME MORE, SIR!";
-			nomessage = "NO.  you don't have what i want for the  TELL ME MORE.!";
 			giveitem = 133;
 			nextpage = 8;
 			closedialog = false;
@@ -1603,7 +1590,6 @@ conversation
 		choice
 		{
 			text = "NOT MY STYLE.";
-			nomessage = "NO.  you don't have what i want for the  NOT MY STYLE.!";
 			giveitem = 301;
 			nextpage = 10;
 			closedialog = false;
@@ -1619,8 +1605,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "THANKS.";
-			nomessage = "NO.  you don't have what i want for the  THANKS.!";
+			text = "THANKS VERY MUCH.";
 			log = "LOG1004";
 			giveitem = 176;
 			nextpage = 9;
@@ -1687,7 +1672,7 @@ conversation
 		}
 		choice
 		{
-			text = "HEY, I NEED GOLD!";
+			text = "HEY THERE GEOFF, UM... I NEED GOLD!";
 			cost
 			{
 				item = 168; // Coin
@@ -1699,7 +1684,6 @@ conversation
 				amount = 1;
 			}
 			displaycost = false;
-			nomessage = "NO.  you don't have what i want for the  HEY, I NEED GOLD!!";
 			giveitem = 302;
 			nextpage = 3;
 			closedialog = false;
@@ -1715,8 +1699,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "THANKS.";
-			nomessage = "NO.  you don't have what i want for the  THANKS.!";
+			text = "THANK YOU VERY MUCH.";
 			nextpage = 4;
 			closedialog = true;
 		}
@@ -1745,14 +1728,12 @@ conversation
 		choice
 		{
 			text = "YES I HAVE ONE.";
-			nomessage = "NO.  you don't have what i want for the  OF COURSE!!";
 			nextpage = 2;
 			closedialog = false;
 		}
 		choice
 		{
 			text = "NO, AND I DON'T NEED ONE!";
-			nomessage = "NO.  you don't have what i want for the  NO, AND I DON'T NEED ONE!!";
 			nextpage = 3;
 			closedialog = false;
 		}
@@ -1766,7 +1747,6 @@ conversation
 		choice
 		{
 			text = "THANK YOU.";
-			nomessage = "NO.  you don't have what i want for the  I KNEW YOU'D SAY THAT.!";
 			nextpage = 4;
 			closedialog = true;
 		}
@@ -1779,8 +1759,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "I KNEW YOU'D SAY THAT.";
-			nomessage = "NO.  you don't have what i want for the  I KNEW YOU'D SAY THAT.!";
+			text = "SOMETHING TOLD ME YOU'D SAY THAT.";
 			nextpage = 4;
 			closedialog = true;
 		}
@@ -1822,21 +1801,18 @@ conversation
 		choice
 		{
 			text = "WHERE'S THE POWER COUPLING?";
-			nomessage = "NO.  you don't have what i want for the  WHERE'S THE POWER COUPLING?!";
 			nextpage = 3;
 			closedialog = false;
 		}
 		choice
 		{
 			text = "WHERE'S THE ORDER'S MAIN?";
-			nomessage = "NO.  you don't have what i want for the  WHERE'S THE ORDER'S MAIN?!";
 			nextpage = 4;
 			closedialog = false;
 		}
 		choice
 		{
 			text = "WHERE'S THE ILLEGAL TAP?";
-			nomessage = "NO.  you don't have what i want for the  WHERE'S THE ILLEGAL TAP?!";
 			nextpage = 5;
 			closedialog = false;
 		}
@@ -1852,7 +1828,6 @@ conversation
 		choice
 		{
 			text = "OH BOY... THANK YOU SIR.";
-			nomessage = "NO.  you don't have what i want for the  THANKS!";
 			nextpage = 6;
 			closedialog = true;
 		}
@@ -1868,7 +1843,6 @@ conversation
 		choice
 		{
 			text = "I SEE. THANK YOU VERY MUCH.";
-			nomessage = "NO.  you don't have what i want for the  THANKS!";
 			nextpage = 6;
 			closedialog = true;
 		}
@@ -1884,7 +1858,6 @@ conversation
 		choice
 		{
 			text = "SORRY SIR, JUST DOING MY JOB.";
-			nomessage = "NO.  you don't have what i want for the  THANKS!";
 			nextpage = 6;
 			closedialog = true;
 		}

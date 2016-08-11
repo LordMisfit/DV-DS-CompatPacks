@@ -18,7 +18,6 @@ conversation
 		choice
 		{
 			text = "HM, SO WHO ARE YOU THEN?";
-			nomessage = "NO.  you don't have what i want for the  WHO ARE YOU?!";
 			nextpage = 2;
 			closedialog = false;
 		}
