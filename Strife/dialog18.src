@@ -3,26 +3,26 @@
 namespace = "Strife";
 include = "SCRIPT00";
 
+//AcolyteGold
 conversation
 {
 	actor = 58;
 	page
 	{
 		name = "WAREHOUSE GUARD";
-		dialog = "WHAT IS IT?";
+		dialog = "WHAT IS IT, SOLDIER?";
 		drop = 156;
 		link = 0;
 		choice
 		{
-			text = "JUST LOOKING AROUND.";
+			text = "JUST LOOKING AROUND. IS THAT ALRIGHT?";
 			cost
 			{
 				item = 168;
 				amount = 0;
 			}
 			displaycost = false;
-			yesmessage = "JUST KEEP OUT OF THE WAY.";
-			nomessage = "NO.  you don't have what i want for the  JUST LOOKING AROUND.!";
+			yesmessage = "YES, JUST KEEP OUT OF THE WAY.";
 			nextpage = 2;
 			closedialog = false;
 		}
@@ -35,7 +35,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "MAULERS?";
+			text = "MAULERS, HUH?";
 			cost
 			{
 				item = 168;
@@ -43,7 +43,6 @@ conversation
 			}
 			displaycost = false;
 			yesmessage = "THE TEMPLAR'S FAVORITE WEAPON.";
-			nomessage = "NO.  you don't have what i want for the  MAULERS?!";
 			nextpage = 3;
 			closedialog = false;
 		}

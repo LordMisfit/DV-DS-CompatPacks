@@ -3,6 +3,7 @@
 namespace = "Strife";
 include = "SCRIPT00";
 
+// AcolyteRed [Bailey Guard]
 conversation
 {
 	actor = 54;
@@ -29,8 +30,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "HERE, I'M IN A HURRY.";
-			nomessage = "NO.  you don't have what i want for the  HERE, I'M IN A HURRY.!";
+			text = "HERE. SORRY, BUT I'M IN A HURRY.";
 			giveitem = 302;
 			nextpage = 3;
 			closedialog = false;
@@ -59,6 +59,7 @@ conversation
 	}
 }
 
+// Quincy
 conversation
 {
 	actor = 5;
@@ -76,8 +77,7 @@ conversation
 		}
 		choice
 		{
-			text = "WELL, YES. MACIL SENT ME.";
-			nomessage = "NO.  you don't have what i want for the  WELL, YES. MACIL SENT ME.!";
+			text = "WELL, YES I DO. MACIL SENT ME.";
 			nextpage = 2;
 			closedialog = false;
 		}
@@ -92,8 +92,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "Tell me how to find The Bishop.";
-			nomessage = "NO.  you don't have what i want for the  Tell me how to find The Bishop.!";
+			text = "cAN YOU Tell me how to find The Bishop?";
 			nextpage = 3;
 			closedialog = false;
 		}
@@ -108,8 +107,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "I must kill The Bishop.";
-			nomessage = "NO.  you don't have what i want for the  I must kill The Bishop.!";
+			text = "I have to find and destroy him.";
 			giveitem = 330;
 			nextpage = 4;
 			closedialog = false;
@@ -125,8 +123,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "GREAT, THAT SOUNDS EASY.";
-			nomessage = "NO.  you don't have what i want for the  GREAT, THAT SOUNDS EASY.!";
+			text = "GREAT, THAT SOUNDS EASY ENOUGH.";
 			nextpage = 5;
 			closedialog = false;
 		}
@@ -141,8 +138,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "ANYTHING ELSE?";
-			nomessage = "NO.  you don't have what i want for the  ANYTHING ELSE?!";
+			text = "ANYTHING ELSE OF NOTE?";
 			log = "LOG1022";
 			nextpage = 6;
 			closedialog = false;
@@ -158,8 +154,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "IS THAT IT, NOW?";
-			nomessage = "NO.  you don't have what i want for the  IS THAT IT, NOW?!";
+			text = "HM, IS THAT SO?";
 			nextpage = 7;
 			closedialog = false;
 		}
@@ -237,6 +232,66 @@ conversation
 			yesmessage = "ONE FIELD SURGERY KIT, DONE.";
 			nomessage = "COME BACK WHEN YOU HAVE MONEY!";
 			giveitem = 127;
+			nextpage = 1;
+			closedialog = false;
+		}
+		choice
+		{
+			text = "MEDICINAL HERB";
+			cost
+			{
+				item = 168; // Coin
+				amount = 25;
+			}
+			displaycost = true;
+			yesmessage = "HERE'S YOUR MEDICINAL HERB.";
+			nomessage = "WELL, MAYBE YOU CAN AFFORD A MED PATCH?";
+			giveitem = 351; // MedicinalHerb
+			nextpage = 1;
+			closedialog = false;
+		}
+		choice
+		{
+			text = "STRONG MEDICENE";
+			cost
+			{
+				item = 168; // Coin
+				amount = 60;
+			}
+			displaycost = true;
+			yesmessage = "THERE YOU GO.  TAKE CARE NOW OF YOURSELF.";
+			nomessage = "WELL, MAYBE YOU CAN AFFORD A MEDICINAL HERB?";
+			giveitem = 352; // StrongMedicene
+			nextpage = 1;
+			closedialog = false;
+		}
+		choice
+		{
+			text = "SPECIAL MEDICENE";
+			cost
+			{
+				item = 168;
+				amount = 165;
+			}
+			displaycost = true;
+			yesmessage = "ONE SPECIALIZED MEDICINAL HERB FOR YA.";
+			nomessage = "SORRY, THESE KINDS OF HERBS AREN'T CHEAP.";
+			giveitem = 353; // SpecialMedicene
+			nextpage = 1;
+			closedialog = false;
+		}
+		choice
+		{
+			text = "YGGDRASIL DEW";
+			cost
+			{
+				item = 168;
+				amount = 675;
+			}
+			displaycost = true;
+			yesmessage = "ONE YGGDRASIL DEW FOR YOU. HOLD ON TO IT FOR AN EMERGENCY.";
+			nomessage = "THESE THINGS ARE WAY TOO RARE TO SKILT FOR CHEAP, I'M AFRAID!";
+			giveitem = 354; // YggdrasilDew
 			nextpage = 1;
 			closedialog = false;
 		}

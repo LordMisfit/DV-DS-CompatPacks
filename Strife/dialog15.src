@@ -3,6 +3,7 @@
 namespace = "Strife";
 include = "SCRIPT00";
 
+// AcolyteRed [foreman]
 conversation
 {
 	actor = 54;
@@ -14,9 +15,8 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "ROUTINE INSPECTION.";
+			text = "I'M HERE FOR A ROUTINE INSPECTION.";
 			yesmessage = "ALL RIGHT, CARRY ON.";
-			nomessage = "NO.  you don't have what i want for the  ROUTINE INSPECTION.!";
 			nextpage = 2;
 			closedialog = true;
 		}
@@ -29,7 +29,7 @@ conversation
 	page
 	{
 		name = "TECHNICIAN";
-		dialog = "NOTHING TO REPORT HERE.  EVERYTHING IS WORKING FINE.  IF ANYTHING GOES WRONG, I'LL BE SURE TO REPORT IT.";
+		dialog = "NOTHING TO REPORT HERE, SIR. EVERYTHING IS WORKING FINE. IF ANYTHING GOES WRONG, I'LL BE SURE TO REPORT IT.";
 		drop = 0;
 		link = 0;
 	}

@@ -17,7 +17,6 @@ conversation
 		choice
 		{
 			text = "THE SIGIL OF THE ONE GOD.";
-			nomessage = "NO.  you don't have what i want for the  THE SIGIL OF THE ONE GOD.!";
 			giveitem = 302;
 			nextpage = 2;
 			closedialog = false;
@@ -33,8 +32,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "I'LL BE BACK.";
-			nomessage = "NO.  you don't have what i want for the  I'LL BE BACK.!";
+			text = "ALRIGHT, I'LL BE BACK.";
 			log = "LOG1020";
 			giveitem = 311;
 			nextpage = 3;
@@ -64,8 +62,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "MACIL? A TRAITOR?";
-			nomessage = "NO.  you don't have what i want for the  MACIL? A TRAITOR?!";
+			text = "WAIT WHAT? MACIL'S A TRAITOR?";
 			giveitem = 309;
 			nextpage = 5;
 			closedialog = false;
@@ -85,8 +82,7 @@ conversation
 		}
 		choice
 		{
-			text = "ALL RIGHT, IT IS MACIL.";
-			nomessage = "NO.  you don't have what i want for the  ALL RIGHT, IT IS MACIL.!";
+			text = "ALL RIGHT, IT IS MACIL. I'LL GO CHECK THIS OUT.";
 			log = "LOG1023";
 			giveitem = 333;
 			nextpage = 6;
@@ -94,8 +90,7 @@ conversation
 		}
 		choice
 		{
-			text = "IT'S YOU I DON'T TRUST.";
-			nomessage = "NO.  you don't have what i want for the  IT'S YOU I DON'T TRUST.!";
+			text = "YOU KNOW, IT'S YOU I DON'T TRUST, SIR ORACLE.";
 			giveitem = 333;
 			nextpage = 6;
 			closedialog = false;
@@ -115,8 +110,7 @@ conversation
 		}
 		choice
 		{
-			text = "I'LL BE BACK WHEN MACIL'S DEAD.";
-			nomessage = "NO.  you don't have what i want for the  I'LL BE BACK WHEN MACIL'S DEAD.!";
+			text = "WE'LL SEE ABOUT THAT. I'LL BE BACK WHEN MACIL'S DEAD.";
 			log = "LOG1027";
 			giveitem = 302;
 			nextpage = 7;
@@ -124,8 +118,7 @@ conversation
 		}
 		choice
 		{
-			text = "I CAN'T LET THAT HAPPEN.";
-			nomessage = "NO.  you don't have what i want for the  I CAN'T LET THAT HAPPEN.!";
+			text = "THEY'RE NOT MY \"KIND\", BUT I CAN'T LET THAT HAPPEN.";
 			giveitem = 301;
 			nextpage = 13;
 			closedialog = false;
@@ -154,8 +147,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "WHERE DO I FIND HIM?";
-			nomessage = "NO.  you don't have what i want for the  WHERE DO I FIND HIM?!";
+			text = "A LORE MASTER? SO WHERE DO I FIND HIM?";
 			log = "LOG1025";
 			giveitem = 304;
 			nextpage = 9;
@@ -172,8 +164,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "I'LL BE BACK, WITH HIS PIECE!";
-			nomessage = "NO.  you don't have what i want for the  I'LL BE BACK, WITH HIS PIECE!!";
+			text = "ALRIGHT, I SHALL RETURN SOON.";
 			log = "LOG1026";
 			giveitem = 309;
 			nextpage = 10;
@@ -198,13 +189,12 @@ conversation
 		name = "ORACLE";
 		panel = "M_ORACLE";
 		voice = "LOM03";
-		dialog = "Pitiful man, you have done what thousands have failed to do... you bring me the power of the SIGIL, the voice of the one God.";
+		dialog = "Pitiful woman, you have done what thousands have failed to do... you bring me the power of the SIGIL, the voice of the one God.";
 		drop = 0;
 		link = 0;
 		choice
 		{
-			text = "I DON'T UNDERSTAND.";
-			nomessage = "NO.  you don't have what i want for the  I DON'T UNDERSTAND.!";
+			text = "HM, I THINK I'M STARTING TO UNDERSTAND YOU...";
 			nextpage = 12;
 			closedialog = false;
 		}
@@ -219,8 +209,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "I CAN'T LET YOU DO THAT.";
-			nomessage = "NO.  you don't have what i want for the  I CAN'T LET YOU DO THAT.!";
+			text = "TERRIBLY SORRY, BUT I CAN'T LET YOU DO THAT, SIR ORACLE.";
 			giveitem = 301;
 			nextpage = 13;
 			closedialog = false;
@@ -235,371 +224,5 @@ conversation
 		drop = 0;
 		link = 0;
 	}
-	page
-	{
-		name = "ORACLE";
-		dialog = "THE SECOND PIECE OF THE SIGIL LIES AT THE HEART OF THE CRIMSON AND OBSIDIAN TOWER. BE WARNED, THERE THE DRAGON AWAITS YOU.  THE TIME OF YOUR COMING HAS BEEN FORETOLD. SEEK THE TOWER, YOUR PRIZE LIES    WITHIN.";
-		drop = 0;
-		link = 0;
-		choice
-		{
-			text = "WHAT ABOUT THE OTHER PIECES?";
-			cost
-			{
-				item = 168;
-				amount = 0;
-			}
-			displaycost = false;
-			yesmessage = "RETURN AFTER YOU HAVE BESTED THE        DRAGON.";
-			nomessage = "NO.  you don't have what i want for the  WHAT ABOUT THE OTHER PIECES?!";
-			giveitem = 311;
-			nextpage = 3;
-			closedialog = true;
-		}
-	}
-	page
-	{
-		name = "ORACLE";
-		dialog = "HAVE YOU BRAVED THE FURY OF THE DRAGON?";
-		drop = 0;
-		link = 0;
-		choice
-		{
-			text = "YES.";
-			cost
-			{
-				item = 168;
-				amount = 0;
-			}
-			cost
-			{
-				item = 197;
-				amount = 1;
-			}
-			displaycost = false;
-			yesmessage = "THE NEXT CHALLENGE MAY PROVE YOUR   GREATEST.";
-			nomessage = "DO NOT RETURN UNTIL YOUR TASK IS FINISHED.";
-			nextpage = 4;
-			closedialog = false;
-		}
-		choice
-		{
-			text = "NO, I HAVEN'T";
-			cost
-			{
-				item = 168;
-				amount = 0;
-			}
-			displaycost = false;
-			yesmessage = "SEEK THE CRIMSON AND OBSIDIAN TOWER.";
-			nomessage = "NO.  you don't have what i want for the  NO, I HAVEN'T!";
-			nextpage = 3;
-			closedialog = true;
-		}
-	}
-	page
-	{
-		name = "ORACLE";
-		dialog = "THE THIRD PIECE LIES AT THE HEART OF YOUR OWN.  THE UNKNOWING        BETRAYAL OF YOUR PEOPLE SHOULD CEASE BEFORE YOUR ACTIONS DESTROY THEM.";
-		drop = 0;
-		link = 0;
-		choice
-		{
-			text = "WHAT ARE YOU TALKING ABOUT?";
-			cost
-			{
-				item = 168;
-				amount = 0;
-			}
-			displaycost = false;
-			yesmessage = "YOU ARE A SIMPLE PAWN IN THIS GAME.";
-			nomessage = "NO.  you don't have what i want for the  WHAT ARE YOU TALKING ABOUT?!";
-			nextpage = 5;
-			closedialog = false;
-		}
-	}
-	page
-	{
-		name = "ORACLE";
-		dialog = "THE THIRD PIECE IS HELD BY YOUR OWN LEADER, MACIL.  HE IS THE SAME AS THAT WHICH HE SENDS YOU TO KILL.  YOUR UNWAVERING FAITH HAS ALLOWED HIM TO STEP CLOSER TO COMPLETING HIS GOALS WITH EACH PIECE YOU WIN. HE MUST BE DESTROYED BEFORE HE IS ABLE TO OBTAIN ALL THE PIECES.";
-		drop = 0;
-		link = 0;
-		choice
-		{
-			text = "WHAT IF HE GETS THEM ALL?";
-			cost
-			{
-				item = 168;
-				amount = 0;
-			}
-			displaycost = false;
-			yesmessage = "THEN HE WILL SHED HIS CLOAK OF LIES AND REVEAL HIS TRUE FACE.";
-			nomessage = "NO.  you don't have what i want for the  WHAT IF HE GETS THEM ALL?!";
-			nextpage = 6;
-			closedialog = false;
-		}
-	}
-	page
-	{
-		name = "ORACLE";
-		dialog = "HE AND I, LIKE THE OTHERS, ARE THE LAST OF A RACE THAT USED TO RULE THIS WORLD.  THEY CHOOSE TO USE   THEIR POWER AGAINST HUMANS, I USE MINE TO HELP THEM.  WITHOUT YOUR PEOPLE WE COULD NOT SURVIVE.";
-		drop = 0;
-		link = 0;
-		choice
-		{
-			text = "WHY SHOULD I TRUST YOU?";
-			cost
-			{
-				item = 168;
-				amount = 0;
-			}
-			displaycost = false;
-			yesmessage = "BECAUSE I AM SPEAKING THE TRUTH.";
-			nomessage = "NO.  you don't have what i want for the  WHY SHOULD I TRUST YOU?!";
-			nextpage = 7;
-			closedialog = false;
-		}
-	}
-	page
-	{
-		name = "ORACLE";
-		dialog = "WREST FROM MACIL, HIS SIGIL PIECE. RETURN WITH IT HERE AND I WILL GRANT YOU THE SAME REWARD AS HE.  YOU MAY KEEP BOTH THE SIGIL PIECES AND THE KNOWLEDGE THAT YOU ARE HELPING YOUR PEOPLE INSTEAD OF WORKING TO DESTROY THEM.  YOU MUST CHOOSE, I CANNOT LET YOU DEPART IF YOU STILL BELONG TO HIM.";
-		drop = 0;
-		link = 0;
-		choice
-		{
-			text = "ALL RIGHT, I'M IN.";
-			cost
-			{
-				item = 168;
-				amount = 0;
-			}
-			displaycost = false;
-			yesmessage = "RETURN HERE WHEN HE'S DEAD.";
-			nomessage = "NO.  you don't have what i want for the  ALL RIGHT, I'M IN.!";
-			giveitem = 302;
-			nextpage = 8;
-			closedialog = true;
-		}
-		choice
-		{
-			text = "I DON'T BELIEVE YOU.";
-			cost
-			{
-				item = 168;
-				amount = 0;
-			}
-			displaycost = false;
-			yesmessage = "THEN YOU MUST DIE!";
-			nomessage = "NO.  you don't have what i want for the  I DON'T BELIEVE YOU.!";
-			giveitem = 301;
-		}
-	}
-	page
-	{
-		name = "ORACLE";
-		dialog = "HAVE YOU DESTROYED THE BETRAYER?";
-		drop = 0;
-		link = 0;
-		choice
-		{
-			text = "YES, MACIL IS GONE.";
-			cost
-			{
-				item = 168;
-				amount = 0;
-			}
-			cost
-			{
-				item = 198;
-				amount = 1;
-			}
-			displaycost = false;
-			yesmessage = "HERE'S YOUR REWARD.";
-			nomessage = "YOU MUST FIRST ELIMINATE MACIL.";
-			giveitem = 309;
-			nextpage = 9;
-			closedialog = false;
-		}
-	}
-	page
-	{
-		name = "ORACLE";
-		dialog = "NOW THAT YOU HAVE CLEANSED THE POISON FROM YOUR PEOPLE, YOUR   JOURNEY ON THE PATH TO FREEDOM CAN CONTINUE UNBURDENED.  HERE ARE YOUR REWARDS, AS PROMISED TO YOU.  RETURN TO YOUR FRIENDS TO  REDEEM THEM.  THE FUTURE HOLDS   GREATER DANGER, BUT ALSO GREATER REWARDS.";
-		drop = 0;
-		link = 0;
-		choice
-		{
-			text = "WHAT SORT OF REWARDS.";
-			cost
-			{
-				item = 168;
-				amount = 0;
-			}
-			displaycost = false;
-			yesmessage = "FREEDOM AND PEACE.";
-			nomessage = "NO.  you don't have what i want for the  WHAT SORT OF REWARDS.!";
-			nextpage = 10;
-			closedialog = false;
-		}
-	}
-	page
-	{
-		name = "ORACLE";
-		dialog = "REWARDS THAT DWARF ALL THOSE THAT HAVE COME BEFORE. WITH NO LEADER, YOUR MOVEMENT MAY FLOUNDER. THE FAITH OF YOUR PEOPLE, WHICH YOU  ONCE STRODE UPON TO VICTORY, HAS BEEN AS BADLY BATTERED AS THEIR PHYSICAL FORMS. THEY NEED YOUR  REASSURANCE AND SUPPORT.";
-		drop = 0;
-		link = 0;
-		choice
-		{
-			text = "HOW DO YOU FIGURE THAT?";
-			cost
-			{
-				item = 168;
-				amount = 0;
-			}
-			displaycost = false;
-			yesmessage = "YOU ARE THE ONE WHO EXPOSED THE FRAUD AND WHO HOLDS THE SIGIL PIECES.";
-			nomessage = "NO.  you don't have what i want for the  HOW DO YOU FIGURE THAT?!";
-			nextpage = 11;
-			closedialog = false;
-		}
-	}
-	page
-	{
-		name = "ORACLE";
-		dialog = "THE RESTORATION OF FAITH SHOULD BEGIN WITH THE RETRIEVAL OF THE   THIRD PIECE.  THE DARKEST HEART OF MY PEOPLE CLINGS TO THIS PIECE, ONE WHO REVELS IN SUBVERTING YOUR RACE AND REJOICES IN THE DEGRADATION OF THOSE WHO REFUSE TO JOIN HIM.";
-		drop = 0;
-		link = 0;
-		choice
-		{
-			text = "WHERE CAN I FIND HIM?";
-			cost
-			{
-				item = 168;
-				amount = 0;
-			}
-			displaycost = false;
-			yesmessage = "HE NEVER LEAVES HIS LABORATORIES ON THE OTHER SIDE OF THE FACTORY.";
-			nomessage = "NO.  you don't have what i want for the  WHERE CAN I FIND HIM?!";
-			nextpage = 12;
-			closedialog = false;
-		}
-	}
-	page
-	{
-		name = "ORACLE";
-		dialog = "THE UNFORTUNATE TRUTH IS WHAT LIES BETWEEN HE AND YOU.  THE ORDER'S GREATEST CONCENTRATION OF FORCES INCLUDING, WHERE THEY ARE BUILT, BRED, AND WORSHIP.  YOU MUST FIND YOUR WAY THROUGH THIS MAZE, FIND AND DESTROY THE LORE MASTER.  BRING HIS PIECE BACK TO ME AND I WILL   REWARD YOU.";
-		drop = 0;
-		link = 0;
-		choice
-		{
-			text = "HOW ABOUT SOME HELP?";
-			cost
-			{
-				item = 168;
-				amount = 0;
-			}
-			displaycost = false;
-			yesmessage = "I WILL BE WITH YOU.";
-			nomessage = "NO.  you don't have what i want for the  HOW ABOUT SOME HELP?!";
-			nextpage = 13;
-			closedialog = false;
-		}
-	}
-	page
-	{
-		name = "ORACLE";
-		dialog = "THERE ARE WAYS FOR ME TO COMMUNICATE WITH YOU, THERE ARE THOSE WITH MINDS WEAKER THAN MOST, I WILL SPEAK TO YOU THROUGH THEM.  LOOK FOR THE FIRST OF THESE IN THE ORDER'S TOWN.  THAT IS ALL I MAY DO RIGHT NOW.";
-		drop = 0;
-		link = 0;
-		choice
-		{
-			text = "HOW WILL I KNOW WHERE TO LOOK?";
-			cost
-			{
-				item = 168;
-				amount = 0;
-			}
-			displaycost = false;
-			yesmessage = "NEAR THE WATER FALL.";
-			nomessage = "NO.  you don't have what i want for the  HOW WILL I KNOW WHERE TO LOOK?!";
-			nextpage = 15;
-			closedialog = true;
-		}
-	}
-	page
-	{
-		name = "ORACLE";
-		dialog = "HAVE YOU DESTROYED THE LORE MASTER?";
-		drop = 0;
-		link = 0;
-		choice
-		{
-			text = "YES, HE'S GONE.";
-			cost
-			{
-				item = 168;
-				amount = 0;
-			}
-			displaycost = false;
-			yesmessage = "YOUR REWARDS CANNOT DO JUSTICE FOR THIS ACCOMPLISHMENT.";
-			nomessage = "YOU MUST FINISH HIM FIRST.";
-			giveitem = 309;
-			nextpage = 16;
-			closedialog = false;
-		}
-		choice
-		{
-			text = "NO I HAVEN'T KILLED HIM, YET.";
-			cost
-			{
-				item = 168;
-				amount = 0;
-			}
-			displaycost = false;
-			yesmessage = "THEN DO NOT RETURN UNTIL THAT IS DONE.";
-			nomessage = "NO.  you don't have what i want for the  NO I HAVEN'T KILLED HIM, YET.!";
-		}
-	}
-	page
-	{
-		name = "ORACLE";
-		dialog = "I CANNOT THANK YOU ENOUGH, NOW I SHALL WIELD ALL THE POWER OF THE ONE GOD AND USE IT TO CRUSH YOU AND YOUR ENTIRE RACE.";
-		drop = 0;
-		link = 0;
-		choice
-		{
-			text = "WHAT ABOUT PEACE AND goodwill?";
-			cost
-			{
-				item = 168;
-				amount = 0;
-			}
-			displaycost = false;
-			yesmessage = "IDIOT, THERE CAN BE NO PEACE AS LONG AS THE ONE GOD EXISTS!";
-			nomessage = "NO.  you don't have what i want for the  WHAT ABOUT PEACE AND goodwill?!";
-			nextpage = 17;
-			closedialog = false;
-		}
-	}
-	page
-	{
-		name = "ORACLE";
-		dialog = "IT CREATED US TO HELP REAP THIS PLANETS ENERGIES AND FREE IT AND OURSELVES FROM THIS MISERABLE PIT.  IT EXISTS, AND NOW I SHALL TAKE ITS PLACE AND RULE THIS WORLD!  THE SIGIL WILL OPEN THE DOOR, AND WHEN I FINISH, I WILL HAVE EARNED MY OWN FREEDOM!";
-		drop = 0;
-		link = 0;
-		choice
-		{
-			text = "I CAN'T LET YOU DO THIS.";
-			cost
-			{
-				item = 168;
-				amount = 0;
-			}
-			displaycost = false;
-			yesmessage = "TRY AND STOP ME PITIFUL MEAT BEING!";
-			nomessage = "NO.  you don't have what i want for the  I CAN'T LET YOU DO THIS.!";
-			giveitem = 302;
-		}
-	}
+
 }

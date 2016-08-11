@@ -781,6 +781,36 @@ conversation
 			nextpage = 1;
 			closedialog = false;
 		}
+		choice
+		{
+			text = "SPECIAL MEDICENE";
+			cost
+			{
+				item = 168;
+				amount = 150;
+			}
+			displaycost = true;
+			yesmessage = "ONE SPECIALIZED MEDICINAL HERB FOR YA.";
+			nomessage = "SORRY, THESE KINDS OF HERBS AREN'T CHEAP.";
+			giveitem = 353; // SpecialMedicene
+			nextpage = 1;
+			closedialog = false;
+		}
+		choice
+		{
+			text = "YGGDRASIL DEW";
+			cost
+			{
+				item = 168;
+				amount = 625;
+			}
+			displaycost = true;
+			yesmessage = "ONE YGGDRASIL DEW FOR YOU. HOLD ON TO IT FOR AN EMERGENCY.";
+			nomessage = "THESE THINGS ARE WAY TOO RARE TO SKILT FOR CHEAP, I'M AFRAID!";
+			giveitem = 354; // YggdrasilDew
+			nextpage = 1;
+			closedialog = false;
+		}
 	}
 	page
 	{

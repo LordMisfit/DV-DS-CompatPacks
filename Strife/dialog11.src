@@ -87,13 +87,14 @@ conversation
 	}
 }
 
+//AcolyteGrayNew
 conversation
 {
 	actor = 56;
 	page
 	{
 		name = "SERGEANT";
-		dialog = "DIE TRAITOR!";
+		dialog = "DIE, YOU REBEL TRAITOR!";
 		drop = 147;
 		link = 0;
 	}
