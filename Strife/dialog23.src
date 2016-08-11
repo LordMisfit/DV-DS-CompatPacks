@@ -652,13 +652,48 @@ conversation
 	page
 	{
 		name = "TIMOTHY";
-		dialog = "HELLO.";
+		dialog = "HELLO THERE, MISS. I'VE HEARD AROUND ABOUT YOU. DON'T WORRY. I'M NOT HERE TO HELP THOSE BRUTES. HOWEVER, I WONDER IF THIS GOLD, SPARKLING FRUIT COULD OF SOME USE TO YOU...";
 		drop = 0;
 		link = 0;
 		choice
 		{
-			text = "WHAT ARE YOU DOING?";
-			yesmessage = "I'M DOING STUFF, GO AWAY!";
+			text = "OH! THAT FRUIT'S A FYGG, ISN'T IT?";
+			nextpage = 2;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		name = "TIMOTHY";
+		dialog = "\"FYGG\"? I GUESS THAT MEANS YOU KNOW WHAT THIS THING DOES. HOWEVER I CAN'T PART WITH IT UNLESS I CAN GET AT LEAST 26,999 GOLD FOR IT. SORRY.";
+		drop = 0;
+		link = 0;
+		choice
+		{
+			text = "WELL, HERE'S YOUR 26,999 GOLD THEN.";
+			cost
+			{
+				item = 168; // Coin
+				amount = 26999;
+			}
+			displaycost = false;
+			yesmessage = "HERE, I HOPE THIS IS WORTH IT FOR YOU.";
+			nomessage = "SORRY, NO LESS THAN 26,999 GOLD, LADY.";
+			giveitem = 368; // FyggForced
+			nextpage = 3;
+			closedialog = true;
+		}
+	}
+	page
+	{
+		name = "TIMOTHY";
+		dialog = "OH HELLO AGAIN. I HOPE THAT \"FYGG\" FRUIT HELPED YOU. I SUPPOSE YOU ALREADY LOOK STRONGER THAN BEFORE. I GUESS IT HAS SOME UNIQUE REACTION TO YOU OR SO.";
+		drop = 0;
+		link = 0;
+		choice
+		{
+			text = "SO, WHAT ARE YOU DOING RIGHT NOW?";
+			yesmessage = "I'M KINDA BUSY... DOING STUFF. I'LL BE BUSY FOR A WHILE, SO COME BACK LATER.";
 		}
 	}
 }
