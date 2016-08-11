@@ -3,6 +3,7 @@
 namespace = "Strife";
 include = "SCRIPT00";
 
+// AcolyteRed
 conversation
 {
 	actor = 54;
@@ -30,12 +31,25 @@ conversation
 	actor = 6;
 	page
 	{
-		dialog = "WHAT THE HELL'S YOUR PROBLEM.  IF THE PROGRAMMER COMES UP FROM HIS AUDIENCE CHAMBER, YOU'RE DEAD.";
+		dialog = "WHAT THE HELL'S YOUR PROBLEM?!  IF THE PROGRAMMER COMES UP FROM HIS AUDIENCE CHAMBER, YOU'RE DEAD, LADY!";
+		drop = 0;
+		link = 0;
+		choice
+		{
+			text = "YOU KNOW, I'M ACTUALLY LOOKING FOR HIM, SO I DON'T MIND THAT AT ALL.";
+			nextpage = 2;
+			closedialog = false;
+		}
+	}
+	page
+	{
+		dialog = "PFFT. WHATEVER YOU WISH. I WON'T BE THE ONE TO SING YOUR FUNERAL MARCH.";
 		drop = 0;
 		link = 0;
 	}
 }
 
+// AcolyteRust
 conversation
 {
 	actor = 55;
@@ -47,6 +61,7 @@ conversation
 	}
 }
 
+// Fake Programmer
 conversation
 {
 	actor = 21;
@@ -60,7 +75,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "WELL, WHAT'S THE TRUTH THEN?";
+			text = "SORRY, I'VE HEARD TOO MANY THINGS ABOUT HIM BEING QUITE REAL. YOU'RE NOT FOOLING ME.";
 			nomessage = "NO.  you don't have what i want for the  WELL, WHAT'S THE TRUTH THEN?!";
 			nextpage = 2;
 			closedialog = false;

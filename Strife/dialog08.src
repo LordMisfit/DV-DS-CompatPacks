@@ -3,6 +3,7 @@
 namespace = "Strife";
 include = "SCRIPT00";
 
+// Fake Programmer
 conversation
 {
 	actor = 27;
@@ -16,8 +17,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "YOU'RE THE PROGRAMMER!";
-			nomessage = "NO.  you don't have what i want for the  YOU'RE THE PROGRAMMER!!";
+			text = "HM, YOU DON'T LOOK TOO POWERFUL, BUT WHO REALLY KNOWS...";
 			giveitem = 144;
 			nextpage = 2;
 			closedialog = false;

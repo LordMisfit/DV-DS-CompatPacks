@@ -3,6 +3,7 @@
 namespace = "Strife";
 include = "SCRIPT00";
 
+// Weran
 conversation
 {
 	actor = 19;
@@ -20,8 +21,7 @@ conversation
 		}
 		choice
 		{
-			text = "WHERE IS THE GATE MECHANISM?";
-			nomessage = "NO.  you don't have what i want for the  WHERE IS THE GATE MECHANISM?!";
+			text = "WHERE'S THE GATE MECHANISM?";
 			nextpage = 2;
 			closedialog = false;
 		}
@@ -36,8 +36,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "HOW WILL YOU KNOW IT'S OPEN?";
-			nomessage = "NO.  you don't have what i want for the  HOW WILL YOU KNOW IT'S OPEN?!";
+			text = "THEN, HOW WILL YOU KNOW IT'S OPEN?";
 			nextpage = 3;
 			closedialog = false;
 		}
@@ -52,7 +51,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "YOU WANT HIS UNIFORM?";
+			text = "OKAY, SO YOU WANT HIS UNIFORM?";
 			nomessage = "NO.  you don't have what i want for the  YOU WANT HIS UNIFORM?!";
 			log = "LOG1015";
 			nextpage = 4;
@@ -110,7 +109,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "WHERE'S THE GATE MECHANISM?";
+			text = "SO AGAIN, WHERE'S THE GATE MECHANISM?";
 			nomessage = "NO.  you don't have what i want for the  WHERE'S THE GATE MECHANISM?!";
 			giveitem = 302;
 			nextpage = 7;
@@ -127,7 +126,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "ANYTHING ELSE YOU CAN DO?";
+			text = "IS THERE ANYTHING ELSE YOU CAN DO?";
 			nomessage = "NO.  you don't have what i want for the  ANYTHING ELSE YOU CAN DO?!";
 			nextpage = 8;
 			closedialog = false;
@@ -143,7 +142,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "THANKS FOR YOUR HELP.";
+			text = "ALRIGHT, THANKS FOR YOUR HELP.";
 			nomessage = "NO.  you don't have what i want for the  THANKS FOR YOUR HELP.!";
 			log = "LOG1016";
 			nextpage = 9;
@@ -188,7 +187,7 @@ conversation
 	actor = 40;
 	page
 	{
-		dialog = "LONG LIVE THE FRONT?  THAT'S ALL CRAP.  WE'RE ALL JUST WAITING TO DIE. ";
+		dialog = "LONG LIVE THE FRONT?  THAT'S ALL CRAP. WE'RE ALL JUST WAITING TO DIE. ";
 		drop = 0;
 		link = 0;
 	}
@@ -210,34 +209,99 @@ conversation
 	actor = 42;
 	page
 	{
-		dialog = "FOOD, DO YOU HAVE ANY FOOD?     PLEASE HELP US.";
+		dialog = "FOOD, DO YOU HAVE ANY FOOD? PLEASE HELP US.";
 		drop = 0;
 		link = 0;
 	}
 }
 
+// AcolyteTan
 conversation
 {
 	actor = 53;
 	page
 	{
-		dialog = "THIS IS MY REWARD FOR LETTING PRISONERS ESCAPE, GUARDING THE SEWERS.  IF I EVER FIND THE GUY WHO BROKE THEM OUT, I'LL SLAUGHTER HIM.";
+		dialog = "THIS IS MY \"REWARD\" FOR LETTING PRISONERS ESCAPE, GUARDING THE SEWERS. IF I EVER FIND THE GUY WHO BROKE THEM OUT, I'LL SLAUGHTER HIM.";
+		drop = 179;
+		link = 0;
+		choice
+		{
+			text = "\"HER\" YOU MEAN, \"GOOD\" SIR.";
+			nextpage = 2;
+			closedialog = false;			
+		}
+	}
+	page
+	{
+		dialog = "\"HER\"?! YOU MEAN, YOU'RE ADMITTING TO BEING THE FOOL WHO DARES TO STAND WITH THE FRONT?!";
+		drop = 179;
+		link = 0;
+		choice
+		{
+			text = "ABSOLUTELY! AND THE SAD PART IS THAT YOU'RE THE REAL \"FOOL\".";
+			nextpage = 3;
+			giveitem = 301;
+			closedialog = false;			
+		}
+	}
+	page
+	{
+		dialog = "I'LL ENJOY RIPPING YOU TO PIECES, YOU INSOLENT BITCH!";
+		drop = 179;
+		link = 0;
+		choice
+		{
+			text = "HMPH... GO AHEAD AND TRY, \"GOOD\" SIR.";
+			nextpage = 4;
+			closedialog = true;			
+		}
+	}
+	page
+	{
+		dialog = "DIE!!!";
 		drop = 179;
 		link = 0;
 	}
 }
 
+// AcolyteRed
 conversation
 {
 	actor = 54;
 	page
 	{
-		dialog = "WE'VE GOT THOSE LITTLE BEGGARS JUST WHERE WE WANT THEM.  FEW MORE DAYS OF THIS, AND THEY'LL HAVE STARVED THEMSELVES INTO OBLIVION.";
+		dialog = "WE'VE GOT THOSE LITTLE BEGGARS JUST WHERE WE WANT THEM. FEW MORE DAYS OF THIS, AND THEY'LL HAVE STARVED THEMSELVES INTO OBLIVION.";
 		drop = 143;
+		link = 0;
+		choice
+		{
+			text = "I'M SORRY, I'M AFRAID IT'S YOU WHO WILL BE VISITING THE DEADLANDS, \"GOOD\" SIR.";
+			nextpage = 2;
+			closedialog = false;			
+		}
+	}
+	page
+	{
+		dialog = "IS THAT A THREAT, LITTLE GIRL?";
+		drop = 143;
+		link = 0;
+		choice
+		{
+			text = "THREAT? NO NO... IT'S A PROMISE.";
+			nextpage = 3;
+			giveitem = 301;
+			closedialog = false;			
+		}
+	}
+	page
+	{
+		dialog = "DIE YOU REBEL PEON!!!";
+		drop = 179;
 		link = 0;
 	}
 }
 
+// AcolyteRust
 conversation
 {
 	actor = 55;
