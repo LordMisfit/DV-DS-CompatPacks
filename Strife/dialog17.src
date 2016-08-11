@@ -297,3 +297,154 @@ conversation
 		}
 	}
 }
+
+//************************
+//*NEW NPCS - DV-DS Patch*
+//************************
+// Tress Growler [Beggar2] (buy Stat Seeds)
+conversation
+{
+	actor = 39;
+	page // 1 - Default Options
+	{
+		name = "TRESS GROWLER";
+		dialog = "SEEDS FOR YOUR TROUBLES, MISS?";
+		drop = 0;
+		link = 0;
+		choice
+		{
+			text = "SEED OF LIFE";
+			cost
+			{
+				item = 168; // Coin
+				amount = 875;
+			}
+			displaycost = true;
+			yesmessage = "EAT IT IN GOOD HEALTH!";
+			nomessage = "SORRY, THESE SEEDS AREN'T EXACTLY COMMON, YA' KNOW.";
+			giveitem = 369; // SeedOfLife
+			nextpage = 1;
+			closedialog = false;
+		}
+		choice
+		{
+			text = "SEED OF MAGIC";
+			cost
+			{
+				item = 168; // Coin
+				amount = 875;
+			}
+			displaycost = true;
+			yesmessage = "HERE'S TO MORE MAGIC!";
+			nomessage = "SORRY, THESE SEEDS AREN'T EXACTLY COMMON, YA' KNOW.";
+			giveitem = 370; // SeedOfMagic
+			nextpage = 1;
+			closedialog = false;
+		}
+		choice
+		{
+			text = "SEED OF AGILITY";
+			cost
+			{
+				item = 168; // Coin
+				amount = 875;
+			}
+			displaycost = true;
+			yesmessage = "\"GOTTA GO FAST\", AS THEY SAY!";
+			nomessage = "SORRY, THESE SEEDS AREN'T EXACTLY COMMON, YA' KNOW.";
+			giveitem = 374; // SeedOfAgilityForced
+			nextpage = 1;
+			closedialog = false;
+		}
+		choice
+		{
+			text = "SEED OF DEFENSE";
+			cost
+			{
+				item = 168; // Coin
+				amount = 875;
+			}
+			displaycost = true;
+			yesmessage = "MAKE YOURSELF AS STURDY AS TITANIUM!";
+			nomessage = "SORRY, THESE SEEDS AREN'T EXACTLY COMMON, YA' KNOW.";
+			giveitem = 376; // SeedOfDefenseForced
+			nextpage = 1;
+			closedialog = false;
+		}
+		choice
+		{
+			text = "SEED OF DEFTNESS";
+			cost
+			{
+				item = 168; // Coin
+				amount = 875;
+			}
+			displaycost = true;
+			yesmessage = "TO MORE EXPERIENCE AND LUCK!";
+			nomessage = "SORRY, THESE SEEDS AREN'T EXACTLY COMMON, YA' KNOW.";
+			giveitem = 378; // SeedOfDeftnessForced
+			nextpage = 1;
+			closedialog = false;
+		}
+		choice
+		{
+			text = "SEED OF SORCERY";
+			cost
+			{
+				item = 168; // Coin
+				amount = 875;
+			}
+			displaycost = true;
+			yesmessage = "YOU CAN'T GO WRONG WITH STRONGER MAGIC, YA' KNOW!";
+			nomessage = "SORRY, THESE SEEDS AREN'T EXACTLY COMMON, YA' KNOW.";
+			giveitem = 380; // SeedOfSorceryForced
+			nextpage = 1;
+			closedialog = false;
+		}
+		choice
+		{
+			text = "SEED OF STRENGTH";
+			cost
+			{
+				item = 168; // Coin
+				amount = 875;
+			}
+			displaycost = true;
+			yesmessage = "WOW, YOU DON'T LOOK ANY BUFFER THAN BEFORE! WEIRD...";
+			nomessage = "SORRY, THESE SEEDS AREN'T EXACTLY COMMON, YA' KNOW.";
+			giveitem = 382; // SeedOfStrengthForced
+			nextpage = 1;
+			closedialog = false;
+		}
+		choice
+		{
+			text = "SEED OF THERAPEUSIS";
+			cost
+			{
+				item = 168; // Coin
+				amount = 875;
+			}
+			displaycost = true;
+			yesmessage = "NOW YOUR HEALING AND MAGICAL DEFENSES ARE PRISTINE, LASS!";
+			nomessage = "SORRY, THESE SEEDS AREN'T EXACTLY COMMON, YA' KNOW.";
+			giveitem = 384; // SeedOfTherapeusisForced
+			nextpage = 1;
+			closedialog = false;
+		}
+		choice
+		{
+			text = "SEED OF SKILL";
+			cost
+			{
+				item = 168; // Coin
+				amount = 2875;
+			}
+			displaycost = true;
+			yesmessage = "USE THOSE AEON POINTS WISELY, LASS!";
+			nomessage = "SORRY, THESE SEEDS AREN'T EXACTLY COMMON, YA' KNOW.";
+			giveitem = 372; // SeedOfSkillForced
+			nextpage = 1;
+			closedialog = false;
+		}
+	}
+}
