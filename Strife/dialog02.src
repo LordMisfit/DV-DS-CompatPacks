@@ -2233,6 +2233,20 @@ conversation
     }
 		choice
 		{
+			text = "MAP SCANNER (750 GOLD)";
+			cost
+			{
+				item = 165; // Scanner
+				amount = 1;
+			}
+			yesmessage = "THANK YOU FOR YOUR SERVICE.";
+			nomessage = "SORRY YOU NEED SOMETHING TO SELL FOR GOLD, YOU KNOW.";
+			giveitem = 520; //ScannerSellItem1
+			nextpage = 5;
+			closedialog = false;
+    }
+		choice
+		{
 			text = "I WANT TO CHOOSE A DIFFERENT CATEGORY OF ITEMS NOW.";
 			nextpage = 1;
 			closedialog = false;
