@@ -145,7 +145,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "WELL, WE'RE OFF THEM.";
+			text = "WELL, WE'RE OFF THEN.";
 			log = "LOG1011";
 			giveitem = 135;
 			nextpage = 10;

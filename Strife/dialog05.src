@@ -134,7 +134,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "TERRIBLY SORRY, BUT YOU'LL TO FREE MY COMRADES... OR DIE.";
+			text = "I'M TERRIBLY SORRY, BUT YOU'LL HAVE TO FREE MY COMRADES... OR DIE.";
 			giveitem = 301;
 			nextpage = 2;
 			closedialog = false;

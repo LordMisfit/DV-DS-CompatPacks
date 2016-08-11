@@ -905,6 +905,36 @@ conversation
 			nextpage = 3;
 			closedialog = false;
 		}
+		choice
+		{
+			text = "SPECIAL MEDICENE";
+			cost
+			{
+				item = 168;
+				amount = 150;
+			}
+			displaycost = true;
+			yesmessage = "ONE SPECIALIZED MEDICINAL HERB FOR YA.";
+			nomessage = "SORRY, THESE KINDS OF HERBS AREN'T CHEAP.";
+			giveitem = 353; // SpecialMedicene
+			nextpage = 3;
+			closedialog = false;
+		}
+		choice
+		{
+			text = "YGGDRASIL DEW";
+			cost
+			{
+				item = 168;
+				amount = 625;
+			}
+			displaycost = true;
+			yesmessage = "ONE YGGDRASIL DEW FOR YOU. HOLD ON TO IT FOR AN EMERGENCY.";
+			nomessage = "THESE THINGS ARE WAY TOO RARE TO SKILT FOR CHEAP, I'M AFRAID!";
+			giveitem = 354; // YggdrasilDew
+			nextpage = 3;
+			closedialog = false;
+		}
 	}
 }
 
@@ -1268,7 +1298,7 @@ conversation
 		}
 		choice
 		{
-			text = "A PRISON PASS, LET'S DEAL.";
+			text = "I'M LOOKING FOR A PRISON PASS. LET'S MAKE A DEAL.";
 			nomessage = "";
 			nextpage = 2;
 			closedialog = false;
@@ -1292,7 +1322,7 @@ conversation
 		}
 		choice
 		{
-			text = "I'M NOT SQUEAMISH";
+			text = "DON'T WORRY, I'M NOT SQUEAMISH";
 			nomessage = "";
 			giveitem = 316;
 			nextpage = 5;
@@ -1370,7 +1400,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "THANKS.";
+			text = "DON'T WORRY, I'M ON MY WAY OUT NOW.";
 			cost
 			{
 				item = 168; // Coin
@@ -1434,7 +1464,7 @@ conversation
 		link = 0;
 		choice
 		{
-			text = "FINE BY ME.";
+			text = "DON'T WORRY, I'M ON MY WAY OUT NOW.";
 			log = "LOG1009";
 			giveitem = 304;
 			nextpage = 8;

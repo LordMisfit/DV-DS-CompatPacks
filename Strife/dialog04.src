@@ -238,7 +238,6 @@ conversation
 		choice
 		{
 			text = "I'LL HAVE TO TAKE MY CHANCES.";
-			nomessage = "NO.  you don't have what i want for the  I'LL TAKE MY CHANCES.!";
 			giveitem = 139;
 			nextpage = 2;
 			closedialog = false;
