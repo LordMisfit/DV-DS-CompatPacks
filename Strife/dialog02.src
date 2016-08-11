@@ -10,7 +10,7 @@ conversation
 	page
 	{
 		name = "ULAINE";
-		dialog = "I'LL HELP YOU IF YOU HELP ME.   FIVE PIECES OF GOLD AND I'LL TELL ALL I KNOW.";
+		dialog = "I'LL HELP YOU IF YOU HELP ME. FIVE PIECES OF GOLD AND I'LL TELL ALL I KNOW.";
 		drop = 169;
 		link = 0;
 		choice
@@ -76,7 +76,7 @@ conversation
 			cost
 			{
 				item = 168; // Coin
-				amount = 10;
+				amount = 15;
 			}
 			displaycost = false;
 			yesmessage = "HERE, THIS BOXED HERB MIGHT HELP YOU OUT, THANKS.";

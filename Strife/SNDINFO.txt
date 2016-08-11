@@ -1,7 +1,10 @@
+// Environmental Suit
+misc/mask			dsmaskf
+
 // Acolyte
 
 acolyte/sight		dsagrsee
-acolyte/pain		       dsagrdpn
+acolyte/pain		dsagrdpn
 acolyte/death		dsagrdth
 acolyte/rifle		dsrifle
 $random acolyte/active	{ acolyte/active1 acolyte/active2 acolyte/active3 acolyte/active4 }
@@ -14,7 +17,7 @@ acolyte/active4		dsagrac4
 
 stalker/sight		dsstksit
 stalker/attack		dsstkatk
-stalker/pain			dsstkatk
+stalker/pain		dsstkatk
 stalker/death		dsstkdth
 stalker/active		dsstksit
-stalker/walk			dsstkwlk
+stalker/walk		dsstkwlk
