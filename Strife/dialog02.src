@@ -1071,7 +1071,7 @@ conversation
 	page
 	{
 		name = "GUARD";
-		dialog = "WE'RE GOING TO KILL YOU!";
+		dialog = "WE'RE GOING TO KILL YOU, OUTSIDER!";
 		drop = 179;
 		link = 0;
 	}
