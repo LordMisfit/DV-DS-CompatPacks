@@ -194,12 +194,12 @@ conversation
 	page
 	{
 		name = "IRALE";
-		dialog = "I THINK I CAN CONVERT A FLAMETHROWER FROM ONE OF THE CRUSADERS FOR USE BY A HUMAN. OH, ANYTHING ELSE I CAN GET YOU?";
+		dialog = "IF I CAN GET THE PARTS OF A CRUSADER, I MIGHT BE ABLE TO CONVERT THEM INTO A WEAPON FOR USE BY HUMANS. KEEP AN EYE OUT FOR SOME.";
 		drop = 179;
 		link = 0;
 		choice
 		{
-			text = "FLAMETHROWER.";
+			text = "I GOT THOSE PARTS YOU WANTED, IRALE.";
 			cost
 			{
 				item = 168; // Coin
@@ -211,9 +211,9 @@ conversation
 				amount = 1;
 			}
 			displaycost = false;
-			yesmessage = "I KNEW THAT'D WORK! HERE YOU GO, TAKE HER FOR A SPIN!";
-			nomessage = "LISTEN, I CAN'T MAKE ANYTHING WITHOUT THE RIGHT PARTS!";
-			giveitem = 190;
+			yesmessage = "HERE, I DON'T KNOW WHAT THIS ORB OF LIGHT IS, BUT IT FLEW STRAIGHT TO YOU, SO YOU MIGHT KNOW WHAT TO DO WITH IT.";
+			nomessage = "DON'T KID WITH ME, MISSY! THIS IS A SERIOUS MATTER, YOU KNOW.";
+			giveitem = 385; // BalrogFistCI
 			nextpage = 5;
 			closedialog = false;
 		}
@@ -226,7 +226,7 @@ conversation
 				amount = 500;
 			}
 			displaycost = true;
-			yesmessage = "HERE YOU GO.";
+			yesmessage = "HERE YOU GO. THIS SHOULD HELP YOU OUT A LOT!";
 			nomessage = "OBVIOUSLY, YOU CAN'T AFFORD THAT RIGHT NOW.";
 			giveitem = 363; // DiarisLongbow
 			nextpage = 4;
@@ -241,7 +241,7 @@ conversation
 				amount = 85;
 			}
 			displaycost = true;
-			yesmessage = "THANKS.";
+			yesmessage = "THANKS. THESE ARROWS GO WELL WITH THAT LONG BOW.";
 			nomessage = "YOU NEED MORE GOLD FOR THOSE.";
 			giveitem = 364; // DiarisArrow
 			nextpage = 4;
@@ -262,11 +262,26 @@ conversation
 			nextpage = 4;
 			closedialog = false;
 		}
+		choice
+		{
+			text = "MONSTER MUNCHIES";
+			cost
+			{
+				item = 168; // Coin
+				amount = 350;
+			}
+			displaycost = true;
+			yesmessage = "USE THEM WISELY.";
+			nomessage = "MAYBE SOME OTHER TIME.";
+			giveitem = 362; // MonsterMunchies
+			nextpage = 4;
+			closedialog = false;
+		}
 	}
 	page
 	{
 		name = "IRALE";
-		dialog = "NOW THAT YOU HAVE THE FLAMETHROWER, IS THERE ANYTHING ELSE I CAN GET YOU?";
+		dialog = "NOW THAT YOU HAVE THAT BALROG'S SOUL THING, WHAT ELSE CAN I GET FOR YOU?";
 		drop = 179;
 		link = 6;
 		ifitem
@@ -297,7 +312,7 @@ conversation
 				amount = 85;
 			}
 			displaycost = true;
-			yesmessage = "THANKS.";
+			yesmessage = "THANKS. THESE ARROWS GO WELL WITH THAT LONG BOW.";
 			nomessage = "YOU NEED MORE GOLD FOR THOSE.";
 			giveitem = 364; // DiarisArrow
 			nextpage = 5;
@@ -312,9 +327,24 @@ conversation
 				amount = 405;
 			}
 			displaycost = true;
-			yesmessage = "HERE'S YOUR AMMO.";
+			yesmessage = "MORE ARROWS FOR YOUR LONG BOW, MISS.";
 			nomessage = "MAYBE SOME OTHER TIME.";
 			giveitem = 365; // DiarisArrowQuiver
+			nextpage = 5;
+			closedialog = false;
+		}
+		choice
+		{
+			text = "MONSTER MUNCHIES";
+			cost
+			{
+				item = 168; // Coin
+				amount = 350;
+			}
+			displaycost = true;
+			yesmessage = "USE THEM WISELY.";
+			nomessage = "MAYBE SOME OTHER TIME.";
+			giveitem = 362; // MonsterMunchies
 			nextpage = 5;
 			closedialog = false;
 		}
@@ -322,7 +352,7 @@ conversation
 	page
 	{
 		name = "IRALE";
-		dialog = "NOW THAT YOU HAVE THE FLAMETHROWER, IS THERE ANYTHING ELSE I CAN GET YOU?";
+		dialog = "NOW THAT YOU HAVE THAT BALROG'S SOUL THING, WHAT ELSE CAN I GET FOR YOU?";
 		drop = 179;
 		link = 0;
 		choice
@@ -349,7 +379,7 @@ conversation
 				amount = 405;
 			}
 			displaycost = true;
-			yesmessage = "HERE'S YOUR AMMO.";
+			yesmessage = "MORE ARROWS FOR YOUR LONG BOW, MISS.";
 			nomessage = "MAYBE SOME OTHER TIME.";
 			giveitem = 365; // DiarisArrowQuiver
 			nextpage = 6;
@@ -357,16 +387,16 @@ conversation
 		}
 		choice
 		{
-			text = "SPECIAL MEDICENE";
+			text = "MONSTER MUNCHIES";
 			cost
 			{
 				item = 168; // Coin
-				amount = 150;
+				amount = 350;
 			}
 			displaycost = true;
-			yesmessage = "HOPE YOU WON'T NEED TO USE IT, THOUGH.";
-			nomessage = "YOU DON'T HAVE ENOUGH";
-			giveitem = 353; // SpecialMedicene
+			yesmessage = "USE THEM WISELY.";
+			nomessage = "MAYBE SOME OTHER TIME.";
+			giveitem = 362; // MonsterMunchies
 			nextpage = 6;
 			closedialog = false;
 		}
@@ -2317,5 +2347,11 @@ conversation
 			nextpage = 1;
 			closedialog = false;
     }
+		choice
+		{
+			text = "I WANT TO CHOOSE A DIFFERENT CATEGORY OF ITEMS NOW.";
+			nextpage = 1;
+			closedialog = false;
+		}
   }
 }
