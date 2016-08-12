@@ -357,3 +357,24 @@ actor GreaterVimstoneSellItem1 : BaseSellItem
    stop
  }
 }
+
+// OTHER "JUNK"
+actor OfferingChaliceItem1 : BaseSellItem
+{
+ ConversationID 521 // 345+ are unused by Strife, this is for use in DIALOUxx/SCRIPTxx references
+ States
+ {
+  Pickup:
+  Use:
+   TNT1 A 1 
+   {
+    A_GiveInventory("Coin",7500,AAPTR_PLAYER1);
+    A_GiveInventory("SeedOfSkillForced",2,AAPTR_PLAYER1);
+    A_TakeInventory("OfferingChaliceItem1",1,0,AAPTR_PLAYER1);
+    A_TakeInventory("QuestItem2",1,0,AAPTR_PLAYER1);
+	A_PlaySound("Grabbed/Coins",0);
+   }
+   stop
+ }
+}
+

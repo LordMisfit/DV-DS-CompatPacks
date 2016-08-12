@@ -2719,6 +2719,7 @@ ACTOR AlienSpectre3New : AlienSpectre3 replaces AlienSpectre3
 	 {
  	  A_PlaySound("svox/voc85",2,1.0,0,ATTN_NONE);
   	  A_GiveInventory("Sigil5",1,AAPTR_PLAYER1);
+  	  A_GiveInventory("SigilComplete",1,AAPTR_PLAYER1);
 	  SendToCommunicator(85,0,0,0); // You wield the power of the complete sigil.
 	 }
 	 else // If Macil still alive...
@@ -2990,6 +2991,7 @@ ACTOR AlienSpectre5New : AlienSpectre5 replaces AlienSpectre5
 	 if(CountInv("QuestItem24",AAPTR_PLAYER1) > 0) // If Oracle is already dead...
 	 {
  	  A_GiveInventory("Sigil5",1,AAPTR_PLAYER1);
+  	  A_GiveInventory("SigilComplete",1,AAPTR_PLAYER1);
  	  A_PlaySound("svox/voc85",2,1.0,0,ATTN_NONE);
 	  SendToCommunicator(85,0,0,0); // Back to the factory for another Sigil!
 	 }

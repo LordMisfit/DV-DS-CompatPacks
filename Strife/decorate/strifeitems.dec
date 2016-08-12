@@ -771,3 +771,6 @@ ACTOR PhosphorusGrenadeRoundsProp : BaseProp 25018
     Loop
   }
 }
+
+// Dummy Items
+actor SigilComplete : PlaceholderItem { ConversationID 350 }

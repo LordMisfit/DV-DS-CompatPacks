@@ -1934,6 +1934,12 @@ conversation
 			nextpage = 6;
 			closedialog = false;
 		}
+		choice
+		{
+			text = "I HAVE SOME OTHER THINGS TO SELL.";
+			nextpage = 7;
+			closedialog = false;
+		}
 	}
 	page // 2 - Healing Stuff [Herbs, Dew, Medical Patch/Kit/Surgery Kit]
 	{
@@ -2285,4 +2291,31 @@ conversation
 			closedialog = false;
 		}
 	}
+	page // 7 - Other Misc Things
+	{
+		name = "CELOFF GREENBACK";
+		dialog = "PERHAPS YOU HAVE SOMETHING ELSE TO SELL HERE?";
+		drop = 0;
+		link = 0;
+
+		choice
+		{
+			text = "OFFERING CHALICE (7500 GOLD)";
+			cost
+			{
+				item = 174; // OfferingChalice
+				amount = 1;
+			}
+			cost
+			{
+				item = 313; // QuestItem2 [got Offering Chalice]
+				amount = 1;
+			}
+			yesmessage = "PRAISE ABOVE! YOU ACTUALLY MANAGED TO STEAL THIS THING?! THANK YOU VERY MUCH, MAY GOOD TIDINGS COME TO YOU!";
+			nomessage = "PLEASE, DON'T KID WITH ME ABOUT RARE THINGS LIKE THAT!";
+			giveitem = 521; //OfferingChaliceItem1
+			nextpage = 1;
+			closedialog = false;
+    }
+  }
 }
