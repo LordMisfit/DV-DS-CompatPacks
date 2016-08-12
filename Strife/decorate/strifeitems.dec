@@ -103,7 +103,7 @@ ACTOR DegninOrePickup : CustomInventory replaces DegninOre
   States
   {
   Spawn:
-    XPRK BCDEFEDC 4 // Glows with an anti-magnetic field to indicate you can't destroy it in this form. :V
+    XPRK BCDEFEDC 4 Bright // Glows with an anti-magnetic field to indicate you can't destroy it in this form. :V
     loop
   Pickup:
    TNT1 A 0
