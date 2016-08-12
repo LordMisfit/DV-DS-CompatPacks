@@ -2857,7 +2857,7 @@ ACTOR AlienSpectre4New : AlienSpectre4 replaces AlienSpectre4
  	  A_GiveInventory("Sigil3",1,AAPTR_PLAYER1);
 	 }
 
-	 if(CountInv("QuestItem25",AAPTR_PLAYER1) > 0) // If Loremaster is dead
+	 if(CountInv("QuestItem25",AAPTR_PLAYER1) > 0) // If Converter was destroyed
 	 {
  	  A_PlaySound("svox/voc106",2,1.0,0,ATTN_NONE);
 	  SendToCommunicator(106,0,0,0); // Back to the factory for another Sigil!
