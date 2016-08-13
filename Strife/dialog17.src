@@ -77,7 +77,7 @@ conversation
 		}
 		choice
 		{
-			text = "WELL, YES I DO. MACIL SENT ME.";
+			text = "THANKS FOR THE COMPLIMENT, BUT YES I DO NEED YOUR HELP. MACIL SENT ME.";
 			nextpage = 2;
 			closedialog = false;
 		}
@@ -181,13 +181,13 @@ conversation
 		link = 2;
 		ifitem
 		{
-			item = 330;
+			item = 330; // QuestItem19
 		}
 	}
 	page
 	{
 		name = "ASSISTANT";
-		dialog = "HOW HOW CAN I HELP YOU TODAY?";
+		dialog = "SO, HOW CAN I HELP YOU TODAY?";
 		drop = 0;
 		link = 0;
 		choice
@@ -259,7 +259,7 @@ conversation
 				amount = 60;
 			}
 			displaycost = true;
-			yesmessage = "THERE YOU GO.  TAKE CARE NOW OF YOURSELF.";
+			yesmessage = "THERE YOU GO. TAKE CARE NOW OF YOURSELF.";
 			nomessage = "WELL, MAYBE YOU CAN AFFORD A MEDICINAL HERB?";
 			giveitem = 352; // StrongMedicene
 			nextpage = 1;
