@@ -814,4 +814,4 @@ ACTOR PhosphorusGrenadeRoundsProp : BaseProp 25018
 }
 
 // Dummy Items
-actor SigilComplete : PlaceholderItem { ConversationID 350 }
+actor BestEndingFlag : PlaceholderItem { }

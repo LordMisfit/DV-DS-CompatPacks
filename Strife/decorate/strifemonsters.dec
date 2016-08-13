@@ -3279,19 +3279,21 @@ ACTOR EntitySecondNew : EntitySecond replaces EntitySecond
     MDTH O 0 A_GiveToTarget ("Coin", random(1350,1800))
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
-/*
+	TNT1 A 0 A_JumpIfInventory("BestEndingFlag",1,"Asension",AAPTR_PLAYER1)
+  TrueDeath:
     MDTH A 3 Bright A_Scream
     MDTH B 3 Bright A_TossGib
     MDTH C 3 Bright A_NoBlocking
     MDTH DEFGHIJKLMN 3 Bright A_TossGib
-    MDTH O 3
-    MANL Q 6
-*/
+    MDTH O 3 Bright A_SubEntityDeath
+    Stop
+  Asension:
 	MNAL P 0 A_Scream
 	MNAL P 0 A_NoBlocking
 	MNAL PONML 7
-    MNAL L 0 Bright A_SpawnItemEx("EntityAscended", 0, 0, 0, 0, 0, 0, 0, SXF_NOCHECKPOSITION) // A_SubEntityDeath
+    MNAL L 0 Bright A_SpawnItemEx("EntityAscended", 0, 0, 0, 0, 0, 0, 0, SXF_NOCHECKPOSITION)
     Stop
+
   XDeath:
     goto Death
   }
@@ -3332,20 +3334,20 @@ ACTOR EntityAscended : EntityBoss
   DamageFactor "Sceptre", 0.875
   DamageFactor "Magic", 0.875
   DamageFactor "Sigil", 0.875
-  DamageFactor "ImpClaw", 1
-  DamageFactor "DarkImpClaw", 1
-  DamageFactor "CacodemonEye", 1
-  DamageFactor "CacolanternEye", 1
-  DamageFactor "AbaddonEye", 1
-  DamageFactor "KnightFist", 1
-  DamageFactor "BaronFist", 1
-  DamageFactor "BelphegorFist", 1
-  DamageFactor "BrusierFist", 1
-  DamageFactor "ArchonFist", 1
-  DamageFactor "PyroFist", 1
-  DamageFactor "IncarnateSkull", 1
-  DamageFactor "DiabloistHand", 1
-  DamageFactor "BalrogFist", 1
+  DamageFactor "ImpClaw", 0.875
+  DamageFactor "DarkImpClaw", 0.875
+  DamageFactor "CacodemonEye", 0.875
+  DamageFactor "CacolanternEye", 0.875
+  DamageFactor "AbaddonEye", 0.875
+  DamageFactor "KnightFist", 0.875
+  DamageFactor "BaronFist", 0.875
+  DamageFactor "BelphegorFist", 0.875
+  DamageFactor "BrusierFist", 0.875
+  DamageFactor "ArchonFist", 0.875
+  DamageFactor "PyroFist", 0.875
+  DamageFactor "IncarnateSkull", 0.875
+  DamageFactor "DiabloistHand", 0.875
+  DamageFactor "BalrogFist", 0.875
 
   MinMissileChance 150
   RenderStyle Translucent
@@ -3416,7 +3418,7 @@ ACTOR EntityAscended : EntityBoss
     TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
     Goto Death
   Death:
-    MNAL L 0 A_GiveToTarget ("Coin", random(2250,3000))
+    MNAL L 0 A_GiveToTarget ("Coin", random(3000,4000))
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     MNAL L 7 Bright A_SpectreChunkSmall

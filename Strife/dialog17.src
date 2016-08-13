@@ -459,7 +459,7 @@ conversation
 		link = 3;
 		ifitem
 		{
-			item = 350; // SigilComplete [a full Sigil]
+			item = 665; // SigilComplete [a full Sigil]
 		}
 		choice
 		{
