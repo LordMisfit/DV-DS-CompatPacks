@@ -1744,6 +1744,7 @@ ACTOR ProgrammerNew : Programmer replaces Programmer
   +LOOKALLAROUND
   +NOICEDEATH
   +NOTARGETSWITCH
+  +NOFEAR
   DamageFactor "Fire", 0.5
   MinMissileChance 150
   AttackSound "programmer/attack"
@@ -1858,6 +1859,7 @@ ACTOR StrifeBishopNew : StrifeBishop replaces StrifeBishop
   +INCOMBAT
   +NOICEDEATH
   +NEVERRESPAWN
+  +NOFEAR
   DamageFactor "Fire", 0.5
   MinMissileChance 150
   MaxDropoffHeight 32
@@ -1952,6 +1954,7 @@ ACTOR OracleNew : Oracle replaces Oracle
   +NOTDMATCH
   +NOBLOOD
   +NEVERRESPAWN
+  +NOFEAR
   DamageFactor "Fire", 0.5
   DamageFactor "SpectralLow", 0.25 // Sigil level 1 can barely hurt them
   MaxDropoffHeight 32
@@ -2030,6 +2033,7 @@ ACTOR Macil1New : Macil1 replaces Macil1
   +NOSPLASHALERT
   +NODAMAGE
   +NEVERRESPAWN
+  +NOFEAR
   DamageFactor "Normal", 0.001
   DamageFactor "Fire", 0.5
   MinMissileChance 150
@@ -2105,6 +2109,7 @@ ACTOR Macil2New : Macil2 replaces Macil2
   Tag "$TAG_MACIL2" // "MACIL"
   DeathSound "macil/slop"
   DropItem "None"
+  +NOFEAR
   -SPECTRAL
 
   DamageFactor "SpectralLow", 0.125 // Sigil level 1 cannot hurt them
@@ -2241,6 +2246,7 @@ ACTOR LoremasterNew : Loremaster replaces Loremaster
   +LOOKALLAROUND
   +NOICEDEATH
   +NEVERRESPAWN
+  +NOFEAR
   DamageFactor "Fire", 0.5
   MinMissileChance 150
   Tag "$TAG_PRIEST" // "PRIEST"
@@ -2364,6 +2370,7 @@ ACTOR AlienSpectre1New : AlienSpectre1 replaces AlienSpectre1
   +INCOMBAT
   +LOOKALLAROUND
   +NOICEDEATH
+  +NOFEAR
   -SPECTRAL
 
   DamageFactor "SpectralLow", 1 // Sigil level 1 can hurt them
@@ -2485,6 +2492,7 @@ ACTOR AlienSpectre2New : AlienSpectre2 replaces AlienSpectre2
   PainChance 50
   Radius 24
   //DropItem "Sigil2"
+  +NOFEAR
   -SPECTRAL
 
   DamageFactor "SpectralLow", 0.75 // Sigil level 1 can mostly hurt them
@@ -2609,6 +2617,7 @@ ACTOR AlienSpectre3New : AlienSpectre3 replaces AlienSpectre3
   Radius 24
   +SPAWNCEILING
   //DropItem "Sigil3"
+  +NOFEAR
   -SPECTRAL
 
   DamageFactor "SpectralLow", 0.5 // Sigil level 1 can somewhat hurt them
@@ -2750,6 +2759,7 @@ ACTOR AlienSpectre4New : AlienSpectre4 replaces AlienSpectre4
   PainChance 50
   Radius 24
   DropItem "Sigil4"
+  +NOFEAR
   -SPECTRAL
 
   DamageFactor "SpectralLow", 0.25 // Sigil level 1 can barely hurt them
@@ -3040,6 +3050,7 @@ ACTOR EntityBossNew : EntityBoss replaces EntityBoss
   +INCOMBAT
   +LOOKALLAROUND
   +NOICEDEATH
+  +NOFEAR
   -SPECTRAL
 
   DamageFactor "Normal", 0.0001 // 0.01% damage from most attacks. :P
@@ -3175,6 +3186,7 @@ ACTOR EntitySecondNew : EntitySecond replaces EntitySecond
   +INCOMBAT
   +LOOKALLAROUND
   +NOICEDEATH
+  +NOFEAR
   -SPECTRAL
 
   DamageFactor "Normal", 0.0001 // 0.01% damage from most attacks. :P
@@ -3311,13 +3323,15 @@ ACTOR EntityAscended : EntityBoss
   +INCOMBAT
   +LOOKALLAROUND
   +NOICEDEATH
+  +MISSILEMORE
+  +NOFEAR
   -SPECTRAL
 
   DamageFactor "Normal", 0.0001 // 0.01% damage from most attacks. :P
   // After this, set all vulnerablities to what you want them to have to what you want. :P
-  DamageFactor "Sceptre", 1
-  DamageFactor "Magic", 1
-  DamageFactor "Sigil", 1
+  DamageFactor "Sceptre", 0.875
+  DamageFactor "Magic", 0.875
+  DamageFactor "Sigil", 0.875
   DamageFactor "ImpClaw", 1
   DamageFactor "DarkImpClaw", 1
   DamageFactor "CacodemonEye", 1
