@@ -473,14 +473,14 @@ ACTOR HEGrenadeRoundsNew : HEGrenadeRounds replaces HEGrenadeRounds
    FloraDetected: // bonus will be turned into something else
     TNT1 A 0
 	{
-	 if (random(1,256) <= 3)
-	 {
-      A_SpawnItemEx("DiarisArrow",0,0,0,0,0,0,0,0,0);
-	 }
-	 if (random(1,256) <= 144)
-	 {
-      A_SpawnItemEx("DoomSpellMana",0,0,0,0,0,0,0,0,0);
-	 }
+	 if (random(1,256) <= 256) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 256) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 192) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 192) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 128) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 128) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 64) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 64) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
 	 A_FadeOut(1.0);
 	}
     Loop
@@ -507,14 +507,18 @@ ACTOR PhosphorusGrenadeRoundsNew : PhosphorusGrenadeRounds replaces PhosphorusGr
    FloraDetected: // bonus will be turned into something else
     TNT1 A 0
 	{
-	 if (random(1,256) <= 3)
-	 {
-      A_SpawnItemEx("DiarisArrow",0,0,0,0,0,0,0,0,0);
-	 }
-	 if (random(1,256) <= 144)
-	 {
-      A_SpawnItemEx("DoomSpellMana",0,0,0,0,0,0,0,0,0);
-	 }
+	 if (random(1,256) <= 256) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 256) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 256) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 192) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 192) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 192) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 128) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 128) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 128) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 64) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 64) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 64) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
      A_FadeOut(1.0);
 	}
     Loop
@@ -544,18 +548,22 @@ ACTOR StrifeGrenadeLauncherNew : StrifeGrenadeLauncher replaces StrifeGrenadeLau
    FloraDetected: // bonus will be turned into something else
     TNT1 A 0
 	{
-	 if (random(1,256) <= 64)
-	 {
-      A_SpawnItemEx("RandomHellcoreWeapon",0,0,0,0,0,0,0,0,0);
-	 }
-	 if (random(1,256) <= 32)
-	 {
-      A_SpawnItemEx("DiarisLongBow",0,0,0,0,0,0,0,0,0);
-	 }
-	 if (random(1,256) <= 8)
-	 {
-      A_SpawnItemEx("DiarisArrow",0,0,0,0,0,0,0,0,0);
-	 }
+	 if (random(1,256) <= 256) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 256) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 256) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 256) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 192) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 192) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 192) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 192) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 128) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 128) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 128) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 128) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 64) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 64) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 64) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
+	 if (random(1,256) <= 64) { A_SpawnItemEx("RockBombShard",0,0,0,random(-2,2),random(-2,2),random(-2,2),0,0,0); }
 	 A_FadeOut(1.0);
 	}
     Loop

@@ -12,20 +12,7 @@ ACTOR GauntletsNew : RandomSpawner replaces Gauntlets
 ACTOR ArtiTimeBombNew : RandomSpawner replaces ArtiTimeBomb
 {
     +DONTGIB
-    DropItem "CrystalVial", 96, 18
-    DropItem "ArtiHealth", 96, 18
-    DropItem "MedicinalHerb", 96, 14
-    DropItem "ArtiSuperHealth", 96, 14
-    DropItem "StrongMedicine", 96, 10
-    DropItem "SpecialMedicine", 96, 10
-    DropItem "PaxaPunch", 96, 5
-    DropItem "MercuryBandana", 96, 5
-    DropItem "ArtiBoostMana", 96, 3
-    DropItem "YggdrasilDew", 96, 3
-    DropItem "LesserVimstone", 96, 3
-    DropItem "ArtiHealingRadiusNew" 96, 3
-    DropItem "GreaterVimstone", 96, 1
-    DropItem "RandomArmorNew", 96, 1
+    DropItem "RockBombShard", 256
 }
 
 ACTOR ArtiTorchNew : RandomSpawner replaces ArtiTorch

@@ -193,6 +193,7 @@ actor FlechetteReplacer : RandomSpawner replaces ArtiPoisonBag
     DropItem "ArtiSuperHealth", 96, 14
     DropItem "StrongMedicine", 96, 10
     DropItem "SpecialMedicine", 96, 10
+    DropItem "RockBombShard", 96, 5
     DropItem "PaxaPunch", 96, 5
     DropItem "MercuryBandana", 96, 5
     DropItem "ArtiBoostMana", 96, 3
@@ -214,6 +215,7 @@ actor ArtiBlastRadiusNew : FlechetteReplacer replaces ArtiBlastRadius
     DropItem "ArtiSuperHealth", 96, 14
     DropItem "StrongMedicine", 96, 10
     DropItem "SpecialMedicine", 96, 10
+    DropItem "RockBombShard", 96, 5
     DropItem "PaxaPunch", 96, 5
     DropItem "MercuryBandana", 96, 5
     DropItem "ArtiBoostMana", 96, 3
