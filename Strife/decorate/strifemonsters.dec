@@ -3467,7 +3467,8 @@ actor AlienSpectreModel
   States
   {
   Spawn:
-    TNT1 A 0 NoDelay A_JumpIfInventory("FloraInPlay",1,"Check1",AAPTR_PLAYER1)
+    TNT1 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    TNT1 A 0 A_JumpIfInventory("FloraInPlay",1,"Check1",AAPTR_PLAYER1)
     TNT1 A 0 A_FadeOut(1.0)
 	stop
   Check1:
@@ -3491,45 +3492,65 @@ actor AlienSpectreModel
 
 actor AlienSpectre1Model : AlienSpectreModel 27401
 {
+ var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel;
+ var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+ var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
   //$NotAngled
   //$Color 12
   //$Category "DV-DS Strife Patch/Models"
   Tag "Programmer's Spectre [NPC]"
   ConversationID 666
+  Health 1000
 }
 
 actor AlienSpectre2Model : AlienSpectreModel 27402
 {
+ var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel;
+ var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+ var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
   //$NotAngled
   //$Color 12
   //$Category "DV-DS Strife Patch/Models"
   Tag "Bishop's Spectre [NPC]"
   ConversationID 667
+  Health 1200
 }
 
 actor AlienSpectre3Model : AlienSpectreModel 27403
 {
+ var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel;
+ var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+ var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
   //$NotAngled
   //$Color 12
   //$Category "DV-DS Strife Patch/Models"
   Tag "The Oracle's Spectre [NPC]"
   ConversationID 668
+  Health 1500
 }
 
 actor AlienSpectre4Model : AlienSpectreModel 27404
 {
+ var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel;
+ var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+ var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
   //$NotAngled
   //$Color 12
   //$Category "DV-DS Strife Patch/Models"
   Tag "Macil's Spectre [NPC]"
   ConversationID 669
+  Health 1700
 }
 
 actor AlienSpectre5Model : AlienSpectreModel 27405
 {
+ var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel;
+ var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+ var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
   //$NotAngled
   //$Color 12
   //$Category "DV-DS Strife Patch/Models"
   Tag "The Loremaster's Spectre [NPC]"
   ConversationID 670
+  Health 2000
 }
