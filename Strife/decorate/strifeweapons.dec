@@ -1025,6 +1025,7 @@ Actor NNSigil3AttackCounter : Inventory
 
 DamageType NNSigilUse
 {
+   Factor 1.0
    NoArmor
 }
 
