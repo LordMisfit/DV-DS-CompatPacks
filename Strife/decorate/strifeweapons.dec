@@ -799,72 +799,109 @@ Actor NNSigil : Weapon
    States
    {
    Deselect:
-      "----" A 1 Bright A_Lower
+      "----" A 1 A_JumpIf(CallACS("NNSigilPieceCount") == 5, "Deselect5")
+      TNT1 A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 5, "Deselect5")
+      TNT1 A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 4, "Deselect4")
+      TNT1 A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 3, "Deselect3")
+      TNT1 A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 2, "Deselect2")
+      TNT1 A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 1, "Deselect1")
+   Deselect1:
+      SGLA A 1 Bright { A_Lower; A_Lower; }
+      Loop
+   Deselect2:
+      SGLB A 1 Bright { A_Lower; A_Lower; }
+      Loop
+   Deselect3:
+      SGLC A 1 Bright { A_Lower; A_Lower; }
+      Loop
+   Deselect4:
+      SGLD A 1 Bright { A_Lower; A_Lower; }
+      Loop
+   Deselect5:
+      SGLE A 1 Bright { A_Lower; A_Lower; }
       Loop
    //
    Select:
-      TNT1 A 1 A_JumpIf(CallACS("NNSigilPieceCount") == 5, "Select5")
+      "----" A 1 A_JumpIf(CallACS("NNSigilPieceCount") == 5, "Select5")
       TNT1 A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 5, "Select5")
       TNT1 A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 4, "Select4")
       TNT1 A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 3, "Select3")
       TNT1 A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 2, "Select2")
       TNT1 A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 1, "Select1")
    Select1:
-      SIGH A 1 Bright A_Raise
+      SGLA A 1 Bright { A_Raise; A_Raise; }
       Loop
    Select2:
-      SIGH B 1 Bright A_Raise
+      SGLB A 1 Bright { A_Raise; A_Raise; }
       Loop
    Select3:
-      SIGH C 1 Bright A_Raise
+      SGLC A 1 Bright { A_Raise; A_Raise; }
       Loop
    Select4:
-      SIGH D 1 Bright A_Raise
+      SGLD A 1 Bright { A_Raise; A_Raise; }
       Loop
    Select5:
-      SIGH E 1 Bright A_Raise
+      SGLE A 1 Bright { A_Raise; A_Raise; }
       Loop
    //
       //Well, it seems using "----" A in 'Ready' makes ZDoom refuse
       //to give you the item. Interesting.
    Ready:
-      SIGH "#" 1 Bright A_WeaponReady
-      Loop
+      TNT1 A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 5, "Ready5")
+      TNT1 A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 4, "Ready4")
+      TNT1 A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 3, "Ready3")
+      TNT1 A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 2, "Ready2")
+      TNT1 A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 1, "Ready1")
+   Ready1:
+      SGLA A 1 Bright A_WeaponReady
+      goto Ready
+   Ready2:
+      SGLB A 1 Bright A_WeaponReady
+      goto Ready
+   Ready3:
+      SGLC A 1 Bright A_WeaponReady
+      goto Ready
+   Ready4:
+      SGLD A 1 Bright A_WeaponReady
+      goto Ready
+   Ready5:
+      SGLE A 1 Bright A_WeaponReady
+      goto Ready
    //
    Fire:
-      "----" A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 5, "Fire5")
-      "----" A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 4, "Fire4")
-      "----" A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 3, "Fire3")
-      "----" A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 2, "Fire2")
-      "----" A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 1, "Fire1")
+      TNT1 A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 5, "Fire5")
+      TNT1 A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 4, "Fire4")
+      TNT1 A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 3, "Fire3")
+      TNT1 A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 2, "Fire2")
+      TNT1 A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 1, "Fire1")
    Fire1:
-      "----" A 0 A_PlaySound("weapons/sigilcharge", CHAN_WEAPON)
-      "----" A 18 Bright A_Light2
-      "----" A 3 Bright A_GunFlash
+      SGLA A 0 A_PlaySound("weapons/sigilcharge", CHAN_WEAPON)
+      SGLA A 18 Bright A_Light2
+      SGLA A 3 Bright A_GunFlash
       TNT1 A 0 A_PlaySound("weapons/sigilcharge", CHAN_WEAPON)
       TNT1 A 0 ACS_NamedExecuteAlways("NNSigilDamageUser", 0, 4)
-      SIGH A 15 
+      SGLA B 15 
 	  {
        ACS_NamedExecuteAlways("StartTensionCountDown");
 	   A_FireCustomMissile("NNSigilLightningSpot", 0, 0);
 	  }
       Goto Ready
    Fire2:
-      "----" A 0 A_PlaySound("weapons/sigilcharge", CHAN_WEAPON)
-      "----" A 18 Bright A_Light2
-      "----" A 3 Bright A_GunFlash
+      SGLB A 0 A_PlaySound("weapons/sigilcharge", CHAN_WEAPON)
+      SGLB A 18 Bright A_Light2
+      SGLB A 3 Bright A_GunFlash
       TNT1 A 0 A_PlaySound("weapons/sigilcharge", CHAN_WEAPON)
       TNT1 A 0 ACS_NamedExecuteAlways("NNSigilDamageUser", 0, 8)
-      SIGH B 15
+      SGLB B 15
 	  {
        ACS_NamedExecuteAlways("StartTensionCountDown");
 	   A_FireCustomMissile("SpectralLightningH1", 0, 0);
 	  }
       Goto Ready
    Fire3:
-      "----" A 0 A_PlaySound("weapons/sigilcharge", CHAN_WEAPON)
-      "----" A 18 Bright A_Light2
-      "----" A 3 Bright A_GunFlash
+      SGLC A 0 A_PlaySound("weapons/sigilcharge", CHAN_WEAPON)
+      SGLC A 18 Bright A_Light2
+      SGLC A 3 Bright A_GunFlash
       TNT1 A 0 A_PlaySound("weapons/sigilcharge", CHAN_WEAPON)
       TNT1 A 0 ACS_NamedExecuteAlways("NNSigilDamageUser", 0, 12)
       TNT1 A 0 A_GiveInventory("NNSigil3AttackCounter", 20)
@@ -878,27 +915,27 @@ Actor NNSigil : Weapon
 	  }
       TNT1 A 0 A_TakeInventory("NNSigil3AttackCounter", 1)
       TNT1 A 0 A_JumpIfInventory("NNSigil3AttackCounter", 1, "Fire3Loop")
-      SIGH C 15 A_SetAngle(angle-90)
+      SGLC B 15 A_SetAngle(angle-90)
       Goto Ready
    Fire4:
-      "----" A 0 A_PlaySound("weapons/sigilcharge", CHAN_WEAPON)
-      "----" A 18 Bright A_Light2
-      "----" A 3 Bright A_GunFlash
+      SGLD A 0 A_PlaySound("weapons/sigilcharge", CHAN_WEAPON)
+      SGLD A 18 Bright A_Light2
+      SGLD A 3 Bright A_GunFlash
       TNT1 A 0 A_PlaySound("weapons/sigilcharge", CHAN_WEAPON)
       TNT1 A 0 ACS_NamedExecuteAlways("NNSigilDamageUser", 0, 16)
-      SIGH D 15
+      SGLD B 15
 	  {
        ACS_NamedExecuteAlways("StartTensionCountDown");
 	   A_FireCustomMissile("NNSigilLightningBigV", 0, 0);
 	  }
       Goto Ready
    Fire5:
-      "----" A 0 A_PlaySound("weapons/sigilcharge", CHAN_WEAPON)
-      "----" A 18 Bright A_Light2
-      "----" A 3 Bright A_GunFlash
+      SGLE A 0 A_PlaySound("weapons/sigilcharge", CHAN_WEAPON)
+      SGLE A 18 Bright A_Light2
+      SGLE A 3 Bright A_GunFlash
       TNT1 A 0 A_PlaySound("weapons/sigilcharge", CHAN_WEAPON)
       TNT1 A 0 ACS_NamedExecuteAlways("NNSigilDamageUser", 0, 20)
-      SIGH E 15
+      SGLE B 15
 	  {
        ACS_NamedExecuteAlways("StartTensionCountDown");
 	   A_FireCustomMissile("SpectralLightningBigBall1", 0, 0);
@@ -906,10 +943,11 @@ Actor NNSigil : Weapon
       Goto Ready
    //
    Flash:
-      SIGF A 4 Bright A_Light2
-      SIGF B 6 Bright A_LightInverse
-      SIGF C 4 Bright A_Light1
-      TNT1 A 0 A_Light0
+      SGLF A 3 Bright A_Light2
+      SGLF B 4 Bright A_Light2
+      SGLF C 3 Bright A_LightInverse
+      SGLF B 4 Bright A_Light1
+      SGLF B 0 A_Light0
       Stop
    }
 }
