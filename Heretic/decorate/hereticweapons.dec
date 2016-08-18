@@ -1440,18 +1440,18 @@ ACTOR DragonClawNew : Blaster replaces Blaster
     WBLS A 1
     Loop
   Ready:
-    BLSR A 1 A_WeaponReady
+    FBLS A 1 A_WeaponReady
     Loop
   Deselect:
-    BLSR A 1 { A_Lower; A_Lower; }
+    FBLS A 1 { A_Lower; A_Lower; }
     Loop
   Select:
-    BLSR A 1 { A_Raise; A_Raise; }
+    FBLS A 1 { A_Raise; A_Raise; }
     Loop
   Fire:
-    BLSR BC 3
+    FBLS BC 3
   Hold:
-    BLSR D 2 // A_FireBlasterPL1
+    FBLS D 2 // A_FireBlasterPL1
     {
 	 ACS_NamedExecuteAlways("StartTensionCountDown");
 	
@@ -1501,14 +1501,14 @@ ACTOR DragonClawNew : Blaster replaces Blaster
       A_FireBullets(5.625,0,1,(4*random(1,8)),"BlasterPuffNew",1); A_PlaySound("weapons/blastershoot",1);
 	 }
 	}
-    BLSR CB 2
-    BLSR A 0 A_ReFire
+    FBLS CB 2
+    FBLS A 0 A_ReFire
     Goto Ready
   AltFire:
     TNT1 A 0 ACS_NamedExecuteAlways("StartTensionCountDown")
-    BLSR BC 0
+    FBLS BC 0
   AltHold:
-    BLSR D 3 
+    FBLS D 3 
 	{
 	 ACS_NamedExecuteAlways("StartTensionCountDown");
 	 A_PlaySound("weapons/blastershoot",1);
@@ -1558,8 +1558,8 @@ ACTOR DragonClawNew : Blaster replaces Blaster
   	  A_FireCustomMissile("BlasterFX1New",0,1);
 	 }
 	}
-    BLSR CB 4
-    BLSR A 0 A_ReFire
+    FBLS CB 4
+    FBLS A 0 A_ReFire
     Goto Ready
   }
 }
@@ -1577,18 +1577,18 @@ ACTOR DualDragonClawNew : DragonClawNew
     WBLS A -1
     Stop
   Ready:
-    DBLS A 1 A_WeaponReady
+    FDBL A 1 A_WeaponReady
     Loop
   Deselect:
-    DBLS A 1 { A_Lower; A_Lower; }
+    FDBL A 1 { A_Lower; A_Lower; }
     Loop
   Select:
-    DBLS A 1 { A_Raise; A_Raise; }
+    FDBL A 1 { A_Raise; A_Raise; }
     Loop
   Fire:
-    DBLS BC 3
+    FDBL BC 3
   Hold:
-    DBLS DE 2 // A_FireBlasterPL1
+    FDBL DE 2 // A_FireBlasterPL1
     {
 	 ACS_NamedExecuteAlways("StartTensionCountDown");
 	 A_PlaySound("weapons/blastershoot",1);
@@ -1638,13 +1638,13 @@ ACTOR DualDragonClawNew : DragonClawNew
       A_FireBullets(5.625,0,1,(4*random(1,8)),"BlasterPuffNew",1); A_PlaySound("weapons/blastershoot",1);
 	 }
 	}
-    DBLS FG 2
-    DBLS A 0 A_ReFire
+    FDBL FG 2
+    FDBL A 0 A_ReFire
     Goto Ready
   AltFire:
-    DBLS BC 0
+    FDBL BC 0
   AltHold:
-    DBLS DE 3 
+    FDBL DE 3 
 	{
 	 ACS_NamedExecuteAlways("StartTensionCountDown");
 	 A_PlaySound("weapons/blastershoot",1);
@@ -1694,8 +1694,8 @@ ACTOR DualDragonClawNew : DragonClawNew
   	  A_FireCustomMissile("BlasterFX1New",0,1);
 	 }
 	}
-    DBLS FG 4
-    DBLS A 0 A_ReFire
+    FDBL FG 4
+    FDBL A 0 A_ReFire
     Goto Ready
   }
 }
