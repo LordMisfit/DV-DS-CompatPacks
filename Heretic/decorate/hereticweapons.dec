@@ -1764,7 +1764,11 @@ ACTOR HornRodFX2New : HornRodFX2
     stop
   }
 }
-ACTOR RainPillarNew : RainPillar replaces RainPillar { DamageType "Magic" }
+ACTOR RainPillarNew : RainPillar replaces RainPillar 
+{
+ Damage (ACS_NamedExecuteWithResult("GetHitScanDMG",43)) //5
+ DamageType "Magic" 
+}
 
 ACTOR HellStaffNew : SkullRod replaces SkullRod
 {
