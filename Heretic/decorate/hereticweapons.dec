@@ -213,8 +213,16 @@ ACTOR MaceHeftySpawner : MaceHefty replaces MaceHefty
 // *******************
 ACTOR GoldWandPuff1New : GoldWandPuff1 { DamageType "Magic" }
 ACTOR GoldWandPuff2New : GoldWandPuff2 { DamageType "Magic" }
-ACTOR GoldWandFX1New : GoldWandFX1 { DamageType "Magic" }
-ACTOR GoldWandFX2New : GoldWandFX2 { DamageType "Magic" }
+ACTOR GoldWandFX1New : GoldWandFX1 
+{ 
+ Damage (ACS_NamedExecuteWithResult("GetHitScanDMG",41)) // 2
+ DamageType "Magic" 
+}
+ACTOR GoldWandFX2New : GoldWandFX2 
+{ 
+ Damage (ACS_NamedExecuteWithResult("GetHitScanDMG",42)) // 1
+ DamageType "Magic" 
+}
 
 ACTOR GoldWandNew : GoldWand replaces GoldWand
 {
