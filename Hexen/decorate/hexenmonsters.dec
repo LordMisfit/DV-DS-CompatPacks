@@ -1895,12 +1895,6 @@ ACTOR IceGuyNew : IceGuy replaces IceGuy
     ICEY A 1
     ICEY A 1 A_IceGuyDie
     Stop
-/*
-  Inactive:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    ICEY A -1
-    Goto See
-*/
   }
 }
 actor FIceGuy : IceGuyNew
@@ -1927,9 +1921,8 @@ ACTOR HeresiarchNew : Heresiarch replaces Heresiarch
   Pain.Charm: Goto See  Pain.Heal1: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,0); } Goto See  Pain.Heal2: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,1); } Goto See  Pain.Heal3: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,2); } Goto See  Pain.Heal4: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,3); } Goto See Goto See  Pain.Heal1: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,0); } Goto See  Pain.Heal2: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,1); } Goto See  Pain.Heal3: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,2); } Goto See  Pain.Heal4: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,3); } Goto See
 
   Spawn:
-    SORC A 0
-    SORC A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    SORC A 5 A_SorcSpinBalls
+    SORC A 3 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    SORC A 2 A_SorcSpinBalls
   Idle:
     SORC A 10 A_Look
     Wait
@@ -1994,12 +1987,6 @@ ACTOR HeresiarchNew : Heresiarch replaces Heresiarch
     SORC VWXY 5 Bright
     SORC Z -1 Bright
     Stop
-/*
-	Inactive:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    SORC A -1
-    Goto See
-*/
   }
 }
 actor FHeresiarch : HeresiarchNew
