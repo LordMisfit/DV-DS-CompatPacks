@@ -531,7 +531,7 @@ conversation
 				amount = 5;
 			}
 			displaycost = true;
-			yesmessage = "I'VE NEVER SEEN ANYONE GO IN OR OUT OF THE FACTORY, THE FORCEFEILD'S ALWAYS UP.";
+			yesmessage = "I'VE NEVER SEEN ANYONE GO IN OR OUT OF THE FACTORY, THE FORCEFIELD'S ALWAYS UP.";
 			nomessage = "SORRY LASS, BUT NO MONEY, NO INFO.";
 			nextpage = 2;
 			closedialog = true;
