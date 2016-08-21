@@ -4456,47 +4456,47 @@ ACTOR CrazyBall2New : CrazyBall2 replaces CrazyBall2 30205
     CRZY AAAAAA 8
     LOOP       
   Ready: 
-    HCRZ A 1 A_WeaponReady 
+    HCRZ S 1 A_WeaponReady 
     LOOP 
   Deselect: 
-    HCRZ A 0 A_Lower 
-    HCRZ A 1 A_Lower 
+    HCRZ S 0 A_Lower 
+    HCRZ S 1 A_Lower 
     LOOP 
   Select: 
-    HCRZ A 0 A_Raise 
-    HCRZ A 1 A_Raise 
+    HCRZ S 0 A_Raise 
+    HCRZ S 1 A_Raise 
     LOOP 
   Fire:
-    HCRZ A 1 A_JumpIfNoAmmo(5) 
-    HCRZ B 0 
-    HCRZ B 6
-    HCRZ B 6
+    HCRZ S 1 A_JumpIfNoAmmo(5) 
+    HCRZ T 0 
+    HCRZ T 6
+    HCRZ T 6
     TNT1 A 0 ACS_NamedExecuteAlways("StartTensionCountDown")
     TNT1 A 0 A_JumpIfInventory("SpreaderAura2", 0, "FireSpread7")
     TNT1 A 0 A_JumpIfInventory("SpreaderAura1", 0, "FireSpread3")
     goto FireNormal
   FireNormal:
-    HCRZ C 0 A_FireCustomMissile("CrazyBallNew", 0, 1, 5, 5, 0, 0)
+    HCRZ U 0 A_FireCustomMissile("CrazyBallNew", 0, 1, 5, 5, 0, 0)
     goto FireEnd
   FireSpread3:
-    HCRZ C 0 A_FireCustomMissile("CrazyBallNoHurt", 0+15, 0, 5, 5, 0, 0)
-    HCRZ C 0 A_FireCustomMissile("CrazyBallNew",    0, 1, 5, 5, 0, 0)
-    HCRZ C 0 A_FireCustomMissile("CrazyBallNoHurt", 0-15, 0, 5, 5, 0, 0)
+    HCRZ U 0 A_FireCustomMissile("CrazyBallNoHurt", 0+15, 0, 5, 5, 0, 0)
+    HCRZ U 0 A_FireCustomMissile("CrazyBallNew",    0, 1, 5, 5, 0, 0)
+    HCRZ U 0 A_FireCustomMissile("CrazyBallNoHurt", 0-15, 0, 5, 5, 0, 0)
     goto FireEnd
   FireSpread7:
-    HCRZ C 0 A_FireCustomMissile("CrazyBallNoHurt",  0+15, 0, 5, 5, 0, 0)
-    HCRZ C 0 A_FireCustomMissile("CrazyBallNoHurt", 0+7.5, 0, 5, 5, 0, 7.5)
-    HCRZ C 0 A_FireCustomMissile("CrazyBallNoHurt", 0+7.5, 0, 5, 5, 0, -7.5)
-    HCRZ C 0 A_FireCustomMissile("CrazyBallNew",     0, 1, 5, 5, 0, 0)
-    HCRZ C 0 A_FireCustomMissile("CrazyBallNoHurt", 0-7.5, 0, 5, 5, 0, -7.5)
-    HCRZ C 0 A_FireCustomMissile("CrazyBallNoHurt", 0-7.5, 0, 5, 5, 0, 7.5)
-    HCRZ C 0 A_FireCustomMissile("CrazyBallNoHurt",  0-15, 0, 5, 5, 0, 0)
+    HCRZ U 0 A_FireCustomMissile("CrazyBallNoHurt",  0+15, 0, 5, 5, 0, 0)
+    HCRZ U 0 A_FireCustomMissile("CrazyBallNoHurt", 0+7.5, 0, 5, 5, 0, 7.5)
+    HCRZ U 0 A_FireCustomMissile("CrazyBallNoHurt", 0+7.5, 0, 5, 5, 0, -7.5)
+    HCRZ U 0 A_FireCustomMissile("CrazyBallNew",     0, 1, 5, 5, 0, 0)
+    HCRZ U 0 A_FireCustomMissile("CrazyBallNoHurt", 0-7.5, 0, 5, 5, 0, -7.5)
+    HCRZ U 0 A_FireCustomMissile("CrazyBallNoHurt", 0-7.5, 0, 5, 5, 0, 7.5)
+    HCRZ U 0 A_FireCustomMissile("CrazyBallNoHurt",  0-15, 0, 5, 5, 0, 0)
     goto FireEnd
   FireEnd:
-    HCRZ C 10 
+    HCRZ U 10 
     Goto Select
   FireNoAmmo:
-    HCRZ C 0
+    HCRZ U 0
     GoTo Deselect
   } 
 } 
