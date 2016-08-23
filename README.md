@@ -1,4 +1,4 @@
-DV-DS-CompatPacks [Deus Vult Doomspell Edition Combination Package - Compatiblity Patches for Various WADs/other Doom-engine games]
+DV-DS-CompatPacks [Deus Vult Doomspell Edition Combination Package - Compatiblity Patches for Various WADs/other Doom-engine games] 
 
 - Allows you to properly run DV-DS in Doom 1 mode, as it adds some sprites/actors that don't appear normally in Doom 1 like the Super Shotgun, Chaingunners, etc. It will also add a custom intermission map for Episode 4: Thy Flesh Consumed.
 
