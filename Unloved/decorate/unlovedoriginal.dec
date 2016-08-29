@@ -1891,6 +1891,7 @@ States
        WICT BCDEF 5 
        WICT G -1 A_SetFloorClip 
        Stop 
+/*
    Raise:
        WICT G 0 A_KillChildren
        WICK G 0 A_SpawnItemEx("WickedTorsoRes",0,0,0,0,0,1,0,0) 
@@ -1898,6 +1899,7 @@ States
        WICT FEDBC 5
        WICK PON 5
        Goto See 
+*/
    } 
 }
 
@@ -2679,7 +2681,7 @@ Actor DaedTrail
 //	Decorate by DBT, sprites by Jimmy91
 //================================================================
 
-ACTOR Thamuz : Cyberdemon 7228
+ACTOR Thamuz : Cyberdemon // 7228
 {
   Health 4800
   Speed 16
