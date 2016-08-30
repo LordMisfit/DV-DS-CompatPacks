@@ -1951,12 +1951,10 @@ ACTOR WickedFX
 
 ACTOR WickedTorso
 {
-   Health 1000000000000
-   Mass 1000000
    Radius 1
    Height 1
-   MONSTER
    -COUNTKILL
+   +NOTARGET
    +NONSHOOTABLE
    +NORADIUSDMG  
    +DROPOFF
@@ -2681,7 +2679,7 @@ Actor DaedTrail
 //	Decorate by DBT, sprites by Jimmy91
 //================================================================
 
-ACTOR Thamuz : Cyberdemon // 7228
+ACTOR Thamuz : Cyberdemon 7228
 {
   Health 4800
   Speed 16
