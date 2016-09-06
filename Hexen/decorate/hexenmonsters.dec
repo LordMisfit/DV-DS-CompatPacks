@@ -8,6 +8,7 @@ ACTOR PigNew : Pig replaces Pig
   Health 25
   Painchance 128
   Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
   DamageFactor "Normal", 0.5
   Speed 10
@@ -121,6 +122,7 @@ ACTOR EttinNew : Ettin // replaces Ettin
 
   Painchance 60
   Painchance "Fist", 90 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 150 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 90 // Fist attacks have a +50% chance of stunning an enemy
 
   States
@@ -224,6 +226,7 @@ ACTOR EttinGhostNew : EttinMash replaces EttinMash
 
   Painchance 60
   Painchance "Fist", 90 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 150 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 90 // Fist attacks have a +50% chance of stunning an enemy
 
   States
@@ -304,6 +307,7 @@ Actor EttinCommander : Ettin
   Damage 4
   Painchance 35
   Painchance "Fist", 52 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 87 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 52 // Fist attacks have a +50% chance of stunning an enemy
   MeleeRange 68
 
@@ -460,6 +464,7 @@ ACTOR CentaurNew : Centaur replaces Centaur
 
   Painchance 135
   Painchance "Fist", 201 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 201 // Fist attacks have a +50% chance of stunning an enemy
 
   States
@@ -576,6 +581,7 @@ ACTOR CentaurGhostNew : CentaurMash replaces CentaurMash
 
   Painchance 135
   Painchance "Fist", 201 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 201 // Fist attacks have a +50% chance of stunning an enemy
 
   States
@@ -664,6 +670,7 @@ ACTOR SlaughtaurNew : CentaurLeader replaces CentaurLeader
   Speed 12.5
   Painchance 84
   Painchance "Fist", 126 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 210 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 126 // Fist attacks have a +50% chance of stunning an enemy
 
   States
@@ -780,6 +787,7 @@ ACTOR FireDemonNew : FireDemon replaces FireDemon
 
   Painchance 1
   Painchance "Fist", 32
+  Painchance "Kick", 80 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 32
 
   States
@@ -884,6 +892,7 @@ ACTOR BishopNew : Bishop // replaces Bishop
 
   Painchance 110
   Painchance "Fist", 165 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 165 // Fist attacks have a +50% chance of stunning an enemy
 
   States
@@ -1016,6 +1025,7 @@ ACTOR StalkerNew : Serpent replaces Serpent
 
   Painchance 96
   Painchance "Fist", 144 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 240 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 144 // Fist attacks have a +50% chance of stunning an enemy
 
   States
@@ -1121,6 +1131,7 @@ ACTOR StalkerLeaderNew : SerpentLeader replaces SerpentLeader
 
   Painchance 96
   Painchance "Fist", 144 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 240 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 144 // Fist attacks have a +50% chance of stunning an enemy
 
   States
@@ -1229,6 +1240,7 @@ ACTOR GreenChaosSerpentNew : Demon1 replaces Demon1
 
   Painchance 50
   Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 125 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
 
   States
@@ -1342,6 +1354,7 @@ ACTOR GreenChaosSerpentGhostNew : Demon1Mash replaces Demon1Mash
 
   Painchance 50
   Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 125 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
 
   States
@@ -1426,6 +1439,7 @@ ACTOR BrownChaosSerpentNew : Demon2 replaces Demon2
 
   Painchance 50
   Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 125 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
 
   States
@@ -1533,6 +1547,7 @@ ACTOR BrownChaosSerpentGhostNew : Demon2Mash replaces Demon2Mash
 
   Painchance 50
   Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 125 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
 
   States
@@ -1618,6 +1633,7 @@ ACTOR WraithNew : Wraith replaces Wraith
 
   Painchance 25
   Painchance "Fist", 38 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 63 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 38 // Fist attacks have a +50% chance of stunning an enemy
 
   States
@@ -1731,6 +1747,7 @@ ACTOR WraithBuriedNew : WraithBuried replaces WraithBuried
 
   Painchance 25
   Painchance "Fist", 38 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 63 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 38 // Fist attacks have a +50% chance of stunning an enemy
 
   States
@@ -1838,6 +1855,7 @@ ACTOR IceGuyNew : IceGuy replaces IceGuy
 
   Painchance 144
   Painchance "Fist", 216 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 216 // Fist attacks have a +50% chance of stunning an enemy
 
   States
@@ -1913,6 +1931,7 @@ ACTOR HeresiarchNew : Heresiarch replaces Heresiarch
   DamageFactor "Normal", 0.833
   Painchance 10
   Painchance "Fist", 15 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 25 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 15 // Fist attacks have a +50% chance of stunning an enemy
 
   +AVOIDMELEE
@@ -2097,6 +2116,7 @@ ACTOR KoraxNew : Korax replaces Korax
   DamageFactor "Normal", 0.667
   Painchance 20
   Painchance "Fist", 30 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 50 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 30 // Fist attacks have a +50% chance of stunning an enemy
 
   States
@@ -2195,6 +2215,7 @@ ACTOR DragonNew : Dragon replaces Dragon
   DamageFactor "Normal", 0.833
   PainChance 128
   Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
 
   +AVOIDMELEE
@@ -2279,6 +2300,7 @@ ACTOR ClericBossNew : ClericBoss replaces ClericBoss
   DamageFactor "Normal", 0.833
   PainChance 50
   Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 125 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
 
   +AVOIDMELEE
@@ -2448,6 +2470,7 @@ ACTOR FighterBossNew : FighterBoss replaces FighterBoss
   DamageFactor "Normal", 0.833
   PainChance 50
   Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 125 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
 
   +AVOIDMELEE
@@ -2592,6 +2615,7 @@ ACTOR MageBossNew : MageBoss replaces MageBoss
   DamageFactor "Normal", 0.833
   PainChance 50
   Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 125 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
 
   +AVOIDMELEE
@@ -2738,6 +2762,7 @@ ACTOR VampireDVDS : Bishop
 
   PainChance 170
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
 
   Speed 8

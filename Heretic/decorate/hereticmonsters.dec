@@ -13,6 +13,7 @@ ACTOR ChickenNew : Chicken replaces Chicken
   Speed 4
   Painchance 200
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
   DamageFactor "Normal", 0.5
   Monster
@@ -106,6 +107,7 @@ actor HereticImpNew : HereticImp replaces HereticImp
 
  Painchance 200
  Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+ Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
  Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
 
  states
@@ -201,6 +203,7 @@ actor HereticImpLeaderNew : HereticImpLeader replaces HereticImpLeader
 
  Painchance 200
  Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+ Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
  Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
 
  Translation "141:141=144:144", "145:160=145:153", "248:254=248:251", "66:94=66:80", "95:110=95:103"
@@ -294,6 +297,7 @@ actor MummyNew : Mummy replaces Mummy
 
  Painchance 128
  Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+ Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
  Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
 
  states
@@ -381,6 +385,7 @@ actor MummyGhostNew : MummyGhost replaces MummyGhost
 
  Painchance 128
  Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+ Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
  Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
 
  states
@@ -468,6 +473,7 @@ actor MummyLeaderNew : MummyLeader replaces MummyLeader
 
  Painchance 64
  Painchance "Fist", 96 // Fist attacks have a +50% chance of stunning an enemy
+ Painchance "Kick", 160 // Kick attacks have a +150% chance of stunning an enemy
  Painchance "Gauntlets", 96 // Fist attacks have a +50% chance of stunning an enemy
 
  states
@@ -564,6 +570,7 @@ actor MummyLeaderGhostNew : MummyLeaderGhost replaces MummyLeaderGhost
 
  Painchance 64
  Painchance "Fist", 96 // Fist attacks have a +50% chance of stunning an enemy
+ Painchance "Kick", 160 // Kick attacks have a +150% chance of stunning an enemy
  Painchance "Gauntlets", 96 // Fist attacks have a +50% chance of stunning an enemy
 
  states
@@ -660,6 +667,7 @@ ACTOR KnightNew : Knight replaces Knight
 
   Painchance 100
   Painchance "Fist", 150 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 250 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 150 // Fist attacks have a +50% chance of stunning an enemy
 
   States
@@ -750,6 +758,7 @@ ACTOR KnightGhostNew : KnightGhost replaces KnightGhost
 
   Painchance 100
   Painchance "Fist", 150 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 250 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 150 // Fist attacks have a +50% chance of stunning an enemy
 
   States
@@ -840,6 +849,7 @@ ACTOR WizardNew : Wizard replaces Wizard
 
   Painchance 64
   Painchance "Fist", 96 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 160 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 96 // Fist attacks have a +50% chance of stunning an enemy
 
   Obituary "%o was cursed by a Disciple of D'Sparil."
@@ -949,6 +959,7 @@ ACTOR IronlichNew : Ironlich replaces Ironlich
 
   Painchance 32
   Painchance "Fist", 48 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 80 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 48 // Fist attacks have a +50% chance of stunning an enemy
 
   States
@@ -1034,6 +1045,7 @@ ACTOR ClinkNew : Clink replaces Clink
 
   Painchance 32
   Painchance "Fist", 48 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 80 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 48 // Fist attacks have a +50% chance of stunning an enemy
 
   States
@@ -1120,6 +1132,7 @@ ACTOR BeastNew : Beast replaces Beast
 
   Painchance 100
   Painchance "Fist", 150 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 250 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 150 // Fist attacks have a +50% chance of stunning an enemy
 
   States
@@ -1222,6 +1235,7 @@ ACTOR MaulotaurNew : Minotaur replaces Minotaur
 
   Painchance 25
   Painchance "Fist", 38 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 63 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 38 // Fist attacks have a +50% chance of stunning an enemy
 
   +AVOIDMELEE
@@ -1367,6 +1381,7 @@ ACTOR SnakeNew : Snake replaces Snake
 
   Painchance 48
   Painchance "Fist", 72 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 120 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 72 // Fist attacks have a +50% chance of stunning an enemy
 
   States
@@ -1455,6 +1470,7 @@ ACTOR DSparilMountedNew : Sorcerer1 replaces Sorcerer1
   Health 24000
   Painchance 56
   Painchance "Fist", 84 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 140 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 84 // Fist attacks have a +50% chance of stunning an enemy
 
   +AVOIDMELEE
@@ -1541,6 +1557,7 @@ ACTOR DSparilUnmountedNew : Sorcerer2 replaces Sorcerer2
   Health 56000
   Painchance 32
   Painchance "Fist", 48 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 80 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 48 // Fist attacks have a +50% chance of stunning an enemy
 
   +AVOIDMELEE

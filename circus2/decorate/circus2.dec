@@ -363,6 +363,7 @@ ACTOR GoreWormNew replaces GoreWorm 30031
 
   PainChance 200
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
 
   States
@@ -468,6 +469,7 @@ ACTOR FluffyNew replaces Fluffy2 32120
 
   PainChance 80
   Painchance "Fist", 120 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 200 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 120 // Fist attacks have a +50% chance of stunning an enemy
 
   Health 1000
@@ -614,6 +616,7 @@ ACTOR MiniFluffyNew replaces MiniFluffy 3194
 
   PainChance 80
   Painchance "Fist", 120 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 200 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 120 // Fist attacks have a +50% chance of stunning an enemy
 
   Health 60
@@ -729,6 +732,7 @@ ACTOR JumpingSkullNew replaces JumpingSkull 32121
 
   PainChance 90
   Painchance "Fist", 135 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 225 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 135 // Fist attacks have a +50% chance of stunning an enemy
 
   Health 40
@@ -847,6 +851,7 @@ ACTOR JumpingSkull2New replaces JumpingSkull2 3646 //spawns skull ghosts
 
   PainChance 70
   Painchance "Fist", 105 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 175 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 105 // Fist attacks have a +50% chance of stunning an enemy
 
   Health 40
@@ -965,6 +970,7 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon 3115
 
   PainChance 50
   Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 125 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
 
   Health 15
@@ -1103,6 +1109,7 @@ ACTOR BingoNew replaces Bingo 4110
 
   PainChance 128
   Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
 
   Health 400 
@@ -1240,6 +1247,7 @@ ACTOR TinyBingoNew replaces TinyBingo 4179
 
   PainChance 128
   Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
 
   Health 35 
@@ -1356,6 +1364,7 @@ actor BeefyNew replaces Beefy 4333
 
   PainChance 200
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
 
   Health 120
@@ -1536,6 +1545,7 @@ ACTOR BlackBearNew replaces BlackBear 3191
 
   PainChance 90
   Painchance "Fist", 135 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 225 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 135 // Fist attacks have a +50% chance of stunning an enemy
 
   Health 8
@@ -1667,6 +1677,7 @@ actor ClownGhostNew replaces ClownGhost 32128
 
   PainChance 128
   Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
 
   Health 300 
@@ -1834,6 +1845,7 @@ actor ClownGhost2New replaces ClownGhost2 31211
 
   PainChance 128
   Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
 
   Health 150
@@ -1976,6 +1988,7 @@ actor BulbyNew replaces Bulby 3906
 
   PainChance 128
   Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
 
   Health 200 
@@ -2148,6 +2161,7 @@ actor MegaBulbyNew replaces MegaBulby 3989
 
   PainChance 64
   Painchance "Fist", 96 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 160 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 96 // Fist attacks have a +50% chance of stunning an enemy
 
   Health 400 
@@ -2320,6 +2334,7 @@ ACTOR BigBertha2New replaces BigBertha2 3192
 
   PainChance 128
   Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
 
   Health 675 
@@ -2475,6 +2490,7 @@ actor SuperBerthaNew replaces SuperBertha 14768
 
   PainChance 128
   Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
 
   Health 6000 
@@ -2643,6 +2659,7 @@ ACTOR EvilDeadHandNew replaces EvilDeadHand 32212
 
   PainChance 200
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
 
   Health 20
@@ -2799,6 +2816,7 @@ ACTOR BouncingClownNew replaces BouncingClown 4822
 
   PainChance 25
   Painchance "Fist", 38 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 63 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 38 // Fist attacks have a +50% chance of stunning an enemy
 
   Health 6000
@@ -2958,6 +2976,7 @@ ACTOR BabyClownNew replaces BabyClown 4823
 
   PainChance 200
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
 
   Health 88
@@ -3088,6 +3107,7 @@ ACTOR BabyClown2New replaces BabyClown2 4825
 
   PainChance 200
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
 
   Health 75
@@ -3229,6 +3249,7 @@ actor PennywiseHead2New replaces PennywiseHead 14421
 
   PainChance 128
   Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
 
   Health 450
@@ -3392,6 +3413,7 @@ actor PennywiseBoss replaces Pennywise 3672
 
   PainChance 224
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
 
   Health 45000

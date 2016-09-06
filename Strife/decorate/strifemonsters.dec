@@ -715,6 +715,7 @@ ACTOR AcolyteNew : Acolyte replaces Acolyte
 
   Painchance 150
   Painchance "Fist", 225 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 225 // Fist attacks have a +50% chance of stunning an enemy
   DropItem "AssaultGun" 1
   
@@ -977,6 +978,7 @@ ACTOR TemplarNew : Templar replaces Templar
 
   Painchance 100
   Painchance "Fist", 150 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 250 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 150 // Fist attacks have a +50% chance of stunning an enemy
 
   ConversationID 62
@@ -1254,6 +1256,7 @@ ACTOR ReaverNew : Reaver replaces Reaver
   ConversationID 52
   Painchance 128
   Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
 
   +NOBLOOD
@@ -1370,6 +1373,7 @@ ACTOR CrusaderNew : Crusader replaces Crusader
   ConversationID 63
   Painchance 128
   Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
 
   +FLOORCLIP
@@ -1467,6 +1471,7 @@ ACTOR SentinelNew : Sentinel replaces Sentinel
   ConversationID 91
   Painchance 255
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
 
   +SPAWNCEILING
@@ -1555,6 +1560,7 @@ ACTOR OStalkerNew : Stalker replaces Stalker
   ConversationID 92
   PainChance 40
   Painchance "Fist", 60 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 100 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 60 // Fist attacks have a +50% chance of stunning an enemy
 
   +NOGRAVITY
@@ -1656,6 +1662,7 @@ ACTOR CeilingTurretNew : CeilingTurret replaces CeilingTurret
   ConversationID 92
   PainChance 0
   Painchance "Fist", 0 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 0 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 0 // Fist attacks have a +50% chance of stunning an enemy
 
   -SOLID

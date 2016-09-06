@@ -6,6 +6,7 @@ actor MummyNew : Mummy replaces MummyDude
 
  Painchance 128
  Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+ Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
  Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
 
  states
@@ -85,6 +86,7 @@ actor MummyLeaderNew : MummyLeader replaces MummyLeaderMan
 
  Painchance 64
  Painchance "Fist", 96 // Fist attacks have a +50% chance of stunning an enemy
+ Painchance "Kick", 160 // Kick attacks have a +150% chance of stunning an enemy
  Painchance "Gauntlets", 96 // Fist attacks have a +50% chance of stunning an enemy
 
  states
@@ -173,6 +175,7 @@ actor VulgarNew : Vulgar replaces Vulgar
 
   painchance 120
   Painchance "Fist", 180 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 180 // Fist attacks have a +50% chance of stunning an enemy
 
   states
@@ -265,6 +268,7 @@ ACTOR SoulHarvesterNew : SoulHarvester replaces SoulHarvester
 
   PainChance 120
   Painchance "Fist", 180 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 180 // Fist attacks have a +50% chance of stunning an enemy
 
   states
@@ -359,6 +363,7 @@ actor ImpWarlordNew : ImpWarlord replaces ImpWarlord
   Speed 9
   PainChance 128
   Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
   MONSTER 
   +FLOORCLIP
@@ -507,6 +512,7 @@ actor BatFamiliarNew : BatFamiliar replaces BatFamiliar
   Speed 14
   PainChance 200
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
   MONSTER 
   +NOGRAVITY
@@ -602,6 +608,7 @@ actor DragonFamiliarNew : DragonFamiliar replaces DragonFamiliar
   Speed 10
   PainChance 200
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
   MONSTER 
   +NOGRAVITY
@@ -701,6 +708,7 @@ ACTOR ChainsawZombieNew : ChainsawZombie replaces ChainsawZombie
   MeleeDamage 1 
   PainChance 50 
   Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 125 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
   MONSTER 
   +FLOORCLIP 
@@ -809,6 +817,7 @@ ACTOR BloodFiendNew : BloodFiend replaces BloodFiend
   Health 250 
   PainChance 140
   Painchance "Fist", 210 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 210 // Fist attacks have a +50% chance of stunning an enemy
   Speed 12 
   Radius 30 
@@ -926,6 +935,7 @@ ACTOR LordofHeresyNew : LordofHeresy replaces LordofHeresy
   Speed 13 
   PainChance 50
   Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 125 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
   BloodColor "7D 9D 59"
   Mass 1000
@@ -1040,6 +1050,7 @@ actor SatyrNew : Satyr replaces Satyr
   Speed 8
   PainChance 50
   Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 125 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
   Mass 350
   MONSTER 
@@ -1135,6 +1146,7 @@ ACTOR ShadowNew : Shadow replaces Shadow
   Speed 8
   PainChance 200
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
   Monster
   +FLOORCLIP
@@ -1244,6 +1256,7 @@ ACTOR CultistNew : Cultist replaces Cultist
   Health 50
   PainChance 200
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
   DropItem Fire
   Scale 0.90
@@ -1344,6 +1357,7 @@ ACTOR UnlovedAcolyteNew : AcolyteDude replaces AcolyteDude
   Health 150 
   PainChance 170
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
   DropItem BloodAmmo
   Speed 8
@@ -1454,6 +1468,7 @@ ACTOR UnlovedDiscipleNew : Disciple replaces Disciple
   Health 300 
   PainChance 140
   Painchance "Fist", 210 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 210 // Fist attacks have a +50% chance of stunning an enemy
   DropItem BoneAmmo
   Speed 8
@@ -1611,6 +1626,7 @@ actor UnlovedApprenticeNew : ApprenticeofDsparil replaces ApprenticeofDsparil
   Speed 8
   PainChance 100
   Painchance "Fist", 150 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 250 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 150 // Fist attacks have a +50% chance of stunning an enemy
   MONSTER 
   +FLOORCLIP
@@ -1772,6 +1788,7 @@ ACTOR WickedNew : Wicked replaces Wicked
   Speed 10 
   PainChance 112 
   Painchance "Fist", 168 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 168 // Fist attacks have a +50% chance of stunning an enemy
   MONSTER 
   +NOGRAVITY 
@@ -1873,8 +1890,10 @@ ACTOR AvatarNew : Avatar replaces Avatar
 
   //$Category "ZDoom Monster pack"
   Health 4000
+  DamageFactor "Normal", 0.625
   PainChance 10
   Painchance "Fist", 15 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 25 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 15 // Fist attacks have a +50% chance of stunning an enemy
   Speed 15 
   Radius 30 
@@ -2013,6 +2032,7 @@ Actor DaedabusNew : Daedabus replaces Daedabus
   Speed 8
   PainChance 80
   Painchance "Fist", 120 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 200 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 120 // Fist attacks have a +50% chance of stunning an enemy
   BloodColor "73 00 00"
   SeeSound "Daedabus/Sight"
@@ -2136,6 +2156,7 @@ ACTOR ThamuzNew : Thamuz replaces Thamuz
 
   painchance 35
   Painchance "Fist", 52 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 87 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 52 // Fist attacks have a +50% chance of stunning an enemy
 
   states

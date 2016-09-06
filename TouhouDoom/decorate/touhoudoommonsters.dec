@@ -9,6 +9,7 @@ ACTOR Fairy1New : Fairy1 replaces Fairy1 31134
 
   Painchance 10
   Painchance "Fist", 15 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 25 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 15 // Fist attacks have a +50% chance of stunning an enemy
 
 //$Category "Touhou Characters"
@@ -123,6 +124,7 @@ ACTOR Fairy2New : Fairy2 replaces Fairy2 31135
 
   Painchance 10
   Painchance "Fist", 15 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 25 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 15 // Fist attacks have a +50% chance of stunning an enemy
 
 //$Category "Touhou Characters"
@@ -248,6 +250,7 @@ ACTOR Fairy3New : Fairy3 replaces Fairy3 31151
 
   Painchance 10
   Painchance "Fist", 15 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 25 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 15 // Fist attacks have a +50% chance of stunning an enemy
 
 //$Category "Touhou Characters"
@@ -386,6 +389,7 @@ ACTOR Fairy4New : Fairy4 replaces Fairy4 31150
 {
   Painchance 10
   Painchance "Fist", 15 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 25 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 15 // Fist attacks have a +50% chance of stunning an enemy
 
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel;
@@ -542,6 +546,7 @@ ACTOR Fairy5New : Fairy5 replaces Fairy5 31157
 
   Painchance 10
   Painchance "Fist", 15 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 25 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 15 // Fist attacks have a +50% chance of stunning an enemy
 
 //$Category "Touhou Characters"
@@ -674,6 +679,7 @@ ACTOR RumiaMidBossNew : RumiaMidBoss replaces RumiaMidBoss 31200
 
   Painchance 10
   Painchance "Fist", 15 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 25 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 15 // Fist attacks have a +50% chance of stunning an enemy
 
 //$Category "Touhou Characters"
@@ -833,6 +839,7 @@ ACTOR RumiaNew : Rumia replaces Rumia 31199
 
   Painchance 10
   Painchance "Fist", 15 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 25 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 15 // Fist attacks have a +50% chance of stunning an enemy
 
 //$Category "Touhou Characters"
@@ -1039,6 +1046,7 @@ ACTOR DaiyouseiNew : Daiyousei replaces Daiyousei 31153
 
   Painchance 10
   Painchance "Fist", 15 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 25 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 15 // Fist attacks have a +50% chance of stunning an enemy
 
 //$Category "Touhou Characters"
@@ -1239,6 +1247,7 @@ ACTOR CirnoNew : Cirno replaces Cirno 31154
 
   Painchance 20
   Painchance "Fist", 30 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 50 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 30 // Fist attacks have a +50% chance of stunning an enemy
 
   Painchance "Ice", 1
@@ -1451,9 +1460,11 @@ ACTOR MeilingMidBossNew : MeilingMidBoss replaces MeilingMidBoss 31155
 
   Painchance 5
   Painchance "Fist", 7 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 12 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 7 // Fist attacks have a +50% chance of stunning an enemy
 
   DamageFactor "Fist", 0.2 // Meiling is extremely resistant to melee damage
+  DamageFactor "Kick", 0.2 // Meiling is extremely resistant to melee damage
   DamageFactor "Gauntlets", 0.2 // Meiling is extremely resistant to melee damage
   DamageFactor "Sceptre", 0.2 // Meiling is extremely resistant to melee damage
   DamageFactor "Chainsaw", 0.2 // Meiling is extremely resistant to melee damage
@@ -1609,9 +1620,11 @@ ACTOR MeilingNew : Meiling replaces Meiling 31156
 
   Painchance 5
   Painchance "Fist", 7 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 12 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 7 // Fist attacks have a +50% chance of stunning an enemy
 
   DamageFactor "Fist", 0.2 // Meiling is extremely resistant to melee damage
+  DamageFactor "Kick", 0.2 // Meiling is extremely resistant to melee damage
   DamageFactor "Gauntlets", 0.2 // Meiling is extremely resistant to melee damage
   DamageFactor "Sceptre", 0.2 // Meiling is extremely resistant to melee damage
   DamageFactor "Chainsaw", 0.2 // Meiling is extremely resistant to melee damage

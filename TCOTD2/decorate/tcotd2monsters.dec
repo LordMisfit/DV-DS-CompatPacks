@@ -13,6 +13,7 @@ ACTOR ApprenticeNew : ApprenticeofDsparil replaces ApprenticeofDsparil 30000
 
   PainChance 100
   Painchance "Fist", 150 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 250 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 150 // Fist attacks have a +50% chance of stunning an enemy
 
   states
@@ -313,6 +314,7 @@ ACTOR TommyGunCultistNew : ShotgunCultist replaces ShotgunCultist 29011
   painchance 170
   PainChance "Shock", 255
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
   obituary "%o was made hole-y by a Fanatic"
 
@@ -453,6 +455,7 @@ ACTOR ShotgunCultistNew : TommyGunCultistNew replaces ChainGunCultist 29010
   painchance 170
   PainChance "Shock", 255
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
 
   states
@@ -479,6 +482,7 @@ ACTOR HellHoundNew : HotDog replaces HotDog 30121
 
   PainChance 128
   Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
 
   states 
@@ -584,6 +588,7 @@ ACTOR ThrallNew : Thrall replaces Thrall 30119
   
   PainChance 200
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
 
   states 
@@ -673,6 +678,7 @@ ACTOR NightmareNew : KDiZDNightmare replaces KDiZDNightmare 26000
   
   PainChance 144
   Painchance "Fist", 216 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 216 // Fist attacks have a +50% chance of stunning an enemy
 
   states
@@ -770,6 +776,7 @@ actor VulgarNew : Vulgar replaces Vulgar
   
   painchance 120
   Painchance "Fist", 180 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 180 // Fist attacks have a +50% chance of stunning an enemy
 
   states
@@ -865,6 +872,7 @@ Actor ClayDevilNew : ClayDevil replaces ClayDevil
 
   painchance 48
   Painchance "Fist", 72 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 120 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 72 // Fist attacks have a +50% chance of stunning an enemy
 
   health 160 // Double Health
@@ -1038,6 +1046,7 @@ ACTOR ShadowNew : Shadow replaces Shadow 3126
 
   PainChance 200
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
 
   states
@@ -1151,6 +1160,7 @@ ACTOR SoulHarvesterNew : SoulHarvester replaces SoulHarvester 3117
 
   PainChance 120
   Painchance "Fist", 180 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 180 // Fist attacks have a +50% chance of stunning an enemy
 
   states
@@ -1244,6 +1254,7 @@ ACTOR ESoulNew : ESoul replaces ESoul 29012
   
   painchance 128
   Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
 
   states
@@ -1328,6 +1339,7 @@ ACTOR DEWraithNew : DEWraith replaces DEWraith 30106
 
   PainChance 64 
   Painchance "Fist", 96 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 160 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 96 // Fist attacks have a +50% chance of stunning an enemy
 
   states 
@@ -1411,6 +1423,7 @@ ACTOR ButcherZombieNew : Fatty replaces Fatty 25010
   
   painchance 96
   Painchance "Fist", 144 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 240 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 144 // Fist attacks have a +50% chance of stunning an enemy
 
   states
@@ -1603,6 +1616,7 @@ actor BloodZombieNew : ZombieBlood replaces ZombieBlood 31002
 
   painchance 40
   Painchance "Fist", 60 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 100 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 60 // Fist attacks have a +50% chance of stunning an enemy
   PainChance "SHOCK", 255
 
@@ -1792,6 +1806,7 @@ ACTOR ThamuzNew : Thamuz replaces Thamuz 7228
 
   painchance 35
   Painchance "Fist", 52 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 87 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 52 // Fist attacks have a +50% chance of stunning an enemy
 
   states
