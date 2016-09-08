@@ -65,12 +65,46 @@ ACTOR StrifeCrossbowNew : StrifeCrossbow replaces StrifeCrossbow
   Weapon.SisterWeapon "StrifeCrossbow2New"
   States
   {
+  User1:
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
+	TNT1 A 0 
+	{
+	 A_ClearFlash;
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
+	 if (random(1,256) > 64) { A_GiveInventory("KickCritBonus1",1,AAPTR_PLAYER1); } else { A_GiveInventory("KickCritBonus2",1,AAPTR_PLAYER1); }
+	}
+    FKIC A 1 Offset(48,46)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,42) { if (random(1,256) >= 128) { A_PlaySound("FloraKiaiFull",CHAN_VOICE); } }
+    FKIC A 1 Offset(48,40)
+    FKIC B 1 Offset(24,38)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,32) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuff",104)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,38)
+    FKIC A 1 Offset(48,40)
+    FKIC A 1 Offset(48,42)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,46)
+	{
+	 A_TakeInventory("KickCritBonus1",9999);
+	 A_TakeInventory("KickCritBonus2",9999);
+	 A_TakeInventory("KickAttackDEFLvl1",9999);
+	 A_TakeInventory("KickAttackDEFLvl2",9999);
+	 A_TakeInventory("MartArtsMaster1",9999);
+	 A_TakeInventory("MartArtsMaster2",9999);
+	}
+    goto Ready
   Spawn:
     CBOW A -1
     Stop
   Ready:
     XBOW A 0 A_ShowElectricFlash
-    XBOW A 1 A_WeaponReady
+    XBOW A 1 A_WeaponReady(WRF_ALLOWUSER1)
     Wait
   Deselect:
     XBOW A 1 A_Lower
@@ -103,8 +137,41 @@ ACTOR StrifeCrossbow2New : StrifeCrossbow2 replaces StrifeCrossbow2
   Weapon.SisterWeapon "StrifeCrossbowNew"
   States
   {
+  User1:
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
+	TNT1 A 0 
+	{
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
+	 if (random(1,256) > 64) { A_GiveInventory("KickCritBonus1",1,AAPTR_PLAYER1); } else { A_GiveInventory("KickCritBonus2",1,AAPTR_PLAYER1); }
+	}
+    FKIC A 1 Offset(48,46)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,42) { if (random(1,256) >= 128) { A_PlaySound("FloraKiaiFull",CHAN_VOICE); } }
+    FKIC A 1 Offset(48,40)
+    FKIC B 1 Offset(24,38)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,32) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuff",104)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,38)
+    FKIC A 1 Offset(48,40)
+    FKIC A 1 Offset(48,42)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,46)
+	{
+	 A_TakeInventory("KickCritBonus1",9999);
+	 A_TakeInventory("KickCritBonus2",9999);
+	 A_TakeInventory("KickAttackDEFLvl1",9999);
+	 A_TakeInventory("KickAttackDEFLvl2",9999);
+	 A_TakeInventory("MartArtsMaster1",9999);
+	 A_TakeInventory("MartArtsMaster2",9999);
+	}
+    goto Ready
   Ready:
-    XBOW H 1 A_WeaponReady
+    XBOW H 1 A_WeaponReady(WRF_ALLOWUSER1)
     Loop
   Deselect:
     XBOW H 1 A_Lower
@@ -802,6 +869,39 @@ Actor NNSigil : Weapon
    Tag "$TAG_SIGIL"
    States
    {
+  User1:
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
+	TNT1 A 0 
+	{
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
+	 if (random(1,256) > 64) { A_GiveInventory("KickCritBonus1",1,AAPTR_PLAYER1); } else { A_GiveInventory("KickCritBonus2",1,AAPTR_PLAYER1); }
+	}
+    FKIC A 1 Offset(48,46)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,42) { if (random(1,256) >= 128) { A_PlaySound("FloraKiaiFull",CHAN_VOICE); } }
+    FKIC A 1 Offset(48,40)
+    FKIC B 1 Offset(24,38)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,32) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuff",104)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,38)
+    FKIC A 1 Offset(48,40)
+    FKIC A 1 Offset(48,42)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,46)
+	{
+	 A_TakeInventory("KickCritBonus1",9999);
+	 A_TakeInventory("KickCritBonus2",9999);
+	 A_TakeInventory("KickAttackDEFLvl1",9999);
+	 A_TakeInventory("KickAttackDEFLvl2",9999);
+	 A_TakeInventory("MartArtsMaster1",9999);
+	 A_TakeInventory("MartArtsMaster2",9999);
+	}
+    goto Ready
    Deselect:
       "----" A 1 A_JumpIf(CallACS("NNSigilPieceCount") == 5, "Deselect5")
       TNT1 A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 5, "Deselect5")
@@ -857,19 +957,19 @@ Actor NNSigil : Weapon
       TNT1 A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 2, "Ready2")
       TNT1 A 0 A_JumpIf(CallACS("NNSigilPieceCount") == 1, "Ready1")
    Ready1:
-      SGLA A 1 Bright A_WeaponReady
+      SGLA A 1 Bright A_WeaponReady(WRF_ALLOWUSER1)
       goto Ready
    Ready2:
-      SGLB A 1 Bright A_WeaponReady
+      SGLB A 1 Bright A_WeaponReady(WRF_ALLOWUSER1)
       goto Ready
    Ready3:
-      SGLC A 1 Bright A_WeaponReady
+      SGLC A 1 Bright A_WeaponReady(WRF_ALLOWUSER1)
       goto Ready
    Ready4:
-      SGLD A 1 Bright A_WeaponReady
+      SGLD A 1 Bright A_WeaponReady(WRF_ALLOWUSER1)
       goto Ready
    Ready5:
-      SGLE A 1 Bright A_WeaponReady
+      SGLE A 1 Bright A_WeaponReady(WRF_ALLOWUSER1)
       goto Ready
    //
    Fire:

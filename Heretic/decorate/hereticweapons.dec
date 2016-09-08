@@ -232,6 +232,39 @@ ACTOR GoldWandNew : GoldWand replaces GoldWand
   Weapon.AmmoUse2 1  
   States
   {
+  User1:
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
+	TNT1 A 0 
+	{
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
+	 if (random(1,256) > 64) { A_GiveInventory("KickCritBonus1",1,AAPTR_PLAYER1); } else { A_GiveInventory("KickCritBonus2",1,AAPTR_PLAYER1); }
+	}
+    FKIC A 1 Offset(48,46)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,42) { if (random(1,256) >= 128) { A_PlaySound("FloraKiaiFull",CHAN_VOICE); } }
+    FKIC A 1 Offset(48,40)
+    FKIC B 1 Offset(24,38)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,32) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuff",104)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,38)
+    FKIC A 1 Offset(48,40)
+    FKIC A 1 Offset(48,42)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,46)
+	{
+	 A_TakeInventory("KickCritBonus1",9999);
+	 A_TakeInventory("KickCritBonus2",9999);
+	 A_TakeInventory("KickAttackDEFLvl1",9999);
+	 A_TakeInventory("KickAttackDEFLvl2",9999);
+	 A_TakeInventory("MartArtsMaster1",9999);
+	 A_TakeInventory("MartArtsMaster2",9999);
+	}
+    goto Ready
   Spawn:
     GWAN A 0 NoDelay
 	{
@@ -247,7 +280,7 @@ ACTOR GoldWandNew : GoldWand replaces GoldWand
     GWAN A 0
     Stop
   Ready:
-    GWND A 1 A_WeaponReady
+    GWND A 1 A_WeaponReady(WRF_ALLOWUSER1)
     Loop
   Deselect:
     GWND A 1 { A_Lower; A_Lower; }
@@ -509,11 +542,44 @@ ACTOR DualGoldWandNew : GoldWandNew
   Tag "Dual Elven Wands"
   States
   {
+  User1:
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
+	TNT1 A 0 
+	{
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
+	 if (random(1,256) > 64) { A_GiveInventory("KickCritBonus1",1,AAPTR_PLAYER1); } else { A_GiveInventory("KickCritBonus2",1,AAPTR_PLAYER1); }
+	}
+    FKIC A 1 Offset(48,46)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,42) { if (random(1,256) >= 128) { A_PlaySound("FloraKiaiFull",CHAN_VOICE); } }
+    FKIC A 1 Offset(48,40)
+    FKIC B 1 Offset(24,38)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,32) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuff",104)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,38)
+    FKIC A 1 Offset(48,40)
+    FKIC A 1 Offset(48,42)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,46)
+	{
+	 A_TakeInventory("KickCritBonus1",9999);
+	 A_TakeInventory("KickCritBonus2",9999);
+	 A_TakeInventory("KickAttackDEFLvl1",9999);
+	 A_TakeInventory("KickAttackDEFLvl2",9999);
+	 A_TakeInventory("MartArtsMaster1",9999);
+	 A_TakeInventory("MartArtsMaster2",9999);
+	}
+    goto Ready
   Spawn:
     GWAN A -1
     Stop
   Ready:
-    GWN2 A 1 A_WeaponReady
+    GWN2 A 1 A_WeaponReady(WRF_ALLOWUSER1)
     Loop
   Deselect:
     GWN2 A 1 { A_Lower; A_Lower; }
@@ -838,6 +904,39 @@ ACTOR CrossbowNew : Crossbow replaces Crossbow
   Weapon.AmmoType2 "CrossbowAmmo"
   States
   {
+  User1:
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
+	TNT1 A 0 
+	{
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
+	 if (random(1,256) > 64) { A_GiveInventory("KickCritBonus1",1,AAPTR_PLAYER1); } else { A_GiveInventory("KickCritBonus2",1,AAPTR_PLAYER1); }
+	}
+    FKIC A 1 Offset(48,46)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,42) { if (random(1,256) >= 128) { A_PlaySound("FloraKiaiFull",CHAN_VOICE); } }
+    FKIC A 1 Offset(48,40)
+    FKIC B 1 Offset(24,38)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,32) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuff",104)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,38)
+    FKIC A 1 Offset(48,40)
+    FKIC A 1 Offset(48,42)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,46)
+	{
+	 A_TakeInventory("KickCritBonus1",9999);
+	 A_TakeInventory("KickCritBonus2",9999);
+	 A_TakeInventory("KickAttackDEFLvl1",9999);
+	 A_TakeInventory("KickAttackDEFLvl2",9999);
+	 A_TakeInventory("MartArtsMaster1",9999);
+	 A_TakeInventory("MartArtsMaster2",9999);
+	}
+    goto Ready
   Spawn:
     WBOW A 0 NoDelay
 	{
@@ -867,7 +966,7 @@ ACTOR CrossbowNew : Crossbow replaces Crossbow
     WBOW A 1
     Loop
   Ready:
-    CRBW AAAAAABBBBBBCCCCCC 1 A_WeaponReady
+    CRBW AAAAAABBBBBBCCCCCC 1 A_WeaponReady(WRF_ALLOWUSER1)
     Loop
   Deselect:
     CRBW A 1 { A_Lower; A_Lower; }
@@ -1066,11 +1165,44 @@ ACTOR DualCrossbowNew : CrossbowNew
 
   States
   {
+  User1:
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
+	TNT1 A 0 
+	{
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
+	 if (random(1,256) > 64) { A_GiveInventory("KickCritBonus1",1,AAPTR_PLAYER1); } else { A_GiveInventory("KickCritBonus2",1,AAPTR_PLAYER1); }
+	}
+    FKIC A 1 Offset(48,46)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,42) { if (random(1,256) >= 128) { A_PlaySound("FloraKiaiFull",CHAN_VOICE); } }
+    FKIC A 1 Offset(48,40)
+    FKIC B 1 Offset(24,38)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,32) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuff",104)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,38)
+    FKIC A 1 Offset(48,40)
+    FKIC A 1 Offset(48,42)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,46)
+	{
+	 A_TakeInventory("KickCritBonus1",9999);
+	 A_TakeInventory("KickCritBonus2",9999);
+	 A_TakeInventory("KickAttackDEFLvl1",9999);
+	 A_TakeInventory("KickAttackDEFLvl2",9999);
+	 A_TakeInventory("MartArtsMaster1",9999);
+	 A_TakeInventory("MartArtsMaster2",9999);
+	}
+    goto Ready
   Spawn:
     WBOW A -1
     Stop
   Ready:
-    CRBD AAAAAABBBBBBCCCCCC 1 A_WeaponReady
+    CRBD AAAAAABBBBBBCCCCCC 1 A_WeaponReady(WRF_ALLOWUSER1)
     Loop
   Deselect:
     CRBD A 1 { A_Lower; A_Lower; }
@@ -1483,6 +1615,39 @@ ACTOR DragonClawNew : Blaster replaces Blaster
   Weapon.AmmoType2 "BlasterAmmo"
   States
   {
+  User1:
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
+	TNT1 A 0 
+	{
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
+	 if (random(1,256) > 64) { A_GiveInventory("KickCritBonus1",1,AAPTR_PLAYER1); } else { A_GiveInventory("KickCritBonus2",1,AAPTR_PLAYER1); }
+	}
+    FKIC A 1 Offset(48,46)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,42) { if (random(1,256) >= 128) { A_PlaySound("FloraKiaiFull",CHAN_VOICE); } }
+    FKIC A 1 Offset(48,40)
+    FKIC B 1 Offset(24,38)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,32) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuff",104)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,38)
+    FKIC A 1 Offset(48,40)
+    FKIC A 1 Offset(48,42)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,46)
+	{
+	 A_TakeInventory("KickCritBonus1",9999);
+	 A_TakeInventory("KickCritBonus2",9999);
+	 A_TakeInventory("KickAttackDEFLvl1",9999);
+	 A_TakeInventory("KickAttackDEFLvl2",9999);
+	 A_TakeInventory("MartArtsMaster1",9999);
+	 A_TakeInventory("MartArtsMaster2",9999);
+	}
+    goto Ready
   Spawn:
     WBLS A 0 NoDelay
 	{
@@ -1495,7 +1660,7 @@ ACTOR DragonClawNew : Blaster replaces Blaster
     WBLS A 1
     Loop
   Ready:
-    FBLS A 1 A_WeaponReady
+    FBLS A 1 A_WeaponReady(WRF_ALLOWUSER1)
     Loop
   Deselect:
     FBLS A 1 { A_Lower; A_Lower; }
@@ -1628,11 +1793,44 @@ ACTOR DualDragonClawNew : DragonClawNew
   Tag "Dual Dragon Claws"
   States
   {
+  User1:
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
+	TNT1 A 0 
+	{
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
+	 if (random(1,256) > 64) { A_GiveInventory("KickCritBonus1",1,AAPTR_PLAYER1); } else { A_GiveInventory("KickCritBonus2",1,AAPTR_PLAYER1); }
+	}
+    FKIC A 1 Offset(48,46)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,42) { if (random(1,256) >= 128) { A_PlaySound("FloraKiaiFull",CHAN_VOICE); } }
+    FKIC A 1 Offset(48,40)
+    FKIC B 1 Offset(24,38)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,32) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuff",104)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,38)
+    FKIC A 1 Offset(48,40)
+    FKIC A 1 Offset(48,42)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,46)
+	{
+	 A_TakeInventory("KickCritBonus1",9999);
+	 A_TakeInventory("KickCritBonus2",9999);
+	 A_TakeInventory("KickAttackDEFLvl1",9999);
+	 A_TakeInventory("KickAttackDEFLvl2",9999);
+	 A_TakeInventory("MartArtsMaster1",9999);
+	 A_TakeInventory("MartArtsMaster2",9999);
+	}
+    goto Ready
   Spawn:
     WBLS A -1
     Stop
   Ready:
-    FDBL A 1 A_WeaponReady
+    FDBL A 1 A_WeaponReady(WRF_ALLOWUSER1)
     Loop
   Deselect:
     FDBL A 1 { A_Lower; A_Lower; }
@@ -1822,6 +2020,39 @@ ACTOR HellStaffNew : SkullRod replaces SkullRod
 
   States
   {
+  User1:
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
+	TNT1 A 0 
+	{
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
+	 if (random(1,256) > 64) { A_GiveInventory("KickCritBonus1",1,AAPTR_PLAYER1); } else { A_GiveInventory("KickCritBonus2",1,AAPTR_PLAYER1); }
+	}
+    FKIC A 1 Offset(48,46)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,42) { if (random(1,256) >= 128) { A_PlaySound("FloraKiaiFull",CHAN_VOICE); } }
+    FKIC A 1 Offset(48,40)
+    FKIC B 1 Offset(24,38)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,32) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuff",104)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,38)
+    FKIC A 1 Offset(48,40)
+    FKIC A 1 Offset(48,42)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,46)
+	{
+	 A_TakeInventory("KickCritBonus1",9999);
+	 A_TakeInventory("KickCritBonus2",9999);
+	 A_TakeInventory("KickAttackDEFLvl1",9999);
+	 A_TakeInventory("KickAttackDEFLvl2",9999);
+	 A_TakeInventory("MartArtsMaster1",9999);
+	 A_TakeInventory("MartArtsMaster2",9999);
+	}
+    goto Ready
   Spawn:
     WSKL A 0 NoDelay
 	{
@@ -1834,7 +2065,7 @@ ACTOR HellStaffNew : SkullRod replaces SkullRod
     WSKL A 1
     Loop
   Ready:
-    HROD A 1 A_WeaponReady
+    HROD A 1 A_WeaponReady(WRF_ALLOWUSER1)
     Loop
   Deselect:
     HROD A 1 { A_Lower; A_Lower; }
@@ -1968,11 +2199,44 @@ ACTOR DualHellStaffNew : HellStaffNew
 
   States
   {
+  User1:
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
+	TNT1 A 0 
+	{
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
+	 if (random(1,256) > 64) { A_GiveInventory("KickCritBonus1",1,AAPTR_PLAYER1); } else { A_GiveInventory("KickCritBonus2",1,AAPTR_PLAYER1); }
+	}
+    FKIC A 1 Offset(48,46)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,42) { if (random(1,256) >= 128) { A_PlaySound("FloraKiaiFull",CHAN_VOICE); } }
+    FKIC A 1 Offset(48,40)
+    FKIC B 1 Offset(24,38)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,32) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuff",104)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,38)
+    FKIC A 1 Offset(48,40)
+    FKIC A 1 Offset(48,42)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,46)
+	{
+	 A_TakeInventory("KickCritBonus1",9999);
+	 A_TakeInventory("KickCritBonus2",9999);
+	 A_TakeInventory("KickAttackDEFLvl1",9999);
+	 A_TakeInventory("KickAttackDEFLvl2",9999);
+	 A_TakeInventory("MartArtsMaster1",9999);
+	 A_TakeInventory("MartArtsMaster2",9999);
+	}
+    goto Ready
   Spawn:
     WSKL A -1
     Stop
   Ready:
-    DHRD A 1 A_WeaponReady
+    DHRD A 1 A_WeaponReady(WRF_ALLOWUSER1)
     Loop
   Deselect:
     DHRD A 1 { A_Lower; A_Lower; }
@@ -2156,6 +2420,39 @@ ACTOR PhoenixRodNew : PhoenixRod replaces PhoenixRod
 
   States
   {
+  User1:
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
+	TNT1 A 0 
+	{
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
+	 if (random(1,256) > 64) { A_GiveInventory("KickCritBonus1",1,AAPTR_PLAYER1); } else { A_GiveInventory("KickCritBonus2",1,AAPTR_PLAYER1); }
+	}
+    FKIC A 1 Offset(48,46)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,42) { if (random(1,256) >= 128) { A_PlaySound("FloraKiaiFull",CHAN_VOICE); } }
+    FKIC A 1 Offset(48,40)
+    FKIC B 1 Offset(24,38)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,32) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuff",104)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,38)
+    FKIC A 1 Offset(48,40)
+    FKIC A 1 Offset(48,42)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,46)
+	{
+	 A_TakeInventory("KickCritBonus1",9999);
+	 A_TakeInventory("KickCritBonus2",9999);
+	 A_TakeInventory("KickAttackDEFLvl1",9999);
+	 A_TakeInventory("KickAttackDEFLvl2",9999);
+	 A_TakeInventory("MartArtsMaster1",9999);
+	 A_TakeInventory("MartArtsMaster2",9999);
+	}
+    goto Ready
   Spawn:
     WPHX A 0 NoDelay
 	{
@@ -2168,7 +2465,7 @@ ACTOR PhoenixRodNew : PhoenixRod replaces PhoenixRod
     WPHX A 1
     Loop
   Ready:
-    PHNX A 1 A_WeaponReady
+    PHNX A 1 A_WeaponReady(WRF_ALLOWUSER1)
     Loop
   Deselect:
     PHNX A 1 { A_Lower; A_Lower; }
@@ -2311,11 +2608,44 @@ ACTOR DualPhoenixRodNew : PhoenixRodNew
 
   States
   {
+  User1:
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
+	TNT1 A 0 
+	{
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
+	 if (random(1,256) > 64) { A_GiveInventory("KickCritBonus1",1,AAPTR_PLAYER1); } else { A_GiveInventory("KickCritBonus2",1,AAPTR_PLAYER1); }
+	}
+    FKIC A 1 Offset(48,46)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,42) { if (random(1,256) >= 128) { A_PlaySound("FloraKiaiFull",CHAN_VOICE); } }
+    FKIC A 1 Offset(48,40)
+    FKIC B 1 Offset(24,38)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,32) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuff",104)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,38)
+    FKIC A 1 Offset(48,40)
+    FKIC A 1 Offset(48,42)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,46)
+	{
+	 A_TakeInventory("KickCritBonus1",9999);
+	 A_TakeInventory("KickCritBonus2",9999);
+	 A_TakeInventory("KickAttackDEFLvl1",9999);
+	 A_TakeInventory("KickAttackDEFLvl2",9999);
+	 A_TakeInventory("MartArtsMaster1",9999);
+	 A_TakeInventory("MartArtsMaster2",9999);
+	}
+    goto Ready
   Spawn:
     WPHX A -1
     Stop
   Ready:
-    PHND A 1 A_WeaponReady
+    PHND A 1 A_WeaponReady(WRF_ALLOWUSER1)
     Loop
   Deselect:
     PHND A 1 { A_Lower; A_Lower; }
@@ -2543,6 +2873,39 @@ ACTOR FiremaceNew : Mace replaces Mace
 
   States
   {
+  User1:
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
+	TNT1 A 0 
+	{
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
+	 if (random(1,256) > 64) { A_GiveInventory("KickCritBonus1",1,AAPTR_PLAYER1); } else { A_GiveInventory("KickCritBonus2",1,AAPTR_PLAYER1); }
+	}
+    FKIC A 1 Offset(48,46)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,42) { if (random(1,256) >= 128) { A_PlaySound("FloraKiaiFull",CHAN_VOICE); } }
+    FKIC A 1 Offset(48,40)
+    FKIC B 1 Offset(24,38)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,32) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuff",104)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,38)
+    FKIC A 1 Offset(48,40)
+    FKIC A 1 Offset(48,42)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,46)
+	{
+	 A_TakeInventory("KickCritBonus1",9999);
+	 A_TakeInventory("KickCritBonus2",9999);
+	 A_TakeInventory("KickAttackDEFLvl1",9999);
+	 A_TakeInventory("KickAttackDEFLvl2",9999);
+	 A_TakeInventory("MartArtsMaster1",9999);
+	 A_TakeInventory("MartArtsMaster2",9999);
+	}
+    goto Ready
   Spawn:
     WMCE A 0 NoDelay
 	{
@@ -2555,7 +2918,7 @@ ACTOR FiremaceNew : Mace replaces Mace
     WMCE A 1
     Loop
   Ready:
-    MACE A 1 A_WeaponReady
+    MACE A 1 A_WeaponReady(WRF_ALLOWUSER1)
     Loop
   Deselect:
     MACE A 1 { A_Lower; A_Lower; }
@@ -2688,11 +3051,44 @@ ACTOR DualFiremaceNew : FiremaceNew
 
   States
   {
+  User1:
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
+	TNT1 A 0 
+	{
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
+	 if (random(1,256) > 64) { A_GiveInventory("KickCritBonus1",1,AAPTR_PLAYER1); } else { A_GiveInventory("KickCritBonus2",1,AAPTR_PLAYER1); }
+	}
+    FKIC A 1 Offset(48,46)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,42) { if (random(1,256) >= 128) { A_PlaySound("FloraKiaiFull",CHAN_VOICE); } }
+    FKIC A 1 Offset(48,40)
+    FKIC B 1 Offset(24,38)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,32) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuff",104)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,38)
+    FKIC A 1 Offset(48,40)
+    FKIC A 1 Offset(48,42)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,46)
+	{
+	 A_TakeInventory("KickCritBonus1",9999);
+	 A_TakeInventory("KickCritBonus2",9999);
+	 A_TakeInventory("KickAttackDEFLvl1",9999);
+	 A_TakeInventory("KickAttackDEFLvl2",9999);
+	 A_TakeInventory("MartArtsMaster1",9999);
+	 A_TakeInventory("MartArtsMaster2",9999);
+	}
+    goto Ready
   Spawn:
     WMCE A -1
     Stop
   Ready:
-    DMAC A 1 A_WeaponReady
+    DMAC A 1 A_WeaponReady(WRF_ALLOWUSER1)
     Loop
   Deselect:
     DMAC A 1 { A_Lower; A_Lower; }
@@ -2944,6 +3340,39 @@ actor SuperCrossbowNew : Weapon 25102
   Tag "Super Ethereal Crossbow"
   states
   {
+  User1:
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
+	TNT1 A 0 
+	{
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
+	 if (random(1,256) > 64) { A_GiveInventory("KickCritBonus1",1,AAPTR_PLAYER1); } else { A_GiveInventory("KickCritBonus2",1,AAPTR_PLAYER1); }
+	}
+    FKIC A 1 Offset(48,46)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,42) { if (random(1,256) >= 128) { A_PlaySound("FloraKiaiFull",CHAN_VOICE); } }
+    FKIC A 1 Offset(48,40)
+    FKIC B 1 Offset(24,38)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,32) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuff",104)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,38)
+    FKIC A 1 Offset(48,40)
+    FKIC A 1 Offset(48,42)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,46)
+	{
+	 A_TakeInventory("KickCritBonus1",9999);
+	 A_TakeInventory("KickCritBonus2",9999);
+	 A_TakeInventory("KickAttackDEFLvl1",9999);
+	 A_TakeInventory("KickAttackDEFLvl2",9999);
+	 A_TakeInventory("MartArtsMaster1",9999);
+	 A_TakeInventory("MartArtsMaster2",9999);
+	}
+    goto Ready
   Spawn:
     WBOW B 0 NoDelay
 	{
@@ -2956,7 +3385,7 @@ actor SuperCrossbowNew : Weapon 25102
     WBOW B 1
     Loop
   Ready: 
-    CRB2 ABC 6 A_WeaponReady
+    CRB2 ABC 6 A_WeaponReady(WRF_ALLOWUSER1)
     loop
   Deselect:
     CRB2 ABC 1 { A_Lower; A_Lower; }
@@ -3346,11 +3775,44 @@ actor DualSuperCrossbowNew : SuperCrossbowNew
   Tag "Dual Super Ethereal Crossbows"
   states
   {
+  User1:
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
+	TNT1 A 0 
+	{
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
+	 if (random(1,256) > 64) { A_GiveInventory("KickCritBonus1",1,AAPTR_PLAYER1); } else { A_GiveInventory("KickCritBonus2",1,AAPTR_PLAYER1); }
+	}
+    FKIC A 1 Offset(48,46)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,42) { if (random(1,256) >= 128) { A_PlaySound("FloraKiaiFull",CHAN_VOICE); } }
+    FKIC A 1 Offset(48,40)
+    FKIC B 1 Offset(24,38)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,32) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuff",104)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,38)
+    FKIC A 1 Offset(48,40)
+    FKIC A 1 Offset(48,42)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,46)
+	{
+	 A_TakeInventory("KickCritBonus1",9999);
+	 A_TakeInventory("KickCritBonus2",9999);
+	 A_TakeInventory("KickAttackDEFLvl1",9999);
+	 A_TakeInventory("KickAttackDEFLvl2",9999);
+	 A_TakeInventory("MartArtsMaster1",9999);
+	 A_TakeInventory("MartArtsMaster2",9999);
+	}
+    goto Ready
   Spawn:
     WBOW B -1
     stop
   Ready: 
-    SCRD ABC 6 A_WeaponReady
+    SCRD ABC 6 A_WeaponReady(WRF_ALLOWUSER1)
     loop
   Deselect:
     SCRD ABC 1 { A_Lower; A_Lower; }
@@ -4134,6 +4596,39 @@ actor DSparilStaff : weapon
   Tag "Staff of D'Sparil"
   States
   {
+  User1:
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
+	TNT1 A 0 
+	{
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
+	 if (random(1,256) > 64) { A_GiveInventory("KickCritBonus1",1,AAPTR_PLAYER1); } else { A_GiveInventory("KickCritBonus2",1,AAPTR_PLAYER1); }
+	}
+    FKIC A 1 Offset(48,46)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,42) { if (random(1,256) >= 128) { A_PlaySound("FloraKiaiFull",CHAN_VOICE); } }
+    FKIC A 1 Offset(48,40)
+    FKIC B 1 Offset(24,38)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,32) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuff",104)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,38)
+    FKIC A 1 Offset(48,40)
+    FKIC A 1 Offset(48,42)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,46)
+	{
+	 A_TakeInventory("KickCritBonus1",9999);
+	 A_TakeInventory("KickCritBonus2",9999);
+	 A_TakeInventory("KickAttackDEFLvl1",9999);
+	 A_TakeInventory("KickAttackDEFLvl2",9999);
+	 A_TakeInventory("MartArtsMaster1",9999);
+	 A_TakeInventory("MartArtsMaster2",9999);
+	}
+    goto Ready
   Spawn:
     DSTF B 0 NoDelay
 	{
@@ -4146,7 +4641,7 @@ actor DSparilStaff : weapon
 	DSTF A 1
 	Loop
   Ready:
-	DSTF A 1 A_WeaponReady
+	DSTF A 1 A_WeaponReady(WRF_ALLOWUSER1)
 	Loop
   Select:
 	DSTF A 1 { A_Raise; A_Raise; }
@@ -4292,11 +4787,44 @@ actor DualDSparilStaff : DSparilStaff
   Tag "Dual Staves of D'Sparil"
   States
   {
+  User1:
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
+	TNT1 A 0 
+	{
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
+	 if (random(1,256) > 64) { A_GiveInventory("KickCritBonus1",1,AAPTR_PLAYER1); } else { A_GiveInventory("KickCritBonus2",1,AAPTR_PLAYER1); }
+	}
+    FKIC A 1 Offset(48,46)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,42) { if (random(1,256) >= 128) { A_PlaySound("FloraKiaiFull",CHAN_VOICE); } }
+    FKIC A 1 Offset(48,40)
+    FKIC B 1 Offset(24,38)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,32) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuff",104)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,38)
+    FKIC A 1 Offset(48,40)
+    FKIC A 1 Offset(48,42)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,46)
+	{
+	 A_TakeInventory("KickCritBonus1",9999);
+	 A_TakeInventory("KickCritBonus2",9999);
+	 A_TakeInventory("KickAttackDEFLvl1",9999);
+	 A_TakeInventory("KickAttackDEFLvl2",9999);
+	 A_TakeInventory("MartArtsMaster1",9999);
+	 A_TakeInventory("MartArtsMaster2",9999);
+	}
+    goto Ready
   Spawn:
 	DSTF A -1
 	Stop
   Ready:
-	DSTD A 1 A_WeaponReady
+	DSTD A 1 A_WeaponReady(WRF_ALLOWUSER1)
 	Loop
   Select:
 	DSTD A 1 { A_Raise; A_Raise; }
