@@ -3658,11 +3658,50 @@ ACTOR PopcornGunNew : PopcornGun replaces PopcornGun 30204
   Scale 0.75
   States 
   { 
+  User1:
+    TNT1 A 0 
+	{ 
+	 if (CountInv("FloraInPlay",AAPTR_PLAYER1) <= 0) { return state("Ready"); }
+	 return state(""); 
+	}
+	TNT1 A 0 
+	{
+	 ACS_NamedExecuteAlways("StartTensionCountDown");
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
+	 if (random(1,256) > 64) { A_GiveInventory("KickCritBonus1",1,AAPTR_PLAYER1); } else { A_GiveInventory("KickCritBonus2",1,AAPTR_PLAYER1); }
+	}
+    FKIC A 1 Offset(48,46)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,42) { if (random(1,256) >= 128) { A_PlaySound("FloraKiaiFull",CHAN_VOICE); } }
+    FKIC A 1 Offset(48,40)
+    FKIC B 1 Offset(24,38)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,32) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuff",104)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,38)
+    FKIC A 1 Offset(48,40)
+    FKIC A 1 Offset(48,42)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,46)
+	{
+	 A_TakeInventory("KickCritBonus1",9999);
+	 A_TakeInventory("KickCritBonus2",9999);
+	 A_TakeInventory("KickAttackDEFLvl1",9999);
+	 A_TakeInventory("KickAttackDEFLvl2",9999);
+	 A_TakeInventory("MartArtsMaster1",9999);
+	 A_TakeInventory("MartArtsMaster2",9999);
+	}
+    goto Ready
+
   Spawn: 
     PPPG A -1 
     LOOP 
   Ready: 
-    PGUN AAACCCDDDEEEFFFGGG 1 A_WeaponReady 
+    PGUN AAACCCDDDEEEFFFGGG 1 A_WeaponReady(WRF_ALLOWUSER1)
     LOOP 
   Deselect: 
     PGUN A 0 A_Lower 
@@ -3963,14 +4002,53 @@ ACTOR GoreBalloonNew : GoreBalloon replaces GoreBalloon 30030
   Scale 0.75
   States 
   { 
+  User1:
+    TNT1 A 0 
+	{ 
+	 if (CountInv("FloraInPlay",AAPTR_PLAYER1) <= 0) { return state("Ready"); }
+	 return state(""); 
+	}
+	TNT1 A 0 
+	{
+	 ACS_NamedExecuteAlways("StartTensionCountDown");
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
+	 if (random(1,256) > 64) { A_GiveInventory("KickCritBonus1",1,AAPTR_PLAYER1); } else { A_GiveInventory("KickCritBonus2",1,AAPTR_PLAYER1); }
+	}
+    FKIC A 1 Offset(48,46)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,42) { if (random(1,256) >= 128) { A_PlaySound("FloraKiaiFull",CHAN_VOICE); } }
+    FKIC A 1 Offset(48,40)
+    FKIC B 1 Offset(24,38)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,32) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuff",104)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,38)
+    FKIC A 1 Offset(48,40)
+    FKIC A 1 Offset(48,42)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,46)
+	{
+	 A_TakeInventory("KickCritBonus1",9999);
+	 A_TakeInventory("KickCritBonus2",9999);
+	 A_TakeInventory("KickAttackDEFLvl1",9999);
+	 A_TakeInventory("KickAttackDEFLvl2",9999);
+	 A_TakeInventory("MartArtsMaster1",9999);
+	 A_TakeInventory("MartArtsMaster2",9999);
+	}
+    goto Ready
+
   Spawn: 
     BLNN J -1 
     LOOP 
   Ready: 
     TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") == 2, 6)
-    BLNN ABCD 6 A_WeaponReady 
+    BLNN ABCD 6 A_WeaponReady(WRF_ALLOWUSER1) 
     TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") != 2, 5)
-    BLNF ABCD 6 A_WeaponReady 
+    BLNF ABCD 6 A_WeaponReady(WRF_ALLOWUSER1)
     TNT1 A 0
     LOOP 
     TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") == 2, 4)
@@ -4107,11 +4185,50 @@ ACTOR ClownGrenadeNew : ClownGrenade replaces ClownGrenade 30029
   Scale .3
   States 
   { 
+  User1:
+    TNT1 A 0 
+	{ 
+	 if (CountInv("FloraInPlay",AAPTR_PLAYER1) <= 0) { return state("Ready"); }
+	 return state(""); 
+	}
+	TNT1 A 0 
+	{
+	 ACS_NamedExecuteAlways("StartTensionCountDown");
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
+	 if (random(1,256) > 64) { A_GiveInventory("KickCritBonus1",1,AAPTR_PLAYER1); } else { A_GiveInventory("KickCritBonus2",1,AAPTR_PLAYER1); }
+	}
+    FKIC A 1 Offset(48,46)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,42) { if (random(1,256) >= 128) { A_PlaySound("FloraKiaiFull",CHAN_VOICE); } }
+    FKIC A 1 Offset(48,40)
+    FKIC B 1 Offset(24,38)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,32) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuff",104)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,38)
+    FKIC A 1 Offset(48,40)
+    FKIC A 1 Offset(48,42)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,46)
+	{
+	 A_TakeInventory("KickCritBonus1",9999);
+	 A_TakeInventory("KickCritBonus2",9999);
+	 A_TakeInventory("KickAttackDEFLvl1",9999);
+	 A_TakeInventory("KickAttackDEFLvl2",9999);
+	 A_TakeInventory("MartArtsMaster1",9999);
+	 A_TakeInventory("MartArtsMaster2",9999);
+	}
+    goto Ready
+
   Spawn: 
     CGRD ABCDEFGHIJKL 3
     LOOP 
   Ready: 
-    GHND ABCDEFFFFFEDCBAA 1 A_WeaponReady 
+    GHND ABCDEFFFFFEDCBAA 1 A_WeaponReady(WRF_ALLOWUSER1) 
     LOOP 
   Deselect: 
     GHND A 0 A_Lower 
@@ -4246,11 +4363,50 @@ ACTOR GutFlingerNew : GutFlinger replaces GutFlinger 30028
   Scale 1
   States 
   { 
+  User1:
+    TNT1 A 0 
+	{ 
+	 if (CountInv("FloraInPlay",AAPTR_PLAYER1) <= 0) { return state("Ready"); }
+	 return state(""); 
+	}
+	TNT1 A 0 
+	{
+	 ACS_NamedExecuteAlways("StartTensionCountDown");
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
+	 if (random(1,256) > 64) { A_GiveInventory("KickCritBonus1",1,AAPTR_PLAYER1); } else { A_GiveInventory("KickCritBonus2",1,AAPTR_PLAYER1); }
+	}
+    FKIC A 1 Offset(48,46)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,42) { if (random(1,256) >= 128) { A_PlaySound("FloraKiaiFull",CHAN_VOICE); } }
+    FKIC A 1 Offset(48,40)
+    FKIC B 1 Offset(24,38)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,32) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuff",104)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,38)
+    FKIC A 1 Offset(48,40)
+    FKIC A 1 Offset(48,42)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,46)
+	{
+	 A_TakeInventory("KickCritBonus1",9999);
+	 A_TakeInventory("KickCritBonus2",9999);
+	 A_TakeInventory("KickAttackDEFLvl1",9999);
+	 A_TakeInventory("KickAttackDEFLvl2",9999);
+	 A_TakeInventory("MartArtsMaster1",9999);
+	 A_TakeInventory("MartArtsMaster2",9999);
+	}
+    goto Ready
+
   Spawn: 
     CCCC F -1 
     LOOP 
   Ready: 
-    CCCC A 1 A_WeaponReady 
+    CCCC A 1 A_WeaponReady(WRF_ALLOWUSER1) 
     LOOP 
   Deselect: 
     CCCC A 0 A_Lower 
@@ -4354,11 +4510,50 @@ ACTOR GasRocketLauncherNew : GasRocketLauncher replaces GasRocketLauncher 30203
   Scale 0.75
   States 
   { 
+  User1:
+    TNT1 A 0 
+	{ 
+	 if (CountInv("FloraInPlay",AAPTR_PLAYER1) <= 0) { return state("Ready"); }
+	 return state(""); 
+	}
+	TNT1 A 0 
+	{
+	 ACS_NamedExecuteAlways("StartTensionCountDown");
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
+	 if (random(1,256) > 64) { A_GiveInventory("KickCritBonus1",1,AAPTR_PLAYER1); } else { A_GiveInventory("KickCritBonus2",1,AAPTR_PLAYER1); }
+	}
+    FKIC A 1 Offset(48,46)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,42) { if (random(1,256) >= 128) { A_PlaySound("FloraKiaiFull",CHAN_VOICE); } }
+    FKIC A 1 Offset(48,40)
+    FKIC B 1 Offset(24,38)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,32) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuff",104)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,38)
+    FKIC A 1 Offset(48,40)
+    FKIC A 1 Offset(48,42)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,46)
+	{
+	 A_TakeInventory("KickCritBonus1",9999);
+	 A_TakeInventory("KickCritBonus2",9999);
+	 A_TakeInventory("KickAttackDEFLvl1",9999);
+	 A_TakeInventory("KickAttackDEFLvl2",9999);
+	 A_TakeInventory("MartArtsMaster1",9999);
+	 A_TakeInventory("MartArtsMaster2",9999);
+	}
+    goto Ready
+
   Spawn: 
     PRCK V -1 
     LOOP 
   Ready: 
-    PRCK G 1 A_WeaponReady 
+    PRCK G 1 A_WeaponReady(WRF_ALLOWUSER1) 
     LOOP 
   Deselect: 
     PRCK G 0 A_Lower 
@@ -4469,6 +4664,45 @@ ACTOR CrazyBall2New : CrazyBall2 replaces CrazyBall2 30205
   +Floatbob
   States 
   { 
+  User1:
+    TNT1 A 0 
+	{ 
+	 if (CountInv("FloraInPlay",AAPTR_PLAYER1) <= 0) { return state("Ready"); }
+	 return state(""); 
+	}
+	TNT1 A 0 
+	{
+	 ACS_NamedExecuteAlways("StartTensionCountDown");
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
+	 if (random(1,256) > 64) { A_GiveInventory("KickCritBonus1",1,AAPTR_PLAYER1); } else { A_GiveInventory("KickCritBonus2",1,AAPTR_PLAYER1); }
+	}
+    FKIC A 1 Offset(48,46)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,42) { if (random(1,256) >= 128) { A_PlaySound("FloraKiaiFull",CHAN_VOICE); } }
+    FKIC A 1 Offset(48,40)
+    FKIC B 1 Offset(24,38)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,32) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuffNoThrust",104)
+    FKIC B 1 Offset(24,34) A_CustomPunch(ACS_NamedExecuteWithResult("GetKickDamage",0),1,0,"KickPuff",104)
+    FKIC B 1 Offset(24,36)
+    FKIC B 1 Offset(24,38)
+    FKIC A 1 Offset(48,40)
+    FKIC A 1 Offset(48,42)
+    FKIC A 1 Offset(48,44)
+    FKIC A 1 Offset(48,46)
+	{
+	 A_TakeInventory("KickCritBonus1",9999);
+	 A_TakeInventory("KickCritBonus2",9999);
+	 A_TakeInventory("KickAttackDEFLvl1",9999);
+	 A_TakeInventory("KickAttackDEFLvl2",9999);
+	 A_TakeInventory("MartArtsMaster1",9999);
+	 A_TakeInventory("MartArtsMaster2",9999);
+	}
+    goto Ready
+
   Spawn: 
     CRZY A 0 A_Jump(240,2)
     CRZY A 0 A_PlaySound("CRZ") 
@@ -4478,7 +4712,7 @@ ACTOR CrazyBall2New : CrazyBall2 replaces CrazyBall2 30205
     CRZY AAAAAA 8
     LOOP       
   Ready: 
-    HCRZ S 1 A_WeaponReady 
+    HCRZ S 1 A_WeaponReady(WRF_ALLOWUSER1) 
     LOOP 
   Deselect: 
     HCRZ S 0 A_Lower 
