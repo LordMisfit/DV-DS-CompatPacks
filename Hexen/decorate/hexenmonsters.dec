@@ -200,7 +200,8 @@ ACTOR EttinNew : Ettin // replaces Ettin
     ETTN R 1 A_FreezeDeathChunks
     Wait
   Raise:
-    ETTN PONMLKJI 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ETTN P 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ETTN ONMLKJI 4 
     goto See
   }
 }
@@ -398,7 +399,8 @@ Actor EttinCommander : Ettin
     "----" E 1 A_FreezeDeathChunks
     Wait
   Raise:
-    CETN PONMLKJI 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    CETN P 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    CETN ONMLKJI 4 
     goto See
   }
 }
@@ -549,7 +551,8 @@ ACTOR CentaurNew : Centaur replaces Centaur
     CENT U 1 A_FreezeDeathChunks
     Wait
   Raise:
-    CENT TSRQPONMLK 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    CENT T 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    CENT SRQPONMLK 4 
     goto See
   }
 }
@@ -761,7 +764,8 @@ ACTOR SlaughtaurNew : CentaurLeader replaces CentaurLeader
     CENT U 1 A_FreezeDeathChunks
     Wait
   Raise:
-    CENT TSRQPONMLK 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    CENT T 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    CENT SRQPONMLK 4 
     goto See
   }
 }
@@ -865,7 +869,8 @@ ACTOR FireDemonNew : FireDemon replaces FireDemon
     FDMN R 1 A_FreezeDeathChunks
     Wait
   Raise:
-    FDMN LLD 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    FDMN L 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    FDMN LD 4
     goto Chase
   }
 }
@@ -967,9 +972,10 @@ ACTOR BishopNew : Bishop // replaces Bishop
     BISH X 1 A_FreezeDeathChunks
     Wait
   Raise:
-    BISH ONML 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    BISH KJI 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    BISH HG 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    BISH O 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    BISH NML 4
+    BISH KJI 5
+    BISH HG 6
     goto See
   }
 }
@@ -1317,7 +1323,8 @@ ACTOR GreenChaosSerpentNew : Demon1 replaces Demon1
     DEMN Q 1 A_FreezeDeathChunks
     Wait
   Raise:
-    DEMN ONMLKJIH 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    DEMN O 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    DEMN NMLKJIH 6 
     goto See
   }
 }
@@ -1508,7 +1515,8 @@ ACTOR BrownChaosSerpentNew : Demon2 replaces Demon2
                            frandom[DemonChunks](1, 4.984375)*sin(angle-90), 8, 270, ChunkFlags)
     Goto Death+4
   Raise:
-    DEM2 ONMLKJIH 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    DEM2 O 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    DEM2 NMLKJIH 6
     goto See
   }
 }
@@ -1711,8 +1719,9 @@ ACTOR WraithNew : Wraith replaces Wraith
     WRT2 I 1 A_FreezeDeathChunks
     Wait
   Raise:
-    WRT2 QP 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    WRT2 ONMLKJI 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    WRT2 Q 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    WRT2 P 5 
+    WRT2 ONMLKJI 4 
     goto See
   }
 }
@@ -1824,8 +1833,9 @@ ACTOR WraithBuriedNew : WraithBuried replaces WraithBuried
     WRT2 H -1
     Stop
   Raise:
-    WRT2 QP 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    WRT2 ONMLKJI 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    WRT2 Q 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    WRT2 P 5 
+    WRT2 ONMLKJI 4 
     goto See
   }
 }
@@ -2900,7 +2910,8 @@ ACTOR VampireDVDS : Bishop
     VAM1 C 1 A_FreezeDeathChunks
     Wait
    Raise: 
-    VAM1 PONMLKJIHG 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    VAM1 P 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    VAM1 ONMLKJIHG 5 
     Goto See
    } 
 }

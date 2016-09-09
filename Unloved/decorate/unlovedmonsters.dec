@@ -72,7 +72,8 @@ actor MummyNew : Mummy replaces MummyDude
     MUMM H 1 A_FreezeDeathChunks
     wait
   Raise:
-    MUMM ONMLKJI 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MUMM O 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MUMM NMLKJI 5 
     goto See
  }
 }
@@ -160,7 +161,8 @@ actor MummyLeaderNew : MummyLeader replaces MummyLeaderMan
     MUMA H 1 A_FreezeDeathChunks
     wait
   Raise:
-    MUMM ONMLKJI 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MUMM O 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MUMM NMLKJI 5 
     goto See
  }
 }
@@ -251,8 +253,9 @@ actor VulgarNew : Vulgar replaces Vulgar
     VULG V -1
     stop
   Raise:
-    VULG ML 8 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    VULG KJI 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    VULG M 8 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    VULG L 8 
+    VULG KJI 6 
     goto See
   }
 }
@@ -340,7 +343,8 @@ ACTOR SoulHarvesterNew : SoulHarvester replaces SoulHarvester
     SLHW A -1
     Stop
   Raise:
-    SLHV WVUTSRQPO 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    SLHV W 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    SLHV VUTSRQPO 5 
     Goto See
   }
 }
@@ -487,8 +491,9 @@ actor ImpWarlordNew : ImpWarlord replaces ImpWarlord
     WARI V -1
     Stop
   Raise:
-    WARI VU 8 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    WARI TSR 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    WARI V 8 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    WARI U 8 
+    WARI TSR 6 
     Goto See
   XDeath:
     goto Death
@@ -795,7 +800,8 @@ ACTOR ChainsawZombieNew : ChainsawZombie replaces ChainsawZombie
     CHAN W -1
     Stop
   Raise: 
-    CHAN NMLKJIH 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    CHAN N 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    CHAN MLKJIH 5 
     Goto See 
   } 
 }
@@ -900,7 +906,8 @@ ACTOR BloodFiendNew : BloodFiend replaces BloodFiend
     SAR2 W -1
     Stop
   Raise: 
-    SAR2 NMLKJI 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    SAR2 N 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    SAR2 MLKJI 5 
     Goto See 
   } 
 }
@@ -1016,7 +1023,8 @@ ACTOR LordofHeresyNew : LordofHeresy replaces LordofHeresy
     LOHS O -1 
     Stop 
   Raise: 
-    LOHS ONMLKJI 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    LOHS O 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    LOHS NMLKJI 5 
     Goto See 
   } 
 }
@@ -1111,7 +1119,8 @@ actor SatyrNew : Satyr replaces Satyr
     STYR O -1
     Stop
   Raise:
-    STYR ONMLKJI 8 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    STYR O 8 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    STYR NMLKJI 8 
     Goto See
   XDeath:
     goto Death
@@ -1228,8 +1237,8 @@ ACTOR ShadowNew : Shadow replaces Shadow
 	SHDX G -1
 	Stop
   Raise:
-	SHDW M 8
-	SHDW KLJI 8 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+	SHDW M 8 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+	SHDW KLJI 8 
 	Goto See
   }
 }
@@ -1328,7 +1337,8 @@ ACTOR CultistNew : Cultist replaces Cultist
     CULT QRSTUV 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     CULT W -1 
   Raise: 
-    CULT MLKJHI 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    CULT M 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    CULT LKJHI 5 
     Goto See 
   } 
 }
@@ -1437,7 +1447,8 @@ ACTOR UnlovedAcolyteNew : AcolyteDude replaces AcolyteDude
     ACOL P -1 
     Stop 
   Raise: 
-    ACOL PONMLKJIHG 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ACOL P 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ACOL ONMLKJIHG 5
     Goto See 
   XDeath:
     goto Death
@@ -1588,7 +1599,8 @@ ACTOR UnlovedDiscipleNew : Disciple replaces Disciple
     DISC O -1 
     Stop 
   Raise: 
-    DISC ONMLKJIH 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    DISC O 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    DISC NMLKJIH 5
     Goto See 
   XDeath:
     goto Death
@@ -1750,8 +1762,9 @@ actor UnlovedApprenticeNew : ApprenticeofDsparil replaces ApprenticeofDsparil
     APDP M -1
     Stop
   Raise:
-    APDP ML 8 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    APDP KJI 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    APDP M 8 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    APDP L 8 
+    APDP KJI 6 
     Goto See
   XDeath:
     goto Death
@@ -1854,12 +1867,13 @@ ACTOR WickedNew : Wicked replaces Wicked
   XDeath:
     goto Death
 /*
-	Raise:
+  Raise:
     WICT G 0 A_KillChildren
     WICK G 0 A_SpawnItemEx("WickedTorsoRes",0,0,0,0,0,1,0,0) 
+    WICT G 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     WICT G 5 A_UnSetFloorClip 
-    WICT FEDBC 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    WICK PON 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    WICT FEDBC 5 
+    WICK PON 5 
     Goto See 
 */
    } 

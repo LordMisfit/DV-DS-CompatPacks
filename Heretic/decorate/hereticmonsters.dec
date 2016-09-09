@@ -181,7 +181,7 @@ actor HereticImpNew : HereticImp replaces HereticImp
     wait
   Raise:
     IMPX H 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    IMPX G 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    IMPX G 4
     goto See
  }
 }
@@ -274,7 +274,7 @@ actor HereticImpLeaderNew : HereticImpLeader replaces HereticImpLeader
     wait
   Raise:
     IMPX H 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    IMPX G 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    IMPX G 4
     goto See
  }
 }
@@ -361,7 +361,8 @@ actor MummyNew : Mummy replaces Mummy
     MUMM H 1 A_FreezeDeathChunks
     wait
   Raise:
-    MUMM ONMLKJI 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MUMM O 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MUMM NMLKJI 5
     goto See
  }
 }
@@ -448,7 +449,8 @@ actor MummyGhostNew : MummyGhost replaces MummyGhost
     MUMM H 1 A_FreezeDeathChunks
     wait
   Raise:
-    MUMM ONMLKJI 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MUMM O 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MUMM NMLKJI 5
     goto See
  }
 }
@@ -544,7 +546,8 @@ actor MummyLeaderNew : MummyLeader replaces MummyLeader
     MUMA H 1 A_FreezeDeathChunks
     wait
   Raise:
-    MUMM ONMLKJI 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MUMM O 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MUMM NMLKJI 5
     goto See
  }
 }
@@ -640,7 +643,8 @@ actor MummyLeaderGhostNew : MummyLeaderGhost replaces MummyLeaderGhost
     MUMA H 1 A_FreezeDeathChunks
     wait
   Raise:
-    MUMM ONMLKJI 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MUMM O 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MUMM NMLKJI 5
     goto See
  }
 }
@@ -730,7 +734,8 @@ ACTOR KnightNew : Knight replaces Knight
     KNIG H 1 A_FreezeDeathChunks
     wait
   Raise:
-    KNIG NMLKJI 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    KNIG N 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    KNIG MLKJI 6
     goto See
   }
 }
@@ -820,7 +825,8 @@ ACTOR KnightGhostNew : KnightGhost replaces KnightGhost
     KNIG H 1 A_FreezeDeathChunks
     wait
   Raise:
-    KNIG NMLKJI 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    KNIG N 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    KNIG MLKJI 6
     goto See
   }
 }
@@ -929,7 +935,8 @@ ACTOR WizardNew : Wizard replaces Wizard
     WZRD Q 1 A_FreezeDeathChunks
     wait
   Raise:
-    WZRD MLKJIHGF 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    WZRD M 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    WZRD LKJIHGF 6
     goto See
   }
 }
@@ -1014,7 +1021,8 @@ ACTOR IronlichNew : Ironlich replaces Ironlich
     LICH A 1 A_FreezeDeathChunks
     wait
   Raise:
-    LICH HGFEDC 7 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    LICH H 7 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    LICH GFEDC 7
     goto See
   }
 }
@@ -1099,8 +1107,8 @@ ACTOR ClinkNew : Clink replaces Clink
     CLNK H 1 A_FreezeDeathChunks
     wait
   Raise:
-    CLNK NMLK 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    CLNK JI 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    CLNK N 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    CLNK MLKJI 5
     goto See
   }
 }
@@ -1197,12 +1205,12 @@ ACTOR BeastNew : Beast replaces Beast
     wait
   Raise:
     BEAS P 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    BEAS O 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    BEAS N 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    BEAS M 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    BEAS L 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    BEAS K 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    BEAS J 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    BEAS O 6 
+    BEAS N 5 
+    BEAS M 6 
+    BEAS L 5 
+    BEAS K 6 
+    BEAS J 5 
     goto See
   }
 }
@@ -1335,19 +1343,19 @@ ACTOR MaulotaurNew : Minotaur replaces Minotaur
     wait
   Raise:
     MNTR S 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    MNTR R 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    MNTR Q 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    MNTR P 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    MNTR O 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    MNTR N 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    MNTR M 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    MNTR L 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    MNTR K 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    MNTR J 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    MNTR I 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    MNTR H 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    MNTR G 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    MNTR F 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MNTR R 6 
+    MNTR Q 5 
+    MNTR P 6 
+    MNTR O 5 
+    MNTR N 6 
+    MNTR M 5 
+    MNTR L 6 
+    MNTR K 5 
+    MNTR J 6 
+    MNTR I 5 
+    MNTR H 6 
+    MNTR G 5 
+    MNTR F 6 
     goto See
   }
 }
@@ -1434,7 +1442,8 @@ ACTOR SnakeNew : Snake replaces Snake
     SNKE E 1 A_FreezeDeathChunks
     wait
   Raise:
-    SNKE PONMLKJIHG 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    SNKE P 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    SNKE ONMLKJIHG 5 
     goto See
   }
 }

@@ -843,8 +843,9 @@ ACTOR AcolyteNew : Acolyte replaces Acolyte
     AGRD O 1 A_FreezeDeathChunks
     Wait
   Raise:
-    AGRD MLKJ 3 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    AGRD IHG 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    AGRD M 3 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    AGRD LKJ 3 
+    AGRD IHG 4 
     goto See
   Burn:
     TNT1 A 0 A_GiveToTarget ("Coin", random(3,8))
@@ -1090,7 +1091,7 @@ ACTOR TemplarNew : Templar replaces Templar
     Wait
   Raise:
     PGRD "\" 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    PGRD "PQRSTUVWXYZ[" 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    PGRD "PQRSTUVWXYZ[" 4 
     PGRD ONMLKJI 4
     goto See
   }
@@ -1224,11 +1225,12 @@ ACTOR InquisitorNew : Inquisitor replaces Inquisitor
     RBB3 E -1
     Stop
   Raise:
-    RBB3 CDBA 3 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    ROB3 "]" 3 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    ROB3 "\" 3 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    ROB3 "[" 3 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    ROB3 ZYXWVUTSRQPONML 4 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    RBB3 C 3 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    RBB3 DBA 3 
+    ROB3 "]" 3 
+    ROB3 "\" 3 
+    ROB3 "[" 3 
+    ROB3 ZYXWVUTSRQPONML 4 
     goto See
   }
 }
@@ -1343,8 +1345,8 @@ ACTOR ReaverNew : Reaver replaces Reaver
     Goto Death+10
   Raise:
     ROB1 Q 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    ROB1 PONML 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    ROB1 KJ 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ROB1 PONML 5 
+    ROB1 KJ 6 
     goto See
 
   }
@@ -1441,9 +1443,10 @@ ACTOR CrusaderNew : Crusader replaces Crusader
     Stop
 
   Raise:
-    ROB2 ONMLKJI 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    ROB2 H 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    ROB2 G 3 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ROB2 O 6 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    ROB2 NMLKJI 6 
+    ROB2 H 5 
+    ROB2 G 3 
     goto See
   }
 }

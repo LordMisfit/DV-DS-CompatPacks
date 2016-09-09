@@ -574,7 +574,7 @@ ACTOR FluffyNew replaces Fluffy2 32120
     GoTo Raise
   Raise:
     FLUF M 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    FLUF MLKJ 10 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    FLUF MLKJ 10
     GoTo See
   Ice:
     goto Death
