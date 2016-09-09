@@ -31,11 +31,11 @@ ACTOR PeasantNew : Peasant replaces Peasant
   Spawn:
     PEAS A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     PEAS A 10 A_Look2
-    Loop
+    goto Spawn+1
   See:
     PEAS A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     PEAS AABBCCDD 5 A_Wander
-    Goto Spawn
+    loop
   Melee:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
     PEAS E 10 A_FaceTarget
@@ -291,7 +291,7 @@ ACTOR BeggarNew : Beggar replaces Beggar // Base Class
   Spawn:
     BEGR A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     BEGR A 10 A_Look
-    Loop
+    goto Spawn+1
   See:
     BEGR A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     BEGR AABBCC 4 A_Wander
@@ -429,18 +429,15 @@ ACTOR MerchantNew : Merchant replaces Merchant
   Spawn:
     MRST A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     MRST A 10 A_Look2
-    Loop
-    MRLK A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    goto Spawn+1
     MRLK A 30 A_ActiveSound
-    Loop
-    MRLK B 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    goto Spawn+1
     MRLK B 30
-    Loop
-    MRBD A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    goto Spawn+1
     MRBD ABCDEDCB 4
     MRBD A 5
     MRBD F 6
-    Loop
+    goto Spawn+1
   See:
   Pain:
     MRPN A 1
@@ -530,16 +527,13 @@ ACTOR RebelNew : Rebel replaces Rebel // Base class for Rebels
   Spawn:
     HMN1 P 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     HMN1 P 5 A_Look2
-    Loop
-    HMN1 Q 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    goto Spawn+1
     HMN1 Q 8
-    Loop
-    HMN1 R 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    goto Spawn+1
     HMN1 R 8
-    Loop
-    HMN1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    goto Spawn+1
     HMN1 ABCDABCD 6 A_Wander
-    Loop
+    goto Spawn+1
   See:
     HMN1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     HMN1 AABBCCDD 3 A_Chase
@@ -725,16 +719,13 @@ ACTOR AcolyteNew : Acolyte replaces Acolyte
   Spawn:
     AGRD A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     AGRD A 5 A_Look2
-    Wait
-    AGRD B 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    goto Spawn+1
     AGRD B 8 A_ClearShadow
-    Loop
-    AGRD D 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    goto Spawn+1
     AGRD D 8
-    Loop
-    AGRD A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    goto Spawn+1
     AGRD ABCDABCD 5 A_Wander
-    Loop
+    goto Spawn+1
   See:
     AGRD A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     AGRD A 6 Fast Slow A_AcolyteBits
@@ -994,13 +985,13 @@ ACTOR TemplarNew : Templar replaces Templar
   Spawn:
     PGRD A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     PGRD A 5 A_Look2
-    Loop
+    goto Spawn+1
     PGRD B 10
-    Loop
+    goto Spawn+1
     PGRD C 10
-    Loop
+    goto Spawn+1
     PGRD B 10 A_Wander
-    Loop
+    goto Spawn+1
   See:
     PGRD A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     PGRD AABBCCDD 3 A_Chase
@@ -1130,7 +1121,7 @@ ACTOR InquisitorNew : Inquisitor replaces Inquisitor
   Spawn:
     ROB3 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     ROB3 AB 10 A_Look
-    Loop
+    goto Spawn+1
   See:
     ROB3 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     ROB3 B 3 A_InquisitorWalk
@@ -1267,7 +1258,7 @@ ACTOR ReaverNew : Reaver replaces Reaver
   Spawn:
     ROB1 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     ROB1 A 10 A_Look
-    Loop
+    goto Spawn+1
   See:
     ROB1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     ROB1 BBCCDDEE 3 A_Chase
@@ -1389,7 +1380,7 @@ ACTOR CrusaderNew : Crusader replaces Crusader
   Spawn:
     ROB2 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     ROB2 Q 10 A_Look
-    Loop
+    goto Spawn+1
   See:
     ROB2 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     ROB2 AABBCCDD 3 A_Chase
@@ -1490,7 +1481,7 @@ ACTOR SentinelNew : Sentinel replaces Sentinel
   Spawn:
     SEWR A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     SEWR A 10 A_Look
-    Loop
+    goto Spawn+1
   See:
     SEWR A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     SEWR A 6 A_SentinelBob
@@ -1576,7 +1567,7 @@ ACTOR OStalkerNew : Stalker replaces Stalker
   Spawn:
     STLK A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     STLK A 1 A_StalkerLookInit
-    Loop
+    goto Spawn+1
   LookCeiling:
     STLK A 10 A_Look
     Loop
@@ -1680,7 +1671,7 @@ ACTOR CeilingTurretNew : CeilingTurret replaces CeilingTurret
   Spawn:
     TURT A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     TURT A 5 A_TurretLook
-    Loop
+    goto Spawn+1
   See:
     TURT A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     TURT A 2 A_Chase
@@ -1787,7 +1778,7 @@ ACTOR ProgrammerNew : Programmer replaces Programmer
     PRGR A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     PRGR A 5 A_Look
     PRGR A 1 A_SentinelBob
-    Loop
+    goto Spawn+1
   See:
     PRGR A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     PRGR A 160 A_SentinelBob
@@ -1898,7 +1889,7 @@ ACTOR StrifeBishopNew : StrifeBishop replaces StrifeBishop
   Spawn:
     MLDR A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     MLDR A 10 A_Look
-    Loop
+    goto Spawn+1
   See:
     MLDR A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
 	MLDR A 0 Thing_ChangeTID(0,1222)
@@ -2065,16 +2056,13 @@ ACTOR Macil1New : Macil1 replaces Macil1
   Spawn:
     LEDR C 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     LEDR C 5 A_Look2
-    Loop
-    LEDR A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    goto Spawn+1
     LEDR A 8
-    Loop
-    LEDR B 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    goto Spawn+1
     LEDR B 8
-    Loop
-    LEAD A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    goto Spawn+1
     LEAD ABCD 6 A_Wander
-    Loop
+    goto Spawn+1
   See:
     LEAD A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
 	LEAD A 0 Thing_ChangeTID(0,1222)
@@ -2155,16 +2143,13 @@ ACTOR Macil2New : Macil2 replaces Macil2
   Spawn:
     LEDR C 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     LEDR C 5 A_Look2
-    Loop
-    LEDR A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    goto Spawn+1
     LEDR A 8
-    Loop
-    LEDR B 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    goto Spawn+1
     LEDR B 8
-    Loop
-    LEAD A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    goto Spawn+1
     LEAD ABCD 6 A_Wander
-    Loop
+    goto Spawn+1
   See:
     LEAD A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
 	LEAD A 0 Thing_ChangeTID(0,1222)
@@ -2275,7 +2260,7 @@ ACTOR LoremasterNew : Loremaster replaces Loremaster
     PRST A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     PRST A 10 A_Look
     PRST B 10 A_SentinelBob
-    Loop
+    goto Spawn+1
   See:
     PRST A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
 	PRST A 0 Thing_ChangeTID(0,1222)
@@ -2410,7 +2395,7 @@ ACTOR AlienSpectre1New : AlienSpectre1 replaces AlienSpectre1
     ALN1 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     ALN1 A 10 A_Look
     ALN1 B 10 A_SentinelBob
-    Loop
+    goto Spawn+1
   See:
     ALN1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
 	ALN1 A 0 Thing_ChangeTID(0,1222)
@@ -2530,7 +2515,7 @@ ACTOR AlienSpectre2New : AlienSpectre2 replaces AlienSpectre2
     ALN1 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     ALN1 A 10 A_Look
     ALN1 B 10 A_SentinelBob
-    Loop
+    goto Spawn+1
   See:
     ALN1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
 	ALN1 A 0 Thing_ChangeTID(0,1222)
@@ -2652,7 +2637,7 @@ ACTOR AlienSpectre3New : AlienSpectre3 replaces AlienSpectre3
   Spawn:
     ALN1 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     ALN1 ABCDEFGHIJK 5
-    Loop
+    goto Spawn+1
   See:
     ALN1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
 	ALN1 A 0 Thing_ChangeTID(0,1222)
@@ -2793,7 +2778,7 @@ ACTOR AlienSpectre4New : AlienSpectre4 replaces AlienSpectre4
     ALN1 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     ALN1 A 10 A_Look
     ALN1 B 10 A_SentinelBob
-    Loop
+    goto Spawn+1
   See:
     ALN1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
 	ALN1 A 0 Thing_ChangeTID(0,1222)
@@ -2931,7 +2916,7 @@ ACTOR AlienSpectre5New : AlienSpectre5 replaces AlienSpectre5
     ALN1 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     ALN1 A 10 A_Look
     ALN1 B 10 A_SentinelBob
-    Loop
+    goto Spawn+1
   See:
     ALN1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
 	ALN1 A 0 Thing_ChangeTID(0,1222)
@@ -3222,7 +3207,7 @@ ACTOR EntitySecondNew : EntitySecond replaces EntitySecond
   Spawn:
     MNAL R 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     MNAL R 10 Bright A_Look
-    Loop
+    goto Spawn+1
   See:
     MNAL R 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
 	MNAL R 0 Thing_ChangeTID(0,1222)
@@ -3361,7 +3346,7 @@ ACTOR EntityAscended : EntityBoss
     MNAL A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     MNAL A 4 Bright A_Look
     MNAL B 4 Bright A_SentinelBob
-    loop
+    goto Spawn+1
   See:
     MNAL A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
 	MNAL A 0 Thing_ChangeTID(0,1222)

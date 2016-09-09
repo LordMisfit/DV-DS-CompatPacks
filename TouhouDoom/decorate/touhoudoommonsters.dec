@@ -42,11 +42,10 @@ ACTOR Fairy1New : Fairy1 replaces Fairy1 31134
   {
   Pain.Charm: TNT1 A 0 { A_PlaySound("Munchies/Charmed"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See  Pain.Heal1: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,0); } Goto See  Pain.Heal2: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,1); } Goto See  Pain.Heal3: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,2); } Goto See  Pain.Heal4: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,3); } Goto See Goto See
   Spawn:
-    FAR1 A 0 A_Look
-    FAR1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    FAR1 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     FAR1 ABC 3
 	FAR1 A 0 A_Look
-    Loop
+    goto Spawn+1
   See:
     FAR1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     FAR1 A 0 A_unsetinvulnerable
@@ -155,11 +154,10 @@ ACTOR Fairy2New : Fairy2 replaces Fairy2 31135
   {
   Pain.Charm: TNT1 A 0 { A_PlaySound("Munchies/Charmed"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See  Pain.Heal1: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,0); } Goto See  Pain.Heal2: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,1); } Goto See  Pain.Heal3: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,2); } Goto See  Pain.Heal4: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,3); } Goto See Goto See
   Spawn:
-    FAR1 A 0 A_Look
-    FAR1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    FAR1 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     FAR1 ABC 3
 	FAR1 A 0 A_Look
-    Loop
+    goto Spawn+1
   See:
     FAR1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     FAR1 A 0 A_unsetinvulnerable
@@ -281,11 +279,10 @@ ACTOR Fairy3New : Fairy3 replaces Fairy3 31151
   {
   Pain.Charm: TNT1 A 0 { A_PlaySound("Munchies/Charmed"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See  Pain.Heal1: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,0); } Goto See  Pain.Heal2: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,1); } Goto See  Pain.Heal3: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,2); } Goto See  Pain.Heal4: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,3); } Goto See Goto See
   Spawn:
-    FAR2 A 0 A_Look
-    FAR2 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    FAR2 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     FAR2 ABC 3
 	FAR2 A 0 A_Look
-    Loop
+    goto Spawn+1
   See:
     FAR2 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     FAR2 A 0 A_unsetinvulnerable
@@ -424,11 +421,10 @@ ACTOR Fairy4New : Fairy4 replaces Fairy4 31150
   {
   Pain.Charm: TNT1 A 0 { A_PlaySound("Munchies/Charmed"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See  Pain.Heal1: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,0); } Goto See  Pain.Heal2: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,1); } Goto See  Pain.Heal3: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,2); } Goto See  Pain.Heal4: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,3); } Goto See Goto See
   Spawn:
-    FAR2 A 0 A_Look
-    FAR2 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    FAR2 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     FAR2 ABC 3
 	FAR2 A 0 A_Look
-    Loop
+    goto Spawn+1
   See:
     FAR2 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     FAR2 A 0 A_unsetinvulnerable
@@ -577,11 +573,10 @@ ACTOR Fairy5New : Fairy5 replaces Fairy5 31157
   {
   Pain.Charm: TNT1 A 0 { A_PlaySound("Munchies/Charmed"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See  Pain.Heal1: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,0); } Goto See  Pain.Heal2: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,1); } Goto See  Pain.Heal3: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,2); } Goto See  Pain.Heal4: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,3); } Goto See Goto See
   Spawn:
-    FAR3 A 0 A_Look
-    FAR3 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    FAR3 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     FAR3 ABC 3
 	FAR3 A 0 A_Look
-    Loop
+    goto Spawn+1
   See:
     FAR3 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     FAR3 A 0 A_unsetinvulnerable
@@ -712,11 +707,10 @@ ACTOR RumiaMidBossNew : RumiaMidBoss replaces RumiaMidBoss 31200
   States
   {
   Spawn:
-    RMIA A 0 A_Look
-    RMIA A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    RMIA A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     RMIA ABCDEFG 7
 	RMIA A 0 A_Look
-    Loop
+    goto Spawn+1
   See:
     RMIA A 0 Thing_ChangeTID(0,1222)
     RMIA A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -873,11 +867,10 @@ ACTOR RumiaNew : Rumia replaces Rumia 31199
   States
   {
   Spawn:
-    RMIA A 0 A_Look
-    RMIA A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    RMIA A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     RMIA ABCDEFG 7
 	RMIA A 0 A_Look
-    Loop
+    goto Spawn+1
   See:
     RMIA A 0 Thing_ChangeTID(0,1222)
     RMIA A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -1080,11 +1073,10 @@ ACTOR DaiyouseiNew : Daiyousei replaces Daiyousei 31153
   States
   {
   Spawn:
-    DAIY A 0 A_Look
-    DAIY A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    DAIY A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     DAIY ABCB 4
 	DAIY A 0 A_Look
-    Loop
+    goto Spawn+1
   See:
     DAIY A 0 Thing_ChangeTID(0,1222)
     DAIY A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -1286,11 +1278,10 @@ ACTOR CirnoNew : Cirno replaces Cirno 31154
   States
   {
   Spawn:
-    CIRN A 0 A_Look
-    CIRN A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    CIRN A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     CIRN ABCDEF 6
 	CIRN A 0 A_Look
-    Loop
+    goto Spawn+1
   See:
     CIRN A 0 Thing_ChangeTID(0,1222)
     CIRN A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -1502,11 +1493,10 @@ ACTOR MeilingMidBossNew : MeilingMidBoss replaces MeilingMidBoss 31155
   States
   {
   Spawn:
-    MEIL A 0 A_Look
-    MEIL A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MEIL A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     MEIL AB 2
 	MEIL A 0 A_Look
-    Loop
+    goto Spawn+1
   See:
     MEIL A 0 Thing_ChangeTID(0,1222)
     MEIL A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
@@ -1663,11 +1653,10 @@ ACTOR MeilingNew : Meiling replaces Meiling 31156
   States
   {
   Spawn:
-    MEIL A 0 A_Look
-    MEIL A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    MEIL A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     MEIL AB 2
 	MEIL A 0 A_Look
-    Loop
+    goto Spawn+1
   See:
     MEIL A 0 Thing_ChangeTID(0,1222)
     MEIL A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
