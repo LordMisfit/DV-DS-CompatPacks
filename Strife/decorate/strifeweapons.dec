@@ -70,6 +70,14 @@ ACTOR StrifeCrossbowNew : StrifeCrossbow replaces StrifeCrossbow
 	TNT1 A 0 
 	{
 	 A_ClearFlash;
+	 if (random(1,256) >= 253)
+	 {
+	  if (CountInv("PlayingStrife",AAPTR_PLAYER1) > 0) { } // Strife mode makes the punch work like the Punch Dagger where it NEVER makes sound
+	  else
+	  {
+	   A_AlertMonsters; // Sometimes a swing will be enough to wake up all monsters in the area.
+	  }
+	 }
 	 ACS_NamedExecuteAlways("StartTensionCountDown");
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
@@ -142,6 +150,14 @@ ACTOR StrifeCrossbow2New : StrifeCrossbow2 replaces StrifeCrossbow2
     TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
 	TNT1 A 0 
 	{
+	 if (random(1,256) >= 253)
+	 {
+	  if (CountInv("PlayingStrife",AAPTR_PLAYER1) > 0) { } // Strife mode makes the punch work like the Punch Dagger where it NEVER makes sound
+	  else
+	  {
+	   A_AlertMonsters; // Sometimes a swing will be enough to wake up all monsters in the area.
+	  }
+	 }
 	 ACS_NamedExecuteAlways("StartTensionCountDown");
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
@@ -875,6 +891,14 @@ Actor NNSigil : Weapon
     TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
 	TNT1 A 0 
 	{
+	 if (random(1,256) >= 253)
+	 {
+	  if (CountInv("PlayingStrife",AAPTR_PLAYER1) > 0) { } // Strife mode makes the punch work like the Punch Dagger where it NEVER makes sound
+	  else
+	  {
+	   A_AlertMonsters; // Sometimes a swing will be enough to wake up all monsters in the area.
+	  }
+	 }
 	 ACS_NamedExecuteAlways("StartTensionCountDown");
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }

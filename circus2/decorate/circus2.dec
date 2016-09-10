@@ -3644,6 +3644,14 @@ ACTOR PopcornGunNew : PopcornGun replaces PopcornGun 30204
 	}
 	TNT1 A 0 
 	{
+	 if (random(1,256) >= 253)
+	 {
+	  if (CountInv("PlayingStrife",AAPTR_PLAYER1) > 0) { } // Strife mode makes the punch work like the Punch Dagger where it NEVER makes sound
+	  else
+	  {
+	   A_AlertMonsters; // Sometimes a swing will be enough to wake up all monsters in the area.
+	  }
+	 }
 	 ACS_NamedExecuteAlways("StartTensionCountDown");
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
@@ -3988,6 +3996,14 @@ ACTOR GoreBalloonNew : GoreBalloon replaces GoreBalloon 30030
 	}
 	TNT1 A 0 
 	{
+	 if (random(1,256) >= 253)
+	 {
+	  if (CountInv("PlayingStrife",AAPTR_PLAYER1) > 0) { } // Strife mode makes the punch work like the Punch Dagger where it NEVER makes sound
+	  else
+	  {
+	   A_AlertMonsters; // Sometimes a swing will be enough to wake up all monsters in the area.
+	  }
+	 }
 	 ACS_NamedExecuteAlways("StartTensionCountDown");
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
@@ -4171,6 +4187,14 @@ ACTOR ClownGrenadeNew : ClownGrenade replaces ClownGrenade 30029
 	}
 	TNT1 A 0 
 	{
+	 if (random(1,256) >= 253)
+	 {
+	  if (CountInv("PlayingStrife",AAPTR_PLAYER1) > 0) { } // Strife mode makes the punch work like the Punch Dagger where it NEVER makes sound
+	  else
+	  {
+	   A_AlertMonsters; // Sometimes a swing will be enough to wake up all monsters in the area.
+	  }
+	 }
 	 ACS_NamedExecuteAlways("StartTensionCountDown");
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
@@ -4349,6 +4373,14 @@ ACTOR GutFlingerNew : GutFlinger replaces GutFlinger 30028
 	}
 	TNT1 A 0 
 	{
+	 if (random(1,256) >= 253)
+	 {
+	  if (CountInv("PlayingStrife",AAPTR_PLAYER1) > 0) { } // Strife mode makes the punch work like the Punch Dagger where it NEVER makes sound
+	  else
+	  {
+	   A_AlertMonsters; // Sometimes a swing will be enough to wake up all monsters in the area.
+	  }
+	 }
 	 ACS_NamedExecuteAlways("StartTensionCountDown");
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
@@ -4496,6 +4528,14 @@ ACTOR GasRocketLauncherNew : GasRocketLauncher replaces GasRocketLauncher 30203
 	}
 	TNT1 A 0 
 	{
+	 if (random(1,256) >= 253)
+	 {
+	  if (CountInv("PlayingStrife",AAPTR_PLAYER1) > 0) { } // Strife mode makes the punch work like the Punch Dagger where it NEVER makes sound
+	  else
+	  {
+	   A_AlertMonsters; // Sometimes a swing will be enough to wake up all monsters in the area.
+	  }
+	 }
 	 ACS_NamedExecuteAlways("StartTensionCountDown");
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
@@ -4650,6 +4690,14 @@ ACTOR CrazyBall2New : CrazyBall2 replaces CrazyBall2 30205
 	}
 	TNT1 A 0 
 	{
+	 if (random(1,256) >= 253)
+	 {
+	  if (CountInv("PlayingStrife",AAPTR_PLAYER1) > 0) { } // Strife mode makes the punch work like the Punch Dagger where it NEVER makes sound
+	  else
+	  {
+	   A_AlertMonsters; // Sometimes a swing will be enough to wake up all monsters in the area.
+	  }
+	 }
 	 ACS_NamedExecuteAlways("StartTensionCountDown");
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }

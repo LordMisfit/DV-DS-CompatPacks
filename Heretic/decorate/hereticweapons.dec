@@ -236,6 +236,14 @@ ACTOR GoldWandNew : GoldWand replaces GoldWand
     TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
 	TNT1 A 0 
 	{
+	 if (random(1,256) >= 253)
+	 {
+	  if (CountInv("PlayingStrife",AAPTR_PLAYER1) > 0) { } // Strife mode makes the punch work like the Punch Dagger where it NEVER makes sound
+	  else
+	  {
+	   A_AlertMonsters; // Sometimes a swing will be enough to wake up all monsters in the area.
+	  }
+	 }
 	 ACS_NamedExecuteAlways("StartTensionCountDown");
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
@@ -548,6 +556,14 @@ ACTOR DualGoldWandNew : GoldWandNew
     TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
 	TNT1 A 0 
 	{
+	 if (random(1,256) >= 253)
+	 {
+	  if (CountInv("PlayingStrife",AAPTR_PLAYER1) > 0) { } // Strife mode makes the punch work like the Punch Dagger where it NEVER makes sound
+	  else
+	  {
+	   A_AlertMonsters; // Sometimes a swing will be enough to wake up all monsters in the area.
+	  }
+	 }
 	 ACS_NamedExecuteAlways("StartTensionCountDown");
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
@@ -912,6 +928,14 @@ ACTOR CrossbowNew : Crossbow replaces Crossbow
     TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
 	TNT1 A 0 
 	{
+	 if (random(1,256) >= 253)
+	 {
+	  if (CountInv("PlayingStrife",AAPTR_PLAYER1) > 0) { } // Strife mode makes the punch work like the Punch Dagger where it NEVER makes sound
+	  else
+	  {
+	   A_AlertMonsters; // Sometimes a swing will be enough to wake up all monsters in the area.
+	  }
+	 }
 	 ACS_NamedExecuteAlways("StartTensionCountDown");
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
@@ -1175,6 +1199,14 @@ ACTOR DualCrossbowNew : CrossbowNew
     TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
 	TNT1 A 0 
 	{
+	 if (random(1,256) >= 253)
+	 {
+	  if (CountInv("PlayingStrife",AAPTR_PLAYER1) > 0) { } // Strife mode makes the punch work like the Punch Dagger where it NEVER makes sound
+	  else
+	  {
+	   A_AlertMonsters; // Sometimes a swing will be enough to wake up all monsters in the area.
+	  }
+	 }
 	 ACS_NamedExecuteAlways("StartTensionCountDown");
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
@@ -1627,6 +1659,14 @@ ACTOR DragonClawNew : Blaster replaces Blaster
     TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
 	TNT1 A 0 
 	{
+	 if (random(1,256) >= 253)
+	 {
+	  if (CountInv("PlayingStrife",AAPTR_PLAYER1) > 0) { } // Strife mode makes the punch work like the Punch Dagger where it NEVER makes sound
+	  else
+	  {
+	   A_AlertMonsters; // Sometimes a swing will be enough to wake up all monsters in the area.
+	  }
+	 }
 	 ACS_NamedExecuteAlways("StartTensionCountDown");
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
@@ -1806,6 +1846,14 @@ ACTOR DualDragonClawNew : DragonClawNew
     TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
 	TNT1 A 0 
 	{
+	 if (random(1,256) >= 253)
+	 {
+	  if (CountInv("PlayingStrife",AAPTR_PLAYER1) > 0) { } // Strife mode makes the punch work like the Punch Dagger where it NEVER makes sound
+	  else
+	  {
+	   A_AlertMonsters; // Sometimes a swing will be enough to wake up all monsters in the area.
+	  }
+	 }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
@@ -2034,6 +2082,14 @@ ACTOR HellStaffNew : SkullRod replaces SkullRod
     TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
 	TNT1 A 0 
 	{
+	 if (random(1,256) >= 253)
+	 {
+	  if (CountInv("PlayingStrife",AAPTR_PLAYER1) > 0) { } // Strife mode makes the punch work like the Punch Dagger where it NEVER makes sound
+	  else
+	  {
+	   A_AlertMonsters; // Sometimes a swing will be enough to wake up all monsters in the area.
+	  }
+	 }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
@@ -2214,6 +2270,14 @@ ACTOR DualHellStaffNew : HellStaffNew
     TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
 	TNT1 A 0 
 	{
+	 if (random(1,256) >= 253)
+	 {
+	  if (CountInv("PlayingStrife",AAPTR_PLAYER1) > 0) { } // Strife mode makes the punch work like the Punch Dagger where it NEVER makes sound
+	  else
+	  {
+	   A_AlertMonsters; // Sometimes a swing will be enough to wake up all monsters in the area.
+	  }
+	 }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
@@ -2436,6 +2500,14 @@ ACTOR PhoenixRodNew : PhoenixRod replaces PhoenixRod
     TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
 	TNT1 A 0 
 	{
+	 if (random(1,256) >= 253)
+	 {
+	  if (CountInv("PlayingStrife",AAPTR_PLAYER1) > 0) { } // Strife mode makes the punch work like the Punch Dagger where it NEVER makes sound
+	  else
+	  {
+	   A_AlertMonsters; // Sometimes a swing will be enough to wake up all monsters in the area.
+	  }
+	 }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
@@ -2625,6 +2697,14 @@ ACTOR DualPhoenixRodNew : PhoenixRodNew
     TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
 	TNT1 A 0 
 	{
+	 if (random(1,256) >= 253)
+	 {
+	  if (CountInv("PlayingStrife",AAPTR_PLAYER1) > 0) { } // Strife mode makes the punch work like the Punch Dagger where it NEVER makes sound
+	  else
+	  {
+	   A_AlertMonsters; // Sometimes a swing will be enough to wake up all monsters in the area.
+	  }
+	 }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
@@ -2891,6 +2971,14 @@ ACTOR FiremaceNew : Mace replaces Mace
     TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
 	TNT1 A 0 
 	{
+	 if (random(1,256) >= 253)
+	 {
+	  if (CountInv("PlayingStrife",AAPTR_PLAYER1) > 0) { } // Strife mode makes the punch work like the Punch Dagger where it NEVER makes sound
+	  else
+	  {
+	   A_AlertMonsters; // Sometimes a swing will be enough to wake up all monsters in the area.
+	  }
+	 }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
@@ -3070,6 +3158,14 @@ ACTOR DualFiremaceNew : FiremaceNew
     TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
 	TNT1 A 0 
 	{
+	 if (random(1,256) >= 253)
+	 {
+	  if (CountInv("PlayingStrife",AAPTR_PLAYER1) > 0) { } // Strife mode makes the punch work like the Punch Dagger where it NEVER makes sound
+	  else
+	  {
+	   A_AlertMonsters; // Sometimes a swing will be enough to wake up all monsters in the area.
+	  }
+	 }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
@@ -3360,6 +3456,14 @@ actor SuperCrossbowNew : Weapon 25102
     TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
 	TNT1 A 0 
 	{
+	 if (random(1,256) >= 253)
+	 {
+	  if (CountInv("PlayingStrife",AAPTR_PLAYER1) > 0) { } // Strife mode makes the punch work like the Punch Dagger where it NEVER makes sound
+	  else
+	  {
+	   A_AlertMonsters; // Sometimes a swing will be enough to wake up all monsters in the area.
+	  }
+	 }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
@@ -3796,6 +3900,14 @@ actor DualSuperCrossbowNew : SuperCrossbowNew
     TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
 	TNT1 A 0 
 	{
+	 if (random(1,256) >= 253)
+	 {
+	  if (CountInv("PlayingStrife",AAPTR_PLAYER1) > 0) { } // Strife mode makes the punch work like the Punch Dagger where it NEVER makes sound
+	  else
+	  {
+	   A_AlertMonsters; // Sometimes a swing will be enough to wake up all monsters in the area.
+	  }
+	 }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
@@ -4618,6 +4730,14 @@ actor DSparilStaff : weapon
     TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
 	TNT1 A 0 
 	{
+	 if (random(1,256) >= 253)
+	 {
+	  if (CountInv("PlayingStrife",AAPTR_PLAYER1) > 0) { } // Strife mode makes the punch work like the Punch Dagger where it NEVER makes sound
+	  else
+	  {
+	   A_AlertMonsters; // Sometimes a swing will be enough to wake up all monsters in the area.
+	  }
+	 }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
@@ -4810,6 +4930,14 @@ actor DualDSparilStaff : DSparilStaff
     TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseStaminaAttack",ACS_NamedExecuteWithResult("GetKickStaminaUse",0),2) == 0, "Ready")
 	TNT1 A 0 
 	{
+	 if (random(1,256) >= 253)
+	 {
+	  if (CountInv("PlayingStrife",AAPTR_PLAYER1) > 0) { } // Strife mode makes the punch work like the Punch Dagger where it NEVER makes sound
+	  else
+	  {
+	   A_AlertMonsters; // Sometimes a swing will be enough to wake up all monsters in the area.
+	  }
+	 }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("KickAttackDEFLvl2",1); } else { A_GiveInventory("KickAttackDEFLvl1",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) >= 5) { A_GiveInventory("MartArtsMaster2",1); }
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035) == 4) { A_GiveInventory("MartArtsMaster1",1); }
