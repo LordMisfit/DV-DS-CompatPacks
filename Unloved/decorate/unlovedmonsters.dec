@@ -178,7 +178,7 @@ ACTOR VulgarShotNew
   ALPHA 0.67
   PROJECTILE
   +THRUGHOST
-  +HITTRACER
+  +HITTARGET
   Seesound "poly/stmdr1"
   DeathSound "weapons/bloodx"
   States
@@ -189,7 +189,7 @@ ACTOR VulgarShotNew
   Death:
     TNT1 A 0 Bright
 	{
-	 if (IsPointerEqual(AAPTR_TRACER, AAPTR_PLAYER1) == TRUE) 
+	 if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE) 
 	 {
 	  if (random(1,4) >= 2)
 	  {
