@@ -2093,12 +2093,13 @@ ACTOR ThamuzNew : Thamuz replaces Thamuz
 
   states
   {
+  Pain.Charm: Goto See  Pain.Heal1: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,0); } Goto See  Pain.Heal2: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,1); } Goto See  Pain.Heal3: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,2); } Goto See  Pain.Heal4: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,3); } Goto See Goto See  Pain.Heal1: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,0); } Goto See  Pain.Heal2: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,1); } Goto See  Pain.Heal3: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,2); } Goto See  Pain.Heal4: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,3); } Goto See
   ResetLevel:
     DCYB A 1 A_Look
     DCYB A 1 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     DCYB A 1 A_SetUserVar("user_ressurrectstr",user_ressurrectstr+random(30,60))
     DCYB A 1 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-  Pain.Charm: Goto See  Pain.Heal1: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,0); } Goto See  Pain.Heal2: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,1); } Goto See  Pain.Heal3: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,2); } Goto See  Pain.Heal4: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,3); } Goto See Goto See  Pain.Heal1: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,0); } Goto See  Pain.Heal2: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,1); } Goto See  Pain.Heal3: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,2); } Goto See  Pain.Heal4: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,3); } Goto See
+	goto Spawn+1
   Spawn:
     DCYB A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
     DCYB A 10 A_Look
