@@ -1910,7 +1910,7 @@ ACTOR WickedShot
    Speed 10
    Damage 5
    RENDERSTYLE ADD
-   DamageType fire
+   DamageType "Fire"
    ALPHA 0.67
    PROJECTILE
    +THRUGHOST
