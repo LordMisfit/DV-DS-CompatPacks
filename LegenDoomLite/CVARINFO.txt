@@ -1,0 +1,17 @@
+
+server	int		LD_legendaryhealth = 200;
+server	float	LD_legendarydamage = 2.0;
+server	float	LD_legendarydefense = 0.5;
+server	float	LD_legendaryspeed = 1.5;
+server	int		LD_legendarymass = 150;
+server	int		LD_legendaryhealthboss = 200;
+server	float	LD_legendarydamageboss = 1.5;
+server	float	LD_legendarydefenseboss = 0.75;
+server	float	LD_legendaryspeedboss = 1.5;
+server	int		LD_legendarymassboss = 150;
+server	int		LD_legendarychance = 0;
+server	bool	LD_diemode = false;
+server	bool	LD_nomonsters = false;
+server	int		LD_nobosses = 0;
+server	bool	LD_legendarymarkers = false;
+server	bool	LD_legendarydebug = false;

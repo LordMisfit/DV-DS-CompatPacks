@@ -1,0 +1,97 @@
+OptionMenu "OptionsMenu"
+{
+	Title "OPTIONS"
+	SubMenu "LegenDoomLite Options",		"LegenDoomLite"
+	StaticText " "
+	Submenu "Customize Controls",		"CustomizeControls"
+	Submenu "Mouse options",			"MouseOptions"
+	Submenu "Joystick options",			"JoystickOptions"
+	StaticText " "
+	Submenu "Player Setup",				"PlayerMenu"
+	Submenu "Gameplay Options",			"GameplayOptions"
+	Submenu "Compatibility Options",	"CompatibilityOptions"
+	Submenu "Automap Options",			"AutomapOptions"
+	Submenu "HUD Options",				"HUDOptions"
+	Submenu "Miscellaneous Options",	"MiscOptions"
+	Submenu "Network Options",			"NetworkOptions"
+	Submenu "Sound Options",			"SoundOptions"
+	Submenu "Display Options",			"VideoOptions"
+	Submenu "Set video mode",			"VideoModeMenu"
+	StaticText " "
+	SafeCommand "Reset to defaults",	"reset2defaults"
+	SafeCommand	"Reset to last saved",	"reset2saved"
+	Command "Go to console",			"menuconsole"
+}
+
+OptionValue "LegendaryChanceType"
+{
+	0, "No Extra Chance"
+	1, "Some Guys I Guess"
+	2, "A Few More"
+	3, "Moderate Amounts"
+	4, "Danger Increasing"
+	5, "Deadly Swarm"
+	6, "Please Stop"
+	7, "Seriously, Stop"
+	8, "Oh God No"
+	9, "WHY"
+	10, "THIS IS YOUR FAULT"
+}
+
+OptionValue "DieModeType"
+{
+	0, "404 Mode not found"
+	1, "has finished installing"
+}
+
+OptionValue "NoMonstersType"
+{
+	0, "Enabled"
+	1, "All Fun Disabled"
+}
+
+OptionValue "NoBossesType"
+{
+	0, "totally gotta have em"
+	1, "wow wat r u casul"
+	2, "wait what does this do"
+}
+
+OptionMenu "LegenDoomLite"
+{
+	Title "LEGENDOOMLITE OPTIONS"
+	StaticText 	""
+	StaticText 	"     Legendary Enemy Options", 1
+	Slider "Legendary Health %", "LD_legendaryhealth", 100, 10000, 25, 0
+	Slider "Legendary Damage x", "LD_legendarydamage", 1, 20, 0.25, 2
+	Slider "Legendary Defense x", "LD_legendarydefense", 0.05, 1, 0.05, 2
+	Slider "Legendary Speed x", "LD_legendaryspeed", 1, 20, 0.05, 2
+	Slider "Legendary Mass %", "LD_legendarymass", 100, 10000, 25, 0
+	Slider "Legendary Boss Health %", "LD_legendaryhealthboss", 100, 10000, 25, 0
+	Slider "Legendary Boss Damage x", "LD_legendarydamageboss", 1, 20, 0.25, 2
+	Slider "Legendary Boss Defense x", "LD_legendarydefenseboss", 0.05, 1, 0.05, 2
+	Slider "Legendary Boss Speed x", "LD_legendaryspeedboss", 1, 20, 0.05, 2
+	Slider "Legendary Boss Mass %", "LD_legendarymassboss", 100, 10000, 25, 0
+	Option "Legendary Extra Chance", "LD_legendarychance", "LegendaryChanceType"
+	Option "DIE.exe", "LD_diemode", "DieModeType"
+	Option "Legendary Monsters", "LD_nomonsters", "NoMonstersType"
+	Option "Legendary Bosses", "LD_nobosses", "NoBossesType"
+	Option "Legendary Map Markers", "LD_legendarymarkers", "OnOff"
+	Option "Legendary Debug Mode", "LD_legendarydebug", "OnOff"
+	StaticText 	""
+	StaticText 	"Access to other compatible menus through here", 1
+	SubMenu "Yholl Mod Options",		"YhollMods"
+	SubMenu "Other Mod Options",		"OtherMods"
+}
+
+OptionMenu "YhollMods"
+{
+	Title "All Mod menus"
+	SubMenu "DRLA Options",		"DoomRLA"
+}
+
+OptionMenu "OtherMods"
+{
+	Title "All other compatible Mod menus"
+	SubMenu "Colourful Hell",		"Colourful Hell"
+}
