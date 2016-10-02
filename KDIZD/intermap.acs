@@ -1,5 +1,5 @@
-#include "zcommon.acs"
 #library "INTERMAP"
+#include "zcommon.acs"
 
 #define i_kills 0
 #define i_monsters 1
@@ -25,11 +25,11 @@
 #define s_deaths 12
 #define s_exists 13
 
-global int 1:g_ms[];
-global int 2:g_ps[];
-global int 3:secretmap;
-global int 4:globalinit;
-global int 5:locations;
+global int 56:g_ms[];
+global int 57:g_ps[];
+global int 58:secretmap;
+global int 59:globalinit;
+global int 60:locations;
 
 int pasthealth[8];
 int pastarmor[8];

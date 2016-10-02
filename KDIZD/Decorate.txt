@@ -1,1 +1,2 @@
+#include "Decorate/KDIZDDecor.dec"
 #include "Decorate/KDIZDOriginal.dec"
