@@ -426,8 +426,8 @@ weapons/shell1			dsshell1
 weapons/shell2			dsshell2
 weapons/shell3			dsshell3    
 
-weapons/rifle			dssssit
+weapons/rifle			dsriffir
 
-weapons/grenadefire  	dsbfg
-weapons/grenadebounce   dsplasma
+weapons/grenadefire  	dsgrnfir
+weapons/grenadebounce   dsgrnbou
 
