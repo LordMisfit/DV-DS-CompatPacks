@@ -1,0 +1,4121 @@
+// KDIZD Original Decorate :P
+
+// CUTSCENE monsters [TITLEMAP]
+
+actor CutSceneImp : DoomImp 31601 { }
+actor CutSceneDemon : Demon 31602 { }
+actor CutSceneHellKnight : HellKnight 31603 { }
+actor CutSceneMarineCorpse1 : DeadMarine 31604 { }
+actor CutSceneMarineCorpse2 : GibbedMarine 31605 { }
+
+// DECORATIONS
+
+//////////////DEAD BODIES AND GIBS//////////////
+///////////////and Decorations ////////////////
+
+CarcassShirtlessMarine
+{
+  //$Category Decoration
+  DoomEdNum 3030
+  Sprite CRP1
+  Frames "A"
+  Radius 32
+  Height 16
+}
+
+CarcassShirtlessBeheaded
+{
+  //$Category Decoration
+  DoomEdNum 3031
+  Sprite CRP2
+  Frames "A"
+  Radius 32
+  Height 16
+}
+
+CarcassSoldierHalfCut
+{
+  //$Category Decoration
+  DoomEdNum 3032
+  Sprite CRP3
+  Frames "A"
+  Radius 32
+  Height 16
+}
+
+CarcassBrownScientist
+{
+  //$Category Decoration
+  DoomEdNum 3033
+  Sprite CRP4
+  Frames "A"
+  Radius 32
+  Height 16
+}
+
+CarcassGreenScientist
+{
+  //$Category Decoration
+  DoomEdNum 3034
+  Sprite CRP5
+  Frames "A"
+  Radius 32
+  Height 16
+}
+
+CarcassBrownSoldier
+{
+  //$Category Decoration
+  DoomEdNum 3035
+  Sprite CRP6
+  Frames "A"
+  Radius 32
+  Height 16
+}
+
+CarcassSeargent
+{
+  //$Category Decoration
+  DoomEdNum 3036
+  Sprite CRP7
+  Frames "A"
+  Radius 32
+  Height 16
+}
+
+CarcassBrownSoldier2
+{
+  //$Category Decoration
+  DoomEdNum 3037
+  Sprite CRP8
+  Frames "A"
+  Radius 32
+  Height 16
+}
+
+CarcassMaintenanceGrey
+{
+  //$Category Decoration
+  DoomEdNum 3038
+  Sprite CRP9
+  Frames "A"
+  Radius 32
+  Height 16
+}
+
+CarcassMaintenanceGreen
+{
+  //$Category Decoration
+  DoomEdNum 3009
+  Sprite CRPA
+  Frames "A"
+  Radius 32
+  Height 16
+}
+
+CarcassDeadPlayer2
+{
+  //$Category Decoration
+  DoomEdNum 3010
+  Sprite CRPB
+  Frames "A"
+  Radius 32
+  Height 16
+}
+
+CarcassMarineBeheaded
+{
+	//$Category Decoration
+DoomEdNum 3011
+Sprite CRPC
+Frames "A"
+Radius 32
+Height 16
+}
+
+CarcassMarineNegro
+{
+	//$Category Decoration
+DoomEdNum 3012
+Sprite CRPD
+Frames "A"
+Radius 32
+Height 16
+}
+
+CarcassDeadPlayer3
+{
+	//$Category Decoration
+DoomEdNum 3013
+Sprite CRPE
+Frames "A"
+Radius 32
+Height 16
+}
+
+CarcassMarineChick1
+{
+	//$Category Decoration
+DoomEdNum 3014
+Sprite FEM1
+Frames "A"
+Radius 32
+Height 16
+}
+
+CarcassMarineChick2
+{
+	//$Category Decoration
+DoomEdNum 3015
+Sprite FEM2
+Frames "A"
+Radius 32
+Height 16
+}
+
+GibsSeveredHand
+{
+	//$Category Decoration
+DoomEdNum 3017
+Sprite HAND
+Frames "A"
+Radius 32
+Height 16
+}
+
+GibsHead1NoEye
+{
+	//$Category Decoration
+DoomEdNum 3018
+Sprite HED1
+Frames "A"
+Radius 32
+Height 16
+}
+
+GibsHead2Smiling
+{
+	//$Category Decoration
+DoomEdNum 3019
+Sprite HED2
+Frames "A"
+Radius 32
+Height 16
+}
+
+GibsHead3HalfFace
+{
+	//$Category Decoration
+DoomEdNum 3020
+Sprite HED3
+Frames "A"
+Radius 32
+Height 16
+}
+
+GibsHead4Negro
+{
+	//$Category Decoration
+DoomEdNum 3021
+Sprite HED4
+Frames "A"
+Radius 32
+Height 16
+}
+
+GibsHeart
+{
+	//$Category Decoration
+DoomEdNum 3022
+Sprite HERT
+Frames "A"
+Radius 32
+Height 16
+}
+
+CarcassHungMarine
+{
+	//$Category Decoration
+SpawnCeiling
+Solid
+Nogravity
+Height 48
+Radius 20
+DoomEdNum 3023
+Sprite HUNG
+Frames "A"
+}
+
+GibsBloodyBoot
+{
+	//$Category Decoration
+DoomEdNum 3024
+Sprite LEG1
+Frames "A"
+Radius 32
+Height 16
+}
+
+CarcassImpaledMarine
+{
+	//$Category Decoration
+Solid
+Height 48
+Radius 20
+DoomEdNum 3025
+Sprite MPL2
+Frames "A"
+}
+
+CarcassImpaledMarine2
+{
+	//$Category Decoration
+Solid
+Height 48
+Radius 20
+DoomEdNum 3026
+Sprite MPLD
+Frames "A"
+}
+
+GibsRibs
+{
+	//$Category Decoration
+DoomEdNum 3027
+Sprite RIB1
+Frames "A"
+Radius 32
+Height 16
+}
+
+CarcassSittingMarine
+{
+	//$Category Decoration
+Solid
+Height 32
+Radius 20
+DoomEdNum 3028
+Sprite SIT1
+Frames "A"
+}
+
+CarcassSittingMaintenance
+{
+	//$Category Decoration
+Solid
+Height 32
+Radius 20
+DoomEdNum 3029
+Sprite SIT2
+Frames "A"
+}
+
+DeadDukePig
+{
+	//$Category Decoration
+Height 32
+Radius 20
+Scale 0.75
+DoomEdNum 3334
+Sprite PICO
+Frames "A"
+}
+
+NukedDuke
+{
+	//$Category Decoration
+Solid
+Height 40
+Radius 16
+Scale 0.75
+DoomEdNum 3337
+Sprite NUDU
+Frames "A"
+}
+
+
+AlarmFloor
+{
+	//$Category Decoration
+Sprite ALR1
+Frames "2:ABCD"
+Height 17
+Radius 8
+DoomEdNum 3340
+}
+
+AlarmCeiling
+{
+	//$Category Decoration
+Sprite ALR2
+Frames "2:ABCD"
+Height 17
+Radius 8
+SpawnCeiling
+NoGravity
+DoomEdNum 3341
+}
+
+BarrelNukeFallen
+{
+	//$Category Decoration
+Sprite BAR1
+Frames "C"
+Solid
+Height 25
+Radius 16
+DoomEdNum 3342
+}
+
+BarrelBlood
+{
+	//$Category Decoration
+Sprite BAR2
+Frames "A"
+Solid
+Height 42
+Radius 10
+DoomEdNum 3343
+}
+
+BarrelBloodFallen
+{
+	//$Category Decoration
+Sprite BAR2
+Frames "B"
+Solid
+Height 25
+Radius 16
+DoomEdNum 3344
+}
+
+breakable BarrelWater
+{
+	//$Category Decoration
+Sprite BAR3
+Frames "A"
+DeathFrames "5:CDEFGHIJ"
+Solid
+Height 42
+Radius 10
+Health 20
+Mass 100
+SolidOnDeath
+DeathHeight 32
+NoBlood
+DoomEdNum 3345
+}
+
+BarrelWaterFallen
+{
+  //$Category Decoration
+  Sprite BAR3
+  Frames "B"
+  Solid
+  Height 25
+  Radius 16
+  DoomEdNum 3346
+}
+
+ACTOR BarrelLava : ExplosiveBarrel 3347
+{
+States
+{
+	Spawn:
+		BAR4 AB 6
+		Loop
+	Death:
+		BAR4 DEF 5
+                BAR4 GH 10
+                Stop
+}
+}
+
+
+BarrelLavaFallen
+{
+	//$Category Decoration
+Sprite BAR4
+Frames "C"
+Solid
+Height 25
+Radius 16
+DoomEdNum 3348
+}
+
+Bubbles
+{
+	//$Category Decoration
+Sprite BUBL
+Frames "ABCDEFGHIJKLMNOP"
+Height 255
+Radius 8
+RenderStyle STYLE_TRANSLUCENT
+Alpha 0.5
+DoomEdNum 3349
+}
+
+ACTOR TechLampBlue : TechLamp 3350
+{
+States
+{
+	Spawn:
+		COLB A 8
+		Loop
+}
+}
+
+ACTOR TechLampGreen : TechLamp 3351
+{
+States
+{
+	Spawn:
+		COLG A 8
+		Loop
+}
+}
+
+ACTOR TechLampOrange : TechLamp 3352
+{
+States
+{
+	Spawn:
+		COLO A 8
+		Loop
+}
+}
+
+ACTOR TechLampRed : TechLamp 3353
+{
+States
+{
+	Spawn:
+		COLR A 8
+		Loop
+}
+}
+
+ACTOR TechLampWhite : TechLamp 3354
+{
+  States
+  {
+  Spawn:
+	COLW A 8
+	Loop
+  }
+}
+
+FireSmallBlue
+{
+	//$Category Decoration
+Sprite FRB1
+Frames "A*B*C*D*"
+Height 40
+Radius 8
+RenderStyle STYLE_ADD
+Alpha 0.8
+DoomEdNum 3355
+}
+
+FireSmallGreen
+{
+	//$Category Decoration
+Sprite FRG1
+Frames "A*B*C*D*"
+Height 40
+Radius 8
+RenderStyle STYLE_ADD
+Alpha 0.8
+DoomEdNum 3356
+}
+
+FireSmallRed
+{
+	//$Category Decoration
+Sprite FRR1
+Frames "A*B*C*D*"
+Height 40
+Radius 8
+RenderStyle STYLE_ADD
+Alpha 0.8
+DoomEdNum 3357
+}
+
+FireSmallYellow
+{
+	//$Category Decoration
+Sprite FRY1
+Frames "A*B*C*D*"
+Height 40
+Radius 8
+RenderStyle STYLE_ADD
+Alpha 0.8
+DoomEdNum 3358
+}
+
+FireLargeBlue
+{
+	//$Category Decoration
+Sprite FRB2
+Frames "A*B*C*"
+Height 128
+Radius 64
+RenderStyle STYLE_ADD
+Alpha 0.9
+DoomEdNum 3359
+}
+
+FireLargeGreen
+{
+	//$Category Decoration
+Sprite FRG2
+Frames "A*B*C*"
+Height 128
+Radius 64
+RenderStyle STYLE_ADD
+Alpha 0.9
+DoomEdNum 3360
+}
+
+FireLargeRed
+{
+	//$Category Decoration
+Sprite FRR2
+Frames "A*B*C*"
+Height 128
+Radius 64
+RenderStyle STYLE_ADD
+Alpha 0.9
+DoomEdNum 3361
+}
+
+SkinPillar1
+{
+	//$Category Decoration
+Sprite SKP1
+Frames "A"
+Height 104
+Radius 50
+Solid
+DoomEdNum 3362
+}
+
+SkinPillar2
+{
+	//$Category Decoration
+Sprite SKP2
+Frames "A"
+Height 104
+Radius 50
+Solid
+DoomEdNum 3363
+}
+
+ACTOR ShortYellowTorch : ShortBlueTorch 3364
+{
+States
+{
+	Spawn:
+		SMYT ABCD 4
+		Loop
+}
+}
+
+SteamFloor
+{
+	//$Category Decoration
+Sprite STM1
+Frames "ABCD"
+Height 66
+Radius 32
+RenderStyle STYLE_TRANSLUCENT
+Alpha 0.4
+DoomEdNum 3365
+}
+
+SteamCeiling
+{
+	//$Category Decoration
+Sprite STM2
+Frames "ABCD"
+Height 66
+Radius 32
+SpawnCeiling
+NoGravity
+RenderStyle STYLE_TRANSLUCENT
+Alpha 0.4
+DoomEdNum 3366
+}
+
+ACTOR YellowTorch : BlueTorch 3367
+{
+States
+{
+	Spawn:
+		TYEL ABCD 4
+		Loop
+}
+}
+
+UnderwaterWeed1
+{
+	//$Category Decoration
+Sprite WED1
+Frames "A"
+Height 32
+Radius 23
+DoomEdNum 3368
+}
+
+UnderwaterWeed2
+{
+	//$Category Decoration
+Sprite WED2
+Frames "A"
+Height 40
+Radius 16
+DoomEdNum 3369
+}
+
+WireCeiling
+{
+	//$Category Decoration
+Sprite WRE1
+Frames "A"
+Height 19
+Radius 14
+SpawnCeiling
+NoGravity
+DoomEdNum 3370
+}
+
+ACTOR BodyLamp 13371
+{
+	//$Category Decoration
+Health		1000
+Radius		24
+Height		12
+Mass		100
+Speed		0
+Painchance	0
+	
++FLOORCLIP
+	
+States
+{
+	Spawn:
+		BODY A 8
+		Loop
+}
+}
+
+ACTOR HeadLamp 13372
+{
+//$Category Decoration
+Health		1000
+Radius		24
+Height		12
+Mass		100
+Speed		0
+Painchance	0
+
+Alpha		0.3
+RenderStyle	Add
+	
++FLOORCLIP
+	
+States
+{
+	Spawn:
+		LITE A 8 BRIGHT
+		Loop
+}
+}
+
+ACTOR Microscope 13373
+{
+        //$Category Decoration
+Health		1000
+Radius		2
+Height		8
+Mass		100
+Speed		0
+Painchance	0
+
+Scale		.38
+	
++FLOORCLIP
+	
+States
+{
+	Spawn:
+		SCOP A 8
+		Loop
+}
+}
+
+ACTOR Helmet 13374
+{
+	//$Category Decoration
+Health		1000
+Radius		4
+Height		8
+Mass		100
+Speed		0
+Painchance	0
+
+Scale		.5
+	
++FLOORCLIP
+	
+States
+{
+	Spawn:
+		HELM A 8
+		Loop
+}
+}
+
+ACTOR Jackhammer 13375
+{
+	//$Category Decoration
+Health		1000
+Radius		24
+Height		8
+Mass		100
+Speed		0
+Painchance	0
+
+Scale		.6
+	
++FLOORCLIP
+	
+States
+{
+	Spawn:
+		JACK A 8
+		Loop
+}
+}
+
+pickup BatteryUnplugged 	
+{
+	//$Category Decoration
+DoomEdNum 13376
+Sprite BATT
+Frames "10:A"
+PickupMessage "You found a battery."
+PickupSound "misc/i_pkup"
+}
+
+ACTOR BatteryPlugged 13377
+{
+	//$Category Decoration
+Health		1000
+Radius		12
+Height		24
+Mass		100
+Speed		0
+Painchance	0
+
+	
++FLOORCLIP
+	
+States
+{
+	Spawn:
+		BAT2 ABCDEFGHI 5
+		Loop
+}
+}
+
+actor LightbeamUp 30350
+{
+	//$Category Decoration
+Radius 1
+Height 1
+RENDERSTYLE ADD
+Alpha 0.6
++NOGRAVITY
++FLOORCLIP
++SPAWNCEILING
+States
+{
+Spawn:
+BEM1 A -1 Bright
+Loop
+}
+}
+
+actor e1m4VehicleDrill 30351
+{
+	//$Category Decoration
+Radius 16
+Height 28
++NOGRAVITY
++SOLID
+States
+{
+Spawn:
+DRIL A -1
+Loop
+}
+}
+
+actor MiningBeacon 30352
+{
+	//$Category Decoration
+Radius 8
+Height 19
++SOLID
+States
+{
+Spawn:
+BEC1 A -1
+Loop
+}
+}
+
+actor MBeaconFlare 30353
+{
+	//$Category Decoration
+Radius 1
+Height 1
+RENDERSTYLE ADD
+Alpha 0.6
++NOGRAVITY
++FLOORCLIP
+States
+{
+Spawn:
+BEC2 ABCB 3 Bright
+Loop
+}
+}
+
+actor PhobosRock1 30354
+{
+	//$Category Decoration
+Radius 24
+Height 16
++SOLID
+States
+{
+Spawn:
+ROK1 A -1
+Loop
+}
+}
+
+actor PhobosRock2 30355
+{
+	//$Category Decoration
+Radius 24
+Height 16
++SOLID
+States
+{
+Spawn:
+ROK2 A -1
+Loop
+}
+}
+
+actor PhobosRockSmall 30356
+{
+	//$Category Decoration
+Radius 1
+Height 1
+States
+{
+Spawn:
+ROK3 A -1
+Loop
+}
+}
+
+actor CaveStalagmiteFloor 30357
+{
+	//$Category Decoration
+Radius 24
+Height 52
++SOLID
+States
+{
+Spawn:
+CAV3 A -1
+Loop
+}
+}
+
+CaveStalagmiteCeiling1
+{
+	//$Category Decoration
+DoomEdNum 30358
+Sprite CAV1
+Frames "A"
+SpawnCeiling
+NoGravity
+Solid
+Radius 24
+Height 42
+}
+
+CaveStalagmiteCeiling2
+{
+	//$Category Decoration
+DoomEdNum 30359
+Sprite CAV2
+Frames "A"
+SpawnCeiling
+Solid
+NoGravity
+Radius 24
+Height 42
+}
+
+CaveLightCeiling
+{
+	//$Category Decoration
+DoomEdNum 30360
+Sprite LIT5
+Frames "A*"
+SpawnCeiling
+NoGravity
+Radius 1
+Height 1
+}
+
+OrangeLampCeiling
+{
+	//$Category Decoration
+DoomEdNum 30385
+Sprite LMP4
+Frames "A*"
+SpawnCeiling
+NoGravity
+Radius 1
+Height 1
+}
+
+// M1 special
+
+pickup Bomb
+{
+DoomEdNum 32090
+Sprite BOMB
+Frames "A"
+Scale 0.4
+Radius 16
+Height 32
+PickupMessage "You picked up a Seismic Bomb."
+}
+
+// More stuff
+
+GreenGutsnBones
+{
+//$Category Decoration
+Height 5
+Radius 24
+DoomEdNum 3401
+Sprite POL7
+Frames "A"
+}
+
+BigBrownTreeVariant
+{
+//$Category Decoration
+Solid
+Height 100
+Radius 32
+DoomEdNum 3402
+Sprite TRE3
+Frames "A"
+}
+
+NJayTechnicalColumn1
+{
+//$Category Decoration
+Solid
+Height 128
+Radius 16
+DoomEdNum 3403
+Sprite NJC1
+Frames "A"
+}
+
+NJayTechnicalColumn2
+{
+//$Category Decoration
+Solid
+Height 128
+Radius 16
+DoomEdNum 3404
+Sprite NJC2
+Frames "A"
+}
+
+NJayTechnicalColumn3
+{
+//$Category Decoration
+Solid
+Height 128
+Radius 16
+DoomEdNum 3405
+Sprite NJC3
+Frames "A"
+}
+
+NJayTechnicalColumn4
+{
+//$Category Decoration
+Solid
+Height 128
+Radius 16
+DoomEdNum 3406
+Sprite NJC4
+Frames "A"
+}
+
+NJayTechnicalColumn5
+{
+//$Category Decoration
+Solid
+Height 128
+Radius 16
+DoomEdNum 3407
+Sprite NJC6
+Frames "A"
+}
+
+CandelabraV1
+{
+//$Category Decoration
+Solid
+Height 55
+Radius 12
+DoomEdNum 3408
+Sprite NJD6
+Frames "A"
+}
+
+CandelabraV2
+{
+//$Category Decoration
+Solid
+Height 55
+Radius 10
+DoomEdNum 3409
+Sprite NJD7
+Frames "A"
+}
+
+SpikedImp
+{
+//$Category Decoration
+Solid
+Height 60
+Radius 18
+DoomEdNum 3410
+Sprite NJDG
+Frames "A"
+}
+
+TorturedBaron
+{
+//$Category Decoration
+Solid
+SpawnCeiling
+NoGravity
+Height 80
+Radius 20
+DoomEdNum 3411
+Sprite NJDH
+Frames "A"
+}
+
+NJayTechnicalColumnX
+{
+//$Category Decoration
+Solid
+Height 128
+Radius 16
+DoomEdNum 3412
+Sprite NJC5
+Frames "ABCD"
+}
+
+
+ACTOR TankHellsFury 11000
+{
++FloatBob
++NoGravity
+	States
+	{
+	Spawn:
+		HFRY A -1
+		Stop
+	}
+}
+
+ACTOR TankVoidImp 11001
+{
++FloatBob
++NoGravity
+	States
+	{
+	Spawn:
+		DRKV A -1
+		Stop
+	}
+}
+
+ACTOR TankShadow 11002
+{
++FloatBob
++NoGravity
+	States
+	{
+	Spawn:
+		TROX A -1	
+		Stop
+	}
+}
+
+ACTOR TankBloodDemon 11003
+{
++FloatBob
++NoGravity
+	States
+	{
+	Spawn:
+		DRKV A -1
+		Stop
+	}
+}	
+
+ACTOR TankDemon 11004
+{
++FloatBob
++NoGravity
+	States
+	{
+	Spawn:
+		SARG A -1
+		Stop
+	}
+}
+
+ACTOR TankImp 11005
+{
++FloatBob
++NoGravity
+	States
+	{
+	Spawn:
+		TROO A -1
+		Stop
+	}
+}
+
+ACTOR TankHarvester 11006
+{
++FloatBob
++NoGravity
+	States
+	{
+	Spawn:
+		SLHV A -1
+		Stop
+	}
+}
+
+ACTOR TankSatyr 11007
+{
++FloatBob
++NoGravity
+	States
+	{
+	Spawn:
+		STYR A -1
+		Stop
+	}
+}
+
+ACTOR TankBaron 11008
+{
++FloatBob
++NoGravity
+	States
+	{
+	Spawn:
+		BOSS A -1
+		Stop
+	}
+}
+
+actor PlasmaStream 15555
+{
+	Radius 1
+	Height 1
+	RENDERSTYLE ADD
+	Alpha 0.8
+	+NOGRAVITY
+	+FLOORCLIP
+	States
+	{
+	Spawn:
+		PLST ABC 3 Bright
+		Loop
+	}
+}
+
+// MONSTERS
+
+actor NamiDarkImpSpawner : RandomSpawner 3100 { DropItem DarkImp 255 }
+actor VoidDarkImpSpawner : RandomSpawner 3101 { DropItem VoidDarkImp 255 }
+actor STDarkImpSpawner : RandomSpawner 3102 { DropItem STDarkImp 255 }
+ACTOR BloodDemonSpawner : RandomSpawner 3110 { DropItem BloodDemon 255 }
+ACTOR RocketGuySpawn : RandomSpawner 3202 { Dropitem RocketLauncherGuy 255 }
+ACTOR BruiserDemonSpawner : RandomSpawner 3333 { DropItem BruiserDemon 255 }
+
+//===========================================================================
+//
+// Chainsaw Zombie
+//
+// created by: Bouncy
+// additional scripting by: Graf Zahl
+// New sprites and additional scripting by: Nmn
+//
+//===========================================================================
+
+ACTOR ChainsawZombie 3204
+{ 
+	//$Category Monsters
+    Health 30 
+    Radius 20 
+    Height 56 
+    Speed 13 
+    MeleeDamage 3 
+    PainChance 200 
+    MONSTER 
+    +FLOORCLIP 
+    Obituary "%o was sliced by a madman zombie with a chainsaw!" 
+    SeeSound "chainsawman/sight" 
+    MeleeSound "weapons/sawhit" 
+    PainSound "grunt/pain" 
+    DeathSound "chainsawman/dead" 
+    ActiveSound "grunt/active" 
+    DropItem Chainsaw 
+    States 
+    { 
+    Spawn: 
+        CHAN A 4 A_Look 
+        CHAN A 4 A_Look 
+        CHAN B 4 A_Look 
+        CHAN B 4 A_Look
+        Loop 
+    See: 
+        CHAN A 4 A_Chase 
+        CHAN A 0 A_CustomMissile("Ball1Trail", 24, 0, 0, 0)
+        CHAN A 4 A_Chase 
+        CHAN B 0 A_PlayWeaponSound("weapons/sawidle") 
+        CHAN B 0 A_CustomMissile("Ball1Trail", 24, 0, 0, 0)
+        CHAN B 4 A_Chase 
+        CHAN B 4 A_Chase 
+        CHAN C 0 A_PlayWeaponSound("weapons/sawidle") 
+        CHAN C 4 A_Chase 
+        CHAN C 0 A_CustomMissile("Ball1Trail", 24, 0, 0, 0) 
+        CHAN D 0 A_PlayWeaponSound("weapons/sawidle") 
+        CHAN D 4 A_Chase 
+        CHAN D 0 A_CustomMissile("Ball1Trail", 24, 0, 0, 0) 
+        CHAN A 0 A_PlayWeaponSound("weapons/sawidle") 
+        Loop 
+    Melee: 
+        CHAN E 1 A_FaceTarget 
+        CHAN A 0 A_CustomMissile("Ball1Trail", 24, 0, 0, 0)
+        CHAN F 3 A_MeleeAttack 
+        Goto See 
+    Pain: 
+        CHAN G 5 
+        CHAN G 3 A_Pain 
+        Goto See 
+    Death: 
+        CHAN H 6 A_Scream
+        CHAN I 6  
+        CHAN J 6 
+        CHAN KL 6 
+        CHAN M 6 A_Fall
+        CHAN N -1 
+        Stop 
+    XDeath:
+        CHAN O 5
+        CHAN P 5 A_XScream
+        CHAN Q 5 A_Fall
+        CHAN RSTUV 5
+        CHAN W -1
+        Stop
+    Raise: 
+        CHAN NMLKJIH 5 
+        Goto See 
+    } 
+} 
+
+//===========================================================================
+//
+// Demoncube 
+// by TheDarkArchon
+//
+// idea by: Eriance
+// sprites by: NMN
+//
+//===========================================================================
+
+actor KDiZDDemonCube 26001
+{
+	//$Category "Monsters"
+    Health 50
+    Radius 20
+    Height 20
+    Speed 10
+    PainChance 96
+    Mass 1000
+    Scale 0.5
+    MONSTER 
+    +NOGRAVITY
+    +FLOAT
+    +DONTFALL
+    SeeSound "demoncube/sight"
+    DeathSound "demoncube/death"
+    PainSound "demon/pain"
+    ActiveSound "demon/active"
+    AttackSound "demoncube/attack"
+    Obituary "%o fell victim to a Demon Cube."
+    MissileType DemonCubeMissile
+    States
+    {
+    Spawn:
+        DECU ABC 3 A_Look
+        Loop
+    See:
+        DECU ABC 4 A_Chase
+        Loop
+    Missile:
+        DECU D 8 A_FaceTarget
+        DECU E 8 Bright A_MissileAttack 
+        DECU D 8 A_FaceTarget
+        Goto See
+    Pain:
+        DECU D 3
+        DECU D 3 A_Pain
+        Goto See
+    Death:
+        DECU F 8 Bright A_Scream
+        DECU G 8 Bright
+        DECU H 8 Bright A_NoBlocking
+        DECU I 8 Bright
+        Stop
+    }
+}
+
+
+
+actor DemonCubeMissile
+{
+    Radius 8
+    Height 8
+    Speed 18
+    Damage 4
+    PROJECTILE
+    RENDERSTYLE ADD
+    ALPHA 0.75
+    SeeSound "demoncube/attack"
+    DeathSound "imp/shotx"
+    States
+    {
+    Spawn:
+        DCPF AB 2 Bright
+        Loop
+    Death:
+        DCPF ABCDE 3 Bright
+        Stop
+    }
+}
+
+//======================================================================
+// 
+// KDIZD Imp
+// with new fireballs
+// by Nmn
+//======================================================================
+
+actor KDIZDImpBall : DoomImpBall replaces DoomImpBall
+{
+  Game Doom
+  Radius 6
+  Height 8
+  Speed 10
+  FastSpeed 20
+  Damage (3 * random(1,8))
+  Projectile
+  +RANDOMIZE
+  RenderStyle Add
+  Alpha 1
+  SeeSound "imp/attack"
+  DeathSound "imp/shotx"
+  DamageType "Fire"
+  Health 20
+  PROJECTILE
+  RENDERSTYLE ADD
+  ALPHA 0.7
+  MissileType Ball1Trail
+  MissileHeight 0
+  States
+  {
+  Spawn:
+    BAL1 AB 3 Bright A_MissileAttack
+    Loop
+
+  Death:
+    BAL1 CDE 3 Bright  A_MissileAttack
+    Stop
+  }
+}
+
+actor Ball1Trail
+{
+ PROJECTILE
+ RENDERSTYLE TRANSLUCENT
+ +NOCLIP
+ ALPHA 0.3
+ Scale 0.5
+ States
+ {
+ Spawn:
+ SMK1 J 3
+ SMK1 ABCDEFGHI 2 Bright
+ Stop
+ }
+}
+
+//===========================================================================
+//
+// Hell's Fury
+// Rotating Skull sptrites by Vader
+//
+//===========================================================================
+ACTOR HellsFury 3127
+{
+	//$Category Monsters
+	Health 1000
+	Radius 24
+	Height 64
+	Speed 8
+	PainChance 50
+	Mass 1000
+	MONSTER
+	+FLOORCLIP
+	SeeSound "baron/sight"
+	ActiveSound "baron/active"
+	PainSound "baron/pain"
+	DeathSound "baron/death"
+	MeleeSound "baron/melee"
+	Obituary "%o felt the wrath of Hell's Fury"
+	HitObituary "%o got ripped apart by Hell's Fury"
+	MissileType HellsFuryBall
+	MeleeDamage 11
+	States
+	{
+	Spawn:
+		HFRY AB 10 A_Look
+		Loop
+	See:
+		HFRY AABBCCDD 4 A_Chase
+		Loop
+	Missile:
+		HFRY E 0 A_Jump(96,4)
+		HFRY EF 8 A_FaceTarget
+		HFRY G 8 A_ComboAttack
+		Goto See
+		HFRY P 8 A_FaceTarget
+		HFRY Q 0 A_CustomMissile("SoulHarvesterBall", 60, 0, -45)
+		HFRY Q 0 A_CustomMissile("SoulHarvesterBall", 60, 0, 0)
+		HFRY Q 8 A_CustomMissile("SoulHarvesterBall", 60, 0, 45)
+		Goto See
+		Melee:
+		HFRY EF 8 A_FaceTarget
+		HFRY G 8 A_ComboAttack
+		Goto See
+	Pain:
+		HFRY H 2
+		HFRY H 2 A_Pain
+		Goto See
+	Death:
+		HFRY I 8 A_Scream
+		HFRY J 0 
+		HFRY J 0 A_Jump(51,5)
+		HFRY J 0 A_Jump(51,5)
+            	HFRY J 0 A_Jump(51,5)
+            	HFRY J 0 A_Jump(51,5)
+		HFRY J 0 A_CustomMissile("HellsFurySkull", 60, 0, 20)
+		Goto Death+12
+		HFRY J 0 A_CustomMissile("HellsFurySkull", 60, 0, 10)
+		Goto Death+12
+		HFRY J 0 A_CustomMissile("HellsFurySkull", 60, 0, 0)
+		Goto Death+12
+		HFRY J 0 A_CustomMissile("HellsFurySkull", 60, 0, -10)
+		Goto Death+12
+		HFRY J 0 A_CustomMissile("HellsFurySkull", 60, 0, -20)
+		Goto Death+12
+		HFRY J 8 
+		HFRY K 8
+		HFRY L 8 A_Fall
+		HFRY MN 8
+		HFRY O -1
+		Stop
+	Raise:
+		HFRY NMLKJI 8
+		Goto See
+ 	}
+}	 
+
+ACTOR HellsFuryBall : BaronBall
+{
+	Radius 6
+	Height 8
+	Speed 20
+	Damage 11
+	Translation 2
+      RenderStyle "ADD"
+      Decal BaronScorch
+}
+
+ACTOR HellsFurySkull
+{
+	Radius 5
+	Height 5
+	Speed 5
+	Mass 5000
+	+DROPOFF
+	+DOOMBOUNCE
+	+Missile
+      States
+	{
+	Spawn:
+         FSKL ABCDEFGHIJK 2
+         Loop
+	Death:
+	 FSKL L -1
+	 Loop
+	}
+} 	 
+
+//===========================================================================
+//
+// Hell Warrior
+//
+// by Tormentor667
+// new sprites and additional scripting by: Vader
+//
+//===========================================================================
+
+ACTOR HellWarrior 3119
+{ 
+	//$Category Monsters
+   Health 400 
+   Speed 8
+   Radius 24
+   Height 64
+   PainChance 50
+   Mass 1000
+   Meleedamage 8 
+   SeeSound "knight/sight"
+   PainSound "knight/pain"
+   DeathSound "knight/death"
+   ActiveSound "knight/active"
+   MeleeSound "baron/melee"
+   REACTIONTIME 8 
+   MONSTER 
+	+FLOORCLIP
+   Missiletype HellWarriorBall
+   Obituary "%o was tagged by the hell warrior's fireball." 
+   HitObituary "%o was torn apart by a hell warrior." 
+   States 
+   { 
+   Spawn: 
+      HWAR AB 10 A_Look 
+      Loop 
+   See: 
+      HWAR A 0 A_UnsetInvulnerable
+      HWAR AABBCCDD 3 A_Chase 
+      Loop 
+   Missile:
+      HWAR E 0 A_Jump(128, 4)
+      HWAR EF 8 A_FaceTarget
+      HWAR G 8 A_ComboAttack
+      Goto See
+      HWAR H 0 A_Jump(128, 6)
+      HWAR H 0 A_SetInvulnerable
+      HWAR H 6 A_FaceTarget
+      HWAR I 4 BRIGHT A_Custommissile(HellWarriorBall2, 25, 0, 0)
+      HWAR H 6 A_FaceTarget
+      HWAR H 0 A_UnSetInvulnerable
+      Goto See
+      HWAR H 0 A_SetInvulnerable
+      HWAR H 6 A_FaceTarget
+      HWAR I 4 BRIGHT A_Custommissile(HellWarriorBall2, 25, 0, 0)
+      HWAR H 16 A_SpidRefire
+      HWAR I 4 BRIGHT A_Custommissile(HellWarriorBall2, 25, 0, 0)
+      HWAR H 6 A_FaceTarget
+      HWAR H 0 A_UnSetInvulnerable
+      Goto See  
+   Melee: 
+      HWAR EF 8 A_FaceTarget 
+      HWAR G 8 A_ComboAttack 
+      Goto See 
+   Pain:
+      HWAR J 6 A_Pain 
+      HWAR H 0 A_SetInvulnerable
+      HWAR HHHHHHH 6 A_FaceTarget 
+      HWAR H 0 A_UnSetInvulnerable
+      Goto See 
+   Death: 
+      HWAR K 5 A_CustomMissile(HellWarriorShield, 25, 0, 60)
+      HWAR L 5 A_Scream
+      HWAR M 5
+      HWAR N 5 A_NoBlocking 
+      HWAR OPQRS 5  
+      HWAR T -1 
+      Stop 
+   Raise: 
+      HWAR QPONMLK 5 
+      Goto See 
+   } 
+}
+
+actor HellWarriorBall
+{
+    Radius 6
+    Height 8
+    Speed 14
+    Damage 8
+    PROJECTILE
+    RENDERSTYLE ADD
+    ALPHA 0.7
+    SeeSound "imp/attack"
+    DeathSound "imp/shotx"
+    States
+    {
+    Spawn:
+        HWFB AB 5 Bright
+        Loop
+    Death:
+        HWFB CDE 5 Bright
+        Stop
+    }
+}
+
+actor HellWarriorBall2
+{
+    Radius 6
+    Height 8
+    Speed 8
+    Damage 2
+    PROJECTILE
+    RENDERSTYLE ADD
+    +RANDOMIZE
+    +RIPPER
+    ALPHA 0.8
+    SCALE 0.4
+    SeeSound "imp/attack"
+    DeathSound "imp/shotx"
+    States
+    {
+    Spawn:
+        GRBA ABCDEFGH 2 Bright
+        Loop
+    Death:
+        GRBA AIJKLMN 3 Bright
+        Stop
+    }
+}
+
+ACTOR HellWarriorShield
+{
+	Radius 8
+	Height 8
+	Speed 6
+	+DOOMBOUNCE
+	+DROPOFF
+	+Missile
+      States
+	{
+	Spawn:
+         HWSH ABCDEFGH 3
+         Loop
+	Death:
+	 HWSH I -1
+	 Loop
+	}
+}
+
+//=========================================================================== 
+// 
+// Mauler Demon 
+//   - idea from Nimrod 
+//   - sprites by Eriance
+// 
+//=========================================================================== 
+
+ACTOR MaulerDemon 3123
+{              
+	//$Category Monsters
+   Health 150 
+   PainChance 180 
+   Speed 10 
+   Radius 30 
+   Height 56 
+   Mass 400 
+   Damage 2 //Horns = pain. I say no more 
+   Monster 
+   +FLOORCLIP 
+   SeeSound "demon/sight" 
+   AttackSound "demon/melee" 
+   PainSound "demon/pain" 
+   DeathSound "demon/death" 
+   ActiveSound "demon/active" 
+   Obituary "%o was gored by a Mauler Demon."
+   HitObituary "%o was mauled by a Mauler Demon"
+   States 
+   { 
+   Spawn: 
+      MAUD AB 10 A_Look 
+      Loop 
+   See: 
+      MAUD AABBCCDD 2 A_Chase 
+      Loop 
+   Melee: 
+      MAUD EF 8 A_FaceTarget 
+      MAUD G 8 A_SargAttack 
+      Goto See 
+   Missile: 
+      MAUD E 0 A_Jumpifcloser(224, 2)
+      Goto See
+      MAUD E 4 A_FaceTarget 
+      MAUD F 10 A_SkullAttack 
+      MAUD G 5 A_Gravity
+      Goto See 
+   Pain: 
+      MAUD H 2 
+      MAUD H 2 A_Pain 
+      Goto See 
+   Death: 
+      MAUD I 8 
+      MAUD J 8 A_Scream 
+      MAUD K 4 
+      MAUD L 4 A_Fall 
+      MAUD M 4 
+      MAUD N -1 
+      Stop 
+   Raise: 
+      MAUD N 5 
+      MAUD MLKJI 5 
+      Goto See 
+   } 
+} 
+
+//===========================================================================
+//
+// Nightmare 
+// by TheDarkArchon
+//
+// sprites by: Ezxariarch
+//
+//===========================================================================
+
+ACTOR KDiZDNightmare 26000
+{
+	//$Category "Monsters"
+    Health 100
+    Radius 20
+    Height 56
+    Speed 15
+    PainChance 144
+    MONSTER 
+    +FLOORCLIP
+    +STEALTH
+    RenderStyle Add
+    Alpha 0.4
+    SeeSound "nightmare/sight"
+    PainSound "nightmare/pain"
+    DeathSound "nightmare/death"
+    ActiveSound "nightmare/active"
+    MeleeSound "nightmare/melee"
+    HitObituary "%o was tormented by a nightmare."
+    MeleeDamage 4
+    States
+    {
+    Spawn:
+        NMRE AB 10 A_Look
+        Loop
+    See:
+        NMRE A 0 A_UnSetShootable
+        NMRE AABBCCDD 3 A_Chase
+        NMRE D 0 A_Jump(32,1)
+        Loop
+        NMRE D 0 A_CustomMissile("NightmareWisp",0,0,0) 
+        Loop
+    Melee:
+        NMRE E 0 A_SetShootable
+        NMRE EF 9 A_FaceTarget
+        NMRE G 9 A_MeleeAttack
+        Goto See
+    Pain:
+        NMRE H 2 A_SetShootable
+        NMRE H 10 A_Pain
+        Goto See
+    Death:
+        NMRE I 3 A_ScreamAndUnblock
+        NMRE JKLMNO 3 
+        Stop
+    }
+}
+
+ACTOR NightmareWisp
+{
+	Radius 4
+	Height 8
+	Speed 0
+	Damage 0
+	RenderStyle ADD
+	Alpha 0.4
+	PROJECTILE
+	+NOCLIP
+	States
+	{
+	Spawn:
+		NMRE IJKLMNO 3
+		Stop
+	}
+}
+
+//===========================================================================
+//
+// RapidFireTrooper
+//
+// created by: Graf Zahl
+// New sprites by: Nmn
+//
+//===========================================================================
+
+ACTOR RapidFireTrooper 3201
+{
+	//$Category Monsters
+   Health 30
+   Radius 20
+   Height 56
+   Speed 8
+   PainChance 200
+   MONSTER 
+   +FLOORCLIP
+   DropItem Clip
+   SeeSound "grunt/sight"
+   AttackSound "grunt/attack"
+   PainSound "grunt/pain"
+   DeathSound "grunt/death"
+   ActiveSound "grunt/active"
+   Obituary "%o was surprised by the zombie's weaponry." 
+   Decal BulletChip
+   States 
+   { 
+   Spawn: 
+      RFTR AB 10 A_Look 
+      Loop 
+   See: 
+      RFTR AABBCCDD 4 A_Chase 
+      Loop 
+   Missile: 
+      RFTR E 10 A_FaceTarget 
+      RFTR F 5 Bright A_PosAttack 
+      RFTR E 5 A_CPosRefire 
+      Goto Missile+1 
+   Pain: 
+      RFTR G 3 
+      RFTR G 3 A_Pain 
+      Goto See 
+   Death: 
+      RFTR H 5 
+      RFTR I 5 A_Scream 
+      RFTR J 5 A_Fall 
+      RFTR K 5 
+      RFTR L -1 
+      Stop
+    XDeath:
+      RFTR M 5
+      RFTR N 5 A_XScream
+      RFTR N 5
+      RFTR P 5 A_Fall
+      RFTR QRST 5
+      RFTR U -1
+      Stop
+   Raise: 
+      RFTR KJ 5 
+      RFTR IH 5 
+      Goto See 
+   } 
+} 
+
+//===========================================================================
+//
+// Rifle Zombie
+// By TheDarkArchon
+// Sprites by Tormentor667 (Modified by TheDarkArchon)
+//
+//===========================================================================
+
+ACTOR RifleZombie 31657
+{
+	//$Category Monsters
+      Health 40
+      Speed 8
+      Radius 20
+      Height 56
+      Mass 100
+      PainChance 200
+      MONSTER
+      +FLOORCLIP
+      SeeSound "grunt/sight" 
+      PainSound "grunt/pain" 
+      Deathsound "grunt/death" 
+      ActiveSound "grunt/active"
+      DropItem Rifle
+      Obituary "%o was shot by a rifle zombie"
+      States
+      {
+      Spawn:
+         RPOS AB 10 A_Look
+         Loop
+      See:
+         RPOS AABBCCDD 3 A_Chase
+         Loop
+      Missile:
+         RPOS E 18 A_FaceTarget
+         RPOS F 8 A_CustomMissile ("ZombieBullet", 32, 0, 0)
+         RPOS E 5
+         Goto See
+      Pain:
+         RPOS G 2
+         RPOS G 4 A_Pain
+         Goto See
+      Death:
+         RPOS H 5
+         RPOS I 5 A_Scream
+         RPOS J 5
+         RPOS K 5 A_Fall
+         RPOS L -1
+         Stop
+      XDeath:
+         RPOS M 5 
+         RPOS N 5 A_XScream 
+         RPOS O 5 
+         RPOS P 5 A_Fall 
+         RPOS QRST 5 
+         RPOS U -1    
+         Stop 
+      }
+}
+
+ACTOR ZombieBullet
+{
+      Speed 95
+      Damage 20
+      Radius 6
+      Height 8
+      PROJECTILE
+      +STRIFEDAMAGE
+      SeeSound "weapons/bfgf"
+      States
+      {
+      Spawn:
+         BFS1 A 1
+         Loop
+      Death:
+         PUFF ABCD 4
+         Stop
+      }
+}
+
+//===========================================================================
+//
+// Satyr
+//
+// by: Nanami
+// New Sprites and additional scripting by: Vader
+//
+//===========================================================================
+
+actor Satyr 3109
+{
+	//$Category Monsters
+    Health 400
+    Radius 18
+    Height 48
+    Scale 0.75
+    Speed 8
+    PainChance 50
+    Mass 350
+    MONSTER 
+    +FLOORCLIP
+    SeeSound "knight/sight"
+    PainSound "knight/pain"
+    DeathSound "knight/death"
+    ActiveSound "knight/active"
+    MeleeSound "baron/melee"
+    HitObituary "%o was mauled by a satyr."
+    MeleeDamage 8
+    States
+    {
+    Spawn:
+        STYR AB 10 A_Look
+        Loop
+    See:
+        STYR AABBCCDD 3 A_Chase
+        Loop
+    Melee:
+        STYR EF 6 A_FaceTarget
+        STYR G 6 A_MeleeAttack
+        STYR PQ 5 A_FaceTarget
+        STYR R 6 A_MeleeAttack
+        Goto See
+    Pain:
+        STYR H 2
+        STYR H 2 A_Pain
+        Goto See
+    Death:
+        STYR I 5
+        STYR J 5 A_Scream
+        STYR K 6
+        STYR L 7 A_Fall
+        STYR M 4
+        STYR N 4
+        STYR O -1
+        Stop
+    Raise:
+        STYR ONMLKJI 8
+        Goto See
+    }
+}
+
+//===========================================================================
+//
+// Shadow (Fastimp)
+//
+// Idea from Strain
+// New sprites and additional scripting by Vader
+//
+//===========================================================================
+ACTOR Shadow 3126
+{
+	//$Category Monsters
+	Health 80
+	Radius 20
+	Height 56
+	Mass 100
+	RenderStyle "Translucent"
+	Alpha 0.7
+	Speed 8
+	PainChance 200
+	Monster
+	+FLOORCLIP
+	PainSound "Shadow/pain"
+	DeathSound "Shadow/death"
+	ActiveSound "Shadow/active"
+	Obituary "%o was assassinated by a shadow."
+	MissileType ShadowBall
+	States
+	{
+	Spawn:
+	See:
+		TROX A 15
+		TROX AAA 1 A_Chase
+		TROX A 0 A_CustomMissile("ShadowGhostA", 0, 0, 0)
+		TROX BBB 1 A_Chase
+		TROX B 0 A_CustomMissile("ShadowGhostB", 0, 0, 0)
+		TROX CCC 1 A_Chase
+		TROX C 0 A_CustomMissile("ShadowGhostC", 0, 0, 0)
+		TROX DDD 1 A_Chase
+		TROX D 0 A_CustomMissile("ShadowGhostD", 0, 0, 0)
+		TROX AAA 1 A_Chase
+		TROX A 0 A_CustomMissile("ShadowGhostA", 0, 0, 0)
+		TROX BBB 1 A_Chase
+		TROX B 0 A_CustomMissile("ShadowGhostB", 0, 0, 0)
+		TROX CCC 1 A_Chase
+		TROX C 0 A_CustomMissile("ShadowGhostC", 0, 0, 0)
+		TROX DDD 1 A_Chase
+		TROX D 0 A_CustomMissile("ShadowGhostD", 0, 0, 0)
+		Goto See+1
+	Missile:
+		TROX E 30 A_FaceTarget
+		TROX F 5 
+		TROX G 5 BRIGHT A_MissileAttack
+		TROX F 5
+		TROX E 20
+		TROX E 1 A_SpidRefire
+		Goto Missile+1      
+	Pain:
+		TROX H 4
+		TROX H 4 A_Pain
+		Goto See+1
+	Death:
+		TROX I 6 A_Scream
+		TROX J 5
+		TROX K 5 A_CustomMissile("Shadowtorso", 0, 0, 0)
+		TROX L 5 A_Fall
+		TROX MNO 6 
+		TROX P -1
+		Stop
+	XDeath:
+		TROX W 5
+		TROX X 4 A_XScream
+		TROX Y 4 
+		TROX Z 4 A_Fall
+ 		TROX ] 4
+ 		TROX [ 4
+		TROX "\" -1
+		Stop
+	Raise:
+		TROX M 8
+		TROX KLJI 8
+		Goto See
+	}
+}
+
+ACTOR Shadowtorso
+{
+	Radius 12
+	Height 15
+	Speed 1
+	Mass 5000
+	RenderStyle "Translucent"
+	alpha 0.7
+	+Doombounce
+      States
+	{
+	Spawn:
+         TROX QRS 5
+         TROX T 5 A_Fall
+         TROX U 5
+         TROX V -1
+         Stop
+	}
+} 
+
+
+
+//===========================================================================
+//
+// Shadow fireball
+//
+//===========================================================================
+ACTOR ShadowBall
+{
+	Radius 6
+	Height 8
+	Speed 12
+	Damage 4
+	Projectile
+	+RANDOMIZE
+	RenderStyle "ADD"
+	Alpha 0.75
+	SeeSound "imp/attack"
+	DeathSound "imp/shotx"
+	MissileType ShadowTrail
+	Missileheight 0
+	Decal DoomImpScorch
+	States
+	{
+	Spawn: 
+		SBAL ABC 4 BRIGHT A_MissileAttack
+		Loop
+	Death:
+		SBAL C 5 Bright
+		SBAL DEFGH 4 BRIGHT
+		Stop
+	}
+}
+
+actor ShadowTrail
+{
+    Radius 1
+    Height 1
+    Speed 0
+    PROJECTILE
+    RENDERSTYLE ADD
+    ALPHA 0.6
+    +NOCLIP
+    States
+    {
+    Spawn:
+     SHTR ABCDEF 4 Bright
+        Stop       
+    }
+}
+
+//============================================================================
+//
+//Shadow "Ghosts"
+//
+//============================================================================
+ACTOR ShadowGhostA
+{
+	Radius 4
+	Height 8
+	Speed 0
+	Damage 0
+	Mass 75
+	RenderStyle "Translucent"
+	Alpha 0.3
+	PROJECTILE
+	States
+	{
+	Spawn:
+		TROX A 10
+		Stop
+	}
+}
+
+ACTOR ShadowGhostB : ShadowGhostA
+{
+	States
+	{
+	Spawn:
+		TROX B 10
+		Stop
+	}
+}
+
+ACTOR ShadowGhostC : ShadowGhostA
+{
+	States
+	{
+	Spawn:
+		TROX C 10
+		Stop
+	}
+}
+
+ACTOR ShadowGhostD : ShadowGhostA
+{
+	States
+	{
+	Spawn:
+		TROX D 10
+		Stop
+	}
+}
+
+//===========================================================================
+//
+// Soul Harvester
+//
+// by Tormentor667
+// New sprites and additional scripting by: Vader
+//
+//===========================================================================
+
+actor SoulHarvester 3117
+{
+	//$Category Monsters
+    Health 100
+    Radius 20
+    Height 56
+    Speed 8
+    PainChance 160
+    MONSTER 
+    +FLOORCLIP
+    SeeSound "harvester/sight"
+    PainSound "imp/pain"
+    DeathSound "harvester/death"
+    ActiveSound "imp/active"
+    MeleeSound "imp/melee"
+    Obituary "%o couldn't evade the soul harvester's attack."
+    MissileType SoulHarvesterBall
+    MeleeDamage 3
+    States
+    {
+    Spawn:
+        SLHV AB 10 A_Look
+        Loop
+    See:
+        SLHV AABBCCDD 3 A_Chase
+        Loop
+    Melee:
+    Missile:
+        SLHV EFG 4 A_FaceTarget
+        SLHV HIJK 5 Bright A_FaceTarget
+        SLHV L 8 Bright A_MissileAttack
+        SLHV M 10
+        Goto See
+    Pain:
+    	SLHV N 3
+    	SLHV N 3 A_Pain
+    	Goto See
+    Death:
+        SLHV O 7 A_Scream
+        SLHV PQR 7 
+        SLHV S 6 A_CustomMissile("SoulHarvesterGhost", 32, 0, 0)
+        SLHV T 5 A_Fall
+        SLHV UV 5
+        SLHV W -1
+        Stop
+    XDeath:
+        SLHV X 6 A_Xscream
+        SLHV Y 6 A_CustomMissile("SoulHarvesterGhost", 32, 0, 0)
+        SLHV Z 6
+        SLHV [ 6 A_Fall
+        SLHV ] 6
+        SLHX A -1
+        Stop
+    Raise:
+        SLHV WVUTSRQPO 5
+        Goto See
+    }
+}
+
+actor SoulHarvesterBall
+{
+    Radius 8
+    Height 6
+    Scale 0.4
+    Speed 9
+    Damage 2
+    +SEEKERMISSILE
+    PROJECTILE
+    Renderstyle ADD
+    SeeSound "harvester/scream"
+    DeathSound "imp/shotx"
+	Decal DoomImpScorch
+    States
+    {
+    Spawn:
+    	SHBA A  0 Bright A_CustomMissile("SoulBallTrail", 0, 0, 180)
+        SHBA AB 2 Bright A_SeekerMissile (10,20)
+        Loop
+    Death:
+        SHBA CDEFGHIJKL 4 Bright
+        Stop
+    }
+}
+	
+actor SoulHarvesterGhost
+{
+    Radius 1
+    Height 1
+    Speed 0
+    PROJECTILE
+    RENDERSTYLE ADD
+    ALPHA 0.7
+    +NOCLIP
+    SeeSound "harvester/ghost"
+    States
+    {
+    Spawn:
+    Death:
+        SHGH ABCDEFG 4 Bright
+        Stop
+    }
+}
+
+actor SoulBallTrail
+{
+    Radius 1
+    Height 1
+    Speed 0
+    PROJECTILE
+    RENDERSTYLE ADD
+    ALPHA 0.5
+    +NOCLIP
+    States
+    {
+    Spawn:
+    Death:
+    	SBTR H 6 
+        SBTR ABCDEFG 4 Bright
+        Stop
+    }
+}
+
+//===========================================================================
+//
+// StoneImp
+//
+// created by: Espi 
+// death Sprites by: Vader
+//
+//===========================================================================
+
+actor StoneImp 3103
+{
+	//$Category Monsters
+    Health 180
+    Radius 20
+    Height 56
+    Speed 6
+    PainChance 50
+    Mass 400
+    MONSTER 
+    +FLOORCLIP
+    +NOBLOOD
+    +NORADIUSDMG
+    SeeSound "imp/sight"
+    PainSound "imp/pain"
+    DeathSound "imp/death"
+    ActiveSound "imp/active"
+    MeleeSound "stoneimp/hit"
+    Obituary "%o was smashed by a stone imp."
+    MeleeDamage 12
+    States
+    {
+    Spawn:
+        GIMP AB 10 A_Look
+        Loop
+    See:
+        GIMP AABBCCDD 3 A_Chase
+        Loop
+    Melee:
+        GIMP EF 8 A_FaceTarget
+        GIMP G 6 A_MeleeAttack
+        Goto See
+    Pain:
+        GIMP H 2
+        GIMP H 2 A_Pain
+        Goto See
+    Death:
+        GIMP I 6
+        GIMP J 6 A_Scream
+        GIMP K 5
+        GIMP L 5 A_Fall
+        GIMP M 5
+        GIMP N -1
+        Stop
+    Raise:
+        GIMP ML 8
+        GIMP KJI 6
+        Goto See
+    }
+}
+
+//===========================================================================
+//
+// Magmantis 
+// by Vader
+//
+// sprites by: NMN
+//
+//===========================================================================
+
+ACTOR Magmantis 26660
+{
+	//$Category "Monsters"
+    Health 12000
+    Radius 120
+    Height 144
+    Mass 5000
+    Speed 15
+    PainChance 4
+    Scale 1.25
+    SeeSound "magmantis/sight"
+    PainSound "magmantis/pain"
+    DeathSound "magmantis/death"
+    ActiveSound "magmantis/active"
+    MONSTER 
+    +BOSS
+    +LOOKALLAROUND
+    +FLOORCLIP
+    +MISSILEEVENMORE
+    HitObituary "%o was eradicated by the Deimos Guardian"
+    States
+    {
+    Spawn:
+        	TNT1 A 6 A_UnSetSolid
+		DGRD ABCDEFG 6
+		DGRD H 6 A_SetSolid
+		DGRD H 3 A_Look
+        	Wait
+    See:
+		DGRD IJKL 8 A_Chase 
+        	Loop
+    Missile:
+    		DGRD M 0 A_Jump(128, 12)
+    		DGRD M 0 A_Jump(128, 5)
+		DGRD MNO 6 A_FaceTarget
+		DGRD P 30 A_Custommissile("Portal1", 240, 0, 0)
+		Goto See
+		DGRD QS 6 a_FaceTarget
+		DGRD S 0 A_Custommissile("BruiserBall", 40, 0, -10, 0)
+		DGRD S 0 A_Custommissile("BruiserBall", 40, 0, 0, 0)
+		DGRD T 6 A_Custommissile("BruiserBall", 40, 0, 10, 0)
+		DGRD U 6
+		Goto See
+		DGRD Q 0 A_Jump(128, 5)
+		DGRD MNO 6 A_FaceTarget
+		DGRD P 30 A_Custommissile("Portal2", 240, 0, 0) 
+		Goto See
+		DGRD M 0 A_Jump(128, 5)
+		DGRD MNO 6 A_FaceTarget
+		DGRD P 50 Acs_Execute(12, 0, 0, 0, 0)
+		Goto See
+		DGRD H 5 A_UnSetShootable
+ 		DGRD GFEDC 5
+		DGRD B 5 Acs_Execute(114, 0, 0, 0, 0)
+		DGRD A 5 A_UnSetSolid
+		TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 6 A_Wander
+		DGRD A 5 A_SetSolid
+		DGRD BCDEF 5 A_FaceTarget
+		DGRD G 5 A_SetShootable
+		Goto See
+    Pain:
+        	DGRD X 5 A_Pain
+        	Goto See
+    Death:
+        	DGDD A 6 A_Scream
+        	DGDD BCDEFGH 6
+        	Stop
+    }
+}
+
+actor Portal1 
+{
+  obituary "%o was eradicated by the Deimos Guardian."
+  health 400
+  radius 31
+  height 56
+  mass 400
+  speed 0
+  renderstyle Add
+  alpha 0.8
+  painchance 0
+  MissileType Redstar
+  Missileheight 0
+  MONSTER
+  +FLOAT
+  +NOGRAVITY
+  +DONTFALL
+  +LOOKALLAROUND
+  +MISSILEEVENMORE
+  - Shootable
+  - Solid
+  - Countkill
+  states
+  {
+  Spawn:
+    TNT1 A 1 Bright A_Look
+    loop
+  See:
+    TNT1 A 1 Bright A_Chase
+    loop
+  Missile:
+    PORT ABCDEF 4 Bright
+    PORT GHIJKLMN 4 Bright A_FaceTarget
+    PORT T 4 bright A_Missileattack 
+    PORT GHIJKLMN 4 Bright A_FaceTarget
+    PORT T 4 bright A_Missileattack  
+    PORT GHIJKLMN 4 Bright A_FaceTarget
+    PORT T 4 bright A_Missileattack  
+    PORT GHIJKLMN 4 Bright A_FaceTarget
+    PORT T 4 bright A_Missileattack  
+    PORT GHIJKLMN 4 Bright A_FaceTarget
+    PORT T 4 bright A_Missileattack  
+    PORT GHIJKLMN 4 Bright A_FaceTarget
+    PORT T 4 bright A_Missileattack  
+    PORT GHIJKLMN 4 Bright A_FaceTarget
+    PORT T 4 bright A_Missileattack  
+    PORT GHIJKLMN 4 Bright A_FaceTarget
+    PORT T 4 bright A_Missileattack  
+    goto Death
+  Death:
+    PORT HIJKLMNGOPQRS 4 Bright
+    stop
+  }
+}
+
+actor Redstar
+{
+    Radius 10
+    Height 20
+    Speed 13
+    Damage 15
+    +SEEKERMISSILE
+    PROJECTILE
+    RENDERSTYLE ADD
+    ALPHA 0.8
+    SeeSound "imp/attack"
+    DeathSound "imp/shotx"
+    States
+    {
+    Spawn:
+        STAR A 3 Bright A_SeekerMissile (4,8)
+        STAR B 3 Bright
+        STAR C 3 Bright A_SeekerMissile (4,8)
+        STAR D 3 Bright
+        Loop
+    Death:
+        STAR EFGHIJKLMNO 4 Bright
+        Stop
+    }
+}
+
+
+ACTOR Portal2
+{
+	Radius 8
+	Height 8
+	Speed 0
+	Damage 0
+	+RIPPER
+	+BLOODLESSIMPACT
+	Renderstyle ADD
+	alpha 0.8
+	Projectile
+	MissileType MagmantisLostSoul
+	Missileheight 0
+	States
+	{
+	Spawn: 
+		PORT ABCDEF 4 Bright
+		PORT GHIJKLMN 4 Bright 
+  		PORT T 4 Bright A_MissileAttack
+  		PORT HIJKLMNGHIJKLMN 4 Bright
+  		PORT T 4 Bright A_MissileAttack
+  		PORT HIJKLMNGHIJKLMN 4 Bright
+  		PORT T 4 Bright A_MissileAttack
+  		PORT HIJKLMNGHIJKLMN 4 Bright
+  		PORT T 4 Bright A_MissileAttack
+  		PORT HIJKLMN 4 Bright
+		Goto Death
+	Death:	
+		PORT GOPQRS 4
+		Stop
+	}
+}
+
+actor MagmantisLostSoul 
+{
+  obituary "%o was spooked by a lost soul."
+  health 100
+  radius 16
+  height 56
+  mass 50
+  speed 8
+  damage 3
+  painchance 256
+  renderstyle SoulTrans
+  attacksound "skull/melee"
+  painsound "skull/pain"
+  deathsound "skull/death"
+  activesound "skull/active"
+  MONSTER
+  +FLOAT
+  +NOGRAVITY
+  +NOICEDEATH
+  +MISSILEMORE
+  +DONTFALL
+  +LOOKALLAROUND
+  - COUNTKILL
+  states
+  {
+  Spawn:
+    SKUL AB 10 bright A_Look
+    loop
+  See:
+    SKUL AB 6 bright A_Chase
+    loop
+  Missile:
+    SKUL C 10 bright A_FaceTarget
+    SKUL D 4 bright A_SkullAttack
+    SKUL CD 4 bright
+    goto Missile+2
+  Pain:
+    SKUL E 3 bright
+    SKUL E 3 bright A_Pain
+    goto See
+  Death:
+    SKUL F 6 bright
+    SKUL G 6 bright A_Scream
+    SKUL H 6 bright
+    SKUL I 6 bright A_NoBlocking
+    SKUL JK 6
+    stop
+  }
+}
+
+/////////////// KDIZD FLARES AND GLOWS //////////////////
+/////////////// Made by Nmn ////////////////////////
+
+actor Glow1 31151
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
++NOGRAVITY
++FLOORCLIP
+States
+{
+Spawn:
+GLO2 A -1 Bright
+Loop
+}
+}
+
+actor Glow09 31170
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
++NOGRAVITY
++FLOORCLIP
+SCALE 0.9
+States
+{
+Spawn:
+GLO2 A -1 Bright
+Loop
+}
+}
+
+actor Glow08 31160
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
++NOGRAVITY
++FLOORCLIP
+SCALE 0.8
+States
+{
+Spawn:
+GLO2 A -1 Bright
+Loop
+}
+}
+
+actor Glow07 31171
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
++NOGRAVITY
++FLOORCLIP
+SCALE 0.7
+States
+{
+Spawn:
+GLO2 A -1 Bright
+Loop
+}
+}
+
+actor Glow06 31161
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
++NOGRAVITY
++FLOORCLIP
+SCALE 0.6
+States
+{
+Spawn:
+GLO2 A -1 Bright
+Loop
+}
+}
+
+actor Glow05 31172
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
++NOGRAVITY
++FLOORCLIP
+SCALE 0.5
+States
+{
+Spawn:
+GLO2 A -1 Bright
+Loop
+}
+}
+
+actor Glow04 31162
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
++NOGRAVITY
++FLOORCLIP
+SCALE 0.4
+States
+{
+Spawn:
+GLO2 A -1 Bright
+Loop
+}
+}
+
+actor Glow03 31173
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
++NOGRAVITY
++FLOORCLIP
+SCALE 0.3
+States
+{
+Spawn:
+GLO2 A -1 Bright
+Loop
+}
+}
+
+actor Glow02 31163
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
++NOGRAVITY
++FLOORCLIP
+SCALE 0.2
+States
+{
+Spawn:
+GLO2 A -1 Bright
+Loop
+}
+}
+
+actor GlowWeak1 31152
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
++NOGRAVITY
++FLOORCLIP
+States
+{
+Spawn:
+GLO1 A -1 Bright
+Loop
+}
+}
+
+actor GlowWeak09 31174
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
++NOGRAVITY
++FLOORCLIP
+SCALE 0.9
+States
+{
+Spawn:
+GLO1 A -1 Bright
+Loop
+}
+}
+
+actor GlowWeak08 31156
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
++NOGRAVITY
++FLOORCLIP
+SCALE 0.8
+States
+{
+Spawn:
+GLO1 A -1 Bright
+Loop
+}
+}
+
+actor GlowWeak07 31175
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
++NOGRAVITY
++FLOORCLIP
+SCALE 0.7
+States
+{
+Spawn:
+GLO1 A -1 Bright
+Loop
+}
+}
+
+actor GlowWeak06 31157
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
++NOGRAVITY
++FLOORCLIP
+SCALE 0.6
+States
+{
+Spawn:
+GLO1 A -1 Bright
+Loop
+}
+}
+
+actor GlowWeak05 31176
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
++NOGRAVITY
++FLOORCLIP
+SCALE 0.5
+States
+{
+Spawn:
+GLO1 A -1 Bright
+Loop
+}
+}
+
+actor GlowWeak04 31158
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
++NOGRAVITY
++FLOORCLIP
+SCALE 0.4
+States
+{
+Spawn:
+GLO1 A -1 Bright
+Loop
+}
+}
+
+actor GlowWeak03 31177
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
++NOGRAVITY
++FLOORCLIP
+SCALE 0.3
+States
+{
+Spawn:
+GLO1 A -1 Bright
+Loop
+}
+}
+
+actor GlowWeak02 31159
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
++NOGRAVITY
++FLOORCLIP
+SCALE 0.2
+States
+{
+Spawn:
+GLO1 A -1 Bright
+Loop
+}
+}
+
+actor Flare1 31153
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
++NOGRAVITY
++FLOORCLIP
+States
+{
+Spawn:
+FLR3 A -1 Bright
+Loop
+}
+}
+
+actor Flare2 31154
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
++NOGRAVITY
++FLOORCLIP
+States
+{
+Spawn:
+FLR4 A -1 Bright
+Loop
+}
+}
+
+actor Flare3 31155
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
++NOGRAVITY
++FLOORCLIP
+States
+{
+Spawn:
+FLR5 A -1 Bright
+Loop
+}
+}
+
+actor Yellowglow1 31164
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
+Alpha 0.6
++NOGRAVITY
++FLOORCLIP
+States
+{
+Spawn:
+GLO5 A -1 Bright
+Loop
+}
+}
+
+actor Yellowglow07 31165
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
+Alpha 0.6
++NOGRAVITY
++FLOORCLIP
+SCALE 0.7
+States
+{
+Spawn:
+GLO5 A -1 Bright
+Loop
+}
+}
+
+actor Redglow07 31166
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
+Alpha 0.6
++NOGRAVITY
++FLOORCLIP
+SCALE 0.7
+States
+{
+Spawn:
+GLO4 A -1 Bright
+Loop
+}
+}
+
+actor Redglow1 31167
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
+Alpha 0.6
++NOGRAVITY
++FLOORCLIP
+States
+{
+Spawn:
+GLO4 A -1 Bright
+Loop
+}
+}
+
+actor Blueglow07 31168
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
++NOGRAVITY
++FLOORCLIP
+SCALE 0.7
+Alpha 0.6
+States
+{
+Spawn:
+GLO3 A -1 Bright
+Loop
+}
+}
+
+actor Blueglow1 31169
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
+Alpha 0.6
++NOGRAVITY
++FLOORCLIP
+States
+{
+Spawn:
+GLO3 A -1 Bright
+Loop
+}
+}
+
+actor Greenglow1 31185
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
+Alpha 0.6
++NOGRAVITY
++FLOORCLIP
+States
+{
+Spawn:
+GLO7 A -1 Bright
+Loop
+}
+}
+
+actor Greenglow07 31184
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
+Alpha 0.6
++NOGRAVITY
++FLOORCLIP
+SCALE 0.7
+States
+{
+Spawn:
+GLO7 A -1 Bright
+Loop
+}
+}
+
+actor OrangeGlow07 31183
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
+Alpha 0.6
++NOGRAVITY
++FLOORCLIP
+SCALE 0.7
+States
+{
+Spawn:
+GLO6 A -1 Bright
+Loop
+}
+}
+
+actor OrangeGlow1 31182
+{
+Radius 1
+Height 1
+RENDERSTYLE ADD
+Alpha 0.6
++NOGRAVITY
++FLOORCLIP
+States
+{
+Spawn:
+GLO6 A -1 Bright
+Loop
+}
+}
+
+//===========================================================================
+//
+// Rotating Keycards 
+// Graphics and Coding by Nmn
+//
+//===========================================================================
+
+
+ACTOR KDiZDRedKey : RedCard replaces RedCard
+{ 
+States
+{
+Spawn:
+RKEY ABCDEFGHIJKL 2 Bright
+Loop
+}
+}
+
+ACTOR KDiZDBlueKey : BlueCard replaces BlueCard
+{ 
+States
+{
+Spawn:
+BKEY ABCDEFGHIJKL 2 Bright
+Loop
+}
+}
+
+ACTOR KDiZDYellowKey : YellowCard replaces YellowCard
+{ 
+States
+{
+Spawn:
+YKEY ABCDEFGHIJKL 2 Bright
+Loop
+}
+}
+
+ACTOR KDiZDSilverKey : BlueSkull replaces BlueSkull
+{
+Inventory.PickupMessage "Picked up a silver keycard" 
+States
+{
+Spawn:
+BSKU ABCDEFGHIJKL 2 Bright
+Loop
+}
+}
+
+ACTOR KDiZDGreenKey : YellowSkull replaces YellowSkull
+{ 
+Inventory.PickupMessage "Picked up a green keycard" 
+States
+{
+Spawn:
+YSKU ABCDEFGHIJKL 2 Bright
+Loop
+}
+}
+
+ACTOR KDiZDOrangeKey : RedSkull replaces RedSkull
+{ 
+Inventory.PickupMessage "Picked up an orange keycard" 
+States
+{
+Spawn:
+RSKU ABCDEFGHIJKL 2 Bright
+Loop
+}
+}
+
+//===========================================================================
+//
+// Purple Dildo 
+// By Vader
+//
+//===========================================================================
+
+pickup Purpledildo
+{
+	DoomEdNum 6002
+	Sprite PUDI
+	Frames "6:AB"
+	PickupMessage "You found the miraculous purple gay dildo."
+	PickupSound "misc/i_pkup"
+}
+
+//===========================================================================
+//
+// Twice Risen Laser Cannon 
+// by Risen
+//
+//===========================================================================
+
+pickup TwiceRisenLaserRifle
+{
+	DoomEdNum 6003
+	Sprite TRLR
+	Frames "A"
+	PickupMessage "Picked up the M-4000 laser cannon!"
+	PickupSound "misc/w_pkup"
+}
+
+//===========================================================================
+//
+// Terror Sphere
+// By Graf Zahl
+// Sprites by Vader
+//
+//===========================================================================
+
+ACTOR TerrorSphere : PowerupGiver 2030
+{
+   +COUNTITEM
+   +INVENTORY.AUTOACTIVATE
+   +INVENTORY.ALWAYSPICKUP
+   +INVENTORY.BIGPOWERUP
+   Inventory.MaxAmount 0
+   Powerup.Type Frightener
+   Powerup.Color GoldMap
+   Powerup.Duration 1600
+   Inventory.PickupMessage "The Terrorsphere!"
+   States
+   {
+   Spawn:
+       TERR ABCDE 6 Bright
+       Loop
+   }
+}
+
+/////////////////////////////
+//
+/// Bio's E1M9
+//
+//
+projectile RainDrop
+{
+	SpawnNum 183
+	Sprite RAIN
+	Frames "A"
+	DeathSprite RAIN
+	DeathFrames "BCDE"
+	DeathSound "RainDrop"
+	Radius 1
+	Height 1
+	Speed 70
+	Damage 0
+	Mass 1
+	NoBlockmap
+	ActivatePCross
+	ActivateImpact
+	NoTeleport
+}
+
+
+//////////////////////////////////////////////////
+
+actor Explosion
+{
+    +NOCLIP
+    +NOGRAVITY
+    RENDERSTYLE TRANSLUCENT
+    ALPHA 0.75
+    States
+    {
+    Spawn:
+    Death:
+        MISL B 8 Bright 
+        MISL C 6 Bright A_Playsound("weapons/rocklx")
+        MISL D 4 Bright
+        Stop
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+ACTOR SlimeSplashB
+{
+	States
+	{
+	Spawn:
+		SSPH	ABC	 8
+		SSPH	D	16
+		Stop
+	Death:
+		SSPH	E	10
+		Stop
+	}
+	+NOBLOCKMAP +MISSILE +DROPOFF +LOWGRAVITY +DONTSPLASH +NOTELEPORT +CANNOTPUSH
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////
+ACTOR SlimeSplashBaseB
+{
+	States
+	{
+	Spawn:
+		SSPH	 EFGHIJK 5
+		Stop
+	}
+	+NOBLOCKMAP +NOGRAVITY +DONTSPLASH +CANNOTPUSH +NOTELEPORT
+}
+
+//===========================================================================
+//
+// Action Locator
+//
+//
+//===========================================================================
+ACTOR locator
+{
+	RENDERSTYLE TRANSLUCENT
+	Alpha 0.5
+	Radius 1
+	Height 1
+	+NOGRAVITY
+	+NOBLOCKMAP
+	+NOLIFTDROP
+	+NOTARGET
+	+DONTMORPH
+	+DONTSQUASH
+	+NOTELEOTHER
+	+FLOATBOB
+	+NONSHOOTABLE
+	States
+	{
+	Spawn:
+		ARRW A 4 Bright
+		Loop
+	}
+}
+
+//===========================================================================
+//
+// Tormentors Head on a pole
+// By: Vader
+//
+//===========================================================================
+Actor TormentorHead 6667
+{
+	//$Category Monsters
+    	Health 200
+    	Radius 24
+    	Height 64
+   	Scale 0.40
+    	Speed 0
+    	PainChance 255
+    	Mass 100000
+    	MONSTER 
+    	+FLOORCLIP
+        PainSound "superbaron/pain"
+    	DeathSound "superbaron/death"
+    	States
+    	{
+    	Spawn:
+        TOHE A 10 A_Look
+        Loop
+    	See:
+    		TOHE A 5 A_Chase
+    		Loop
+    	Pain:
+        	TOHE B 4
+        	TOHE B 4 A_Pain
+        	Goto See
+    	Death:
+        	TOHE B 6
+        	TOHE C 6 A_Scream
+        	TOHE DEFG 6
+        	TOHE H -1
+    }
+}
+
+//New weapon stuff by TheDarkArchon
+
+ACTOR NewPistol : Pistol replaces Pistol
+{
+	AttackSound "weapons/pistol"
+	Decal BulletChip
+	States
+	{
+	Fire:
+		PISG A 2
+		PISG A 1 A_FireCustomMissile("PisCaseSpawn",0,0,0,1)
+		PISG B 0 A_GunFlash
+		PISG B 6 A_FireBullets(4,4,1,5,"NewPuff",1)
+		PISG C 4
+		PISG B 5 A_Refire
+		Goto Ready
+	Hold:
+		PISG A 2
+		PISG A 1 A_FireCustomMissile("PisCaseSpawn",0,0,0,1)
+		PISG B 0 A_GunFlash
+		PISG B 6 A_FireBullets(4,4,1,5,"NewPuff",1)
+		PISG C 4
+		PISG B 5 A_Refire
+		Goto Ready
+	}
+}
+
+ACTOR PisCaseSpawn
+{
+	Speed 20
+	PROJECTILE
+	+NOCLIP
+	States
+	{
+	Spawn:
+		TNT1 AA 1 A_CustomMissile("PistolCasing",0,0,random(85,95),2,random(-10,10))
+		Stop
+	}
+}
+
+ACTOR PistolCasing
+{
+	Height 8
+	Radius 6
+	Speed 4
+	Scale 0.45
+	BounceFactor 0.4
+	Mass 1
+	ReactionTime 70
+	PROJECTILE
+	+DOOMBOUNCE
+	- NOGRAVITY
+	- NOBLOCKMAP
+	Seesound "weapons/case1"
+	States
+	{
+	Spawn:
+	   CAS2 A 0 A_Playsound("NULL")
+	   CAS2 ABCD 2 A_Countdown
+	   Goto Spawn+1
+	Death:
+	   CAS2 A 0 A_Jump(64,4)
+	   CAS2 A 0 A_Jump(85,4)
+	   CAS2 A 0 A_Jump(128,4)
+	   CAS2 A 350
+	   Stop
+	   CAS2 B 350
+	   Stop
+	   CAS2 C 350
+	   Stop
+	   CAS2 D 350
+	   Stop
+	}
+}
+
+ACTOR NewShotgun : Shotgun replaces Shotgun
+{
+	AttackSound "weapons/shotgf"
+	Decal BulletChip
+	States
+	{
+	Fire:
+		SHTG A 3
+		SHTG A 0 A_GunFlash
+		SHTG A 7 A_FireBullets(5.6, 0, 7, 5, "NewPuff")
+		SHTG BC 5
+		SHTG D 1
+		SHTG D 3 A_FireCustomMissile("ShotCaseSpawn",0,0,-4,-4)
+		SHTG CB 5
+		SHTG A 3
+		SHTG A 7 A_Refire
+		Goto Ready
+	Hold:
+		SHTG A 3
+		SHTG A 0 A_GunFlash
+		SHTG A 7 A_FireBullets(5,3,7,5,"NewPuff")
+		SHTG BC 5
+		SHTG D 1
+		SHTG D 3 A_FireCustomMissile("ShotCaseSpawn",0,0,-4,-4)
+		SHTG CB 5
+		SHTG A 3
+		SHTG A 7 A_Refire
+		Goto Ready
+	}
+}
+
+ACTOR NewSuperShotgun : SuperShotgun replaces SuperShotgun
+{
+	AttackSound "weapons/sshotf"
+	Decal BulletChip
+	States
+	{
+	Fire:
+	   SHT2 A 3
+	   SHT2 A 0 A_GunFlash
+	   SHT2 A 7 A_FireBullets(12,6,20,5,"NewPuff")
+	   SHT2 B 5 A_CheckReload
+	   SHT2 C 5
+	   SHT2 D 0 A_FireCustomMissile("SShotCaseSpawn",180,0,-2,2)
+	   SHT2 D 0 A_FireCustomMissile("SShotCaseSpawn",180,0,2,2)
+	   SHT2 D 5 A_PlaySound("weapons/sshoto")
+	   SHT2 E 5
+	   SHT2 K 6
+	   SHT2 F 5
+	   SHT2 G 5 A_PlaySound("weapons/sshotl")
+	   SHT2 H 5
+	   SHT2 C 5 A_PlaySound("weapons/sshotc")
+	   SHT2 B 5
+	   SHT2 A 5
+	   Goto Ready
+	Hold:
+	   SHT2 A 3
+	   SHT2 A 0 A_GunFlash
+	   SHT2 A 7 A_FireBullets(12,6,20,5,"NewPuff")
+	   SHT2 B 5 A_CheckReload
+	   SHT2 C 5
+	   SHT2 D 0 A_FireCustomMissile("SShotCaseSpawn",180,0,-2,2)
+	   SHT2 D 0 A_FireCustomMissile("SShotCaseSpawn",180,0,2,2)
+	   SHT2 D 5 A_PlaySound("weapons/sshoto")
+	   SHT2 E 5
+	   SHT2 K 6
+	   SHT2 F 5
+	   SHT2 G 5 A_PlaySound("weapons/sshotl")
+	   SHT2 H 5
+	   SHT2 C 5 A_PlaySound("weapons/sshotc")
+	   SHT2 B 5
+	   SHT2 A 5
+	   Goto Ready
+	}
+}
+
+ACTOR ShotCaseSpawn : PisCaseSpawn
+{
+	States
+	{
+	Spawn:
+		TNT1 AA 1 A_CustomMissile("ShotgunCasing",0,0,random(-95,-85),2,random(-10,10))
+		Stop
+	}
+}
+
+ACTOR SShotCaseSpawn : ShotCaseSpawn    //Placeholder
+{
+	Speed 66
+	States
+	{
+	Spawn:
+		TNT1 AA 1 A_CustomMissile("ShotgunCasing",0,0,random(-95,-85),2,random(-10,10))
+		Stop
+	}
+}
+
+ACTOR ShotgunCasing : PistolCasing
+{
+	Height 12
+	Radius 9
+	Scale 0.7
+	SeeSound "weapons/shell"
+	ReactionTime 140
+	States
+	{
+	Spawn:
+	   D3S1 A 0 A_PlaySound("NULL")
+	   D3S1 ACBHEGFD 1 A_Countdown
+	   Goto Spawn+1
+	Death:
+	   D3S1 A 0 A_Jump(32,8)
+	   D3S1 A 0 A_Jump(37,8)
+	   D3S1 A 0 A_Jump(43,8)
+	   D3S1 A 0 A_Jump(51,8)
+	   D3S1 A 0 A_Jump(64,8)
+	   D3S1 A 0 A_Jump(85,8)
+	   D3S1 A 0 A_Jump(128,8)
+	   D3S1 A 350
+	   Stop
+	   D3S1 B 350
+	   Stop
+	   D3S1 C 350
+	   Stop
+	   D3S1 D 350
+	   Stop
+	   D3S1 E 350
+	   Stop
+	   D3S1 F 350
+	   Stop
+	   D3S1 G 350
+	   Stop
+	   D3S1 H 350
+	   Stop
+	}
+}
+
+ACTOR NewChaingun : Chaingun replaces Chaingun
+{
+	attacksound "weapons/chngun"
+	Decal BulletChip
+	States
+	{
+	Fire:
+	   CHGG A 0 A_GunFlash
+	   CHGG A 0 A_FireCustomMissile("PisCaseSpawn",0,0,-6,-8)
+	   CHGG A 4 A_FireBullets(4,4,1,5,"NewPuff",1)
+	   CHGG A 0 A_JumpIfNoAmmo(3)
+	   CHGG B 0 A_FireCustomMissile("PisCaseSpawn",0,0,-6,-8)
+	   CHGG B 4 A_FireBullets(4,4,1,5,"NewPuff",1)
+	   CHGG B 0 A_Refire
+	   Goto Ready
+	Hold:
+	   CHGG A 0 A_GunFlash
+	   CHGG A 0 A_FireCustomMissile("PisCaseSpawn",0,0,-6,-8)
+	   CHGG A 4 A_FireBullets(4,4,1,5,"NewPuff",1)
+	   CHGG A 0 A_JumpIfNoAmmo(3)
+	   CHGG B 0 A_FireCustomMissile("PisCaseSpawn",0,0,-6,-8)
+	   CHGG B 4 A_FireBullets(4,4,1,5,"NewPuff",1)
+	   CHGG B 0 A_Refire
+	   Goto Ready
+	Flash:
+	   CHGF A 5 BRIGHT A_Light1
+	   CHGF A 0 BRIGHT A_JumpIfNoAmmo(2)
+	   CHGF B 5 BRIGHT A_Light2
+	   TNT1 B 0 BRIGHT A_Light0
+	   Stop
+	}
+}
+
+ACTOR NewPuff : BulletPuff
+{
+	Alpha 1.0
+	Mass 1
+	States
+	{
+	Spawn:
+	Melee:
+	    PUFF A 2
+	    PUFF A 0 A_Jump(128,2)
+	    PUFF A 2 A_SpawnItem("Puff2")
+	    PUFF BCD 4
+	    Stop
+	}
+}
+
+ACTOR Puff2
+{
+	PROJECTILE
+	+NOCLIP
+	Mass 1
+	States
+	{
+	Spawn:
+		PUFF E 2
+		PUFF E 2 A_PlaySound("puff/ric")
+		PUFF FGH 4
+		Stop
+	}
+}
+
+ACTOR BlankPuff
+{
+	+NOCLIP
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		Stop
+	}
+}
+
+
+
+ACTOR Rifle : Weapon replaces BFG9000
+{
+	Weapon.AmmoType "RifleAmmo"
+	Weapon.AmmoGive 10
+	Weapon.AmmoUse 1
+	Inventory.PickupMessage "You got the Rifle"
+	Inventory.PickupSound "misc/w_pkup"
+    Weapon.SelectionOrder 50
+    Weapon.Kickback 150
+    AttackSound "weapons/rifle"
+    States
+    {
+    Spawn:
+    	RIFL A -1
+    	Loop
+    Select:
+    	RIFG A 1 A_Raise
+    	Loop
+    Deselect:
+    	RIFG A 1 A_Lower
+    	Loop
+    Ready:
+    	RIFG A 1 A_WeaponReady
+    	Loop
+    Fire:
+    	RIFG A 0 A_GunFlash
+    	RIFG A 0 A_FireCustomMissile("RifCaseSpawn",0,0,2,-2)
+    	RIFG A 0 A_FireBullets(0,0,9,10,"BlankPuff",0)
+    	RIFG A 4 A_FireBullets(0,0,1,10,"NewPuff",1)
+    	RIFG BCDCB 2
+    	RIFG A 3
+    	RIFG A 0 A_Refire
+    	Goto Ready
+    Flash:
+    	RIFF A 2 BRIGHT A_Light1
+    	RIFF B 2 BRIGHT A_Light2
+    	TNT1 A 0 A_Light0
+    	Stop
+    }
+}
+
+ACTOR RifleAmmo : Ammo replaces Cell
+{
+	Inventory.Amount 5
+	Inventory.MaxAmount 75
+	Ammo.BackpackAmount 5
+	Ammo.BackpackMaxAmount 150
+	Inventory.Icon RIFAB0
+	Inventory.PickupMessage "Picked up some rifle cartridges"
+	Inventory.PickupSound "misc/i_pkup"
+	States
+	{
+	Spawn:
+		RIFA A -1
+		Loop
+	}
+}
+
+ACTOR RifleBox : RifleAmmo replaces CellPack
+{
+	Inventory.Amount 25
+	Inventory.PickupMessage "Picked up a box of rifle cartridges"
+	States
+	{
+	Spawn:
+		RIFP A -1
+		Loop
+	}
+}
+
+ACTOR RifCaseSpawn : PisCaseSpawn
+{
+	States
+	{
+	Spawn:
+		TNT1 AA 1 A_CustomMissile("RifleCasing",0,0,random(-95,-85),2,random(-10,10))
+		Stop
+	}
+}
+
+ACTOR RifleCasing : PistolCasing
+{
+	BounceFactor 0.5
+	Seesound "weapons/case2"
+	ReactionTime 140
+	States
+	{
+	Spawn:
+	   CAS7 A 0 A_Playsound("NULL")
+	   CAS7 A 1
+	   CAS7 A 1 A_Countdown
+	   CAS7 B 1
+	   CAS7 B 1 A_Countdown
+	   CAS7 C 1
+	   CAS7 C 1 A_Countdown
+	   CAS7 D 1
+	   CAS7 D 1 A_Countdown
+	   Goto Spawn+1
+	Death:
+	   CAS7 A 0 A_Jump(43,6)
+	   CAS7 A 0 A_Jump(51,6)
+	   CAS7 A 0 A_Jump(64,6)
+	   CAS7 A 0 A_Jump(85,6)
+	   CAS7 A 0 A_Jump(128,6)
+	   CAS7 A 350
+	   Stop
+	   CAS7 B 350
+	   Stop
+	   CAS7 C 350
+	   Stop
+	   CAS7 D 350
+	   Stop
+	   CAS7 E 350
+	   Stop
+	   CAS7 F 350
+	   Stop
+	}
+}
+
+ACTOR KDiZDGrenadeLauncher : Weapon replaces PlasmaRifle
+{
+	Weapon.AmmoType "RocketAmmo"
+	Weapon.AmmoGive 2
+	Weapon.AmmoUse 1
+	Weapon.AmmoType2 "RocketAmmo"
+	Weapon.AmmoUse2 1
+	Inventory.PickupMessage "You got the Grenade Launcher!"
+	Inventory.PickupSound "misc/w_pkup"
+	Weapon.SelectionOrder 2600
+	Weapon.Kickback 600
+	States
+	{
+	Spawn:
+		GLAU A -1
+		Loop
+	Select:
+		GLAG A 1 A_Raise
+		Loop
+	Deselect:
+		GLAG A 1 A_Lower
+		Loop
+	Ready:
+		GLAG A 1 A_WeaponReady
+		Loop
+	Fire:
+		GLAG B 0 BRIGHT A_GunFlash
+		GLAG B 0 BRIGHT A_PlaySound("weapons/grenadefire")
+		GLAG B 4 BRIGHT A_FireCustomMissile("KDiZDGrenade",0,1,0,0)
+		GLAG I 4
+		GLAG A 0 A_CheckReload //I can't believe I forgot this.
+		GLAG C 7
+		GLAG D 5
+		GLAG E 5 A_PlaySound("weapons/sshoto")
+		GLAG F 5
+		GLAG G 5 A_FireCustomMissile("GrnCaseSpawn",0,0,-4,-4)
+		GLAG H 5 A_PlaySound("weapons/sshotl")
+		GLAG FE 5
+		GLAG D 5 A_PlaySound("weapons/sshotc")
+		GLAG A 3
+		GLAG A 0 A_Refire
+		Goto Ready
+	AltFire:
+		GLAG B 0 BRIGHT A_GunFlash
+		GLAG B 0 BRIGHT A_PlaySound("weapons/grenadefire")
+		GLAG B 4 BRIGHT A_FireCustomMissile("KDiZDGrenade2",0,1,0,0)
+		GLAG I 4
+		GLAG A 0 A_CheckReload //I can't believe I forgot this.
+		GLAG C 7
+		GLAG D 5
+		GLAG E 5 A_PlaySound("weapons/sshoto")
+		GLAG F 5
+		GLAG G 5 A_FireCustomMissile("GrnCaseSpawn",0,0,-4,-4)
+		GLAG H 5 A_PlaySound("weapons/sshotl")
+		GLAG FE 5
+		GLAG D 5 A_PlaySound("weapons/sshotc")
+		GLAG A 3
+		GLAG A 0 A_Refire
+		Goto Ready
+     Flash:
+    	TNT1 A 2 BRIGHT A_Light1
+    	TNT1 A 2 BRIGHT A_Light2
+    	TNT1 A 0 A_Light0
+    	Stop
+	}
+}
+
+
+ACTOR GrnCaseSpawn : PisCaseSpawn
+{
+	States
+	{
+	Spawn:
+		TNT1 AA 1 A_CustomMissile("GrenadeCasing",0,0,random(95,85),2,random(-10,10))
+		Stop
+	}
+}
+
+ACTOR GrenadeCasing : PistolCasing
+{
+	BounceFactor 0.6
+	Scale 0.55
+	Seesound "weapons/shell"
+	ReactionTime 140
+	States
+	{
+	Spawn:
+	   CAS6 A 0 A_Playsound("NULL")
+	   CAS6 A 1
+	   CAS6 A 1 A_Countdown
+	   CAS6 B 1
+	   CAS6 B 1 A_Countdown
+	   CAS6 C 1
+	   CAS6 C 1 A_Countdown
+	   CAS6 D 1
+	   CAS6 D 1 A_Countdown
+	   Goto Spawn+1
+	Death:
+	   CAS6 A 0 A_Jump(43,6)
+	   CAS6 A 0 A_Jump(51,6)
+	   CAS6 A 0 A_Jump(64,6)
+	   CAS6 A 0 A_Jump(85,6)
+	   CAS6 A 0 A_Jump(128,6)
+	   CAS6 A 350
+	   Stop
+	   CAS6 B 350
+	   Stop
+	   CAS6 C 350
+	   Stop
+	   CAS6 D 350
+	   Stop
+	   CAS6 E 350
+	   Stop
+	   CAS6 F 350
+	   Stop
+	}
+}
+
+ACTOR KDiZDGrenade // replaces PlasmaBall
+{
+	Radius 11
+	Height 8
+	Speed 20
+
+	Damage (15*random(1,16))
+	PROJECTILE
+	+DOOMBOUNCE
+	-NOGRAVITY
+	+EXPLODEONWATER
+	BounceFactor 0.8
+	BounceCount 6
+	Seesound "weapons/grenadebounce"
+	Deathsound "weapons/rocklx"
+	States
+	{
+	Spawn:
+		GRND A 1
+		GRND A 0 ThrustThingZ(0, 8, 0, 0)
+		GRND A 1 A_CustomMissile("GrenadePuff", 3, 0, 0, 1)
+		Wait
+	Death:
+		MISL B 0 BRIGHT A_NoGravity
+		MISL B 0 BRIGHT A_SetTranslucent(0.5,1)
+		MISL B 8 BRIGHT A_Explode(256,160,1)
+		MISL C 6 BRIGHT
+		MISL D 4 BRIGHT
+		Stop
+	}
+}
+
+ACTOR KDiZDGrenade2
+{
+	Radius 11
+	Height 8
+	Speed 35
+	Damage (15*random(1,16))
+	PROJECTILE
+	+HEXENBOUNCE
+	-NOGRAVITY
+	+EXPLODEONWATER
+	BounceFactor 0.8
+	BounceCount 6
+	ReactionTime 139
+	Seesound "weapons/grenadebounce"
+	Deathsound "weapons/rocklx"
+	States
+	{
+	Spawn:
+		GRND A 0 A_CountDown
+		GRND A 1 A_CustomMissile("GrenadePuff", 3, 0, 0, 1)
+		Loop
+	Death:
+		MISL B 0 BRIGHT A_NoGravity
+		MISL B 0 BRIGHT A_SetTranslucent(0.5,1)
+		MISL B 8 BRIGHT A_Explode(256,160,1)
+		MISL C 6 BRIGHT
+		MISL D 4 BRIGHT
+		Stop
+	}
+}
+
+ACTOR GrenadePuff : BulletPuff
+{
+	States
+	{
+		Spawn:
+		   PUFF ABCD 4
+		   Stop
+	}
+}
