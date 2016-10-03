@@ -177,7 +177,7 @@ GibsHead1NoEye
 {
 	//$Category Decoration
 DoomEdNum 3018
-Sprite HED1
+Sprite HHD1
 Frames "A"
 Radius 32
 Height 16
@@ -187,7 +187,7 @@ GibsHead2Smiling
 {
 	//$Category Decoration
 DoomEdNum 3019
-Sprite HED2
+Sprite HHD2
 Frames "A"
 Radius 32
 Height 16
@@ -197,7 +197,7 @@ GibsHead3HalfFace
 {
 	//$Category Decoration
 DoomEdNum 3020
-Sprite HED3
+Sprite HHD3
 Frames "A"
 Radius 32
 Height 16
@@ -207,7 +207,7 @@ GibsHead4Negro
 {
 	//$Category Decoration
 DoomEdNum 3021
-Sprite HED4
+Sprite HHD4
 Frames "A"
 Radius 32
 Height 16
@@ -433,7 +433,7 @@ Bubbles
 FireSmallBlue
 {
 	//$Category Decoration
-Sprite FRB1
+Sprite FSB1
 Frames "A*B*C*D*"
 Height 40
 Radius 8
@@ -445,7 +445,7 @@ DoomEdNum 3355
 FireSmallGreen
 {
 	//$Category Decoration
-Sprite FRG1
+Sprite FSG1
 Frames "A*B*C*D*"
 Height 40
 Radius 8
@@ -457,7 +457,7 @@ DoomEdNum 3356
 FireSmallRed
 {
 	//$Category Decoration
-Sprite FRR1
+Sprite FSR1
 Frames "A*B*C*D*"
 Height 40
 Radius 8
@@ -469,7 +469,7 @@ DoomEdNum 3357
 FireSmallYellow
 {
 	//$Category Decoration
-Sprite FRY1
+Sprite FSY1
 Frames "A*B*C*D*"
 Height 40
 Radius 8
@@ -481,7 +481,7 @@ DoomEdNum 3358
 FireLargeBlue
 {
 	//$Category Decoration
-Sprite FRB2
+Sprite FLB1
 Frames "A*B*C*"
 Height 128
 Radius 64
@@ -493,7 +493,7 @@ DoomEdNum 3359
 FireLargeGreen
 {
 	//$Category Decoration
-Sprite FRG2
+Sprite FLG1
 Frames "A*B*C*"
 Height 128
 Radius 64
@@ -505,7 +505,7 @@ DoomEdNum 3360
 FireLargeRed
 {
 	//$Category Decoration
-Sprite FRR2
+Sprite FLR1
 Frames "A*B*C*"
 Height 128
 Radius 64
