@@ -837,150 +837,305 @@ ACTOR NightmareWisp
 	}
 }
 
-//===========================================================================
-//
-// RapidFireTrooper
-//
-// created by: Graf Zahl
-// New sprites by: Nmn
-//
-//===========================================================================
-
 ACTOR RapidFireTrooper 3201
 {
-	//$Category Monsters
-   Health 30
-   Radius 20
-   Height 56
-   Speed 8
-   PainChance 200
-   MONSTER 
-   +FLOORCLIP
-   DropItem Clip
-   SeeSound "grunt/sight"
-   AttackSound "grunt/attack"
-   PainSound "grunt/pain"
-   DeathSound "grunt/death"
-   ActiveSound "grunt/active"
-   Obituary "%o was surprised by the Rapid Assault Zombieman's weaponry." 
-   Decal BulletChip
-   States 
-   { 
-   Spawn: 
-      RFTR AB 10 A_Look 
-      Loop 
-   See: 
-      RFTR AABBCCDD 4 A_Chase 
-      Loop 
-   Missile: 
-      RFTR E 10 A_FaceTarget 
-      RFTR F 5 Bright A_PosAttack 
-      RFTR E 5 A_CPosRefire 
-      Goto Missile+1 
-   Pain: 
-      RFTR G 3 
-      RFTR G 3 A_Pain 
-      Goto See 
-   Death: 
-      RFTR H 5 
-      RFTR I 5 A_Scream 
-      RFTR J 5 A_Fall 
-      RFTR K 5 
-      RFTR L -1 
-      Stop
-    XDeath:
-      RFTR M 5
-      RFTR N 5 A_XScream
-      RFTR N 5
-      RFTR P 5 A_Fall
-      RFTR QRST 5
-      RFTR U -1
-      Stop
-   Raise: 
-      RFTR KJ 5 
-      RFTR IH 5 
-      Goto See 
-   } 
-} 
+  //$Angled
+  //$Color 12
+  //$Category "KDIZD Monsters"
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
+  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+  var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+  Health 30
+  Radius 20
+  Height 56
+  Speed 8
+  PainChance 200
+  MONSTER 
+  +FLOORCLIP
+  DropItem Clip
+  SeeSound "grunt/sight"
+  AttackSound "grunt/attack"
+  PainSound "grunt/pain"
+  DeathSound "grunt/death"
+  ActiveSound "grunt/active"
+  Obituary "%o was surprised by the Rapid Assault Zombieman's weaponry." 
+  Decal BulletChip
+  States 
+  { 
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Munchies/Charmed"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See  Pain.Heal1: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,0); } Goto See  Pain.Heal2: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,1); } Goto See  Pain.Heal3: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,2); } Goto See  Pain.Heal4: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,3); } Goto See Goto See
+  Spawn: 
+    RFTR A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    RFTR AB 10 A_Look 
+    Loop 
+  See: 
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
+    RFTR AABBCCDD 4 A_Chase 
+    Loop 
+  Missile: 
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    RFTR E 10 A_FaceTarget 
+    RFTR E 0 A_PlaySound ("grunt/attack")
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckHitscanType") == 0, "HitscanBullet")
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckHitscanType") == 1, "TracerBullet")
 
-//===========================================================================
-//
-// Rifle Zombie
-// By TheDarkArchon
-// Sprites by Tormentor667 (Modified by TheDarkArchon)
-//
-//===========================================================================
+   HitscanBullet:
+     RFTR F 0
+	 { 
+	  if(health <= user_HPLowRange)
+	  {
+	   if(health <= user_HPCritRange)
+	   {
+        A_PlaySound("crisisattack",6);
+        A_PlaySound("crisisattack2",7);
+	    A_CustomBulletAttack(22.4, 0, 1, ((random(1,5) * 3) * ACS_NamedExecuteWithResult("CrisisMultiplier")), "BulletPuff", 0, CBAF_NORANDOM);
+	   }
+	   else
+	   {
+	    if (random(1,4) == 4)
+		{
+         A_PlaySound("crisisattack",6);
+         A_PlaySound("crisisattack2",7);
+	     A_CustomBulletAttack(22.4, 0, 1, ((random(1,5) * 3) * ACS_NamedExecuteWithResult("CrisisMultiplier")), "BulletPuff", 0, CBAF_NORANDOM);
+		}
+		else
+		{
+	     A_CustomBulletAttack(22.4, 0, 1, random(1,5) * 3, "BulletPuff", 0, CBAF_NORANDOM);
+		}
+	   }
+	  }
+	  else
+	  {
+	   A_CustomBulletAttack(22.4, 0, 1, random(1,5) * 3, "BulletPuff", 0, CBAF_NORANDOM);
+	  }
+	 }
+     goto EndMissile
+   TracerBullet:
+     RFTR F 0
+	 {
+	  if(health <= user_HPLowRange)
+	  {
+	   if(health <= user_HPCritRange)
+	   {
+        A_PlaySound("crisisattack",6);
+        A_PlaySound("crisisattack2",7);
+	    A_CustomMissile("ZombieBulletTracerCrisis", 32, 12, frandom(-11.2,11.2));
+	   }
+	   else
+	   {
+	    if (random(1,4) == 4)
+		{
+         A_PlaySound("crisisattack",6);
+         A_PlaySound("crisisattack2",7);
+		 A_CustomMissile("ZombieBulletTracerCrisis", 32, 12, frandom(-11.2,11.2));
+		}
+		else
+		{
+	     A_CustomMissile("ZombieBulletTracer", 32, 12, frandom(-11.2,11.2));
+		}
+	   }
+	  }
+	  else
+	  {
+	   A_CustomMissile("ZombieBulletTracer", 32, 12, frandom(-11.2,11.2));
+	  }
+	 }
+     goto EndMissile
+
+
+  EndMissile:
+    RFTR F 5 Bright
+    RFTR E 5 A_CPosRefire 
+    Goto Missile+1 
+  Pain: 
+    RFTR G 3 
+    RFTR G 3 A_Pain 
+    Goto See 
+
+  Pain.GravityHP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+    Goto See
+  Pain.GravityMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+    Goto See
+  Pain.GravityHPMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+    Goto See
+  Pain.Sceptre:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 
+    Goto Pain
+  Death.Sceptre:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  Pain.Gauntlets:
+    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+    Goto Pain
+  Death.Gauntlets:
+    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  Death:
+    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    RFTR H 5 
+    RFTR I 5 A_Scream 
+    RFTR J 5 A_Fall 
+    RFTR K 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    RFTR L -1 
+    Stop
+  XDeath:
+    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    RFTR M 5
+    RFTR N 5 A_XScream
+    RFTR N 5
+    RFTR P 5 A_Fall
+    RFTR QRS 5
+    RFTR T 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    RFTR U -1
+    Stop
+  Raise: 
+    RFTR K 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    RFTR JIH 5
+    Goto See 
+  } 
+} 
 
 ACTOR RifleZombie 31657
 {
-	//$Category Monsters
-      Health 40
-      Speed 8
-      Radius 20
-      Height 56
-      Mass 100
-      PainChance 200
-      MONSTER
-      +FLOORCLIP
-      SeeSound "grunt/sight" 
-      PainSound "grunt/pain" 
-      Deathsound "grunt/death" 
-      ActiveSound "grunt/active"
-      DropItem Rifle
-      Obituary "%o was shot by a rifle zombie"
-      States
-      {
-      Spawn:
-         RPOS AB 10 A_Look
-         Loop
-      See:
-         RPOS AABBCCDD 3 A_Chase
-         Loop
-      Missile:
-         RPOS E 18 A_FaceTarget
-         RPOS F 8 A_CustomMissile ("ZombieBullet", 32, 0, 0)
-         RPOS E 5
-         Goto See
-      Pain:
-         RPOS G 2
-         RPOS G 4 A_Pain
-         Goto See
-      Death:
-         RPOS H 5
-         RPOS I 5 A_Scream
-         RPOS J 5
-         RPOS K 5 A_Fall
-         RPOS L -1
-         Stop
-      XDeath:
-         RPOS M 5 
-         RPOS N 5 A_XScream 
-         RPOS O 5 
-         RPOS P 5 A_Fall 
-         RPOS QRST 5 
-         RPOS U -1    
-         Stop 
-      }
+  //$Angled
+  //$Color 12
+  //$Category "KDIZD Monsters"
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
+  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+  var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
+  Health 40
+  Speed 8
+  Radius 20
+  Height 56
+  Mass 100
+  PainChance 200
+  MONSTER
+  +FLOORCLIP
+  SeeSound "grunt/sight" 
+  PainSound "grunt/pain" 
+  Deathsound "grunt/death" 
+  ActiveSound "grunt/active"
+  DropItem Rifle
+  Obituary "%o was shot by a rifle zombie"
+  States
+  {
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Munchies/Charmed"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See  Pain.Heal1: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,0); } Goto See  Pain.Heal2: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,1); } Goto See  Pain.Heal3: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,2); } Goto See  Pain.Heal4: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,3); } Goto See Goto See
+  Spawn:
+    RPOS A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    RPOS AB 10 A_Look
+    Loop
+  See:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
+    RPOS AABBCCDD 3 A_Chase
+    Loop
+  Missile:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    RPOS E 18 A_FaceTarget
+    RPOS F 8 A_CustomMissile ("ZombieRifleBulletTracer", 32, 0, 0)
+    RPOS E 5
+    Goto See
+  Pain:
+    RPOS G 2
+    RPOS G 4 A_Pain
+    Goto See
+
+  Pain.GravityHP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+    Goto See
+  Pain.GravityMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+    Goto See
+  Pain.GravityHPMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+    Goto See
+  Pain.Sceptre:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 
+    Goto Pain
+  Death.Sceptre:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  Pain.Gauntlets:
+    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+    Goto Pain
+  Death.Gauntlets:
+    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  Death:
+    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    RPOS H 5
+    RPOS I 5 A_Scream
+    RPOS J 5
+    RPOS K 5 A_Fall
+	RPOS K 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    RPOS L -1
+    Stop
+  XDeath:
+    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    RPOS M 5 
+    RPOS N 5 A_XScream 
+    RPOS O 5 
+    RPOS P 5 A_Fall 
+    RPOS QRS 5 
+    RPOS T 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1) 
+    RPOS U -1    
+    Stop 
+  Raise: 
+    RPOS K 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    RPOS JIH 5
+    Goto See 
+  }
 }
 
-ACTOR ZombieBullet
+ACTOR ZombieRifleBulletTracer : FastProjectile
 {
-      Speed 95
-      Damage 20
-      Radius 6
-      Height 8
-      PROJECTILE
-      +STRIFEDAMAGE
-      SeeSound "weapons/bfgf"
-      States
-      {
-      Spawn:
-         BFS1 A 1
-         Loop
-      Death:
-         PUFF ABCD 4
-         Stop
-      }
+   Damage 20
+   Damagetype "Bullet"
+   Radius 1
+   Height 1
+   Mass 5
+   Speed 95
+   PROJECTILE
+   +STRIFEDAMAGE
+   +DONTREFLECT
+   +BLOODSPLATTER
+   +NODAMAGETHRUST
+   SeeSound "weapons/rifle"
+   Renderstyle Add
+   Alpha 1.0
+   Scale 0.5
+   decal BulletChip
+   States
+   {
+   Spawn:
+      TNT1 A 0 bright
+      TNT1 A 0 bright A_SpawnItemEx("ZombieBulletTracerTrail",-15.0,0,0,0,0,0,0,128,0)
+      TNT1 A 0 bright A_SpawnItemEx("ZombieBulletTracerTrail",-12.5,0,0,0,0,0,0,128,0)
+      TNT1 A 0 bright A_SpawnItemEx("ZombieBulletTracerTrail",-10.0,0,0,0,0,0,0,128,0)
+      TNT1 A 0 bright A_SpawnItemEx("ZombieBulletTracerTrail",-7.5,0,0,0,0,0,0,128,0)
+      TNT1 A 0 bright A_SpawnItemEx("ZombieBulletTracerTrail",-5.0,0,0,0,0,0,0,128,0)
+      TNT1 A 0 bright A_SpawnItemEx("ZombieBulletTracerTrail",-2.5,0,0,0,0,0,0,128,0)
+	  TNT1 A 1 bright A_SpawnItemEx("ZombieBulletTracerTrail",0.0,0,0,0,0,0,0,128,0)
+      loop
+   XDeath:
+      TNT1 A 1 //A_SpawnItem("BulletPuff")
+      stop
+   Death:
+   Crash:
+      TNT1 A 1 A_SpawnItem("BulletPuff")
+      stop
+   }
 }
 
 actor SatyrNew 3109
@@ -1484,74 +1639,93 @@ actor SoulBallTrail
     }
 }
 
-//===========================================================================
-//
-// StoneImp
-//
-// created by: Espi 
-// death Sprites by: Vader
-//
-//===========================================================================
-
 actor StoneImp 3103
 {
-	//$Category Monsters
-    Health 180
-    Radius 20
-    Height 56
-    Speed 6
-    PainChance 50
-    Mass 400
-    MONSTER 
-    +FLOORCLIP
-    +NOBLOOD
-    +NORADIUSDMG
-    SeeSound "imp/sight"
-    PainSound "imp/pain"
-    DeathSound "imp/death"
-    ActiveSound "imp/active"
-    MeleeSound "stoneimp/hit"
-    Obituary "%o was smashed by a stone imp."
-    MeleeDamage 12
-    States
-    {
-    Spawn:
-        GIMP AB 10 A_Look
-        Loop
-    See:
-        GIMP AABBCCDD 3 A_Chase
-        Loop
-    Melee:
-        GIMP EF 8 A_FaceTarget
-        GIMP G 6 A_MeleeAttack
-        Goto See
-    Pain:
-        GIMP H 2
-        GIMP H 2 A_Pain
-        Goto See
-    Death:
-        GIMP I 6
-        GIMP J 6 A_Scream
-        GIMP K 5
-        GIMP L 5 A_Fall
-        GIMP M 5
-        GIMP N -1
-        Stop
-    Raise:
-        GIMP ML 8
-        GIMP KJI 6
-        Goto See
-    }
-}
+  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
+  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
+  var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
 
-//===========================================================================
-//
-// Magmantis 
-// by Vader
-//
-// sprites by: NMN
-//
-//===========================================================================
+  //$Category Monsters
+  Health 180
+  Radius 20
+  Height 56
+  Speed 6
+  PainChance 50
+  Mass 400
+  MONSTER 
+  +FLOORCLIP
+  +NOBLOOD
+  +NORADIUSDMG
+  SeeSound "imp/sight"
+  PainSound "imp/pain"
+  DeathSound "imp/death"
+  ActiveSound "imp/active"
+  MeleeSound "stoneimp/hit"
+  Obituary "%o was smashed by a stone imp."
+  MeleeDamage 12
+  States
+  {
+  Pain.Charm: TNT1 A 0 { A_PlaySound("Munchies/Charmed"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See  Pain.Heal1: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,0); } Goto See  Pain.Heal2: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,1); } Goto See  Pain.Heal3: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,2); } Goto See  Pain.Heal4: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,3); } Goto See Goto See
+  Spawn:
+    GIMP A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    GIMP AB 10 A_Look
+    Loop
+  See:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
+    GIMP AABBCCDD 3 A_Chase
+    Loop
+  Melee:
+    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+    GIMP EF 8 A_FaceTarget
+    GIMP G 6 A_MeleeAttack
+    Goto See
+  Pain:
+    GIMP H 2
+    GIMP H 2 A_Pain
+    Goto See
+
+  Pain.GravityHP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
+    Goto See
+  Pain.GravityMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
+    Goto See
+  Pain.GravityHPMP:
+    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
+    Goto See
+  Pain.Sceptre:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 
+    Goto Pain
+  Death.Sceptre:
+    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
+    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  Pain.Gauntlets:
+    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
+    Goto Pain
+  Death.Gauntlets:
+    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
+    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
+    Goto Death
+  Death:
+    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+    GIMP I 6
+    GIMP J 6 A_Scream
+    GIMP K 5
+    GIMP L 5 A_Fall
+    GIMP M 5 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    GIMP N -1
+    Stop
+  Raise:
+    GIMP M 8 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    GIMP L 8
+    GIMP KJI 6
+    Goto See
+  }
+}
 
 ACTOR Magmantis 26660
 {
@@ -1587,6 +1761,7 @@ ACTOR Magmantis 26660
 	DGRD H 3 A_Look
    	Wait
   See:
+    DGRD I 0 Thing_ChangeTID(0,1222)
     DGRD I 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
 	DGRD IJKL 8 A_Chase 
     Loop
