@@ -3474,102 +3474,117 @@ actor KDIZDWeapon : Weapon
 
 ACTOR EvilWarriorShield : KDIZDWeapon
 {
-	Radius 8
-	Height 8
-	Speed 6
-	Weapon.SlotNumber 9
-	Weapon.SlotPriority 0.5
-	Weapon.BobSpeed 2.0
-	Weapon.BobStyle Alpha
-	Weapon.KickBack 190
-	Weapon.UpSound "weapons/evilwarriorshield/up"
-	Inventory.PickupMessage "You got the Hell Warrior's Shield!"
-	Obituary "%o was ripped apart by %k's Shield."
-	BounceType Doom
-	+WEAPON.NOALERT
-	+DROPOFF
-	Tag "Hell Warrior's Shield"
-	States
+  Radius 8
+  Height 8
+  Speed 6
+  Weapon.SlotNumber 9
+  Weapon.SlotPriority 0.5
+  Weapon.BobSpeed 2.0
+  Weapon.BobStyle Alpha
+  Weapon.KickBack 0
+  //Weapon.UpSound "weapons/evilwarriorshield/up"
+  Inventory.PickupMessage "You got the Hell Warrior's Shield!"
+  Obituary "%o was ripped apart by %k's Shield."
+  BounceType Doom
+  +WEAPON.NOALERT
+  +DROPOFF
+  Tag "Hell Warrior's Shield"
+  States
+  {
+  Ready:
+	EWSP D 1 A_WeaponReady(WRF_ALLOWUSER1)
+	Goto Ready
+  Select:
+	EWSP DDD 0 A_Raise
+	EWSP D 1 A_Raise
+	Loop
+  Deselect:
+	EWSP DDD 0 A_Lower
+	EWSP D 1 A_Lower
+	Loop
+  Fire:
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseManaAttack",2,2) == 0, "Ready")
+	EWSP D 2 Bright
 	{
-	Ready:
-		EWSP D 1 A_WeaponReady(WRF_ALLOWUSER1)
-		Goto Ready
-	Select:
-		EWSP DDD 0 A_Raise
-		EWSP D 1 A_Raise
-		Loop
-	Deselect:
-		EWSP DDD 0 A_Lower
-		EWSP D 1 A_Lower
-		Loop
-	Fire:
-        TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseManaAttack",2,2) == 0, "Ready")
-		EWSP D 2 Bright
-		{
-		 A_ChangeFlag("NOPAIN", 1);
-		 A_ChangeFlag("NODAMAGE", 1);
-	 	 A_ChangeFlag("REFLECTIVE", 1);
- 	  	 A_ChangeFlag("SHIELDREFLECT", 1);
-		}
-		EWSP C 2 Bright
-		EWSP B 2 Bright
-		EWSP A 6 Bright
-		EWSP A 2 Bright
-		{
-   	     ACS_NamedExecuteAlways("StartTensionCountDown");
-   	     if (random(1,8) == 1) { A_AlertMonsters; }
-		 A_SetPitch(pitch - 0.5);
-		 A_Recoil(0.5);
-         A_FireCustomMissile("EvilWarriorShieldBall", 0, 1, 0, 3);
-	    }
-		EWSP A 6 Bright
-		EWSP B 2 Bright
-		EWSP C 2 Bright
-		EWSP D 2 Bright
-		{
-		 A_ChangeFlag("NOPAIN", 0);
-		 A_ChangeFlag("NODAMAGE", 0);
-	 	 A_ChangeFlag("REFLECTIVE", 0);
- 	  	 A_ChangeFlag("SHIELDREFLECT", 0);
-		}
-		Goto Ready
-	AltFire:
-		EWSP D 2
-		{
-		 A_ChangeFlag("NOPAIN", 1);
-		 A_ChangeFlag("NODAMAGE", 1);
-	 	 A_ChangeFlag("REFLECTIVE", 1);
- 	  	 A_ChangeFlag("SHIELDREFLECT", 1);
-		}
-		EWSP E 2
-		EWSP F 2
-    AltHold:
-		EWSP G 2 BRIGHT
-		EWSP G 0 A_Refire("AltHold")
-		goto AltEnd
-    AltEnd:
-		EWSP F 2
-		EWSP E 2
-		EWSP D 2
-		{
-		 A_ChangeFlag("NOPAIN", 0);
-		 A_ChangeFlag("NODAMAGE", 0);
-	 	 A_ChangeFlag("REFLECTIVE", 0);
- 	  	 A_ChangeFlag("SHIELDREFLECT", 0);
-		}
-		Goto Ready
-	Spawn:
-		EWSH ABCDEFGH 3
-		Goto Spawn2
-	Spawn2:
-		EWSH I -1
-		Stop
-	NoAmmo:
-		EWSP A 4
-		TNT1 A 0 A_PlaySound("weapons/monsterarms/empty")
-		EWSP A 8
-		Goto Ready
+	 A_ChangeFlag("NOPAIN", 1);
+	 A_ChangeFlag("NODAMAGE", 1);
+	 A_ChangeFlag("REFLECTIVE", 1);
+ 	 A_ChangeFlag("SHIELDREFLECT", 1);
 	}
+	EWSP C 2 Bright
+	EWSP B 2 Bright
+	EWSP A 6 Bright
+	EWSP A 2 Bright
+	{
+   	 ACS_NamedExecuteAlways("StartTensionCountDown");
+	 if (CountInv("SpreaderAura2",AAPTR_PLAYER1) > 0)
+	 {
+      A_FireCustomMissile("EvilWarriorShieldBall",15,0,0,0,0,0); // Left
+      A_FireCustomMissile("EvilWarriorShieldBall",7.5,0,0,0,0,7.5); // Left-Top
+      A_FireCustomMissile("EvilWarriorShieldBall",7.5,0,0,0,0,-7.5); // Left-Bottom
+      A_FireCustomMissile("EvilWarriorShieldBall",0,0,0,0,0,0); // Center
+      A_FireCustomMissile("EvilWarriorShieldBall",-7.5,0,-0,0,0,-7.5); // Right-Bottom
+      A_FireCustomMissile("EvilWarriorShieldBall",-7.5,0,0,0,0,7.5); // Right-Top
+      A_FireCustomMissile("EvilWarriorShieldBall",-15,0,0,0,0,0); // Right
+	 }
+	 else
+	 if (CountInv("SpreaderAura1",AAPTR_PLAYER1) > 0)
+	 {
+      A_FireCustomMissile("EvilWarriorShieldBall", 15, 1, 0, 3);
+      A_FireCustomMissile("EvilWarriorShieldBall",  0, 1, 0, 3);
+      A_FireCustomMissile("EvilWarriorShieldBall",-15, 1, 0, 3);
+	 }
+	 else
+	 {
+      A_FireCustomMissile("EvilWarriorShieldBall", 0, 1, 0, 3);
+	 }
+     if (random(1,8) == 1) { A_AlertMonsters; }
+     A_SetPitch(pitch - 0.5);
+	 A_Recoil(0.5);
+	}
+	EWSP A 6 Bright
+	EWSP B 2 Bright
+	EWSP C 2 Bright
+	EWSP D 2 Bright
+	{
+	 A_ChangeFlag("NOPAIN", 0);
+	 A_ChangeFlag("NODAMAGE", 0);
+	 A_ChangeFlag("REFLECTIVE", 0);
+ 	 A_ChangeFlag("SHIELDREFLECT", 0);
+	}
+	Goto Ready
+  AltFire:
+	EWSP D 2
+	{
+	 A_ChangeFlag("NOPAIN", 1);
+	 A_ChangeFlag("NODAMAGE", 1);
+	 A_ChangeFlag("REFLECTIVE", 1);
+ 	 A_ChangeFlag("SHIELDREFLECT", 1);
+	}
+	EWSP E 2
+	EWSP F 2
+  AltHold:
+	EWSP G 2 BRIGHT
+	EWSP G 0 A_Refire("AltHold")
+	goto AltEnd
+  AltEnd:
+	EWSP F 2
+	EWSP E 2
+	EWSP D 2
+	{
+	 A_ChangeFlag("NOPAIN", 0);
+	 A_ChangeFlag("NODAMAGE", 0);
+	 A_ChangeFlag("REFLECTIVE", 0);
+ 	 A_ChangeFlag("SHIELDREFLECT", 0);
+	}
+	Goto Ready
+  Spawn:
+	EWSH ABCDEFGH 3
+	Goto Spawn2
+  Spawn2:
+	EWSH I -1
+	Stop
+  }
 }
 
 ACTOR EvilWarriorShieldBall
