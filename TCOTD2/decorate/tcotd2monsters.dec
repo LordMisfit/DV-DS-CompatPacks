@@ -675,11 +675,25 @@ ACTOR NightmareNew : KDiZDNightmare replaces KDiZDNightmare 26000
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; // For checking if a monster has been given Skill/Map inventory items yet.
   health 175 // 100
-  
   PainChance 144
   Painchance "Fist", 216 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 216 // Fist attacks have a +50% chance of stunning an enemy
+  Radius 20
+  Height 56
+  Speed 15
+  MONSTER 
+  +FLOORCLIP
+  +STEALTH
+  RenderStyle Add
+  Alpha 0.4
+  SeeSound "nightmare/sight"
+  PainSound "nightmare/pain"
+  DeathSound "nightmare/death"
+  ActiveSound "nightmare/active"
+  MeleeSound "nightmare/melee"
+  HitObituary "%o was tormented by a nightmare."
+  MeleeDamage 4
 
   states
   {

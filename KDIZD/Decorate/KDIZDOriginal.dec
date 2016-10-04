@@ -3060,48 +3060,61 @@ ACTOR BlankPuff
 }
 
 
-ACTOR Rifle : Weapon // replaces BFG9000
+ACTOR Rifle : Weapon 31407 // replaces BFG9000
 {
-	Weapon.AmmoType "RifleAmmo"
-	Weapon.AmmoGive 10
-	Weapon.AmmoUse 1
-	Inventory.PickupMessage "You got the Rifle"
-	Inventory.PickupSound "misc/w_pkup"
-    Weapon.SelectionOrder 50
-    Weapon.Kickback 150
-    AttackSound "weapons/rifle"
-    States
-    {
-    Spawn:
-    	RIFL A -1
-    	Loop
-    Select:
-    	RIFG A 1 A_Raise
-    	Loop
-    Deselect:
-    	RIFG A 1 A_Lower
-    	Loop
-    Ready:
-    	RIFG A 1 A_WeaponReady
-    	Loop
-    Fire:
-    	RIFG A 0 A_GunFlash
-    	RIFG A 0 A_FireCustomMissile("RifCaseSpawn",0,0,2,-2)
-    	RIFG A 0 A_FireBullets(0,0,9,10,"BlankPuff",0)
-    	RIFG A 4 A_FireBullets(0,0,1,10,"NewPuff",1)
-    	RIFG BCDCB 2
-    	RIFG A 3
-    	RIFG A 0 A_Refire
-    	Goto Ready
-    Flash:
-    	RIFF A 2 BRIGHT A_Light1
-    	RIFF B 2 BRIGHT A_Light2
-    	TNT1 A 0 A_Light0
-    	Stop
-    }
+  Weapon.AmmoType "RifleAmmo"
+  Weapon.AmmoGive 10
+  Weapon.AmmoUse 1
+  Inventory.PickupMessage "You got the Rifle"
+  Inventory.PickupSound "misc/w_pkup"
+  Weapon.SelectionOrder 50
+  Weapon.Kickback 150
+  AttackSound "weapons/rifle"
+  States
+  {
+  FloraDetected: // bonus will be turned into something else
+    TNT1 A 0 A_SpawnItemEx("RandomHellcoreWeapon",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_NOCHECKPOSITION | SXF_TRANSFERSPECIAL,0,tid)
+    TNT1 A 0 A_FadeOut(1.0)
+    Loop
+
+  Spawn:
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+  Idle:
+  	RIFL A -1
+   	Loop
+
+  Select:
+    RIFG A 1 A_Raise
+   	Loop
+  Deselect:
+   	RIFG A 1 A_Lower
+   	Loop
+  Ready:
+   	RIFG A 1 A_WeaponReady
+   	Loop
+  Fire:
+   	RIFG A 0 A_GunFlash
+   	RIFG A 0 A_FireCustomMissile("RifCaseSpawn",0,0,2,-2)
+   	RIFG A 0 A_FireBullets(0,0,9,10,"BlankPuff",0)
+   	RIFG A 4 A_FireBullets(0,0,1,10,"NewPuff",1)
+   	RIFG BCDCB 2
+   	RIFG A 3
+   	RIFG A 0 A_Refire
+   	Goto Ready
+  Flash:
+   	RIFF A 2 BRIGHT A_Light1
+   	RIFF B 2 BRIGHT A_Light2
+   	TNT1 A 0 A_Light0
+   	Stop
+  }
 }
 
-ACTOR RifleAmmo : Ammo // replaces Cell
+ACTOR RifleAmmo : Ammo 31408 // replaces Cell
 {
 	Inventory.Amount 5
 	Inventory.MaxAmount 75
@@ -3118,7 +3131,7 @@ ACTOR RifleAmmo : Ammo // replaces Cell
 	}
 }
 
-ACTOR RifleBox : RifleAmmo // replaces CellPack
+ACTOR RifleBox : RifleAmmo 31409 // replaces CellPack
 {
 	Inventory.Amount 25
 	Inventory.PickupMessage "Picked up a box of rifle cartridges"
@@ -3179,71 +3192,84 @@ ACTOR RifleCasing : PistolCasing
 	}
 }
 
-ACTOR KDiZDGrenadeLauncher : Weapon // replaces PlasmaRifle
+ACTOR KDiZDGrenadeLauncher : Weapon 31410 // replaces PlasmaRifle
 {
-	Weapon.AmmoType "RocketAmmo"
-	Weapon.AmmoGive 2
-	Weapon.AmmoUse 1
-	Weapon.AmmoType2 "RocketAmmo"
-	Weapon.AmmoUse2 1
-	Inventory.PickupMessage "You got the Grenade Launcher!"
-	Inventory.PickupSound "misc/w_pkup"
-	Weapon.SelectionOrder 2600
-	Weapon.Kickback 600
-	States
-	{
-	Spawn:
-		GLAU A -1
-		Loop
-	Select:
-		GLAG A 1 A_Raise
-		Loop
-	Deselect:
-		GLAG A 1 A_Lower
-		Loop
-	Ready:
-		GLAG A 1 A_WeaponReady
-		Loop
-	Fire:
-		GLAG B 0 BRIGHT A_GunFlash
-		GLAG B 0 BRIGHT A_PlaySound("weapons/grenadefire")
-		GLAG B 4 BRIGHT A_FireCustomMissile("KDiZDGrenade",0,1,0,0)
-		GLAG I 4
-		GLAG A 0 A_CheckReload //I can't believe I forgot this.
-		GLAG C 7
-		GLAG D 5
-		GLAG E 5 A_PlaySound("weapons/sshoto")
-		GLAG F 5
-		GLAG G 5 A_FireCustomMissile("GrnCaseSpawn",0,0,-4,-4)
-		GLAG H 5 A_PlaySound("weapons/sshotl")
-		GLAG FE 5
-		GLAG D 5 A_PlaySound("weapons/sshotc")
-		GLAG A 3
-		GLAG A 0 A_Refire
-		Goto Ready
-	AltFire:
-		GLAG B 0 BRIGHT A_GunFlash
-		GLAG B 0 BRIGHT A_PlaySound("weapons/grenadefire")
-		GLAG B 4 BRIGHT A_FireCustomMissile("KDiZDGrenade2",0,1,0,0)
-		GLAG I 4
-		GLAG A 0 A_CheckReload //I can't believe I forgot this.
-		GLAG C 7
-		GLAG D 5
-		GLAG E 5 A_PlaySound("weapons/sshoto")
-		GLAG F 5
-		GLAG G 5 A_FireCustomMissile("GrnCaseSpawn",0,0,-4,-4)
-		GLAG H 5 A_PlaySound("weapons/sshotl")
-		GLAG FE 5
-		GLAG D 5 A_PlaySound("weapons/sshotc")
-		GLAG A 3
-		GLAG A 0 A_Refire
-		Goto Ready
-     Flash:
-    	TNT1 A 2 BRIGHT A_Light1
-    	TNT1 A 2 BRIGHT A_Light2
-    	TNT1 A 0 A_Light0
-    	Stop
-	}
+  Weapon.AmmoType "RocketAmmo"
+  Weapon.AmmoGive 2
+  Weapon.AmmoUse 1
+  Weapon.AmmoType2 "RocketAmmo"
+  Weapon.AmmoUse2 1
+  Inventory.PickupMessage "You got the Grenade Launcher!"
+  Inventory.PickupSound "misc/w_pkup"
+  Weapon.SelectionOrder 2600
+  Weapon.Kickback 600
+  States
+  {
+  FloraDetected: // bonus will be turned into something else
+    TNT1 A 0 A_SpawnItemEx("RandomHellcoreWeapon",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_NOCHECKPOSITION | SXF_TRANSFERSPECIAL,0,tid)
+    TNT1 A 0 A_FadeOut(1.0)
+    Loop
+
+  Spawn:
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
+    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+  Idle:
+	GLAU A -1
+	Loop
+
+  Select:
+	GLAG A 1 A_Raise
+	Loop
+  Deselect:
+	GLAG A 1 A_Lower
+	Loop
+  Ready:
+	GLAG A 1 A_WeaponReady
+	Loop
+  Fire:
+	GLAG B 0 BRIGHT A_GunFlash
+	GLAG B 0 BRIGHT A_PlaySound("weapons/grenadefire")
+	GLAG B 4 BRIGHT A_FireCustomMissile("KDiZDGrenade",0,1,0,0)
+	GLAG I 4
+	GLAG A 0 A_CheckReload //I can't believe I forgot this.
+	GLAG C 7
+	GLAG D 5
+	GLAG E 5 A_PlaySound("weapons/sshoto")
+	GLAG F 5
+	GLAG G 5 A_FireCustomMissile("GrnCaseSpawn",0,0,-4,-4)
+	GLAG H 5 A_PlaySound("weapons/sshotl")
+	GLAG FE 5
+	GLAG D 5 A_PlaySound("weapons/sshotc")
+	GLAG A 3
+	GLAG A 0 A_Refire
+	Goto Ready
+  AltFire:
+	GLAG B 0 BRIGHT A_GunFlash
+	GLAG B 0 BRIGHT A_PlaySound("weapons/grenadefire")
+	GLAG B 4 BRIGHT A_FireCustomMissile("KDiZDGrenade2",0,1,0,0)
+	GLAG I 4
+	GLAG A 0 A_CheckReload //I can't believe I forgot this.
+	GLAG C 7
+	GLAG D 5
+	GLAG E 5 A_PlaySound("weapons/sshoto")
+	GLAG F 5
+	GLAG G 5 A_FireCustomMissile("GrnCaseSpawn",0,0,-4,-4)
+	GLAG H 5 A_PlaySound("weapons/sshotl")
+	GLAG FE 5
+	GLAG D 5 A_PlaySound("weapons/sshotc")
+	GLAG A 3
+	GLAG A 0 A_Refire
+	Goto Ready
+  Flash:
+   	TNT1 A 2 BRIGHT A_Light1
+   	TNT1 A 2 BRIGHT A_Light2
+   	TNT1 A 0 A_Light0
+   	Stop
+  }
 }
 
 
@@ -3370,6 +3396,7 @@ ACTOR GrenadePuff : BulletPuff
 	}
 }
 
+
 // Base KDIZD Weapon
 actor KDIZDWeapon : Weapon
 {
@@ -3377,7 +3404,7 @@ actor KDIZDWeapon : Weapon
   States
   {
   // Quick Kick
-  User1: // Kick - Happy Time Circus 2 Weapons
+  User1: // Kick - KDIZD Weapons
     TNT1 A 0 
 	{ 
 	 if (CountInv("FloraInPlay",AAPTR_PLAYER1) <= 0) { return state("Ready"); }
