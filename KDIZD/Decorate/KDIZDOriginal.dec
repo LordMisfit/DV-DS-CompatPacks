@@ -3078,12 +3078,7 @@ ACTOR Rifle : Weapon 31407 // replaces BFG9000
     Loop
 
   Spawn:
-    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
-    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
-    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
-    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
-    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
-    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+    TNT1 A 0 NoDelay A_JumpIfInventory("FloraInPlay", 1, "FloraDetected", AAPTR_PLAYER1)
   Idle:
   	RIFL A -1
    	Loop
@@ -3211,12 +3206,7 @@ ACTOR KDiZDGrenadeLauncher : Weapon 31410 // replaces PlasmaRifle
     Loop
 
   Spawn:
-    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
-    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
-    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
-    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
-    TNT1 A 1 ACS_NamedExecuteAlways("ArmorBonusCheckCharacter",0,0,0,0)
-    TNT1 A 0 A_JumpIf(args[4] == 2,"FloraDetected")
+    TNT1 A 0 NoDelay A_JumpIfInventory("FloraInPlay", 1, "FloraDetected", AAPTR_PLAYER1)
   Idle:
 	GLAU A -1
 	Loop
