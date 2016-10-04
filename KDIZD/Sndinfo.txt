@@ -5,14 +5,6 @@ DSINTRO1 DSINTRO1
 DSINTRO2 DSINTRO2
 DSINTRO3 DSINTRO3
 
-// Blood Demon
-blooddemon/sight	DSBLDSIT
-blooddemon/active		DSBLDACT
-blooddemon/pain		DSBLDPAI
-blooddemon/melee	DSBLDATK
-blooddemon/death	DSBLDDTH
-blooddemon/walk		DSBLDWAL
-
 // Stone Imp
 $random stoneimp/hit		{stoneimp/hit1 stoneimp/hit2}
 stoneimp/hit1			macehit1
@@ -27,13 +19,6 @@ shdeath1 				shdeath1
 shdeath2 				shdeath2
 harvester/scream 		shfbscrm
 harvester/ghost 		shghscrm
-
-
-// Bruiserdemon
-superbaron/scream		dssbsit
-superbaron/pain			dssbpain
-superbaron/act			dssbact
-superbaron/death		dssbdth
 
 // Demoncube
 demoncube/sight	  DSDCBSIT

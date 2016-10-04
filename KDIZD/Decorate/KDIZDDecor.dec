@@ -115,22 +115,22 @@ CarcassDeadPlayer2
 
 CarcassMarineBeheaded
 {
-	//$Category Decoration
-DoomEdNum 3011
-Sprite CRPC
-Frames "A"
-Radius 32
-Height 16
+  //$Category Decoration
+  DoomEdNum 3011
+  Sprite CRPC
+  Frames "A"
+  Radius 32
+  Height 16
 }
 
 CarcassMarineNegro
 {
-	//$Category Decoration
-DoomEdNum 3012
-Sprite CRPD
-Frames "A"
-Radius 32
-Height 16
+  //$Category Decoration
+  DoomEdNum 3012
+  Sprite CRPD
+  Frames "A"
+  Radius 32
+  Height 16
 }
 
 CarcassDeadPlayer3
