@@ -2,5 +2,3 @@ addkeysection "Knee-Deep in ZDoom" KDIZD
 addmenukey "Activate Locators" locate
 alias locate "puke 807"
 defaultbind H locate
-
-addslot 9 EvilWarriorShield

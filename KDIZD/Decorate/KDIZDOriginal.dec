@@ -28,6 +28,8 @@ actor STDarkImpSpawner : RandomSpawner 3102 { DropItem STDarkImp 255 }
 ACTOR BloodDemonSpawner : RandomSpawner 3110 { DropItem BloodDemon 255 }
 ACTOR RocketGuySpawner : RandomSpawner 3202 { Dropitem RocketLauncherGuy 255 }
 ACTOR BruiserDemonSpawner : RandomSpawner 3333 { DropItem BruiserDemon 255 }
+
+ACTOR ChainsawZombie : RandomSpawner 3204 { DropItem ChainsawZombieNew 255 }
 ACTOR ChainsawZombieNew 3204
 { 
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
@@ -184,6 +186,9 @@ actor DemonCube 26001
   Height 20
   Speed 10
   PainChance 96
+  Painchance "Fist", 144 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 240 // Kick attacks have a +150% chance of stunning an enemy
+  Painchance "Gauntlets", 144 // Fist attacks have a +50% chance of stunning an enemy
   Mass 1000
   Scale 0.5
   MONSTER 
@@ -338,6 +343,9 @@ ACTOR HellsFury 3127
   Height 64
   Speed 8
   PainChance 50
+  Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 125 // Kick attacks have a +150% chance of stunning an enemy
+  Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
   Mass 1000
   MONSTER
   +FLOORCLIP
@@ -469,6 +477,9 @@ ACTOR HellWarrior 3119
   Radius 24
   Height 64
   PainChance 50
+  Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 125 // Kick attacks have a +150% chance of stunning an enemy
+  Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
   Mass 1000
   Meleedamage 8 
   SeeSound "knight/sight"
@@ -645,6 +656,9 @@ ACTOR MaulerDemon 3123
   //$Category "KDIZD Monsters"
   Health 150 
   PainChance 180 
+  Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
+  Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
   Speed 10 
   Radius 30 
   Height 56 
@@ -729,6 +743,7 @@ ACTOR MaulerDemon 3123
    } 
 } 
 
+ACTOR KDiZDNightmare : RandomSpawner { DropItem NightmareNew 255 }
 ACTOR NightmareNew 26000
 {
   //$Angled
@@ -850,6 +865,9 @@ ACTOR RapidFireTrooper 3201
   Height 56
   Speed 8
   PainChance 200
+  Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
+  Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
   MONSTER 
   +FLOORCLIP
   DropItem Clip
@@ -1016,6 +1034,9 @@ ACTOR RifleZombie 31657
   Height 56
   Mass 100
   PainChance 200
+  Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
+  Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
   MONSTER
   +FLOORCLIP
   SeeSound "grunt/sight" 
@@ -1651,6 +1672,9 @@ actor StoneImp 3103
   Height 56
   Speed 6
   PainChance 50
+  Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 125 // Kick attacks have a +150% chance of stunning an enemy
+  Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
   Mass 400
   MONSTER 
   +FLOORCLIP
@@ -1740,7 +1764,15 @@ ACTOR Magmantis 26660
   Mass 50000
   Speed 15
   PainChance 4
+  Painchance "Fist", 6 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 10 // Kick attacks have a +150% chance of stunning an enemy
+  Painchance "Gauntlets", 6 // Fist attacks have a +50% chance of stunning an enemy
   Scale 1.25
+  ReactionTime 9
+  DamageFactor "Fire", 0.25
+  DamageFactor "Ice", 1.33
+  DamageFactor "Thunder", 0.5
+  DamageFactor "Dark", 0.5
   SeeSound "magmantis/sight"
   PainSound "magmantis/pain"
   DeathSound "magmantis/death"
@@ -1763,7 +1795,15 @@ ACTOR Magmantis 26660
   See:
     DGRD I 0 Thing_ChangeTID(0,1222)
     DGRD I 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
-	DGRD IJKL 8 A_Chase 
+	DGRD IJKL 8
+	{
+	 A_Chase;
+	 if (health <= user_HPBuffRange)
+	 {
+      A_GiveInventory("25PercentDMGReduction",1);
+      A_GiveInventory("50PercentDMGBonus",1);
+	 }
+	}
     Loop
   Missile:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
@@ -1865,22 +1905,38 @@ actor Portal1
     loop
   Missile:
     PORT ABCDEF 4 Bright
-    PORT GHIJKLMN 4 Bright A_FaceTarget
+    PORT GHIJ 4 Bright A_FaceTarget
+    TNT1 A 0 bright A_Missileattack 
+    PORT KLMN 4 Bright A_FaceTarget
     PORT T 4 bright A_Missileattack 
-    PORT GHIJKLMN 4 Bright A_FaceTarget
-    PORT T 4 bright A_Missileattack  
-    PORT GHIJKLMN 4 Bright A_FaceTarget
-    PORT T 4 bright A_Missileattack  
-    PORT GHIJKLMN 4 Bright A_FaceTarget
-    PORT T 4 bright A_Missileattack  
-    PORT GHIJKLMN 4 Bright A_FaceTarget
-    PORT T 4 bright A_Missileattack  
-    PORT GHIJKLMN 4 Bright A_FaceTarget
-    PORT T 4 bright A_Missileattack  
-    PORT GHIJKLMN 4 Bright A_FaceTarget
-    PORT T 4 bright A_Missileattack  
-    PORT GHIJKLMN 4 Bright A_FaceTarget
-    PORT T 4 bright A_Missileattack  
+    PORT GHIJ 4 Bright A_FaceTarget
+    TNT1 A 0 bright A_Missileattack 
+    PORT KLMN 4 Bright A_FaceTarget
+    PORT T 4 bright A_Missileattack 
+    PORT GHIJ 4 Bright A_FaceTarget
+    TNT1 A 0 bright A_Missileattack 
+    PORT KLMN 4 Bright A_FaceTarget
+    PORT T 4 bright A_Missileattack 
+    PORT GHIJ 4 Bright A_FaceTarget
+    TNT1 A 0 bright A_Missileattack 
+    PORT KLMN 4 Bright A_FaceTarget
+    PORT T 4 bright A_Missileattack 
+    PORT GHIJ 4 Bright A_FaceTarget
+    TNT1 A 0 bright A_Missileattack 
+    PORT KLMN 4 Bright A_FaceTarget
+    PORT T 4 bright A_Missileattack 
+    PORT GHIJ 4 Bright A_FaceTarget
+    TNT1 A 0 bright A_Missileattack 
+    PORT KLMN 4 Bright A_FaceTarget
+    PORT T 4 bright A_Missileattack 
+    PORT GHIJ 4 Bright A_FaceTarget
+    TNT1 A 0 bright A_Missileattack 
+    PORT KLMN 4 Bright A_FaceTarget
+    PORT T 4 bright A_Missileattack 
+    PORT GHIJ 4 Bright A_FaceTarget
+    TNT1 A 0 bright A_Missileattack 
+    PORT KLMN 4 Bright A_FaceTarget
+    PORT T 4 bright A_Missileattack 
     goto Death
   Death:
     PORT HIJKLMNGOPQRS 4 Bright
@@ -1890,28 +1946,55 @@ actor Portal1
 
 actor Redstar
 {
-    Radius 10
-    Height 20
-    Speed 13
-    Damage 15
-    +SEEKERMISSILE
-    PROJECTILE
-    RENDERSTYLE ADD
-    ALPHA 0.8
-    SeeSound "imp/attack"
-    DeathSound "imp/shotx"
-    States
-    {
-    Spawn:
-        STAR A 3 Bright A_SeekerMissile (4,8)
-        STAR B 3 Bright
-        STAR C 3 Bright A_SeekerMissile (4,8)
-        STAR D 3 Bright
-        Loop
-    Death:
-        STAR EFGHIJKLMNO 4 Bright
-        Stop
-    }
+  var int user_random; var int user_ailment1;
+  Radius 10
+  Height 20
+  Speed 13
+  Damage 12
+  DamageType "Thunder"
+  DamageType "Dark"
+  +SEEKERMISSILE
+  +HITMASTER
+  PROJECTILE
+  RENDERSTYLE ADD
+  ALPHA 0.8
+  SeeSound "imp/attack"
+  DeathSound "imp/shotx"
+  States
+  {
+  Spawn:
+    STAR A 3 Bright A_SeekerMissile (4,8)
+    STAR B 3 Bright
+    STAR C 3 Bright A_SeekerMissile (4,8)
+    STAR D 3 Bright
+    Loop
+  Death:
+    TNT1 A 0 Bright
+	{
+     A_Explode(48,96,0,0,48);	
+	 if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE) 
+	 {
+	  if (random(1,4) == 1)
+	  {
+	   A_SetUserVar("user_random",random(1,12));
+	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21,random(105,175)); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19,random(105,175)); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20,random(105,175)); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 4) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(210,350)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 5) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(210,350)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 6) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(210,350)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 7) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(210,350)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 8) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(210,350)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 9) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(210,350)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 10) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(210,350)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 11) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(210,350)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 12) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(210,350)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	  }
+	 }
+	}
+    STAR EFGHIJKLMNO 4 Bright
+    Stop
+  }
 }
 
 
@@ -1932,15 +2015,46 @@ ACTOR Portal2
 	{
 	Spawn: 
 		PORT ABCDEF 4 Bright
-		PORT GHIJKLMN 4 Bright 
+		PORT GHIJ 4 Bright 
+  		TNT1 A 0 Bright A_MissileAttack
+		PORT KLMN 4 Bright 
   		PORT T 4 Bright A_MissileAttack
-  		PORT HIJKLMNGHIJKLMN 4 Bright
+		PORT GHIJ 4 Bright 
+  		TNT1 A 0 Bright A_MissileAttack
+		PORT KLMN 4 Bright 
   		PORT T 4 Bright A_MissileAttack
-  		PORT HIJKLMNGHIJKLMN 4 Bright
+		PORT GHIJ 4 Bright 
+  		TNT1 A 0 Bright A_MissileAttack
+		PORT KLMN 4 Bright 
   		PORT T 4 Bright A_MissileAttack
-  		PORT HIJKLMNGHIJKLMN 4 Bright
+		PORT GHIJ 4 Bright 
+  		TNT1 A 0 Bright A_MissileAttack
+		PORT KLMN 4 Bright 
   		PORT T 4 Bright A_MissileAttack
-  		PORT HIJKLMN 4 Bright
+		PORT GHIJ 4 Bright 
+  		TNT1 A 0 Bright A_MissileAttack
+		PORT KLMN 4 Bright 
+  		PORT T 4 Bright A_MissileAttack
+		PORT GHIJ 4 Bright 
+  		TNT1 A 0 Bright A_MissileAttack
+		PORT KLMN 4 Bright 
+  		PORT T 4 Bright A_MissileAttack
+		PORT GHIJ 4 Bright 
+  		TNT1 A 0 Bright A_MissileAttack
+		PORT KLMN 4 Bright 
+  		PORT T 4 Bright A_MissileAttack
+		PORT GHIJ 4 Bright 
+  		TNT1 A 0 Bright A_MissileAttack
+		PORT KLMN 4 Bright 
+  		PORT T 4 Bright A_MissileAttack
+		PORT GHIJ 4 Bright 
+  		TNT1 A 0 Bright A_MissileAttack
+		PORT KLMN 4 Bright 
+  		PORT T 4 Bright A_MissileAttack
+		PORT GHIJ 4 Bright 
+  		TNT1 A 0 Bright A_MissileAttack
+		PORT KLMN 4 Bright 
+  		PORT T 4 Bright A_MissileAttack
 		Goto Death
 	Death:	
 		PORT GOPQRS 4
@@ -3070,6 +3184,7 @@ ACTOR Rifle : Weapon 31407 // replaces BFG9000
   Weapon.SelectionOrder 50
   Weapon.Kickback 150
   AttackSound "weapons/rifle"
+  Weapon.SlotNumber 2
   States
   {
   FloraDetected: // bonus will be turned into something else
@@ -3194,6 +3309,7 @@ ACTOR KDiZDGrenadeLauncher : Weapon 31410 // replaces PlasmaRifle
   Weapon.AmmoUse 1
   Weapon.AmmoType2 "RocketAmmo"
   Weapon.AmmoUse2 1
+  Weapon.SlotNumber 5
   Inventory.PickupMessage "You got the Grenade Launcher!"
   Inventory.PickupSound "misc/w_pkup"
   Weapon.SelectionOrder 2600
