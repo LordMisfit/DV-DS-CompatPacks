@@ -80,7 +80,6 @@ script "LDMonsterInit" (void)
         terminate;
     
     GiveInventory("LDLegendaryMonsterToken", 1);
-	SetActorFlag(0,"BUDDHA",1);
     
     if (GetCVar("LD_legendarydebug"))
         Log(s:"\cdLD DEBUG\c-: \ca", s:GetActorClass(0), s:"\c- has been \cdLEGENDARIFIED\c-");
@@ -109,11 +108,10 @@ script "LDMonsterInit" (void)
         {
             GiveInventory("LDLegendaryMonsterVisualEffectMaker", 1);
         }
-        else if (Health > 0 && health <= EvolveHPLevel)
+        else if (health > 0 && health <= EvolveHPLevel)
         {
             SetActorProperty(0, APROP_Health, spawnHealth);
 	        SetUserVariable(0, "user_MaxHP", spawnHealth);
-  	        SetActorFlag(0,"BUDDHA",0);
 			SetUserVariable(0, "user_legendaryevolved", 1);
             if (CheckFlag(0, "BOSS"))
             {
