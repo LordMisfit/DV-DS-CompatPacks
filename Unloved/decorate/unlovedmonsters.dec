@@ -1,4 +1,4 @@
-actor MummyNew : Mummy replaces MummyDude
+actor MummyNew : Mummy replaces MummyDude 1337
 {
  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
@@ -78,7 +78,7 @@ actor MummyNew : Mummy replaces MummyDude
  }
 }
 
-actor MummyLeaderNew : MummyLeader replaces MummyLeaderMan
+actor MummyLeaderNew : MummyLeader replaces MummyLeaderMan 1338
 {
  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
@@ -202,7 +202,7 @@ ACTOR VulgarShotNew
   }
 }
 
-actor VulgarNew : Vulgar replaces Vulgar
+actor VulgarNew : Vulgar replaces Vulgar 30127
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
@@ -308,7 +308,7 @@ actor VulgarNew : Vulgar replaces Vulgar
   }
 }
 
-ACTOR SoulHarvesterNew : SoulHarvester replaces SoulHarvester
+ACTOR SoulHarvesterNew : SoulHarvester replaces SoulHarvester 3117
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
@@ -399,7 +399,7 @@ ACTOR SoulHarvesterNew : SoulHarvester replaces SoulHarvester
 
 // Imp Warlord
 
-actor ImpWarlordNew : ImpWarlord replaces ImpWarlord
+actor ImpWarlordNew : ImpWarlord replaces ImpWarlord 3105
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
@@ -548,7 +548,7 @@ actor ImpWarlordNew : ImpWarlord replaces ImpWarlord
   }
 }
 
-actor BatFamiliarNew : BatFamiliar replaces BatFamiliar
+actor BatFamiliarNew : BatFamiliar replaces BatFamiliar 3107
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
@@ -643,7 +643,7 @@ actor BatFamiliarNew : BatFamiliar replaces BatFamiliar
   }
 }
 
-actor DragonFamiliarNew : DragonFamiliar replaces DragonFamiliar
+actor DragonFamiliarNew : DragonFamiliar replaces DragonFamiliar 3106
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
@@ -741,7 +741,7 @@ actor DragonFamiliarNew : DragonFamiliar replaces DragonFamiliar
   }
 }
 
-ACTOR ChainsawZombieNew : ChainsawZombie replaces ChainsawZombie
+ACTOR ChainsawZombieNew : ChainsawZombie replaces ChainsawZombie 32064
 { 
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
@@ -854,7 +854,7 @@ ACTOR ChainsawZombieNew : ChainsawZombie replaces ChainsawZombie
   } 
 }
 
-ACTOR BloodFiendNew : BloodFiend replaces BloodFiend
+ACTOR BloodFiendNew : BloodFiend replaces BloodFiend 30100
 { 
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
@@ -960,7 +960,7 @@ ACTOR BloodFiendNew : BloodFiend replaces BloodFiend
   } 
 }
 
-ACTOR LurkerNew : BloodFiendNew replaces Lurker
+ACTOR LurkerNew : BloodFiendNew replaces Lurker 30101
 {
   RENDERSTYLE TRANSLUCENT
   Obituary "%o didn't see the lurker that was shooting at %h."
@@ -969,7 +969,7 @@ ACTOR LurkerNew : BloodFiendNew replaces Lurker
   ALPHA 0.25
 }
 
-ACTOR LordofHeresyNew : LordofHeresy replaces LordofHeresy
+ACTOR LordofHeresyNew : LordofHeresy replaces LordofHeresy 3121
 { 
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
@@ -1077,12 +1077,9 @@ ACTOR LordofHeresyNew : LordofHeresy replaces LordofHeresy
   } 
 }
 
-ACTOR RocketGuySpawner : RandomSpawner replaces RocketGuy
-{ 
-    DropItem "RocketLauncherGuy", 255
-}
+ACTOR RocketGuySpawner : RandomSpawner replaces RocketGuy 3202 { DropItem "RocketLauncherGuy", 255 }
 
-actor SatyrNew : Satyr replaces Satyr
+actor SatyrNew : Satyr replaces Satyr 3109
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
@@ -1176,7 +1173,7 @@ actor SatyrNew : Satyr replaces Satyr
 }
 
 //Shadow
-ACTOR ShadowNew : Shadow replaces Shadow
+ACTOR ShadowNew : Shadow replaces Shadow 3126
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
@@ -1291,7 +1288,7 @@ ACTOR ShadowNew : Shadow replaces Shadow
   }
 }
 
-ACTOR CultistNew : Cultist replaces Cultist
+ACTOR CultistNew : Cultist replaces Cultist 30119
 { 
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
@@ -1391,7 +1388,7 @@ ACTOR CultistNew : Cultist replaces Cultist
   } 
 }
 
-ACTOR UnlovedAcolyteNew : AcolyteDude replaces AcolyteDude
+ACTOR UnlovedAcolyteNew : AcolyteDude replaces AcolyteDude 30118
 { 
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
@@ -1503,7 +1500,7 @@ ACTOR UnlovedAcolyteNew : AcolyteDude replaces AcolyteDude
   } 
 }
 
-ACTOR UnlovedDiscipleNew : Disciple replaces Disciple
+ACTOR UnlovedDiscipleNew : Disciple replaces Disciple 30117
 { 
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
@@ -1655,7 +1652,7 @@ ACTOR UnlovedDiscipleNew : Disciple replaces Disciple
   } 
 }
 
-actor UnlovedApprenticeNew : ApprenticeofDsparil replaces ApprenticeofDsparil 
+actor UnlovedApprenticeNew : ApprenticeofDsparil replaces ApprenticeofDsparil 30000
 {
   //$Angled
   //$Color 12
@@ -1819,7 +1816,7 @@ actor UnlovedApprenticeNew : ApprenticeofDsparil replaces ApprenticeofDsparil
   }
 }
 
-ACTOR WickedNew : Wicked replaces Wicked
+ACTOR WickedNew : Wicked replaces Wicked 30133
 { 
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
@@ -1927,7 +1924,7 @@ ACTOR WickedNew : Wicked replaces Wicked
    } 
 }
 
-ACTOR AvatarNew : Avatar replaces Avatar 
+ACTOR AvatarNew : Avatar replaces Avatar 30125
 { 
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
@@ -2068,7 +2065,7 @@ actor ThamuzApocalypseDefendMode : PowerProtection
  inventory.icon ""
  Powerup.Duration 2147483646
 }
-ACTOR ThamuzNew : Thamuz replaces Thamuz
+ACTOR ThamuzNew : Thamuz replaces Thamuz 7228
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;

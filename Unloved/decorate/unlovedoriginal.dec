@@ -103,9 +103,10 @@ ACTOR Cyberpushover : Cyberdemon 1336
 }
 
 // ************************
-ACTOR MummyDude 1337
+ACTOR MummyDude // 1337
 {
-//$Category "ZDoom Monster pack"
+  //$Color 12
+  //$Category "Unloved Monsters"
   SpawnID 4
   Health 80
   Radius 22
@@ -152,7 +153,7 @@ ACTOR MummyDude 1337
 
 
 // ************************
-ACTOR MummyLeaderMan : MummyDude 1338
+ACTOR MummyLeaderMan : MummyDude // 1338
 {
 //$Category "ZDoom Monster pack"
   SpawnID 2
@@ -198,7 +199,7 @@ actor MiniFirePuff
 }
 
 // ************************
-actor ImpWarlord 3105
+actor ImpWarlord // 3105
 {
 	//$Category "ZDoom Monster pack"
     Health 180
@@ -424,7 +425,7 @@ actor WarlordShield
 }
 
 // ************************
-actor BatFamiliar 3107
+actor BatFamiliar // 3107
 {
 	//$Category "ZDoom Monster pack"
     Health 10
@@ -478,7 +479,7 @@ actor BatFamiliar 3107
 }
 
 // ************************
-actor DragonFamiliar 3106
+actor DragonFamiliar // 3106
 {
 	//$Category "ZDoom Monster pack"
     Health 25
@@ -541,7 +542,7 @@ actor MiniFirePuffNoDamage : MiniFirePuff
 }
 
 // ************************
-ACTOR ChainsawZombie 32064
+ACTOR ChainsawZombie // 32064
 { 
 	//$Category "ZDoom Monster pack"
 
@@ -613,7 +614,7 @@ ACTOR ChainsawZombie 32064
 }
 
 // ************************
-ACTOR BloodFiend : Demon 30100 
+ACTOR BloodFiend : Demon // 30100 
 { 
 	//$Category "ZDoom Monster pack"
 Health 250 
@@ -718,7 +719,7 @@ ACTOR Bloodtrail
 }
 
 // ************************
-ACTOR Lurker : Bloodfiend 30101 
+ACTOR Lurker : Bloodfiend // 30101 
 {
 	//$Category "ZDoom Monster pack"
 RENDERSTYLE TRANSLUCENT
@@ -730,7 +731,7 @@ SpawnID 171
 }
 
 // ************************
-ACTOR LordofHeresy 3121
+ACTOR LordofHeresy // 3121
 { 
 	//$Category "ZDoom Monster pack"
     Health 1250 
@@ -799,7 +800,7 @@ ACTOR LordofHeresy 3121
 }
 
 // ************************
-ACTOR RocketGuy 3202
+ACTOR RocketGuy // 3202
 { 
 	//$Category "ZDoom Monster pack"
    Health 50 
@@ -854,7 +855,7 @@ ACTOR RocketGuy 3202
    } 
 }
 
-actor Satyr 3109
+actor Satyr // 3109
 {
 	//$Category "ZDoom Monster pack"
     Health 400
@@ -907,7 +908,7 @@ actor Satyr 3109
 }
 
 //Shadow
-ACTOR Shadow 3126
+ACTOR Shadow // 3126
 {
 	//$Category "ZDoom Monster pack"
 	Health 80
@@ -1094,7 +1095,7 @@ actor ShadowTrail
 }
 
 // ************************
-actor SoulHarvester 3117
+actor SoulHarvester // 3117
 {
 	//$Category "ZDoom Monster pack"
     Health 100
@@ -1218,7 +1219,7 @@ actor SoulBallTrail
     }
 }
 
-ACTOR Cultist 30119 
+ACTOR Cultist // 30119 
 { 
 	//$Category "ZDoom Monster pack"
 Health 50
@@ -1300,9 +1301,11 @@ ACTOR ThrallShot1
       stop
    }
 }
-ACTOR AcolyteDude 30118 
+ACTOR AcolyteDude // 30118 
 { 
-	//$Category "ZDoom Monster pack"
+  //$Angled
+  //$Color 12
+  //$Category "Unloved Monsters"
 SpawnID 101
 Health 150 
 PainChance 170
@@ -1492,7 +1495,7 @@ ACTOR AcolFX1
 
 
 
-ACTOR Disciple 30117 
+ACTOR Disciple // 30117 
 { 
 	//$Category "ZDoom Monster pack"
 Health 300 
@@ -1728,7 +1731,7 @@ ACTOR DSFX2
 
 
 // ************************
-actor Vulgar : DoomImp 30127
+actor Vulgar : DoomImp // 30127
 {
 	//$Category "ZDoom Monster pack"
   obituary "%o was poisoned by a vulgar."
@@ -1837,7 +1840,7 @@ ACTOR Barbtrail
 
 
 
-ACTOR Wicked 30133 
+ACTOR Wicked // 30133 
 { 
 	//$Category "ZDoom Monster pack"
 Health 275 
@@ -2057,7 +2060,7 @@ actor SuperFireBlast : FireBlast
           }
 }
 
-actor ApprenticeofDsparil 30000
+actor ApprenticeofDsparil // 30000
 {
 	//$Category "ZDoom Monster pack"
     Health 500
@@ -2174,7 +2177,7 @@ actor ApprenticeofDsparil 30000
     }
 }
 
-ACTOR Avatar 30125 
+ACTOR Avatar // 30125 
 { 
 	//$Category "ZDoom Monster pack"
 Health 4000
@@ -2578,7 +2581,7 @@ ACTOR PuzzGearWheel : BasicArmorBonus 9018
 //	Decorate by DBT, sprites by Jimmy91
 //================================================================
 
-ACTOR Thamuz : Cyberdemon 7228
+ACTOR Thamuz : Cyberdemon // 7228
 {
   Health 4800
   Speed 16

@@ -72,6 +72,7 @@ script "LDMonsterInit" (void)
     int DVDSspawnHealth = GetUserVariable(0, "user_MaxHP"); // GetActorProperty(0, APROP_SpawnHealth);;
     int EvolveHPLevel = DVDSspawnHealth / random(2,4);
     int spawnHealth = GetUserVariable(0, "user_MaxHP"); // GetActorProperty(0, APROP_SpawnHealth);;
+	SetActorFlag(0,"BUDDHA",1);
     int tid = UniqueTID();
 	tid += 5000;
     bool evolved = false;
@@ -113,6 +114,7 @@ script "LDMonsterInit" (void)
             SetActorProperty(0, APROP_Health, spawnHealth);
 	        SetUserVariable(0, "user_MaxHP", spawnHealth);
 			SetUserVariable(0, "user_legendaryevolved", 1);
+			SetActorFlag(0,"BUDDHA",0);
             if (CheckFlag(0, "BOSS"))
             {
                 GiveInventory("LDLegendaryMonsterBossStatBoost", 1);
