@@ -3376,7 +3376,55 @@ ACTOR KDiZDGrenadeLauncher : Weapon 31410 // replaces PlasmaRifle
   Fire:
 	GLAG B 0 BRIGHT A_GunFlash
 	GLAG B 0 BRIGHT A_PlaySound("weapons/grenadefire")
-	GLAG B 4 BRIGHT A_FireCustomMissile("KDiZDGrenade",0,1,0,0)
+	GLAG B 4 BRIGHT
+	{
+     ACS_NamedExecuteAlways("StartTensionCountDown");
+	 if (CountInv("SpreaderAura2",AAPTR_PLAYER1) > 0)
+	 {
+      // Angle + 15, Pitch + 0
+      A_SetAngle(angle+15);
+	  A_FireCustomMissile("KDiZDGrenade",0,0,0,0);
+      // Angle + 7.5, Pitch + 7.5
+      A_SetAngle(angle-7.5);
+      A_SetPitch(pitch+7.5);
+	  A_FireCustomMissile("KDiZDGrenade",0,0,0,0);
+      // Angle + 7.5, Pitch - 7.5
+      A_SetPitch(pitch-15);
+	  A_FireCustomMissile("KDiZDGrenade",0,0,0,0);
+      // Angle + 0, Pitch + 0
+      A_SetPitch(pitch+7.5);
+      A_SetAngle(angle-7.5);
+	  A_FireCustomMissile("KDiZDGrenade",0,1,0,0);
+      // Angle - 7.5, Pitch - 7.5
+      A_SetAngle(angle-7.5);
+      A_SetPitch(pitch-7.5);
+	  A_FireCustomMissile("KDiZDGrenade",0,0,0,0);
+      // Angle - 7.5, Pitch + 7.5
+      A_SetPitch(pitch+15);
+	  A_FireCustomMissile("KDiZDGrenade",0,0,0,0);
+      // Angle - 15, Pitch + 0
+      A_SetPitch(pitch-7.5);
+      A_SetAngle(angle-7.5);
+	  A_FireCustomMissile("KDiZDGrenade",0,0,0,0);
+      // Reset
+      A_SetAngle(angle+15);
+	 }
+	 else
+	 if (CountInv("SpreaderAura1",AAPTR_PLAYER1) > 0)
+	 {
+      A_SetAngle(angle+15);
+	  A_FireCustomMissile("KDiZDGrenade",0,0,0,0);
+      A_SetAngle(angle-15);
+	  A_FireCustomMissile("KDiZDGrenade",0,1,0,0);
+      A_SetAngle(angle-15);
+	  A_FireCustomMissile("KDiZDGrenade",0,0,0,0);
+      A_SetAngle(angle+15);
+	 }
+	 else
+	 {
+	  A_FireCustomMissile("KDiZDGrenade",0,1,0,0);
+	 }
+	}
 	GLAG I 4
 	GLAG A 0 A_CheckReload //I can't believe I forgot this.
 	GLAG C 7
