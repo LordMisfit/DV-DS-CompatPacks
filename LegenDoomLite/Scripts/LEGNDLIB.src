@@ -68,6 +68,8 @@ script "LDWorldInit" open
 script "LDMonsterInit" (void)
 {
     Delay(1); // Give the monster a chance to calc it's DV-DS stats first
+    int StartTID = ActivatorTID();
+    if (ActivatorTID() != 0) terminate;
 
     int DVDSspawnHealth = GetUserVariable(0, "user_MaxHP"); // GetActorProperty(0, APROP_SpawnHealth);;
     int EvolveHPLevel = DVDSspawnHealth / random(2,4);
@@ -83,7 +85,7 @@ script "LDMonsterInit" (void)
     GiveInventory("LDLegendaryMonsterToken", 1);
     
     if (GetCVar("LD_legendarydebug"))
-        Log(s:"\cdLD DEBUG\c-: \ca", s:GetActorClass(0), s:"\c- has been \cdLEGENDARIFIED\c-");
+        Log(s:"\cdLD DEBUG\c-: \ca", s:GetActorClass(0), s:" \c-(", d:StartTID, s:" / ", d:tid, s:") has been \cdLEGENDARIFIED\c-");
     
     if (!SpawnForced("DRPGLegenDoomActive", 0, 0, 0, tid, 0))
     {
