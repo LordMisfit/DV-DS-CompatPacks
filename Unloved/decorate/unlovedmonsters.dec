@@ -169,6 +169,7 @@ actor MummyLeaderNew : MummyLeader replaces MummyLeaderMan 1338
 
 ACTOR VulgarShotNew
 {
+  var int user_random; var int user_ailment1; var int user_ailmentmaxchance;
   Radius 8
   Height 16
   Speed 10
@@ -191,12 +192,18 @@ ACTOR VulgarShotNew
 	{
 	 if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE) 
 	 {
-	  if (random(1,4) >= 2)
+	  A_SetUserVar("user_ailmentmaxchance",4);
+	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (random(1,user_ailmentmaxchance) <= 3)
 	  {
 	   ACS_NamedExecuteAlways("BuffTimer",0,8,16,random(140,210)); // Poison for 4-6 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	  }
 	 }
+	 return state("");
 	}
+  Death2:
     FVUL CDEF 4 Bright
     stop
   }
