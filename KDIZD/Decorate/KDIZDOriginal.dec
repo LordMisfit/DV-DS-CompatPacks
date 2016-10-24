@@ -3931,3 +3931,344 @@ ACTOR EvilWarriorShieldBall
         Stop
 	}
 }
+
+//////////////DEAD BODIES AND GIBS//////////////
+///////////////and Decorations ////////////////
+
+actor CarcassDropperBase
+{
+  //$Category "Decoration/KDIZD Corpses"
+  Game Doom
+  Radius 32
+  Height 16
+  States
+  {
+    DropShotgun:
+      PLAY N 0 A_SpawnItemEx("Shotgun")
+      goto ItemDrop6+3
+    DropSShotgun:
+      PLAY N 0 A_SpawnItemEx("SuperShotgun")
+      goto ItemDrop6+3
+    DropChaingun:
+      PLAY N 0 A_SpawnItemEx("Chaingun")
+      goto ItemDrop6+3
+    DropRocket:
+      PLAY N 0 A_SpawnItemEx("RocketLauncher")
+      goto ItemDrop6+3
+    DropPlasma:
+      PLAY N 0 A_SpawnItemEx("PlasmaRifle")
+      goto ItemDrop6+3
+    DropBFG:
+      PLAY N 0 A_SpawnItemEx("BFG9000")
+      goto ItemDrop6+3
+    ItemDrop1:
+      PLAY N 0 A_SpawnItemEx("GreenArmorDS")
+      goto Spawn+3
+    ItemDrop2:
+      PLAY N 0 A_SpawnItemEx("GreenArmorDS")
+      goto Spawn+3
+    ItemDrop3:
+      PLAY N 0 A_SpawnItemEx("GreenArmorDS")
+      goto Spawn+3
+    ItemDrop4:
+      PLAY N 0 A_SpawnItemEx("GreenArmorDS")
+      goto Spawn+3
+    ItemDrop5:
+      PLAY N 0 A_SpawnItemEx("BlueArmorDS")
+      goto Spawn+3
+    ItemDrop6:
+      PLAY N 0 A_Jump(64, "DropBFG", "DropRocket")
+      PLAY N 0 A_Jump(128, "DropPlasma", "DropRocket", "DropChaingun", "DropSShotgun")
+      PLAY N 0 A_Jump(256, "DropShotgun", "DropSShotgun", "DropChainGun")
+      PLAY N 0
+      goto Spawn+3
+    Spawn:
+      CRP1 A 0
+      CRP1 A 0 
+      CRP1 A 0 A_Jump(8, "ItemDrop1", "ItemDrop2", "ItemDrop3", "ItemDrop4", "ItemDrop5", "ItemDrop6")
+      CRP1 A -1
+      Stop
+  }
+}
+
+actor CarcassShirtlessMarine : CarcassDropperBase 3030
+{
+  States
+  {
+    Spawn:
+      CRP1 A 0
+      "####" # 0 
+      "####" # 0 A_Jump(8, "ItemDrop1", "ItemDrop2", "ItemDrop3", "ItemDrop4", "ItemDrop5", "ItemDrop6")
+      "####" # -1
+      Stop
+  }
+}
+
+actor CarcassShirtlessBeheaded : CarcassDropperBase 3031
+{
+  States
+  {
+    Spawn:
+      CRP2 A 0
+      "####" # 0 
+      "####" # 0 A_Jump(8, "ItemDrop1", "ItemDrop2", "ItemDrop3", "ItemDrop4", "ItemDrop5", "ItemDrop6")
+      "####" # -1
+      Stop
+  }
+}
+
+actor CarcassSoldierHalfCut : CarcassDropperBase 3032
+{
+  States
+  {
+    Spawn:
+      CRP3 A 0
+      "####" # 0 
+      "####" # 0 A_Jump(8, "ItemDrop1", "ItemDrop2", "ItemDrop3", "ItemDrop4", "ItemDrop5", "ItemDrop6")
+      "####" # -1
+      Stop
+  }
+}
+
+actor CarcassBrownScientist : CarcassDropperBase 3033
+{
+  States
+  {
+    Spawn:
+      CRP4 A 0
+      "####" # 0 
+      "####" # 0 A_Jump(8, "ItemDrop1", "ItemDrop2", "ItemDrop3", "ItemDrop4", "ItemDrop5", "ItemDrop6")
+      "####" # -1
+      Stop
+  }
+}
+
+actor CarcassGreenScientist : CarcassDropperBase 3034
+{
+  States
+  {
+    Spawn:
+      CRP5 A 0
+      "####" # 0 
+      "####" # 0 A_Jump(8, "ItemDrop1", "ItemDrop2", "ItemDrop3", "ItemDrop4", "ItemDrop5", "ItemDrop6")
+      "####" # -1
+      Stop
+  }
+}
+
+actor CarcassBrownSoldier : CarcassDropperBase 3035
+{
+  States
+  {
+    Spawn:
+      CRP6 A 0
+      "####" # 0 
+      "####" # 0 A_Jump(8, "ItemDrop1", "ItemDrop2", "ItemDrop3", "ItemDrop4", "ItemDrop5", "ItemDrop6")
+      "####" # -1
+      Stop
+  }
+}
+
+actor CarcassSeargent : CarcassDropperBase 3036
+{
+  States
+  {
+    Spawn:
+      CRP7 A 0
+      "####" # 0 
+      "####" # 0 A_Jump(8, "ItemDrop1", "ItemDrop2", "ItemDrop3", "ItemDrop4", "ItemDrop5", "ItemDrop6")
+      "####" # -1
+      Stop
+  }
+}
+
+actor CarcassBrownSoldier2 : CarcassDropperBase 3037
+{
+  States
+  {
+    Spawn:
+      CRP8 A 0
+      "####" # 0 
+      "####" # 0 A_Jump(8, "ItemDrop1", "ItemDrop2", "ItemDrop3", "ItemDrop4", "ItemDrop5", "ItemDrop6")
+      "####" # -1
+      Stop
+  }
+}
+
+actor CarcassMaintenanceGrey : CarcassDropperBase 3038
+{
+  States
+  {
+    Spawn:
+      CRP9 A 0
+      "####" # 0 
+      "####" # 0 A_Jump(8, "ItemDrop1", "ItemDrop2", "ItemDrop3", "ItemDrop4", "ItemDrop5", "ItemDrop6")
+      "####" # -1
+      Stop
+  }
+}
+
+actor CarcassMaintenanceGreen : CarcassDropperBase 3009
+{
+  States
+  {
+    Spawn:
+      CRPA A 0
+      "####" # 0 
+      "####" # 0 A_Jump(8, "ItemDrop1", "ItemDrop2", "ItemDrop3", "ItemDrop4", "ItemDrop5", "ItemDrop6")
+      "####" # -1
+      Stop
+  }
+}
+
+actor CarcassDeadPlayer2 : CarcassDropperBase 3010
+{
+  States
+  {
+    Spawn:
+      CRPB A 0
+      "####" # 0 
+      "####" # 0 A_Jump(8, "ItemDrop1", "ItemDrop2", "ItemDrop3", "ItemDrop4", "ItemDrop5", "ItemDrop6")
+      "####" # -1
+      Stop
+  }
+}
+
+actor CarcassMarineBeheaded : CarcassDropperBase 3011
+{
+  States
+  {
+    Spawn:
+      CRPC A 0
+      "####" # 0 
+      "####" # 0 A_Jump(8, "ItemDrop1", "ItemDrop2", "ItemDrop3", "ItemDrop4", "ItemDrop5", "ItemDrop6")
+      "####" # -1
+      Stop
+  }
+}
+
+actor CarcassMarineNegro : CarcassDropperBase 3012
+{
+  States
+  {
+    Spawn:
+      CRPD A 0
+      "####" # 0 
+      "####" # 0 A_Jump(8, "ItemDrop1", "ItemDrop2", "ItemDrop3", "ItemDrop4", "ItemDrop5", "ItemDrop6")
+      "####" # -1
+      Stop
+  }
+}
+
+actor CarcassDeadPlayer3 : CarcassDropperBase 3013
+{
+  States
+  {
+    Spawn:
+      CRPE A 0
+      "####" # 0 
+      "####" # 0 A_Jump(8, "ItemDrop1", "ItemDrop2", "ItemDrop3", "ItemDrop4", "ItemDrop5", "ItemDrop6")
+      "####" # -1
+      Stop
+  }
+}
+
+actor CarcassMarineChick1 : CarcassDropperBase 3014
+{
+  States
+  {
+    Spawn:
+      FEM1 A 0
+      "####" # 0 
+      "####" # 0 A_Jump(8, "ItemDrop1", "ItemDrop2", "ItemDrop3", "ItemDrop4", "ItemDrop5", "ItemDrop6")
+      "####" # -1
+      Stop
+  }
+}
+
+actor CarcassMarineChick2 : CarcassDropperBase 3015
+{
+  States
+  {
+    Spawn:
+      FEM2 A 0
+      "####" # 0 
+      "####" # 0 A_Jump(8, "ItemDrop1", "ItemDrop2", "ItemDrop3", "ItemDrop4", "ItemDrop5", "ItemDrop6")
+      "####" # -1
+      Stop
+  }
+}
+
+actor CarcassSittingMarine : CarcassDropperBase 3028
+{
+  Radius 20
+  States
+  {
+    Spawn:
+      SIT1 A 0
+      "####" # 0 
+      "####" # 0 A_Jump(8, "ItemDrop1", "ItemDrop2", "ItemDrop3", "ItemDrop4", "ItemDrop5", "ItemDrop6")
+      "####" # -1
+      Stop
+  }
+}
+
+actor CarcassSittingMaintenance : CarcassDropperBase 3029
+{
+  Radius 20
+  States
+  {
+    Spawn:
+      SIT2 A 0
+      "####" # 0 
+      "####" # 0 A_Jump(8, "ItemDrop1", "ItemDrop2", "ItemDrop3", "ItemDrop4", "ItemDrop5", "ItemDrop6")
+      "####" # -1
+      Stop
+  }
+}
+
+actor CarcassImpaledMarine : CarcassDropperBase 3025
+{
+  Height 48
+  Radius 20
+  States
+  {
+    Spawn:
+      MPL2 A 0
+      "####" # 0 
+      "####" # 0 A_Jump(8, "ItemDrop1", "ItemDrop2", "ItemDrop3", "ItemDrop4", "ItemDrop5", "ItemDrop6")
+      "####" # -1
+      Stop
+  }
+}
+
+actor CarcassImpaledMarine2 : CarcassDropperBase 3026
+{
+  Height 48
+  Radius 20
+  States
+  {
+    Spawn:
+      MPLD A 0
+      "####" # 0 
+      "####" # 0 A_Jump(8, "ItemDrop1", "ItemDrop2", "ItemDrop3", "ItemDrop4", "ItemDrop5", "ItemDrop6")
+      "####" # -1
+      Stop
+  }
+}
+
+actor CarcassHungMarine : CarcassDropperBase 3023
+{
+  Height 48
+  Radius 20
+  States
+  {
+    Spawn:
+      HUNG A 0
+      "####" # 0 
+      "####" # 0 A_Jump(8, "ItemDrop1", "ItemDrop2", "ItemDrop3", "ItemDrop4", "ItemDrop5", "ItemDrop6")
+      "####" # -1
+      Stop
+  }
+}
+

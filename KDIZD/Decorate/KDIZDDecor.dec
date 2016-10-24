@@ -1,171 +1,8 @@
 // DECORATIONS
 
-//////////////DEAD BODIES AND GIBS//////////////
-///////////////and Decorations ////////////////
-
-CarcassShirtlessMarine
-{
-  //$Category Decoration
-  DoomEdNum 3030
-  Sprite CRP1
-  Frames "A"
-  Radius 32
-  Height 16
-}
-
-CarcassShirtlessBeheaded
-{
-  //$Category Decoration
-  DoomEdNum 3031
-  Sprite CRP2
-  Frames "A"
-  Radius 32
-  Height 16
-}
-
-CarcassSoldierHalfCut
-{
-  //$Category Decoration
-  DoomEdNum 3032
-  Sprite CRP3
-  Frames "A"
-  Radius 32
-  Height 16
-}
-
-CarcassBrownScientist
-{
-  //$Category Decoration
-  DoomEdNum 3033
-  Sprite CRP4
-  Frames "A"
-  Radius 32
-  Height 16
-}
-
-CarcassGreenScientist
-{
-  //$Category Decoration
-  DoomEdNum 3034
-  Sprite CRP5
-  Frames "A"
-  Radius 32
-  Height 16
-}
-
-CarcassBrownSoldier
-{
-  //$Category Decoration
-  DoomEdNum 3035
-  Sprite CRP6
-  Frames "A"
-  Radius 32
-  Height 16
-}
-
-CarcassSeargent
-{
-  //$Category Decoration
-  DoomEdNum 3036
-  Sprite CRP7
-  Frames "A"
-  Radius 32
-  Height 16
-}
-
-CarcassBrownSoldier2
-{
-  //$Category Decoration
-  DoomEdNum 3037
-  Sprite CRP8
-  Frames "A"
-  Radius 32
-  Height 16
-}
-
-CarcassMaintenanceGrey
-{
-  //$Category Decoration
-  DoomEdNum 3038
-  Sprite CRP9
-  Frames "A"
-  Radius 32
-  Height 16
-}
-
-CarcassMaintenanceGreen
-{
-  //$Category Decoration
-  DoomEdNum 3009
-  Sprite CRPA
-  Frames "A"
-  Radius 32
-  Height 16
-}
-
-CarcassDeadPlayer2
-{
-  //$Category Decoration
-  DoomEdNum 3010
-  Sprite CRPB
-  Frames "A"
-  Radius 32
-  Height 16
-}
-
-CarcassMarineBeheaded
-{
-  //$Category Decoration
-  DoomEdNum 3011
-  Sprite CRPC
-  Frames "A"
-  Radius 32
-  Height 16
-}
-
-CarcassMarineNegro
-{
-  //$Category Decoration
-  DoomEdNum 3012
-  Sprite CRPD
-  Frames "A"
-  Radius 32
-  Height 16
-}
-
-CarcassDeadPlayer3
-{
-	//$Category Decoration
-DoomEdNum 3013
-Sprite CRPE
-Frames "A"
-Radius 32
-Height 16
-}
-
-CarcassMarineChick1
-{
-	//$Category Decoration
-DoomEdNum 3014
-Sprite FEM1
-Frames "A"
-Radius 32
-Height 16
-}
-
-CarcassMarineChick2
-{
-	//$Category Decoration
-DoomEdNum 3015
-Sprite FEM2
-Frames "A"
-Radius 32
-Height 16
-}
-
 GibsSeveredHand
 {
-	//$Category Decoration
+//$Category Decoration
 DoomEdNum 3017
 Sprite HAND
 Frames "A"
@@ -175,7 +12,7 @@ Height 16
 
 GibsHead1NoEye
 {
-	//$Category Decoration
+//$Category Decoration
 DoomEdNum 3018
 Sprite HHD1
 Frames "A"
@@ -185,7 +22,7 @@ Height 16
 
 GibsHead2Smiling
 {
-	//$Category Decoration
+//$Category Decoration
 DoomEdNum 3019
 Sprite HHD2
 Frames "A"
@@ -195,7 +32,7 @@ Height 16
 
 GibsHead3HalfFace
 {
-	//$Category Decoration
+//$Category Decoration
 DoomEdNum 3020
 Sprite HHD3
 Frames "A"
@@ -205,7 +42,7 @@ Height 16
 
 GibsHead4Negro
 {
-	//$Category Decoration
+//$Category Decoration
 DoomEdNum 3021
 Sprite HHD4
 Frames "A"
@@ -215,7 +52,7 @@ Height 16
 
 GibsHeart
 {
-	//$Category Decoration
+//$Category Decoration
 DoomEdNum 3022
 Sprite HERT
 Frames "A"
@@ -223,22 +60,9 @@ Radius 32
 Height 16
 }
 
-CarcassHungMarine
-{
-	//$Category Decoration
-SpawnCeiling
-Solid
-Nogravity
-Height 48
-Radius 20
-DoomEdNum 3023
-Sprite HUNG
-Frames "A"
-}
-
 GibsBloodyBoot
 {
-	//$Category Decoration
+//$Category Decoration
 DoomEdNum 3024
 Sprite LEG1
 Frames "A"
@@ -246,31 +70,9 @@ Radius 32
 Height 16
 }
 
-CarcassImpaledMarine
-{
-	//$Category Decoration
-Solid
-Height 48
-Radius 20
-DoomEdNum 3025
-Sprite MPL2
-Frames "A"
-}
-
-CarcassImpaledMarine2
-{
-	//$Category Decoration
-Solid
-Height 48
-Radius 20
-DoomEdNum 3026
-Sprite MPLD
-Frames "A"
-}
-
 GibsRibs
 {
-	//$Category Decoration
+//$Category Decoration
 DoomEdNum 3027
 Sprite RIB1
 Frames "A"
@@ -278,31 +80,9 @@ Radius 32
 Height 16
 }
 
-CarcassSittingMarine
-{
-	//$Category Decoration
-Solid
-Height 32
-Radius 20
-DoomEdNum 3028
-Sprite SIT1
-Frames "A"
-}
-
-CarcassSittingMaintenance
-{
-	//$Category Decoration
-Solid
-Height 32
-Radius 20
-DoomEdNum 3029
-Sprite SIT2
-Frames "A"
-}
-
 DeadDukePig
 {
-	//$Category Decoration
+//$Category Decoration
 Height 32
 Radius 20
 Scale 0.75
@@ -313,7 +93,7 @@ Frames "A"
 
 NukedDuke
 {
-	//$Category Decoration
+//$Category Decoration
 Solid
 Height 40
 Radius 16
@@ -336,7 +116,7 @@ DoomEdNum 3340
 
 AlarmCeiling
 {
-	//$Category Decoration
+//$Category Decoration
 Sprite ALR2
 Frames "2:ABCD"
 Height 17
@@ -348,7 +128,7 @@ DoomEdNum 3341
 
 BarrelNukeFallen
 {
-	//$Category Decoration
+//$Category Decoration
 Sprite BAR1
 Frames "C"
 Solid
@@ -370,7 +150,7 @@ DoomEdNum 3343
 
 BarrelBloodFallen
 {
-	//$Category Decoration
+//$Category Decoration
 Sprite BAR2
 Frames "B"
 Solid
