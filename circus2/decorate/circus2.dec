@@ -438,8 +438,8 @@ ACTOR FluffyNew replaces Fluffy2 32120
   //$Color 12
   //$Category "Happy Time Circus/Monsters"
 
-  dropitem DoomSpellMana2 192 125
-  dropitem DoomSpellMana2 192 125
+  dropitem DoomSpellMana2 192
+  dropitem DoomSpellMana2 192
   dropitem GreenArmor 32
   dropitem BlueArmor 32
   dropitem HealthBonus 32
@@ -591,8 +591,8 @@ ACTOR MiniFluffyNew replaces MiniFluffy 3194
   //$Color 12
   //$Category "Happy Time Circus/Monsters"
 
-  dropitem DoomSpellMana2 24 125
-  dropitem DoomSpellMana2 24 125
+  dropitem DoomSpellMana2 24
+  dropitem DoomSpellMana2 24
   dropitem GreenArmor 2
   dropitem BlueArmor 2
   dropitem HealthBonus 2
@@ -711,7 +711,7 @@ ACTOR JumpingSkullNew replaces JumpingSkull 32121
   //$Color 12
   //$Category "Happy Time Circus/Monsters"
 
-  dropitem DoomSpellMana1 16 50
+  dropitem DoomSpellMana1 16
   dropitem GreenArmor 2
   dropitem BlueArmor 2
   dropitem HealthBonus 2
@@ -829,7 +829,7 @@ ACTOR JumpingSkull2New replaces JumpingSkull2 3646 //spawns skull ghosts
   //$Color 12
   //$Category "Happy Time Circus/Monsters"
 
-  dropitem DoomSpellMana1 16 50
+  dropitem DoomSpellMana1 16
   dropitem GreenArmor 2
   dropitem BlueArmor 2
   dropitem HealthBonus 2
@@ -949,7 +949,7 @@ ACTOR PossessedBalloonNew replaces PossessedBalloon 3115
   //$Color 12
   //$Category "Happy Time Circus/Monsters"
 
-  dropitem DoomSpellMana1 8 50
+  dropitem DoomSpellMana1 8
   dropitem GreenArmor 1
   dropitem BlueArmor 1
   dropitem HealthBonus 1
@@ -1080,7 +1080,7 @@ ACTOR BingoNew replaces Bingo 4110
   //$Color 12
   //$Category "Happy Time Circus/Monsters"
 
-  dropitem DoomSpellMana2 76 125
+  dropitem DoomSpellMana2 76
   dropitem GreenArmor 2
   dropitem BlueArmor 2
   dropitem HealthBonus 2
@@ -1224,7 +1224,7 @@ ACTOR TinyBingoNew replaces TinyBingo 4179
   //$Color 12
   //$Category "Happy Time Circus/Monsters"
 
-  dropitem DoomSpellMana1 76 50
+  dropitem DoomSpellMana1 76
   dropitem GreenArmor 4
   dropitem BlueArmor 4
   dropitem HealthBonus 4
@@ -1336,8 +1336,8 @@ actor BeefyNew replaces Beefy 4333
   //$Color 12
   //$Category "Happy Time Circus/Monsters"
 
-  dropitem DoomSpellMana1 24 50
-  dropitem DoomSpellMana1 24 50
+  dropitem DoomSpellMana1 24
+  dropitem DoomSpellMana1 24
   dropitem GreenArmor 2
   dropitem BlueArmor 2
   dropitem HealthBonus 2
@@ -1519,7 +1519,7 @@ ACTOR BlackBearNew replaces BlackBear 3191
   //$Color 12
   //$Category "Happy Time Circus/Monsters"
 
-  dropitem DoomSpellMana1 8 50
+  dropitem DoomSpellMana1 8
   dropitem HealthBonus 1
   dropitem ArmorBonus 1
   dropitem MaxHealthBonus 1
@@ -1639,10 +1639,10 @@ actor ClownGhostNew replaces ClownGhost 32128
   //$Color 12
   //$Category "Happy Time Circus/Monsters"
 
-  dropitem DoomSpellMana1 24 50
-  dropitem DoomSpellMana1 24 50
-  dropitem DoomSpellMana2 24 125
-  dropitem DoomSpellMana2 24 125
+  dropitem DoomSpellMana1 24
+  dropitem DoomSpellMana1 24
+  dropitem DoomSpellMana2 24
+  dropitem DoomSpellMana2 24
   dropitem GreenArmor 2
   dropitem BlueArmor 2
   dropitem HealthBonus 2
@@ -1805,9 +1805,9 @@ actor ClownGhost2New replaces ClownGhost2 31211
   //$Color 12
   //$Category "Happy Time Circus/Monsters"
 
-  dropitem DoomSpellMana1 24 50
-  dropitem DoomSpellMana2 24 125
-  dropitem DoomSpellMana3 24 350
+  dropitem DoomSpellMana1 24
+  dropitem DoomSpellMana2 24
+  dropitem DoomSpellMana3 24
   dropitem GreenArmor 2
   dropitem BlueArmor 2
   dropitem HealthBonus 2
@@ -1953,8 +1953,8 @@ actor BulbyNew replaces Bulby 3906
   //$Color 12
   //$Category "Happy Time Circus/Monsters"
 
-  dropitem DoomSpellMana1 24 50
-  dropitem DoomSpellMana2 24 125
+  dropitem DoomSpellMana1 24
+  dropitem DoomSpellMana2 24
   dropitem GreenArmor 2
   dropitem BlueArmor 2
   dropitem HealthBonus 2
@@ -2112,9 +2112,9 @@ actor MegaBulbyNew replaces MegaBulby 3989
   //$Color 12
   //$Category "Happy Time Circus/Monsters"
 
-  dropitem DoomSpellMana1 24 50
-  dropitem DoomSpellMana2 24 125
-  dropitem DoomSpellMana3 24 350
+  dropitem DoomSpellMana1 24
+  dropitem DoomSpellMana2 24
+  dropitem DoomSpellMana3 24
   dropitem GreenArmor 2
   dropitem GreenArmor 2
   dropitem BlueArmor 2
@@ -2280,12 +2280,12 @@ ACTOR BigBertha2New replaces BigBertha2 3192
   //$Color 12
   //$Category "Happy Time Circus/Monsters"
 
-  dropitem DoomSpellMana1 24 50
-  dropitem DoomSpellMana1 24 50
-  dropitem DoomSpellMana2 24 125
-  dropitem DoomSpellMana2 24 125
-  dropitem DoomSpellMana3 24 350
-  dropitem DoomSpellMana3 24 350
+  dropitem DoomSpellMana1 24
+  dropitem DoomSpellMana1 24
+  dropitem DoomSpellMana2 24
+  dropitem DoomSpellMana2 24
+  dropitem DoomSpellMana3 24
+  dropitem DoomSpellMana3 24
   dropitem GreenArmor 2
   dropitem GreenArmor 2
   dropitem BlueArmor 2
@@ -2429,10 +2429,10 @@ actor SuperBerthaNew replaces SuperBertha 14768
   //$Color 12
   //$Category "Happy Time Circus/Monsters"
 
-  dropitem DoomSpellMana3 24 350
-  dropitem DoomSpellMana3 24 350
-  dropitem DoomSpellMana3 24 350
-  dropitem DoomSpellMana3 24 350
+  dropitem DoomSpellMana3 24
+  dropitem DoomSpellMana3 24
+  dropitem DoomSpellMana3 24
+  dropitem DoomSpellMana3 24
   dropitem GreenArmor 8
   dropitem GreenArmor 8
   dropitem GreenArmor 8
@@ -2625,7 +2625,7 @@ ACTOR EvilDeadHandNew replaces EvilDeadHand 32212
   //$Color 12
   //$Category "Happy Time Circus/Monsters"
 
-  dropitem DoomSpellMana1 8 50
+  dropitem DoomSpellMana1 8
   dropitem GreenArmor 1
   dropitem BlueArmor 1
   dropitem HealthBonus 1
@@ -2741,11 +2741,11 @@ ACTOR BouncingClownNew replaces BouncingClown 4822
   //$Color 12
   //$Category "Happy Time Circus/Monsters"
 
-  dropitem DoomSpellMana3 24 350
-  dropitem DoomSpellMana3 24 350
-  dropitem DoomSpellMana3 24 350
-  dropitem DoomSpellMana3 24 350
-  dropitem DoomSpellMana3 24 350
+  dropitem DoomSpellMana3 24
+  dropitem DoomSpellMana3 24
+  dropitem DoomSpellMana3 24
+  dropitem DoomSpellMana3 24
+  dropitem DoomSpellMana3 24
   dropitem GreenArmor 8
   dropitem GreenArmor 8
   dropitem GreenArmor 8
@@ -2936,7 +2936,7 @@ ACTOR BabyClownNew replaces BabyClown 4823
   //$Color 12
   //$Category "Happy Time Circus/Monsters"
 
-  dropitem DoomSpellMana3 24 350
+  dropitem DoomSpellMana3 24
   dropitem GreenArmor 8
   dropitem BlueArmor 8
   dropitem HealthBonus 8
@@ -3066,7 +3066,7 @@ ACTOR BabyClown2New replaces BabyClown2 4825
   //$Color 12
   //$Category "Happy Time Circus/Monsters"
 
-  dropitem DoomSpellMana3 24 350
+  dropitem DoomSpellMana3 24
   dropitem GreenArmor 8
   dropitem BlueArmor 8
   dropitem HealthBonus 8
@@ -3197,8 +3197,8 @@ actor PennywiseHead2New replaces PennywiseHead 14421
   //$Color 12
   //$Category "Happy Time Circus/Monsters"
 
-  dropitem DoomSpellMana3 24 350
-  dropitem DoomSpellMana3 24 350
+  dropitem DoomSpellMana3 24
+  dropitem DoomSpellMana3 24
   dropitem GreenArmor 8
   dropitem GreenArmor 8
   dropitem BlueArmor 8
@@ -3338,11 +3338,11 @@ actor PennywiseBoss replaces Pennywise 3672
   //$Color 12
   //$Category "Happy Time Circus/Bosses"
 
-  dropitem DoomSpellMana3 24 350
-  dropitem DoomSpellMana3 24 350
-  dropitem DoomSpellMana3 24 350
-  dropitem DoomSpellMana3 24 350
-  dropitem DoomSpellMana3 24 350
+  dropitem DoomSpellMana3 24
+  dropitem DoomSpellMana3 24
+  dropitem DoomSpellMana3 24
+  dropitem DoomSpellMana3 24
+  dropitem DoomSpellMana3 24
   dropitem GreenArmor 8
   dropitem GreenArmor 8
   dropitem GreenArmor 8
