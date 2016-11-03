@@ -1,5 +1,5 @@
 // Replaces The Old Afrit/Balrog [DEH] with the proper DV-DS Balrogs [so they're not effortless fights comparitively by the time you encounter them.
-Actor CommanderKeen
+Actor CommanderKeenNew replaces CommanderKeen
 {
  +ISMONSTER
  +RANDOMIZE
