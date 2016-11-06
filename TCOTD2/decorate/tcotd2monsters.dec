@@ -784,7 +784,6 @@ ACTOR VulgarShotNew
   Height 16
   Speed 10
   Damage 4
-  PoisonDamage 8
   RENDERSTYLE ADD
   ALPHA 0.67
   PROJECTILE
@@ -937,7 +936,8 @@ Actor ClayDevilNew : ClayDevil replaces ClayDevil
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
-
+  var int user_autorestimer;
+  
   painchance 48
   Painchance "Fist", 72 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Kick", 120 // Kick attacks have a +150% chance of stunning an enemy
@@ -1032,15 +1032,26 @@ Actor ClayDevilNew : ClayDevil replaces ClayDevil
 	N00B P 0 A_SetSolid // No "nesting" these guys to prevent respawns :V
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
 
-    N00B V 0 A_Jump(192,4)
-    N00B V 0 A_Jump(128,4)
-    N00B V 0 A_Jump(96,4)
-    N00B V 0 A_Jump(64,4)
-    N00B V 50 
-    N00B V 50 
-    N00B V 50 
-    N00B V 50 
-    N00B V 50 
+    N00B V 0
+	{
+	 if (random(1,256) <= 128) { A_SetUserVar("user_autorestimer",random(200,250)); }
+	 else
+	 {
+	  if (random(1,256) <= 128) { A_SetUserVar("user_autorestimer",random(150,200)); }
+	  else
+	  {
+	   if (random(1,256) <= 128) { A_SetUserVar("user_autorestimer",random(100,150)); }
+	   else
+	   {
+	    A_SetUserVar("user_autorestimer",random(50,100));
+	   }	   
+	  }
+	 }
+	}
+    N00B V 250 
+	{
+	 A_SetTics(user_autorestimer);
+	}
   RegenCycle:
     N00B V 0 CanRaise Thing_Raise(0)       
     N00B V 5 
@@ -1061,15 +1072,26 @@ Actor ClayDevilNew : ClayDevil replaces ClayDevil
 	N00B P 0 A_SetSolid // No "nesting" these guys to prevent respawns :V
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
 
-    N00B V 0 A_Jump(192,4)
-    N00B V 0 A_Jump(128,4)
-    N00B V 0 A_Jump(96,4)
-    N00B V 0 A_Jump(64,4)
-    N00B V 150 
-    N00B V 150 
-    N00B V 150 
-    N00B V 150 
-    N00B V 150 
+    N00B V 0
+	{
+	 if (random(1,256) <= 128) { A_SetUserVar("user_autorestimer",random(600,750)); }
+	 else
+	 {
+	  if (random(1,256) <= 128) { A_SetUserVar("user_autorestimer",random(450,600)); }
+	  else
+	  {
+	   if (random(1,256) <= 128) { A_SetUserVar("user_autorestimer",random(300,450)); }
+	   else
+	   {
+	    A_SetUserVar("user_autorestimer",random(150,300));
+	   }	   
+	  }
+	 }
+	}
+    N00B V 750 
+	{
+	 A_SetTics(user_autorestimer);
+	}
   RegenFireCycle:
     N00B V 0 CanRaise Thing_Raise(0)       
     N00B V 5 

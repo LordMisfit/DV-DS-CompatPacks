@@ -174,12 +174,11 @@ ACTOR VulgarShotNew
   Height 16
   Speed 10
   Damage 4
-  PoisonDamage 8
   RENDERSTYLE ADD
   ALPHA 0.67
   PROJECTILE
   +THRUGHOST
-  +HITTARGET
+  +HITMASTER
   Seesound "poly/stmdr1"
   DeathSound "weapons/bloodx"
   States

@@ -5632,6 +5632,7 @@ actor BFireTrail// : BulletPuff
     stop
   }
 }
+/*
 actor FLYINGBLOOD// : BulletPuff
 {
   RENDERSTYLE ADD
@@ -5655,7 +5656,7 @@ actor FLYINGBLOOD// : BulletPuff
     stop
   }
 }
-
+*/
 
 ACTOR BJackelopeChargeLoop : Inventory
 {
