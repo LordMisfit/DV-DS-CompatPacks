@@ -308,6 +308,7 @@ ACTOR TommyGunCultistNew : ShotgunCultist replaces ShotgunCultist 29011
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
+  var int user_pelletsfired; var int user_currenttracer;
 
   health 125 // 40,60,80,100,125
   painchance 170
@@ -348,10 +349,44 @@ ACTOR TommyGunCultistNew : ShotgunCultist replaces ShotgunCultist 29011
 	Goto See
   Missile:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    XFAN G 2 A_FaceTarget
-    XFAN H 3 bright A_CustomBulletAttack(10,5.6,1,2,"BulletPuff2")
-    //XFAN F 0 A_CustomMissile("TommygunCasing",30,4,24,1)
-    XFAN H 2 A_PlayWeaponSound ("fanatic/attack")
+    XFAN G 0 A_PlaySound("fanatic/attack", CHAN_WEAPON)
+    XFAN GH 4 bright
+	{
+     A_FaceTarget;
+	 if (ACS_NamedExecuteWithResult("CheckHitscanType") == 0)
+	 {
+	  A_SetUserVar("user_canusecrisisatk",0);
+	  //if(health <= user_HPLowRange) { if(health <= user_HPCritRange) { A_SetUserVar("user_canusecrisisatk",1); } else { if (random(1,4) == 4) { A_SetUserVar("user_canusecrisisatk",1);	} } }
+      //if(GetCVar("dvds_monstercrisisattacks") == 0) { A_SetUserVar("user_canusecrisisatk",0); }
+	  if(user_canusecrisisatk == 1)
+	  {
+       A_PlaySound("crisisattack",6);
+       A_PlaySound("crisisattack2",7);
+       A_CustomBulletAttack(10, 5.6, 1, ((random(1,5)*3) * ACS_NamedExecuteWithResult("CrisisMultiplier")), "BulletPuff2", 0, CBAF_NORANDOM);
+	  }
+	  else
+	  {
+	   A_CustomBulletAttack(10, 5.6, 1, random(1,5)*3, "BulletPuff2", 0, CBAF_NORANDOM);
+	  }
+	 }
+	 else
+	 {
+	  A_SetUserVar("user_canusecrisisatk",0);
+	  if(health <= user_HPLowRange) { if(health <= user_HPCritRange) { A_SetUserVar("user_canusecrisisatk",1); } else { if (random(1,4) == 4) { A_SetUserVar("user_canusecrisisatk",1);	} } }
+      if(GetCVar("dvds_monstercrisisattacks") == 0) { A_SetUserVar("user_canusecrisisatk",0); }
+	  if(user_canusecrisisatk == 1)
+	  {
+       A_PlaySound("crisisattack",6);
+       A_PlaySound("crisisattack2",7);
+       A_CustomMissile("ZombieBulletTracerCrisis", 32, 12, frandom(-5.0,5.0), CMF_OFFSETPITCH, frandom(-2.8,2.8));
+	  }
+	  else
+	  {
+       A_CustomMissile("ZombieBulletTracer", 32, 12, frandom(-5.0,5.0), CMF_OFFSETPITCH, frandom(-2.8,2.8));
+	  }
+     }
+	}
+    XFAN H 1 A_FaceTarget
     XFAN E 0 A_SentinelRefire
     goto Missile
 
@@ -462,7 +497,45 @@ ACTOR ShotgunCultistNew : TommyGunCultistNew replaces ChainGunCultist 29010
   Missile:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
     XFAN G 20 A_FaceTarget
-    XFAN H 10 BRIGHT A_SPosAttack
+    XFAN H 10 BRIGHT 
+	{
+     A_PlaySound("shotguy/attack");
+	 if (ACS_NamedExecuteWithResult("CheckShotgunnerSpreads") == 0) { A_SetUserVar("user_pelletsfired",3); } else { A_SetUserVar("user_pelletsfired",7); }
+
+	 A_SetUserVar("user_canusecrisisatk",0);
+	 //if(health <= user_HPLowRange) { if(health <= user_HPCritRange) { A_SetUserVar("user_canusecrisisatk",1); } else { if (random(1,4) == 4) { A_SetUserVar("user_canusecrisisatk",1);	} } }
+     //if(GetCVar("dvds_monstercrisisattacks") == 0) { A_SetUserVar("user_canusecrisisatk",0); }
+	 if(user_canusecrisisatk == 1)
+	 {
+      A_PlaySound("crisisattack",6);
+      A_PlaySound("crisisattack2",7);
+	  if (ACS_NamedExecuteWithResult("CheckHitscanType") == 0) // Hitscan
+	  {
+	   A_CustomBulletAttack (22.4, 0, user_pelletsfired, ((random(1,5) * 3) * ACS_NamedExecuteWithResult("CrisisMultiplier")), "BulletPuff", 0, 1);
+	  }
+	  else
+	  {
+       for (A_SetUserVar(user_currenttracer, 0); user_currenttracer < user_pelletsfired; A_SetUserVar(user_currenttracer, user_currenttracer + 1))
+       {
+        A_CustomMissile("ZombieBulletTracerCrisis", 32, 12, frandom(-11.2,11.2));
+       }	   
+	  }
+	 }
+	 else
+	 {
+	  if (ACS_NamedExecuteWithResult("CheckHitscanType") == 0) // Hitscan
+	  {
+       A_CustomBulletAttack (22.4, 0, user_pelletsfired, random(1,5) * 3, "BulletPuff", 0, 1);
+	  }
+	  else
+	  {
+       for (A_SetUserVar(user_currenttracer, 0); user_currenttracer < user_pelletsfired; A_SetUserVar(user_currenttracer, user_currenttracer + 1))
+       {
+	    A_CustomMissile("ZombieBulletTracer", 32, 12, frandom(-11.2,11.2));
+       }	   
+	  }
+	 }
+	}
     XFAN G 10
     Goto See
   }
