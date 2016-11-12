@@ -1,0 +1,113 @@
+cluster 1
+{
+name = "Sitnalta"
+pic = "END1"
+music = MUS_CPTD
+exittext = lookup, "ENDE"
+exittextislump
+}
+
+map E1M1 lookup "Sitnalta Shrine"
+{
+levelnum = 1
+next = "E1M2"
+secretnext = "E1M9"
+sky1 = "SKY3", 0
+cluster = 1
+Music = MAP1
+par = 900
+sucktime = 0
+}
+
+map E1M2 lookup "Sitnalta Underground Waterway"
+{
+levelnum = 2
+next = "E1M3"
+secretnext = "E1M9"
+sky1 = "SKY3", 0
+Music = MAP2
+cluster = 1
+par = 1200
+sucktime = 0
+}
+
+map E1M3 lookup "Sitnalta Market place"
+{
+levelnum = 3
+next = "E1M4"
+secretnext = "E1M9"
+sky1 = "SKY3", 0
+Music = MAP3
+cluster = 1
+par = 900
+sucktime = 0
+}
+
+map E1M4 lookup "Sitnalta Grand Cathedral"
+{
+levelnum = 4
+next = "E1M5"
+secretnext = "E1M9"
+sky1 = "SKY3", 0
+Music = map4
+cluster = 1
+par = 900
+sucktime = 0
+}
+
+map E1M5 lookup "Sitnalta Underwater Ruins"
+{
+levelnum = 5 
+next = "E1M6"
+secretnext = "E1M9"
+sky1 = "SKY3", 0
+Music = map5
+cluster = 1
+par = 1200
+sucktime = 0
+}
+
+map E1M6 lookup "Sitnalta Dungeons"
+{
+levelnum = 6
+next = "E1M7"
+sky1 = "SKY3", 0
+music = map6
+cluster = 1
+par = 1200
+sucktime = 0
+}
+
+map E1M7 lookup "Sitnalta Academic Quarters"
+{
+levelnum = 7
+next = "E1M8"
+sky1 = "SKY3", 0
+music = MAP7
+cluster = 1
+par = 2400
+sucktime = 0
+}
+
+map E1M8 lookup "Sitnalta Grand Palace"
+{
+levelnum = 8
+sky1 = "SKY3", 0
+music = MAP8
+cluster = 1
+par = 900
+sucktime = 0
+nointermission
+}
+
+map E1M9 lookup "Sitnalta Golem Factory"
+{
+levelnum = 9
+next = "E1M6"
+sky1 = "SKY3", 0
+music = MAP9
+cluster = 1
+par = 900
+sucktime = 0
+}
+

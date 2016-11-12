@@ -1,0 +1,48 @@
+\/\/\/\/Thor Sounds\/\/\/\/
+
+
+$random thor/painr	{ PAIN1 PAIN2 PAIN3 PAIN4 PAIN5 PAIN6 PAIN7 PAIN8 PAIN9 }
+$random thor/activer	{ FAER1 FAER2 FAER3 FAER4 ANGER1 ANGER2 LAUGH1 LAUGH2 LAUGH3 }
+$random thor/seer	{ SPOT1 SPOT2 SPOT3 }
+
+PAIN1 PAIN1
+PAIN2 PAIN2
+PAIN3 PAIN3
+PAIN4 PAIN4
+PAIN5 PAIN5
+PAIN6 PAIN6
+PAIN7 PAIN7
+PAIN8 PAIN8
+PAIN9 PAIN9
+FEAR1 FEAR1
+FEAR2 FEAR2
+FEAR3 FEAR3
+FEAR4 FEAR4
+ANGER1 ANGER1
+ANGER2 ANGER2
+LAUGH1 LAUGH1
+LAUGH2 LAUGH2
+LAUGH3 LAUGH3
+SPOT1 SPOT1 
+SPOT2 SPOT2 
+SPOT3 SPOT3 
+
+thor/attackr1 HEALING
+thor/attackr2 FIREBALL
+thor/attackr3 DISTFIRE
+thor/attackr4 BUILD
+thor/thunder DSTHLTNG
+
+thor/zap SORZAP
+thor/rise SORRISE
+thor/see SORSIT
+thor/attack SORATK
+thor/active SORACT
+thor/pain SORPAI
+thor/death SORDSPH
+thor/smoke SORSMOKE
+thor/activel SORACTL
+thor/hitl SORHITL
+thor/spawnl SORSPWNL
+
+\/\/\/\/End Thor Sounds\/\/\/\/

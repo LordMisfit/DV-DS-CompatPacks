@@ -1,0 +1,606 @@
+Pointlight ThorAttack
+{
+Color 0.0 0.0 1.0
+Size 40
+}
+
+Flickerlight2 ThorAttack2
+{
+Color 0.0 0.0 1.0
+Size 40
+SecondarySize 56
+Interval 1
+Offset 0 40 0
+}
+
+Pointlight ThorDeath1
+{
+Color 0.0 0.0 0.6
+Size 25
+}
+
+Pointlight ThorDeath2
+{
+Color 0.0 0.0 0.8
+Size 30
+}
+
+Pointlight ThorDeath3
+{
+Color 0.0 0.0 1.0
+Size 35
+}
+
+Flickerlight2 ThorDeath4
+{
+Color 0.0 0.0 1.0
+Size 40
+SecondarySize 56
+Interval 1
+Offset 0 40 0
+}
+
+Pointlight ThorDeath5
+{
+Color 0.7 0.7 1.0
+Size 45
+}
+
+Pointlight ThorDeath6
+{
+Color 0.4 0.4 0.7
+Size 28
+}
+
+Object Thor
+{
+Frame THORR { Light ThorAttack }
+Frame THORS { Light ThorAttack }
+Frame THORT { Light ThorAttack2 }
+Frame THORX { Light ThorAttack }
+Frame THR2A { Light ThorDeath1 }
+Frame THR2B { Light ThorDeath2 }
+Frame THR2C { Light ThorDeath3 }
+Frame THR2D { Light ThorDeath4 }
+Frame THR2E { Light ThorDeath4 }
+Frame THR2F { Light ThorDeath4 }
+Frame THR2G { Light ThorDeath5 }
+Frame THR2H { Light ThorDeath6 }
+}
+
+Flickerlight2 GroundLightning
+{
+Color 0.0 0.0 0.8
+Size 8
+SecondarySize 10
+Interval 1
+Offset 0 0 0
+}
+
+Object GroundLightning
+{
+Frame ICWSA { Light GroundLightning }
+Frame ICWSB { Light GroundLightning }
+Frame ICWSC { Light GroundLightning }
+Frame ICWSD { Light GroundLightning }
+Frame ICWSE { Light GroundLightning }
+Frame ICWSF { Light GroundLightning }
+Frame ICWSG { Light GroundLightning }
+Frame ICWSH { Light GroundLightning }
+Frame ICWSI { Light GroundLightning }
+}
+
+Flickerlight2 GroundLightningTracer
+{
+Color 0.0 0.0 0.8
+Size 8
+SecondarySize 10
+Interval 1
+Offset 0 0 0
+}
+
+Object GroundLightningTracer
+{
+Frame ICWSA { Light GroundLightningTracer }
+Frame ICWSB { Light GroundLightningTracer }
+Frame ICWSC { Light GroundLightningTracer }
+Frame ICWSD { Light GroundLightningTracer }
+Frame ICWSE { Light GroundLightningTracer }
+Frame ICWSF { Light GroundLightningTracer }
+Frame ICWSG { Light GroundLightningTracer }
+Frame ICWSH { Light GroundLightningTracer }
+Frame ICWSI { Light GroundLightningTracer }
+}
+
+Pointlight SmokeLightning
+{
+Color 0.6 0.6 1.0
+Size 20
+}
+
+Object Smokeightning
+{
+Frame ZOT3A { Light SmokeLightning }
+Frame ZOT3B { Light SmokeLightning }
+Frame ZOT3C { Light SmokeLightning }
+Frame ZOT3D { Light SmokeLightning }
+Frame ZOT3E { Light SmokeLightning }
+}
+
+Pointlight LightningBallS
+{
+Color 0.6 0.6 1.0
+Size 20
+}
+
+Pointlight LightningBallSDeath1
+{
+Color 0.6 0.6 1.0
+Size 20
+}
+
+Pointlight LightningBallSDeath2
+{
+Color 0.6 0.6 1.0
+Size 25
+}
+
+Pointlight LightningBallSDeath3
+{
+Color 0.5 0.5 0.9
+Size 25
+}
+
+Pointlight LightningBallSDeath4
+{
+Color 0.4 0.4 0.8
+Size 25
+}
+
+Pointlight LightningBallSDeath5
+{
+Color 0.3 0.3 0.7
+Size 25
+}
+
+Pointlight LightningBallSDeath6
+{
+Color 0.2 0.2 0.6
+Size 25
+}
+
+Object LightningBallS
+{
+Frame ZOT3A { Light LightningBallS }
+Frame ZOT3B { Light LightningBallS }
+Frame ZOT3C { Light LightningBallS }
+Frame ZOT3D { Light LightningBallS }
+Frame ZOT3E { Light LightningBallS }
+Frame ZAPSG { Light LightningBallSDeath1 }
+Frame ZAPSH { Light LightningBallSDeath2 }
+Frame ZAPSI { Light LightningBallSDeath3 }
+Frame ZAPSJ { Light LightningBallSDeath4 }
+Frame ZAPSK { Light LightningBallSDeath5 }
+Frame ZAPSL { Light LightningBallSDeath6 }
+}
+
+Pointlight LightningBallC1
+{
+Color 0.6 0.6 1.0
+Size 20
+}
+
+Object LightningBallC1
+{
+Frame ZOT3A { Light LightningBallC1 }
+Frame ZOT3B { Light LightningBallC1 }
+Frame ZOT3C { Light LightningBallC1 }
+}
+
+Pointlight LightningBallC2
+{
+Color 0.6 0.6 1.0
+Size 20
+}
+
+Object LightningBallC2
+{
+Frame ZOT3A { Light LightningBallC2 }
+Frame ZOT3B { Light LightningBallC2 }
+Frame ZOT3C { Light LightningBallC2 }
+}
+
+Pointlight LightningRod1
+{
+Color 0.6 0.6 1.0
+Size 30
+}
+
+Pointlight LightningRod1Death1
+{
+Color 0.5 0.5 0.9
+Size 25
+}
+
+Pointlight LightningRod1Death2
+{
+Color 0.6 0.6 1.0
+Size 30
+}
+
+Pointlight LightningRod1Death3
+{
+Color 0.5 0.5 0.9
+Size 35
+}
+
+Pointlight LightningRod1Death4
+{
+Color 0.4 0.4 0.8
+Size 30
+}
+
+Pointlight LightningRod1Death5
+{
+Color 0.3 0.3 0.7
+Size 25
+}
+
+Pointlight LightningRod1Death6
+{
+Color 0.2 0.2 1.6
+Size 20
+}
+
+Object LightningRod1
+{
+Frame ZAP6A { Light LightningRod1 }
+Frame ZAP6B { Light LightningRod1 }
+Frame ZAP6C { Light LightningRod1 }
+Frame ZOTSA { Light LightningRod1Death1 }
+Frame ZOTSB { Light LightningRod1Death2 }
+Frame ZOTSC { Light LightningRod1Death3 }
+Frame ZOTSD { Light LightningRod1Death4 }
+Frame ZOTSE { Light LightningRod1Death5 }
+Frame ZOTSF { Light LightningRod1Death6 }
+}
+
+Pointlight LightningBallL
+{
+Color 0.6 0.6 1.0
+Size 35
+}
+
+Pointlight LightningBallLDeath1
+{
+Color 0.5 0.5 0.9
+Size 30
+}
+
+Pointlight LightningBallLDeath2
+{
+Color 0.6 0.6 1.0
+Size 35
+}
+
+Pointlight LightningBallLDeath3
+{
+Color 0.5 0.5 0.9
+Size 40
+}
+
+Pointlight LightningBallLDeath4
+{
+Color 0.4 0.4 0.8
+Size 35
+}
+
+Pointlight LightningBallLDeath5
+{
+Color 0.3 0.3 0.7
+Size 30
+}
+
+Pointlight LightningBallLDeath6
+{
+Color 0.2 0.2 1.6
+Size 25
+}
+
+Pointlight LightningBallLDeath7
+{
+Color 0.1 0.1 1.5
+Size 20
+}
+
+
+Object LightningBallL
+{
+Frame ZAP7A { Light LightningBallL }
+Frame ZAP7B { Light LightningBallL }
+Frame ZAP7C { Light LightningBallL }
+Frame ZAP7D { Light LightningBallL }
+Frame ZAP7E { Light LightningBallL }
+Frame ZOTSA { Light LightningBallLDeath1 }
+Frame ZOTSB { Light LightningBallLDeath2 }
+Frame ZOTSC { Light LightningBallLDeath3 }
+Frame ZOTSD { Light LightningBallLDeath4 }
+Frame ZOTSE { Light LightningBallLDeath5 }
+Frame ZOTSF { Light LightningBallLDeath6 }
+Frame ZOTSG { Light LightningBallLDeath7 }
+}
+
+Pointlight MiniLightningPuff1
+{
+Color 0.0 0.0 0.4
+Size 2
+}
+
+Pointlight MiniLightningPuff2
+{
+Color 0.0 0.0 0.5
+Size 3
+}
+
+Pointlight MiniLightningPuff3
+{
+Color 0.0 0.0 0.6
+Size 4
+}
+
+Pointlight MiniLightningPuff4
+{
+Color 0.0 0.0 0.7
+Size 5
+}
+
+Pointlight MiniLightningPuff5
+{
+Color 0.0 0.0 0.8
+Size 6
+}
+
+Pointlight MiniLightningPuff6
+{
+Color 0.0 0.0 0.9
+Size 7
+}
+
+Pointlight MiniLightningPuff7
+{
+Color 0.0 0.0 1.0
+Size 8
+}
+
+Pointlight MiniLightningPuff8
+{
+Color 0.7 0.7 1.0
+Size 9
+}
+
+Pointlight MiniLightningPuff9
+{
+Color 0.0 0.0 1.0
+Size 10
+}
+
+Pointlight MiniLightningPuff10
+{
+Color 0.0 0.0 1.0
+Size 11
+}
+
+Pointlight MiniLightningPuff11
+{
+Color 0.0 0.0 1.0
+Size 12
+}
+
+Pointlight MiniLightningPuff12
+{
+Color 0.0 0.0 1.0
+Size 13
+}
+
+Pointlight MiniLightningPuff13
+{
+Color 0.0 0.0 0.9
+Size 12
+}
+
+Pointlight MiniLightningPuff14
+{
+Color 0.0 0.0 0.8
+Size 11
+}
+
+Pointlight MiniLightningPuff15
+{
+Color 0.0 0.0 0.7
+Size 10
+}
+
+Pointlight MiniLightningPuff16
+{
+Color 0.0 0.0 0.6
+Size 9
+}
+
+Pointlight MiniLightningPuff17
+{
+Color 0.0 0.0 0.5
+Size 8
+}
+
+Pointlight MiniLightningPuff18
+{
+Color 0.0 0.0 0.4
+Size 7
+}
+
+Object MiniLightningPuff
+{
+Frame DFFPA { Light MiniLightningPuff1 }
+Frame DFFPB { Light MiniLightningPuff2 }
+Frame DFFPC { Light MiniLightningPuff3 }
+Frame DFFPD { Light MiniLightningPuff4 }
+Frame DFFPE { Light MiniLightningPuff5 }
+Frame DFFPF { Light MiniLightningPuff6 }
+Frame DFFPG { Light MiniLightningPuff7 }
+Frame DFFPH { Light MiniLightningPuff8 }
+Frame DFFPI { Light MiniLightningPuff9 }
+Frame DFFPJ { Light MiniLightningPuff10 }
+Frame DFFPK { Light MiniLightningPuff11 }
+Frame DFFPL { Light MiniLightningPuff12 }
+Frame DFFPM { Light MiniLightningPuff13 }
+Frame DFFPN { Light MiniLightningPuff14 }
+Frame DFFPO { Light MiniLightningPuff15 }
+Frame DFFPP { Light MiniLightningPuff16 }
+Frame DFFPQ { Light MiniLightningPuff17 }
+Frame DFFPR { Light MiniLightningPuff18 }
+}
+
+Pointlight LightningRod3
+{
+Color 0.6 0.6 1.0
+Size 20
+}
+
+Pointlight LightningRod3Death1
+{
+Color 0.5 0.5 0.9
+Size 25
+}
+
+Pointlight LightningRod3Death2
+{
+Color 0.6 0.6 1.0
+Size 30
+}
+
+Pointlight LightningRod3Death3
+{
+Color 0.5 0.5 0.9
+Size 35
+}
+
+Pointlight LightningRod3Death4
+{
+Color 0.4 0.4 0.8
+Size 30
+}
+
+Pointlight LightningRod3Death5
+{
+Color 0.3 0.3 0.7
+Size 25
+}
+
+Pointlight LightningRod3Death6
+{
+Color 0.2 0.2 1.6
+Size 20
+}
+
+Object LightningRod3
+{
+Frame ZOT1A { Light LightningRod3 }
+Frame ZOT1B { Light LightningRod3 }
+Frame ZOT1C { Light LightningRod3 }
+Frame ZOT1D { Light LightningRod3 }
+Frame ZOT1E { Light LightningRod3 }
+Frame ZOTSA { Light LightningRod3Death1 }
+Frame ZOTSB { Light LightningRod3Death2 }
+Frame ZOTSC { Light LightningRod3Death3 }
+Frame ZOTSD { Light LightningRod3Death4 }
+Frame ZOTSE { Light LightningRod3Death5 }
+Frame ZOTSF { Light LightningRod3Death6 }
+}
+
+Pointlight LightningBallC1T1
+{
+Color 0.0 0.0 1.0
+Size 8
+}
+
+Pointlight LightningBallC1T2
+{
+Color 0.7 0.7 1.0
+Size 9
+}
+
+Pointlight LightningBallC1T3
+{
+Color 0.0 0.0 1.0
+Size 10
+}
+
+Pointlight LightningBallC1T4
+{
+Color 0.0 0.0 1.0
+Size 11
+}
+
+Pointlight LightningBallC1T5
+{
+Color 0.0 0.0 1.0
+Size 12
+}
+
+Pointlight LightningBallC1T6
+{
+Color 0.0 0.0 1.0
+Size 13
+}
+
+Pointlight LightningBallC1T7
+{
+Color 0.0 0.0 0.9
+Size 12
+}
+
+Pointlight LightningBallC1T8
+{
+Color 0.0 0.0 0.8
+Size 11
+}
+
+Pointlight LightningBallC1T9
+{
+Color 0.0 0.0 0.7
+Size 10
+}
+
+Pointlight LightningBallC1T10
+{
+Color 0.0 0.0 0.6
+Size 9
+}
+
+Pointlight LightningBallC1T11
+{
+Color 0.0 0.0 0.5
+Size 8
+}
+
+Pointlight LightningBallC1T12
+{
+Color 0.0 0.0 0.4
+Size 7
+}
+
+Object LightningBallC1T
+{
+Frame DFFPG { Light LightningBallC1T1 }
+Frame DFFPH { Light LightningBallC1T2 }
+Frame DFFPI { Light LightningBallC1T3 }
+Frame DFFPJ { Light LightningBallC1T4 }
+Frame DFFPK { Light LightningBallC1T5 }
+Frame DFFPL { Light LightningBallC1T6 }
+Frame DFFPM { Light LightningBallC1T7 }
+Frame DFFPN { Light LightningBallC1T8 }
+Frame DFFPO { Light LightningBallC1T9 }
+Frame DFFPP { Light LightningBallC1T10 }
+Frame DFFPQ { Light LightningBallC1T11 }
+Frame DFFPR { Light LightningBallC1T12 }
+}
