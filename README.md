@@ -43,7 +43,7 @@ HOW TO INSTALL / RUN / ETC:
  - Running - 5. To run DUMP-2 w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-Compatpacks/DUMP2-dvds.pk3" +hud_scale 0 exit" 
  - Important: DUMP-1 & DUMP-2's "remove everything on level start" feature is removed in these versions due to the mod's RPG nature, and resetting everything per level would destroy the mod's main function gameplay wise.
 
- - Running - 6. To run Epic [1] w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-Compatpacks/epic-dvds.wad" +hud_scale 0 exit" 
+ - Running - 6. To run Epic [1] w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-Compatpacks/Epic" +hud_scale 0 exit" 
 
  - Running - 7. To run Epic 2 w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-Compatpacks/Epic2" +hud_scale 0 exit" 
 

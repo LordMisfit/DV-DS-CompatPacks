@@ -1,0 +1,42 @@
+map map01 "A fool's paradise"
+levelnum 01
+sky1 SKY1 0
+next map02
+music d_runnin
+titlepatch CWILV00
+
+
+map map02 "Sand-storm"
+levelnum 02
+sky1 SKY1 0
+next map03
+music d_stalks
+titlepatch CWILV01
+
+
+map map03 "Arc of the pendulum"
+levelnum 03
+sky1 SKY1 0
+next map04
+music d_countd
+titlepatch CWILV02
+nojump
+
+
+map map04 "The Helltrain"
+levelnum 04
+sky1 SKY1 0
+next map05
+music d_betwee
+titlepatch CWILV03
+allowjump
+
+
+
+map map05 "The Citadel"
+levelnum 05
+sky1 SKY1 0
+next map06
+music d_doom
+titlepatch CWILV04
+
