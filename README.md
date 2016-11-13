@@ -45,11 +45,11 @@ HOW TO INSTALL / RUN / ETC:
 
  - Running - 6. To run Epic [1] w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-Compatpacks/epic-dvds.wad" +hud_scale 0 exit" 
 
- - Running - 7. To run Epic 2 w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-Compatpacks/epic2-dvds.wad" +hud_scale 0 exit" 
+ - Running - 7. To run Epic 2 w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-Compatpacks/Epic2" +hud_scale 0 exit" 
 
- - Running - 8. To run Going Down w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-Compatpacks/goingdown-DVDS.wad" "DV-DS-Compatpacks/GoingDown" +hud_scale 0 exit" 
+ - Running - 8. To run Going Down w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-Compatpacks/GoingDown" +hud_scale 0 exit" 
 
- - Running - 9. To run Hell Ground w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/hellground" +hud_scale 0 exit" 
+ - Running - 9. To run Hell Ground w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/HellGround" +hud_scale 0 exit" 
 
  - Running - 10. To run KDIZD w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/KDIZD" +hud_scale 0 exit" 
 

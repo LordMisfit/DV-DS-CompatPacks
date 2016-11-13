@@ -1,0 +1,265 @@
+// MAPINFO for Going Down
+ 
+defaultmap
+
+	nojump
+	nocrouch
+	compat_sectorsounds 1
+
+ 
+ map MAP01 "Going Up"
+titlepatch CWILV00
+next MAP02
+secretnext MAP02
+sky1 SKY1 0
+sucktime 1
+music D_RUNNIN
+
+map MAP02 "Evil Admin"
+titlepatch CWILV01
+next MAP03
+secretnext MAP03
+sky1 SKY1 0
+sucktime 1
+music D_STALKS
+
+map MAP03 "Crawl Space"
+titlepatch CWILV02
+next MAP04
+secretnext MAP04
+sky1 SKY1 0
+sucktime 1
+music D_COUNTD
+
+map MAP04 "Blood and Rockets"
+titlepatch CWILV03
+next MAP05
+secretnext MAP05
+sky1 SKY1 0
+sucktime 1
+music D_BETWEE
+
+map MAP05 "Time Warp"
+titlepatch CWILV04
+next MAP06
+secretnext MAP06
+sky1 SKY1 0
+sucktime 1
+music D_DOOM
+
+map MAP06 "Painframe"
+titlepatch CWILV05
+next MAP07
+secretnext MAP07
+sky1 SKY1 0
+sucktime 1
+music D_THE_DA
+
+map MAP07 "Bad Reception"
+titlepatch CWILV06
+next MAP08
+secretnext MAP08
+sky1 SKY1 0
+map07special
+sucktime 1
+music D_SHAWN
+
+map MAP08 "Hide and Seek"
+titlepatch CWILV07
+next MAP09
+secretnext MAP09
+sky1 SKY1 0
+sucktime 1
+music D_DDTBLU
+
+map MAP09 "Broken Records"
+titlepatch CWILV08
+next MAP10
+secretnext MAP10
+sky1 SKY1 0
+sucktime 1
+music D_IN_CIT
+
+map MAP10 "Trip Switch"
+titlepatch CWILV09
+next MAP11
+secretnext MAP11
+sky1 SKY1 0
+sucktime 1
+music D_DEAD
+
+map MAP11 "Vivisection"
+titlepatch CWILV10
+next MAP12
+secretnext MAP12
+sky1 SKY1 0
+sucktime 1
+music D_STLKS2
+
+map MAP12 "Dead End"
+titlepatch CWILV11
+next MAP13
+secretnext MAP13
+sky1 SKY2 0
+sucktime 1
+music D_THEDA2
+
+map MAP13 "Deep Trouble"
+titlepatch CWILV12
+next MAP14
+secretnext MAP14
+sky1 SKY2 0
+sucktime 1
+music D_DOOM2
+
+map MAP14 "Secrets and Lies"
+titlepatch CWILV13
+next MAP15
+secretnext MAP15
+sky1 SKY2 0
+sucktime 1
+music D_DDTBL2
+
+map MAP15 "Gladiator"
+titlepatch CWILV14
+next MAP16
+secretnext MAP31
+sky1 SKY2 0
+sucktime 1
+music D_RUNNI2
+
+map MAP16 "Black Mass"
+titlepatch CWILV15
+next MAP17
+secretnext MAP17
+sky1 SKY2 0
+sucktime 1
+music D_DEAD2
+
+map MAP17 "Rest in Pieces"
+titlepatch CWILV16
+next MAP18
+secretnext MAP18
+sky1 SKY2 0
+sucktime 1
+music D_STLKS3
+
+map MAP18 "Buried Alive"
+titlepatch CWILV17
+next MAP19
+secretnext MAP19
+sky1 SKY2 0
+sucktime 1
+music D_ROMERO
+
+map MAP19 "200 Megahurts"
+titlepatch CWILV18
+next MAP20
+secretnext MAP20
+sky1 SKY2 0
+sucktime 1
+music D_SHAWN2
+
+map MAP20 "The Mouth of Madness"
+titlepatch CWILV19
+next MAP21
+secretnext MAP21
+sky1 SKY2 0
+sucktime 1
+music D_MESSAG
+
+map MAP21 "Indigestion"
+titlepatch CWILV20
+next MAP22
+secretnext MAP22
+sky1 SKY3 0
+sucktime 1
+music D_COUNT2
+
+map MAP22 "Constipation Station"
+titlepatch CWILV21
+next MAP23
+secretnext MAP23
+sky1 SKY3 0
+sucktime 1
+music D_DDTBL3
+
+map MAP23 "Demonology"
+titlepatch CWILV22
+next MAP24
+secretnext MAP24
+sky1 SKY3 0
+sucktime 1
+music D_AMPIE
+
+map MAP24 "Bridge of Blood"
+titlepatch CWILV23
+next MAP25
+secretnext MAP25
+sky1 SKY3 0
+sucktime 1
+music D_THEDA3
+
+map MAP25 "Forbidden Fruit"
+titlepatch CWILV24
+next MAP26
+secretnext MAP26
+sky1 SKY3 0
+sucktime 1
+music D_ADRIAN
+
+map MAP26 "Insanity"
+titlepatch CWILV25
+next MAP27
+secretnext MAP27
+sky1 SKY3 0
+sucktime 1
+music D_MESSG2
+
+map MAP27 "Hard Cover"
+titlepatch CWILV26
+next MAP28
+secretnext MAP28
+sky1 SKY3 0
+sucktime 1
+music D_ROMER2
+
+map MAP28 "Necropolis"
+titlepatch CWILV27
+next MAP29
+secretnext MAP29
+sky1 SKY3 0
+sucktime 1
+music D_TENSE
+
+map MAP29 "Demolition"
+titlepatch CWILV28
+next MAP30
+secretnext MAP30
+sky1 SKY3 0
+sucktime 1
+music D_SHAWN3
+
+map MAP30 "Game Over"
+titlepatch CWILV29
+next EndGameC
+secretnext EndGameC
+sky1 SKY3 0
+sucktime 1
+music D_OPENIN
+
+map MAP31 "Stair Crazy"
+titlepatch CWILV30
+next MAP16
+secretnext MAP32
+sky1 SKY3 0
+sucktime 1
+music D_EVIL
+
+map MAP32 "Roof Rage"
+titlepatch CWILV31
+next MAP16
+secretnext MAP16
+sky1 SKY3 0
+sucktime 1
+music D_ULTIMA
