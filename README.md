@@ -62,7 +62,7 @@ HOW TO INSTALL / RUN / ETC:
  - Running - 13. To run Sitnalta w/ DV-DS Command line: "start gzdoom.exe -iwad heretic.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Heretic" "DV-DS-CompatPacks/Sitnalta-DVDS.pk3" +hud_scale 0 exit"
  - Note: This is the only Heretic levelset CompatPack included at the moment, and again you can load the Hexen compatpack here as well if you want [see Running - 2.], though it doesn't actually matter in this mapset.
 
- - Running - 14. To run Switcheroom w/ DV-DS Command line: "start gzdoom.exe -iwad doom.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Doom" "DV-DS-CompatPacks/swtchrm-DVDS.wad" +hud_scale 0 exit" 
+ - Running - 14. To run Switcheroom w/ DV-DS Command line: "start gzdoom.exe -iwad doom.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Doom" "DV-DS-CompatPacks/Switcheroom" +hud_scale 0 exit" 
  - Note: This is an Ultimate Doom specfic mapset.
 
  - Running - 15. To run The City of the Damned: Apocalypse w/ DV-DS Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/TCOTD2" +hud_scale 0 exit" 
