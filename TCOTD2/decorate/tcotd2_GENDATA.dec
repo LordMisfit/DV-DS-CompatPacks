@@ -2345,15 +2345,15 @@ LOOP
 	XFAN P 70 A_Jump(80,"Twitch")
 	XFAN Q -1
 	Stop
-Gib:
-		XFAN J 5 ThrustThingZ(0,70,0,0)
-		XFAN K 5 A_Scream 
-		XFAN L 5 
-		XFAN M 5 A_Fall
-		XFAN N 5
-		XFAN NO 5
+  Gib:
+	XFAN J 5 ThrustThingZ(0,70,0,0)
+	XFAN K 5 A_Scream 
+	XFAN L 5 
+	XFAN M 5 A_Fall
+	XFAN N 5
+	XFAN NO 5
     XFAN P 5 A_PLAYSOUND("PODDIE")
-   XFAN P 0 
+    XFAN P 0 
     //PZSS AAAAAAA 0 A_SpawnDebris("BLOODDEBRIS")
     PZSS P 0 A_Jump(92,2)
     //PZSS PPP 0 A_SpawnDebris ("BLOODEBRIS")
