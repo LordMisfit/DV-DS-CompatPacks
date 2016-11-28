@@ -3518,7 +3518,7 @@ actor PennywiseHead2New replaces PennywiseHead 14421
     goto Spawn+1
   See: 
     CFHD A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
-    CFHD AAAA 1 A_Chase 
+    CFHD AAAA 1
 	{
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",1); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",0); }
@@ -3698,7 +3698,7 @@ actor PennywiseBoss replaces Pennywise 3672
     PLIT Q 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
     PLIT QPONMLJKIHGFEDCB 2
     PENY A 0 A_SetInvulnerable
-    PENY AABBCCDD 3 A_Chase
+    PENY AABBCCDD 3
 	{
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",1); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",0); }
