@@ -25,6 +25,7 @@ script "LDWorldInit" open
     Delay(1); // Give the world a chance to spawn
     
     int skill = GameSkill();
+    int rerolldelay;
     
     if (skill > MAX_SKILLS-1)
     {
@@ -38,31 +39,14 @@ script "LDWorldInit" open
             for (int z = -32768; z < 32768; z += 16384)
                 SpawnForced(monsterChooser[skill], x << 16, y << 16, z << 16, 0, false);
 
-    if (skill == SKILL_VERY_EASY)
-    {
-        Delay(35 * 540); // 9 Minutes
-        restart;
-    }
-    if (skill == SKILL_EASY)
-    {
-        Delay(35 * 450); // 7.5 Minutes
-        restart;
-    }
-    if (skill == SKILL_NORMAL)
-    {
-        Delay(35 * 360); // 6 Minutes
-        restart;
-    }
-    if (skill == SKILL_HARD)
-    {
-        Delay(35 * 270); // 4.5 Minutes
-        restart;
-    }
-    if (skill == SKILL_VERY_HARD)
-    {
-        Delay(35 * 180); // 3 Minutes
-        restart;
-    }
+    if (skill == SKILL_VERY_EASY) 	rerolldelay = 35 * (GetCVar("LD_restartdelayseconds") * 5 / 4);
+    if (skill == SKILL_EASY) 		rerolldelay = 35 * (GetCVar("LD_restartdelayseconds") * 9 / 8);
+    if (skill == SKILL_NORMAL) 		rerolldelay = 35 * (GetCVar("LD_restartdelayseconds") * 1 / 1);
+    if (skill == SKILL_HARD) 		rerolldelay = 35 * (GetCVar("LD_restartdelayseconds") * 7 / 8);
+    if (skill == SKILL_VERY_HARD) 	rerolldelay = 35 * (GetCVar("LD_restartdelayseconds") * 3 / 4);
+
+    Delay(rerolldelay);
+    restart;
 }
 
 script "LDMonsterInit" (void)

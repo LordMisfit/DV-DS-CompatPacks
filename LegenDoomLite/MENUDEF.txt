@@ -79,6 +79,8 @@ OptionMenu "LegenDoomLite"
 	Option "Legendary Map Markers", "LD_legendarymarkers", "OnOff"
 	Option "Legendary Debug Mode", "LD_legendarydebug", "OnOff"
 	StaticText 	""
+	TextField 	"Delay to Reroll [seconds]", "LD_restartdelayseconds"
+	StaticText 	""
 	StaticText 	"Access to other compatible menus through here", 1
 	SubMenu "Yholl Mod Options",		"YhollMods"
 	SubMenu "Other Mod Options",		"OtherMods"
