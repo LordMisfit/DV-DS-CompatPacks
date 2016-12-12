@@ -637,7 +637,7 @@ ACTOR ThrallShot1
    RENDERSTYLE ADD
    Alpha 0.67
    PROJECTILE
-   +ThruGhost
+   //+ThruGhost
    DEATHSOUND "monster/disht1"
    states
    {
@@ -976,7 +976,7 @@ ACTOR DogFire
    SEESOUND "weapons/bigbrn"
    DEATHSOUND "weapons/bigbrn"
    DontHurtShooter
-   +ThruGhost
+   //+ThruGhost
    states
    {
    Spawn:
@@ -1005,7 +1005,7 @@ ACTOR DogShot
    PROJECTILE
    RENDERSTYLE ADD
    DamageType fire
-   +ThruGhost
+   //+ThruGhost
    SEESOUND "monster/dogsht"
    DEATHSOUND "monster/doghit"
    +FireDamage
@@ -2101,7 +2101,7 @@ ACTOR VulgarShot
    RENDERSTYLE ADD
    ALPHA 0.67
    PROJECTILE
-   +THRUGHOST
+   //+THRUGHOST
    Seesound "poly/stmdr1"
    DeathSound "weapons/bloodx"
    States

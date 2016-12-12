@@ -257,7 +257,7 @@ ACTOR VulgarShotNew
   RENDERSTYLE ADD
   ALPHA 0.67
   PROJECTILE
-  +THRUGHOST
+  //+THRUGHOST
   +HITMASTER
   Seesound "poly/stmdr1"
   DeathSound "weapons/bloodx"
