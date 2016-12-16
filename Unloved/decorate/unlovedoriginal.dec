@@ -686,7 +686,6 @@ ACTOR Bloodshot
    PROJECTILE
    RENDERSTYLE TRANSLUCENT
    ALPHA 0.80
-   //+THRUGHOST
    DeathSound "weapons/bloodx"
    States
    {
@@ -1288,7 +1287,6 @@ ACTOR ThrallShot1
    RENDERSTYLE ADD
    ALPHA 0.67
    PROJECTILE
-   //+THRUGHOST
    DeathSound "monster/disht1"
    States
    {
@@ -1457,7 +1455,6 @@ ACTOR AcolyteShot
    RENDERSTYLE ADD
    ALPHA 0.67
    PROJECTILE
-   //+THRUGHOST
    +SEEKERMISSILE
    +FLOATBOB
    SeeSound "monster/acosht"
@@ -1656,7 +1653,6 @@ ACTOR DiscipleShot1
    RENDERSTYLE ADD
    ALPHA 0.67
    PROJECTILE
-   //+THRUGHOST
    DeathSound "monster/disht1"
    States
    {
@@ -1678,7 +1674,6 @@ ACTOR DiscipleShot2
    RENDERSTYLE ADD
    ALPHA 0.67
    PROJECTILE
-   //+THRUGHOST
    +SEEKERMISSILE
    DeathSound "monster/disht2"
    States
@@ -1806,7 +1801,6 @@ ACTOR VulgarShot
    RENDERSTYLE ADD
    ALPHA 0.67
    PROJECTILE
-   //+THRUGHOST
    Seesound "poly/stmdr1"
    DeathSound "weapons/bloodx"
    States
@@ -1916,7 +1910,6 @@ ACTOR WickedShot
    DamageType "Fire"
    ALPHA 0.67
    PROJECTILE
-   //+THRUGHOST
    +SEEKERMISSILE
    +FORCEXYBILLBOARD
    Seesound "weapons/firmfi"
@@ -2341,7 +2334,6 @@ ACTOR AvaBall1
    PROJECTILE
    RENDERSTYLE ADD
    ALPHA 0.80
-   //+THRUGHOST
    SeeSound "weapons/gntini"
    DeathSound "weapons/devexp"
    States
@@ -2373,7 +2365,6 @@ ACTOR AvaFireBall
    PROJECTILE
    RENDERSTYLE ADD
    ALPHA 0.80
-   //+THRUGHOST
    SeeSound "weapons/bwoosh"
    DeathSound "weapons/firex2"
    States
@@ -2399,7 +2390,6 @@ ACTOR AvaBall2
    PROJECTILE
    RENDERSTYLE ADD
    ALPHA 0.75
-   //+THRUGHOST
    DeathSound "weapons/devzap"
    States
    {
@@ -2430,7 +2420,6 @@ ACTOR AvaBall3
    PROJECTILE
    RENDERSTYLE ADD
    ALPHA 0.75
-   //+THRUGHOST
    DeathSound "weapons/gnthit"
    States
    {
@@ -2461,7 +2450,6 @@ ACTOR AvaBall4
    PROJECTILE
    RENDERSTYLE ADD
    ALPHA 0.75
-   //+THRUGHOST
    DeathSound "monster/hadsit"
    States
    {

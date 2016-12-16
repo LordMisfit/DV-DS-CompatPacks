@@ -792,6 +792,39 @@ ACTOR HellHoundNew : HotDog replaces HotDog 30121
   } 
 }
 
+ACTOR DogFireNew replaces DogFire
+{
+   Radius 2
+   Height 4
+   Speed 16
+   Damage 1
+   PROJECTILE
+   RENDERSTYLE ADD
+   DamageType Fire
+   Alpha 0.67
+   Scale 0.67
+   SEESOUND "weapons/bigbrn"
+   DEATHSOUND "weapons/bigbrn"
+   DontHurtShooter
+   states
+   {
+   Spawn:
+      NULL A 2 BRIGHT
+      FRFX ABCD 2 BRIGHT A_Explode(random(1,3),random(6,10))
+      FRFX D 0 BRIGHT A_LowGravity
+      FRFX EFG 2 BRIGHT A_Explode(random(1,3),random(12,20))
+      FRFX HIJ 2 BRIGHT A_Explode(random(1,3),random(24,40))
+      FRFX KLM 2 BRIGHT A_Explode(random(1,3),random(48,80))
+      FRFX NO 2 BRIGHT
+      Stop
+   Death:
+      FRFX HIJ 2 BRIGHT A_Explode(random(1,3),random(24,40))
+      FRFX KLM 2 BRIGHT A_Explode(random(1,3),random(48,80))
+      FRFX NO 2 BRIGHT
+      Stop
+   }
+}
+
 // Magic Using Cultist
 ACTOR ThrallNew : Thrall replaces Thrall 30119
 { 
@@ -1105,7 +1138,6 @@ ACTOR VulgarShotNew
   RENDERSTYLE ADD
   ALPHA 0.67
   PROJECTILE
-  //+THRUGHOST
   +HITMASTER
   Seesound "poly/stmdr1"
   DeathSound "weapons/bloodx"
