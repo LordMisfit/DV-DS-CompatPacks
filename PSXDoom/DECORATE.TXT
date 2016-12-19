@@ -1,0 +1,5 @@
+ACTOR PSXNightmareSpectreReplaces : RandomSpawner replaces PSXNightmareSpectre
+{
+    +DONTGIB
+    DropItem "ChaingunDemon", 256
+}
