@@ -1,3 +1,15 @@
+gameinfo
+{
+ InfoPage = "HELP"
+ AddInfoPage = "GENHELP", "STATHELP", "FLORA-1", "FLORA-2", "FLORA-3"
+ TitlePage = "TITLEPIC"
+ AddCreditPage = "TITLEPI1", "TITLEPI2", "CREDIT"
+ borderflat = "FIGHT1"
+ drawreadthis = true
+ titletime = 4
+ cursorpic = "SCPTCURS"
+}
+
 clearepisodes
 episode map00
 {
