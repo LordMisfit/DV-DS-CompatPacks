@@ -39,48 +39,48 @@ HOW TO INSTALL / RUN / ETC:
  - Running - 3. To run Happy Time Circus 2 w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/circus2" +hud_scale 0 exit" 
 
  - Running - 4. To run DUMP-1 w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-Compatpacks/DUMP-dvds.pk3" +hud_scale 0 exit"
- - Important: DUMP-1 & DUMP-2's "remove everything on level start" feature is removed in these versions due to the mod's RPG nature, and resetting everything per level would destroy the mod's main function gameplay wise.
+ - Important: DUMP-1, DUMP-2's & DUMP-3's "remove everything on level start" feature is removed in these versions due to the mod's RPG nature, and resetting everything per level would destroy the mod's main function gameplay wise.
 
  - Running - 5. To run DUMP-2 w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-Compatpacks/DUMP2-dvds.pk3" +hud_scale 0 exit" 
- - Important: DUMP-1 & DUMP-2's "remove everything on level start" feature is removed in these versions due to the mod's RPG nature, and resetting everything per level would destroy the mod's main function gameplay wise.
+ - Important: DUMP-1, DUMP-2's & DUMP-3's "remove everything on level start" feature is removed in these versions due to the mod's RPG nature, and resetting everything per level would destroy the mod's main function gameplay wise.
 
- - Running - 6. To run Epic [1] w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-Compatpacks/Epic" +hud_scale 0 exit" 
+ - Running - 6. To run DUMP-3 w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-Compatpacks/DUMP3-dvds.pk3" +hud_scale 0 exit" 
+ - Important: DUMP-1, DUMP-2's & DUMP-3's "remove everything on level start" feature is removed in these versions due to the mod's RPG nature, and resetting everything per level would destroy the mod's main function gameplay wise.
 
- - Running - 7. To run Epic 2 w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-Compatpacks/Epic2" +hud_scale 0 exit" 
+ - Running - 7. To run Epic [1] w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-Compatpacks/Epic" +hud_scale 0 exit" 
 
- - Running - 8. To run Going Down w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-Compatpacks/GoingDown" +hud_scale 0 exit" 
+ - Running - 8. To run Epic 2 w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-Compatpacks/Epic2" +hud_scale 0 exit" 
 
- - Running - 9. To run Hell Ground w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/HellGround" +hud_scale 0 exit" 
+ - Running - 9. To run Going Down w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-Compatpacks/GoingDown" +hud_scale 0 exit" 
 
- - Running - 10. To run KDIZD w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/KDIZD" +hud_scale 0 exit" 
+ - Running - 10. To run Hell Ground w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/HellGround" +hud_scale 0 exit" 
 
- - Running - 11. To run Resurgence w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" resurge.wad "DV-DS-Compatpacks/Resurgence" +hud_scale 0 exit"
+ - Running - 11. To run KDIZD w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/KDIZD" +hud_scale 0 exit" 
+
+ - Running - 12. To run Resurgence w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" resurge.wad "DV-DS-Compatpacks/Resurgence" +hud_scale 0 exit"
  - Note: DV-DS-CompatPacks does not come with resurge.wad by default, you need to download that yourself. The CompatPack for this mostly replaces the Afrits that the wad's DEH replaces the CommanderKeens with, with the Flying Balrog proper where they have dynamic stats, etc.
 
- - Running - 12. To run Scythe 2 w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" scythe2.wad "DV-DS-Compatpacks/Scythe2" +hud_scale 0 exit"
+ - Running - 13. To run Scythe 2 w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" scythe2.wad "DV-DS-Compatpacks/Scythe2" +hud_scale 0 exit"
  - Note: DV-DS-CompatPacks does not come with scythe2.wad by default, you need to download that yourself. The CompatPack for this mostly replaces the Afrits that the wad's DEH replaces the CommanderKeens with, with the Flying Balrog proper where they have dynamic stats, etc.
 
- - Running - 13. To run Sitnalta w/ "Aetherius" Command line: "start gzdoom.exe -iwad heretic.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Heretic" "DV-DS-CompatPacks/Sitnalta-DVDS.pk3" +hud_scale 0 exit"
+ - Running - 14. To run Sitnalta w/ "Aetherius" Command line: "start gzdoom.exe -iwad heretic.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Heretic" "DV-DS-CompatPacks/Sitnalta-DVDS.pk3" +hud_scale 0 exit"
  - Note: This is the only Heretic levelset CompatPack included at the moment, and again you can load the Hexen compatpack here as well if you want [see Running - 2.], though it doesn't actually matter in this mapset.
 
- - Running - 14. To run Switcheroom w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Doom" "DV-DS-CompatPacks/Switcheroom" +hud_scale 0 exit" 
+ - Running - 15. To run Switcheroom w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Doom" "DV-DS-CompatPacks/Switcheroom" +hud_scale 0 exit" 
  - Note: This is an Ultimate Doom specfic mapset.
 
- - Running - 15. To run The City of the Damned: Apocalypse w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/TCOTD2" +hud_scale 0 exit" 
+ - Running - 16. To run The City of the Damned: Apocalypse w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/TCOTD2" +hud_scale 0 exit" 
  - Note: It's only one level, and Flora is the only playable class in this one, but boy did this patch take a while to make, since I actually did a bunch of ACS modifying for the level itself and things don't exactly work 1 to 1 how they do in the original version, plus Flora will actually put her two cents in for all the notes and events that happen in this one. >.>
 
- - Running - 16. To run Unloved w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Unloved" +hud_scale 0 exit" 
- - Note: This one is incomplete to a degree since some monsters aren't fully supported for stat changes/EXP yet. It'll be worked on more at some point in the future, so play at your own 'risk', I guess? :o
+ - Running - 17. To run Unloved w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Unloved" +hud_scale 0 exit" 
 
- - Running - 17. To run Valiant: Vaccinated Edition w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/valve-DVDS.wad" +hud_scale 0 exit" 
+ - Running - 18. To run Valiant: Vaccinated Edition w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/valve-DVDS.wad" +hud_scale 0 exit" 
 
- - Running - 18. To run Void w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/void-DVDS.wad" +hud_scale 0 exit" 
+ - Running - 19. To run Void w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/void-DVDS.wad" +hud_scale 0 exit" 
  - Note: This one is incomplete, and I'm not sure if it'll be finished anytime soon. It's there as more of an attempt to edit it since I liked this particular map. :P
 
- - Running - 19. To run "Deus Vult 1+2" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/DeusVult" +hud_scale 0 exit" 
-
- - Important: You'll get two "episodes" in the start up menu. Deus Vult [1] and Deus Vult 2 "campaigns", and then a third that reflects the game you loaded up. The DV episodes are named in their own name format and don't conflict with the other stuff, and thus are seperated in their own "episodes".
-
+ - Running - 20. To run "Deus Vult 1+2" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/DeusVult" +hud_scale 0 exit" 
+ - Note: You'll get two "episodes" in the start up menu. Deus Vult [1] and Deus Vult 2 "campaigns". The DV1 and DV2 maps are also named in their own name format and don't conflict with the other stuff, and thus are seperated in their own "episodes".
 
  - ABOUT LegenDoomLite: Can be added to any mode [or game type or even normal Doom1/2] essentially by adding "DV-DS-CompatPacks/LegenDoomLite" into the command line as the last file loaded. This one does NOT have to be loaded as a seperate mod from the above and is basically compatible with any of them and thensome. :V
 
