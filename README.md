@@ -1,6 +1,7 @@
-DV-DS-CompatPacks [Deus Vult Doomspell Edition Combination Package - Compatiblity Patches for Various mapsets]
+DV-DS-CompatPacks ["Aetherius" - Compatiblity Patches for Various mapsets]
 
 - Includes compatiability patches and PK3 files for the following wads/etc. Though keep in mind some of these are currently incomplete.
+	- Deus Vult 1+2 Combo Pack (loaded as a subfolder)
 	- Happy Time Circus [666] (loaded as a subfolder)
 	- Happy Time Circus 2 (loaded as a subfolder)
 	- "Doom Upstart Mapping Project: Episode 1" aka "DUMP" (loaded as a PK3 file)
@@ -79,3 +80,9 @@ HOW TO INSTALL / RUN / ETC:
  - ABOUT LegenDoomLite: Can be added to any mode [or game type or even normal Doom1/2] essentially by adding "DV-DS-CompatPacks/LegenDoomLite" into the command line as the last file loaded. This one does NOT have to be loaded as a seperate mod from the above and is basically compatible with any of them and thensome. :V
 
  - Important: If you're playing in pure Doom 2 or Doom 1 mode [and or using a Doom 1 or 2 mapset], you'll get three "episodes" in the start up menu. The first two are the Deus Vult [1] and Deus Vult 2 "campaigns", and then a third that reflects the game you loaded up. That third episode is for playing Doom 1/2/Plutonia/TNT's actual levels, or the mapset you're loading with it. The DV episodes are named in their own name format and don't conflict with the other stuff, and thus are seperated in their own "episodes".
+
+ - Running - 19. To run "Deus Vult 1+2" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/DeusVult" +hud_scale 0 exit" 
+
+ - Important: You'll get two "episodes" in the start up menu. Deus Vult [1] and Deus Vult 2 "campaigns", and then a third that reflects the game you loaded up. The DV episodes are named in their own name format and don't conflict with the other stuff, and thus are seperated in their own "episodes".
+
+
