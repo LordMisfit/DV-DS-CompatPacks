@@ -77,12 +77,10 @@ HOW TO INSTALL / RUN / ETC:
  - Running - 18. To run Void w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/void-DVDS.wad" +hud_scale 0 exit" 
  - Note: This one is incomplete, and I'm not sure if it'll be finished anytime soon. It's there as more of an attempt to edit it since I liked this particular map. :P
 
- - ABOUT LegenDoomLite: Can be added to any mode [or game type or even normal Doom1/2] essentially by adding "DV-DS-CompatPacks/LegenDoomLite" into the command line as the last file loaded. This one does NOT have to be loaded as a seperate mod from the above and is basically compatible with any of them and thensome. :V
-
- - Important: If you're playing in pure Doom 2 or Doom 1 mode [and or using a Doom 1 or 2 mapset], you'll get three "episodes" in the start up menu. The first two are the Deus Vult [1] and Deus Vult 2 "campaigns", and then a third that reflects the game you loaded up. That third episode is for playing Doom 1/2/Plutonia/TNT's actual levels, or the mapset you're loading with it. The DV episodes are named in their own name format and don't conflict with the other stuff, and thus are seperated in their own "episodes".
-
  - Running - 19. To run "Deus Vult 1+2" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/DeusVult" +hud_scale 0 exit" 
 
  - Important: You'll get two "episodes" in the start up menu. Deus Vult [1] and Deus Vult 2 "campaigns", and then a third that reflects the game you loaded up. The DV episodes are named in their own name format and don't conflict with the other stuff, and thus are seperated in their own "episodes".
 
+
+ - ABOUT LegenDoomLite: Can be added to any mode [or game type or even normal Doom1/2] essentially by adding "DV-DS-CompatPacks/LegenDoomLite" into the command line as the last file loaded. This one does NOT have to be loaded as a seperate mod from the above and is basically compatible with any of them and thensome. :V
 
