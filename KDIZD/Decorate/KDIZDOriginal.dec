@@ -3484,41 +3484,11 @@ pickup TwiceRisenLaserRifle
 	PickupSound "misc/w_pkup"
 }
 
-//===========================================================================
-//
-// Terror Sphere
-// By Graf Zahl
-// Sprites by Vader
-//
-//===========================================================================
-
-ACTOR TerrorSphere : CustomInventory 2030
-{
-  +FLOATBOB
-  +DONTGIB
-  +COUNTITEM
-  +INVENTORY.AUTOACTIVATE
-  +INVENTORY.ALWAYSPICKUP
-  +INVENTORY.BIGPOWERUP
-  Inventory.MaxAmount 0
-  Inventory.PickupMessage "The Terrorsphere!"
-  States
-  {
-  Spawn:
-    TERR ABCDE 6 Bright
-    Loop
-  Pickup:
-    TNT1 A 0 
-    TNT1 A 0 ACS_NamedExecuteAlways("GiveBuffsPowerup",0,6,30,0)
-    Stop
-  }
-}
-
 /////////////////////////////
 //
 /// Bio's E1M9
 //
-//
+/////////////////////////////
 projectile RainDrop
 {
 	SpawnNum 183
