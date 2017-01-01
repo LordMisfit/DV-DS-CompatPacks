@@ -4394,7 +4394,7 @@ ACTOR Pitchfork : Weapon // 30876
   AltFire:
     XUNG B 2
     XUNG C 0 A_PlayWeaponSound("DSSKESWG")
-    XUNG D 2 A_FireCustomMissile("Pitchfork_thrown",0,1,0,5)
+    XUNG D 2 A_FireProjectile("Pitchfork_thrown",0,1,0,5)
     XUNG D 0 A_TakeInventory("Pitchfork", 1)
     Goto Deselect+1
   Spawn:
@@ -4819,24 +4819,24 @@ actor NapalmLauncher_ : Weapon 21073
   	Fire:
 		TESF A 0 BRIGHT A_GunFlash
 		TESF A 0 BRIGHT A_PlaySound ("weap/tsla/fire",CHAN_WEAPON,0.6)
-		TESF A 1 BRIGHT A_FireCustomMissile ("TeslaBall",0,1,4)
+		TESF A 1 BRIGHT A_FireProjectile ("TeslaBall",0,1,4)
 		TESF AB 1 BRIGHT
 		TESF B 0 BRIGHT A_GunFlash
 		TESF B 0 BRIGHT A_PlaySound ("weap/tsla/fire",CHAN_WEAPON,0.6)
-		TESF B 1 BRIGHT A_FireCustomMissile ("TeslaBall",0,1,4)
+		TESF B 1 BRIGHT A_FireProjectile ("TeslaBall",0,1,4)
 		TESF C 2 BRIGHT
 		TESF D 0 BRIGHT A_GunFlash
 		TESF D 0 BRIGHT A_PlaySound ("weap/tsla/fire",CHAN_WEAPON,0.6)
-		TESF D 1 BRIGHT A_FireCustomMissile ("TeslaBall",0,1,5)
+		TESF D 1 BRIGHT A_FireProjectile ("TeslaBall",0,1,5)
 		TESF DE 1 BRIGHT
 		TESF E 0 BRIGHT A_GunFlash
 		TESF E 0 BRIGHT A_PlaySound ("weap/tsla/fire",CHAN_WEAPON,0.6)
-		TESF E 1 BRIGHT A_FireCustomMissile ("TeslaBall",0,1,5)
+		TESF E 1 BRIGHT A_FireProjectile ("TeslaBall",0,1,5)
 		TESF E 0 BRIGHT A_Refire
 		TESF F 2 BRIGHT
 		TESF F 0 BRIGHT A_GunFlash
 		TESF F 0 BRIGHT A_PlaySound ("weap/tsla/fire",CHAN_WEAPON,0.6)
-		TESF F 0 BRIGHT A_FireCustomMissile ("TeslaBall",0,1,5)
+		TESF F 0 BRIGHT A_FireProjectile ("TeslaBall",0,1,5)
 		TESF GHI 2
 		TESF JKL 1
 		Goto Ready
@@ -4844,22 +4844,22 @@ actor NapalmLauncher_ : Weapon 21073
 		TESF F 2 BRIGHT
 		TESF A 0 BRIGHT A_GunFlash
 		TESF A 0 BRIGHT A_PlaySound ("weap/tsla/fire",CHAN_WEAPON,0.6)
-		TESF A 1 BRIGHT A_FireCustomMissile ("TeslaBall",0,1,5)
+		TESF A 1 BRIGHT A_FireProjectile ("TeslaBall",0,1,5)
 		TESF A 0 BRIGHT
 		TESF AB 1 BRIGHT
 		TESF B 0 BRIGHT A_GunFlash
 		TESF B 0 BRIGHT A_PlaySound ("weap/tsla/fire",CHAN_WEAPON,0.6)
-		TESF B 1 BRIGHT A_FireCustomMissile ("TeslaBall",0,1,5)
+		TESF B 1 BRIGHT A_FireProjectile ("TeslaBall",0,1,5)
 		TESF B 0 BRIGHT
 		TESF C 2 BRIGHT
 		TESF D 0 BRIGHT A_GunFlash
 		TESF D 0 BRIGHT A_PlaySound ("weap/tsla/fire",CHAN_WEAPON,0.6)
-		TESF D 1 BRIGHT A_FireCustomMissile ("TeslaBall",0,1,5)
+		TESF D 1 BRIGHT A_FireProjectile ("TeslaBall",0,1,5)
 		TESF D 0 BRIGHT
 		TESF DE 1 BRIGHT
 		TESF E 0 BRIGHT A_GunFlash
 		TESF E 0 BRIGHT A_PlaySound ("weap/tsla/fire",CHAN_WEAPON,0.6)
-		TESF E 1 BRIGHT A_FireCustomMissile ("TeslaBall",0,1,5)
+		TESF E 1 BRIGHT A_FireProjectile ("TeslaBall",0,1,5)
 		TESF E 0 BRIGHT
 		TESF E 0 BRIGHT A_Refire
 		Goto Finish
@@ -4880,7 +4880,7 @@ actor NapalmLauncher_ : Weapon 21073
 		TES2 EFGHIJ 1 BRIGHT // 36 Tics
 		TE2F A 0 BRIGHT A_PlaySound ("weap/tsla/fire2",CHAN_WEAPON)
 		TE2F A 0 BRIGHT A_GunFlash
-		TE2F A 1 BRIGHT A_FireCustomMissile ("TeslaBall2",0,1,5)
+		TE2F A 1 BRIGHT A_FireProjectile ("TeslaBall2",0,1,5)
 		TE2F BC 1 BRIGHT
 		TE2F DE 1
 		TESL A 7

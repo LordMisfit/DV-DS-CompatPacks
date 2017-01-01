@@ -4407,7 +4407,7 @@ ACTOR GutFlinger : Weapon //30028
      Fire: 
         CCCC A 1 A_JumpIfNoAmmo(8) 
         CCCC B 0 A_PlaySound("GUTFIRE") 
-	CCCC B 1 A_FireCustomMissile("FlyingGut", 0, 2, 5, 1)
+	CCCC B 1 A_FireProjectile("FlyingGut", 0, 2, 5, 1)
         CCCC E 1
         CCCC EDCB 3
         Goto Ready 
@@ -4475,7 +4475,7 @@ ACTOR ClownGrenade : Weapon //30029
         LOOP 
      Fire: 
         GHND I 4
-        GHND G 4 A_FireCustomMissile("CGrenade", 0, 1, 0, 1)
+        GHND G 4 A_FireProjectile("CGrenade", 0, 1, 0, 1)
         GHND H 10 
         Goto Ready 
      } 
@@ -4628,7 +4628,7 @@ ACTOR GoreBalloon : Weapon //30030
      Fire: 
         BLNN A 1 
         BLNN FG 2
-        BLNN I 6 A_FireCustomMissile("GoreBalloon666", 0, 1, 4, 1)
+        BLNN I 6 A_FireProjectile("GoreBalloon666", 0, 1, 4, 1)
         BLNN IH 6
         BLNN A 0 
         Goto Select
@@ -4750,7 +4750,7 @@ ACTOR GasRocketLauncher : Weapon //30203
         LOOP 
      Fire: 
         PRCK G 0 
-        PRCK W 4 A_FireCustomMissile("RevRocket2", 0, 1, 4, 1)
+        PRCK W 4 A_FireProjectile("RevRocket2", 0, 1, 4, 1)
         PRCK A 4 A_PlaySound("RRELOAD")
         PRCK BCDE 4
         PRCK F 4 
@@ -4796,36 +4796,36 @@ ACTOR PopcornGun : Weapon //30204
      Fire:   
         PGUN A 0 A_Jump (200,5)
         PGUN A 0 A_PlaySound("POPFIRE")
-        PGUN A 4 A_FireCustomMissile("Popcorn1", -1, 1, 4, 1)
-        PGUN A 0 A_FireCustomMissile("Popcorn2", 0, 0, 6, 1)
-        PGUN B 2 A_FireCustomMissile("Popcorn3", 1, 0, 5, 1)
+        PGUN A 4 A_FireProjectile("Popcorn1", -1, 1, 4, 1)
+        PGUN A 0 A_FireProjectile("Popcorn2", 0, 0, 6, 1)
+        PGUN B 2 A_FireProjectile("Popcorn3", 1, 0, 5, 1)
         PGUN A 0 A_Jump (144,5)
         PGUN A 0 A_PlaySound("POPFIRE")
-        PGUN A 2 A_FireCustomMissile("Popcorn11", -1, 0, 4, 2)
-        PGUN A 0 A_FireCustomMissile("Popcorn2", -4, 1, 5, 1)
-        PGUN A 0 A_FireCustomMissile("Popcorn1", 2, 0, 4, 1)
+        PGUN A 2 A_FireProjectile("Popcorn11", -1, 0, 4, 2)
+        PGUN A 0 A_FireProjectile("Popcorn2", -4, 1, 5, 1)
+        PGUN A 0 A_FireProjectile("Popcorn1", 2, 0, 4, 1)
         PGUN A 0 A_Jump (128,5)
         PGUN A 0 A_PlaySound("POPFIRE")
-        PGUN A 4 A_FireCustomMissile("Popcorn3", -2, 0, 3, 1)
-        PGUN B 2 A_FireCustomMissile("Popcorn2", -2, 1, 4, -2)
-        PGUN A 0 A_FireCustomMissile("Popcorn2", 4, 0, 0, 1)
+        PGUN A 4 A_FireProjectile("Popcorn3", -2, 0, 3, 1)
+        PGUN B 2 A_FireProjectile("Popcorn2", -2, 1, 4, -2)
+        PGUN A 0 A_FireProjectile("Popcorn2", 4, 0, 0, 1)
         PGUN A 0 A_Jump (96,4)
-        PGUN A 0 A_FireCustomMissile("Popcorn2", -3, 0, 4, 1)
+        PGUN A 0 A_FireProjectile("Popcorn2", -3, 0, 4, 1)
         PGUN A 0 A_PlaySound("POPFIRE")
-        PGUN A 0 A_FireCustomMissile("Popcorn3", 3, 0, 0, 1)
+        PGUN A 0 A_FireProjectile("Popcorn3", 3, 0, 0, 1)
         PGUN A 0 A_Jump (96,5)
-        PGUN A 2 A_FireCustomMissile("Popcorn1", 2, 0, 5, 1)
-        PGUN A 0 A_FireCustomMissile("Popcorn2", 0, 0, 0, 1)
+        PGUN A 2 A_FireProjectile("Popcorn1", 2, 0, 5, 1)
+        PGUN A 0 A_FireProjectile("Popcorn2", 0, 0, 0, 1)
         PGUN A 0 A_PlaySound("POPFIRE")
-        PGUN B 1 A_FireCustomMissile("Popcorn3", -2, 1, 0, 1)
+        PGUN B 1 A_FireProjectile("Popcorn3", -2, 1, 0, 1)
         PGUN A 0 A_Jump (64,4)
         PGUN A 0 A_PlaySound("POPFIRE")
-        PGUN A 4 A_FireCustomMissile("Popcorn3", -1, 0, 4, 1)
-        PGUN A 2 A_FireCustomMissile("Popcorn2", 1, 0, 0, 1)
+        PGUN A 4 A_FireProjectile("Popcorn3", -1, 0, 4, 1)
+        PGUN A 2 A_FireProjectile("Popcorn2", 1, 0, 0, 1)
         PGUN A 0 A_Jump (64,4)
-        PGUN B 1 A_FireCustomMissile("BurntPopcorn1", 0, 0, 5, 1)
+        PGUN B 1 A_FireProjectile("BurntPopcorn1", 0, 0, 5, 1)
         PGUN A 0 A_Jump (128,2)
-        PGUN A 1 A_FireCustomMissile("BurntPopcorn1", 0, 0, 5, 1)
+        PGUN A 1 A_FireProjectile("BurntPopcorn1", 0, 0, 5, 1)
         PGUN A 0 
         Goto Ready 
      } 
@@ -5291,7 +5291,7 @@ ACTOR CrazyBall2 : Weapon //30205
         HCRZ B 0 
 	HCRZ B 6
         HCRZ B 6
-        HCRZ C 10 A_FireCustomMissile("CrazyBall", 0, 2, 5, 5)
+        HCRZ C 10 A_FireProjectile("CrazyBall", 0, 2, 5, 5)
         Goto Select
         HCRZ C 0
         GoTo Deselect
