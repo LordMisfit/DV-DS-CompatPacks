@@ -379,6 +379,17 @@ ACTOR LDLegendaryMonsterBossMarker : MapMarker
 //				LOOT GENERATION
 //==============================================================================
 
+actor LDLiteDVDSArmorSpawner : RandomSpawner
+{
+    DropItem "ArmorBonusDS2" 256 472
+    DropItem "GreenArmorDS" 256 13
+    DropItem "BlueArmorDS" 256 13
+    DropItem "StoneSkin" 256 6
+    DropItem "DiamondSkin" 256 6
+    DropItem "StoneSkinGA" 256 1
+    DropItem "DiamondSkinGA" 256 1
+}
+
 actor LDLiteDVDSAmmoSpawner : RandomSpawner
 {
     DropItem "ClipNew" 256 3
@@ -421,6 +432,15 @@ ACTOR LDLiteDVDSItem : LDMaxHax
 	 
 	 If (ACS_NamedExecuteWithResult("CheckCharacterClass") != 2)
 	 {
+	  A_SpawnItemEx ("LDLiteDVDSArmorSpawner", 0,0,0, velx,vely,velz, 0, SXF_NOCHECKPOSITION);
+	  if (random(1,4) == 1) { A_SpawnItemEx ("LDLiteDVDSArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+	  if (random(1,16) == 1) { A_SpawnItemEx ("LDLiteDVDSArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+	  if (random(1,64) == 1) { A_SpawnItemEx ("LDLiteDVDSArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+	  if (random(1,256) == 1) { A_SpawnItemEx ("LDLiteDVDSArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+	  if (random(1,1024) == 1) { A_SpawnItemEx ("LDLiteDVDSArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+	  if (random(1,4096) == 1) { A_SpawnItemEx ("LDLiteDVDSArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+	  if (random(1,16384) == 1) { A_SpawnItemEx ("LDLiteDVDSArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+
 	  A_SpawnItemEx ("LDLiteDVDSAmmoSpawner", 0,0,0, velx,vely,velz, 0, SXF_NOCHECKPOSITION);
 	  if (random(1,4) == 1) { A_SpawnItemEx ("LDLiteDVDSAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
 	  if (random(1,16) == 1) { A_SpawnItemEx ("LDLiteDVDSAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
@@ -434,6 +454,17 @@ ACTOR LDLiteDVDSItem : LDMaxHax
     TNT1 A 2
     Stop
   }
+}
+
+actor LDLiteDVDSBossArmorSpawner : RandomSpawner
+{
+    DropItem "ArmorBonusDS2" 256 118
+    DropItem "GreenArmorDS" 256 26
+    DropItem "BlueArmorDS" 256 26
+    DropItem "StoneSkin" 256 12
+    DropItem "DiamondSkin" 256 12
+    DropItem "StoneSkinGA" 256 4
+    DropItem "DiamondSkinGA" 256 2
 }
 
 actor LDLiteDVDSBossAmmoSpawner : RandomSpawner
@@ -486,6 +517,23 @@ ACTOR LDLiteDVDSBossItem : LDMaxHax
 
 	 If (ACS_NamedExecuteWithResult("CheckCharacterClass") != 2)
 	 {
+	  A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx,vely,velz, 0, SXF_NOCHECKPOSITION);
+	  A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx,vely,velz, 0, SXF_NOCHECKPOSITION);
+	  if (random(1,2) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+	  if (random(1,2) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+	  if (random(1,4) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+	  if (random(1,4) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+	  if (random(1,8) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+	  if (random(1,8) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+	  if (random(1,16) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+	  if (random(1,16) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+	  if (random(1,32) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+	  if (random(1,32) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+	  if (random(1,64) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+	  if (random(1,64) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+	  if (random(1,128) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+	  if (random(1,128) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+
 	  A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx,vely,velz, 0, SXF_NOCHECKPOSITION);
 	  A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx,vely,velz, 0, SXF_NOCHECKPOSITION);
 	  if (random(1,2) == 1) { A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
