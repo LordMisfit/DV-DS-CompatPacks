@@ -389,31 +389,31 @@ actor Rain 6660
      }
 }
 
-actor GreenDropSpawn : Rain  6661
+actor GreenDropSpawn : Rain 6661
 {
-	States
-    	{
-	Spawn:
-      		RAIN B 10  A_Look 
-      		Loop
-    	See: 	
-    		RAIN B 0 A_JumpIfCloser(512,3)
-    		RAIN B 1
-    		Loop
-    		RAIN B 1
-    		RAIN B 0 A_Jump (64,2) 
-    		RAIN B 60   A_CustomMissile("GreenDrop", -2, 0, 0,0) 
-    		RAIN B 100   A_CustomMissile("GreenDrop", -2, 0, 0,0) 
-    		RAIN B 90   A_CustomMissile("GreenDrop", -2, 0, 0,0) 
-    		Loop
-   	Pain: 
-      		RAIN B 4  A_Pain 
-      		Goto See + 10
-   	Death: 
-     		RAIN B 3  A_Scream 
-      		RAIN B 3  A_NoBlocking 
-      		Stop 
-      	}
+  States
+  {
+  Spawn:
+    RAIN B 10 A_Look 
+    Loop
+  See: 	
+  	RAIN B 0 A_JumpIfCloser(512,3)
+  	RAIN B 1
+  	Loop
+  	RAIN B 1
+  	RAIN B 0 A_Jump (64,2) 
+  	RAIN B 60 A_CustomMissile("GreenDrop",-2,0,0,0) 
+  	RAIN B 100 A_CustomMissile("GreenDrop",-2,0,0,0) 
+  	RAIN B 90 A_CustomMissile("GreenDrop",-2,0,0,0) 
+  	Loop
+  Pain: 
+ 	RAIN B 4 A_Pain 
+    Goto See
+  Death:
+    RAIN B 3 A_Scream 
+    RAIN B 3 A_NoBlocking 
+    Stop 
+  }
 }
 //=========================================================================
 ACTOR Fluffy2 //32120
