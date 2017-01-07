@@ -1,11 +1,14 @@
 gameinfo
 {
+ InfoPage = "HELP"
+ AddInfoPage = "GENHELP", "STATHELP", "FLORA-1", "FLORA-2", "FLORA-3"
  titlepage = "TITLEUNL" 
  titlemusic = "D_NORTT"
  creditpage = "UNLOCRED"
- titletime = 30
- pagetime = 15
+ AddCreditPage = "CREDIT", "TITLEPI0"
  borderflat = "TMTLFL7"
+ titletime = 6
+ cursorpic = "SCPTCURS"
 }
 clearepisodes
 

@@ -3,10 +3,11 @@ gameinfo
  InfoPage = "HELP"
  AddInfoPage = "GENHELP", "STATHELP", "FLORA-1", "FLORA-2", "FLORA-3"
  TitlePage = "TITLEPIC"
- AddCreditPage = "TITLEPI1", "TITLEPI2", "CREDIT"
+ Creditpage = "CREDIT"
+ AddCreditPage = "TITLEPI0"
  borderflat = "FIGHT1"
  drawreadthis = true
- titletime = 4
+ titletime = 6
  cursorpic = "SCPTCURS"
 }
 
