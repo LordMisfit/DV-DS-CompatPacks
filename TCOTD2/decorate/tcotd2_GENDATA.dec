@@ -59,7 +59,6 @@ Actor ClayDevil
   obituary "%o was sent to hell by a devil made out of clay."
   health 80
   radius 16
-  +bossdeath
   height 56
   speed 9
   scale 0.5
