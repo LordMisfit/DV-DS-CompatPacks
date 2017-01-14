@@ -35,7 +35,7 @@ ACTOR ChainsawZombieNew 3204
 { 
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
+  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
 
   //$Category "KDIZD Monsters"
   Health 50 
@@ -223,7 +223,7 @@ actor DemonCube 26001
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
+  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
 
   //$Category "KDIZD Monsters"
   Health 50
@@ -420,7 +420,7 @@ ACTOR HellsFury 3127
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
+  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
 
   var int user_random1;
   //$Category "KDIZD Monsters"
@@ -613,7 +613,7 @@ ACTOR HellWarrior 3119
 { 
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
+  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
 
   //$Category "KDIZD Monsters"
   Health 400 
@@ -916,7 +916,7 @@ ACTOR MaulerDemon 3123
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
+  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
 
   //$Category "KDIZD Monsters"
   Health 150 
@@ -1081,7 +1081,7 @@ ACTOR NightmareNew 26000
   //$Category "KDIZD Monsters"
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
+  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
   health 100 // 100
   PainChance 144
   Painchance "Fist", 216 // Fist attacks have a +50% chance of stunning an enemy
@@ -1231,7 +1231,7 @@ ACTOR RapidFireTrooper 3201
   //$Category "KDIZD Monsters"
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
+  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
   var int user_shotsfired; var int user_shotsfiredmax;
   var float user_shotaccuracy; var float user_shotaccuracy1; var float user_shotaccuracy2;
   var float user_shotzaccuracy; var float user_shotzaccuracy1; var float user_shotzaccuracy2;
@@ -1423,7 +1423,7 @@ ACTOR RifleZombie 31657
   //$Category "KDIZD Monsters"
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
+  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
   Health 40
   Speed 8
   Radius 20
@@ -1599,7 +1599,7 @@ actor SatyrNew 3109
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
+  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
 
   //$Category "ZDoom Monster pack"
   Health 400
@@ -1772,7 +1772,7 @@ ACTOR ShadowNew 3126
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
+  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
 
   //$Category "ZDoom Monster pack"
   Health 80
@@ -2142,7 +2142,7 @@ actor SoulHarvesterNew 3117
   //$Category "ZDoom Monster pack"
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
+  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
   Health 175 // 120
   PainChance 160
   Painchance "Fist", 240 // Fist attacks have a +50% chance of stunning an enemy
@@ -2357,7 +2357,7 @@ actor StoneImp 3103
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
+  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
 
   //$Category Monsters
   Health 180
@@ -2498,7 +2498,7 @@ ACTOR Magmantis 26660
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
+  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
 
   //$Category "Monsters"
   Health 30000 // 12000
@@ -2880,7 +2880,7 @@ actor MagmantisLostSoul
 {
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
+  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
   obituary "%o was spooked by a lost soul."
   health 100
   radius 16

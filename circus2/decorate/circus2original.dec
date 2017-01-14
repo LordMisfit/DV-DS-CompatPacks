@@ -3070,30 +3070,31 @@ ClownFigure3
 
 actor PennywiseToy1 4106
 {      
-        HEALTH 1
+    HEALTH 1
 	Mass 250
 	Scale .3
-        Radius 8
-        Height 16
-        MONSTER 
-        DeathSound ""
-        States
-   	 {
-   	 Spawn:
-      	  	PTOY A 4 A_Look
-       	 	Loop
-   	 See:
-       	 	PTOY A 4 
-       	 	Loop
-   	 Pain:
-       	 	PTOY A 4
-        	Goto See
-   	 Death:
-   		PTOY A 1 A_Scream
-   		PTOY A 1 A_Fall
-       	 	PTOY A -1
-           	Stop
-    	}
+    Radius 8
+    Height 16
+    +SHOOTABLE
+	+SOLID
+    DeathSound ""
+    States
+   	{
+   	Spawn:
+      PTOY A 4 A_Look
+      Loop
+   	See:
+      PTOY A 4 
+      Loop
+   	Pain:
+      PTOY A 4
+      goto See
+   	Death:
+   	  PTOY A 1 A_Scream
+   	  PTOY A 1 A_Fall
+      PTOY A -1
+      Stop
+    }
 }
 
 Trikey
@@ -3480,7 +3481,7 @@ actor MyBall3
   States
   {
   Spawn:
-  	MBBB A 2 A_SeekerMissile (5,5)
+  	MBBB A 2 bright A_SeekerMissile (5,5)
     MBBB B 2 bright A_CustomMissile("RevTrail", 0, 0, 0, 1)
     Loop
   Death:
@@ -3512,6 +3513,7 @@ actor MyBall3
 	 return state("");
 	}
   Death2:
+    GLOB A 0 Bright A_Explode(20,48,0,0,24)
     GLOB A 4 Bright A_Scream
     GLOB B 4 Bright A_Fall
     GLOB C 4 Bright 
