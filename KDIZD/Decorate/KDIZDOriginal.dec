@@ -687,7 +687,7 @@ ACTOR HellWarrior 3119
 	{
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
-	 A_Custommissile(HellWarriorBall2, 25, 0, 0);
+	 A_CustomMissile(HellWarriorBall2, 25, 0, 0);
 	}
     HWAR H 6
 	{
@@ -709,7 +709,7 @@ ACTOR HellWarrior 3119
 	{
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
-	 A_Custommissile(HellWarriorBall2, 25, 0, 0);
+	 A_CustomMissile(HellWarriorBall2, 25, 0, 0);
 	}
     HWAR H 16
 	{
@@ -727,7 +727,7 @@ ACTOR HellWarrior 3119
 	{
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
-	 A_Custommissile(HellWarriorBall2, 25, 0, 0);
+	 A_CustomMissile(HellWarriorBall2, 25, 0, 0);
 	}
     HWAR H 6
 	{

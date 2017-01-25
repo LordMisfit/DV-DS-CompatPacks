@@ -764,22 +764,22 @@ ACTOR LordofHeresy // 3121
         Goto See 
         LOHS E 8 A_FaceTarget 
         LOHS F 8 A_FaceTarget 
-        LOHS G 0 A_Custommissile ("BaronBall", 32, 0, 8) 
-        LOHS G 0 A_Custommissile ("BaronBall", 32, 0, 0) 
-        LOHS G 8 A_Custommissile ("BaronBall", 32, 0, -8) 
+        LOHS G 0 A_CustomMissile ("BaronBall", 32, 0, 8) 
+        LOHS G 0 A_CustomMissile ("BaronBall", 32, 0, 0) 
+        LOHS G 8 A_CustomMissile ("BaronBall", 32, 0, -8) 
         Goto See 
         LOHS E 8 A_FaceTarget 
         LOHS F 8 A_FaceTarget 
-        LOHS G 0 A_Custommissile ("BaronBall", 32, 0, -20) 
-        LOHS G 8 A_Custommissile ("BaronBall", 32, 0, 0) 
+        LOHS G 0 A_CustomMissile ("BaronBall", 32, 0, -20) 
+        LOHS G 8 A_CustomMissile ("BaronBall", 32, 0, 0) 
         LOHS E 8 A_FaceTarget 
         LOHS F 8 A_FaceTarget 
-        LOHS G 0 A_Custommissile ("BaronBall", 32, 0, 20) 
-        LOHS G 8 A_Custommissile ("BaronBall", 32, 0, 0) 
+        LOHS G 0 A_CustomMissile ("BaronBall", 32, 0, 20) 
+        LOHS G 8 A_CustomMissile ("BaronBall", 32, 0, 0) 
         LOHS E 8 A_FaceTarget 
         LOHS F 8 A_FaceTarget 
-        LOHS G 0 A_Custommissile ("BaronBall", 32, 0, -12) 
-        LOHS G 8 A_Custommissile ("BaronBall", 32, 0, 12) 
+        LOHS G 0 A_CustomMissile ("BaronBall", 32, 0, -12) 
+        LOHS G 8 A_CustomMissile ("BaronBall", 32, 0, 12) 
         Goto See 
     Pain: 
         LOHS H 5 

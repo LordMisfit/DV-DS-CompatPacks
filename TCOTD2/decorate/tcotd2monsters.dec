@@ -916,12 +916,43 @@ ACTOR ThrallNew : Thrall replaces Thrall 30119
     CULT F 8 BRIGHT 
 	{
 	 A_FaceTarget;
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(5); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 80) { A_SetTics(6); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 40) { A_SetTics(7); }
 	 A_PlaySound("monster/culatk");
-     A_CustomMissile("ThrallShot1",42,-6,0,1,0);
-     A_CustomMissile("ThrallShot1",42,6,0,1,0);
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) 
+	 {
+	  A_SetTics(5); 
+      A_CustomMissile("ThrallShot1",42,-8,0,1,0);
+      A_CustomMissile("ThrallShot1",44,-6,0,1,2);
+      A_CustomMissile("ThrallShot1",42,-4,0,1,0);
+      A_CustomMissile("ThrallShot1",44,-2,0,1,2);
+      A_CustomMissile("ThrallShot1",42,-0,0,1,0);
+      A_CustomMissile("ThrallShot1",44,2,0,1,2);
+      A_CustomMissile("ThrallShot1",42,4,0,1,0);
+      A_CustomMissile("ThrallShot1",44,6,0,1,2);
+      A_CustomMissile("ThrallShot1",42,8,0,1,0);
+	 }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 80) 
+	 {
+	  A_SetTics(6); 
+      A_CustomMissile("ThrallShot1",42,-6,0,1,0);
+      A_CustomMissile("ThrallShot1",44,-4,0,1,2);
+      A_CustomMissile("ThrallShot1",42,-2,0,1,0);
+      A_CustomMissile("ThrallShot1",42,2,0,1,0);
+      A_CustomMissile("ThrallShot1",44,4,0,1,2);
+      A_CustomMissile("ThrallShot1",42,6,0,1,0);
+	 }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 40) 
+	 {
+ 	  A_SetTics(7); 
+      A_CustomMissile("ThrallShot1",42,-6,0,1,0);
+      A_CustomMissile("ThrallShot1",42,-2,0,1,0);
+      A_CustomMissile("ThrallShot1",42,2,0,1,0);
+      A_CustomMissile("ThrallShot1",42,6,0,1,0);
+	 }
+	 else
+	 {
+      A_CustomMissile("ThrallShot1",42,-6,0,1,0);
+      A_CustomMissile("ThrallShot1",42,6,0,1,0);
+	 }
 	}
     Goto See
   Pain: 
@@ -2700,7 +2731,7 @@ actor BloodZombieNew : ZombieBlood replaces ZombieBlood 31002
     AZUM L -1
     stop
     DOTD H 0 A_PlaySound("DSBDSPRY")
-    TNT1 A 0 A_custommissile("callumzombiehead",4,0,random(-200,200),2,random(10,30))
+    TNT1 A 0 A_CustomMissile("callumzombiehead",4,0,random(-200,200),2,random(10,30))
     AZUM SSS 2 A_ThrowGrenade("FlyingBlood",5,5+random(-3,3),10+random(-4,4),0)
     AZUM T 2 A_ThrowGrenade("FlyingBlood",5,5+random(-3,3),10+random(-4,4),0)
     AZUM U 2 A_ThrowGrenade("FlyingBlood",0,5+random(-3,3),10+random(-4,4),0)
