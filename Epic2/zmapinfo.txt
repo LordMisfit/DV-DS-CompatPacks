@@ -192,7 +192,7 @@ map MAP17 lookup "HUSTR_17"
 	sky1 = "SKY2"
 	cluster = 7
 	par = 420
-	music = "$MUSIC_STLKS3"
+	music = "D_DM2TTL"
 }
 
 map MAP18 lookup "HUSTR_18"
@@ -203,7 +203,7 @@ map MAP18 lookup "HUSTR_18"
 	sky1 = "SKY2"
 	cluster = 7
 	par = 150
-	music = "$MUSIC_ROMERO"
+	music = "D_ROMERO"
 }
 
 map MAP19 lookup "HUSTR_19"
