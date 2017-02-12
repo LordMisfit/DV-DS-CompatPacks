@@ -4,8 +4,6 @@ defaultmap
 {
 	sucktime = 1
 	compat_trace
-	nojump
-	nocrouch
 }
 
 map MAP01 lookup "HUSTR_1"
