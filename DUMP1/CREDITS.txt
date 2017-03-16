@@ -1,0 +1,124 @@
+Titlepic by Sgt. Shivers
+Title/victory music is from Super Power League 4
+DRL333 for helping out with fixing switches in maps 6, 7, and 15.
+
+
+
+MAP01: UAC Castle Outpost
+---------------------------
+Mapper: Sgt. Shivers
+Music: TMNT; Tournament Fighters (SNES) - Big Boss
+Textures: TNT.wad (Skybox), Doom PSX (Bars)
+
+
+MAP02: Imp Springs
+---------------------------
+Mapper: SmashBrosPlusB
+Music: Stunt Racer FX - Night Owl
+Textures: N/A
+
+
+MAP03: Some Place in Hell I Dunno
+---------------------------
+Mapper: Gardevoir
+Music: Jazz Jackrabbit 2 - Jazz Be Damned
+Textures: N/A
+
+
+MAP04: Piledriver
+---------------------------
+Mapper: _sink
+Music: Necros - Energia
+Textures: N/A
+
+
+MAP05: Doomguy Gets Violent Again
+---------------------------
+Mapper: DRL 3.33
+Music: Necros - d3
+Textures: AD_79 (Violence textures), Mechadon (Skybox), DRL 3.33 (light fixtures)
+
+
+MAP06: Bloody Castle
+---------------------------
+Mapper: Mystical
+Music: Unreal Tournament - Underworld II
+Textures: Oblige (Skybox)
+
+
+MAP07: I Forgot To Put Sugar In My Tea
+---------------------------
+Mapper: LaggyBlazko
+Music: TNT: Evilution - Let's Kill At Will
+Textures: LaggyBlazko (Snow flats, snowman), Unreal (rocks, clouds), TNT: Evilution (Mountains)
+
+
+MAP08: aaaaa
+---------------------------
+Mapper: Kurashiki
+Music: L'Arc-en-Ciel - Ibara no Namida
+Textures: cc4-tex.wad (textures), Kurashiki (skybox)
+
+
+MAP09: tooou
+---------------------------
+Mapper: Toooooasty
+Music: Necros - paskaa
+Textures: Oblige (Skybox)
+
+
+MAP10: Fluvial Terrace
+---------------------------
+Mapper: Jimmy
+Music: James Paddock - Tungsten
+Textures: rf` (helltex), RottKing (coultex), Jonathan Rimmer (erattex), id Software (old/edited Doom textures)
+
+
+MAP11: The Mothership
+---------------------------
+Mapper: Sgt. Shivers
+Music: Icarus: Alien Vangaurd - Hydroponics / UFO (TV) - Main Theme
+Textures: N/A
+
+
+MAP12: asses
+---------------------------
+Mapper: Marrub
+Music: Final Fight 3 - Pints and Punks
+Textures: cc4-tex.wad (Textures)
+
+
+MAP13: Ascent and Descent
+---------------------------
+Mapper: TerminusEst13
+Music: Necros - Martian Lovesong
+Textures: plums (Skybox)
+
+
+MAP14: Gatehouse
+---------------------------
+Mapper: Nyss
+Music: SlayeR - Into The...
+Textures: N/A
+
+
+MAP15: Infernal Bastion
+---------------------------
+Mapper: LegoCS
+Music: Tokuhiko Uwabo - Marionette's World
+Textures: Gothic Texture Pack
+
+
+SECRET: Doomguy Purposefully Wanders About the Omegamatic
+---------------------------
+Mapper: Sgt. Shivers
+Music: Commander Keen 5 - Be Sphereful with my Diamonds / Mars: The Bringer of War
+Textures: Commander Keen
+
+
+MAP16: Finishing Up
+---------------------------
+Mapper: TerminusEst13
+Music: Overcoat - Drifting / Unreal - WarLord
+Textures: N/A
+Sprites: Nazilla by luigi2600

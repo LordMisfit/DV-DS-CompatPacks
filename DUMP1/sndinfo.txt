@@ -1,0 +1,13 @@
+nazilla/rocket        EDGROCKT // By NightmareMutant
+nazilla/bullet        EDGCHAIN // Unknown source
+nazilla/shell         EDGSHOTY // Taken from a forgotten Valve game. Sorry!
+nazilla/plasma        EDGPLASM // By SigFloyd
+nazilla/see           HITLOLOL // From Wolfenstein 3D
+nazilla/pain          HITLPAIN // From Wolfenstein 3D
+nazilla/death         HITLFALL // From Wolfenstein 3D
+
+gib/squish            GIBSPLT  // From Quake III
+$random gib/impact {Gib/Impact1 Gib/Impact2 Gib/Impact3} // From Quake III
+Gib/Impact1           GIBIMP1
+Gib/Impact2           GIBIMP2
+Gib/Impact3           GIBIMP3
