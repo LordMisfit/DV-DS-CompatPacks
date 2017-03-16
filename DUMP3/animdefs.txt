@@ -1,0 +1,535 @@
+// Map15
+texture DTELE1
+    allowdecals
+    pic DTELE1 tics 3
+    pic DTELE2 tics 3
+    pic DTELE3 tics 3
+    pic DTELE4 tics 3
+
+texture PPNT0
+    allowdecals
+    pic PPNT0 tics 5
+    pic PPNT1 tics 108
+    pic PPNT0 tics 5
+    pic PPNT2 tics 108
+    pic PPNT0 tics 5
+    pic PPNT3 tics 108
+    pic PPNT0 tics 5
+    pic PPNT4 tics 108
+    pic PPNT0 tics 5
+    pic PPNT5 tics 108
+
+// Flats
+warp texture DNSLIME
+warp2 texture DNLAVA
+warp texture DN3DCLOU
+
+// Switches
+switch doom 1 SW1DUKE1
+on sound switches/normbutn
+pic SW2DUKE1 tics 0
+
+switch doom 1 SW1JIMM1
+on sound switches/normbutn
+pic SW2JIMM1 tics 0
+
+switch doom 1 SW1JIMM2
+on sound switches/normbutn
+pic SW2JIMM2 tics 0
+
+switch doom 1 SW1JIMM3
+on sound switches/normbutn
+pic SW2JIMM3 tics 0
+
+switch doom 1 PROTO4
+on sound switches/exitbutn
+pic PROTO3 tics 0
+
+// "Switches"
+switch doom dn3d0198
+on sound kinsie/gibglass
+pic KINSNOWT tics 0
+
+
+// Map25
+texture OWARPA
+    pic OWARPA tics 5
+    pic OWARPB tics 5
+	
+texture BWARPA
+    pic BWARPA tics 5
+    pic BWARPB tics 5
+	
+switch PRTLX on sound Switch1 pic PRTLO tics 0
+switch PRTLO off sound Switch2 pic PRTLX tics 0
+
+
+// Map35
+
+warp Texture DARS_SKY 1
+	
+
+
+
+// Map40
+
+Texture	Optional	N_GFALL1 	Range	N_GFALL4	Tics 8
+Texture	Optional	N_FFLDB1 	Range	N_FFLDB4	Tics 4
+Texture	Optional	N_FFLDY1 	Range	N_FFLDY4	Tics 4
+Texture	Optional	N_FFLDR1 	Range	N_FFLDR4	Tics 4
+Texture	Optional	N_FFLDG1 	Range	N_FFLDG4	Tics 4
+Texture	Optional	GRFALL1 	Range	GRFALL4		Tics 8
+Texture	Optional	LFALL1 		Range	LFALL4		Tics 8
+Texture	Optional	RFALL1 		Range	RFALL4		Tics 8
+Texture	Optional	SLFALL1 	Range	SLFALL4		Tics 8
+Flat	Optional	NFGSLM01 	Range	NFGSLM04	Tics 8
+Flat	Optional	GWATER1 	Range	GWATER4		Tics 8
+Flat	Optional	RWATER1 	Range	RWATER4		Tics 4
+Flat	Optional	NFLAVA05 	Range	NFLAVA08	Tics 8
+Flat	Optional	RFLAVA1 	Range	RFLAVA4		Tics 8
+Flat	Optional	SLIMAGE1 	Range	SLIMAGE3	Tics 8
+
+Warp Texture N_FFLDB1
+Warp Texture N_FFLDB2
+Warp Texture N_FFLDB3
+Warp Texture N_FFLDB4
+Warp Texture N_FFLDY1
+Warp Texture N_FFLDY2
+Warp Texture N_FFLDY3
+Warp Texture N_FFLDY4
+Warp Texture N_FFLDR1
+Warp Texture N_FFLDR2
+Warp Texture N_FFLDR3
+Warp Texture N_FFLDR4
+Warp Texture N_FFLDG1
+Warp Texture N_FFLDG2
+Warp Texture N_FFLDG3
+Warp Texture N_FFLDG4
+
+
+
+
+// Map49
+texture	NSLAVFA1 range NSLAVFA4 tics 8
+
+
+
+
+// Map50
+
+Flat	Optional	FLTWAWA1	Range	FLTWAWA3	Tics 8
+Flat	Optional	FLTSLUD1	Range	FLTSLUD3	Tics 8
+Flat	Optional	FLTTELE1	Range	FLTTELE4	Tics 6
+Flat	Optional	FLTFLWW1	Range	FLTFLWW3	Tics 9
+Flat	Optional	FLTLAVA1	Range	FLTLAVA4	Tics 8
+Flat	Optional	FLATHUH1	Range	FLATHUH4	Tics 8
+Texture	Optional	LAVAFL1 	Range	LAVAFL3 	Tics 6
+Texture	Optional	WATRWAL1	Range	WATRWAL3	Tics 4
+Flat	Optional	F_SCANR5	Range	F_SCANR8	Tics 4
+Flat	Optional	F_WATR01	Range	F_WATR03	Tics 8
+Flat	Optional	F_PWATR1	Range	F_PWATR3	Tics 11
+Flat	Optional	F_SCANR1	Range	F_SCANR4	Tics 4
+Texture	Optional	SCAN05  	Range	SCAN08  	Tics 4
+Texture	Optional	SWTRMG01	Range	SWTRMG03	Tics 4
+Texture	Optional	SCAN01  	Range	SCAN04  	Tics 4
+//Texture	Optional	COMP01  	Range	COMP04  	Tics 4
+Texture	Optional	COMP05  	Range	COMP08  	Tics 6
+Texture	Optional	COMP09  	Range	COMP12  	Tics 11
+Texture	Optional	COMP13  	Range	COMP16  	Tics 12
+Texture	Optional	COMP17  	Range	COMP20  	Tics 12
+Texture	Optional	COMP21  	Range	COMP24  	Tics 12
+Texture	Optional	COMP25  	Range	COMP28  	Tics 12
+Texture	Optional	COMP29  	Range	COMP32  	Tics 12
+Texture	Optional	COMP33  	Range	COMP37  	Tics 12
+Texture	Optional	COMP38  	Range	COMP41  	Tics 12
+Texture	Optional	COMP42  	Range	COMP49  	Tics 10
+Texture	Optional	BRKGRY13	Range	BRKGRY16	Tics 10
+Texture	Optional	BRNSCN01	Range	BRNSCN04	Tics 10
+Texture	Optional	CONCRT09	Range	CONCRT12	Tics 11
+Texture	Optional	CONCRT22	Range	CONCRT25	Tics 11
+Texture	Optional	WALPMP01	Range	WALPMP02	Tics 16
+Texture	Optional	WALTEK16	Range	WALTEK17	Tics 8
+Texture	Optional	FORCE01 	Range	FORCE04 	Tics 4
+Texture	Optional	FORCE05 	Range	FORCE08 	Tics 4
+Texture	Optional	FAN01   	Range	FAN02   	Tics 4
+Flat	Optional	P_VWATR1	Range	F_VWATR3	Tics 4
+Flat	Optional	F_HWATR1	Range	F_HWATR3	Tics 4
+Flat	Optional	F_TELE1 	Range	F_TELE2 	Tics 4
+Flat	Optional	F_FAN1  	Range	F_FAN2  	Tics 4
+Flat	Optional	F_CONVY1	Range	F_CONVY2	Tics 4
+Flat	Optional	F_RDALN1	Range	F_RDALN4	Tics 4
+Texture	Optional	HOLVX01 	Range	HOLVX10 	Tics 4
+Texture	Optional	HOLXX01 	Range	HOLXX10 	Tics 4
+Texture	Optional	HOLWX01 	Range	HOLWX10 	Tics 4
+Texture	Optional	WTRFALL1	Range	WTRFALL4	Tics 4
+
+
+// Map60
+
+// (Made by NeuralStunner)
+
+
+// [NS] Lava Fall
+
+Texture NSLavFa1
+	Pic NSLavFa1 Tics 8
+	Pic NSLavFa2 Tics 8
+	Pic NSLavFa3 Tics 8
+	Pic NSLavFa4 Tics 8
+
+Texture NSLavFa2
+	Pic NSLavFa2 Tics 8
+	Pic NSLavFa3 Tics 8
+	Pic NSLavFa4 Tics 8
+	Pic NSLavFa1 Tics 8
+
+Texture NSLavFa3
+	Pic NSLavFa3 Tics 8
+	Pic NSLavFa4 Tics 8
+	Pic NSLavFa1 Tics 8
+	Pic NSLavFa2 Tics 8
+
+Texture NSLavFa4
+	Pic NSLavFa4 Tics 8
+	Pic NSLavFa1 Tics 8
+	Pic NSLavFa2 Tics 8
+	Pic NSLavFa3 Tics 8
+
+
+
+// [NS] Switches
+
+Switch NSSwt01f
+	On
+	Sound "NS/Switch/PullSwitch/On"
+	Pic NSSwt01t Tics 0
+
+Switch NSSwt01t
+	Off
+	Sound "NS/Switch/PullSwitch/Off"
+	Pic NSSwt01f Tics 0
+
+
+// [NS] Lock Panels: Keycards
+
+Switch NSLokC1f
+	On
+	Sound "NS/Switch/Keycard/On"
+	Pic NSLokC1t Tics 0
+
+Switch NSLokC1t
+	Off
+	Sound "NS/Switch/Keycard/Off"
+	Pic NSLokC1f Tics 0
+
+Switch NSLokC2f
+	On
+	Sound "NS/Switch/Keycard/On"
+	Pic NSLokC2t Tics 0
+
+Switch NSLokC2t
+	Off
+	Sound "NS/Switch/Keycard/Off"
+	Pic NSLokC2f Tics 0
+
+Switch NSLokC3f
+	On
+	Sound "NS/Switch/Keycard/On"
+	Pic NSLokC3t Tics 0
+
+Switch NSLokC3t
+	Off
+	Sound "NS/Switch/Keycard/Off"
+	Pic NSLokC3f Tics 0
+
+
+// [NS] Lock Panels: Skullkeys
+
+Switch NSLokS1f
+	On
+	Sound "NS/Switch/Skullkey/On"
+	Pic NSLokS1t Tics 0
+
+Switch NSLokS1t
+	Off
+	Sound "NS/Switch/Skullkey/Off"
+	Pic NSLokS1f Tics 0
+
+Switch NSLokS2f
+	On
+	Sound "NS/Switch/Skullkey/On"
+	Pic NSLokS2t Tics 0
+
+Switch NSLokS2t
+	Off
+	Sound "NS/Switch/Skullkey/Off"
+	Pic NSLokS2f Tics 0
+
+Switch NSLokS3f
+	On
+	Sound "NS/Switch/Skullkey/On"
+	Pic NSLokS3t Tics 0
+
+Switch NSLokS3t
+	Off
+	Sound "NS/Switch/Skullkey/Off"
+	Pic NSLokS3f Tics 0
+
+
+
+// [NS] Dualgate Effects
+
+Texture NSDualw1
+	Pic NSDualw1 Tics 2
+	Pic NSDualw2 Tics 2
+	Pic NSDualw3 Tics 2
+	Pic NSDualw4 Tics 2
+
+Texture NSDualw2
+	Pic NSDualw2 Tics 2
+	Pic NSDualw3 Tics 2
+	Pic NSDualw4 Tics 2
+	Pic NSDualw1 Tics 2
+
+Texture NSDualw3
+	Pic NSDualw3 Tics 2
+	Pic NSDualw4 Tics 2
+	Pic NSDualw1 Tics 2
+	Pic NSDualw2 Tics 2
+
+Texture NSDualw4
+	Pic NSDualw4 Tics 2
+	Pic NSDualw1 Tics 2
+	Pic NSDualw2 Tics 2
+	Pic NSDualw3 Tics 2
+
+
+Warp Flat NSDualwF
+
+
+
+
+// Map64
+texture DNMACH01
+	pic DNMACH01 tics 8
+	pic DNMACH02 tics 8
+	pic DNMACH03 tics 8
+	
+texture DNMACH02
+	pic DNMACH01 tics 8
+	pic DNMACH02 tics 8
+	pic DNMACH03 tics 8
+	
+texture DNMACH03
+	pic DNMACH01 tics 8
+	pic DNMACH02 tics 8
+	pic DNMACH03 tics 8
+	
+texture DNXTEL01
+	pic DNXTEL01 tics 4
+	pic DNXTEL02 tics 4
+	pic DNXTEL03 tics 4
+	pic DNXTEL04 tics 4
+
+
+
+
+// Map68
+Texture Wfall1 range WFALL4 tics 3
+Texture LAVFALL1 range LAVFALL4 tics 3
+warp flat TOXWAST
+
+
+
+
+// Map70
+
+texture 0BASEBTN
+	allowdecals
+	pic 0BASEBTN tics 3.5
+	pic 1BASEBTN tics 3.5
+
+switch 0BASEBTN on sound quake/null pic ABASEBTN tics 0
+
+texture 0BUTN
+	allowdecals
+	pic 0BUTN tics 3.5
+	pic 1BUTN tics 3.5
+	pic 2BUTN tics 3.5
+	pic 3BUTN tics 3.5
+
+switch 0BUTN on sound quake/null pic ABUTN tics 0
+
+texture 0BUTNN
+	allowdecals
+	pic 0BUTNN tics 3.5
+	pic 1BUTNN tics 3.5
+	pic 2BUTNN tics 3.5
+	pic 3BUTNN tics 3.5
+
+switch 0BUTNN on sound quake/null pic ABUTNN tics 0
+
+texture 0BUTTON
+	allowdecals
+	pic 0BUTTON tics 3.5
+	pic 1BUTTON tics 3.5
+	pic 2BUTTON tics 3.5
+	pic 3BUTTON tics 3.5
+
+switch 0BUTTON on sound quake/null pic ABUTTON tics 0
+
+texture 0DEM5
+	allowdecals
+	pic 0DEM5 tics 3.5
+	pic 1DEM5 tics 3.5
+	pic 2DEM5 tics 3.5
+	pic 3DEM5 tics 3.5
+
+texture 0FLOORSW
+	allowdecals
+	pic 0FLOORSW tics 3.5
+	pic 1FLOORSW tics 3.5
+	pic 2FLOORSW tics 3.5
+	pic 3FLOORSW tics 3.5
+
+switch 0FLOORSW on sound quake/null pic AFLOORSW tics 0
+
+texture 0LIGHT01
+	allowdecals
+	pic 0LIGHT01 tics 3.5
+	pic 1LIGHT01 tics 3.5
+	pic 2LIGHT01 tics 3.5
+
+texture 0MTLSW
+	allowdecals
+	pic 0MTLSW tics 3.5
+	pic 1MTLSW tics 3.5
+	pic 2MTLSW tics 3.5
+	pic 3MTLSW tics 3.5
+
+switch 0MTLSW on sound quake/null pic AMTLSW tics 0
+
+texture 0PLANET
+	allowdecals
+	pic 0PLANET tics 3.5
+	pic 1PLANET tics 3.5
+	pic 2PLANET tics 3.5
+	pic 3PLANET tics 3.5
+
+texture 0SHOOT
+	allowdecals
+	pic 0SHOOT tics 3.5
+	pic 1SHOOT tics 3.5
+	pic 2SHOOT tics 3.5
+	pic 3SHOOT tics 3.5
+
+switch 0SHOOT on sound quake/null pic ASHOOT tics 0
+
+texture 0SLIP
+	allowdecals
+	pic 0SLIP tics 3.5
+	pic 1SLIP tics 3.5
+	pic 2SLIP tics 3.5
+	pic 3SLIP tics 3.5
+	pic 4SLIP tics 3.5
+	pic 5SLIP tics 3.5
+	pic 6SLIP tics 3.5
+
+texture 0_BOXSID
+	allowdecals
+	pic 0_BOXSID tics 3.5
+	pic 1_BOXSID tics 3.5
+
+texture 0_BOXTOP
+	allowdecals
+	pic 0_BOXTOP tics 3.5
+	pic 1_BOXTOP tics 3.5
+
+texture 0_FALL
+	pic 0_FALL tics 3.5
+	pic 1_FALL tics 3.5
+	pic 2_FALL tics 3.5
+	pic 3_FALL tics 3.5
+	pic 4_FALL tics 3.5
+	pic 5_FALL tics 3.5
+	pic 6_FALL tics 3.5
+	pic 7_FALL tics 3.5
+
+texture 0_LAVA0
+	allowdecals
+	pic 0_LAVA0 tics 3.5
+	pic 1_LAVA0 tics 3.5
+	pic 2_LAVA0 tics 3.5
+	pic 3_LAVA0 tics 3.5
+
+texture 0_LAVA0S
+	allowdecals
+	pic 0_LAVA0S tics 3.5
+	pic 1_LAVA0S tics 3.5
+	pic 2_LAVA0S tics 3.5
+	pic 3_LAVA0S tics 3.5
+
+texture 0_LAVA1
+	allowdecals
+	pic 0_LAVA1 tics 3.5
+	pic 1_LAVA1 tics 3.5
+	pic 2_LAVA1 tics 3.5
+	pic 3_LAVA1 tics 3.5
+
+texture 0_LAVA1S
+	allowdecals
+	pic 0_LAVA1S tics 3.5
+	pic 1_LAVA1S tics 3.5
+	pic 2_LAVA1S tics 3.5
+	pic 3_LAVA1S tics 3.5
+
+texture 0_MED100
+	allowdecals
+	pic 0_MED100 tics 3.5
+	pic 1_MED100 tics 3.5
+	pic 2_MED100 tics 3.5
+	pic 3_MED100 tics 3.5
+
+texture 0_MED25
+	allowdecals
+	pic 0_MED25 tics 3.5
+	pic 1_MED25 tics 3.5
+	pic 2_MED25 tics 3.5
+	pic 3_MED25 tics 3.5
+
+texture 0_MED25S
+	allowdecals
+	pic 0_MED25S tics 3.5
+	pic 1_MED25S tics 3.5
+
+texture 0_PLAS0
+	allowdecals
+	pic 0_PLAS0 tics 3.5
+	pic 1_PLAS0 tics 3.5
+
+texture 0_PLAS1
+	allowdecals
+	pic 0_PLAS1 tics 3.5
+	pic 1_PLAS1 tics 3.5
+
+texture 0_PLSEND
+	allowdecals
+	pic 0_PLSEND tics 3.5
+	pic 1_PLSEND tics 3.5
+
+warp texture QBLOOD1
+warp texture QLAVA1
+warp texture QLAVA2
+warp texture QRIFT1
+warp texture QSLIME1
+warp texture QSLIME2
+warp texture QTELEPOR
+warp texture QWATER0
+warp texture QWATER1
+warp texture QWATER2
+
+
+
+// Secret6
+
+Switch	Doom 1		0_BLKSW0	On Pic	0_BLKSW1	Tics 0

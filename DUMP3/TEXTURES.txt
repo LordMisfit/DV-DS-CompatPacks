@@ -1,0 +1,1516 @@
+// Map23
+
+texture DOOR2_5B, 64, 72
+{
+   Patch DOOR2_5B, 0, 0
+}
+
+texture D2TEX01, 128, 64
+{
+   Patch D2TEX01, 0, 0
+}
+texture D2TEX02, 128, 64
+{
+   Patch D2TEX02, 0, 0
+}
+texture D2TEX03, 128, 64
+{
+   Patch D2TEX03, 0, 0
+}
+texture D2TEX04, 128, 64
+{
+   Patch D2TEX04, 0, 0
+}
+texture D2TEX05, 128, 64
+{
+   Patch D2TEX05, 0, 0
+}
+texture D2TEX06, 128, 64
+{
+   Patch D2TEX06, 0, 0
+}
+texture D2TEX07, 128, 64
+{
+   Patch D2TEX07, 0, 0
+}
+texture D2TEX08, 128, 64
+{
+   Patch D2TEX08, 0, 0
+}
+texture D2TEX10, 128, 256
+{
+   Patch D2TEX1A, 0, 0
+   Patch D2TEX1B, 0, 128
+}
+
+
+
+// Map25
+
+Texture ARRWD, 32, 32
+{
+	Patch ARRWD, 0, 0
+}
+
+Texture ARRWL, 32, 32
+{
+	Patch ARRWL, 0, 0
+}
+
+Texture ARRWR, 32, 32
+{
+	Patch ARRWR, 0, 0
+}
+
+Texture ARRWU, 32, 32
+{
+	Patch ARRWU, 0, 0
+}
+
+Texture BPORTAL, 64, 96
+{
+	Patch BPORTAL, 0, 0
+}
+
+Texture BWARPA, 128, 128
+{
+	Patch BWARPA, 0, 0
+}
+
+Texture BWARPB, 128, 128
+{
+	Patch BWARPB, 0, 0
+}
+
+Texture OPORTAL, 64, 96
+{
+	Patch OPORTAL, 0, 0
+}
+
+Texture OWARPA, 128, 128
+{
+	Patch OWARPA, 0, 0
+}
+
+Texture OWARPB, 128, 128
+{
+	Patch OWARPB, 0, 0
+}
+
+Texture PRTLBTTN, 64, 64
+{
+	Patch PRTLBTTN, 0, 0
+}
+
+Texture PRTLDOOR, 128, 128
+{
+	Patch PRTLDOOR, 0, 0
+}
+
+Texture PRTLEXIT, 32, 32
+{
+	Patch PRTLEXIT, 0, 0
+}
+
+Texture PRTLFLAT, 64, 64
+{
+	Patch PRTLFLAT, 0, 0
+}
+
+Texture PRTLGRTE, 64, 64
+{
+	Patch PRTLGRTE, 0, 0
+}
+
+Texture PRTLLITB, 64, 64
+{
+	Patch PRTLLITB, 0, 0
+}
+
+Texture PRTLLITE, 32, 64
+{
+	Patch PRTLLITE, 0, 0
+}
+
+Texture PRTLLITO, 64, 64
+{
+	Patch PRTLLITO, 0, 0
+}
+
+Texture PRTLO, 32, 32
+{
+	Patch PRTLO, 0, 0
+}
+
+Texture PRTLSTEP, 32, 8
+{
+	Patch PRTLSTEP, 0, 0
+}
+
+Texture PRTLWAL1, 64, 96
+{
+	Patch PRTLWAL1, 0, 0
+}
+
+Texture PRTLWAL2, 64, 192
+{
+	Patch PRTLWAL2, 0, 0
+}
+
+Texture PRTLWAL4, 64, 64
+{
+	Patch PRTLWAL4, 0, 0
+}
+
+Texture PRTLWAL5, 64, 64
+{
+	Patch PRTLWAL5, 0, 0
+}
+
+Texture PRTLWITE, 64, 64
+{
+	Patch PRTLWITE, 0, 0
+}
+
+Texture PRTLWNDW, 64, 96
+{
+	Patch PRTLWNDW, 0, 0
+}
+
+Texture PRTLX, 32, 32
+{
+	Patch PRTLX, 0, 0
+}
+
+Texture WHITE, 64, 64
+{
+	Patch WHITE, 0, 0
+}
+
+Texture PRTLWAL3, 128, 192
+{
+	Patch PRTLWAL3, 0, 0
+}
+
+Texture PRTLLNKB, 64, 64
+{
+	Patch PRTLLNKB, 0, 0
+}
+
+Texture PRTLLNKO, 64, 64
+{
+	Patch PRTLLNKO, 0, 0
+}
+
+Texture PRTLLIFT, 64, 128
+{
+	Patch PRTLLIFT, 0, 0
+}
+
+Texture PRTLPLAT, 64, 128
+{
+	Patch PRTLPLAT, 0, 0
+}
+
+Texture PRTLCRPT, 64, 64
+{
+	Patch PRTLCRPT, 0, 0
+}
+
+Texture PRTLOFF, 64, 128
+{
+	Patch PRTLOFF, 0, 0
+}
+
+Texture PRTLLOGO, 256, 96
+{
+	Patch PRTLLOGO, 0, 0
+}
+
+Texture INDWALL, 128, 128
+{
+	Patch INDWALL, 0, 0
+}
+
+Texture INDWALL2, 64, 128
+{
+	Patch INDWALL2, 0, 0
+}
+
+Texture INDFLAT, 64, 64
+{
+	Patch INDFLAT, 0, 0
+}
+
+Texture INDDOOR, 64, 96
+{
+	Patch INDDOOR, 0, 0
+}
+
+Texture PRTLVENT, 32, 32
+{
+	Patch PRTLVENT, 0, 0
+}
+
+
+
+// Map28
+
+
+Texture RSKY1, 256, 128
+{
+	Patch RSKY1, 0, 0
+}
+
+Texture ETEX001, 64, 128
+{
+	Patch ETEX001, 0, 0
+}
+
+Texture ETEX003, 160, 128
+{
+	Patch ETEX003, 0, 0
+}
+
+Texture ETEX004, 112, 112
+{
+	Patch ETEX004, 0, 0
+}
+
+Texture ETEX005, 128, 128
+{
+	Patch ETEX005, 0, 0
+}
+
+Texture ETEX006, 128, 96
+{
+	Patch ETEX006, 0, 0
+}
+
+Texture ETEX007, 128, 64
+{
+	Patch ETEX007, 0, 0
+}
+
+Texture ETEX008, 64, 128
+{
+	Patch ETEX008, 0, 0
+}
+
+Texture ETEX009, 128, 128
+{
+	Patch ETEX009, 0, 0
+}
+
+Texture ETEX010, 96, 128
+{
+	Patch ETEX010, 0, 0
+}
+
+Texture ETEX011, 64, 128
+{
+	Patch ETEX011, 0, 0
+}
+
+Texture ETEX012, 64, 128
+{
+	Patch ETEX012, 0, 0
+}
+
+Texture ETEX013, 64, 128
+{
+	Patch ETEX013, 0, 0
+}
+
+Texture ETEX014, 256, 128
+{
+	Patch ETEX014, 0, 0
+}
+
+Texture ETEX015, 128, 128
+{
+	Patch ETEX015, 0, 0
+}
+
+Texture ETEX016, 208, 128
+{
+	Patch ETEX016, 0, 0
+}
+
+Texture ETEX017, 128, 128
+{
+	Patch ETEX017, 0, 0
+}
+
+Texture ETEX018, 192, 176
+{
+	Patch ETEX018, 0, 0
+}
+
+Texture ETEX019, 64, 128
+{
+	Patch ETEX019, 0, 0
+}
+
+Texture ETEX020, 208, 128
+{
+	Patch ETEX020, 0, 0
+}
+
+Texture ETEX021, 64, 128
+{
+	Patch ETEX021, 0, 0
+}
+
+Texture ETEX023, 64, 128
+{
+	Patch ETEX023, 0, 0
+}
+
+Texture ETEX022, 64, 128
+{
+	Patch ETEX022, 0, 0
+}
+
+Texture ETEX024, 192, 176
+{
+	Patch ETEX024, 0, 0
+}
+
+Texture ETEX025, 64, 128
+{
+	Patch ETEX025, 0, 0
+}
+
+Texture ETEX026, 64, 128
+{
+	Patch ETEX026, 0, 0
+}
+
+Texture ETEX027, 64, 128
+{
+	Patch ETEX027, 0, 0
+}
+
+Texture ETEX028, 128, 64
+{
+	Patch ETEX028, 0, 0
+}
+
+Texture ETEX029, 128, 128
+{
+	Patch ETEX029, 0, 0
+}
+
+Texture ETEX030, 128, 128
+{
+	Patch ETEX030, 0, 0
+}
+
+Texture ETEX031, 64, 176
+{
+	Patch ETEX031, 0, 0
+}
+
+Texture ETEX032, 64, 176
+{
+	Patch ETEX032, 0, 0
+}
+
+Texture ETEX033, 192, 176
+{
+	Patch ETEX033, 0, 0
+}
+
+Texture ETEX034, 64, 128
+{
+	Patch ETEX034, 0, 0
+}
+
+Texture ETEX035, 128, 128
+{
+	Patch ETEX035, 0, 0
+}
+
+Texture ETEX036, 160, 128
+{
+	Patch ETEX036, 0, 0
+}
+
+Texture ETEX037, 192, 128
+{
+	Patch ETEX037, 0, 0
+}
+
+Texture ETEX038, 64, 128
+{
+	Patch ETEX038, 0, 0
+}
+
+Texture ETEX039, 64, 160
+{
+	Patch ETEX039, 0, 0
+}
+
+Texture ETEX040, 128, 64
+{
+	Patch ETEX040, 0, 0
+}
+
+Texture ETEX041, 128, 64
+{
+	Patch ETEX041, 0, 0
+}
+
+Texture ETEX042, 128, 128
+{
+	Patch ETEX042, 0, 0
+}
+
+Texture ETEX043, 64, 128
+{
+	Patch ETEX043, 0, 0
+}
+
+Texture ETEX044, 64, 128
+{
+	Patch ETEX044, 0, 0
+}
+
+Texture ETEX045, 128, 128
+{
+	Patch ETEX045, 0, 0
+}
+
+Texture ETEX046, 96, 128
+{
+	Patch ETEX046, 0, 0
+}
+
+Texture FIRESK01, 63, 224
+{
+	Patch FIRESK01, 0, 0
+}
+
+Texture FIRESK02, 63, 224
+{
+	Patch FIRESK02, 0, 0
+}
+
+Texture FIRESK03, 63, 224
+{
+	Patch FIRESK03, 0, 0
+}
+
+Texture FIRESK04, 63, 224
+{
+	Patch FIRESK04, 0, 0
+}
+
+Texture FIRESK05, 63, 224
+{
+	Patch FIRESK05, 0, 0
+}
+
+Texture FIRESK06, 63, 224
+{
+	Patch FIRESK06, 0, 0
+}
+
+Texture FIRESK07, 63, 224
+{
+	Patch FIRESK07, 0, 0
+}
+
+Texture FIRESK08, 63, 224
+{
+	Patch FIRESK08, 0, 0
+}
+
+Texture FIRESK09, 63, 224
+{
+	Patch FIRESK09, 0, 0
+}
+
+Texture FIRESK10, 63, 224
+{
+	Patch FIRESK10, 0, 0
+}
+
+Texture FIRESK11, 63, 224
+{
+	Patch FIRESK11, 0, 0
+}
+
+Texture FIRESK12, 63, 224
+{
+	Patch FIRESK12, 0, 0
+}
+
+Texture FIRESK13, 63, 224
+{
+	Patch FIRESK13, 0, 0
+}
+
+Texture FIRESK14, 63, 224
+{
+	Patch FIRESK14, 0, 0
+}
+
+Texture FIRESK15, 63, 224
+{
+	Patch FIRESK15, 0, 0
+}
+
+Texture FIRESK16, 63, 224
+{
+	Patch FIRESK16, 0, 0
+}
+
+Texture FIRESK17, 63, 224
+{
+	Patch FIRESK17, 0, 0
+}
+
+Texture FIRESK18, 63, 224
+{
+	Patch FIRESK18, 0, 0
+}
+
+Texture FIRESK19, 63, 224
+{
+	Patch FIRESK19, 0, 0
+}
+
+Texture FIRESK20, 63, 224
+{
+	Patch FIRESK20, 0, 0
+}
+
+Texture FIRESK21, 63, 224
+{
+	Patch FIRESK21, 0, 0
+}
+
+Texture FIRESK22, 63, 224
+{
+	Patch FIRESK22, 0, 0
+}
+
+Texture FIRESK23, 63, 224
+{
+	Patch FIRESK23, 0, 0
+}
+
+Texture FIRESK24, 63, 224
+{
+	Patch FIRESK24, 0, 0
+}
+
+Texture FIRESK25, 63, 224
+{
+	Patch FIRESK25, 0, 0
+}
+
+Texture FIRESK26, 63, 224
+{
+	Patch FIRESK26, 0, 0
+}
+
+Texture FIRESK27, 63, 224
+{
+	Patch FIRESK27, 0, 0
+}
+
+Texture FIRESK28, 63, 224
+{
+	Patch FIRESK28, 0, 0
+}
+
+Texture FIRESK29, 63, 224
+{
+	Patch FIRESK29, 0, 0
+}
+
+Texture FIRESK30, 63, 224
+{
+	Patch FIRESK30, 0, 0
+}
+
+Texture FIRESK31, 63, 224
+{
+	Patch FIRESK31, 0, 0
+}
+
+Texture FIRESK32, 63, 224
+{
+	Patch FIRESK32, 0, 0
+}
+
+Texture FIRESK33, 63, 224
+{
+	Patch FIRESK33, 0, 0
+}
+
+Texture FIRESK34, 63, 224
+{
+	Patch FIRESK34, 0, 0
+}
+
+Texture FIRESK35, 63, 224
+{
+	Patch FIRESK35, 0, 0
+}
+
+Texture FIRESK36, 63, 224
+{
+	Patch FIRESK36, 0, 0
+}
+
+Texture FIRESK37, 63, 224
+{
+	Patch FIRESK37, 0, 0
+}
+
+Texture FIRESK38, 63, 224
+{
+	Patch FIRESK38, 0, 0
+}
+
+Texture FIRESK39, 63, 224
+{
+	Patch FIRESK39, 0, 0
+}
+
+Texture FIRESK40, 63, 224
+{
+	Patch FIRESK40, 0, 0
+}
+
+Texture FIRESK41, 63, 224
+{
+	Patch FIRESK41, 0, 0
+}
+
+Texture FIRESK42, 63, 224
+{
+	Patch FIRESK42, 0, 0
+}
+
+Texture FIRESK43, 63, 224
+{
+	Patch FIRESK43, 0, 0
+}
+
+Texture FIRESK44, 63, 224
+{
+	Patch FIRESK44, 0, 0
+}
+
+Texture FIRESK45, 63, 224
+{
+	Patch FIRESK45, 0, 0
+}
+
+Texture FIRESK46, 63, 224
+{
+	Patch FIRESK46, 0, 0
+}
+
+Texture FIRESK47, 63, 224
+{
+	Patch FIRESK47, 0, 0
+}
+
+Texture FIRESK48, 63, 224
+{
+	Patch FIRESK48, 0, 0
+}
+
+Texture FIRESK49, 63, 224
+{
+	Patch FIRESK49, 0, 0
+}
+
+Texture FIRESK50, 63, 224
+{
+	Patch FIRESK50, 0, 0
+}
+
+Texture FIRESK51, 63, 224
+{
+	Patch FIRESK51, 0, 0
+}
+
+Texture FIRESK52, 63, 224
+{
+	Patch FIRESK52, 0, 0
+}
+
+Texture FIRESK53, 63, 224
+{
+	Patch FIRESK53, 0, 0
+}
+
+Texture FIRESK54, 63, 224
+{
+	Patch FIRESK54, 0, 0
+}
+
+Texture FIRESK55, 63, 224
+{
+	Patch FIRESK55, 0, 0
+}
+
+Texture FIRESK56, 63, 224
+{
+	Patch FIRESK56, 0, 0
+}
+
+Texture FIRESK57, 63, 224
+{
+	Patch FIRESK57, 0, 0
+}
+
+Texture FIRESK58, 63, 224
+{
+	Patch FIRESK58, 0, 0
+}
+
+Texture FIRESK59, 63, 224
+{
+	Patch FIRESK59, 0, 0
+}
+
+Texture FIRESK60, 63, 224
+{
+	Patch FIRESK60, 0, 0
+}
+
+Texture FIRESK61, 63, 224
+{
+	Patch FIRESK61, 0, 0
+}
+
+Texture FIRESK62, 63, 224
+{
+	Patch FIRESK62, 0, 0
+}
+
+Texture FIRESK63, 63, 224
+{
+	Patch FIRESK63, 0, 0
+}
+
+Texture FIRESK64, 63, 224
+{
+	Patch FIRESK64, 0, 0
+}
+
+Texture FIRESK65, 63, 224
+{
+	Patch FIRESK65, 0, 0
+}
+
+Texture FIRESK66, 63, 224
+{
+	Patch FIRESK66, 0, 0
+}
+
+Texture FIRESK67, 63, 224
+{
+	Patch FIRESK67, 0, 0
+}
+
+Texture FIRESK68, 63, 224
+{
+	Patch FIRESK68, 0, 0
+}
+
+Texture FIRESK69, 63, 224
+{
+	Patch FIRESK69, 0, 0
+}
+
+Texture FIRESK70, 63, 224
+{
+	Patch FIRESK70, 0, 0
+}
+
+Texture FIRESK71, 63, 224
+{
+	Patch FIRESK71, 0, 0
+}
+
+Texture FIRESK72, 63, 224
+{
+	Patch FIRESK72, 0, 0
+}
+
+Texture FIRESK73, 63, 224
+{
+	Patch FIRESK73, 0, 0
+}
+
+Texture FIRESK74, 63, 224
+{
+	Patch FIRESK74, 0, 0
+}
+
+Texture FIRESK75, 63, 224
+{
+	Patch FIRESK75, 0, 0
+}
+
+Texture FIRESK76, 63, 224
+{
+	Patch FIRESK76, 0, 0
+}
+
+Texture FIRESK77, 63, 224
+{
+	Patch FIRESK77, 0, 0
+}
+
+Texture FIRESK78, 63, 224
+{
+	Patch FIRESK78, 0, 0
+}
+
+Texture FIRESK79, 63, 224
+{
+	Patch FIRESK79, 0, 0
+}
+
+Texture FIRESK80, 63, 224
+{
+	Patch FIRESK80, 0, 0
+}
+
+Texture FIRESK81, 63, 224
+{
+	Patch FIRESK81, 0, 0
+}
+
+Texture FIRESK82, 63, 224
+{
+	Patch FIRESK82, 0, 0
+}
+
+Texture FIRESK83, 63, 224
+{
+	Patch FIRESK83, 0, 0
+}
+
+Texture FIRESK84, 63, 224
+{
+	Patch FIRESK84, 0, 0
+}
+
+Texture FIRESK85, 63, 224
+{
+	Patch FIRESK85, 0, 0
+}
+
+Texture FIRESK86, 63, 224
+{
+	Patch FIRESK86, 0, 0
+}
+
+Texture FIRESK87, 63, 224
+{
+	Patch FIRESK87, 0, 0
+}
+
+Texture FIRESK88, 63, 224
+{
+	Patch FIRESK88, 0, 0
+}
+
+Texture FIRESK89, 63, 224
+{
+	Patch FIRESK89, 0, 0
+}
+
+Texture FIRESK90, 63, 224
+{
+	Patch FIRESK90, 0, 0
+}
+
+Texture FIRESK91, 63, 224
+{
+	Patch FIRESK91, 0, 0
+}
+
+Texture FIRESK92, 63, 224
+{
+	Patch FIRESK92, 0, 0
+}
+
+Texture FIRESK93, 63, 224
+{
+	Patch FIRESK93, 0, 0
+}
+
+Texture FIRESK94, 63, 224
+{
+	Patch FIRESK94, 0, 0
+}
+
+Texture FIRESK95, 63, 224
+{
+	Patch FIRESK95, 0, 0
+}
+
+Texture FIRESK96, 63, 224
+{
+	Patch FIRESK96, 0, 0
+}
+
+Texture FIRESK97, 63, 224
+{
+	Patch FIRESK97, 0, 0
+}
+
+Texture FIRESK98, 63, 224
+{
+	Patch FIRESK98, 0, 0
+}
+
+Texture FIRESK99, 63, 224
+{
+	Patch FIRESK99, 0, 0
+}
+
+Texture FIRESK00, 63, 224
+{
+	Patch FIRESK00, 0, 0
+}
+
+
+
+
+// Map37
+// I'm not sure how comfortable I am with these being called "CP"
+
+Texture CP_00, 64, 64
+{
+	Patch CP_00, 0, 0
+}
+
+Texture CP_01, 64, 64
+{
+	Patch CP_01, 0, 0
+}
+
+Texture CP_02, 4, 64
+{
+	Patch CP_02, 0, 0
+}
+
+Texture CP_00, 64, 64
+{
+	Patch CP_00, 0, 0
+}
+
+Texture CP_01, 64, 64
+{
+	Patch CP_01, 0, 0
+}
+
+Texture CP_02, 4, 64
+{
+	Patch CP_02, 0, 0
+}
+
+
+
+// Map50
+
+Texture EGYPTRM1, 128, 16
+{
+	Patch EGYPTRM1, 0, 0
+}
+
+Texture EGYPTRM2, 128, 128
+{
+	Patch EGYPTRM2, 0, 0
+}
+
+Texture EGYPTRM3, 128, 128
+{
+	Patch EGYPTRM3, 0, 0
+}
+
+Texture EGYPTRM4, 128, 128
+{
+	Patch EGYPTRM4, 0, 0
+}
+
+Texture EGYPTRM5, 128, 64
+{
+	Patch EGYPTRM5, 0, 0
+}
+
+Texture EGYPTRM6, 128, 64
+{
+	Patch EGYPTRM6, 0, 0
+}
+
+Texture EGYPTRM7, 128, 64
+{
+	Patch EGYPTRM7, 0, 0
+}
+
+Texture EGYPTRM8, 128, 64
+{
+	Patch EGYPTRM8, 0, 0
+}
+
+Texture EGYPTRM9, 64, 64
+{
+	Patch EGYPTRM9, 0, 0
+}
+
+Texture EGYPTRM0, 128, 16
+{
+	Patch EGYPTRM0, 0, 0
+}
+
+Texture EGYPWALL, 128, 128
+{
+	Patch EGYPWALL, 0, 0
+}
+
+Texture EGYPWALM, 128, 128
+{
+	Patch EGYPWALM, 0, 0
+}
+
+Texture EGYPBRK4, 64, 128
+{
+	Patch EGYPBRK4, 0, 0
+}
+
+Texture EGYPBRK5, 256, 128
+{
+	Patch EGYPBRK5, 0, 0
+}
+
+Texture EGYPBRK7, 128, 128
+{
+	Patch EGYPBRK7, 0, 0
+}
+
+Texture EGYPWL07, 64, 64
+{
+	Patch EGYPWL07, 0, 0
+}
+
+Texture MAYABRK1, 128, 128
+{
+	Patch MAYABRK1, 0, 0
+}
+
+Texture MAYABRK2, 128, 128
+{
+	Patch MAYABRK2, 0, 0
+}
+
+Texture MAYABRK8, 128, 128
+{
+	Patch MAYABRK8, 0, 0
+}
+
+Texture MAYARUNE, 64, 64
+{
+	Patch MAYARUNE, 0, 0
+}
+
+Texture MAYASTN5, 128, 128
+{
+	Patch MAYASTN5, 0, 0
+}
+
+Texture MAYASUPH, 128, 16
+{
+	Patch MAYASUPH, 0, 0
+}
+
+Texture MAYASUPP, 16, 128
+{
+	Patch MAYASUPP, 0, 0
+}
+
+Texture GWALL03, 64, 64
+{
+	Patch GWALL03, 0, 0
+}
+
+Texture GWALL04, 64, 64
+{
+	Patch GWALL04, 0, 0
+}
+
+Texture GWALL05, 64, 64
+{
+	Patch GWALL05, 0, 0
+}
+
+Texture ROCK10, 128, 128
+{
+	Patch ROCK10, 0, 0
+}
+
+Texture ROCK12, 256, 128
+{
+	Patch ROCK12, 0, 0
+}
+
+Texture ROCK24, 128, 128
+{
+	Patch ROCK24, 0, 0
+}
+
+Texture WOODP1, 64, 64
+{
+	Patch WOODP1, 0, 0
+}
+
+Texture WOODP2, 64, 64
+{
+	Patch WOODP2, 0, 0
+}
+
+Texture SANDWALL, 64, 64
+{
+	Patch SANDWALL, 0, 0
+}
+
+Texture FULLMOON, 1024, 384
+{
+	Patch FULLMOON, 0, 0
+}
+
+Texture SW1HEXEN, 32, 32
+{
+	Patch SW1HEXEN, 0, 0
+}
+
+Texture SW2HEXEN, 32, 32
+{
+	Patch SW2HEXEN, 0, 0
+}
+
+Texture SW1LNBTN, 32, 32
+{
+	Patch SW1LNBTN, 0, 0
+}
+
+Texture SW2LNBTN, 32, 32
+{
+	Patch SW2LNBTN, 0, 0
+}
+
+Texture HOLVX01, 64, 64
+{
+	Patch HOLVX01, 0, 0
+}
+
+Texture HOLVX02, 64, 64
+{
+	Patch HOLVX02, 0, 0
+}
+
+Texture HOLVX03, 64, 64
+{
+	Patch HOLVX03, 0, 0
+}
+
+Texture HOLVX04, 64, 64
+{
+	Patch HOLVX04, 0, 0
+}
+
+Texture HOLVX05, 64, 64
+{
+	Patch HOLVX05, 0, 0
+}
+
+Texture HOLVX06, 64, 64
+{
+	Patch HOLVX06, 0, 0
+}
+
+Texture HOLVX07, 64, 64
+{
+	Patch HOLVX07, 0, 0
+}
+
+Texture HOLVX08, 64, 64
+{
+	Patch HOLVX08, 0, 0
+}
+
+Texture HOLVX09, 64, 64
+{
+	Patch HOLVX09, 0, 0
+}
+
+Texture HOLVX10, 64, 64
+{
+	Patch HOLVX10, 0, 0
+}
+
+Texture HOLWX01, 64, 64
+{
+	Patch HOLWX01, 0, 0
+}
+
+Texture HOLWX02, 64, 64
+{
+	Patch HOLWX02, 0, 0
+}
+
+Texture HOLWX03, 64, 64
+{
+	Patch HOLWX03, 0, 0
+}
+
+Texture HOLWX04, 64, 64
+{
+	Patch HOLWX04, 0, 0
+}
+
+Texture HOLWX05, 64, 64
+{
+	Patch HOLWX05, 0, 0
+}
+
+Texture HOLWX06, 64, 64
+{
+	Patch HOLWX06, 0, 0
+}
+
+Texture HOLWX07, 64, 64
+{
+	Patch HOLWX07, 0, 0
+}
+
+Texture HOLWX08, 64, 64
+{
+	Patch HOLWX08, 0, 0
+}
+
+Texture HOLWX09, 64, 64
+{
+	Patch HOLWX09, 0, 0
+}
+
+Texture HOLWX10, 64, 64
+{
+	Patch HOLWX10, 0, 0
+}
+
+Texture HOLXX01, 64, 64
+{
+	Patch HOLXX01, 0, 0
+}
+
+Texture HOLXX02, 64, 64
+{
+	Patch HOLXX02, 0, 0
+}
+
+Texture HOLXX03, 64, 64
+{
+	Patch HOLXX03, 0, 0
+}
+
+Texture HOLXX04, 64, 64
+{
+	Patch HOLXX04, 0, 0
+}
+
+Texture HOLXX05, 64, 64
+{
+	Patch HOLXX05, 0, 0
+}
+
+Texture HOLXX06, 64, 64
+{
+	Patch HOLXX06, 0, 0
+}
+
+Texture HOLXX07, 64, 64
+{
+	Patch HOLXX07, 0, 0
+}
+
+Texture HOLXX08, 64, 64
+{
+	Patch HOLXX08, 0, 0
+}
+
+Texture HOLXX09, 64, 64
+{
+	Patch HOLXX09, 0, 0
+}
+
+Texture HOLXX10, 64, 64
+{
+	Patch HOLXX10, 0, 0
+}
+
+Texture WTRFALL1, 64, 128
+{
+	Patch WTRFALL1, 0, 0
+}
+
+Texture WTRFALL2, 64, 128
+{
+	Patch WTRFALL2, 0, 0
+}
+
+Texture WTRFALL3, 64, 128
+{
+	Patch WTRFALL3, 0, 0
+}
+
+Texture WTRFALL4, 64, 128
+{
+	Patch WTRFALL4, 0, 0
+}
+
+
+
+// Map68
+
+Texture MIDPIPE3, 128, 128
+{
+	Patch MIDPIPE3, 0, 0
+}
+
+Texture MIDPIPE4, 128, 128
+{
+	Patch MIDPIPE4, 0, 0
+}
+
+Texture AMMOSIGN, 48, 16
+{
+
+	Patch SHAWN2, -12, -25
+	Patch STCFN065, 7, 5
+	{
+		Translation "191:191=0:0"
+	}
+	Patch STCFN077, 15, 5
+	{
+		Translation "191:191=0:0"
+	}
+	Patch STCFN077, 24, 5
+	{
+		Translation "191:191=0:0"
+	}
+	Patch STCFN079, 33, 5
+	{
+		Translation "191:191=0:0"
+	}
+}
+
+Texture MedSign, 64, 32
+{
+	Patch SHAWN2, 0, -17
+	Patch STCFN077, 6, 5
+	{
+		Translation "191:191=0:0"
+	}
+	Patch STCFN069, 15, 5
+	{
+		Translation "191:191=0:0"
+	}
+	Patch STCFN069, 47, 19
+	{
+		Translation "191:191=0:0"
+	}
+	Patch STCFN068, 23, 5
+	{
+		Translation "191:191=0:0"
+	}
+	Patch STCFN073, 31, 5
+	{
+		Translation "191:191=0:0"
+	}
+	Patch STCFN073, 43, 19
+	{
+		Translation "191:191=0:0"
+	}
+	Patch STCFN067, 35, 5
+	{
+		Translation "191:191=0:0"
+	}
+	Patch STCFN065, 43, 5
+	{
+		Translation "191:191=0:0"
+	}
+	Patch STCFN076, 51, 5
+	{
+		Translation "191:191=0:0"
+	}
+	Patch STCFN076, 35, 19
+	{
+		Translation "191:191=0:0"
+	}
+	Patch STCFN083, 4, 19
+	{
+		Translation "191:191=0:0"
+	}
+	Patch STCFN083, 55, 19
+	{
+		Translation "191:191=0:0"
+	}
+	Patch STCFN085, 11, 19
+	{
+		Translation "191:191=0:0"
+	}
+	Patch STCFN080, 19, 19
+	{
+		Translation "191:191=0:0"
+	}
+	Patch STCFN080, 27, 19
+	{
+		Translation "191:191=0:0"
+	}
+}
+
+
+
+
+
+
+
+// Map70
+
+Texture SLIPBTS2, 64, 16
+{
+	Patch SLIPBTSD, 0, 0
+	{
+		Rotate -90
+	}
+}
+
+Texture SLIPTPS2, 64, 16
+{
+	Patch SLIPTPSD, 0, 0
+	{
+		Rotate -90
+	}
+}
+
+Texture TECH10_4, 32, 128
+{
+	Patch TECH10_3, 0, 0
+	{
+		FlipX
+	}
+}

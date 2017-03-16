@@ -1,0 +1,627 @@
+defaultmap
+{
+    next = "HUBMAP"
+    cluster = 1
+//    ResetHealth
+//    ResetInventory
+    NoFallingDamage
+}
+
+cluster 1
+{
+    flat = "FLOOR4_8"
+    music = "M_WIN"
+	exittext = lookup, "WINTEXT"
+    hub
+}
+
+clearepisodes
+
+episode map00
+{
+    Name = "DUMP 3: Maps"
+}
+
+map map00 "Skip Map"
+{
+ levelnum = 1050
+ next = "HUBMAP"
+ cluster = 3232
+ par = 1
+ sucktime = 1
+ aircontrol = 1.0
+ NoIntermission
+}
+
+map HUBMAP "The Cathedral of Benellus - Sgt. Shivers"
+{
+   next = "HUBMAP"
+   sky1 = "MOUNTAIN"
+   music = "M_HUBMAP" // Star Control 2 - Ur-Quan Theme
+}
+
+
+
+map MAP01 "Check-In - unRyker"
+{
+    LevelNum = 1
+    sky1 = "MECH99" // By Mechadon
+    music = "M_MAP01" // Gammis of Lemonride - kattastrof
+}
+
+map MAP02 "Pissboy - Anonymous"
+{
+    LevelNum = 2
+    sky1 = "SKY1"
+    music = "M_MAP02" // slamtilt - space5
+}
+
+map MAP03 "Simplicity is Golden - demo_the_man"
+{
+    LevelNum = 3
+    sky1 = "SKY1"
+    music = "M_MAP03" // Rise of the Triad - Going Down the Fast Way
+}
+
+Map MAP04 "Invitation to Destruction - Gardevoir"
+{
+    LevelNum = 4
+    sky1 = "SKY4"
+    music = "M_MAP04" // Bobby Prince - Sign of Evil
+    BaronSpecial
+    SpecialAction_LowerFloor
+}
+
+map MAP05 "SOLITARY - CJacobs"
+{
+    LevelNum = 5
+    music = "M_MAP05" // Shinobi III - SOLITARY
+}
+
+Map MAP06 "Ruins & Lava - VBob"
+{
+    levelnum = 6
+    sky1 = "SKY3", 0
+    music = "M_MAP06" // Dracula X - Cursed Bloodlines
+}
+
+map MAP07 "Bloodsport Canyon - Hoodoo456"
+{
+	levelnum = 7
+	sky1 = "SKY2"
+	music = "M_MAP07" // One Must Fall - ARENA2
+}
+
+map MAP08 "Nuclear Control Facilities - Titan314"
+{
+	levelnum = 8
+	sky1 = "RED_SKY"
+	music = "M_MAP08" // Bobby Prince - Unused Doom Music 20
+}
+
+map MAP09 "Mountain Temple - Project_ILE"
+{
+	levelnum = 9
+	sky1 = "SKY1", 0.0
+	music = "M_MAP09" // Shadow Warrior - Everyone Off
+}
+
+map MAP10 "Overflow - SpudTheRubbish"
+{
+	levelnum = 10
+	music = "M_MAP10" // Comix Zone - Page 1-1
+}
+
+map MAP11 "'Venture into the Bouncy Castle - Beed28"
+{
+    levelnum = 11
+	sky1 = "BEEDSKY1"
+	sky2 = "BEEDSKY2"
+	aircontrol = 0.5
+	music = "M_MAP11" // Andromeda - Jelly Vibes
+}
+
+map MAP12 "The Crater - combatxtreme & Plutonic Overkill"
+{
+    levelnum = 12
+	sky1 = "NSKY"
+	music = "M_MAP12" // combatxtreme - Killing Floor
+	PrecacheSounds = "world/eng1", "world/eng2"
+}
+
+map MAP13 "The Fun Lab - TerminusEst13"
+{
+    LevelNum = 13
+    sky1 = "ZSKY1", 0.1 // By Plums
+    music = "M_MAP13" // Crusader: No Regret - Carnage and Mayhem
+    SmoothLighting
+}
+
+map MAP14 "Durex Waste Disposal - Minimum Payne"
+{
+    LevelNum = 14
+    sky1 = "SKY2"
+    music = "M_MAP14" // Contra III - Neo Kobe Steel Factory
+}
+
+map MAP15 "The Corporate Ladder - Kinsie"
+{
+    LevelNum = 15
+    music = "MUS-TRAX" // Time Trax - Stage 4
+    sky1 = "DN3DSKY"
+}
+
+map MAP16 "Regressive Experience - Dukka"
+{
+    LevelNum = 16
+	sky1 = "SKY1"
+	music = "M_MAP16" // Microforce - zapultur.mod
+}
+
+map MAP17 "Baby's First Map - Bobman23"
+{
+    LevelNum = 17
+	music = "M_MAP17" // The Assassin - hoise 2-34
+}
+
+map MAP18 "Research Facility - deathgod5309"
+{
+    LevelNum = 18
+	music = "M_MAP18" // Virgill - Crucifixion
+}
+
+map MAP19 "AMONG US - HumansAmongUs"
+{
+    LevelNum = 19
+    sky1 = "SKY1"
+	music = "M_MAP19" // The REW - Rivendell 
+}
+
+map MAP20 "The Darkness Beyond - KarolineDianne"
+{
+    LevelNum = 20
+	sky1 = "BLACKSKY", 0.00
+	music = "M_MAP20" // Music from Doom 64
+}
+
+map MAP21 "Base Stimpack - Charcola"
+{
+    LevelNum = 21
+    sky1 = "SKY2"
+	music = "M_MAP21" // Purple Motion - Zak-zaka-zak-zak
+}
+
+map MAP22 "Crunk Refinery - BobBarker"
+{
+    sky1 = "RSKY2", 0.0
+    music = "M_MAP22" // KurtZ - ParanoiA
+}
+
+map MAP23 "0-Pipe Gear - Toooooasty"
+{
+    LevelNum = 23
+    Sky1 = "SKY1"
+    music = "M_MAP23" // Unknown Artist - hybrid.xm
+}
+
+map MAP24 "Escape From Argent Prison - Lance Charleson"
+{
+    LevelNum = 24
+    Sky1 = "SKY3", 0.15
+    music = "M_MAP24" // Necros - Isotoxin
+}
+
+map MAP25 "Live Fire Exorcise - Sgt. Shivers"
+{
+    LevelNum = 25
+    sky1 = "DAYSKY"
+    music = "M_MAP25" // Duke Nukem 3D - Pissed Office Box
+}
+
+map MAP26 "Attack First - Simpleton"
+{
+    LevelNum = 26
+    sky1 = "SKY2B", 0
+    music = "M_MAP26" // Homestuck - Black
+}
+
+map MAP27 "Hitler's Prison - Luigi2600"
+{
+    LevelNum = 27
+    sky1 = "TEKWALL4", 0.2
+    music = "M_MAP27" // Jester / Sanity - molecule's revenge
+}
+
+map MAP28 "Tomb of Hectikhamen - Action Max"
+{
+    LevelNum = 28
+    //compat_sectorsounds 1 // Doesn't seem to do anything.
+    sky1 = "RSKY1", 0
+    music = "M_MAP28" // GoldenEye 64 - Egypt
+}
+
+map MAP29 "The Weed Number - Abysswalker"
+{
+    LevelNum = 29
+    sky1 = "SKY3", 0
+    music = "M_MAP29" // Dracula X - Den
+}
+
+map MAP30 "This Is Serious Mum - deathz0r"
+{
+    LevelNum = 30
+	sky1 = "fireblu1"
+	music = "M_MAP30" // Betrayer - B A T T E R Y
+}
+
+map MAP31 "Not Another Tech Base - ArchXeno"
+{
+    LevelNum = 31
+    sky1 = "SKY2", 0.0
+	music = "M_MAP31" // Petter Mårtensen - The Temple of Judgement
+}
+
+map MAP32 "Hydraulic Plant - SpiritOfDecay"
+{
+	levelnum = 32
+	sky1 = "SKY1", 0.0
+	music = "M_MAP32" // Theshooter7 - Into the Fire
+}
+
+map MAP33 "Janus - SoundOfDoomDoors"
+{
+    levelnum = 33
+    sky1 = "SKY3", 0.0
+    music = "M_MAP33" // Helloween - Midnight Sun
+}
+
+map MAP34 "Gamma Station Entrance - SMG_Marine"
+{
+    levelnum = 34
+    sky1 = "SKY1", 0.0
+    music = "M_MAP34" // Synthetic - 7th-miracle
+}
+
+map MAP35 "Realm of the Sempiternal Archvile - Darsycho"
+{
+	levelnum = 35
+	sky1 = "DARS_SKY"
+	music = "M_MAP35" // madbrain - Pico song
+}
+
+map MAP36 "Judgement Day - Stale_Meat"
+{
+	levelnum = 36
+	sky1 = "SKY1", 0.0
+	music = "M_MAP36" // Terminator 2: Judgement Day - Mission 1
+}
+
+map MAP37 "Complex Alive - Roxas"
+{
+	levelnum = 37
+	music = "M_MAP37" // Minomus - Quicksilver
+}
+
+map MAP38 "DUMP TD - Arctangent"
+{
+	levelnum = 38
+	music = "M_MAP38" // xaser - destiny's promise
+	AllowRespawn
+}
+
+map MAP39 "Dumping Ground - TotalInjury"
+{
+    levelnum = 39
+	sky1 = "SKY1", 0.0
+	music = "M_MAP39" // -sine/triad! - doom
+}
+
+map MAP40 "Mercury Rain - Jimmy"
+{
+    Levelnum = 40
+    music = "M_MAP40" // Skaven - Mercury Rain
+    sky1 = "HSKY2GR", 0.0
+    sky2 = "HSKY2GR2", 0.0
+    lightning
+}
+
+map MAP41 "mapsterpiece - idiotbitz"
+{
+    levelnum = 41
+	sky1 = "sky1"
+	music = "M_MAP41" // Psycho - Backbeats Forever
+}
+
+map MAP42 "Tunnel Crates Rule! - Stale_Meat"
+{
+	levelnum = 42
+	music = "M_MAP42" // Jason Reichard - E2M2 Remix
+}
+
+map MAP43 "CLOVERHOUSE - Icept"
+{
+    levelnum = 43
+    sky1 = "SKY1"
+    music = "M_MAP43" // Electric Six - Danger High Voltage
+}
+
+map MAP44 "Generic UAC Outpost - Anonymous"
+{
+    levelnum = 44
+    sky1 = "SKY3"
+    music = "M_MAP44" // Necros - Crew Communication
+}
+
+map MAP45 "Felt - FloatRand"
+{
+    levelnum = 45
+	sky1 = "SKY1", 0.0
+	music = "M_MAP45" // CastleVania: Aria of Sorrow - Top Floor
+}
+
+map MAP46 "Panic Room - comet1338"
+{
+    levelnum = 46
+    music = "M_MAP46" // Command & Conquer - Full Stop
+}
+
+map MAP47 "Simple Chaos - willykuo123"
+{
+    levelnum = 47
+    sky1 = "SKY1", 0.0
+    music = "M_MAP47" // Sidewinder - in_the_Eyes
+}
+
+map MAP48 "EVISCERATED - NAG"
+{
+    levelnum = 48
+    sky1 = "SKY3", 0.0
+	music = "M_MAP48" // Goblin - Profondo Rosso
+}
+
+map MAP49 "The Mine To Hell - InsanityBringer"
+{
+    levelnum = 49
+	music = "M_MAP49" // the Deviant - Purity (My Placebo)
+    sky1 = "SKY1", 0.0
+	smoothlighting
+}
+
+map MAP50 "Sandcastley Sandcastling Sandcastles - PinchySkree"
+{
+    levelnum = 50
+	sky1 = "FULLMOON"
+	music = "M_MAP50" // James Paddock - Crashed Potatoes
+}
+
+map MAP52 "Broken Shit - ZachBrowder"
+{
+    levelnum = 52
+    sky1 = "SKY3", 0.0
+    music = "M_MAP52" // Substance - winterman's cigar
+}
+
+map MAP53 "Weapons Research Lab - Vennobennu"
+{
+	levelnum = 53
+	sky1 = "SKY1", 0.0
+	music = "M_MAP53" // CastleVania: Symphony of the Night - Dracula's Castle
+}
+
+map MAP54 "Winter In Summer - TehRealSalt"
+{
+    levelnum = 54
+	Sky1 = "SKY1"
+	Music = "M_MAP54" // The Lost Vikings - Wacky World
+}
+
+map MAP55 "The UAC Ocean Base - leodoom85"
+{
+    levelnum = 55
+    sky1 = "RSKY1"
+    music = "M_MAP55" // Noby - Ocean Deep
+}
+
+Map MAP56 "Hot Water Music - Protester"
+{
+    levelnum = 56
+    music = "M_MAP56" // Warbrain - Alkaline Trio
+    sky1 = "RSKY05", 0
+}
+
+map MAP57 "Lambda Base - floatRand"
+{
+    levelnum = 57
+    music = "M_MAP57" // Sparkster - Submarine
+}
+
+
+map MAP58 "inferno odyssey - Anonymous"
+{
+    levelnum = 58
+    music = "M_MAP58" // Martin Iveson - Skeletonkrew (Comp1)
+}
+
+map MAP59 "Infested Installation - Flipy"
+{
+    levelnum = 59
+	sky1 = "SKY1"
+    music = "M_MAP59", 12 // Shovel Knight - An Underlying Problem
+}
+
+Map MAP60 "The Duality - NeuralStunner"
+{
+    levelnum = 60
+
+	Sky1 = "HacxSky1"
+	Sky2 = "HacxSky2"
+	SkyStretch
+
+	Music = "M_MAP60" // Legend of Zelda: A Link to the Past - Light World Dungeon
+	SmoothLighting
+	MissilesActivateImpactLines
+}
+
+map MAP61 "Municipal Well - Flotilla"
+{
+    levelnum = 61
+    sky1 = "SKY2", 0
+    music = "M_MAP61" // Metal Slug 3 - Midnight Wandering
+}
+
+map MAP62 "Dropoff - CharlieTheGnarly"
+{
+    levelnum = 62
+    sky1 = "SKY1", 0
+    music = "M_MAP62" // Super Metroid - Norfair Hot Lava Area
+}
+
+map MAP63 "Dimensional Accelerator - Untitled"
+{
+   levelnum = 63
+   sky1 = "SKY1", 0
+   sky2 = "SKY3", 0
+   music = "M_MAP63" // Xaser - Angry Science
+}
+
+map MAP64 "Urban Hell - ChrisR91"
+{
+    levelnum = 64
+	sky1 = "HSKY", 0.0
+	fade = "800000"
+	fogdensity = 128
+	lightmode = 0
+	SmoothLighting
+    music = "M_MAP64"
+}
+
+map MAP65 "Electron - floatRand"
+{
+    levelnum = 65
+    music = "M_MAP65" // Journey to Silius - Stage 1
+}
+
+map MAP66 "Caco-lover - everennui"
+{
+    levelnum = 66
+    sky1 = "SKY1", 0
+    music = "M_MAP66" // Ratchet & Clank - Metropolis
+}
+
+map MAP67 "Brown Mesa - Cheeki"
+{
+    levelnum = 67
+    sky1 = "SKY1", 0
+    music = "M_MAP67" // basehead - Erosion (Fast Mix)
+}
+
+map MAP68 "Bloody Hell - Wivicer"
+{
+    levelnum = 68
+	SKY1 = "Sky1" //By Mechadon
+	Sky2 = "D64DIIS" //By Mechadon
+	music = "M_MAP68" // CastleVania II - Bloody Tears
+}
+
+map MAP69 "A Night at the Opera - Temin_Dump"
+{
+    levelnum = 69
+	music = "M_MAP69" // Samuel Barber - Pas De Deux
+	sky1 = "SNOW6"
+}
+
+map MAP70 "An Online Virtual Reality Used By Hackers - ShadowHog"
+{
+	levelnum = 70
+	sky1 = "QSKY4B", 1.0
+	sky2 = "QSKY4F", 2.0
+	par = 600
+	music = "PARALLEL" // Quake - Parallel dimensions
+	Grinding_Polyobj
+}
+  
+map MAP71 "BtFS - Gageat"
+{
+    levelnum = 71
+	sky1 = "SKYSPACE"
+	music = "M_MAP71" // CastleVania: Symphony of the Night - Crystal Teardrops
+}
+  
+map MAP72 "The Runaround - LogicalFallacy"
+{
+    levelnum = 72
+	sky1 = "SKYSPACE"
+	music = "M_MAP72" // Impaler - Klischee Power Metal
+}
+
+map MAP73 "Attack From Within - Mumblemumble"
+{
+    levelnum = 73
+    music = "M_MAP73" // aceman - Pirahna's Den
+    Sky1 = "Sky1", 0.0
+}
+
+
+
+
+
+map MAPFINAL "The Way of Benellus - Sgt. Shivers & TerminusEst13"
+{
+    levelnum = 666
+    music = "FINAL1" // enigma - noolevel6
+    Sky1 = "Sky2", 0.0
+    next = "EndTitle"
+}
+
+
+
+
+
+
+map SECRET1 "SILVERSATELLITE - DudeDesigns"
+{
+    levelnum = 101
+	music = "M_SEC1" // GoldenEye Theme (Fast)
+}
+
+map SECRET2 "Knee-deep in the DUMP - MJ79"
+{
+    levelnum = 102
+    sky1 = "SKY1", 0
+    music = "M_SEC2" // Xaser - MegaloDoomia
+}
+
+map SECRET3 "The Best Map - TerminusEst13"
+{
+    levelnum = 103
+    music = "M_SEC3" // Cynmusic - RPG-Battle
+}
+
+map SECRET4 "Box Simple - Redead-ITA"
+{
+    levelnum = 104
+    music = "M_SEC4" // Mega Man X - Storm Eagle
+}
+
+map SECRET5 "Escape Plan - Anonymous"
+{
+    levelnum = 105
+    music = "M_SEC5" // Scrap Heap - crush them
+}
+
+map SECRET6 "Real is shit - Deviluke Roy"
+{
+    levelnum = 106
+    music = "M_SEC6" // Pip Malt - Symphony of Destruction
+}
+
+
+
+
+
+
+map MAP51 "Dummy map"
+{
+    levelnum = 51
+	sky1 = "FULLMOON"
+}

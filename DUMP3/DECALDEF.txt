@@ -1,0 +1,24 @@
+// Map70
+decal QuakeLaserScorch1
+{
+	pic QLSSA0
+	add 1.0
+	fullbright
+	animator GoAway
+	lowerdecal PlasmaScorchLower1
+}
+
+decal QuakeLaserScorch2
+{
+	pic QLSSB0
+	add 1.0
+	fullbright
+	animator GoAway
+	lowerdecal PlasmaScorchLower2
+}
+
+decalgroup QuakeLaserScorch
+{
+	QuakeLaserScorch1	1
+	QuakeLaserScorch2	1
+}

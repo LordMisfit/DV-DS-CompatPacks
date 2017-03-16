@@ -1,0 +1,19 @@
+[enu default]
+
+WINTEXT =
+	"Your training for over 20 years had paid off.\n"
+    "Benellus looked upon you and gave a simple nod.\n"
+	"\n"
+	"You had proven your worth to the God of Shotguns.\n"
+	"\n"
+	"'Congratulations, mortal.' He says.\n"
+	"'The weapon you hold in your hands is a mighty\n"
+	"weapon indeed.'\n"
+	"'Noble, versatile, and powerful, may it forever\n"
+	"guide you down the path of justice and forever\n"
+	"slay all that would do ill to you.'\n"
+	"\n"
+	"You return Benellus' nod and heft your shotgun\n"
+	"over your shoulder, trudging off to your next\n"
+	"adventure, wherever it may be.\n"
+	"This would only be one of many.\n";

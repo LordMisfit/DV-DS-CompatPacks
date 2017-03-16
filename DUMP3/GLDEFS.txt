@@ -1,0 +1,474 @@
+// Map13
+// =========================================
+
+Pointlight OrangeSparkFlare
+{
+    Color 0.8 0.4 0.0
+    Size 12
+}
+
+Object SparkFlare_O1 { Frame SPKO { Light OrangeSparkFlare } }
+Object SparkFlare_O2 { Frame SPKO { Light OrangeSparkFlare } }
+Object SparkFlare_O3 { Frame SPKO { Light OrangeSparkFlare } }
+Object SparkFlare_O4 { Frame SPKO { Light OrangeSparkFlare } }
+Object SparkFlare_O5 { Frame SPKO { Light OrangeSparkFlare } }
+Object SparkFlare_O6 { Frame SPKO { Light OrangeSparkFlare } }
+
+
+
+
+
+
+// MAP70
+// Normal
+brightmap texture ARCH3
+{
+	map BARCH3
+}
+
+brightmap texture BASEBTN1
+{
+	map BBASEBN1
+}
+
+brightmap texture BASEBTN3
+{
+	map BBASEBN3
+}
+
+brightmap texture QCEIL1_1
+{
+	map BQCLN1_1
+}
+
+brightmap texture COMP1_6
+{
+	map BCOMP1_6
+}
+
+brightmap texture DOPEFISH
+{
+	map BDOPEFSH
+}
+
+brightmap texture EGYPT17
+{
+	map BEGYPT17
+}
+
+brightmap texture HTEK04_2
+{
+	map BHTEK4_2
+}
+
+brightmap texture KEY01_1
+{
+	map BKEY01_1
+}
+
+brightmap texture KEY01_2
+{
+	map BKEY01_2
+}
+
+brightmap texture KEY03_1
+{
+	map BKEY03_1
+}
+
+brightmap texture KEY03_2
+{
+	map BKEY03_2
+}
+
+brightmap texture MED3_0
+{
+	map BMED3_0
+}
+
+brightmap texture MED3_1
+{
+	map BMED3_1
+}
+
+brightmap texture METAL6_3
+{
+	map BMETL6_3
+}
+
+brightmap texture METAL8_3
+{
+	map BMETL8_3
+}
+
+brightmap texture METAL9_2
+{
+	map BMETL9_2
+}
+
+brightmap texture MMIS1SID
+{
+	map BMMIS1SI
+}
+
+brightmap texture MMIS2SID
+{
+	map BMMIS2SI
+}
+
+brightmap texture NAIL1SID
+{
+	map BNAIL1SI
+}
+
+brightmap texture NAIL1TOP
+{
+	map BNAIL1TO
+}
+
+brightmap texture NAMES
+{
+	map BNAMES
+}
+
+brightmap texture NUMBER1
+{
+	map BNUMBER1
+}
+
+brightmap texture NUMBER2
+{
+	map BNUMBER2
+}
+
+brightmap texture NUMBER3
+{
+	map BNUMBER3
+}
+
+brightmap texture NUMBER4
+{
+	map BNUMBER4
+}
+
+brightmap texture PLATBUT1
+{
+	map BPLTBTN1
+}
+
+brightmap texture RAVEN
+{
+	map BRAVEN
+}
+
+brightmap texture RUNE2_1
+{
+	map BRUNE2_1
+}
+
+brightmap texture RUNE2_2
+{
+	map BRUNE2_2
+}
+
+brightmap texture RUNE2_3
+{
+	map BRUNE2_3
+}
+
+brightmap texture RUNE2_4
+{
+	map BRUNE2_4
+}
+
+brightmap texture RUNE2_5
+{
+	map BRUNE2_5
+}
+
+brightmap texture RUNE_A
+{
+	map BRUNE_A
+}
+
+brightmap texture SFLOR4_4
+{
+	map BSFLR4_4
+}
+
+brightmap texture SHOT1SID
+{
+	map BSHOT1SI
+}
+
+brightmap texture SHOT1TOP
+{
+	map BSHOT1TO
+}
+
+brightmap texture SLIP1
+{
+	map BSLIP1
+}
+
+brightmap texture SLIP2
+{
+	map BSLIP2
+}
+
+brightmap texture SLIPLITE
+{
+	map BSLIPLIT
+}
+
+brightmap texture SLIPSIDE
+{
+	map BSLIPSID
+}
+
+brightmap texture SWITCH_1
+{
+	map BSWTCH_1
+}
+
+brightmap texture TECH03_2
+{
+	map BTCH03_2
+}
+
+brightmap texture TECH06_2
+{
+	map BTCH06_2
+}
+
+brightmap texture TLIGHT01
+{
+	map BTLGHT01
+}
+
+brightmap texture TLIGHT02
+{
+	map BTLGHT02
+}
+
+brightmap texture TLIGHT03
+{
+	map BTLGHT03
+}
+
+brightmap texture TLIGHT07
+{
+	map BTLGHT07
+}
+
+brightmap texture TLIGHT11
+{
+	map BTLGHT11
+}
+
+brightmap texture Z_EXIT
+{
+	map BZ_EXIT
+}
+
+// Animated
+brightmap texture 0BASEBTN
+{
+	map B0BASBTN
+}
+
+brightmap texture 0SLIP
+{
+	map B0SLIP
+}
+
+brightmap texture 0_BOXSID
+{
+	map B0BOXSID
+}
+
+brightmap texture 0_BOXTOP
+{
+	map B0BOXTOP
+}
+
+brightmap texture 0_LAVA0
+{
+	map B0LAVA0
+}
+
+brightmap texture 0_LAVA0S
+{
+	map B0LAVA0S
+}
+
+brightmap texture 0_LAVA1
+{
+	map B0LAVA1
+}
+
+brightmap texture 0_LAVA1S
+{
+	map B0LAVA1S
+}
+
+brightmap texture 0_MED100
+{
+	map B0MED100
+}
+
+brightmap texture 0_MED25
+{
+	map B0MED25
+}
+
+brightmap texture 0_MED25S
+{
+	map B0MED25S
+}
+
+brightmap texture 1SLIP
+{
+	map B1SLIP
+}
+
+brightmap texture 1_BOXSID
+{
+	map B1BOXSID
+}
+
+brightmap texture 1_BOXTOP
+{
+	map B1BOXTOP
+}
+
+brightmap texture 1_LAVA0
+{
+	map B1LAVA0
+}
+
+brightmap texture 1_LAVA0S
+{
+	map B1LAVA0S
+}
+
+brightmap texture 1_LAVA1
+{
+	map B1LAVA1
+}
+
+brightmap texture 1_LAVA1S
+{
+	map B1LAVA1S
+}
+
+brightmap texture 1_MED100
+{
+	map B1MED100
+}
+
+brightmap texture 1_MED25
+{
+	map B1MED25
+}
+
+brightmap texture 1_MED25S
+{
+	map B1MED25S
+}
+
+brightmap texture 2SLIP
+{
+	map B2SLIP
+}
+
+brightmap texture 2_LAVA0
+{
+	map B2LAVA0
+}
+
+brightmap texture 2_LAVA0S
+{
+	map B2LAVA0S
+}
+
+brightmap texture 2_LAVA1
+{
+	map B2LAVA1
+}
+
+brightmap texture 2_LAVA1S
+{
+	map B2LAVA1S
+}
+
+brightmap texture 2_MED100
+{
+	map B2MED100
+}
+
+brightmap texture 2_MED25
+{
+	map B2MED25
+}
+
+brightmap texture 3SLIP
+{
+	map B3SLIP
+}
+
+brightmap texture 3_LAVA0
+{
+	map B3LAVA0
+}
+
+brightmap texture 3_LAVA0S
+{
+	map B3LAVA0S
+}
+
+brightmap texture 3_LAVA1
+{
+	map B3LAVA1
+}
+
+brightmap texture 3_LAVA1S
+{
+	map B3LAVA1S
+}
+
+brightmap texture 3_MED100
+{
+	map B3MED100
+}
+
+brightmap texture 3_MED25
+{
+	map B3MED25
+}
+
+brightmap texture 4SLIP
+{
+	map B4SLIP
+}
+
+brightmap texture 5SLIP
+{
+	map B5SLIP
+}
+
+brightmap texture 6SLIP
+{
+	map B6SLIP
+}
+
+// Liquids
+brightmap texture QLAVA1
+{
+	map BQLAVA1
+}
+
+brightmap texture QLAVA2
+{
+	map BQLAVA2
+}

@@ -1,0 +1,2163 @@
+ACTOR DUMPNonSolidObject
+{
+   Radius 4
+   Height 4
+   +NOCLIP
+   +NOINTERACTION
+   +NOGRAVITY
+   States
+   {
+   Spawn:
+   TNT1 A 3
+   Stop
+   }
+}
+
+// HUB
+
+ACTOR AmbBenellusDrone : DUMPNonSolidObject 17014
+{
+   States
+   {
+   Spawn:
+   TNT1 A 0
+   TNT1 A 10 A_PlaySound("Ambient/BenellusDrone", 7, 0.3, 1, 1.5)
+   Loop
+   }
+}
+
+ACTOR AmbBenellusShells : DUMPNonSolidObject 17015
+{
+   States
+   {
+   Spawn:
+   TNT1 A 0
+   TNT1 A 10 A_PlaySound("Ambient/BenellusShells", 7, 0.3, 1, 1.5)
+   Loop
+   }
+}
+
+ACTOR BenellusStat 17016
+{
+  Radius 32
+  Height 108
+  ProjectilePassHeight -16
+  +SOLID
+  +FLOATBOB
+  States
+  {
+  Spawn:
+    BSTU A -1
+    Stop
+  }
+}
+
+ACTOR AmbQuakeWind : DUMPNonSolidObject 17017
+{
+   States
+   {
+   Spawn:
+   TNT1 A 0
+   TNT1 A 10 A_PlaySound("Ambient/QuakeWind", 7, 0.3, 1, 0.6)
+   Loop
+   }
+}
+
+// Map11
+// =========================================
+ACTOR ValiantTree1 2801
+{
+	Radius 16
+	Height 64
+	ProjectilePassHeight -16
+	+SOLID
+	+MOVEWITHSECTOR
+	States
+	{
+	Spawn:
+		TREE A -1
+		Stop
+	}
+}
+
+ACTOR ValiantTree2 2802
+{
+	Radius 16
+	Height 128
+	ProjectilePassHeight -16
+	+SOLID
+	+MOVEWITHSECTOR
+	States
+	{
+	Spawn:
+		TREE B -1
+		Stop
+	}
+}
+
+ACTOR ValiantTree3 2803
+{
+	Radius 16
+	Height 128
+	ProjectilePassHeight -16
+	+SOLID
+	+MOVEWITHSECTOR
+	States
+	{
+	Spawn:
+		TREE C -1
+		Stop
+	}
+}
+
+ACTOR TechLamp2Beed28 : TechLamp2 2804 {+MOVEWITHSECTOR}
+
+ACTOR ISurelyHopeThisIsARocketAndNotSomethingElseEntirely 2805
+{
+	Radius 16
+	Height 16
+	States
+	{
+	Spawn:
+		ROCK A -1
+		Stop
+	}
+}
+
+ACTOR HeadsOnAStickBeed28 : HeadsOnAStick 2806 {+MOVEWITHSECTOR}
+
+ACTOR ShortGreenTorchBeed28 : ShortGreenTorch 2807 {+MOVEWITHSECTOR}
+
+ACTOR ValiantTree1CompleteBlocking : ValiantTree1 2808
+{
+	Height 256
+}
+
+ACTOR ValiantTree2CompleteBlocking : ValiantTree2 2809 
+{
+	Height 256
+}
+
+ACTOR ValiantTree3CompleteBlocking : ValiantTree3 2810
+{
+	Height 256
+}
+
+
+
+// Map13
+// =========================================
+
+actor FastCyberdemonGiver : CustomInventory
+{
+	States
+	{
+	 Pickup:
+		TNT1 A 1 A_ChangeFlag("ALWAYSFAST", TRUE)
+		stop
+    }
+}
+
+Actor OrangeSparkSpawner : SwitchableDecoration 10923 // By Ghastly_Dragon and Tormentor667
+{
+  Height 8
+  Radius 4
+  +NoBlockMap
+  +NoGravity
+  +NoInteraction
+  +ClientSideOnly
+  +NoClip
+  States
+  {
+  Spawn:
+    TNT1 A 0
+    TNT1 A 0 A_JumpIf(Args[2] > 0, "Inactive")
+    TNT1 A 10 A_Jump(Args[1]/16, "Active")
+    Loop
+  Active:
+    TNT1 A 0
+    TNT1 A 0 A_PlaySound("World/Spark")
+    TNT1 A 0 A_Jump(256, 1, 2, 3, 4, 5, 6)
+    TNT1 A 1 A_SpawnItemEx("SparkFlare_O1", 0, 0, 0, 0, 0, 0, 0, 128)
+    Goto SpawnSparks
+    TNT1 A 1 A_SpawnItemEx("SparkFlare_O2", 0, 0, 0, 0, 0, 0, 0, 128)
+    Goto SpawnSparks
+    TNT1 A 1 A_SpawnItemEx("SparkFlare_O3", 0, 0, 0, 0, 0, 0, 0, 128)
+    Goto SpawnSparks
+    TNT1 A 1 A_SpawnItemEx("SparkFlare_O4", 0, 0, 0, 0, 0, 0, 0, 128)
+    Goto SpawnSparks
+    TNT1 A 1 A_SpawnItemEx("SparkFlare_O5", 0, 0, 0, 0, 0, 0, 0, 128)
+    Goto SpawnSparks
+    TNT1 A 1 A_SpawnItemEx("SparkFlare_O6", 0, 0, 0, 0, 0, 0, 0, 128)
+    Goto SpawnSparks
+  SpawnSparks:
+    TNT1 A 0 A_JumpIf(Args[0] == 1, "SpawnDown")
+    TNT1 A 0 A_JumpIf(Args[0] > 1, "SpawnSide")
+    Goto SpawnUp
+  SpawnUp:
+    TNT1 AA 0 A_CustomMissile("Spark_O1", 0, 0, Random(0, 360), 2, Random(67, 113))
+    TNT1 AA 0 A_CustomMissile("Spark_O2", 0, 0, Random(0, 360), 2, Random(67, 113))
+    TNT1 AA 0 A_CustomMissile("Spark_O3", 0, 0, Random(0, 360), 2, Random(67, 113))
+    TNT1 AA 0 A_CustomMissile("Spark_O4", 0, 0, Random(0, 360), 2, Random(67, 113))
+    TNT1 AA 0 A_CustomMissile("Spark_O5", 0, 0, Random(0, 360), 2, Random(67, 113))
+    TNT1 AA 0 A_CustomMissile("Spark_O6", 0, 0, Random(0, 360), 2, Random(67, 113))
+    TNT1 AA 0 A_CustomMissile("Spark_O7", 0, 0, Random(0, 360), 2, Random(67, 113))
+    TNT1 AA 0 A_CustomMissile("Spark_O8", 0, 0, Random(0, 360), 2, Random(67, 113))
+    TNT1 AA 0 A_CustomMissile("Spark_O9", 0, 0, Random(0, 360), 2, Random(67, 113))
+    TNT1 AA 0 A_CustomMissile("Spark_O10", 0, 0, Random(0, 360), 2, Random(67, 113))
+    TNT1 AA 0 A_CustomMissile("Spark_O11", 0, 0, Random(0, 360), 2, Random(67, 113))
+    TNT1 AA 0 A_CustomMissile("Spark_O12", 0, 0, Random(0, 360), 2, Random(67, 113))
+    TNT1 AA 0 A_CustomMissile("Spark_O13", 0, 0, Random(0, 360), 2, Random(67, 113))
+    TNT1 AA 0 A_CustomMissile("Spark_O14", 0, 0, Random(0, 360), 2, Random(67, 113))
+    TNT1 AA 0 A_CustomMissile("Spark_O15", 0, 0, Random(0, 360), 2, Random(67, 113))
+    TNT1 AA 0 A_CustomMissile("Spark_O16", 0, 0, Random(0, 360), 2, Random(67, 113))
+    TNT1 A 1 A_JumpIf(Args[2] > 0, 1)
+    Goto Spawn
+    TNT1 A 1
+    Goto Inactive
+  SpawnDown:
+    TNT1 AA 0 A_CustomMissile("Spark_O1", 0, 0, Random(0, 360), 2, Random (-67, -113))
+    TNT1 AA 0 A_CustomMissile("Spark_O2", 0, 0, Random(0, 360), 2, Random (-67, -113))
+    TNT1 AA 0 A_CustomMissile("Spark_O3", 0, 0, Random(0, 360), 2, Random (-67, -113))
+    TNT1 AA 0 A_CustomMissile("Spark_O4", 0, 0, Random(0, 360), 2, Random (-67, -113))
+    TNT1 AA 0 A_CustomMissile("Spark_O5", 0, 0, Random(0, 360), 2, Random (-67, -113))
+    TNT1 AA 0 A_CustomMissile("Spark_O6", 0, 0, Random(0, 360), 2, Random (-67, -113))
+    TNT1 AA 0 A_CustomMissile("Spark_O7", 0, 0, Random(0, 360), 2, Random (-67, -113))
+    TNT1 AA 0 A_CustomMissile("Spark_O8", 0, 0, Random(0, 360), 2, Random (-67, -113))
+    TNT1 AA 0 A_CustomMissile("Spark_O9", 0, 0, Random(0, 360), 2, Random (-67, -113))
+    TNT1 AA 0 A_CustomMissile("Spark_O10", 0, 0, Random(0, 360), 2, Random (-67, -113))
+    TNT1 AA 0 A_CustomMissile("Spark_O11", 0, 0, Random(0, 360), 2, Random (-67, -113))
+    TNT1 AA 0 A_CustomMissile("Spark_O12", 0, 0, Random(0, 360), 2, Random (-67, -113))
+    TNT1 AA 0 A_CustomMissile("Spark_O13", 0, 0, Random(0, 360), 2, Random (-67, -113))
+    TNT1 AA 0 A_CustomMissile("Spark_O14", 0, 0, Random(0, 360), 2, Random (-67, -113))
+    TNT1 AA 0 A_CustomMissile("Spark_O15", 0, 0, Random(0, 360), 2, Random (-67, -113))
+    TNT1 AA 0 A_CustomMissile("Spark_O16", 0, 0, Random(0, 360), 2, Random (-67, -113))
+    TNT1 A 1 A_JumpIf(Args[2] > 0, 1)
+    Goto Spawn
+    TNT1 A 1
+    Goto Inactive
+  SpawnSide:
+    TNT1 AA 0 A_CustomMissile("Spark_O1", 0, 0, Random(-23, 23), 2, Random(157, 203))
+    TNT1 AA 0 A_CustomMissile("Spark_O2", 0, 0, Random(-23, 23), 2, Random(157, 203))
+    TNT1 AA 0 A_CustomMissile("Spark_O3", 0, 0, Random(-23, 23), 2, Random(157, 203))
+    TNT1 AA 0 A_CustomMissile("Spark_O4", 0, 0, Random(-23, 23), 2, Random(157, 203))
+    TNT1 AA 0 A_CustomMissile("Spark_O5", 0, 0, Random(-23, 23), 2, Random(157, 203))
+    TNT1 AA 0 A_CustomMissile("Spark_O6", 0, 0, Random(-23, 23), 2, Random(157, 203))
+    TNT1 AA 0 A_CustomMissile("Spark_O7", 0, 0, Random(-23, 23), 2, Random(157, 203))
+    TNT1 AA 0 A_CustomMissile("Spark_O8", 0, 0, Random(-23, 23), 2, Random(157, 203))
+    TNT1 AA 0 A_CustomMissile("Spark_O9", 0, 0, Random(-23, 23), 2, Random(157, 203))
+    TNT1 AA 0 A_CustomMissile("Spark_O10", 0, 0, Random(-23, 23), 2, Random(157, 203))
+    TNT1 AA 0 A_CustomMissile("Spark_O11", 0, 0, Random(-23, 23), 2, Random(157, 203))
+    TNT1 AA 0 A_CustomMissile("Spark_O12", 0, 0, Random(-23, 23), 2, Random(157, 203))
+    TNT1 AA 0 A_CustomMissile("Spark_O13", 0, 0, Random(-23, 23), 2, Random(157, 203))
+    TNT1 AA 0 A_CustomMissile("Spark_O14", 0, 0, Random(-23, 23), 2, Random(157, 203))
+    TNT1 AA 0 A_CustomMissile("Spark_O15", 0, 0, Random(-23, 23), 2, Random(157, 203))
+    TNT1 AA 0 A_CustomMissile("Spark_O16", 0, 0, Random(-23, 23), 2, Random(157, 203))
+    TNT1 A 1 A_JumpIf(Args[2] > 0, 1)
+    Goto Spawn
+    TNT1 A 1
+    Goto Inactive
+  Inactive:
+    TNT1 A -1
+    Loop
+  }
+}
+
+//Flares
+
+Actor SparkFlare_W1
+{
+  Height 0
+  Radius 0
+  Mass 0
+  +Missile
+  +NoBlockMap
+  +NoClip
+  +NoGravity
+  +NoInteraction
+  RenderStyle Add
+  Scale 0.25
+  States
+  {
+  Spawn:
+    SPKW A 1 Bright A_FadeOut(0.1)
+    Loop
+  }
+}
+
+Actor SparkFlare_O1 : SparkFlare_W1 { States { Spawn: SPKO A 1 Bright A_FadeOut (0.1) Loop } }
+Actor SparkFlare_O2 : SparkFlare_W1 { States { Spawn: SPKO B 1 Bright A_FadeOut (0.1) Loop } }
+Actor SparkFlare_O3 : SparkFlare_W1 { States { Spawn: SPKO C 1 Bright A_FadeOut (0.1) Loop } }
+Actor SparkFlare_O4 : SparkFlare_W1 { States { Spawn: SPKO D 1 Bright A_FadeOut (0.1) Loop } }
+Actor SparkFlare_O5 : SparkFlare_W1 { States { Spawn: SPKO E 1 Bright A_FadeOut (0.1) Loop } }
+Actor SparkFlare_O6 : SparkFlare_W1 { States { Spawn: SPKO F 1 Bright A_FadeOut (0.1) Loop } }
+
+//Sparks
+
+Actor Spark_W1
+{
+  Height 1
+  Radius 2
+  Mass 0
+  Speed 0.25
+  +Missile
+  +NoBlockMap
+  +LowGravity
+  RenderStyle Add
+  Scale 0.025
+  States
+  {
+  Spawn:
+    SPKW E 1 Bright
+    Loop
+  Death:
+    SPKW E 1 Bright A_FadeOut(0.1)
+    Loop
+  }
+}
+
+Actor Spark_O1 : Spark_W1
+{
+  States
+  {
+  Spawn:
+    SPKO E 1 bright
+    Loop
+  Death:
+    SPKO E 1 bright A_FadeOut(0.1)
+    Loop
+  }
+}
+
+Actor Spark_O2 : Spark_O1  { Speed 0.5  }
+Actor Spark_O3 : Spark_O1  { Speed 0.75 }
+Actor Spark_O4 : Spark_O1  { Speed 1.0  }
+Actor Spark_O5 : Spark_O1  { Speed 1.25 }
+Actor Spark_O6 : Spark_O1  { Speed 1.5  }
+Actor Spark_O7 : Spark_O1  { Speed 1.75 }
+Actor Spark_O8 : Spark_O1  { Speed 2.0  }
+Actor Spark_O9 : Spark_O1  { Speed 2.25 }
+Actor Spark_O10 : Spark_O1 { Speed 2.5  }
+Actor Spark_O11 : Spark_O1 { Speed 2.75 }
+Actor Spark_O12 : Spark_O1 { Speed 3.0  }
+Actor Spark_O13 : Spark_O1 { Speed 3.25 }
+Actor Spark_O14 : Spark_O1 { Speed 3.5  }
+Actor Spark_O15 : Spark_O1 { Speed 3.75 }
+Actor Spark_O16 : Spark_O1 { Speed 4.0  }
+
+// Map15
+actor KinsChairBreakable 20501
+{
+  health 3
+  radius 16
+  height 35
+  mass 1000
+  MaxStepHeight 8
+  +SHOOTABLE
+  +SOLID
+  +NOBLOOD
+  +DONTGIB
+  +RANDOMIZE
+  +NOICEDEATH
+  +PUSHABLE
+  +NOTAUTOAIMED
+  //$Category "Dump3 KinsMap"
+  //$Title "Office Chair"
+  states
+  {
+  Spawn:
+    CHAI A -1
+    loop
+  Death:
+    CHAI A 0 
+    CHAI A 0 A_PlaySound("kinsie/gibseat")
+    CHAI A 0 A_CustomMissile("KinsChairGibs",random(2,8),random(0,8),random(0,360))
+	CHAI A 0 A_CustomMissile("KinsChairGibs",random(2,8),random(0,8),random(0,360))
+	CHAI A 0 A_CustomMissile("KinsChairGibs",random(2,8),random(0,8),random(0,360))
+	CHAI A 0 A_CustomMissile("KinsChairGibs",random(2,8),random(0,8),random(0,360))
+	CHAI A 0 A_CustomMissile("KinsGenericGibs",random(2,32),random(0,8),random(0,360))
+	CHAI A 0 A_CustomMissile("KinsGenericGibs",random(2,32),random(0,8),random(0,360))
+	CHAI A 0 A_CustomMissile("KinsGenericGibs",random(2,32),random(0,8),random(0,360))
+	CHAI A 0 A_CustomMissile("KinsGenericGibs",random(2,32),random(0,8),random(0,360))
+    stop
+  }
+}
+
+actor KinsGenericGibs
+{
+    PROJECTILE
+    -NOGRAVITY
+    -NOBLOCKMAP
+    -NOTELEPORT
+    -SOLID
+    +CORPSE
+    Radius 1
+    Damage 0
+    Speed 3
+	gravity 0.5
+	scale 0.2
+    States
+    {
+    Spawn:
+		GLAS A 0
+		GLAS A 0 ThrustThingZ(0,random(8,32),0,1)
+		GLAS A 0 A_Jump(128,"Flip")
+		goto Fly
+	Flip:
+		GLAS A 0
+		GLAS A 0 A_SetScale(-0.5,0.5)
+	Fly:
+        GLAS ABCD 2
+		loop
+    Crash:
+	Death:
+        TNT1 A 0 
+        stop
+    }
+}
+
+actor KinsChairGibs
+{
+    PROJECTILE
+    -NOGRAVITY
+    -NOBLOCKMAP
+    -NOTELEPORT
+    -SOLID
+    +CORPSE
+	+DOOMBOUNCE
+    Radius 1
+    Damage 0
+    Speed 3
+	gravity 0.5
+    States
+    {
+    Spawn:
+		KCGI A 0
+		KCGI A 0 ThrustThingZ(0,random(8,32),0,1)
+		KCGI A 0 A_Jump(128,"Flip")
+		goto Fly
+	Flip:
+		KCGI A 0
+		KCGI A 0 A_SetScale(-1,1)
+	Fly:
+        KCGI ABCDEFGH 2
+		loop
+	Death:
+        TNT1 A 0 
+        stop
+    }
+}
+
+actor KinsMonitorBreakable 20502
+{
+  health 3
+  radius 16
+  height 35
+  deathheight 80
+  mass 1000
+  +SHOOTABLE
+  +SOLID
+  +NOBLOOD
+  +DONTGIB
+  +RANDOMIZE
+  +NOICEDEATH
+  +NOTAUTOAIMED
+  //$Category "Dump3 KinsMap"
+  //$Title "Office Monitor"
+  states
+  {
+  Spawn:
+    MONI A -1
+    loop
+  Death:
+    CHAI A 0 
+    CHAI A 0 A_PlaySound("kinsie/gibcomp")
+    CHAI A 0 A_CustomMissile("KinsMonitorGibs",random(2,8),random(0,8),random(0,360))
+	CHAI A 0 A_CustomMissile("KinsMonitorGibs",random(2,8),random(0,8),random(0,360))
+	CHAI A 0 A_CustomMissile("KinsMonitorGibs",random(2,8),random(0,8),random(0,360))
+	CHAI A 0 A_CustomMissile("KinsMonitorGibs",random(2,8),random(0,8),random(0,360))
+	CHAI A 0 A_CustomMissile("KinsGenericGibs",random(2,32),random(0,8),random(0,360))
+	CHAI A 0 A_CustomMissile("KinsGenericGibs",random(2,32),random(0,8),random(0,360))
+	CHAI A 0 A_CustomMissile("KinsGenericGibs",random(2,32),random(0,8),random(0,360))
+	CHAI A 0 A_CustomMissile("KinsGenericGibs",random(2,32),random(0,8),random(0,360))
+    stop
+  }
+}
+
+actor KinsMonitorGibs
+{
+    PROJECTILE
+    -NOGRAVITY
+    -NOBLOCKMAP
+    -NOTELEPORT
+    -SOLID
+    +CORPSE
+	+DOOMBOUNCE
+    Radius 1
+    Damage 0
+    Speed 3
+	gravity 0.5
+    States
+    {
+    Spawn:
+		KMGI A 0
+		KMGI A 0 ThrustThingZ(0,random(8,32),0,1)
+		KMGI A 0 A_Jump(128,"Flip")
+		goto Fly
+	Flip:
+		KMGI A 0
+		KMGI A 0 A_SetScale(-1,1)
+	Fly:
+        KMGI ABCDEFGH 2
+		loop
+	Death:
+        TNT1 A 0 
+        stop
+    }
+}
+
+actor KinsPlantBreakable 20503
+{
+  health 3
+  radius 32
+  height 35
+  deathheight 80
+  scale 0.75
+  mass 1000
+  +SHOOTABLE
+  +SOLID
+  +NOBLOOD
+  +DONTGIB
+  +RANDOMIZE
+  +NOICEDEATH
+  +NOTAUTOAIMED
+  //$Category "Dump3 KinsMap"
+  //$Title "Office Plant 1"
+  states
+  {
+  Spawn:
+    PLNT A -1
+    loop
+  Death:
+    PLNT B 0
+	PLNT B 0 A_NoBlocking
+    PLNT B 0 A_PlaySound("kinsie/gibplant")
+	PLNT B 0 A_CustomMissile("KinsGenericGibs",random(2,32),random(0,16),random(0,360))
+	PLNT B 0 A_CustomMissile("KinsGenericGibs",random(2,32),random(0,16),random(0,360))
+	PLNT B 0 A_CustomMissile("KinsGenericGibs",random(2,32),random(0,16),random(0,360))
+	PLNT B 0 A_CustomMissile("KinsGenericGibs",random(2,32),random(0,16),random(0,360))
+	PLNT B 0 A_CustomMissile("KinsPlantGibs",random(35,50),random(-20,20),random(0,360))
+	PLNT B 0 A_CustomMissile("KinsPlantGibs",random(35,50),random(-20,20),random(0,360))
+	PLNT B 0 A_CustomMissile("KinsPlantGibs",random(35,50),random(-20,20),random(0,360))
+	PLNT B 0 A_CustomMissile("KinsPlantGibs",random(35,50),random(-20,20),random(0,360))
+	PLNT B 0 A_CustomMissile("KinsPlantGibs",random(35,50),random(-20,20),random(0,360))
+	PLNT B 0 A_CustomMissile("KinsPlantGibs",random(35,50),random(-20,20),random(0,360))
+	PLNT B 0 A_CustomMissile("KinsPlantGibs",random(35,50),random(-20,20),random(0,360))
+	PLNT B 0 A_CustomMissile("KinsPlantGibs",random(35,50),random(-20,20),random(0,360))
+	PLNT B 0 A_CustomMissile("KinsPlantGibs",random(35,50),random(-20,20),random(0,360))
+	PLNT B 0 A_CustomMissile("KinsPlantGibs",random(35,50),random(-20,20),random(0,360))
+	PLNT B 0 A_CustomMissile("KinsPlantGibs",random(35,50),random(-20,20),random(0,360))
+	PLNT B -1
+    stop
+  }
+}
+
+actor KinsPlantGibs
+{
+    PROJECTILE
+    -NOGRAVITY
+    -NOBLOCKMAP
+    -NOTELEPORT
+    -SOLID
+    +CORPSE
+    Radius 1
+    Damage 0
+    Speed 3
+	gravity 0.25
+    States
+    {
+    Spawn:
+		PLGI A 0
+		PLGI A 0 ThrustThingZ(0,random(8,32),0,1)
+		PLGI A 0 A_Jump(128,"Flip")
+		PLGI A 0 A_Jump(256,"A","B","C")
+		goto A
+	Flip:
+		PLGI A 0
+		PLGI A 0 A_SetScale(-0.5,0.5)
+		PLGI A 0 A_Jump(256,"A","B","C")
+		goto A
+	A:
+        PLGI A 1
+		loop
+	B:
+        PLGI B 1
+		loop
+	C:
+        PLGI C 1
+		loop
+    Crash:
+	Death:
+        TNT1 A 0 
+        stop
+    }
+}
+
+ACTOR WolfSkeleton 20504
+{
+	-SOLID
+	Radius 32
+	Height 32
+	//$Category "Dump3 KinsMap"
+    //$Title "Wolf3D Skeleton"
+	States
+	{
+		Spawn:
+			BONE A -1
+			Stop
+	}
+}
+
+ACTOR KinsieKronos 20505
+{
+	-SOLID
+	+NOGRAVITY
+	+FLOATBOB
+	Radius 32
+	Height 32
+	//$Category "Dump3 KinsMap"
+    //$Title "Kronos"
+	States
+	{
+		Spawn:
+			KRON AB 15
+			loop
+		WeOut:
+			TNT1 A 0 A_SpawnItem("TeleportFog")
+			TNT1 A 35
+			TNT1 A 0 A_PlaySound("kinsie/kronos/laffitup", CHAN_VOICE, 1.0, 0, ATTN_NONE)
+			stop
+	}
+}
+
+
+
+
+// Map21
+
+ACTOR PurgSleep 27688
+{
+  Radius 16
+  Height 52
+  scale 0.14
+  ProjectilePassHeight -16
+  +SOLID
+  States
+  {
+  Spawn:
+    PGTI A -1
+    Stop
+  }
+}
+
+
+
+// Map25
+
+ACTOR AmbDrone : DUMPNonSolidObject 17011
+{
+   States
+   {
+   Spawn:
+   TNT1 A 0
+   TNT1 A 10 A_PlaySound("Ambient/Drone", 7, 0.3, 1, 2.5)
+   Loop
+   }
+}
+
+ACTOR AmbGoo : DUMPNonSolidObject 17012
+{
+   States
+   {
+   Spawn:
+   TNT1 A 0
+   TNT1 A 10 A_PlaySound("Ambient/Goo", 7, 0.3, 1, 2.5)
+   Loop
+   }
+}
+
+ACTOR Neurtoxinvent 17013
+{
+  Radius 16
+  Height 64
+  +NOGRAVITY
+  +SPAWNCEILING
+  States
+  {
+  Spawn:
+    NTXN A 1
+    Loop
+  Gas:
+	NTXN BCDEF 3 Bright
+  GasLoop:
+    NTXN GHIJKL 3 Bright
+	Loop
+  }
+}
+
+
+// Map27
+// Original Made by Untrustable made as a simple enemy this time. 
+ACTOR AdolfHitler : Zombieman 24503 // Heh, of all chances for this to be defined twice.
+{
+  Health 2100
+  Radius 28
+  +BOSSDEATH
+  SeeSound "Hitler/Active"
+  DeathSound "Hitler/Death1"
+  PainSound "Hitler/Shout"
+  AttackSound "Hitler/Attack"
+  Obituary "%o was killed by Adolf Hitler."
+  HitObituary "%o was Killed by Adold Hitler."
+  States
+  {
+  Spawn:
+    HTLR A 10 A_Look 
+    Loop
+  See:
+    HTLR ABCD 3 A_Chase
+    Loop
+  Missile:
+    HTLR E 20 Bright A_FaceTarget
+    HTLR F 4 Bright A_SPosAttackUseAtkSound
+    HTLR G 4 Bright A_SPosAttackUseAtkSound
+    HTLR A 1 Bright A_SpidRefire
+    Goto See
+  Pain:
+    HTLR H 10 A_Pain
+    Goto See
+  Death:
+    HTLR H 0 A_PlaySoundEx("Hitler/Death1", "Body")
+    HTLR I 32
+    HTLR J 32
+    HTLR K 6
+    HTLR L 6 A_Fall
+    HTLR MNO 6 A_NoBlocking
+    HTLR P -1 A_BossDeath
+    Stop
+  }
+}
+
+
+
+
+// Map38
+ACTOR DUMPTD_BuildRingSpawner : CustomInventory
+{
+	States
+	{
+		Pickup:
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 0, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 1, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 2, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 3, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 4, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 5, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 6, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 7, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 8, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 9, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 10, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 11, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 12, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 13, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 14, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 15, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 16, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 17, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 18, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 19, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 20, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 21, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 22, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 23, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 24, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 25, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 26, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 27, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 28, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 29, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 30, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 31, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 32, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 33, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 34, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 35, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 36, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 37, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 38, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 39, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 40, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 41, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 42, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 43, SXF_NOCHECKPOSITION )
+			TNT1 A 0 A_SpawnItemEx( "DUMPTD_BuildParticle", ( radius + 8 ) * 1.2, 0, 0, 0, 0, 3.4, 8 * 44, SXF_NOCHECKPOSITION )
+			Stop
+	}
+}
+
+ACTOR DUMPTD_BuildParticle
+{
+	+NOINTERACTION
+	+CLIENTSIDEONLY
+	RenderStyle Add
+	Radius 2
+	Height 4
+	XScale 1.2
+	States
+	{
+		Spawn:
+			IFOG C 15 Bright
+			IFOG C 1 A_FadeOut( 0.11 )
+			Wait
+	}
+}
+
+ACTOR DUMPTD_TowerFlagSetter : CustomInventory
+{
+	States
+	{
+		Pickup:
+			TNT1 A 0
+			TNT1 A 0 A_ChangeFlag( "MISSILEMORE", true )
+			TNT1 A 0 A_ChangeFlag( "MISSILEEVENMORE", true )
+			TNT1 A 0 A_ChangeFlag( "NEVERRESPAWN", true )
+			TNT1 A 0 A_ChangeFlag( "ALWAYSFAST", true )
+			Stop
+	}
+}
+
+ACTOR DUMPTD_StillMonsterRemover : CustomInventory
+{
+	States
+	{
+		Pickup:
+			TNT1 A 0
+			TNT1 A 0 ACS_NamedExecuteAlways( "Still Monster Remover" )
+			Stop
+	}
+}
+
+
+
+
+// Map40
+
+ACTOR HellGrowth 12367
+{
+  MONSTER
+  Radius 16
+  Height 56
+  Health 50
+  Mass 0x7fffffff
+  PainChance 256
+  +SOLID
+  +SHOOTABLE
+  BloodColor DarkGreen
+  ActiveSound "PoisonShroomPain"
+  PainSound "PoisonShroomPain"
+  DeathSound "skeleton/death"
+  States
+  {
+  Spawn:
+    HTRE A 1 A_Look
+    Loop
+  See:
+    HTRE A 8 A_Chase("", "", CHF_DONTMOVE)
+	Loop
+  Pain:
+    HTRE A 4 A_Pain
+	Goto See
+  Death:
+    HTRE B 0 A_Scream
+	HTRE B 0 A_Fall
+	HTRE B 15 A_SpawnItem("HellGrowthExplosion", 0, 28)
+	HTRE B -1 A_SpawnItem("PoisonCloud", 0, 28)
+	Stop
+  }
+}
+
+actor HellGrowthExplosion
+{
+  +NOBLOCKMAP
+  +NOGRAVITY
+  RenderStyle Add
+  Alpha 0.4
+  States
+  {
+  Spawn:
+    HECF CDE 5 Bright
+	Stop
+  }
+}
+
+Actor NTreeDead1 12368
+{
+Radius 13
+Height 160
++SOLID
+States
+{
+Spawn:
+	NTRE A -1
+	Stop
+}
+}
+
+Actor NTreeDead2 12369
+{
+Radius 13
+Height 160
++SOLID
+States
+{
+Spawn:
+	NTRE B -1
+	Stop
+}
+}
+
+Actor NTreeSwamp1 12370
+{
+Radius 13
+Height 140
++SOLID
+States
+{
+Spawn:
+	NTRE C -1
+	Stop
+}
+}
+
+Actor NTreeSwamp2 12371
+{
+Radius 10
+Height 120
++SOLID
+States
+{
+Spawn:
+	NTRE D -1
+	Stop
+}
+}
+
+Actor NSwampLog 12372
+{
+Radius 12
+Height 17
++SOLID
+States
+{
+Spawn:
+	NTRE E -1
+	Stop
+}
+}
+
+Actor NSwampStump 12373
+{
+Radius 12
+Height 20
++SOLID
+States
+{
+Spawn:
+	NTRE F -1
+	Stop
+}
+}
+
+Actor NSwampRoot 12374
+{
+Radius 10
+Height 20
++SOLID
+States
+{
+Spawn:
+	NTRE G -1
+	Stop
+}
+}
+
+ACTOR ChestSkewered1 12540
+{
+  Radius 16
+  Height 64
+  +SOLID
+  States
+  {
+  Spawn:
+    POLC A -1
+    Stop
+  }
+}
+
+ACTOR ChestSkewered2 12541
+{
+  Radius 16
+  Height 64
+  +SOLID
+  States
+  {
+  Spawn:
+    POLC B -1
+    Stop
+  }
+}
+
+ACTOR ChestSkewered3 12542
+{
+  Radius 16
+  Height 64
+  +SOLID
+  States
+  {
+  Spawn:
+    POLC C -1
+    Stop
+  }
+}
+
+//Chaingunner Head
+ACTOR ImpalingSpike2 5121
+{
+  Radius 16
+  Height 56
+  +SOLID
+  States
+  {
+  Spawn:
+    POL8 A -1
+    Stop
+  }
+}
+
+//Zombieman Head
+ACTOR ImpalingSpike3 5122
+{
+  Radius 16
+  Height 56
+  +SOLID
+  States
+  {
+  Spawn:
+    POL9 A -1
+    Stop
+  }
+}
+
+//Doomguy Head
+ACTOR ImpalingSpike4 5320
+{
+  Radius 16
+  Height 56
+  +SOLID
+  States
+  {
+  Spawn:
+    POLA A -1
+    Stop
+  }
+}
+
+//3 Doomguy Heads, Short
+ACTOR ImpalingSpike6 5322
+{
+  Radius 16
+  Height 48
+  +SOLID
+  States
+  {
+  Spawn:
+    POLC A -1
+    Stop
+  }
+}
+
+//Doomguy torso, one arm
+ACTOR ImpalingSpike7 5323
+{
+  Radius 16
+  Height 64
+  +SOLID
+  States
+  {
+  Spawn:
+    POLD A -1
+    Stop
+  }
+}
+
+//Doomguy skewered, twitching
+ACTOR ImpalingSpike9 5325
+{
+  Radius 16
+  Height 64
+  +SOLID
+  States
+  {
+  Spawn:
+    POLF A 6
+    POLF B 8
+    Loop
+  }
+}
+
+//Doomguy skewered, long arm
+ACTOR ImpalingSpike10 5326
+{
+  Radius 16
+  Height 64
+  +SOLID
+  States
+  {
+  Spawn:
+    POLG A -1
+    Stop
+  }
+}
+
+//Pool of Blood with Marine Helmet
+ACTOR MarineHelmetGibs 5328
+{
+  Radius 20
+  Height 4
+  +NOBLOCKMAP
+  +MOVEWITHSECTOR
+  States
+  {
+  Spawn:
+    GIB1 A -1
+    Stop
+  }
+}
+
+//Place the RainDropSpawner on your map, and use values set on the specials tab to modify it
+
+// The first argument controls it's area. 128, for example makes it a 256x256
+// square or 256-radius circle (See fourth argument)
+
+// The second argument controls it's frequency. The lower the number, the
+// heavier the rainfall
+
+// The third argument controls whether or not it plays it's ambient sound. 0
+// will play the sound, 1 will not
+
+// The fourth argument controls the area type. 0 is a square, 1 is a circle
+
+
+Actor RainSpawner 13000
+{
+  Radius 1
+  Height 1
+  +NoClip
+  +ClientSideOnly
+  +SpawnCeiling
+  +NoGravity
+  States
+  {
+  Spawn:
+    TNT1 A 0
+    TNT1 A 0 A_JumpIf(Args[2] > 0, "NoSound")
+    TNT1 A 0 A_JumpIf(Args[3] > 0, "Circle")
+    TNT1 A 0 A_PlaySoundEx("Ambient/Rain", "SoundSlot7", 1)
+    TNT1 A 1 A_SpawnItemEx("RainDrop", Random(-Args[0], Args[0]), Random(-Args[0], Args[0]), -5, 0, 0, 0, 0, Args[1])
+    Loop
+  Circle:
+    TNT1 A 1 A_SpawnItemEx("RainDrop", Random(-Args[0], Args[0]), 0, -5, 0, 0, 0, Random(0, 360), Args[1])
+  NoSound:
+    TNT1 A 0 A_Jumpif(Args[3] > 0, "NoSoundCircle")
+    TNT1 A 1 A_SpawnItemEx("RainDrop", Random(-Args[0], Args[0]), Random(-Args[0], Args[0]), -5, 0, 0, 0, 0, Args[1])
+    Loop
+  NoSoundCircle:
+    TNT1 A 1 A_SpawnItemEx("RainDrop", Random(-Args[0], Args[0]), 0, -5, 0, 0, 0, Random(0, 360), Args[1])
+    Loop
+  }
+}
+
+Actor RainDrop
+{
+  +Missile
+  +NoBlockMap
+  -NoGravity
+  Height 2
+  Radius 2
+  Renderstyle Translucent
+  Alpha 0.6
+  XScale 1.5
+  YScale 3.0
+  States
+  {
+  Spawn:
+    TNT1 A 0
+	TNT1 A 0 A_JumpIf(CallACS("S_CheckSkyCeiling", 0), 1)
+	Goto Remove
+	RNDR A 1
+    Loop
+  Death:
+    TNT1 A 1
+	//RNDR A 0 A_SetScale(1.0)
+	//RNDR BCDEFGH 3 A_FadeOut(0.1)
+    Stop
+  Remove:
+    TNT1 A 1
+	Stop
+  }
+}
+
+
+// Map46
+
+actor hellbrostatue1 301
+{
+radius 24
+height 64
+
+renderstyle translucent
+scale 1.0
+alpha 1.0
+
++shootable
++solid
++notautoaimed
++nodamage
++noblood
++nodamagethrust
+
+states
+{
+spawn:
+	hbro a -1
+	stop
+}
+}
+
+
+actor hellbrostatue2 : hellbrostatue1 302
+{
+states
+{
+spawn:
+	hbro b -1
+	stop
+}
+}
+
+actor hellbrostatue3 : hellbrostatue1 303
+{
+states
+{
+spawn:
+	hbro c -1
+	stop
+}
+}
+
+
+
+
+
+// Map50
+ACTOR GreenTreeSmall : BigTree 15001
+{
+  Radius 32
+  Height 54
+  ProjectilePassHeight -16
+  +SOLID
+  States
+  {
+  Spawn:
+    GTSM A -1
+    Stop
+  }
+}
+ACTOR GreenTreeBig : BigTree 15002
+{
+  Radius 32
+  Height 108
+  ProjectilePassHeight -16
+  +SOLID
+  States
+  {
+  Spawn:
+    GTBG A -1
+    Stop
+  }
+}
+ACTOR CactusSmall : BigTree 15003
+{
+  Radius 32
+  Height 54
+  ProjectilePassHeight -16
+  +SOLID
+  States
+  {
+  Spawn:
+    CASM A -1
+    Stop
+  }
+}
+ACTOR CactusBig : BigTree 15004
+{
+  Radius 32
+  Height 108
+  ProjectilePassHeight -16
+  +SOLID
+  States
+  {
+  Spawn:
+    CABG A -1
+    Stop
+  }
+}
+ACTOR DesertSkull : BigTree 15005
+{
+  Radius 32
+  Height 32
+  ProjectilePassHeight -16
+  +SOLID
+  States
+  {
+  Spawn:
+    DTSK A -1
+    Stop
+  }
+}
+
+
+
+
+
+
+
+
+
+// Map70
+ACTOR QuakeEnforcerLaser
+{
+	Radius 16
+	Height 8
+	Scale .125
+	Speed 80
+	Damage (15)
+	Projectile
+	Decal QuakeLaserScorch
+	SeeSound "quake/laserfire"
+	DeathSound "quake/laserdie"
+	Obituary "%o was blasted."
+	States
+	{
+		Spawn:
+			QLSR A 1 Bright
+			Loop
+		Death:
+			QLSR A 1 Bright
+			Stop
+	}
+}
+
+ACTOR QuakeRune : FakeInventory 444
+{
+	//$sprite QRN1A1
+	//$Title "Rune of Earth Magic"
+	Inventory.PickupMessage ""
+	Inventory.PickupSound "quake/keys/rune"
+	//+Inventory.NoScreenFlash
+	+Inventory.NeverRespawn
+	+Inventory.AlwaysPickup
+	+NoGravity
+	+FloatBob
+	Radius 8
+	Height 32
+	Scale .25
+	States
+	{
+		Spawn:
+			QRN1 A 1 A_SetAngle(angle+8)
+			Loop
+	}
+}
+
+ACTOR QuakeLightningSpawner 445
+{
+	//$sprite CELPA0
+	//$Title "Chthon Lightning Spawner"
+	+NoGravity
+	+NoBlockMap
+	+Invisible
+	Radius 16
+	Height 16
+	States
+	{
+		Spawn:
+			CELL A 1
+			Loop
+		Fire:
+			CELP A 7 A_CustomRailgun(15, 0, "E0FFFF", "FFFFFF", RGF_SILENT|RGF_FULLBRIGHT, 0, 256, "LightningPuff", 1.0, 1.0, 432.0, 35)
+			Loop
+	}
+}
+
+ACTOR LightningPuff : BulletPuff
+{
+	DamageType Electric
+}
+
+ACTOR QuakeBossExplosion : Rocket
+{
+	DeathSound "weapons/rocklx"
+	//Scale 4.0
+	States
+	{
+		Spawn:
+			MISL B 10 NoDelay A_Scream
+			MISL CD 10 Bright
+			Stop
+	}
+}
+
+ACTOR QuakeBossGiblet
+{
+	Scale 3.0
+	States
+	{
+		Spawn:
+			POSS NOPQRST 5
+			POSS U 525
+		FadeOut:
+			POSS U 1 A_FadeOut(0.01)
+			Loop
+	}
+}
+
+ACTOR ShootableSensor 446
+{
+	+Shootable
+	+NoGravity
+	+Invisible
+	Health 1
+	Radius 16
+	Height 8
+	States
+	{
+		Spawn:
+			SSWV A -1
+			Stop
+		Death:
+			SSWV A 1
+			Stop
+	}
+}
+
+ACTOR QuakeTorch 447
+{
+	//$sprite QTORA1
+	//$Title "Quake Torch"
+	+NoGravity
+	+FixMapThingPos
+	Radius 5
+	Height 43
+	Scale .333333
+	States
+	{
+		Spawn:
+			QTOR ABCDEF 4 bright
+			Loop
+	}
+}
+
+ACTOR QuakeParticle
+{
+	Radius 0.5
+	Height 1
+	Gravity 0.05
+	var int user_die;
+	States
+	{
+		Spawn:
+			QPRT A 0 NoDelay A_SetUserVar("user_die", 7 + random(0, 5)) // p->die = cl.time + 0.2 + (rand()&7) * 0.02;
+			QPRT A 0 A_Jump(256, "Color7", "Color8", "Color9", "ColorA", "ColorB", "ColorC", "ColorD", "ColorE") // p->color = 7 + (rand()&7);
+		Color7:
+			QPRT A 0
+			goto Idle
+		Color8:
+			QPRT B 0
+			goto Idle
+		Color9:
+			QPRT C 0
+			goto Idle
+		ColorA:
+			QPRT D 0
+			goto Idle
+		ColorB:
+			QPRT E 0
+			goto Idle
+		ColorC:
+			QPRT F 0
+			goto Idle
+		ColorD:
+			QPRT G 0
+			goto Idle
+		ColorE:
+			QPRT H 0
+			goto Idle
+		Idle:
+			"----" A 1 A_SetUserVar("user_die", user_die-1)
+			"----" A 0 A_JumpIf(user_die == 0, "Die")
+			loop
+		Die:
+			TNT1 A 0
+			stop
+	}
+}
+
+
+
+
+
+
+
+
+actor Benellus1 31184
+{
+    Radius 32
+    Height 76
+    Scale 1.25
+    Floatspeed 8
+    Speed 0
+    Mass 0x7FFFFFFF
+    Health 2500
+    MinMissileChance 128
+    PainChance 0
+    MONSTER
+    +LOOKALLAROUND
+    +FLOORCLIP
+    +NOGRAVITY
+    +FLOAT
+    +FLOATBOB
+    +MISSILEMORE
+    +MISSILEEVENMORE
+    +BOSS
+    +NORADIUSDMG
+    +THRUSPECIES
+    +NOICEDEATH
+    RadiusDamageFactor 0.25
+    BloodColor "Red"
+    Species "Monster"
+    Obituary "%o knelt to Benellus, the God of Shotguns."
+    States
+    {
+    Spawn:
+        BENE ABCD 3 A_Look
+        Loop
+    See:
+        BENE ABCD 3 A_Chase
+        loop
+    Missile:
+        BENE ABCD 3
+        BENE ABCD 3
+        BENE ABCD 3
+        BENE ABCD 3
+        BENE ABCD 3
+        BENE ABCD 3
+    Missile1:
+        TNT1 A 0 A_CustomMissile("ShellProjectile1",64,0,0 - 12.0) // One
+        TNT1 A 0 A_CustomMissile("ShellProjectile1",64,0,0 + 12.0) // One
+        TNT1 A 0 A_CustomMissile("ShellProjectile1Pink",64,0,0 - 64.0) // One
+        TNT1 A 0 A_CustomMissile("ShellProjectile1Pink",64,0,0 + 64.0) // One
+        TNT1 A 0 A_PlaySound("benellus/fire1",6)
+        BENE L 3 Bright
+        BENE A 3
+        TNT1 A 0 A_CustomMissile("ShellProjectile2",64,0,2 - 12.0) // Two
+        TNT1 A 0 A_CustomMissile("ShellProjectile2",64,0,-2 - 12.0) // Two
+        TNT1 A 0 A_CustomMissile("ShellProjectile2",64,0,2 + 12.0) // Two
+        TNT1 A 0 A_CustomMissile("ShellProjectile2",64,0,-2 + 12.0) // Two
+        TNT1 A 0 A_CustomMissile("ShellProjectile2Pink",64,0,2 - 64.0) // Two
+        TNT1 A 0 A_CustomMissile("ShellProjectile2Pink",64,0,-2 - 64.0) // Two
+        TNT1 A 0 A_CustomMissile("ShellProjectile2Pink",64,0,2 + 64.0) // Two
+        TNT1 A 0 A_CustomMissile("ShellProjectile2Pink",64,0,-2 + 64.0) // Two
+        TNT1 A 0 A_PlaySound("benellus/fire1",6)
+        BENE K 3 Bright
+        BENE B 3
+        TNT1 A 0 A_CustomMissile("ShellProjectile3",64,0,4 - 12.0) // Three
+        TNT1 A 0 A_CustomMissile("ShellProjectile3",64,0,0 - 12.0) // Three
+        TNT1 A 0 A_CustomMissile("ShellProjectile3",64,0,-4 - 12.0) // Three
+        TNT1 A 0 A_CustomMissile("ShellProjectile3",64,0,4 + 12.0) // Three
+        TNT1 A 0 A_CustomMissile("ShellProjectile3",64,0,0 + 12.0) // Three
+        TNT1 A 0 A_CustomMissile("ShellProjectile3",64,0,-4 + 12.0) // Three
+        TNT1 A 0 A_CustomMissile("ShellProjectile3Pink",64,0,4 - 64.0) // Three
+        TNT1 A 0 A_CustomMissile("ShellProjectile3Pink",64,0,0 - 64.0) // Three
+        TNT1 A 0 A_CustomMissile("ShellProjectile3Pink",64,0,-4 - 64.0) // Three
+        TNT1 A 0 A_CustomMissile("ShellProjectile3Pink",64,0,4 + 64.0) // Three
+        TNT1 A 0 A_CustomMissile("ShellProjectile3Pink",64,0,0 + 64.0) // Three
+        TNT1 A 0 A_CustomMissile("ShellProjectile3Pink",64,0,-4 + 64.0) // Three
+        TNT1 A 0 A_PlaySound("benellus/fire1",6)
+        BENE J 3 Bright
+        BENE C 3
+        TNT1 A 0 A_CustomMissile("ShellProjectile4",64,0,6 - 12.0) // Four
+        TNT1 A 0 A_CustomMissile("ShellProjectile4",64,0,2 - 12.0) // Four
+        TNT1 A 0 A_CustomMissile("ShellProjectile4",64,0,-2 - 12.0) // Four
+        TNT1 A 0 A_CustomMissile("ShellProjectile4",64,0,-6 - 12.0) // Four
+        TNT1 A 0 A_CustomMissile("ShellProjectile4",64,0,6 + 12.0) // Four
+        TNT1 A 0 A_CustomMissile("ShellProjectile4",64,0,2 + 12.0) // Four
+        TNT1 A 0 A_CustomMissile("ShellProjectile4",64,0,-2 + 12.0) // Four
+        TNT1 A 0 A_CustomMissile("ShellProjectile4",64,0,-6 + 12.0) // Four
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Pink",64,0,6 - 64.0) // Four
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Pink",64,0,2 - 64.0) // Four
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Pink",64,0,-2 - 64.0) // Four
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Pink",64,0,-6 - 64.0) // Four
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Pink",64,0,6 + 64.0) // Four
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Pink",64,0,2 + 64.0) // Four
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Pink",64,0,-2 + 64.0) // Four
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Pink",64,0,-6 + 64.0) // Four
+        TNT1 A 0 A_PlaySound("benellus/fire1",6)
+        BENE G 3 Bright
+        BENE D 3
+        TNT1 A 0 A_CustomMissile("ShellProjectile5",64,0,8 - 12.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5",64,0,4 - 12.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5",64,0,0 - 12.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5",64,0,-4 - 12.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5",64,0,-8 - 12.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5",64,0,8 + 12.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5",64,0,4 + 12.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5",64,0,0 + 12.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5",64,0,-4 + 12.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5",64,0,-8 + 12.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Pink",64,0,8 - 64.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Pink",64,0,4 - 64.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Pink",64,0,0 - 64.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Pink",64,0,-4 - 64.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Pink",64,0,-8 - 64.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Pink",64,0,8 + 64.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Pink",64,0,4 + 64.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Pink",64,0,0 + 64.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Pink",64,0,-4 + 64.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Pink",64,0,-8 + 64.0) // Five
+        TNT1 A 0 A_PlaySound("benellus/fire1",6)
+        BENE F 3 Bright
+        TNT1 A 0 A_PlaySound("benellus/pump1",7)
+        BENE ABCD 3
+        //TNT1 A 0 A_SpidReFire
+
+        TNT1 A 0 A_CustomMissile("ShellProjectile1",64,0,0) // One
+        TNT1 A 0 A_CustomMissile("ShellProjectile1",64,0,0 - 40.0) // One
+        TNT1 A 0 A_CustomMissile("ShellProjectile1",64,0,0 + 40.0) // One
+        TNT1 A 0 A_PlaySound("benellus/fire1",6)
+        BENE L 3 Bright
+        BENE A 3
+        TNT1 A 0 A_CustomMissile("ShellProjectile2",64,0,2) // Two
+        TNT1 A 0 A_CustomMissile("ShellProjectile2",64,0,-2) // Two
+        TNT1 A 0 A_CustomMissile("ShellProjectile2Pink",64,0,2 - 40.0) // Two
+        TNT1 A 0 A_CustomMissile("ShellProjectile2Pink",64,0,-2 - 40.0) // Two
+        TNT1 A 0 A_CustomMissile("ShellProjectile2Pink",64,0,2 + 40.0) // Two
+        TNT1 A 0 A_CustomMissile("ShellProjectile2Pink",64,0,-2 + 40.0) // Two
+        TNT1 A 0 A_PlaySound("benellus/fire1",6)
+        BENE K 3 Bright
+        BENE B 3
+        TNT1 A 0 A_CustomMissile("ShellProjectile3",64,0,4) // Three
+        TNT1 A 0 A_CustomMissile("ShellProjectile3",64,0,0) // Three
+        TNT1 A 0 A_CustomMissile("ShellProjectile3",64,0,-4) // Three
+        TNT1 A 0 A_CustomMissile("ShellProjectile3Pink",64,0,4 - 40.0) // Three
+        TNT1 A 0 A_CustomMissile("ShellProjectile3Pink",64,0,0 - 40.0) // Three
+        TNT1 A 0 A_CustomMissile("ShellProjectile3Pink",64,0,-4 - 40.0) // Three
+        TNT1 A 0 A_CustomMissile("ShellProjectile3Pink",64,0,4 + 40.0) // Three
+        TNT1 A 0 A_CustomMissile("ShellProjectile3Pink",64,0,0 + 40.0) // Three
+        TNT1 A 0 A_CustomMissile("ShellProjectile3Pink",64,0,-4 + 40.0) // Three
+        TNT1 A 0 A_PlaySound("benellus/fire1",6)
+        BENE J 3 Bright
+        BENE C 3
+        TNT1 A 0 A_CustomMissile("ShellProjectile4",64,0,6) // Four
+        TNT1 A 0 A_CustomMissile("ShellProjectile4",64,0,2) // Four
+        TNT1 A 0 A_CustomMissile("ShellProjectile4",64,0,-2) // Four
+        TNT1 A 0 A_CustomMissile("ShellProjectile4",64,0,-6) // Four
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Pink",64,0,6 - 40.0) // Four
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Pink",64,0,2 - 40.0) // Four
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Pink",64,0,-2 - 40.0) // Four
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Pink",64,0,-6 - 40.0) // Four
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Pink",64,0,6 + 40.0) // Four
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Pink",64,0,2 + 40.0) // Four
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Pink",64,0,-2 + 40.0) // Four
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Pink",64,0,-6 + 40.0) // Four
+        TNT1 A 0 A_PlaySound("benellus/fire1",6)
+        BENE G 3 Bright
+        BENE D 3
+        TNT1 A 0 A_CustomMissile("ShellProjectile5",64,0,8) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5",64,0,4) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5",64,0,0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5",64,0,-4) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5",64,0,-8) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Pink",64,0,8 - 40.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Pink",64,0,4 - 40.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Pink",64,0,0 - 40.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Pink",64,0,-4 - 40.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Pink",64,0,-8 - 40.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Pink",64,0,8 + 40.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Pink",64,0,4 + 40.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Pink",64,0,0 + 40.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Pink",64,0,-4 + 40.0) // Five
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Pink",64,0,-8 + 40.0) // Five
+        TNT1 A 0 A_PlaySound("benellus/fire1",6)
+        BENE F 3 Bright
+        TNT1 A 0 A_PlaySound("benellus/pump1",7)
+        BENE ABCD 3
+        TNT1 A 0 A_SpidReFire
+        goto Missile1
+    Death:
+        TNT1 A 0 A_SpawnItemEx("Benellus2",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION,0)
+        TNT1 A 0 A_PlaySoundEx("benellus/death1","soundslot5",0,2)
+        TNT1 AAAAAAAAAA 0 A_SpawnItemEx("Shell",0,0,frandom(32,76),frandom(-10,10),frandom(-10,10),frandom(1,10),0,SXF_NOCHECKPOSITION,0)
+        TNT1 AAAAAAAAAA 0 A_SpawnItemEx("Shell",0,0,frandom(32,76),frandom(-10,10),frandom(-10,10),frandom(1,10),0,SXF_NOCHECKPOSITION,0)
+        BENE A 1 A_NoBlocking
+        stop
+    }
+}
+
+actor ShellProjectile1 : FastProjectile
+{
+    Radius 2
+    Height 2
+    Speed 35
+    Damage (random(1,5))
+    Scale 0.8
+    Projectile
+    +RANDOMIZE
+    States
+    {
+    Spawn:
+        TNT1 A 0 A_Jump(255,"Spawn1",1,2,3,4,5,6)
+        TNT1 A 1
+        loop
+    Spawn1:
+        SHLP ABCDEFG 1 Bright
+        Loop
+    Death:
+        TNT1 A 0 A_SetScale(0.9,0.9)
+        BAL1 CDE 3 Bright
+        Stop
+    }
+}
+
+actor ShellProjectile1Pink : ShellProjectile1 { Translation "176:191=16:31", "47:47=36:36" }
+actor ShellProjectile2 : ShellProjectile1 { Speed 32 }
+actor ShellProjectile2Pink : ShellProjectile2 { Translation "176:191=16:31", "47:47=36:36" }
+actor ShellProjectile3 : ShellProjectile1 { Speed 29 }
+actor ShellProjectile3Pink : ShellProjectile3 { Translation "176:191=16:31", "47:47=36:36" }
+actor ShellProjectile4 : ShellProjectile1 { Speed 26 }
+actor ShellProjectile4Pink : ShellProjectile4 { Translation "176:191=16:31", "47:47=36:36" }
+actor ShellProjectile5 : ShellProjectile1 { Speed 23 }
+actor ShellProjectile5Pink : ShellProjectile5 { Translation "176:191=16:31", "47:47=36:36" }
+
+
+
+actor Benellus2 31185
+{
+    Radius 32
+    Height 76
+    Scale 1.25
+    Floatspeed 8
+    Speed 0
+    Mass 0x7FFFFFFF
+    Health 2500
+    PainChance 0
+    MONSTER
+    +LOOKALLAROUND
+    +FLOORCLIP
+    +NOGRAVITY
+    +FLOAT
+    +FLOATBOB
+    +MISSILEMORE
+    +MISSILEEVENMORE
+    +BOSS
+    +NORADIUSDMG
+    +THRUSPECIES
+    +NOICEDEATH
+    RadiusDamageFactor 0.25
+    BloodColor "Red"
+    Species "Monster"
+    Obituary "%o knelt before Benellus, the God of Shotguns."
+    States
+    {
+    Spawn:
+        BENE ABCD 3
+        BENE ABCD 3
+        BENE ABCD 3
+        BENE ABCD 3
+        BENE ABCD 3
+        BENE ABCD 3
+        BENE ABCD 3
+        BENE ABCD 3
+        BENE ABCD 3
+        BENE ABCD 3
+        BENE ABCD 3
+        BENE ABCD 3 
+    Spawn0:
+        BENE A 1
+        TNT1 A 0 A_SpawnItemEx("ShotgunShooter1",32,0,8,0,0,0,0,SXF_NOCHECKPOSITION,0,4132)
+        TNT1 A 0 A_SpawnItemEx("ShotgunShooter1",32,0,8,0,0,0,90,SXF_NOCHECKPOSITION,0,4132)
+        TNT1 A 0 A_SpawnItemEx("ShotgunShooter1",32,0,8,0,0,0,180,SXF_NOCHECKPOSITION,0,4132)
+        TNT1 A 0 A_SpawnItemEx("ShotgunShooter1",32,0,8,0,0,0,270,SXF_NOCHECKPOSITION,0,4132)
+        TNT1 A 0 A_SpawnItemEx("ShotgunShooter2",32,0,40,0,0,0,0,SXF_NOCHECKPOSITION,0,4132)
+        TNT1 A 0 A_SpawnItemEx("ShotgunShooter2",32,0,40,0,0,0,90,SXF_NOCHECKPOSITION,0,4132)
+        TNT1 A 0 A_SpawnItemEx("ShotgunShooter2",32,0,40,0,0,0,180,SXF_NOCHECKPOSITION,0,4132)
+        TNT1 A 0 A_SpawnItemEx("ShotgunShooter2",32,0,40,0,0,0,270,SXF_NOCHECKPOSITION,0,4132)
+        TNT1 A 0 A_SpawnItemEx("ShotgunShooter3",64,0,128,0,0,0,0,SXF_NOCHECKPOSITION,0,4132)
+        TNT1 A 0 A_SpawnItemEx("ShotgunShooter3",0,0,160,0,0,0,0,SXF_NOCHECKPOSITION,0,4132)
+        TNT1 A 0 A_SpawnItemEx("ShotgunShooter3",-64,0,128,0,0,0,0,SXF_NOCHECKPOSITION,0,4132)
+    Spawn1:
+        BENE ABCD 3 A_PlaySoundEx("benellus/fire2",5)
+        Loop
+    Death:
+        TNT1 A 0 A_SpawnItemEx("Benellus3",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION,0)
+        TNT1 A 0 A_PlaySoundEx("benellus/death2","soundslot5",0,2)
+        TNT1 AAAAAAAAAA 0 A_SpawnItemEx("Shell",0,0,frandom(32,76),frandom(-10,10),frandom(-10,10),frandom(1,10),0,SXF_NOCHECKPOSITION,0)
+        TNT1 AAAAAAAAAA 0 A_SpawnItemEx("Shell",0,0,frandom(32,76),frandom(-10,10),frandom(-10,10),frandom(1,10),0,SXF_NOCHECKPOSITION,0)
+        TNT1 A 0 ACS_ExecuteAlways(2,0,0,0,0)
+        TNT1 A 0 ACS_ExecuteAlways(4,0,0,0,0)
+        BENE A 1 A_NoBlocking
+        stop
+    }
+}
+
+actor ShellProjectileFast : ShellProjectile1 { Scale 0.6 Speed 40 Translation "176:191=160:167", "47:47=238:238" }
+actor ShellProjectileFast2 : ShellProjectileFast { Translation "176:191=112:127", "47:47=127:127" }
+
+actor ShotgunShooter1
+{
+    -SOLID
+    +THRUACTORS
+    //+FLOATBOB
+    +NOGRAVITY
+    Obituary "%o knelt before Benellus, the God of Shotguns."
+    States
+    {
+    Spawn:
+        TNT1 A 0
+        GSHT A 2 //A_Warp(AAPTR_NULL,0,4,0,4,WARPF_USECALLERANGLE | WARPF_NOCHECKPOSITION | WARPF_INTERPOLATE)
+        TNT1 A 0 //A_PlaySoundEx("benellus/fire2",5)
+        GSHT B 1 Bright A_CustomMissile("ShellProjectileFast",6,0,0,CMF_AIMDIRECTION,0)
+        GSHT A 1 A_SpawnItemEx("ShotgunShooter1",0,1,0,0,0,0,-1,SXF_NOCHECKPOSITION,0,4132)
+        stop
+    Death:
+        TNT1 A 1
+        stop
+    }
+}
+
+actor ShotgunShooter2
+{
+    -SOLID
+    +THRUACTORS
+    //+FLOATBOB
+    +NOGRAVITY
+    Obituary "%o knelt before Benellus, the God of Shotguns."
+    States
+    {
+    Spawn:
+        TNT1 A 0
+        GSHT A 2 //A_Warp(AAPTR_NULL,0,4,0,4,WARPF_USECALLERANGLE | WARPF_NOCHECKPOSITION | WARPF_INTERPOLATE)
+        //TNT1 A 0 A_PlaySoundEx("benellus/fire2",5) // Let's just have the sound playing four times instead of eight
+        GSHT B 1 Bright A_CustomMissile("ShellProjectileFast2",6,0,0,CMF_AIMDIRECTION,0)
+        GSHT A 1 A_SpawnItemEx("ShotgunShooter2",0,-1,0,0,0,0,1,SXF_NOCHECKPOSITION,0,4132)
+        stop
+    Death:
+        TNT1 A 1
+        stop
+    }
+}
+
+actor ShotgunShooter3
+{
+    Scale 2.0
+    //Health 1000
+    //Monster
+    -SOLID
+    +THRUACTORS
+    +FLOATBOB
+    +NOGRAVITY
+    +LOOKALLAROUND
+    +MISSILEMORE
+    +MISSILEEVENMORE
+    Speed 0
+    Obituary "%o knelt before Benellus, the God of Shotguns."
+    States
+    {
+    Spawn:
+        TNT1 A 0
+        GSHT A 2 A_Look
+        loop
+    See:
+        GSHT A 4 A_Chase
+        loop
+    Missile:
+        TNT1 A 0 A_FaceTarget
+        TNT1 A 0 A_PlaySound("benellus/fire3",5)
+        TNT1 AAAAAAA 0 A_CustomMissile("ShellProjectile1Brown",12,0,frandom(-18,18),0,0)
+        GSHT B 5 Bright
+        GSHT A 25
+        goto See
+    Death:
+        TNT1 A 1
+        stop
+    }
+}
+
+actor ShellProjectile1Brown : ShellProjectile1 { Translation "176:191=128:143", "47:47=151:151" }
+
+actor Benellus3 31186
+{
+    var int user_spread;
+    Radius 32
+    Height 76
+    Scale 1.25
+    Floatspeed 8
+    Speed 0
+    Mass 0x7FFFFFFF
+    Health 2500
+    PainChance 0
+    MONSTER
+    +LOOKALLAROUND
+    +FLOORCLIP
+    +NOGRAVITY
+    +FLOAT
+    +FLOATBOB
+    +MISSILEMORE
+    +MISSILEEVENMORE
+    +BOSS
+    +NORADIUSDMG
+    +THRUSPECIES
+    +NOICEDEATH
+    RadiusDamageFactor 0.25
+    BloodColor "Red"
+    Species "Monster"
+    Obituary "%o knelt before Benellus, the God of Shotguns."
+    States
+    {
+    Spawn:
+        BENE ABCD 3 A_Look
+        Loop
+    See:
+        BENE ABCD 3 A_Chase
+        loop
+    Missile:
+        BENE ABCD 3
+        BENE ABCD 3
+        BENE ABCD 3
+        BENE ABCD 3
+        BENE ABCD 3
+        BENE ABCD 3 
+        BENE ABCD 3
+        BENE ABCD 3
+        BENE ABCD 3
+        BENE ABCD 3
+        BENE ABCD 3 A_SetUserVar("user_spread",16)
+    Missile2:
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Orange",64,0,8 - user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Orange",64,0,4 - user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile3Orange",64,0,0 - user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Orange",64,0,-4 - user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Orange",64,0,-8 - user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Orange",64,0,8 + user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Orange",64,0,4 + user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile3Orange",64,0,0 + user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Orange",64,0,-4 + user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Orange",64,0,-8 + user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile5",64,0,8)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4",64,0,4)
+        TNT1 A 0 A_CustomMissile("ShellProjectile3",64,0,0)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4",64,0,-4)
+        TNT1 A 0 A_CustomMissile("ShellProjectile5",64,0,-8)
+        TNT1 A 0 A_SetUserVar("user_spread",user_spread + 16.0)
+        TNT1 A 0 A_PlaySound("benellus/fire1",6)
+        BENE L 3 Bright
+        BENE A 3
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Orange",64,0,8 - user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Orange",64,0,4 - user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile3Orange",64,0,0 - user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Orange",64,0,-4 - user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Orange",64,0,-8 - user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Orange",64,0,8 + user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Orange",64,0,4 + user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile3Orange",64,0,0 + user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Orange",64,0,-4 + user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Orange",64,0,-8 + user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile5",64,0,8)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4",64,0,4)
+        TNT1 A 0 A_CustomMissile("ShellProjectile3",64,0,0)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4",64,0,-4)
+        TNT1 A 0 A_CustomMissile("ShellProjectile5",64,0,-8)
+        TNT1 A 0 A_SetUserVar("user_spread",user_spread + 16.0)
+        TNT1 A 0 A_PlaySound("benellus/fire1",6)
+        BENE K 3 Bright
+        BENE B 3
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Orange",64,0,8 - user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Orange",64,0,4 - user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile3Orange",64,0,0 - user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Orange",64,0,-4 - user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Orange",64,0,-8 - user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Orange",64,0,8 + user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Orange",64,0,4 + user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile3Orange",64,0,0 + user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Orange",64,0,-4 + user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Orange",64,0,-8 + user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile5",64,0,8)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4",64,0,4)
+        TNT1 A 0 A_CustomMissile("ShellProjectile3",64,0,0)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4",64,0,-4)
+        TNT1 A 0 A_CustomMissile("ShellProjectile5",64,0,-8)
+        TNT1 A 0 A_SetUserVar("user_spread",user_spread + 16.0)
+        TNT1 A 0 A_PlaySound("benellus/fire1",6)
+        BENE J 3 Bright
+        BENE C 3
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Orange",64,0,8 - user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Orange",64,0,4 - user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile3Orange",64,0,0 - user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Orange",64,0,-4 - user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Orange",64,0,-8 - user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Orange",64,0,8 + user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Orange",64,0,4 + user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile3Orange",64,0,0 + user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Orange",64,0,-4 + user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Orange",64,0,-8 + user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile5",64,0,8)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4",64,0,4)
+        TNT1 A 0 A_CustomMissile("ShellProjectile3",64,0,0)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4",64,0,-4)
+        TNT1 A 0 A_CustomMissile("ShellProjectile5",64,0,-8)
+        TNT1 A 0 A_SetUserVar("user_spread",user_spread + 16.0)
+        TNT1 A 0 A_PlaySound("benellus/fire1",6)
+        BENE G 3 Bright
+        BENE D 3
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Orange",64,0,8 - user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Orange",64,0,4 - user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile3Orange",64,0,0 - user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Orange",64,0,-4 - user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Orange",64,0,-8 - user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Orange",64,0,8 + user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Orange",64,0,4 + user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile3Orange",64,0,0 + user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4Orange",64,0,-4 + user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Orange",64,0,-8 + user_spread)
+        TNT1 A 0 A_CustomMissile("ShellProjectile5",64,0,8)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4",64,0,4)
+        TNT1 A 0 A_CustomMissile("ShellProjectile3",64,0,0)
+        TNT1 A 0 A_CustomMissile("ShellProjectile4",64,0,-4)
+        TNT1 A 0 A_CustomMissile("ShellProjectile5",64,0,-8)
+        TNT1 A 0 A_SetUserVar("user_spread",user_spread + 16.0)
+        TNT1 A 0 A_PlaySound("benellus/fire1",6)
+        BENE F 3 Bright
+        TNT1 A 0 A_PlaySound("benellus/pump1",7)
+        BENE ABCD 3 A_SetUserVar("user_spread",16)
+        TNT1 A 0 A_SpidRefire
+        loop
+    Death:
+        TNT1 A 0 ACS_ExecuteAlways(2,0,0,0,0)
+        TNT1 A 0 A_PlaySoundEx("benellus/death4","soundslot6",0,2)
+	    BENE DDDDDDDDDDDDDDDDDDDD 1 A_SpawnitemEx("Shotgun",random(-80,80),random(-80,80),random(-80,80),random(-80,80),random(-80,80),random(-80,80),random(-80,80))
+	    BENE DDDDDDDDDDDDDDDDDDDD 1 A_SpawnitemEx("Shotgun",random(-80,80),random(-80,80),random(-80,80),random(-80,80),random(-80,80),random(-80,80),random(-80,80))
+	    BENE DDDDDDDDDDDDDDDDDDDD 1 A_SpawnitemEx("Shotgun",random(-80,80),random(-80,80),random(-80,80),random(-80,80),random(-80,80),random(-80,80),random(-80,80))
+	    BENE D 8 Radius_Quake(40,60,0,40,0)
+	    BENE DDDDDDDDDDDDDDDDDDDD 1 A_SpawnitemEx("Shotgun",random(-80,80),random(-80,80),random(-80,80),random(-80,80),random(-80,80),random(-80,80),random(-80,80))
+	    BENE D 3 A_SetTranslucent(0.85)
+	    BENE D 3 A_SetTranslucent(0.75)
+	    BENE D 3 A_SetTranslucent(0.6)
+	    BENE D 3 A_SetTranslucent(0.5)
+	    BENE D 3 A_SetTranslucent(0.35)
+	    BENE D 3 A_SetTranslucent(0.25)
+        TNT1 A 0 A_PlaySoundEx("benellus/death3","soundslot5",0,2)
+	    BENE D 3 A_SetTranslucent(0.1)
+        TNT1 A 0 A_NoBlocking
+        TNT1 A 80
+        TNT1 A 0 ACS_ExecuteAlways(5,0,0,0,0)
+	    Stop
+    }
+}
+
+actor ShellProjectile3Orange : ShellProjectile3 { Translation "176:191=208:223", "47:47=234:234" }
+actor ShellProjectile4Orange : ShellProjectile4 { Translation "176:191=208:223", "47:47=234:234" }
+actor ShellProjectile5Orange : ShellProjectile5 { Translation "176:191=208:223", "47:47=234:234" }
+
+actor ShotgunShooter4
+{
+    -SOLID
+    +THRUACTORS
+    //+FLOATBOB
+    +NOGRAVITY
+    Obituary "%o knelt before Benellus, the God of Shotguns."
+    States
+    {
+    Spawn:
+        TNT1 A 0
+        GSHT A 2 A_Look
+        loop
+    See:
+        GSHT A 1 A_Chase
+        loop
+    Missile:
+        TNT1 A 0
+        GSHT A 2 A_FaceTarget
+        TNT1 A 0 A_PlaySoundEx("benellus/fire2",5)
+        GSHT B 1 Bright A_CustomMissile("ShellProjectileFastBlue",6,0,0,0,0)
+        TNT1 A 0 A_SpidRefire
+        loop
+    Death:
+        TNT1 A 1
+        stop
+    }
+}
+
+actor ShellProjectileFastBlue : ShellProjectile1 { Scale 0.6 Speed 40 Translation "176:191=192:207", "47:47=240:240" }
+
+actor ShotgunWalkingShooter
+{
+    Radius 2
+    Height 3
+    //Health 1000
+    //Monster
+    -SOLID
+    +THRUACTORS
+    +LOOKALLAROUND
+    +MISSILEMORE
+    +MISSILEEVENMORE
+    MinMissileChance 64
+    Speed 8
+    Obituary "%o knelt before Benellus, the God of Shotguns."
+    States
+    {
+    Spawn:
+        TNT1 A 0
+        KAMK A 35 Bright
+    Spawn1:
+        KAMK A 2 Bright A_Look
+        loop
+    See:
+        KAMK ABCD 2 Bright A_Chase
+        loop
+    Missile:
+        TNT1 A 0 A_FaceTarget
+        TNT1 A 0 A_PlaySound("benellus/fire4",5)
+        TNT1 A 0 A_CustomMissile("ShellProjectile5Grey",10,0,0,0,0)
+        KAMK ABCD 2 Bright A_Chase("","")
+        TNT1 A 0 A_PlaySound("benellus/pump2",6)
+        KAMK ABCD 2 Bright A_Chase("","")
+        KAMK ABCD 2 Bright A_Chase("","")
+        goto See
+    Death:
+        TNT1 A 1
+        stop
+    }
+}
+
+actor ShellProjectile5Grey : ShellProjectile5 { Scale 1.0 Translation "176:191=80:111", "47:47=111:111" }
