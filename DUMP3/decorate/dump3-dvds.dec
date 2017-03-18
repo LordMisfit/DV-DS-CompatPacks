@@ -270,6 +270,7 @@ actor Benellus1DS : Benellus1 replaces Benellus1
  +NORADIUSDMG
  +THRUSPECIES
  +NOICEDEATH
+ +NOPAIN
  RadiusDamageFactor 0.25
  BloodColor "Red"
  Species "Monster"
@@ -486,6 +487,7 @@ actor Benellus2DS : Benellus2 replaces Benellus2
  +NORADIUSDMG
  +THRUSPECIES
  +NOICEDEATH
+ +NOPAIN
  RadiusDamageFactor 0.25
  BloodColor "Red"
  Species "Monster"
@@ -599,6 +601,7 @@ actor Benellus3DS : Benellus3 replaces Benellus3
  +NORADIUSDMG
  +THRUSPECIES
  +NOICEDEATH
+ +NOPAIN
  RadiusDamageFactor 0.25
  BloodColor "Red"
  Species "Monster"
