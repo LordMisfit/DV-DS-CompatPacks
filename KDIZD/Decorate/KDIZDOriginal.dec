@@ -1561,7 +1561,7 @@ ACTOR ZombieRifleBulletTracer : FastProjectile
    Radius 1
    Height 1
    Mass 5
-   Speed 95
+   Speed 190 // 95
    PROJECTILE
    +STRIFEDAMAGE
    +DONTREFLECT
@@ -3795,7 +3795,7 @@ ACTOR NewPistol : Pistol replaces Pistol
 	{
 	Fire:
 		PISG A 2
-		PISG A 1 A_FireProjectile("PisCaseSpawn",0,0,0,1)
+		PISG A 1 A_FireCustomMissile("PisCaseSpawn",0,0,0,1)
 		PISG B 0 A_GunFlash
 		PISG B 6 A_FireBullets(4,4,1,5,"NewPuff",1)
 		PISG C 4
@@ -3803,7 +3803,7 @@ ACTOR NewPistol : Pistol replaces Pistol
 		Goto Ready
 	Hold:
 		PISG A 2
-		PISG A 1 A_FireProjectile("PisCaseSpawn",0,0,0,1)
+		PISG A 1 A_FireCustomMissile("PisCaseSpawn",0,0,0,1)
 		PISG B 0 A_GunFlash
 		PISG B 6 A_FireBullets(4,4,1,5,"NewPuff",1)
 		PISG C 4
@@ -3872,7 +3872,7 @@ ACTOR NewShotgun : Shotgun replaces Shotgun
 		SHTG A 7 A_FireBullets(5.6, 0, 7, 5, "NewPuff")
 		SHTG BC 5
 		SHTG D 1
-		SHTG D 3 A_FireProjectile("ShotCaseSpawn",0,0,-4,-4)
+		SHTG D 3 A_FireCustomMissile("ShotCaseSpawn",0,0,-4,-4)
 		SHTG CB 5
 		SHTG A 3
 		SHTG A 7 A_Refire
@@ -3883,7 +3883,7 @@ ACTOR NewShotgun : Shotgun replaces Shotgun
 		SHTG A 7 A_FireBullets(5,3,7,5,"NewPuff")
 		SHTG BC 5
 		SHTG D 1
-		SHTG D 3 A_FireProjectile("ShotCaseSpawn",0,0,-4,-4)
+		SHTG D 3 A_FireCustomMissile("ShotCaseSpawn",0,0,-4,-4)
 		SHTG CB 5
 		SHTG A 3
 		SHTG A 7 A_Refire
@@ -3903,8 +3903,8 @@ ACTOR NewSuperShotgun : SuperShotgun replaces SuperShotgun
 	   SHT2 A 7 A_FireBullets(12,6,20,5,"NewPuff")
 	   SHT2 B 5 A_CheckReload
 	   SHT2 C 5
-	   SHT2 D 0 A_FireProjectile("SShotCaseSpawn",180,0,-2,2)
-	   SHT2 D 0 A_FireProjectile("SShotCaseSpawn",180,0,2,2)
+	   SHT2 D 0 A_FireCustomMissile("SShotCaseSpawn",180,0,-2,2)
+	   SHT2 D 0 A_FireCustomMissile("SShotCaseSpawn",180,0,2,2)
 	   SHT2 D 5 A_PlaySound("weapons/sshoto")
 	   SHT2 E 5
 	   SHT2 K 6
@@ -3921,8 +3921,8 @@ ACTOR NewSuperShotgun : SuperShotgun replaces SuperShotgun
 	   SHT2 A 7 A_FireBullets(12,6,20,5,"NewPuff")
 	   SHT2 B 5 A_CheckReload
 	   SHT2 C 5
-	   SHT2 D 0 A_FireProjectile("SShotCaseSpawn",180,0,-2,2)
-	   SHT2 D 0 A_FireProjectile("SShotCaseSpawn",180,0,2,2)
+	   SHT2 D 0 A_FireCustomMissile("SShotCaseSpawn",180,0,-2,2)
+	   SHT2 D 0 A_FireCustomMissile("SShotCaseSpawn",180,0,2,2)
 	   SHT2 D 5 A_PlaySound("weapons/sshoto")
 	   SHT2 E 5
 	   SHT2 K 6
@@ -4005,19 +4005,19 @@ ACTOR NewChaingun : Chaingun replaces Chaingun
 	{
 	Fire:
 	   CHGG A 0 A_GunFlash
-	   CHGG A 0 A_FireProjectile("PisCaseSpawn",0,0,-6,-8)
+	   CHGG A 0 A_FireCustomMissile("PisCaseSpawn",0,0,-6,-8)
 	   CHGG A 4 A_FireBullets(4,4,1,5,"NewPuff",1)
 	   CHGG A 0 A_JumpIfNoAmmo(3)
-	   CHGG B 0 A_FireProjectile("PisCaseSpawn",0,0,-6,-8)
+	   CHGG B 0 A_FireCustomMissile("PisCaseSpawn",0,0,-6,-8)
 	   CHGG B 4 A_FireBullets(4,4,1,5,"NewPuff",1)
 	   CHGG B 0 A_Refire
 	   Goto Ready
 	Hold:
 	   CHGG A 0 A_GunFlash
-	   CHGG A 0 A_FireProjectile("PisCaseSpawn",0,0,-6,-8)
+	   CHGG A 0 A_FireCustomMissile("PisCaseSpawn",0,0,-6,-8)
 	   CHGG A 4 A_FireBullets(4,4,1,5,"NewPuff",1)
 	   CHGG A 0 A_JumpIfNoAmmo(3)
-	   CHGG B 0 A_FireProjectile("PisCaseSpawn",0,0,-6,-8)
+	   CHGG B 0 A_FireCustomMissile("PisCaseSpawn",0,0,-6,-8)
 	   CHGG B 4 A_FireBullets(4,4,1,5,"NewPuff",1)
 	   CHGG B 0 A_Refire
 	   Goto Ready
@@ -4108,7 +4108,7 @@ ACTOR Rifle : MarineWeapon 31407 // replaces BFG9000
    	Loop
   Fire:
    	RIFG A 0 A_GunFlash
-   	RIFG A 0 A_FireProjectile("RifCaseSpawn",0,0,2,-2)
+   	RIFG A 0 A_FireCustomMissile("RifCaseSpawn",0,0,2,-2)
    	RIFG A 0 
    	RIFG A 4
 	{
@@ -4304,29 +4304,29 @@ ACTOR KDiZDGrenadeLauncher : MarineWeapon 31410 // replaces PlasmaRifle
 	 {
       // Angle + 15, Pitch + 0
       A_SetAngle(angle+15);
-	  A_FireProjectile("KDiZDGrenade",0,0,0,0);
+	  A_FireCustomMissile("KDiZDGrenade",0,0,0,0);
       // Angle + 7.5, Pitch + 7.5
       A_SetAngle(angle-7.5);
       A_SetPitch(pitch+7.5);
-	  A_FireProjectile("KDiZDGrenade",0,0,0,0);
+	  A_FireCustomMissile("KDiZDGrenade",0,0,0,0);
       // Angle + 7.5, Pitch - 7.5
       A_SetPitch(pitch-15);
-	  A_FireProjectile("KDiZDGrenade",0,0,0,0);
+	  A_FireCustomMissile("KDiZDGrenade",0,0,0,0);
       // Angle + 0, Pitch + 0
       A_SetPitch(pitch+7.5);
       A_SetAngle(angle-7.5);
-	  A_FireProjectile("KDiZDGrenade",0,1,0,0);
+	  A_FireCustomMissile("KDiZDGrenade",0,1,0,0);
       // Angle - 7.5, Pitch - 7.5
       A_SetAngle(angle-7.5);
       A_SetPitch(pitch-7.5);
-	  A_FireProjectile("KDiZDGrenade",0,0,0,0);
+	  A_FireCustomMissile("KDiZDGrenade",0,0,0,0);
       // Angle - 7.5, Pitch + 7.5
       A_SetPitch(pitch+15);
-	  A_FireProjectile("KDiZDGrenade",0,0,0,0);
+	  A_FireCustomMissile("KDiZDGrenade",0,0,0,0);
       // Angle - 15, Pitch + 0
       A_SetPitch(pitch-7.5);
       A_SetAngle(angle-7.5);
-	  A_FireProjectile("KDiZDGrenade",0,0,0,0);
+	  A_FireCustomMissile("KDiZDGrenade",0,0,0,0);
       // Reset
       A_SetAngle(angle+15);
 	 }
@@ -4334,16 +4334,16 @@ ACTOR KDiZDGrenadeLauncher : MarineWeapon 31410 // replaces PlasmaRifle
 	 if (CountInv("SpreaderAura1",AAPTR_PLAYER1) > 0)
 	 {
       A_SetAngle(angle+15);
-	  A_FireProjectile("KDiZDGrenade",0,0,0,0);
+	  A_FireCustomMissile("KDiZDGrenade",0,0,0,0);
       A_SetAngle(angle-15);
-	  A_FireProjectile("KDiZDGrenade",0,1,0,0);
+	  A_FireCustomMissile("KDiZDGrenade",0,1,0,0);
       A_SetAngle(angle-15);
-	  A_FireProjectile("KDiZDGrenade",0,0,0,0);
+	  A_FireCustomMissile("KDiZDGrenade",0,0,0,0);
       A_SetAngle(angle+15);
 	 }
 	 else
 	 {
-	  A_FireProjectile("KDiZDGrenade",0,1,0,0);
+	  A_FireCustomMissile("KDiZDGrenade",0,1,0,0);
 	 }
 	}
 	GLAG I 4
@@ -4352,7 +4352,7 @@ ACTOR KDiZDGrenadeLauncher : MarineWeapon 31410 // replaces PlasmaRifle
 	GLAG D 5
 	GLAG E 5 A_PlaySound("weapons/sshoto")
 	GLAG F 5
-	GLAG G 5 A_FireProjectile("GrnCaseSpawn",0,0,-4,-4)
+	GLAG G 5 A_FireCustomMissile("GrnCaseSpawn",0,0,-4,-4)
 	GLAG H 5 A_PlaySound("weapons/sshotl")
 	GLAG FE 5
 	GLAG D 5 A_PlaySound("weapons/sshotc")
@@ -4362,14 +4362,14 @@ ACTOR KDiZDGrenadeLauncher : MarineWeapon 31410 // replaces PlasmaRifle
   AltFire:
 	GLAG B 0 BRIGHT A_GunFlash
 	GLAG B 0 BRIGHT A_PlaySound("weapons/grenadefire")
-	GLAG B 4 BRIGHT A_FireProjectile("KDiZDGrenade2",0,1,0,0)
+	GLAG B 4 BRIGHT A_FireCustomMissile("KDiZDGrenade2",0,1,0,0)
 	GLAG I 4
 	GLAG A 0 A_CheckReload //I can't believe I forgot this.
 	GLAG C 7
 	GLAG D 5
 	GLAG E 5 A_PlaySound("weapons/sshoto")
 	GLAG F 5
-	GLAG G 5 A_FireProjectile("GrnCaseSpawn",0,0,-4,-4)
+	GLAG G 5 A_FireCustomMissile("GrnCaseSpawn",0,0,-4,-4)
 	GLAG H 5 A_PlaySound("weapons/sshotl")
 	GLAG FE 5
 	GLAG D 5 A_PlaySound("weapons/sshotc")
@@ -4564,7 +4564,7 @@ ACTOR EvilWarriorShield : KDIZDWeapon
 	}
 	Loop
   Fire:
-    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseManaAttack",4,2) == 0, "Ready")
+    TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("UseManaAttack",8,2) == 0, "Ready")
 	EWSP D 2 Bright
 	{
 	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10053) >= 5) { A_SetTics(1); }
@@ -4593,24 +4593,24 @@ ACTOR EvilWarriorShield : KDIZDWeapon
    	 ACS_NamedExecuteAlways("StartTensionCountDown");
 	 if (CountInv("SpreaderAura2",AAPTR_PLAYER1) > 0)
 	 {
-      A_FireProjectile("EvilWarriorShieldBall",15,0,0,3,0,0); // Left
-      A_FireProjectile("EvilWarriorShieldBall",7.5,0,0,3,0,7.5); // Left-Top
-      A_FireProjectile("EvilWarriorShieldBall",7.5,0,0,3,0,-7.5); // Left-Bottom
-      A_FireProjectile("EvilWarriorShieldBall",0,0,0,3,0,0); // Center
-      A_FireProjectile("EvilWarriorShieldBall",-7.5,0,0,3,0,-7.5); // Right-Bottom
-      A_FireProjectile("EvilWarriorShieldBall",-7.5,0,0,3,0,7.5); // Right-Top
-      A_FireProjectile("EvilWarriorShieldBall",-15,0,0,3,0,0); // Right
+      A_FireCustomMissile("EvilWarriorShieldBall",15,0,0,3,0,0); // Left
+      A_FireCustomMissile("EvilWarriorShieldBall",7.5,0,0,3,0,7.5); // Left-Top
+      A_FireCustomMissile("EvilWarriorShieldBall",7.5,0,0,3,0,-7.5); // Left-Bottom
+      A_FireCustomMissile("EvilWarriorShieldBall",0,0,0,3,0,0); // Center
+      A_FireCustomMissile("EvilWarriorShieldBall",-7.5,0,0,3,0,-7.5); // Right-Bottom
+      A_FireCustomMissile("EvilWarriorShieldBall",-7.5,0,0,3,0,7.5); // Right-Top
+      A_FireCustomMissile("EvilWarriorShieldBall",-15,0,0,3,0,0); // Right
 	 }
 	 else
 	 if (CountInv("SpreaderAura1",AAPTR_PLAYER1) > 0)
 	 {
-      A_FireProjectile("EvilWarriorShieldBall", 15, 0, 0, 3);
-      A_FireProjectile("EvilWarriorShieldBall",  0, 0, 0, 3);
-      A_FireProjectile("EvilWarriorShieldBall",-15, 0, 0, 3);
+      A_FireCustomMissile("EvilWarriorShieldBall", 15, 0, 0, 3);
+      A_FireCustomMissile("EvilWarriorShieldBall",  0, 0, 0, 3);
+      A_FireCustomMissile("EvilWarriorShieldBall",-15, 0, 0, 3);
 	 }
 	 else
 	 {
-      A_FireProjectile("EvilWarriorShieldBall", 0, 0, 0, 3);
+      A_FireCustomMissile("EvilWarriorShieldBall", 0, 0, 0, 3);
 	 }
      if (random(1,8) == 1) { A_AlertMonsters; }
 	 A_Recoil(0.5);

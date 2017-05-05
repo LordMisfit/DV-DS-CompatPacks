@@ -2124,7 +2124,7 @@ ACTOR ESoul // 29012
   mass 400
   speed 5
   damage 5
-bloodcolor "black"
+  bloodcolor "black"
   painchance 128
   renderstyle Add
   DropItem "Heart" 160  
@@ -4393,7 +4393,7 @@ ACTOR Pitchfork : Weapon // 30876
   AltFire:
     XUNG B 2
     XUNG C 0 A_PlayWeaponSound("DSSKESWG")
-    XUNG D 2 A_FireProjectile("Pitchfork_thrown",0,1,0,5)
+    XUNG D 2 A_FireCustomMissile("Pitchfork_thrown",0,1,0,5)
     XUNG D 0 A_TakeInventory("Pitchfork", 1)
     Goto Deselect+1
   Spawn:
