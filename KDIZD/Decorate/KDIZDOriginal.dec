@@ -922,6 +922,17 @@ ACTOR HellWarrior 3119
    } 
 }
 
+actor DeadHellWarrior : DeadMarine 25220
+{
+  //$Category Decoration
+  States 
+  {
+   Spawn:  
+    HWAR T -1 
+    Stop 
+  } 
+}
+
 actor HellWarriorBall
 {
     Radius 6
@@ -2905,6 +2916,7 @@ ACTOR Portal2
 	{
 	Spawn: 
 		PORT ABCDEF 4 Bright
+
 		PORT GHIJ 4 Bright 
   		TNT1 A 0 Bright A_MissileAttack
 		PORT KLMN 4 Bright 
@@ -2925,26 +2937,7 @@ ACTOR Portal2
   		TNT1 A 0 Bright A_MissileAttack
 		PORT KLMN 4 Bright 
   		PORT T 4 Bright A_MissileAttack
-		PORT GHIJ 4 Bright 
-  		TNT1 A 0 Bright A_MissileAttack
-		PORT KLMN 4 Bright 
-  		PORT T 4 Bright A_MissileAttack
-		PORT GHIJ 4 Bright 
-  		TNT1 A 0 Bright A_MissileAttack
-		PORT KLMN 4 Bright 
-  		PORT T 4 Bright A_MissileAttack
-		PORT GHIJ 4 Bright 
-  		TNT1 A 0 Bright A_MissileAttack
-		PORT KLMN 4 Bright 
-  		PORT T 4 Bright A_MissileAttack
-		PORT GHIJ 4 Bright 
-  		TNT1 A 0 Bright A_MissileAttack
-		PORT KLMN 4 Bright 
-  		PORT T 4 Bright A_MissileAttack
-		PORT GHIJ 4 Bright 
-  		TNT1 A 0 Bright A_MissileAttack
-		PORT KLMN 4 Bright 
-  		PORT T 4 Bright A_MissileAttack
+
 		Goto Death
 	Death:	
 		PORT GOPQRS 4
@@ -4598,17 +4591,19 @@ actor EWShieldDefendModeExtra : HWShieldDefense { damagefactor "normal", 0.0268 
 
 // EVIL WARRIOR'S SHIELD
 
-ACTOR EvilWarriorShield : KDIZDWeapon
+ACTOR EvilWarriorShield : KDIZDWeapon 25221
 {
-  Radius 8
-  Height 8
+  //$Category DV-DS KDIZD Weapons
+  //$Sprite "EWSHF0"
+  Radius 16
+  Height 16
   Speed 6
   Weapon.SlotNumber 9
   Weapon.SlotPriority 0.5
   Weapon.BobSpeed 2.0
   Weapon.BobStyle Alpha
   Weapon.KickBack 0
-  //Weapon.UpSound "weapons/evilwarriorshield/up"
+  Tag "Hell Warrior's Shield: Shoots Hell Warrior Shieldballs and protects the player when equipped and alt-fired."
   Inventory.PickupMessage "You got the Hell Warrior's Shield!"
   Obituary "%o was ripped apart by %k's Shield."
   BounceType Doom
@@ -4738,9 +4733,10 @@ ACTOR EvilWarriorShield : KDIZDWeapon
   Fire:
     TNT1 A 0
 	{
-	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10053) >= 5) { if (ACS_NamedExecuteWithResult("UseManaAttack",6,2) == 0) { return state("Ready"); } }
-	 else if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10053) >= 3) { if (ACS_NamedExecuteWithResult("UseManaAttack",7,2) == 0) { return state("Ready"); } }
-	 else if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10053) >= 1) { if (ACS_NamedExecuteWithResult("UseManaAttack",8,2) == 0) { return state("Ready"); } }
+	 if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10053) >= 5) { if (ACS_NamedExecuteWithResult("UseManaAttack",5,2) == 0) { return state("Ready"); } }
+	 else if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10053) >= 3) { if (ACS_NamedExecuteWithResult("UseManaAttack",6,2) == 0) { return state("Ready"); } }
+	 else if (ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10053) >= 1) { if (ACS_NamedExecuteWithResult("UseManaAttack",7,2) == 0) { return state("Ready"); } }
+	 else { if (ACS_NamedExecuteWithResult("UseManaAttack",8,2) == 0) { return state("Ready"); } }
 	 return state("");
 	}
 	EWSP D 0
