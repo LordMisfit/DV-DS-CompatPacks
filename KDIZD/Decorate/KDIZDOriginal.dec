@@ -3714,6 +3714,31 @@ pickup TwiceRisenLaserRifle
 
 /////////////////////////////
 //
+/// Aetherius Extras for Z1M10
+//
+/////////////////////////////
+
+actor CypressPot : FakeInventory 6007
+{
+ //$Category DV-DS KDIZD Unique
+ scale 0.334
+ radius 20
+ height 16
+ +FLOATBOB
+ +DONTGIB
+ Inventory.PickupMessage "You found a \cdpot lid\c- and a \cdcypress stick\c-."
+ Inventory.PickupSound "misc/i_pkup"
+ States 
+ {
+  Spawn:
+   CSPL B 4
+   CSPL B 4 bright
+   loop
+ } 
+}
+   
+/////////////////////////////
+//
 /// Bio's E1M9
 //
 /////////////////////////////
