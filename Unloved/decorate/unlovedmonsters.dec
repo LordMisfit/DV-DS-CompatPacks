@@ -3538,7 +3538,8 @@ actor UnlovedDecoy replaces BossBrain
     TNT1 A 0 A_JumpIfInventory("DeggarisInPlay",1,"Class1",AAPTR_PLAYER1)
     TNT1 A 0 A_JumpIfInventory("IlluciaInPlay",1,"Class2",AAPTR_PLAYER1)
     TNT1 A 0 A_JumpIfInventory("FloraInPlay",1,"Class3",AAPTR_PLAYER1)	
-    loop
+    TNT1 A 0 A_JumpIfInventory("AilishInPlay",1,"Class4",AAPTR_PLAYER1)	
+    TNT1 A 0 A_JumpIfInventory("PetraInPlay",1,"Class5",AAPTR_PLAYER1)	
   Class1:
     SENA A 1 A_SetScale(1.0)
     SENA A -1
@@ -3550,6 +3551,14 @@ actor UnlovedDecoy replaces BossBrain
   Class3:
     NERA A 1 A_SetScale(0.34512)
     NERA A -1
+    loop
+  Class4:
+    NERA A 1 A_SetScale(0.34512)
+    NERA A -1
+    loop
+  Class5:
+    PETR A 1 A_SetScale(0.26,0.208)
+    PETR A -1
     loop
  }
 }
