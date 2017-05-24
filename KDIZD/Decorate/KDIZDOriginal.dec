@@ -587,7 +587,7 @@ ACTOR HellsFuryBall : BaronBall
     RenderStyle "ADD"
     Decal BaronScorch
 }
--
+
 ACTOR HellsFurySkull
 {
 	Radius 5
