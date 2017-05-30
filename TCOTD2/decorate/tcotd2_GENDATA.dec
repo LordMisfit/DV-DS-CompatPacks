@@ -3748,6 +3748,9 @@ actor burntcorpse
 
 actor VulgarClaySpawner : RandomSpawner 30127
 {   
+  //$Angled
+  //$Color 12
+  //$Category "TCOTD:A Monsters/Special"
   DropItem "Vulgar", 256, 7
   DropItem "ClayDevil", 256, 2
 
