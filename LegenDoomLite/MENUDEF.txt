@@ -63,9 +63,10 @@ OptionMenu "LegenDoomLite"
 	StaticText 	""
 	TextField 	"Delay to Reroll [seconds]", "LD_restartdelayseconds"
 	StaticText 	""
-	StaticText 	"Access to other compatible menus through here", 1
-	SubMenu "Yholl Mod Options",		"YhollMods"
-	SubMenu "Other Mod Options",		"OtherMods"
+	Command "Restore Default Settings", 			"LD_defaults"
+//	StaticText 	"Access to other compatible menus through here", 1
+//	SubMenu "Yholl Mod Options",		"YhollMods"
+//	SubMenu "Other Mod Options",		"OtherMods"
 }
 
 OptionMenu "YhollMods"
