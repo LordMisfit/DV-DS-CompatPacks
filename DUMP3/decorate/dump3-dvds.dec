@@ -17,9 +17,9 @@ ACTOR AdolfHitlerDS : AdolfHitler replaces AdolfHitler
  PainSound "Hitler/Shout"
  AttackSound "Hitler/Attack"
  Obituary "%o was killed by Adolf Hitler."
- HitObituary "%o was Killed by Adold Hitler."
+ HitObituary "%o was Killed by Adolf Hitler."
   
- DamageFactor "Crush", 16
+ DamageFactor "Crush", 8
  Painchance 200
  Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy

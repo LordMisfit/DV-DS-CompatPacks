@@ -17,6 +17,7 @@ ACTOR ApprenticeNew : ApprenticeofDsparil replaces ApprenticeofDsparil 30000
   Health 1250
   DamageFactor "Normal", 0.5
   DamageFactor "Magic", 0.5
+  DamageFactor "Crush", 4.8
   OBITUARY "%o was spooked by an Apprentice of Darkmoon."
 
   PainChance 100
@@ -291,6 +292,7 @@ ACTOR MiniSpiderNew : MiniSpider replaces MiniSpider 22290
   var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
   health 38 // 15
   Speed 15
+  DamageFactor "Crush", 24
   
   States
   {
@@ -415,6 +417,7 @@ ACTOR LargeSpiderNew : LargeSpider replaces LargeSpider 22291
   var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
   Health 525 // 150
   DamageFactor "Normal", 0.75
+  DamageFactor "Crush", 24
   Speed 15
   MeleeRange 66
 
@@ -607,6 +610,7 @@ ACTOR TommyGunCultistNew : ShotgunCultist replaces ShotgunCultist 29011
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
+  DamageFactor "Crush", 8
   obituary "%o was made hole-y by a Fanatic"
 
   states
@@ -774,6 +778,7 @@ ACTOR ShotgunCultistNew : TommyGunCultistNew replaces ChainGunCultist 29010
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
+  DamageFactor "Crush", 8
   Translation "80:111=48:79" // "80:111=48:79"
   
   states
@@ -954,6 +959,7 @@ ACTOR HellHoundNew : HotDog replaces HotDog 30121
   var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved; var int user_extraevolvechance; var int user_extrastealthchance;
   var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
   var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
+  DamageFactor "Crush", 6.4
 
   PainChance 128
   Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
@@ -1183,6 +1189,7 @@ ACTOR ThrallNew : Thrall replaces Thrall 30119
   var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
   health 125 // 40,60,80,100,125
   DamageFactor "Magic", 0.75
+  DamageFactor "Crush", 8
   
   PainChance 200
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
@@ -1339,6 +1346,7 @@ ACTOR NightmareNew : KDiZDNightmare replaces KDiZDNightmare 26000
   Painchance "Fist", 216 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 216 // Fist attacks have a +50% chance of stunning an enemy
+  DamageFactor "Crush", 0
   Radius 20
   Height 56
   Speed 15
@@ -1464,6 +1472,7 @@ ACTOR SirenNightmareNew : NightmareNew replaces SirenNightmare 31111
   Painchance "Gauntlets", 72 // Fist attacks have a +50% chance of stunning an enemy
   DamageFactor "Normal", 0.2
   DamageFactor "Holy", 5
+  DamageFactor "Crush", 0
   Radius 12 // 10
   Height 36 // 30
   Speed 30
@@ -1645,6 +1654,7 @@ actor VulgarNew : Vulgar replaces Vulgar
   Painchance "Fist", 180 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 180 // Fist attacks have a +50% chance of stunning an enemy
+  DamageFactor "Crush", 6.4
 
   obituary "%o was poisoned by a vulgar."
   hitobituary "A Vulgar had %o for lunch."
@@ -1812,6 +1822,7 @@ Actor ClayDevilNew : ClayDevil replaces ClayDevil
   DamageFactor "Shock", 0.67
   DamageFactor "Lightning", 0.67
   DamageFactor "Electric", 0.67
+  DamageFactor "Crush", 1
   +NOTARGETSWITCH
   +AVOIDMELEE
   +NOTARGET
@@ -2049,6 +2060,7 @@ ACTOR ShadowNew : Shadow replaces Shadow 3126
   var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
   OBITUARY "%o was assassinated by a shadow."
   Health 675
+  DamageFactor "Crush", 6.4
 
   PainChance 128
   Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
@@ -2277,6 +2289,7 @@ ACTOR SoulHarvesterNew : SoulHarvester replaces SoulHarvester 3117
   Painchance "Fist", 180 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 180 // Fist attacks have a +50% chance of stunning an enemy
+  DamageFactor "Crush", 6.4
 
   states
   {
@@ -2418,6 +2431,7 @@ ACTOR ESoulNew 29012 // : ESoul replaces ESoul 29012
 
   DamageFactor "Holy", 1.75
   DamageFactor "Dark", 0.4
+  DamageFactor "Crush", 0
   
   Painchance 128
   Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
@@ -2563,6 +2577,7 @@ ACTOR DEWraithNew : DEWraith replaces DEWraith 30106
   Height 32 
   Health 80 // 50
   DamageFactor "Holy", 1.75
+  DamageFactor "Crush", 0
 
   PainChance 64 
   Painchance "Fist", 96 // Fist attacks have a +50% chance of stunning an enemy
@@ -2801,6 +2816,7 @@ ACTOR ButcherZombieNew : Fatty replaces Fatty 25010
   DamageFactor "Melee", 0.80
   DamageFactor "Fire", 2.25
   DamageFactor "Holy", 1.625
+  DamageFactor "Crush", 3.2
   
   painchance 98
   Painchance "Fist", 147 // Fist attacks have a +50% chance of stunning an enemy
@@ -3109,6 +3125,7 @@ actor BloodZombieNew : ZombieBlood replaces ZombieBlood 31002
   DamageFactor "Normal", 0.75
   DamageFactor "Fire", 2
   DamageFactor "Holy", 1.5
+  DamageFactor "Crush", 6.4
 
   painchance 20
   Painchance "Fist", 30 // Fist attacks have a +50% chance of stunning an enemy
@@ -3370,6 +3387,7 @@ ACTOR ThamuzNew : Thamuz replaces Thamuz 7228
   Scale 1.1
   Health 32000
   DamageFactor "Normal", 0.375
+  DamageFactor "Crush", 0.5
   Mass 40000
   OBITUARY "%o fell before the might of Thamuz, the Dark God."
 
@@ -3628,6 +3646,7 @@ Actor TchernobogNew : ThamuzNew replaces Tchernobog 7258
   Height 110
   Health 21333
   DamageFactor "Normal", 0.25
+  DamageFactor "Crush", 0.5
   Mass 80000
   OBITUARY "%o fell before the might of The One That Binds."
   Bloodcolor "aa 00 00"

@@ -3,6 +3,7 @@ actor MummyNew : Mummy replaces MummyDude 1337
  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved; var int user_extraevolvechance; var int user_extrastealthchance;
  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
+ DamageFactor "Crush", 8
 
  Painchance 128
  Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
@@ -117,6 +118,7 @@ actor MummyLeaderNew : MummyLeader replaces MummyLeaderMan 1338
  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved; var int user_extraevolvechance; var int user_extrastealthchance;
  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
+ DamageFactor "Crush", 8
 
  Painchance 64
  Painchance "Fist", 96 // Fist attacks have a +50% chance of stunning an enemy
@@ -319,6 +321,7 @@ actor VulgarNew : Vulgar replaces Vulgar 30127
   Painchance "Fist", 180 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 180 // Fist attacks have a +50% chance of stunning an enemy
+  DamageFactor "Crush", 6.4
 
   obituary "%o was poisoned by a vulgar."
   hitobituary "A Vulgar had %o for lunch."
@@ -461,6 +464,7 @@ ACTOR SoulHarvesterNew : SoulHarvester replaces SoulHarvester 3117
   Painchance "Fist", 180 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 180 // Fist attacks have a +50% chance of stunning an enemy
+  DamageFactor "Crush", 6.4
 
   states
   {
@@ -600,6 +604,8 @@ actor ImpWarlordNew : ImpWarlord replaces ImpWarlord 3105
   Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
+  DamageFactor "Crush", 6.4
+
   MONSTER 
   +FLOORCLIP
   SeeSound "imp/sight"
@@ -931,6 +937,7 @@ actor BatFamiliarNew : BatFamiliar replaces BatFamiliar 3107
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
+  DamageFactor "Crush", 25.6
   MONSTER 
   +NOGRAVITY
   +FLOAT
@@ -1057,6 +1064,7 @@ actor DragonFamiliarNew : DragonFamiliar replaces DragonFamiliar 3106
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
+  DamageFactor "Crush", 25.6
   MONSTER 
   +NOGRAVITY
   +FLOAT
@@ -1177,6 +1185,7 @@ ACTOR ChainsawZombieNew : ChainsawZombie replaces ChainsawZombie 32064
   Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Kick", 125 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
+  DamageFactor "Crush", 8
   MONSTER 
   +FLOORCLIP 
   Obituary "%o was sliced by a madman zombie with a chainsaw!" 
@@ -1324,6 +1333,7 @@ ACTOR BloodFiendNew : BloodFiend replaces BloodFiend 30100
   Painchance "Fist", 210 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 210 // Fist attacks have a +50% chance of stunning an enemy
+  DamageFactor "Crush", 5.6
   Speed 12 
   Radius 30 
   Height 56 
@@ -1482,6 +1492,7 @@ ACTOR LurkerNew : BloodFiendNew replaces Lurker 30101
   HitObituary "%o didn't see the lurker right in front of %h."
   DropItem BloodAmmo
   ALPHA 0.25
+  DamageFactor "Crush", 5.6
 }
 
 ACTOR LordofHeresyNew : LordofHeresy replaces LordofHeresy 3121
@@ -1498,6 +1509,7 @@ ACTOR LordofHeresyNew : LordofHeresy replaces LordofHeresy 3121
   Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Kick", 125 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
+  DamageFactor "Crush", 3.6
   BloodColor "7D 9D 59"
   Mass 1000
   MONSTER 
@@ -1680,6 +1692,7 @@ actor SatyrNew : Satyr replaces Satyr 3109
   Painchance "Fist", 75 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Kick", 125 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 75 // Fist attacks have a +50% chance of stunning an enemy
+  DamageFactor "Crush", 5.6
   Mass 350
   MONSTER 
   +FLOORCLIP
@@ -1844,6 +1857,7 @@ ACTOR ShadowNew : Shadow replaces Shadow 3126
   RenderStyle "Translucent"
   Alpha 0.7
   Speed 8
+  DamageFactor "Crush", 6.4
   PainChance 200
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
@@ -2077,6 +2091,7 @@ ACTOR CultistNew : Cultist replaces Cultist 30119
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
+  DamageFactor "Crush", 8
   DropItem Fire
   Scale 0.90
   Speed 8 
@@ -2241,6 +2256,7 @@ ACTOR UnlovedAcolyteNew : AcolyteDude replaces AcolyteDude 30118
   Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
+  DamageFactor "Crush", 8
   DropItem BloodAmmo
   Speed 8
   Scale 0.90
@@ -2389,6 +2405,7 @@ ACTOR UnlovedDiscipleNew : Disciple replaces Disciple 30117
   Painchance "Fist", 210 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 210 // Fist attacks have a +50% chance of stunning an enemy
+  DamageFactor "Crush", 6.4
   DropItem BoneAmmo
   Speed 8
   Scale 0.90
@@ -2626,6 +2643,7 @@ actor UnlovedApprenticeNew : ApprenticeofDsparil replaces ApprenticeofDsparil 30
   Health 500
   DamageFactor "Normal", 0.8
   DamageFactor "Magic", 0.8
+  DamageFactor "Crush", 6.4
   Radius 20
   Height 56
   Speed 8
@@ -2872,6 +2890,7 @@ ACTOR WickedNew : Wicked replaces Wicked 30133
   Painchance "Fist", 168 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 168 // Fist attacks have a +50% chance of stunning an enemy
+  DamageFactor "Crush", 7.2
   MONSTER 
   +NOGRAVITY 
   +FLOAT
@@ -3026,6 +3045,7 @@ ACTOR AvatarNew : Avatar replaces Avatar 30125
   Painchance "Fist", 15 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Kick", 25 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 15 // Fist attacks have a +50% chance of stunning an enemy
+  DamageFactor "Crush", 1
   Speed 15 
   Radius 30 
   Height 96 
@@ -3272,6 +3292,7 @@ ACTOR ThamuzNew : Thamuz replaces Thamuz 7228
   Scale 1.1
   Health 32000
   DamageFactor "Normal", 0.375
+  DamageFactor "Crush", 0.5
   Mass 40000
   OBITUARY "%o fell before the might of Thamuz, the Dark God."
 
@@ -3528,7 +3549,8 @@ actor UnlovedDecoy replaces BossBrain
  Radius 56
  Alpha 1
  Health 32000
- DamageFactor "Normal", 0.375
+ DamageFactor "Normal", 0.0
+ RadiusDamageFactor 0.0
  Mass 10000000
  +SOLID
  States
