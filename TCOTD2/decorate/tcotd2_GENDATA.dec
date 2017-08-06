@@ -4363,7 +4363,7 @@ actor NewFist : Weapon
   }
 }
 
-ACTOR Pitchfork : Weapon // 30876
+ACTOR Pitchfork : QuickMeleeWeapon // 30876
 {
  obituary "%o was perforated by %k's pitchfork."
  weapon.selectionorder 3700
@@ -4388,7 +4388,7 @@ ACTOR Pitchfork : Weapon // 30876
   Fire:
    	FORK BC 1
 	FORK D 2
-	FORK E 4 A_CustomPunch (48,1,0,"ForkPuff",80)
+	FORK E 4 A_SpreadAuraCustomPunch(48,1,0,"ForkPuff",80,0,0,"","","")
 	FORK DCB 1
    	FORK A 3
    	FORK A 1 A_ReFire

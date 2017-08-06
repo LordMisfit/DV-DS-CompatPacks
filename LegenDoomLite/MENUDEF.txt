@@ -7,17 +7,17 @@ AddOptionMenu "DVDSOptions"
 
 OptionValue "LegendaryChanceType"
 {
-	0, "No Extra Chance"
-	1, "Some Guys I Guess"
-	2, "A Few More"
-	3, "Moderate Amounts"
-	4, "Danger Increasing"
-	5, "Deadly Swarm"
-	6, "Please Stop"
-	7, "Seriously, Stop"
-	8, "Oh God No"
-	9, "WHY"
-	10, "THIS IS YOUR FAULT"
+	0, "No Extra Chance [0]"
+	1, "Some Guys I Guess [1]"
+	2, "A Few More [2]"
+	3, "Moderate Amounts [3]"
+	4, "Danger Increasing [4]"
+	5, "Deadly Swarm [5]"
+	6, "Please Stop [6]"
+	7, "Seriously, Stop [7]"
+	8, "Oh God No [8]"
+	9, "WHY [9]"
+	10, "THIS IS YOUR FAULT [MAX]"
 }
 
 OptionValue "DieModeType"
@@ -69,6 +69,7 @@ OptionMenu "LegenDoomLite"
 //	SubMenu "Other Mod Options",		"OtherMods"
 }
 
+/*
 OptionMenu "YhollMods"
 {
 	Title "All Mod menus"
@@ -80,3 +81,4 @@ OptionMenu "OtherMods"
 	Title "All other compatible Mod menus"
 	SubMenu "Colourful Hell",		"Colourful Hell"
 }
+*/
