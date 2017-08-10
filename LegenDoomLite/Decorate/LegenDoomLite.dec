@@ -330,7 +330,7 @@ actor LDLegendaryMonsterVisualEffect1 : LDVisualIcon
     Spawn:
 	    "####" "#" 0 Bright
 	    "####" "#" 0 Bright A_FadeTo (alpha * 0.5, 1, 0)
-	    "####" "#" 0 Bright ThrustThingZ (0, 0.5, 0, 0)
+	    "####" "#" 0 Bright ThrustThingZ (0, 1, 0, 0)
 	    "####" "#" 0 A_Jump (256, "SpawnLoop")
         Goto SpawnLoop
     SpawnLoop:
