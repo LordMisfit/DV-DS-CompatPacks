@@ -4003,51 +4003,7 @@ ACTOR KDiZDGrenadeLauncher : MarineWeapon 31410 // replaces PlasmaRifle
 	GLAG B 4 BRIGHT
 	{
      ACS_NamedExecuteAlways("StartTensionCountDown");
-	 if (CountInv("SpreaderAura2",AAPTR_PLAYER1) > 0)
-	 {
-      // Angle + 15, Pitch + 0
-      A_SetAngle(angle+15);
-	  A_FireCustomMissile("KDiZDGrenade",0,0,0,0);
-      // Angle + 7.5, Pitch + 7.5
-      A_SetAngle(angle-7.5);
-      A_SetPitch(pitch+7.5);
-	  A_FireCustomMissile("KDiZDGrenade",0,0,0,0);
-      // Angle + 7.5, Pitch - 7.5
-      A_SetPitch(pitch-15);
-	  A_FireCustomMissile("KDiZDGrenade",0,0,0,0);
-      // Angle + 0, Pitch + 0
-      A_SetPitch(pitch+7.5);
-      A_SetAngle(angle-7.5);
-	  A_FireCustomMissile("KDiZDGrenade",0,1,0,0);
-      // Angle - 7.5, Pitch - 7.5
-      A_SetAngle(angle-7.5);
-      A_SetPitch(pitch-7.5);
-	  A_FireCustomMissile("KDiZDGrenade",0,0,0,0);
-      // Angle - 7.5, Pitch + 7.5
-      A_SetPitch(pitch+15);
-	  A_FireCustomMissile("KDiZDGrenade",0,0,0,0);
-      // Angle - 15, Pitch + 0
-      A_SetPitch(pitch-7.5);
-      A_SetAngle(angle-7.5);
-	  A_FireCustomMissile("KDiZDGrenade",0,0,0,0);
-      // Reset
-      A_SetAngle(angle+15);
-	 }
-	 else
-	 if (CountInv("SpreaderAura1",AAPTR_PLAYER1) > 0)
-	 {
-      A_SetAngle(angle+15);
-	  A_FireCustomMissile("KDiZDGrenade",0,0,0,0);
-      A_SetAngle(angle-15);
-	  A_FireCustomMissile("KDiZDGrenade",0,1,0,0);
-      A_SetAngle(angle-15);
-	  A_FireCustomMissile("KDiZDGrenade",0,0,0,0);
-      A_SetAngle(angle+15);
-	 }
-	 else
-	 {
-	  A_FireCustomMissile("KDiZDGrenade",0,1,0,0);
-	 }
+     A_SpreadAuraFireProjectileAoE("KDiZDGrenade","KDiZDGrenadeNoAOE",0,1,"RocketAmmo",0,0,0,0);
 	}
 	GLAG I 4
 	GLAG A 0 A_CheckReload //I can't believe I forgot this.
@@ -4065,7 +4021,11 @@ ACTOR KDiZDGrenadeLauncher : MarineWeapon 31410 // replaces PlasmaRifle
   AltFire:
 	GLAG B 0 BRIGHT A_GunFlash
 	GLAG B 0 BRIGHT A_PlaySound("weapons/grenadefire")
-	GLAG B 4 BRIGHT A_FireCustomMissile("KDiZDGrenade2",0,1,0,0)
+	GLAG B 4 BRIGHT 
+	{
+     ACS_NamedExecuteAlways("StartTensionCountDown");
+     A_SpreadAuraFireProjectileAoE("KDiZDGrenade2","KDiZDGrenade2NoAOE",0,1,"RocketAmmo",0,0,0,0);
+    }
 	GLAG I 4
 	GLAG A 0 A_CheckReload //I can't believe I forgot this.
 	GLAG C 7
@@ -4170,6 +4130,24 @@ ACTOR KDiZDGrenade // replaces PlasmaBall
 	}
 }
 
+ACTOR KDiZDGrenadeNoAOE : KDiZDGrenade // replaces PlasmaBall
+{
+	States
+	{
+	Spawn:
+		GRND A 1
+		GRND A 0 ThrustThingZ(0, 8, 0, 0)
+		GRND A 1 A_CustomMissile("GrenadePuff", 3, 0, 0, 1)
+		Wait
+	Death:
+		MISL B 0 BRIGHT A_NoGravity
+		MISL B 0 BRIGHT A_SetTranslucent(0.5,1)
+		MISL B 8 BRIGHT A_Explode(256,160,0)
+		MISL C 6 BRIGHT
+		MISL D 4 BRIGHT
+		Stop
+	}
+}
 ACTOR KDiZDGrenade2
 {
 	Radius 11
@@ -4195,6 +4173,23 @@ ACTOR KDiZDGrenade2
 		MISL B 0 BRIGHT A_NoGravity
 		MISL B 0 BRIGHT A_SetTranslucent(0.5,1)
 		MISL B 8 BRIGHT A_Explode(256,160,1)
+		MISL C 6 BRIGHT
+		MISL D 4 BRIGHT
+		Stop
+	}
+}
+ACTOR KDiZDGrenade2NoAOE : KDiZDGrenade2
+{
+	States
+	{
+	Spawn:
+		GRND A 0 A_CountDown
+		GRND A 1 A_CustomMissile("GrenadePuff", 3, 0, 0, 1)
+		Loop
+	Death:
+		MISL B 0 BRIGHT A_NoGravity
+		MISL B 0 BRIGHT A_SetTranslucent(0.5,1)
+		MISL B 8 BRIGHT A_Explode(256,160,0)
 		MISL C 6 BRIGHT
 		MISL D 4 BRIGHT
 		Stop
