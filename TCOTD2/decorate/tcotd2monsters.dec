@@ -3523,7 +3523,6 @@ ACTOR ThamuzNew : AetheriusBaseZSC 7228
   Health 32000
   Mass 40000
   Scale 1.1
-  Bloodcolor "00 aa 00"
   MinMissileChance 5
   painchance 35
   Painchance "Fist", 52 // Fist attacks have a +50% chance of stunning an enemy

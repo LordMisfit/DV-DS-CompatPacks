@@ -107,7 +107,6 @@ ACTOR MummyDude // 1337
 {
   //$Color 12
   //$Category "Unloved Monsters"
-  SpawnID 4
   Health 80
   Radius 22
   Height 62
@@ -1508,7 +1507,7 @@ MONSTER
 +DONTHURTSPECIES
 +FLOAT
 +NOGRAVITY
-Obituary "%o was smoten by an Discple."
+Obituary "%o was smoten by an Disciple."
 SeeSound "monster/dissit" 
 PainSound "monster/dispai" 
 DeathSound "monster/disdth" 
@@ -2190,7 +2189,7 @@ SeeSound "monster/avasit"
 PainSound "monster/avapai" 
 DeathSound "monster/avadth" 
 ActiveSound "monster/avaact"
-SpawnID 170
+//SpawnID 170
 States 
    { 
    Spawn: 

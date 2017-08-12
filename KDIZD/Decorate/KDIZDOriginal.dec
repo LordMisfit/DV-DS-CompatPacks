@@ -30,12 +30,10 @@ ACTOR BloodDemonClone : RandomSpawner { DropItem BloodDemon 255 }
 ACTOR RocketGuySpawner : RandomSpawner 3202 { Dropitem RocketLauncherGuy 255 }
 ACTOR BruiserDemonSpawner : RandomSpawner 3333 { DropItem BruiserDemon 255 }
 ACTOR ChainsawZombie : RandomSpawner 3204 { DropItem ChainsawZombieNew 255 }
-ACTOR ChainsawZombieNew 3204
+ACTOR ChainsawZombieNew : AetheriusBaseZSC 3204
 { 
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved; var int user_extraevolvechance; var int user_extrastealthchance;
-  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
-
+  //$Angled
+  //$Color 12
   //$Category "KDIZD Monsters"
   Health 50 
   Radius 20 
@@ -56,6 +54,7 @@ ACTOR ChainsawZombieNew 3204
   DeathSound "grunt/death" 
   ActiveSound "grunt/active" 
   DropItem Chainsaw 8 // 64
+
   States 
   { 
   Pain.Charm: TNT1 A 0 { A_PlaySound("Munchies/Charmed"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See  Pain.Heal1: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,0); } Goto See  Pain.Heal2: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,1); } Goto See  Pain.Heal3: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,2); } Goto See  Pain.Heal4: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,3); } Goto See Goto See
@@ -191,6 +190,9 @@ ACTOR ChainsawZombieNew 3204
 
 ACTOR KDIZDChaingunner : DSChaingunGuy replaces DSChaingunGuy
 {
+  //$Angled
+  //$Color 12
+  //$Category "KDIZD Monsters"
   Decal BulletChip
   States
   {
@@ -219,12 +221,10 @@ ACTOR KDIZDChaingunner : DSChaingunGuy replaces DSChaingunGuy
   } 
 }
 
-actor DemonCube 26001
+actor DemonCube : AetheriusBaseZSC 26001
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved; var int user_extraevolvechance; var int user_extrastealthchance;
-  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
-
+  //$Angled
+  //$Color 12
   //$Category "KDIZD Monsters"
   Health 50
   Radius 20
@@ -417,12 +417,10 @@ actor Ball1Trail
  }
 }
 
-ACTOR HellsFury 3127
+ACTOR HellsFury : AetheriusMonsterZSC 3127
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved; var int user_extraevolvechance; var int user_extrastealthchance;
-  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
-  var int user_random1;
+  //$Angled
+  //$Color 12
   //$Category "KDIZD Monsters"
   Health 1000
   Radius 24
@@ -610,12 +608,10 @@ ACTOR HellsFurySkull
 	}
 } 	 
 
-ACTOR MaulerDemon 3123
+ACTOR MaulerDemon : AetheriusMonsterZSC 3123
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved; var int user_extraevolvechance; var int user_extrastealthchance;
-  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
-
+  //$Angled
+  //$Color 12
   //$Category "KDIZD Monsters"
   Health 150 
   PainChance 180 
@@ -773,14 +769,11 @@ ACTOR MaulerDemon 3123
 } 
 
 ACTOR KDiZDNightmare : RandomSpawner { DropItem NightmareNew 255 }
-ACTOR NightmareNew 26000
+ACTOR NightmareNew : AetheriusMonsterZSC 26000
 {
   //$Angled
   //$Color 12
   //$Category "KDIZD Monsters"
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved; var int user_extraevolvechance; var int user_extrastealthchance;
-  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
   health 100 // 100
   PainChance 144
   Painchance "Fist", 216 // Fist attacks have a +50% chance of stunning an enemy
@@ -923,17 +916,11 @@ ACTOR NightmareWisp
 	}
 }
 
-ACTOR RapidFireTrooper 3201
+ACTOR RapidFireTrooper : AetheriusMonsterZSC 3201
 {
   //$Angled
   //$Color 12
   //$Category "KDIZD Monsters"
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved; var int user_extraevolvechance; var int user_extrastealthchance;
-  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
-  var int user_shotsfired; var int user_shotsfiredmax;
-  var float user_shotaccuracy; var float user_shotaccuracy1; var float user_shotaccuracy2;
-  var float user_shotzaccuracy; var float user_shotzaccuracy1; var float user_shotzaccuracy2;
   Health 30
   Radius 20
   Height 56
@@ -1104,14 +1091,11 @@ ACTOR RapidFireTrooper 3201
   } 
 } 
 
-ACTOR RifleZombie 31657
+ACTOR RifleZombie : AetheriusMonsterZSC 31657
 {
   //$Angled
   //$Color 12
   //$Category "KDIZD Monsters"
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved; var int user_extraevolvechance; var int user_extrastealthchance;
-  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
   Health 40
   Speed 8
   Radius 20
@@ -1283,13 +1267,11 @@ ACTOR ZombieRifleBulletTracer : FastProjectile
 }
 
 ACTOR Satyr : RandomSpawner { DropItem SatyrNew 255 }
-actor SatyrNew 3109
+actor SatyrNew : AetheriusMonsterZSC 3109
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved; var int user_extraevolvechance; var int user_extrastealthchance;
-  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
-
-  //$Category "ZDoom Monster pack"
+  //$Angled
+  //$Color 12
+  //$Category "KDIZD Monsters"
   Health 400
   Radius 18
   Height 48
@@ -1310,6 +1292,7 @@ actor SatyrNew 3109
   MeleeSound "baron/melee"
   HitObituary "%o was mauled by a satyr."
   MeleeDamage 8
+
   States
   {
   Pain.Charm: TNT1 A 0 { A_PlaySound("Munchies/Charmed"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See  Pain.Heal1: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,0); } Goto See  Pain.Heal2: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,1); } Goto See  Pain.Heal3: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,2); } Goto See  Pain.Heal4: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,3); } Goto See Goto See
@@ -1457,13 +1440,11 @@ actor SatyrNew 3109
 }
 
 ACTOR Shadow : RandomSpawner { DropItem ShadowNew 255 }
-ACTOR ShadowNew 3126
+ACTOR ShadowNew : AetheriusBaseZSC 3126
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved; var int user_extraevolvechance; var int user_extrastealthchance;
-  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
-
-  //$Category "ZDoom Monster pack"
+  //$Angled
+  //$Color 12
+  //$Category "KDIZD Monsters"
   Health 80
   Radius 20
   Height 56
@@ -1825,21 +1806,18 @@ ACTOR ShadowGhostD : ShadowGhostA
 }
 
 ACTOR SoulHarvester : RandomSpawner { DropItem SoulHarvesterNew 255 }
-actor SoulHarvesterNew 3117
+actor SoulHarvesterNew : AetheriusBaseZSC 3117
 {
   //$Angled
   //$Color 12
-  //$Category "ZDoom Monster pack"
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved; var int user_extraevolvechance; var int user_extrastealthchance;
-  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
+  //$Category "KDIZD Monsters"
+
   Health 175 // 120
   PainChance 160
   Painchance "Fist", 240 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 240 // Fist attacks have a +50% chance of stunning an enemy
   DamageFactor "Crush", 6.4
-
   Radius 20
   Height 56
   Speed 8
@@ -2045,13 +2023,11 @@ actor SoulBallTrail
     }
 }
 
-actor StoneImp 3103
+actor StoneImp : AetheriusMonsterZSC 3103
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved; var int user_extraevolvechance; var int user_extrastealthchance;
-  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
-
-  //$Category Monsters
+  //$Angled
+  //$Color 12
+  //$Category "KDIZD Monsters"
   Health 180
   Radius 20
   Height 56
@@ -2187,13 +2163,11 @@ actor StoneImp 3103
   }
 }
 
-ACTOR Magmantis 26660
+ACTOR Magmantis : AetheriusMonsterZSC 26660
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved; var int user_extraevolvechance; var int user_extrastealthchance;
-  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
-
-  //$Category "Monsters"
+  //$Angled
+  //$Color 12
+  //$Category "KDIZD Monsters"
   Health 30000 // 12000
   Radius 120
   Height 144
@@ -2554,12 +2528,8 @@ ACTOR Portal2
 	}
 }
 
-actor MagmantisLostSoul 
+actor MagmantisLostSoul : AetheriusBaseZSC
 {
-  var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved; var int user_extraevolvechance; var int user_extrastealthchance;
-  var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
-  var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
-  obituary "%o was spooked by a lost soul."
   health 100
   radius 16
   height 56
@@ -2580,6 +2550,8 @@ actor MagmantisLostSoul
   +DONTFALL
   +LOOKALLAROUND
   -COUNTKILL
+  obituary "%o was spooked by a lost soul."
+
   states
   {
   Pain.Charm: TNT1 A 0 { A_PlaySound("Munchies/Charmed"); A_ChangeFlag("FRIENDLY",1); Thing_ChangeTID(0,1000); } Goto See  Pain.Heal1: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,0); } Goto See  Pain.Heal2: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,1); } Goto See  Pain.Heal3: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,2); } Goto See  Pain.Heal4: TNT1 A 0 { ACS_NamedExecuteAlways("Healing_Actor",0,3); } Goto See Goto See
