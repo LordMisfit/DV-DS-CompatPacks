@@ -1,13 +1,6 @@
 // Map27
-ACTOR AdolfHitlerDS : AdolfHitler replaces AdolfHitler
+ACTOR AdolfHitlerDS : AetheriusMonsterZSC replaces AdolfHitler
 {
- var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved; var int user_extraevolvechance; var int user_extrastealthchance;
- var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
- var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
- var int user_shotsfired; var int user_shotsfiredmax;
- var float user_shotaccuracy; var float user_shotaccuracy1; var float user_shotaccuracy2;
- var float user_shotzaccuracy; var float user_shotzaccuracy1; var float user_shotzaccuracy2;
-
  Health 2100
  Mass 80000
  Radius 28
@@ -225,15 +218,8 @@ ACTOR AdolfHitlerDS : AdolfHitler replaces AdolfHitler
 }
 
 // Benellus
-actor Benellus1DS : Benellus1 replaces Benellus1
+actor Benellus1DS : AetheriusMonsterZSC replaces Benellus1
 {
- var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved; var int user_extraevolvechance; var int user_extrastealthchance;
- var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
- var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
- var int user_shotsfired; var int user_shotsfiredmax;
- var float user_shotaccuracy; var float user_shotaccuracy1; var float user_shotaccuracy2;
- var float user_shotzaccuracy; var float user_shotzaccuracy1; var float user_shotzaccuracy2;
-
  Radius 32
  Height 76
  Scale 1.25
@@ -443,15 +429,8 @@ actor Benellus1DS : Benellus1 replaces Benellus1
  }
 }
 
-actor Benellus2DS : Benellus2 replaces Benellus2
+actor Benellus2DS : AetheriusMonsterZSC replaces Benellus2
 {
- var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved; var int user_extraevolvechance; var int user_extrastealthchance;
- var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
- var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
- var int user_shotsfired; var int user_shotsfiredmax;
- var float user_shotaccuracy; var float user_shotaccuracy1; var float user_shotaccuracy2;
- var float user_shotzaccuracy; var float user_shotzaccuracy1; var float user_shotzaccuracy2;
-
  Radius 32
  Height 76
  Scale 1.25
@@ -558,15 +537,8 @@ actor Benellus2DS : Benellus2 replaces Benellus2
  }
 }
 
-actor Benellus3DS : Benellus3 replaces Benellus3
+actor Benellus3DS : AetheriusMonsterZSC replaces Benellus3
 {
- var int user_theta; var int user_dormant; var int user_isstealth; var int user_basespeed; var int user_baseattack; var int user_basedefense; var int user_basemass; var int user_monsterlevel; var int user_legendaryevolved; var int user_extraevolvechance; var int user_extrastealthchance;
- var int user_MaxHP; var int user_HPLowRange; var int user_HPCritRange; var int user_HPBuffRange; var int user_HPXDeathRange;
- var int user_checkmapskill; var int user_ressurrectstr; var int user_resurrectedtimes; var int user_canusecrisisatk; // For checking if a monster has been given Skill/Map inventory items yet.
- var int user_shotsfired; var int user_shotsfiredmax;
- var float user_shotaccuracy; var float user_shotaccuracy1; var float user_shotaccuracy2;
- var float user_shotzaccuracy; var float user_shotzaccuracy1; var float user_shotzaccuracy2;
-
  Radius 32
  Height 76
  Scale 1.25
