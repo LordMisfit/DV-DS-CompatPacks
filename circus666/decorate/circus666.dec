@@ -320,9 +320,6 @@ ACTOR PennywiseHeadNew : AetheriusMonsterZSC replaces Pennywise 32119
   Painchance "Fist", 120 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Kick", 200 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 120 // Fist attacks have a +50% chance of stunning an enemy
-  Painchance "GravityHP", 255
-  Painchance "GravityMP", 255
-  Painchance "GravityHPMP", 255 
   DamageFactor "Holy", 2
   DamageFactor "Magic", 1.25
   Painchance "Holy", 160

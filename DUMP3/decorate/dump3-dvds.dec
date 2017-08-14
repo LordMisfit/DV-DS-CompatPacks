@@ -17,9 +17,6 @@ ACTOR AdolfHitlerDS : AetheriusMonsterZSC replaces AdolfHitler
  Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
  Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
- Painchance "GravityHP", 255
- Painchance "GravityMP", 255
- Painchance "GravityHPMP", 255
 
   States
   {
@@ -72,8 +69,7 @@ ACTOR AdolfHitlerDS : AetheriusMonsterZSC replaces AdolfHitler
 	 {
 	  if(user_canusecrisisatk == 1)
 	  {
-       A_PlaySound("crisisattack",6);
-       A_PlaySound("crisisattack2",7);
+       A_PlayCrisisAtkSound;
 	   A_CustomBulletAttack (user_shotaccuracy, user_shotzaccuracy, 3, ((random(1,5) * 3) * ACS_NamedExecuteWithResult("CrisisMultiplier")), "BulletPuff", 0, 1);
 	  }
 	  else
@@ -85,8 +81,7 @@ ACTOR AdolfHitlerDS : AetheriusMonsterZSC replaces AdolfHitler
 	 {
 	  if(user_canusecrisisatk == 1)
 	  {
-       A_PlaySound("crisisattack",6);
-       A_PlaySound("crisisattack2",7);
+       A_PlayCrisisAtkSound;
    	   A_CustomMissile("ZombieBulletTracerCrisis", 24, 0, frandom(user_shotaccuracy1,user_shotaccuracy2), CMF_OFFSETPITCH, frandom(user_shotzaccuracy1,user_shotzaccuracy2));
 	   A_CustomMissile("ZombieBulletTracerCrisis", 24, 0, frandom(user_shotaccuracy1,user_shotaccuracy2), CMF_OFFSETPITCH, frandom(user_shotzaccuracy1,user_shotzaccuracy2));
 	   A_CustomMissile("ZombieBulletTracerCrisis", 24, 0, frandom(user_shotaccuracy1,user_shotaccuracy2), CMF_OFFSETPITCH, frandom(user_shotzaccuracy1,user_shotzaccuracy2));
@@ -115,8 +110,7 @@ ACTOR AdolfHitlerDS : AetheriusMonsterZSC replaces AdolfHitler
 	 {
 	  if(user_canusecrisisatk == 1)
 	  {
-       A_PlaySound("crisisattack",6);
-       A_PlaySound("crisisattack2",7);
+       A_PlayCrisisAtkSound;
 	   A_CustomBulletAttack (user_shotaccuracy, user_shotzaccuracy, 3, ((random(1,5) * 3) * ACS_NamedExecuteWithResult("CrisisMultiplier")), "BulletPuff", 0, 1);
 	  }
 	  else
@@ -128,8 +122,7 @@ ACTOR AdolfHitlerDS : AetheriusMonsterZSC replaces AdolfHitler
 	 {
 	  if(user_canusecrisisatk == 1)
 	  {
-       A_PlaySound("crisisattack",6);
-       A_PlaySound("crisisattack2",7);
+       A_PlayCrisisAtkSound;
    	   A_CustomMissile("ZombieBulletTracerCrisis", 24, 0, frandom(user_shotaccuracy1,user_shotaccuracy2), CMF_OFFSETPITCH, frandom(user_shotzaccuracy1,user_shotzaccuracy2));
 	   A_CustomMissile("ZombieBulletTracerCrisis", 24, 0, frandom(user_shotaccuracy1,user_shotaccuracy2), CMF_OFFSETPITCH, frandom(user_shotzaccuracy1,user_shotzaccuracy2));
 	   A_CustomMissile("ZombieBulletTracerCrisis", 24, 0, frandom(user_shotaccuracy1,user_shotaccuracy2), CMF_OFFSETPITCH, frandom(user_shotzaccuracy1,user_shotzaccuracy2));

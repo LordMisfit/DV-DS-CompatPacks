@@ -1260,8 +1260,7 @@ ACTOR BloodFiendNew : AetheriusMonsterZSC replaces BloodFiend 30100
      if(GetCVar("dvds_monstercrisisattacks") == 0) { A_SetUserVar("user_canusecrisisatk",0); }
 	 if(user_canusecrisisatk == 1)
 	 {
-      A_PlaySound("crisisattack2",7);
-      A_PlaySound("crisisattack",6);
+      A_PlayCrisisAtkSound;
       A_CustomMeleeAttack( ((random(1,10)*4) * ACS_NamedExecuteWithResult("CrisisMultiplier")) ,"none","none"); // A_SargAttack
 	 }
 	 else
