@@ -191,32 +191,6 @@ ACTOR ApprenticeNew : AetheriusMonsterZSC 30000
     APDP EEEE 2
     Goto See
 
-  Pain.GravityHP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
-    Goto See
-  Pain.GravityMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
-    Goto See
-  Pain.GravityHPMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
-    Goto See
-  Pain.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 
-    Goto Pain
-  Death.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
-  Pain.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
-    Goto Pain
-  Death.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
     APDP E 0 // A_UnsetInvulnerable
@@ -352,32 +326,6 @@ ACTOR MiniSpiderNew : AetheriusMonsterZSC 22290
 
   Pain:
     Goto See
-  Pain.GravityHP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
-    Goto See
-  Pain.GravityMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
-    Goto See
-  Pain.GravityHPMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
-    Goto See
-  Pain.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 
-    Goto Pain
-  Death.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
-  Pain.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
-    Goto Pain
-  Death.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
   XDeath:
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
@@ -496,32 +444,6 @@ ACTOR LargeSpiderNew : AetheriusMonsterZSC 22291
 
   Pain:
     Goto See
-  Pain.GravityHP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
-    Goto See
-  Pain.GravityMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
-    Goto See
-  Pain.GravityHPMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
-    Goto See
-  Pain.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 
-    Goto Pain
-  Death.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
-  Pain.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
-    Goto Pain
-  Death.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
     MNTS F 5
@@ -758,32 +680,6 @@ ACTOR TommyGunCultistNew : AetheriusMonsterZSC 29011
     XFAN I 3 A_Pain
     XFAN IIII 3
     goto See
-  Pain.GravityHP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
-    Goto See
-  Pain.GravityMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
-    Goto See
-  Pain.GravityHPMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
-    Goto See
-  Pain.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 
-    Goto Pain
-  Death.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
-  Pain.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
-    Goto Pain
-  Death.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
     XFAN J 5 ThrustThingZ(0,10,0,0)
@@ -942,32 +838,6 @@ ACTOR ShotgunCultistNew : TommyGunCultistNew 29010
     BCUL G 3 A_Pain
     BCUL GGGG 3
     goto See
-  Pain.GravityHP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
-    Goto See
-  Pain.GravityMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
-    Goto See
-  Pain.GravityHPMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
-    Goto See
-  Pain.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 
-    Goto Pain
-  Death.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
-  Pain.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
-    Goto Pain
-  Death.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
 
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
@@ -1163,32 +1033,6 @@ ACTOR HellHoundNew : AetheriusMonsterZSC 30121
     HDOG JJJJ 2 
     Goto See 
 
-  Pain.GravityHP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
-    Goto See
-  Pain.GravityMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
-    Goto See
-  Pain.GravityHPMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
-    Goto See
-  Pain.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 
-    Goto Pain
-  Death.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
-  Pain.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
-    Goto Pain
-  Death.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
     HDOG K 8 
@@ -1356,32 +1200,6 @@ ACTOR ThrallNew : AetheriusMonsterZSC 30119
     CULT GGGG 2 
     Goto See 
 
-  Pain.GravityHP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
-    Goto See
-  Pain.GravityMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
-    Goto See
-  Pain.GravityHPMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
-    Goto See
-  Pain.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 
-    Goto Pain
-  Death.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
-  Pain.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
-    Goto Pain
-  Death.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
     CULT H 8 
@@ -1491,32 +1309,6 @@ ACTOR NightmareNew : AetheriusMonsterZSC 26000
     NMRE HHHH 5
     Goto See
 
-  Pain.GravityHP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
-    Goto See
-  Pain.GravityMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
-    Goto See
-  Pain.GravityHPMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
-    Goto See
-  Pain.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 
-    Goto Pain
-  Death.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
-  Pain.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
-    Goto Pain
-  Death.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
     NMRE I 3 A_ScreamAndUnblock
@@ -1797,32 +1589,6 @@ actor VulgarNew : DSDoomImp replaces Vulgar
     VULG HHHH 2
     goto See
 
-  Pain.GravityHP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
-    Goto See
-  Pain.GravityMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
-    Goto See
-  Pain.GravityHPMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
-    Goto See
-  Pain.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 
-    Goto Pain
-  Death.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
-  Pain.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
-    Goto Pain
-  Death.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
     VULG I 8
@@ -1989,32 +1755,6 @@ Actor ClayDevilNew : AetheriusMonsterZSC replaces ClayDevil
     N00B J 4 A_Pain
     goto See
 
-  Pain.GravityHP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
-    Goto See
-  Pain.GravityMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
-    Goto See
-  Pain.GravityHPMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
-    Goto See
-  Pain.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 
-    Goto Pain
-  Death.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
-  Pain.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
-    Goto Pain
-  Death.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
 
   Death: // Clay Devils reconsitute themselves after a while like Death Incarnates [but without a way to 'Overkill' them, making them effectively immortal]
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,40,0,1) // Gives a flat base of 40 so you can't grind off of them very effectively.
@@ -2297,32 +2037,6 @@ ACTOR ShadowNew : AetheriusMonsterZSC 3126
 	TROX HHHH 3
 	Goto See+2
 
-  Pain.GravityHP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
-    Goto See
-  Pain.GravityMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
-    Goto See
-  Pain.GravityHPMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
-    Goto See
-  Pain.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 
-    Goto Pain
-  Death.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
-  Pain.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
-    Goto Pain
-  Death.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
 	TROX I 6 A_Scream
@@ -2445,32 +2159,6 @@ ACTOR SoulHarvesterNew : AetheriusMonsterZSC 3117
  	SLHV NNNN 3
    	Goto See
 
-  Pain.GravityHP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
-    Goto See
-  Pain.GravityMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
-    Goto See
-  Pain.GravityHPMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
-    Goto See
-  Pain.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 
-    Goto Pain
-  Death.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
-  Pain.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
-    Goto Pain
-  Death.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
     SLHV O 7 A_Scream
@@ -2610,32 +2298,6 @@ ACTOR ESoulNew : AetheriusMonsterZSC 29012 // : ESoul replaces ESoul 29012
     ETHS GGGG 3 bright
     goto See
 
-  Pain.GravityHP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
-    Goto See
-  Pain.GravityMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
-    Goto See
-  Pain.GravityHPMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
-    Goto See
-  Pain.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 
-    Goto Pain
-  Death.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
-  Pain.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
-    Goto Pain
-  Death.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
     ETHS F 3 bright
@@ -2758,32 +2420,6 @@ ACTOR DEWraithNew : AetheriusMonsterZSC 30106
     WRAI AAAA 3  
     Goto See 
 
-  Pain.GravityHP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
-    Goto See
-  Pain.GravityMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
-    Goto See
-  Pain.GravityHPMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
-    Goto See
-  Pain.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 
-    Goto Pain
-  Death.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
-  Pain.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
-    Goto Pain
-  Death.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
     WRAI E 4 A_NoBlocking
@@ -3138,32 +2774,6 @@ ACTOR ButcherZombieNew : AetheriusMonsterZSC 25010
     E15A AAAA 6
     goto See
 
-  Pain.GravityHP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
-    Goto See
-  Pain.GravityMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
-    Goto See
-  Pain.GravityHPMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
-    Goto See
-  Pain.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 
-    Goto Pain
-  Death.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
-  Pain.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
-    Goto Pain
-  Death.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
     E15D A 7
@@ -3411,32 +3021,6 @@ actor BloodZombieNew : AetheriusMonsterZSC 31002
 	}
     goto See
 
-  Pain.GravityHP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
-    Goto See
-  Pain.GravityMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
-    Goto See
-  Pain.GravityHPMP:
-    TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
-    Goto See
-  Pain.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 
-    Goto Pain
-  Death.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
-  Pain.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
-    Goto Pain
-  Death.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
     AZUM H 0 A_JumpIfHealthLower (user_HPXDeathRange2, "Death2")
@@ -3513,6 +3097,9 @@ ACTOR ThamuzNew : AetheriusMonsterZSC 7228
   Painchance "Fist", 52 // Fist attacks have a +50% chance of stunning an enemy
   Painchance "Kick", 87 // Kick attacks have a +150% chance of stunning an enemy
   Painchance "Gauntlets", 52 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "GravityHP", 1
+  Painchance "GravityMP", 1
+  Painchance "GravityHPMP", 1
   DamageFactor "Normal", 0.375
   DamageFactor "Crush", 0.5
   MONSTER
@@ -3734,23 +3321,6 @@ ACTOR ThamuzNew : AetheriusMonsterZSC 7228
     TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
     TNT1 A 0 
     Goto See
-  Pain.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 
-    Goto Pain
-  Death.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
-  Pain.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
-    Goto Pain
-  Death.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
     DCYB H 5
@@ -3773,6 +3343,9 @@ Actor TchernobogNew : ThamuzNew replaces Tchernobog 7258
   Health 21333
   DamageFactor "Normal", 0.25
   DamageFactor "Crush", 0.5
+  Painchance "GravityHP", 1
+  Painchance "GravityMP", 1
+  Painchance "GravityHPMP", 1
   Mass 80000
   OBITUARY "%o fell before the might of The One That Binds."
   Bloodcolor "aa 00 00"
@@ -3976,23 +3549,6 @@ Actor TchernobogNew : ThamuzNew replaces Tchernobog 7258
     TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
     TNT1 A 0 
     Goto See
-  Pain.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,10) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 
-    Goto Pain
-  Death.Sceptre:
-    TNT1 A 0 A_CheckFlag("FRIENDLY",2,AAPTR_DEFAULT)
-    TNT1 A 0 ACS_NamedExecuteAlways("AddSceptreEXP",0,0,0,1) // Increase EXP for Sceptre [1+(HP/300)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
-  Pain.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,1,0) // Give some life when hurting a monster [1+(HP/500)]
-    Goto Pain
-  Death.Gauntlets:
-    TNT1 A 0 ACS_NamedExecuteAlways("SauronGauntletsHit",0,0,2,0) // Give some life when killing a monster [3+(HP/100)]
-    TNT1 A 0 A_JumpIfHealthLower(user_HPXDeathRange,"XDeath")
-    Goto Death
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
     TCHR Q 5
