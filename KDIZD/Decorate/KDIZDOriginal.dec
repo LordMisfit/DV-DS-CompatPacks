@@ -112,7 +112,7 @@ ACTOR ChainsawZombieNew : AetheriusMonsterZSC 3204
   Melee: 
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
     CHAN E 1 A_FaceTarget 
-    CHAN F 3 A_MeleeAttack 
+    CHAN F 3 A_CrisisMeleeAttack(1*random(1,8),"weapons/sawhit") 
     Goto See 
   Pain: 
     CHAN G 4 
