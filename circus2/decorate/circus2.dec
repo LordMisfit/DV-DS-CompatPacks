@@ -392,6 +392,66 @@ ACTOR GoreWormNew : AetheriusMonsterZSC replaces GoreWorm 30031
   }
 }
 
+//=========================================================================
+actor SkullSeeker
+{
+    Radius 8
+    Height 6
+    Speed 9
+	Damage (6 * random(1,8))
+    Scale 0.3
+    +SEEKERMISSILE
+    PROJECTILE
+    //RENDERSTYLE ADD
+    //ALPHA 0.67
+    SeeSound "BHIT5"
+    DeathSound "BHIT3"
+    States
+    {
+    Spawn:
+        GHST AB 4 A_SeekerMissile (5,20)
+        Loop
+    Death:
+        GHST CDEFG 4 Bright
+        Stop
+    }
+}
+actor SkullSeekerCrisisParticle : BaseCrisisParticle
+{
+ scale 0.2
+ 
+ States
+ {
+  Spawn:
+    GHST A 0
+    "####" AB 2 Bright
+	{
+     A_SetScale(scaleX-0.03,scaleY-0.03);
+	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
+	 A_FadeOut(0.08);
+	}
+    loop
+ }
+}
+actor SkullSeekerCrisis : SkullSeeker
+{
+	Damage ((6 * ACS_NamedExecuteWithResult("CrisisMultiplier")) * random(1,8))
+    States
+    {
+    Spawn:
+        GHST AB 4
+		{
+         A_SpawnItemEx("SkullSeekerCrisisParticle",0,0,0,0,0,1.28);
+		 A_SeekerMissile (5,20);
+		}
+        Loop
+    Death:
+        GHST CDEFG 4 Bright
+        Stop
+    }
+}
+
+
 ACTOR FluffyNew : AetheriusMonsterZSC replaces Fluffy2 32120
 {
   //$Angled
@@ -411,7 +471,9 @@ ACTOR FluffyNew : AetheriusMonsterZSC replaces Fluffy2 32120
   Painchance "Holy", 160
   Painchance "Magic", 100
   MONSTER
-  +FLOORCLIP +NOCLIP
+  +FLOORCLIP 
+  +NOCLIP
+  +GHOST
   +NOLIFTDROP
   MELEEDAMAGE 7
   SeeSound "BHIT1"
@@ -478,24 +540,93 @@ ACTOR FluffyNew : AetheriusMonsterZSC replaces Fluffy2 32120
     FLUF A 0 A_Jump(124,8)
     FLUF A 0 A_Jump(156,2) 
     FLUF A 0 A_Jump(99,10)
-    FLUF AB 4 A_FaceTarget 
-    FLUF C 6 A_ComboAttack
+    FLUF AB 4
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    FLUF C 6 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(3); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(4); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(5); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisComboAttack("SkullSeeker", "SkullSeekerCrisis", 28, 7*random(1,8), "BCHOMP");
+	}
     Goto See 
-    FLUF AB 2 A_FaceTarget
-    FLUF C 4 A_CustomMissile("SkullSeeker", 28, -4, 0, 1)
+    FLUF AB 2 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(1); }
+	 A_FaceTarget;
+	}
+    FLUF C 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("SkullSeeker", "SkullSeekerCrisis", 28, -4, 0, 1);
+	}
     Goto See 
-    FLUF AB 2 A_FaceTarget
-    FLUF C 2 A_CustomMissile("SkullSeeker", 28, -12, -60, 1)
-    FLUF B 4 A_FaceTarget
-    FLUF C 2 A_CustomMissile("SkullSeeker", 28, -4, 60, 1)
+    FLUF AB 2 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(1); }
+	 A_FaceTarget;
+	}
+    FLUF C 2 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(1); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("SkullSeeker", "SkullSeekerCrisis", 28, -12, -60, 1);
+	}
+    FLUF B 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    FLUF C 2 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(1); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("SkullSeeker", "SkullSeekerCrisis", 28, -4, 60, 1);
+	}
     Goto See 
-    FLUF AB 2 A_FaceTarget
-    FLUF C 4 A_CustomMissile("SkullSeeker", 28, 12, 0, 1)
+    FLUF AB 2 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(1); }
+	 A_FaceTarget;
+	}
+    FLUF C 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("SkullSeeker", "SkullSeekerCrisis", 28, 12, 0, 1);
+	}
     Goto See 
   Melee:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
     FLUF ABC 4  
-    FLUF B  6 A_MeleeAttack
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    FLUF B 6 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(3); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(4); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(5); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack(7*random(1,10),"BCHOMP");
+	}
     Goto See
   Pain:
     FLUF C 2
@@ -520,11 +651,20 @@ ACTOR FluffyNew : AetheriusMonsterZSC replaces Fluffy2 32120
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,1150,0,1)
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     FLUF JKLMN 10 
-    FLUF N 100 
-    GoTo Raise
+    FLUF N 100
+  RegenCycle:
+    FLUF N 0 CanRaise Thing_Raise(0)
+    FLUF N 5 
+    loop
   Raise:
-    FLUF M 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    FLUF MLKJ 10
+    FLUF M 10 
+	{
+	 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0,3); // multiplies the level of the Resurrected Fluffy by 16
+	 A_ChangeFlag("INVULNERABLE",1);
+	 A_ChangeFlag("NODAMAGE",1);
+	 A_ChangeFlag("NOPAIN",1);
+	}
+    FLUF LKJ 10
     GoTo See
   Ice:
     goto Death
@@ -596,7 +736,20 @@ ACTOR MiniFluffyNew : AetheriusMonsterZSC replaces MiniFluffy 3194
   Melee:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
     SBUN ABC 4  
-    SBUN B  6 A_MeleeAttack
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    SBUN B 6 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(3); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(4); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(5); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack(1*random(1,10),"BCHOMP");
+	}
     Goto See + 11
   Pain:
     SBUN D 8 A_Pain
@@ -687,10 +840,27 @@ ACTOR JumpingSkullNew : AetheriusMonsterZSC replaces JumpingSkull 32121
     Loop
   Melee:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    JSKL A 3 A_FaceTarget 
-    JSKL B 3 A_FaceTarget 
-    JSKL C 4 A_CustomMeleeAttack(random(2,6)*1,"SKULBITE","none")
-    JSKL B 3 A_FaceTarget 
+    JSKL AB 3 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+	}
+    JSKL C 4
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack(random(2,6)*1,"SKULBITE","none");
+	}
+    JSKL B 3  
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+	}
     Goto See
   Pain:
     JSKL B 4 A_Pain
@@ -727,6 +897,179 @@ ACTOR JumpingSkullNew : AetheriusMonsterZSC replaces JumpingSkull 32121
     wait
   }
 }
+//
+actor PennywiseHeadProj 
+{ 
+  Health 2
+  Speed 2 
+  +FloatBob +NOGRAVITY 
+  MELEEDAMAGE 1
+  RENDERSTYLE Translucent
+  ALPHA 0.25
+  scale 0.25
+  MeleeSound ""
+  Obituary "%o got killed by an evil clown-shaped spirit." 
+  States 
+  { 
+  Spawn: 
+   	CFHD AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 4 A_Look
+    goto Dissipate
+  See: 
+    CFHD ADED 3 A_Chase
+   	CFHD ADED 3 A_CStaffMissileSlither 
+   	CFHD ADED 3 A_BishopMissileWeave
+	CFHD ADED 3 A_Chase
+	CFHD ADED 3 A_CStaffMissileSlither
+	CFHD ADED 3 A_Wander
+	CFHD ADED 3 A_BishopMissileWeave
+	CFHD ADED 3 A_CStaffMissileSlither
+	CFHD ADED 3 A_Chase
+	CFHD ADED 3 A_BishopMissileWeave
+	CFHD ADED 3 A_Wander
+	CFHD ADED 3 A_CStaffMissileSlither
+    goto Dissipate
+  Melee:
+    CFHD D 4 A_FaceTarget  
+    CFHD E 3 A_FaceTarget 
+    CFHD D 3 A_CustomMeleeAttack((1*random(1,10)))
+    CFHD A 3 A_FaceTarget 
+    goto Dissipate
+  Dissipate:
+    CFHD FGHIJKLMN 4
+    Stop
+  }
+}
+actor PennywiseHeadProjCrisisParticle : BaseCrisisParticle
+{
+ scale 0.1666666666666667
+ 
+ States
+ {
+  Spawn:
+    CFHD A 0
+    "####" A 2 Bright
+	{
+     A_SetScale(scaleX-0.025,scaleY-0.025);
+	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
+	 A_FadeOut(0.02);
+	}
+    loop
+ }
+}
+actor PennywiseHeadProjCrisis
+{ 
+  Health 2
+  Speed 2 
+  +FloatBob +NOGRAVITY 
+  MELEEDAMAGE 1
+  RENDERSTYLE Translucent
+  ALPHA 0.25
+  scale 0.25
+  MeleeSound ""
+  Obituary "%o got killed by an evil clown-shaped spirit." 
+  States 
+  { 
+  Spawn: 
+   	CFHD AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 4
+    {
+     A_SpawnItemEx("PennywiseHeadProjCrisisParticle",0,0,0,0,0,1.28);
+	 A_Look;
+	}
+    goto Dissipate
+  See: 
+    CFHD ADED 3 
+    {
+     A_SpawnItemEx("PennywiseHeadProjCrisisParticle",0,0,0,0,0,1.28);
+	 A_Chase;
+	}
+   	CFHD ADED 3 
+	{
+     A_SpawnItemEx("PennywiseHeadProjCrisisParticle",0,0,0,0,0,1.28);
+	 A_CStaffMissileSlither;
+	}
+	CFHD ADED 3 
+	{
+     A_SpawnItemEx("PennywiseHeadProjCrisisParticle",0,0,0,0,0,1.28);
+	 A_BishopMissileWeave;
+	}
+    CFHD ADED 3 
+    {
+     A_SpawnItemEx("PennywiseHeadProjCrisisParticle",0,0,0,0,0,1.28);
+	 A_Chase;
+	}
+   	CFHD ADED 3 
+	{
+     A_SpawnItemEx("PennywiseHeadProjCrisisParticle",0,0,0,0,0,1.28);
+	 A_CStaffMissileSlither;
+	}
+    CFHD ADED 3 
+    {
+     A_SpawnItemEx("PennywiseHeadProjCrisisParticle",0,0,0,0,0,1.28);
+	 A_Wander;
+	}
+	CFHD ADED 3 
+	{
+     A_SpawnItemEx("PennywiseHeadProjCrisisParticle",0,0,0,0,0,1.28);
+	 A_BishopMissileWeave;
+	}
+   	CFHD ADED 3 
+	{
+     A_SpawnItemEx("PennywiseHeadProjCrisisParticle",0,0,0,0,0,1.28);
+	 A_CStaffMissileSlither;
+	}
+    CFHD ADED 3 
+    {
+     A_SpawnItemEx("PennywiseHeadProjCrisisParticle",0,0,0,0,0,1.28);
+	 A_Chase;
+	}
+	CFHD ADED 3 
+	{
+     A_SpawnItemEx("PennywiseHeadProjCrisisParticle",0,0,0,0,0,1.28);
+	 A_BishopMissileWeave;
+	}
+    CFHD ADED 3 
+    {
+     A_SpawnItemEx("PennywiseHeadProjCrisisParticle",0,0,0,0,0,1.28);
+	 A_Wander;
+	}
+   	CFHD ADED 3 
+	{
+     A_SpawnItemEx("PennywiseHeadProjCrisisParticle",0,0,0,0,0,1.28);
+	 A_CStaffMissileSlither;
+	}
+    goto Dissipate
+  Melee:
+    CFHD D 4 
+	{
+     A_SpawnItemEx("PennywiseHeadProjCrisisParticle",0,0,0,0,0,1.28);
+	 A_FaceTarget;
+	}
+    CFHD E 3  
+	{
+     A_SpawnItemEx("PennywiseHeadProjCrisisParticle",0,0,0,0,0,1.28);
+	 A_FaceTarget;
+	}
+    CFHD D 3
+	{
+     A_SpawnItemEx("PennywiseHeadProjCrisisParticle",0,0,0,0,0,1.28);
+     A_CustomMeleeAttack((1*random(1,10))* ACS_NamedExecuteWithResult("CrisisMultiplier"));
+	}
+    CFHD A 3  
+	{
+     A_SpawnItemEx("PennywiseHeadProjCrisisParticle",0,0,0,0,0,1.28);
+	 A_FaceTarget;
+	}
+    goto Dissipate
+
+  Dissipate:
+    CFHD FGHIJKLMN 4
+	{
+     A_SpawnItemEx("PennywiseHeadProjCrisisParticle",0,0,0,0,0,1.28);
+	}
+    Stop
+  }
+}
+
 ACTOR JumpingSkull2New : AetheriusMonsterZSC replaces JumpingSkull2 3646 //spawns skull ghosts
 {
   //$Angled
@@ -780,14 +1123,35 @@ ACTOR JumpingSkull2New : AetheriusMonsterZSC replaces JumpingSkull2 3646 //spawn
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(1); }
 	 A_Chase;
     }
-    JSKL A 0 A_CustomMissile("PennywiseHead2",  8, 0, random(-180, 180), 2, random(0, 30))
+    JSKL A 0 
+	{
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("PennywiseHeadProj", "PennywiseHeadProjCrisis", 8, 0, random(-180, 180), 2, random(0, 30));
+	}
     Loop
   Melee:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    JSKL A 3 A_FaceTarget 
-    JSKL B 3 A_FaceTarget 
-    JSKL C 4 A_MeleeAttack
-    JSKL B 3 A_FaceTarget 
+    JSKL AB 3 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+	}
+    JSKL C 4
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack(random(3,8)*1,"SKULBITE","none");
+	}
+    JSKL B 3  
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+	}
     Goto See
   Pain:
     JSKL B 4 A_Pain
@@ -893,8 +1257,26 @@ ACTOR PossessedBalloonNew : AetheriusMonsterZSC replaces PossessedBalloon 3115
   Melee:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
     BSTN BC 4
-    BSTN D 4 A_CustomMeleeAttack(random(1,6)*1,"BOONBITE","none")
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    BSTN D 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	 
+	 A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack(random(1,6)*1,"BOONBITE","none");
+	}
     BSTN CB 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
     Goto See
   Pain:
     BSTN B 3 A_Pain
@@ -938,6 +1320,223 @@ ACTOR PossessedBalloonNew : AetheriusMonsterZSC replaces PossessedBalloon 3115
     BSTN B 1 A_FreezeDeathChunks
     wait
   }
+}
+
+//
+actor RevRocketNew : AetheriusProjectileZSC replaces RevRocket
+{
+    Radius 8
+    Height 6
+    Speed 12
+    Damage (2 * random(1,8))
+    Scale .55
+    +SEEKERMISSILE
+    PROJECTILE
+    SeeSound "REVRCK"
+    DeathSound "EXPLODE"
+    ExplosionRadius 96
+    ExplosionDamage 12
+    States
+    {
+    Spawn:
+        RRCK A 1 A_SeekerMissile (30,40)
+        RRCK A 1 A_CustomMissile("RevTrail",0, 0, 0)
+        RRCK A 1 A_PlaySound("HISS")
+        RRCK A 0 A_CustomMissile("ClownSpark", 8, 0, random(-180, 180), 2, random(-180, 180))
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1)  
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1)
+        RRCK A 0 A_CustomMissile("ClownSpark", 8, 0, random(-180, 180), 2, random(-180, 180))
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1)  
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1) 
+        RRCK A 0 A_CustomMissile("ClownSpark", 8, 0, random(-180, 180), 2, random(-180, 180))
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1)  
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1)  
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1)
+        RRCK A 0 A_CustomMissile("ClownSpark", 8, 0, random(-180, 180), 2, random(-180, 180))
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1)
+        RRCK A 0 A_CustomMissile("ClownSpark", 8, 0, random(-180, 180), 2, random(-180, 180))
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1)  
+        Loop
+    Death:
+        GLOB A 4 Bright 
+        GLOB B 4 Bright A_Explode(12,96)
+        GLOB B 2 Bright A_CustomMissile("HappyCloud", 16, 8, 135,1) 
+        GLOB BBBBBBB 0 A_CustomMissile("Sparkles", 4,4, random(-180, 180), 2, random(-180, 180))
+        GLOB B 2 Bright A_CustomMissile("HappyCloud", 12, 0, 90,1) 
+        GLOB B 2 Bright A_CustomMissile("HappyCloud", 16, -8, -135,1) 
+        GLOB C 2 Bright A_CustomMissile("HappyCloud", 16, 0, -200,1) 
+        GLOB CCCCCCC 0 A_CustomMissile("Sparkles", 4, 4, random(-180, 180), 2, random(-180, 180))
+        GLOB D 2 Bright A_CustomMissile("HappyCloud", 18, 0, 45,1) 
+        GLOB E 2 Bright A_CustomMissile("HappyCloud", 16, 8, 300,1) 
+        GLOB E 2 Bright A_CustomMissile("HappyCloud", 16, 0, 200,1)
+        GLOB EEEEEEE 0 A_CustomMissile("Sparkles", 4, 4, random(-180, 180), 2, random(-180, 180))
+        GLOB F 2 Bright A_CustomMissile("HappyCloud", 22, -8, 315,1) 
+        GLOB G 2 Bright A_CustomMissile("HappyCloud", 16, 0, 270,1) 
+        GLOB G 2 Bright A_CustomMissile("HappyCloud", 12, 8, 180,1) 
+        GLOB H 4 Bright 
+        Stop
+    }
+}
+
+actor RevRocketCrisisParticle : BaseCrisisParticle
+{
+ scale 0.3666666666666667
+ 
+ States
+ {
+  Spawn:
+    RRCK A 0
+    "####" A 2 Bright
+	{
+     A_SetScale(scaleX-0.055,scaleY-0.055);
+	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
+	 A_FadeOut(0.08);
+	}
+    loop
+ }
+}
+
+actor HappyCloud : AetheriusProjectileZSC
+{ 
+    Radius 32 
+    Height 32 
+    Speed 3 
+    Damage 1 
+    +STRIFEDAMAGE 
+    +RIPPER 
+    PROJECTILE 
+	+NODAMAGETHRUST
+	ProjectileKickback 0
+    //DONTHURTSHOOTER   
+    RENDERSTYLE Translucent 
+    ALPHA 0.67 
+    States 
+    { 
+    Spawn: 
+        CLOD ABCBABCBABCBABCBABCDCBABCDCBCBABCDEFG 6 
+        Stop 
+    Death: 
+        CLOD ABCDEFG 4 
+        Stop 
+    } 
+} 
+actor HappyCloudCrisisParticle : BaseCrisisParticle
+{
+ scale 0.667
+ 
+ States
+ {
+  Spawn:
+    CLOD A 0
+    "####" ABCBABCBABCBABCBABCDCBABCDCBCBABCDEFG 2 Bright
+	{
+     A_SetScale(scaleX-0.01,scaleY-0.01);
+	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
+	 A_FadeOut(0.05667);
+	}
+    loop
+ }
+}
+
+actor HappyCloudCrisis : HappyCloud
+{ 
+    Radius 32 
+    Height 32 
+    Speed 3 
+    Damage ((1 * ACS_NamedExecuteWithResult("CrisisMultiplier")) * random(1,4)) 
+    +STRIFEDAMAGE 
+    +RIPPER
+	+NODAMAGETHRUST
+	ProjectileKickback 0
+    PROJECTILE 
+    //DONTHURTSHOOTER   
+    RENDERSTYLE Translucent 
+    ALPHA 0.67 
+    States 
+    { 
+    Spawn: 
+        CLOD ABCBABCBABCBABCBABCDCBABCDCBCBABCDEFG 6
+		{
+         A_SpawnItemEx("HappyCloudCrisisParticle",0,0,0,0,0,1.28);
+		}
+        Stop 
+    Death: 
+        CLOD ABCDEFG 4 
+        Stop 
+    } 
+} 
+
+actor RevRocketCrisis : RevRocketNew
+{
+    Radius 8
+    Height 6
+    Speed 12
+    Damage ((2 * ACS_NamedExecuteWithResult("CrisisMultiplier")) * random(1,8))
+    Scale .55
+    +SEEKERMISSILE
+    PROJECTILE
+    SeeSound "REVRCK"
+    DeathSound "EXPLODE"
+    ExplosionRadius 96
+    ExplosionDamage 12
+    States
+    {
+    Spawn:
+        RRCK A 1
+		{
+         A_SpawnItemEx("RevRocketCrisisParticle",0,0,0,0,0,1.28);
+         A_SeekerMissile(30,40);
+		}
+        RRCK A 1 
+		{
+         A_SpawnItemEx("RevRocketCrisisParticle",0,0,0,0,0,1.28);
+		 A_CustomMissile("RevTrail",0, 0, 0);
+		}
+        RRCK A 0 A_PlaySound("HISS")
+        RRCK A 0 A_CustomMissile("ClownSpark", 8, 0, random(-180, 180), 2, random(-180, 180))
+        RRCK AA 1 
+		{
+         A_SpawnItemEx("RevRocketCrisisParticle",0,0,0,0,0,1.28);
+		 A_CustomMissile("RevTrail", 0, 0, 0, 1);
+		}
+        RRCK A 0 A_CustomMissile("ClownSpark", 8, 0, random(-180, 180), 2, random(-180, 180))
+        RRCK AA 1 
+		{
+         A_SpawnItemEx("RevRocketCrisisParticle",0,0,0,0,0,1.28);
+		 A_CustomMissile("RevTrail", 0, 0, 0, 1);
+		}
+        RRCK A 0 A_CustomMissile("ClownSpark", 8, 0, random(-180, 180), 2, random(-180, 180))
+        RRCK AAAA 1 
+		{
+         A_SpawnItemEx("RevRocketCrisisParticle",0,0,0,0,0,1.28);
+		 A_CustomMissile("RevTrail", 0, 0, 0, 1);
+		}
+        RRCK AA 1 
+		{
+         A_SpawnItemEx("RevRocketCrisisParticle",0,0,0,0,0,1.28);
+		 A_CustomMissile("ClownSpark", 8, 0, random(-180, 180), 2, random(-180, 180));
+		 A_CustomMissile("RevTrail", 0, 0, 0, 1);
+		}
+        Loop
+    Death:
+        GLOB A 4 Bright 
+        GLOB B 4 Bright A_Explode((12 * ACS_NamedExecuteWithResult("CrisisMultiplier")),96)
+        GLOB B 2 Bright A_CustomMissile("HappyCloudCrisis", 16, 8, 135,1) 
+        GLOB BBBBBBB 0 A_CustomMissile("Sparkles", 4,4, random(-180, 180), 2, random(-180, 180))
+        GLOB B 2 Bright A_CustomMissile("HappyCloudCrisis", 12, 0, 90,1) 
+        GLOB B 2 Bright A_CustomMissile("HappyCloudCrisis", 16, -8, -135,1) 
+        GLOB C 2 Bright A_CustomMissile("HappyCloudCrisis", 16, 0, -200,1) 
+        GLOB CCCCCCC 0 A_CustomMissile("Sparkles", 4, 4, random(-180, 180), 2, random(-180, 180))
+        GLOB D 2 Bright A_CustomMissile("HappyCloudCrisis", 18, 0, 45,1) 
+        GLOB E 2 Bright A_CustomMissile("HappyCloudCrisis", 16, 8, 300,1) 
+        GLOB E 2 Bright A_CustomMissile("HappyCloudCrisis", 16, 0, 200,1)
+        GLOB EEEEEEE 0 A_CustomMissile("Sparkles", 4, 4, random(-180, 180), 2, random(-180, 180))
+        GLOB F 2 Bright A_CustomMissile("HappyCloudCrisis", 22, -8, 315,1) 
+        GLOB G 2 Bright A_CustomMissile("HappyCloudCrisis", 16, 0, 270,1) 
+        GLOB G 2 Bright A_CustomMissile("HappyCloudCrisis", 12, 8, 180,1) 
+        GLOB H 4 Bright 
+        Stop
+    }
 }
 
 ACTOR BingoNew : AetheriusMonsterZSC replaces Bingo 4110
@@ -1089,22 +1688,96 @@ ACTOR BingoNew : AetheriusMonsterZSC replaces Bingo 4110
     CHED A 0 A_Jump(104,9)
     CHED A 0 A_Jump(136,2) 
     CHED A 0 A_Jump(88,13)
-    CHED A 4 A_FaceTarget 
-    CHED A 6 Bright A_ComboAttack
+    CHED A 4
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    CHED A 6 Bright 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(3); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(4); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(5); }
+	 A_FaceTarget;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisComboAttack("RevRocket","RevRocketCrisis", 12, (1*random(1,8)), "imp/melee");
+	}
     Goto See 
-    CHED A 2 Bright A_FaceTarget
-    CHED A 2 Bright A_CustomMissile("RevRocket", 12, -4, 0, 1)
+    CHED A 2 Bright
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+	 A_FaceTarget;
+	}
+    CHED A 2 Bright 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+	 A_FaceTarget;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("RevRocket", "RevRocketCrisis", 12, -4, 0, 1);
+	}
     CHED A 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
     Goto See 
-    CHED A 2 Bright A_FaceTarget
-    CHED A 2 Bright A_CustomMissile("RevRocket", 12, -12, -60, 1)
-    CHED A 2 Bright A_FaceTarget
-    CHED A 2 Bright A_CustomMissile("RevRocket", 12, -4, 60, 1)
+    CHED A 2 Bright
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+	 A_FaceTarget;
+	}
+    CHED A 2 Bright 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+	 A_FaceTarget;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("RevRocket", "RevRocketCrisis", 12, -12, 60, 1);
+	}
+    CHED A 2 Bright
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+	 A_FaceTarget;
+	}
+    CHED A 2 Bright 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+	 A_FaceTarget;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("RevRocket", "RevRocketCrisis", 12, -4, 60, 1);
+	}
     CHED A 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
     Goto See 
-    CHED A 4 Bright A_FaceTarget
-    CHED A 2 Bright A_CustomMissile("RevRocket", 12, 12, 0, 1)
+    CHED A 4 Bright
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    CHED A 2 Bright 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+	 A_FaceTarget;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("RevRocket", "RevRocketCrisis", 12, 12, 0, 1);
+	}
     CHED A 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
     Goto See 
   Pain: 
     CHED A 4 A_Pain 
@@ -1134,6 +1807,76 @@ ACTOR BingoNew : AetheriusMonsterZSC replaces Bingo 4110
     wait
   } 
 } 
+
+//
+actor TinyBingoBall : AetheriusProjectileZSC
+{
+    Radius 8
+    Height 6
+    Speed 15
+    Damage (1 * random(1,8))
+    scale 0.5
+    ALPHA 0.8
+    //+SEEKERMISSILE
+    PROJECTILE
+    SeeSound "TINY"
+    DeathSound "imp/shotx"
+    States
+    {
+    Spawn:
+        ORBB AB 0 A_SeekerMissile (10,10)  
+        ORBB AB 0   
+        ORBB AB 2 bright A_CStaffMissileSlither 
+        Goto Spawn + 2
+    Death:
+        ORBB C 4 Bright A_Scream
+        ORBB D 4 Bright A_Fall
+        ORBB E 4 Bright 
+        Stop
+    }
+}
+
+actor TinyBingoBallCrisisParticle : BaseCrisisParticle
+{
+ scale 0.3333
+ ALPHA 0.8
+ 
+ States
+ {
+  Spawn:
+    ORBB A 0
+    "####" AB 2 Bright
+	{
+     A_SetScale(scaleX-0.05,scaleY-0.05);
+	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
+	 A_FadeOut(0.064);
+	}
+    loop
+ }
+}
+
+actor TinyBingoBallCrisis : TinyBingoBall
+{
+    Damage ((1 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+    scale 0.5
+    ALPHA 0.8
+    States
+    {
+    Spawn:
+        ORBB AB 0 A_SeekerMissile (10,10)  
+        ORBB AB 2 bright
+		{
+         A_SpawnItemEx("TinyBingoBallCrisisParticle",0,0,0,0,0,1.28);
+		 A_CStaffMissileSlither;
+		}
+        Goto Spawn + 2
+    Death:
+        ORBB C 4 Bright A_Scream
+        ORBB D 4 Bright A_Fall
+        ORBB E 4 Bright 
+        Stop
+    }
+}
 
 ACTOR TinyBingoNew : AetheriusMonsterZSC replaces TinyBingo 4179
 { 
@@ -1197,9 +1940,26 @@ ACTOR TinyBingoNew : AetheriusMonsterZSC replaces TinyBingo 4179
     Goto See
   Missile:   
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    CHED A 4 A_FaceTarget 
-    CHED A 2 Bright A_CustomMissile("MyBall", 12, -4, 0, 1)
+    CHED A 4
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    CHED A 2 Bright 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+	 A_FaceTarget;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("TinyBingoBall", "TinyBingoBallCrisis", 12, -4, 0, 1);
+	}
     CHED A 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
     Goto See 
   Pain: 
     CHED A 4 A_Pain 
@@ -1230,6 +1990,255 @@ ACTOR TinyBingoNew : AetheriusMonsterZSC replaces TinyBingo 4179
   } 
 } 
 
+//
+actor BeefyBall1 : AetheriusProjectileZSC
+{
+  Radius 8
+  Height 6
+  Speed 10
+  Damage (3 * random(1,8))
+  scale 0.8
+  //+SEEKERMISSILE
+  PROJECTILE
+  +HITMASTER
+  ALPHA 0.8
+  SeeSound "imp/attack"
+  DeathSound "CBLAST1"
+  States
+  {
+  Spawn:
+    MBBB AB 0   
+    MBBB AB 0   
+    MBBB AB 2 bright
+	{
+	 A_ScaleVelocity(1.0025);
+	}
+    Goto Spawn+2
+  Death:
+    TNT1 A 0 Bright
+	{	 
+	 if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE)
+	 {
+	  A_SetUserVar("user_ailmentmaxchance",4);
+	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (random(1,user_ailmentmaxchance) == 1)
+	  {
+	   A_SetUserVar("user_random",random(1,13));
+	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21,random(105,175)); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19,random(105,175)); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20,random(105,175)); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 4) { ACS_NamedExecuteAlways("BuffTimer",0,8,18,random(105,175)); } // Fatigue for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 5) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(210,350)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 6) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(210,350)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 7) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(210,350)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 8) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(210,350)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 9) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(210,350)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 10) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(210,350)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 11) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(210,350)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 12) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(210,350)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 13) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(210,350)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	  }
+	 }
+	 return state("");
+	}
+  Death2:
+    MBBB C 4 Bright A_Scream
+    MBBB DDDDDDDDDDDD 0 A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+    MBBB D 4 Bright A_Fall
+    MBBB E 4 Bright 
+    MBBB EEEEEEEEEEEEE 0 A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+    MBBB FFFFFFFFFF 0 A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+    MBBB F 4 A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+    MBBB G 4 A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+    MBBB GGGGGGG 0 A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+    MBBB H 4 
+    MBBB I 4 
+    Stop
+  }
+}
+actor BeefyBall1CrisisParticle : BaseCrisisParticle
+{
+ scale 0.5667
+ ALPHA 0.8
+ 
+ States
+ {
+  Spawn:
+    MBBB A 0
+    "####" AB 2 Bright
+	{
+     A_SetScale(scaleX-0.08,scaleY-0.08);
+	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
+	 A_FadeOut(0.064);
+	}
+    loop
+ }
+}
+actor BeefyBall1Crisis : BeefyBall1
+{
+  Damage ((3 * ACS_NamedExecuteWithResult("CrisisMultiplier")) * random(1,8))
+  States
+  {
+  Spawn:
+    MBBB AB 0   
+    MBBB AB 0   
+    MBBB AB 2 bright
+	{
+	 A_SpawnItemEx("BeefyBall1CrisisParticle",0,0,0,0,0,1.28);
+	 A_ScaleVelocity(1.0025);
+	}
+    Goto Spawn+2
+  }
+}
+actor BeefyBall2 : BeefyBall1
+{
+  Radius 8
+  Height 6
+  Speed 5
+  Damage (4 * random(1,8))
+  scale 1.0
+  +SEEKERMISSILE
+  PROJECTILE
+  +HITMASTER
+  ALPHA 0.8
+  SeeSound "imp/attack"
+  DeathSound "EXPLODE"
+  ExplosionRadius 48
+  ExplosionDamage 20
+  States
+  {
+  Spawn:
+  	MBBB A 2 bright 
+	{
+	 A_ScaleVelocity(1.0025);
+	 A_SeekerMissile(15,15);
+	}
+    MBBB B 2 bright
+    {	
+	 A_ScaleVelocity(1.0025);
+	 A_CustomMissile("RevTrail", 0, 0, 0, 1);
+	}
+    Loop
+  Death:
+    TNT1 A 0 Bright
+	{	 
+	 if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE)
+	 {
+	  A_SetUserVar("user_ailmentmaxchance",4);
+	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (random(1,user_ailmentmaxchance) == 1)
+	  {
+	   A_SetUserVar("user_random",random(1,12));
+	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21,random(105,175)); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19,random(105,175)); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20,random(105,175)); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 4) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(210,350)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 5) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(210,350)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 6) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(210,350)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 7) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(210,350)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 8) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(210,350)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 9) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(210,350)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 10) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(210,350)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 11) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(210,350)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 12) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(210,350)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	  }
+	 }
+	 return state("");
+	}
+  Death2:
+    GLOB A 0 Bright A_Explode(20,48,0,0,24)
+    GLOB A 4 Bright A_Scream
+    GLOB B 4 Bright A_Fall
+    GLOB C 4 Bright 
+    GLOB DEFGH 4
+    Stop
+  }
+}
+actor BeefyBall2CrisisParticle : BaseCrisisParticle
+{
+ scale 0.6667
+ ALPHA 0.8
+ 
+ States
+ {
+  Spawn:
+    MBBB A 0
+    "####" AB 2 Bright
+	{
+     A_SetScale(scaleX-0.1,scaleY-0.1);
+	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
+	 A_FadeOut(0.064);
+	}
+    loop
+ }
+}
+actor BeefyBall2Crisis : BeefyBall2
+{
+  scale 1.0
+  ALPHA 0.8
+
+  Damage ((4 * ACS_NamedExecuteWithResult("CrisisMultiplier")) * random(1,8))
+  States
+  {
+  Spawn:
+  	MBBB A 2 bright 
+	{
+	 A_SpawnItemEx("BeefyBall2CrisisParticle",0,0,0,0,0,1.28);
+	 A_ScaleVelocity(1.0025);
+	 A_SeekerMissile(15,15);
+	}
+    MBBB B 2 bright 
+	{
+	 A_SpawnItemEx("BeefyBall2CrisisParticle",0,0,0,0,0,1.28);
+	 A_ScaleVelocity(1.0025);
+	 A_CustomMissile("RevTrail", 0, 0, 0, 1);
+	}
+    Loop
+  Death:
+    TNT1 A 0 Bright
+	{	 
+	 if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE)
+	 {
+	  A_SetUserVar("user_ailmentmaxchance",4);
+	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (random(1,user_ailmentmaxchance) == 1)
+	  {
+	   A_SetUserVar("user_random",random(1,12));
+	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21,random(105,175)); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19,random(105,175)); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20,random(105,175)); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 4) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(210,350)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 5) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(210,350)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 6) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(210,350)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 7) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(210,350)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 8) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(210,350)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 9) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(210,350)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 10) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(210,350)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 11) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(210,350)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 12) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(210,350)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	  }
+	 }
+	 return state("");
+	}
+  Death2:
+    GLOB A 0 Bright A_Explode(20 * ACS_NamedExecuteWithResult("CrisisMultiplier"),48,0,0,24)
+    GLOB A 4 Bright A_Scream
+    GLOB B 4 Bright A_Fall
+    GLOB C 4 Bright 
+    GLOB DEFGH 4
+    Stop
+  }
+}
+
 actor BeefyNew : AetheriusMonsterZSC replaces Beefy 4333
 {
   //$Angled
@@ -1258,7 +2267,7 @@ actor BeefyNew : AetheriusMonsterZSC replaces Beefy 4333
   Obituary "%o was killed by beefy the clown."
   HitObituary "%o was scratched by beefy the clown."
   MissileHeight 32
-  MissileType MyBall2
+  MissileType BeefyBall1
   dropitem DoomSpellMana1 24
   dropitem DoomSpellMana1 24
   dropitem GreenArmor 2
@@ -1293,28 +2302,126 @@ actor BeefyNew : AetheriusMonsterZSC replaces Beefy 4333
     Loop
   Melee:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    CIMP J 8 A_FaceTarget
-    CIMP K 6 A_ComboAttack
+    CIMP J 8 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(4); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(5); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(6); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(7); }
+
+	 A_FaceTarget;
+	}
+    CIMP K 6 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(3); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(4); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(5); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisComboAttack("BeefyBall1", "BeefyBall1Crisis", 32, 3*random(1,8), "imp/melee");
+	}
     Goto See
   Missile:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
     CIMP J 0 A_Jump(128,4)
-    CIMP J 9 A_FaceTarget
-    CIMP K 9 A_CustomMissile("MyBall2", 32, 0, 0)
+    CIMP J 9 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(5); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(6); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(7); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(8); }
+
+	 A_FaceTarget;
+	}
+    CIMP K 9 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(5); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(6); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(7); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(8); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("BeefyBall1", "BeefyBall1Crisis", 32, 0, 0);
+	}
     Goto See
-    CIMP J 4 A_FaceTarget
-    CIMP J 4 A_FaceTarget
-    CIMP K 6 A_CustomMissile("MyBall2", 32, 0, 0)
-    CIMP J 8 A_FaceTarget
+    CIMP JJ 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    CIMP K 6
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(3); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(4); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(5); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("BeefyBall1", "BeefyBall1Crisis", 32, 0, 0);
+	}
+    CIMP J 8 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(4); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(5); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(6); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(7); }
+
+	 A_FaceTarget;
+	}
     CIMP J 0 A_Jump(128,5)
-    CIMP J 8 A_FaceTarget
-    CIMP K 6 A_CustomMissile("MyBall3", 32, 0, 0)
-    CIMP J 8 A_FaceTarget
+    CIMP J 8 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(4); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(5); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(6); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(7); }
+
+	 A_FaceTarget;
+	}
+    CIMP K 6
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(3); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(4); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(5); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("BeefyBall2", "BeefyBall2Crisis", 32, 0, 0);
+	}
+    CIMP J 8 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(4); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(5); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(6); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(7); }
+
+	 A_FaceTarget;
+	}
     Goto See
-    CIMP J 4 A_FaceTarget
-    CIMP J 4 A_FaceTarget
-    CIMP K 9 A_CustomMissile("MyBall3", 32, 0, 0)
-    CIMP J 8 A_FaceTarget
+    CIMP JJ 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    CIMP K 9
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(5); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(6); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(7); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(8); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("BeefyBall2", "BeefyBall2Crisis", 32, 0, 0);
+	}
+    CIMP J 8 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(4); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(5); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(6); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(7); }
+
+	 A_FaceTarget;
+	}
     Goto See
   Pain:
     CIMP L 2
@@ -1441,7 +2548,11 @@ ACTOR BlackBearNew : AetheriusMonsterZSC replaces BlackBear 3191
   {
   Spawn:
     BBER A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    BBER AB 4 A_Look
+    BBER AB 4 
+	{
+	 A_Look;
+	 if (IsPointerEqual(AAPTR_MASTER,AAPTR_DEFAULT) == 0) { Thing_Hate(tid,0,4); }	 
+	}
     goto Spawn+1
   See:
     BBER A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
@@ -1457,11 +2568,15 @@ ACTOR BlackBearNew : AetheriusMonsterZSC replaces BlackBear 3191
     Loop
   Melee:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    BBER A 1 A_MeleeAttack
-    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,36,0,1)
+    BBER A 1 A_CrisisMeleeAttack(1*random(1,10), "")
+    TNT1 A 0 
+	{
+	 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1);
+	 ACS_NamedExecuteAlways("AddEXP",0,36,0,1);
+	}
     BBER A 1 A_Scream
     BBER A 1 A_Fall
-    BBER A 1 A_Explode  
+    BBER A 1 A_CrisisExplode(11,40)
     BBER A 0 A_PlaySound("splat11")
     BBER A 1 A_CustomMissile("BSplatter", 0, 0, 0, 1)
     Stop
@@ -1477,12 +2592,15 @@ ACTOR BlackBearNew : AetheriusMonsterZSC replaces BlackBear 3191
     BBER BBBB 4
     Goto See
   Death:
-    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,36,0,1)
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    TNT1 A 0 
+	{
+	 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1);
+	 ACS_NamedExecuteAlways("AddEXP",0,36,0,1);
+	}
     BBER A 1 A_Scream
     BBER A 1 A_Fall
     BBER A 0 A_Jump(200,2) 
-    BBER A 1 A_Explode(11,40)
+    BBER A 1 A_CrisisExplode(11,40)
     BBER A 0 
     BBER A 0 A_PlaySound("splat11")
     BBER A 0 A_CustomMissile("BSplatter", 0, 0, 0, 1)
@@ -1497,6 +2615,39 @@ ACTOR BlackBearNew : AetheriusMonsterZSC replaces BlackBear 3191
     BBER B 1 A_FreezeDeathChunks
     wait
   }
+}
+
+//=========================================================================
+actor SkullSeeker2 : SkullSeeker
+{
+	Damage (2 * random(1,8))
+    SeeSound "GHSTATT"
+    States
+    {
+    Spawn:
+        GHST AB 4 A_SeekerMissile (5,20)
+        Loop
+    Death:
+        GHST CDEFG 4 Bright
+        Stop
+    }
+}
+actor SkullSeeker2Crisis : SkullSeeker2
+{
+	Damage ((2 * ACS_NamedExecuteWithResult("CrisisMultiplier")) * random(1,8))
+    States
+    {
+    Spawn:
+        GHST AB 4
+		{
+         A_SpawnItemEx("SkullSeekerCrisisParticle",0,0,0,0,0,1.28);
+		 A_SeekerMissile (5,20);
+		}
+        Loop
+    Death:
+        GHST CDEFG 4 Bright
+        Stop
+    }
 }
 
 actor ClownGhostNew : AetheriusMonsterZSC replaces ClownGhost 32128
@@ -1534,7 +2685,6 @@ actor ClownGhostNew : AetheriusMonsterZSC replaces ClownGhost 32128
   Obituary "%o got killed by a clown ghost." 
   MissileHeight 12
   MissileType SkullSeeker2 
-
 
   dropitem DoomSpellMana1 24
   dropitem DoomSpellMana1 24
@@ -1601,24 +2751,60 @@ actor ClownGhostNew : AetheriusMonsterZSC replaces ClownGhost 32128
     Goto See+4
   Melee:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    GHOS A 4 A_FaceTarget  
-    GHOS F 3 A_FaceTarget 
-    GHOS G 3 A_MeleeAttack
-    GHOS F 3 A_FaceTarget 
+    GHOS A 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    GHOS F 3  
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+	}
+    GHOS G 3 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack(3*random(1,10), "imp/melee");
+	}
+    GHOS F 3  
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+	}
     Goto See+4
   Missile: 
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    GHOS F 4 A_Jump(245,3)
-    GHOS F 4 A_FaceTarget 
-    GHOS G 6 A_ComboAttack
-    GHOS F 1 A_Chase
-    GHOS G 1 A_Chase 
-    GHOS G 1 A_Chase 
-    GHOS G 1 A_Chase 
-    GHOS G 1 A_Chase 
-    GHOS G 1 A_Chase 
-    GHOS G 1 A_Chase 
-    GHOS F 1 A_Chase 
+    GHOS F 0 A_Jump(245,3)
+    GHOS F 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    GHOS G 6 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(3); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(4); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(5); }
+	 A_FaceTarget;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisComboAttack("SkullSeeker2", "SkullSeeker2Crisis", 32, 3*random(1,8), "imp/melee");
+	}
+    GHOS FGGGGGGF 1
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",0); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_ChangeFlag("MISSILEMORE",1); A_ChangeFlag("MISSILEEVENMORE",0); }
+  	 else { A_ChangeFlag("MISSILEMORE",0); A_ChangeFlag("MISSILEEVENMORE",0); }
+	 A_Chase;
+	}
     Goto See+4
   Pain: 
     GHOS A 4 A_Pain 
@@ -1647,6 +2833,97 @@ actor ClownGhostNew : AetheriusMonsterZSC replaces ClownGhost 32128
     GHOS A 1 A_FreezeDeathChunks
     wait
   } 
+}
+
+//
+actor Ghost2Ball : AetheriusProjectileZSC
+{
+    Radius 8
+    Height 6
+    Speed 10
+    Damage (5*random(1,8))
+    scale 1
+    //+SEEKERMISSILE 
+    PROJECTILE
+    ALPHA 0.8
+    SeeSound "BULBEXP2"
+    DeathSound "imp/shotx"
+	DamageType "Fire"
+    States
+    {
+    Spawn:
+        GHBL A 2 bright
+        Goto Spawn
+    Death:
+        GHBL B 0 Bright A_Scream
+        GHBL B 0 Bright A_Fall
+        GHBL B 4 Bright A_CustomMissile("HellFire", 0, 0, 0)
+        GHBL B 0 Bright A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+        GHBL B 0 Bright A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+        GHBL B 0 Bright A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+        GHBL B 0 Bright A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+        GHBL B 0 Bright A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+        GHBL B 0 Bright A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+        GHBL C 2 Bright A_CustomMissile("HellFire", 0, -32, -300)
+        GHBL CCCCCCCCCCC 0 Bright A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+        GHBL C 2 Bright A_CustomMissile("HellFire", 0, 32, -120)
+        GHBL CCCCCCCCCCC 0 Bright A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+        GHBL D 4 Bright 
+        GHBL DDDDDDDDDD 0 Bright A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+        GHBL EEEEE 0 Bright A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+        GHBL E 4 Bright 
+        Stop      
+    }
+}
+
+actor Ghost2BallCrisisParticle : BaseCrisisParticle
+{
+ scale 0.667
+ 
+ States
+ {
+  Spawn:
+    GHBL A 0
+    "####" A 2 Bright
+	{
+     A_SetScale(scaleX-0.1,scaleY-0.1);
+	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
+	 A_FadeOut(0.064);
+	}
+    loop
+ }
+}
+actor Ghost2BallCrisis : Ghost2Ball
+{
+    Damage ((5 * ACS_NamedExecuteWithResult("CrisisMultiplier")) * random(1,8))
+    States
+    {
+    Spawn:
+        GHBL A 2 bright
+		{
+         A_SpawnItemEx("Ghost2BallCrisisParticle",0,0,0,0,0,1.28);
+		}
+        loop
+    Death:
+        GHBL B 0 Bright A_Scream
+        GHBL B 0 Bright A_Fall
+        GHBL B 4 Bright A_CustomMissile("HellFireCrisis", 0, 0, 0)
+        GHBL B 0 Bright A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+        GHBL B 0 Bright A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+        GHBL B 0 Bright A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+        GHBL B 0 Bright A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+        GHBL B 0 Bright A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+        GHBL B 0 Bright A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+        GHBL C 2 Bright A_CustomMissile("HellFireCrisis", 0, -32, -300)
+        GHBL CCCCCCCCCCC 0 Bright A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+        GHBL C 2 Bright A_CustomMissile("HellFireCrisis", 0, 32, -120)
+        GHBL CCCCCCCCCCC 0 Bright A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+        GHBL D 4 Bright 
+        GHBL DDDDDDDDDD 0 Bright A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+        GHBL EEEEE 0 Bright A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+        GHBL E 4 Bright 
+        Stop      
+    }
 }
 
 actor ClownGhost2New : AetheriusMonsterZSC replaces ClownGhost2 31211
@@ -1724,7 +3001,11 @@ actor ClownGhost2New : AetheriusMonsterZSC replaces ClownGhost2 31211
     }
     Loop
     GST2 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
-    GST2 A 0 A_CustomMissile("HellFire2", 0, 0, 0)
+    GST2 A 0 
+	{
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("HellFire2", "HellFire2Crisis", 0.0, 0.0, 0.0, 0, 0.0, AAPTR_TARGET, 0);
+	}
     GST2 AABB 1
 	{
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",1); }
@@ -1736,16 +3017,61 @@ actor ClownGhost2New : AetheriusMonsterZSC replaces ClownGhost2 31211
     Goto See
   Melee:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    GST2 A 4 A_FaceTarget  
-    GST2 B 3 A_FaceTarget 
-    GST2 C 3 A_MeleeAttack
-    GST2 B 3 A_FaceTarget 
+    GST2 A 4  
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    GST2 B 3  
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+	}
+    GST2 C 3 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack(3*random(1,10), "imp/melee");
+	}
+    GST2 B 3  
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+	}
     Goto See
   Missile:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    GST2 B 4 A_FaceTarget 
-    GST2 C 6 A_ComboAttack
-    GST2 B 4 A_Chase 
+    GST2 B 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    GST2 C 6 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(3); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(4); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(5); }
+	 A_FaceTarget;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisComboAttack("Ghost2Ball", "Ghost2BallCrisis", 32, 3*random(1,8), "imp/melee");
+	}
+    GST2 B 4  
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",0); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_ChangeFlag("MISSILEMORE",1); A_ChangeFlag("MISSILEEVENMORE",0); }
+  	 else { A_ChangeFlag("MISSILEMORE",0); A_ChangeFlag("MISSILEEVENMORE",0); }
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(3); }
+	 A_Chase;
+	}
     Goto See
   Pain: 
     GST2 B 4 A_Pain 
@@ -1783,6 +3109,250 @@ actor ClownGhost2New : AetheriusMonsterZSC replaces ClownGhost2 31211
     GST2 B 1 A_FreezeDeathChunks
     wait
   }
+}
+
+//
+actor BulbyBall : AetheriusProjectileZSC
+{
+    Radius 8
+    Height 6
+    Speed 10
+    Damage (2 * random(1,8))
+	DamageType "Electric"
+    //+SEEKERMISSILE
+    PROJECTILE
+    scale 1.0
+    ALPHA 0.8
+    SeeSound ""
+    DeathSound "BULBEXP"
+    ExplosionRadius 48
+    ExplosionDamage 16
+    States
+    {
+    Spawn:
+        BBBL AABBCCBB 2 bright
+		{
+	     A_ScaleVelocity(1.0025);
+		 A_CustomMissile("bsmoke", 6, 0, 0, 0);
+		}
+        Loop
+    Death:
+    	BBBL D 1 Bright A_Fall
+        BBBL D 4 Bright A_Explode(16,48)
+        BBBL E 4 Bright A_Scream
+        BBBL FG 4 Bright 
+        Stop
+    }
+}
+actor BulbyBallCrisisParticle : BaseCrisisParticle
+{
+ scale 0.667
+ 
+ States
+ {
+  Spawn:
+    BBBL A 0
+    "####" AABB 2 Bright
+	{
+     A_SetScale(scaleX-0.1,scaleY-0.1);
+	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
+	 A_FadeOut(0.064);
+	}
+    loop
+ }
+}
+actor BulbyBallCrisis : BulbyBall
+{
+    Damage ((2 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+    States
+    {
+    Spawn:
+        BBBL AABBCCBB 2 bright
+		{
+		 A_SpawnItemEx("BulbyBallCrisisParticle",0,0,0,0,0,1.28);
+	     A_ScaleVelocity(1.0025);
+		 A_CustomMissile("bsmoke", 6, 0, 0, 0);
+		}
+        Loop
+    Death:
+    	BBBL D 1 Bright A_Fall
+        BBBL D 4 Bright A_Explode(16*ACS_NamedExecuteWithResult("CrisisMultiplier"),48)
+        BBBL E 4 Bright A_Scream
+        BBBL FG 4 Bright 
+        Stop
+	}
+}
+
+actor BulbyBall2 : AetheriusProjectileZSC
+{
+    Radius 8
+    Height 6
+    Speed 10
+    Damage (3 * random(1,8))
+	DamageType "Electric"
+    +SEEKERMISSILE 
+    PROJECTILE
+    scale 0.9
+    ALPHA 0.8
+    DeathSound "BULBEXP"
+    ExplosionRadius 64
+    ExplosionDamage 24
+    States
+    {
+    Spawn:
+    	BBBL A 0 A_SeekerMissile(10,10)
+    	BBBL AABB 2 bright
+		{
+	     A_ScaleVelocity(1.0025);
+		 A_CustomMissile("bsmoke", 6, 0, 0, 1);
+		}
+    	BBBL C 0 A_SeekerMissile(10,10)
+    	BBBL CCBB 2 bright
+		{
+	     A_ScaleVelocity(1.0025);
+		 A_CustomMissile("bsmoke", 6, 0, 0, 1);
+		}
+        Loop
+    Death:
+    	BBBL D 1 Bright A_Fall
+        BBBL D 4 Bright A_Explode(24,64)
+        BBBL E 4 Bright A_Scream
+        BBBL FG 4 Bright 
+        Stop
+    }
+}
+
+actor BulbyBall2CrisisParticle : BaseCrisisParticle
+{
+ scale 0.6003
+ 
+ States
+ {
+  Spawn:
+    BBBL A 0
+    "####" AABB 2 Bright
+	{
+     A_SetScale(scaleX-0.09,scaleY-0.09);
+	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
+	 A_FadeOut(0.064);
+	}
+    loop
+ }
+}
+actor BulbyBall2Crisis : BulbyBall2
+{
+    Damage ((3 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+	States
+	{
+    Spawn:
+    	BBBL A 0 A_SeekerMissile(10,10)
+    	BBBL AABB 2 bright
+		{
+		 A_SpawnItemEx("BulbyBall2CrisisParticle",0,0,0,0,0,1.28);
+	     A_ScaleVelocity(1.0025);
+		 A_CustomMissile("bsmoke", 6, 0, 0, 1);
+		}
+    	BBBL C 0 { if (random(1,2) == 1) { A_SeekerMissile(10,10); } }
+    	BBBL CCBB 2 bright
+		{
+		 A_SpawnItemEx("BulbyBall2CrisisParticle",0,0,0,0,0,1.28);
+	     A_ScaleVelocity(1.0025);
+		 A_CustomMissile("bsmoke", 6, 0, 0, 1);
+		}
+        Loop
+    Death:
+    	BBBL D 1 Bright A_Fall
+        BBBL D 4 Bright A_Explode(24*ACS_NamedExecuteWithResult("CrisisMultiplier"),64)
+        BBBL E 4 Bright A_Scream
+        BBBL FG 4 Bright 
+        Stop
+	}
+}
+
+actor BulbyBall3 : AetheriusProjectileZSC
+{
+    Radius 16
+    Height 16
+    Speed 12
+    Damage (3 * random(1,8))
+	DamageType "Electric"
+    +SEEKERMISSILE
+    PROJECTILE
+    scale 1.4
+    ALPHA 0.8
+    SeeSound "GHSTATT"
+    DeathSound "BULBEXP"
+    ExplosionRadius 96
+    ExplosionDamage 32
+    States
+    {
+    Spawn:
+    	BBBL A 0 A_SeekerMissile(20,20)
+    	BBBL AABB 2 bright
+		{
+	     A_ScaleVelocity(1.0025);
+		 A_CustomMissile("bsmoke", 6, 0, 0, 1);
+		}
+    	BBBL C 0 A_SeekerMissile(20,20)
+    	BBBL CCBB 2 bright
+		{
+	     A_ScaleVelocity(1.0025);
+		 A_CustomMissile("bsmoke", 6, 0, 0, 1);
+		}
+        Loop
+    Death:
+    	BBBL D 1 Bright A_Fall
+        BBBL D 4 Bright A_Explode(32,96)
+        BBBL E 4 Bright A_Scream
+        BBBL FG 4 Bright 
+        Stop
+    }
+}
+actor BulbyBall3CrisisParticle : BaseCrisisParticle
+{
+ scale 0.9338
+ 
+ States
+ {
+  Spawn:
+    BBBL A 0
+    "####" AABB 2 Bright
+	{
+     A_SetScale(scaleX-0.14,scaleY-0.14);
+	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
+	 A_FadeOut(0.112);
+	}
+    loop
+ }
+}
+actor BulbyBall3Crisis : BulbyBall3
+{
+    Damage ((3 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+	States
+	{
+    Spawn:
+    	BBBL A 0 A_SeekerMissile(20,20)
+    	BBBL AABB 2 bright
+		{
+		 A_SpawnItemEx("BulbyBall3CrisisParticle",0,0,0,0,0,1.28);
+	     A_ScaleVelocity(1.0025);
+		 A_CustomMissile("bsmoke", 6, 0, 0, 1);
+		}
+    	BBBL C 0 { if (random(1,2) == 1) { A_SeekerMissile(20,20); } }
+    	BBBL CCBB 2 bright
+		{
+		 A_SpawnItemEx("BulbyBall3CrisisParticle",0,0,0,0,0,1.28);
+	     A_ScaleVelocity(1.0025);
+		 A_CustomMissile("bsmoke", 6, 0, 0, 1);
+		}
+        Loop
+    Death:
+    	BBBL D 1 Bright A_Fall
+        BBBL D 4 Bright A_Explode(32*ACS_NamedExecuteWithResult("CrisisMultiplier"),96)
+        BBBL E 4 Bright A_Scream
+        BBBL FG 4 Bright 
+        Stop
+	}
 }
 
 actor BulbyNew : AetheriusMonsterZSC replaces Bulby 3906
@@ -1851,6 +3421,7 @@ actor BulbyNew : AetheriusMonsterZSC replaces Bulby 3906
     LDEM E 4
     LDEM F 2 A_NoGravity 
     LDEM F 2 A_SetShootable
+  See2:
     LLLL A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
     LDEM G 2
 	{
@@ -1862,40 +3433,90 @@ actor BulbyNew : AetheriusMonsterZSC replaces Bulby 3906
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(1); }
 	 A_Chase;
     }
-    Goto See+11
+    loop
   Melee: 
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    LDEM G 3 A_FaceTarget 
-    LDEM H 3 A_FaceTarget 
-    LDEM I 3 A_MeleeAttack
-    LDEM H 3 A_FaceTarget 
-    Goto See+11
+    LDEM GH 3 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+	}
+    LDEM I 3 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack((3*random(1,10)), "imp/melee");
+	}
+    LDEM H 3 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+	}
+    Goto See2
   Missile:  
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    LDEM G 3 A_Jump(88,6)
-    LDEM G 3 A_FaceTarget 
-    LDEM H 3 A_FaceTarget 
-    LDEM I 0 A_PlaySound("BULBEXP2")
-    LDEM I 2 Bright A_CustomMissile("BulbyBall", 12, -4, 0, 1)
+    LDEM G 0 A_Jump(88,"Missile2")
+    LDEM GH 3 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+	}
+    LDEM I 2 Bright 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+	 A_FaceTarget;
+
+     A_PlaySound("BULBEXP2");
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("BulbyBall", "BulbyBallCrisis", 12, -4, 0, 1);
+	}
     LDEM H 4 
-    Goto See+11
-    LDEM G 4 A_FaceTarget 
-    LDEM H 4 A_FaceTarget 
-    LDEM I 1 A_PlaySound("BULBEXP2")
-    LDEM I 3 Bright A_CustomMissile("BulbyBall2", 12, -4, 0, 1)
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    Goto See2
+  Missile2:  
+    LDEM GH 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    LDEM I 4 Bright 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+
+     A_PlaySound("BULBEXP2");
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("BulbyBall2", "BulbyBall2Crisis", 12, -4, 0, 1);
+	}
     LDEM H 4 
-    Goto See+11
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    Goto See2
   Pain: 
     LDEM J 4 A_Pain 
-    Goto See+11
+    Goto See2
   Pain.Fist:
     LDEM J 4 A_Pain 
     LDEM JJ 4 
-    Goto See+11
+    Goto See2
   Pain.Kick:
     LDEM J 4 A_Pain 
     LDEM JJJJ 4 
-    Goto See+11
+    Goto See2
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,230,0,1)
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
@@ -2009,23 +3630,74 @@ actor MegaBulbyNew : AetheriusMonsterZSC replaces MegaBulby 3989
     goto See+1
   Melee: 
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    LDEM H 3 A_FaceTarget 
-    LDEM I 3 A_MeleeAttack
-    LDEM H 3 A_FaceTarget 
+    LDEM GH 3 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+	}
+    LDEM I 3 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+
+     A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack((7*random(1,10)), "imp/melee");
+	}
+    LDEM H 3 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+	}
     Goto See
   Missile:  
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    LDEM G 3 A_Jump(5,5)
-    LDEM G 3 A_FaceTarget 
-    LDEM H 3 A_FaceTarget 
-    LDEM I 0 A_PlaySound("BULBEXP2")
-    LDEM I 2 Bright A_CustomMissile("BulbyBall3", 24, -4,0, 1)
+    LDEM G 0 A_Jump(5,"Missile2")
+    LDEM GH 3 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+	}
+    LDEM I 2 Bright 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+	 A_FaceTarget;
+
+	 A_PlaySound("BULBEXP2");
+     A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("BulbyBall3", "BulbyBall3Crisis", 24, -4, 0, 1);
+	}
     LDEM H 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
     Goto See
-    LDEM G 4 A_FaceTarget 
-    LDEM H 4 A_FaceTarget 
-    LDEM I 4 Bright A_CustomMissile("BulbyBall3", 24, -4, 0, 1)
+  Missile2:  
+    LDEM GH 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    LDEM I 4 Bright 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+
+     A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("BulbyBall3", "BulbyBall3Crisis", 24, -4, 0, 1);
+	}
     LDEM H 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
     Goto See
   Pain: 
     LDEM J 4 A_Pain 
@@ -2075,6 +3747,72 @@ actor MegaBulbyNew : AetheriusMonsterZSC replaces MegaBulby 3989
     LDEM J 1 A_FreezeDeathChunks
     wait
   }    
+}
+
+//
+actor BerthaBall : AetheriusProjectileZSC
+{
+    Damage (5 * random(1,8))
+    Radius 8
+    Height 6
+    Speed 15
+    scale 1
+    //+SEEKERMISSILE
+    PROJECTILE
+    //ALPHA 0.8
+    SeeSound ""
+    DeathSound "BIRFIRE"
+    States
+    {
+    Spawn:
+        BRTF AB 0 A_SeekerMissile (10,10)  
+        BRTF AB 2 bright A_CStaffMissileSlither 
+        Loop
+    Death:
+		BRTF CCC 0 A_CustomMissile("BlackSplatter2", 6, 0, random(-180, 180), 2, random(0, 180))
+        BRTF C 4 Bright A_Scream
+        BRTF D 4 Bright A_Fall
+        BRTF E 4 Bright 
+        Stop
+    }
+}
+actor BerthaBallCrisisParticle : BaseCrisisParticle
+{
+ scale 0.67
+ 
+ States
+ {
+  Spawn:
+    BRTF A 0
+    "####" AB 2 Bright
+	{
+     A_SetScale(scaleX-0.1,scaleY-0.1);
+	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
+	 A_FadeOut(0.08);
+	}
+    loop
+ }
+}
+actor BerthaBallCrisis : BerthaBall
+{
+    Damage (5 * random(1,8) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+    States
+    {
+    Spawn:
+        BRTF AB 0 A_SeekerMissile (10,10)  
+        BRTF AB 2 bright 
+		{
+         A_SpawnItemEx("BerthaBallCrisisParticle",0,0,0,0,0,1.28);
+		 A_CStaffMissileSlither;
+		}
+        Loop
+    Death:
+		BRTF CCC 0 A_CustomMissile("BlackSplatter2", 6, 0, random(-180, 180), 2, random(0, 180))
+        BRTF C 4 Bright A_Scream
+        BRTF D 4 Bright A_Fall
+        BRTF E 4 Bright 
+        Stop
+    }
 }
 
 ACTOR BigBertha2New : AetheriusMonsterZSC replaces BigBertha2 3192
@@ -2161,45 +3899,118 @@ ACTOR BigBertha2New : AetheriusMonsterZSC replaces BigBertha2 3192
     Goto See
   Missile: 
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    BRTH A 0 A_Jump(128,15)  
-    BRTH A 4 A_FaceTarget 
-    BRTH ABCDH 4 A_FaceTarget 
-    BRTH EF 4 A_FaceTarget 
-    BRTH G 3 A_CustomMissile("BlackBlob", 12, 0, 0, 1)
-    BRTH G 0 A_CustomMissile("BlackBlob", 12, 12, 0, 1)
-    BRTH G 0 A_CustomMissile("BlackBlob", 12, -12, 0, 1)
+    BRTH A 0 A_Jump(128,"Missile2")  
+    BRTH AABCDHEF 4
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    BRTH G 3
+    {
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+
+	 A_MonsterCrisisCheck;
+     A_CustomMissile("BlackBlob", 12, 12, 0, 1);
+	 A_CustomMissile("BlackBlob", 12, 0, 0, 1);
+     A_CustomMissile("BlackBlob", 12, -12, 0, 1);
+	 if(user_canusecrisisatk == 1)
+	 {
+	  A_PlayCrisisAtkSound;
+      A_CustomMissile("BlackBlob", 12, -24, 0, 1);
+      A_CustomMissile("BlackBlob", 12, -18, 0, 1);
+      A_CustomMissile("BlackBlob", 12, -6, 0, 1);
+      A_CustomMissile("BlackBlob", 12, 6, 0, 1);
+      A_CustomMissile("BlackBlob", 12, 18, 0, 1);
+      A_CustomMissile("BlackBlob", 12, 24, 0, 1);
+	 }
+	}
     BRTH DC 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
     Goto See 
-    BRTH ABC 4 A_FaceTarget 
-    BRTH D 2 Bright A_CustomMissile("BirthaBall", 48, 0, 0, 1)
-    BRTH C 4 A_FaceTarget 
+  Missile2: 
+    BRTH ABC 4
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    BRTH D 2 Bright
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+	 A_FaceTarget;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("BerthaBall", "BerthaBallCrisis", 48, 0, 0, 1);
+	}
+    BRTH C 4  
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
     Goto See 
   Pain: 
-    BRTH A 4 A_Pain 
+    BRTH A 4 
+	{
+	 if (random(1,5) == 1) { A_CustomMissile("BlackBlob", 12, 6*random(-3,3), 0, 1); }
+	 if (random(1,5) == 1) { A_CustomMissile("BlackBlob", 12, 6*random(-3,3), 0, 1); }
+	 if (random(1,5) == 1) { A_CustomMissile("BlackBlob", 12, 6*random(-3,3), 0, 1); }
+	 if (random(1,5) == 1) { A_CustomMissile("BlackBlob", 12, 6*random(-3,3), 0, 1); }
+	 A_Pain;
+	}
     Goto See 
   Pain.Fist: 
-    BRTH A 4 A_Pain 
+    BRTH A 4  
+	{
+	 if (random(1,3) == 1) { A_CustomMissile("BlackBlob", 12, 6*random(-3,3), 0, 1); }
+	 if (random(1,3) == 1) { A_CustomMissile("BlackBlob", 12, 6*random(-3,3), 0, 1); }
+	 if (random(1,3) == 1) { A_CustomMissile("BlackBlob", 12, 6*random(-3,3), 0, 1); }
+	 if (random(1,3) == 1) { A_CustomMissile("BlackBlob", 12, 6*random(-3,3), 0, 1); }
+	 A_Pain;
+	}
     BRTH AA 4
     Goto See 
   Pain.Kick: 
-    BRTH A 4 A_Pain 
+    BRTH A 4 
+	{
+	 if (random(1,2) == 1) { A_CustomMissile("BlackBlob", 12, 6*random(-3,3), 0, 1); }
+	 if (random(1,2) == 1) { A_CustomMissile("BlackBlob", 12, 6*random(-3,3), 0, 1); }
+	 if (random(1,2) == 1) { A_CustomMissile("BlackBlob", 12, 6*random(-3,3), 0, 1); }
+	 if (random(1,2) == 1) { A_CustomMissile("BlackBlob", 12, 6*random(-3,3), 0, 1); }
+	 A_Pain;
+	}
     BRTH AAAA 4
     Goto See 
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,925,0,1)
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
     BRTH I 7 A_Scream 
-    BRTH J 6  A_NoBlocking 
+    BRTH J 6 A_NoBlocking 
     BRTH K 6
     BRTH L 4
     BRTH MN 4
-    BRTH N 0 A_CustomMissile("BlackBlob", 12, 0, 0, 1) 
-    BRTH N 0 A_CustomMissile("BlackBlob", 12, 12, 0, 1) 
-    BRTH N 0 A_CustomMissile("BlackBlob", 12, -13, 0, 1) 
-    BRTH N 0 A_CustomMissile("BlackBlob", 12, -16, 0, 1) 
-    BRTH N 0 A_CustomMissile("BlackBlob", 12, 18, 0, 1) 
     BRTH O 4     
-    Stop    
+	{
+     A_CustomMissile("BlackBlob", 12, 0, 0, 1);
+     A_CustomMissile("BlackBlob", 12, 12, 0, 1); 
+     A_CustomMissile("BlackBlob", 12, -13, 0, 1); 
+     A_CustomMissile("BlackBlob", 12, -16, 0, 1);
+     A_CustomMissile("BlackBlob", 12, 18, 0, 1);
+	 if (random(1,2) == 1)
+	 {
+      A_CustomMissile("BlackBlob", 12, -12, 0, 1); 
+      A_CustomMissile("BlackBlob", 12, 13, 0, 1); 
+      A_CustomMissile("BlackBlob", 12, 16, 0, 1);
+      A_CustomMissile("BlackBlob", 12, -18, 0, 1);
+	 }
+    }
+    Stop
   Ice:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,925,0,1)
     TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
@@ -2208,6 +4019,125 @@ ACTOR BigBertha2New : AetheriusMonsterZSC replaces BigBertha2 3192
     wait
   } 
 }
+
+//
+ACTOR SoulAttack : AetheriusProjectileZSC
+{   
+    Damage (5 * random(1,8))
+	renderstyle add
+	Radius 6
+	Height 10
+	Speed 12
+	+Missile
+	+lowgravity
+	+NoBlockmap
+	+NoTeleport
+	+NODAMAGETHRUST
+	RENDERSTYLE Translucent
+  	ALPHA 0.5
+	SCALE 0.6
+	States
+	{
+	Spawn:
+		SEEK AAAAAAAAAAAAAAAAAAAAAA 2 Bright
+		{
+		 A_ScaleVelocity(1.01);
+		}
+		GLOB B 1 Bright 
+		{
+		 A_ScaleVelocity(1.01);
+		}
+		GLOB A 3 Bright 
+		{
+		 A_ScaleVelocity(1.01);
+		 A_Scream;
+		}
+       	GLOB H 3 Bright 
+		{
+		 A_ScaleVelocity(1.01);
+		 A_Fall;
+		}
+		Stop
+ 	Death:
+		GLOB B 1 Bright 
+		{
+		 A_ScaleVelocity(1.01);
+		}
+		GLOB A 3 Bright 
+		{
+		 A_ScaleVelocity(1.01);
+		 A_Scream;
+		}
+       	GLOB H 3 Bright 
+		{
+		 A_ScaleVelocity(1.01);
+		 A_Fall;
+		}
+ 		Stop
+	}
+} 
+
+actor SoulAttackCrisisParticle : BaseCrisisParticle
+{
+ scale 0.40
+ 
+ States
+ {
+  Spawn:
+    SEEK A 0
+    "####" A 2 Bright
+	{
+     A_SetScale(scaleX-0.06,scaleY-0.06);
+	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
+	 A_FadeOut(0.032);
+	}
+    loop
+ }
+}
+ACTOR SoulAttackCrisis : SoulAttack
+{   
+    Damage ((5 * ACS_NamedExecuteWithResult("CrisisMultiplier")) * random(1,8))
+	States
+	{
+	Spawn:
+		SEEK AAAAAAAAAAAAAAAAAAAAAA 2 Bright
+		{
+		 A_ScaleVelocity(1.01);
+		 A_SpawnItemEx("SoulAttackCrisisParticle",0,0,0,0,0,1.28);
+		}
+		GLOB B 1 Bright 
+		{
+		 A_ScaleVelocity(1.01);
+		}
+		GLOB A 3 Bright 
+		{
+		 A_ScaleVelocity(1.01);
+		 A_Scream;
+		}
+       	GLOB H 3 Bright 
+		{
+		 A_ScaleVelocity(1.01);
+		 A_Fall;
+		}
+		Stop
+ 	Death:
+		GLOB B 1 Bright 
+		{
+		 A_ScaleVelocity(1.01);
+		}
+		GLOB A 3 Bright 
+		{
+		 A_ScaleVelocity(1.01);
+		 A_Scream;
+		}
+       	GLOB H 3 Bright 
+		{
+		 A_ScaleVelocity(1.01);
+		 A_Fall;
+		}
+ 		Stop
+	}
+} 
 
 actor SuperBerthaNew : AetheriusMonsterZSC replaces SuperBertha 14768
 { 
@@ -2305,50 +4235,114 @@ actor SuperBerthaNew : AetheriusMonsterZSC replaces SuperBertha 14768
     Loop
   Missile:   
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    BBTH A 0 A_JumpIfCloser(200,2)
+    BBTH A 0 A_JumpIfCloser(400,"Missile2")
     BBTH A 0 
     Goto See
-    BBTH A 0 A_FaceTarget  
-    BBTH B 1 //A_PlaySound("BEAT667")
-    BBTH B 0 A_CustomMissile("SoulAttack", 45, 0, random(-45, 45), 2, random(-20, 20))
-    BBTH B 1 A_FaceTarget 
-    BBTH B 0 A_CustomMissile("SoulAttack", 45, 0, random(-45, 45), 2, random(-20, 20))
-    BBTH B 1 A_FaceTarget 
-    BBTH B 0 A_CustomMissile("SoulAttack", 45, 0, random(-45, 45), 2, random(-20, 20))
-    BBTH B 1 A_FaceTarget 
-    BBTH B 0 A_CustomMissile("SoulAttack", 45, 0, random(-45, 45), 2, random(-20, 20))
-    BBTH B 0 A_CustomMissile("SoulAttack", 45, 0, random(-45, 45), 2, random(-20, 20))
-    BBTH B 1 A_FaceTarget 
-    BBTH B 0 A_CustomMissile("SoulAttack", 45, 0, random(-45, 45), 2, random(-20, 20))
-    BBTH B 1 A_FaceTarget 
-    BBTH B 0 A_CustomMissile("SoulAttack", 45, 0, random(-45, 45), 2, random(-20, 20))
-    BBTH B 1 A_FaceTarget 
-    BBTH B 0 A_CustomMissile("SoulAttack", 45, 0, random(-45, 45), 2, random(-20, 20))
-    BBTH B 0 A_CustomMissile("SoulAttack", 45, 0, random(-45, 45), 2, random(-20, 20))
-    BBTH B 1 A_FaceTarget 
-    BBTH B 0 A_CustomMissile("SoulAttack", 45, 0, random(-45, 45), 2, random(-20, 20))
-    BBTH B 1 A_FaceTarget 
-    BBTH B 0 A_CustomMissile("SoulAttack", 45, 0, random(-45, 45), 2, random(-20, 20))
-    BBTH B 1 A_FaceTarget 
-    BBTH B 0 A_CustomMissile("SoulAttack", 45, 0, random(-45, 45), 2, random(-20, 20))
+  Missile2:   
+    BBTH B 1
+	{
+	 A_FaceTarget;
+	}
+    BBTH BBB 1 
+	{
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
+	 if(user_canusecrisisatk == 1) 
+	 { 
+	  A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
+	 }
+	 A_FaceTarget;
+	}
     BBTH B 1 
+	{
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
+	 A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
+	 if(user_canusecrisisatk == 1) 
+	 { 
+	  A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
+	  A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
+	 }
+	 A_FaceTarget;
+	}
+    BBTH BB 1 
+	{
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
+	 if(user_canusecrisisatk == 1) 
+	 { 
+	  A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
+	 }
+	 A_FaceTarget;
+	}
+    BBTH B 1 
+	{
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
+	 A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
+	 if(user_canusecrisisatk == 1) 
+	 { 
+	  A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
+	  A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
+	 }
+	 A_FaceTarget;
+	}
+    BBTH BBB 1 
+	{
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
+	 if(user_canusecrisisatk == 1) 
+	 { 
+	  A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
+	 }
+	 A_FaceTarget;
+	}
     Goto See
   Melee:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    BBTH BA 1 A_FaceTarget 
-    BBTH C 4  A_MeleeAttack
-    BBTH AB 4 A_FaceTarget 
+    BBTH BA 1 
+	{
+	 A_FaceTarget;
+	}
+    BBTH C 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack(1*random(1,10), "imp/melee");
+	}
+    BBTH AB 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
     Goto See
   Pain:
     BBTH C 3 A_Pain
+	BBTH C 0
+	{
+	 if (random(1,256) <= 192) { return state("Missile2"); }
+	 return state("");
+	}
     Goto See
   Pain.Fist: 
     BBTH C 4 A_Pain 
     BBTH CC 4
+	BBTH C 0
+	{
+	 if (random(1,256) <= 192) { return state("Missile2"); }
+	 return state("");
+	}
     Goto See 
   Pain.Kick: 
     BBTH C 4 A_Pain 
     BBTH CCCC 4
+	BBTH C 0
+	{
+	 if (random(1,256) <= 192) { return state("Missile2"); }
+	 return state("");
+	}
     Goto See 
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,120000,0,1)
@@ -2451,9 +4445,29 @@ ACTOR EvilDeadHandNew : AetheriusMonsterZSC replaces EvilDeadHand 32212
     Loop
   Melee:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    HAND C 6 A_FaceTarget 
-    HAND A 6 A_MeleeAttack
+    HAND C 6 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(3); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(4); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(5); }
+	 A_FaceTarget;
+	}
+    HAND A 6 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(3); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(4); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(5); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack(1*random(1,10), "SKULBITE");
+	}
     HAND B 6
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(3); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(4); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(5); }
+	 A_FaceTarget;
+	}
     Goto See 
   Pain:
     HAND B 8 A_Pain 
@@ -2494,7 +4508,7 @@ ACTOR BouncingClownNew : AetheriusMonsterZSC replaces BouncingClown 4822
   Health 6000
   Radius 24
   Height 112
-  Speed 11
+  Speed 16
   Mass 2000
   MONSTER 
   +FLOORCLIP +RANDOMIZE +COUNTKILL +CANPASS
@@ -2623,25 +4637,52 @@ ACTOR BouncingClownNew : AetheriusMonsterZSC replaces BouncingClown 4822
     Loop
   Melee:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    BCWN A 3 A_FaceTarget 
-    BCWN B 3 A_FaceTarget 
-    BCWN C 4 A_MeleeAttack
-    BCWN B 3 A_FaceTarget 
+    BCWN AB 3
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+	}
+    BCWN C 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack(10*random(1,10), "BCHOMP");
+	}
+    BCWN B 3  
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+	}
     Goto See
   Pain:
     BCWN D 5 A_Pain
-    BCWN E 0 A_SetReflective
-    BCWN E 0 A_SetInvulnerable
-    BCWN E 4
-    BCWN FFFF 2 A_CustomMissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
+	goto PainRetreat
+  Pain.Fist:
+    BCWN D 5 A_Pain
+    BCWN DD 5
+	goto PainRetreat
+  Pain.Kick:
+    BCWN D 5 A_Pain
+    BCWN DDDD 5
+	goto PainRetreat
+  PainRetreat:
+    BCWN E 0 A_SetReflectiveInvulnerable
+    BCWN E 5
+    BCWN FFFF 1 A_CustomMissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
     BCWN GGGG 1 A_CustomMissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
     BCWN HHHH 1 A_CustomMissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
     BCWN IIII 1 A_CustomMissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
     BCWN JJJJ 1 A_CustomMissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
-    BCWN JJJJJ 10 
+    BCWN JJJJJ 10
+    {
+	 if (random(1,4) == 1) { A_SetTics(2); }
+    }	
     BCWN JIHGFED 5
-    BCWN D 0 A_UnSetReflective
-    BCWN D 0 A_UnSetInvulnerable
+    BCWN D 0 A_UnSetReflectiveInvulnerable
     Goto See
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,75000,0,1)
@@ -2743,11 +4784,33 @@ ACTOR BabyClownNew : AetheriusMonsterZSC replaces BabyClown 4823
     Loop
   Melee:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    BCWN A 3 A_FaceTarget 
-    BCWN B 0 A_PlaySound("CLWNBITE")
-    BCWN B 3 A_FaceTarget
-    BCWN C 4 A_MeleeAttack
-    BCWN B 3 A_FaceTarget
+    BCWN A 3  
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+	}
+    BCWN B 3 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+	 A_PlaySound("CLWNBITE");
+	}
+    BCWN C 4
+    {
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack(3*random(1,10),"CLWNBITE");
+	}
+    BCWN B 3
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+	}
     BCWN B 0 A_PlaySound("CLWNBITE")
     Goto See
   Pain:
@@ -2872,11 +4935,33 @@ ACTOR BabyClown2New : AetheriusMonsterZSC replaces BabyClown2 4825
     Goto See+5
   Melee:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    BCWN A 3 A_FaceTarget 
-    BCWN B 0 A_PlaySound("CLWNBITE")
-    BCWN B 3 A_FaceTarget
-    BCWN C 4 A_MeleeAttack
-    BCWN B 3 A_FaceTarget
+    BCWN A 3  
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+	}
+    BCWN B 3 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+	 A_PlaySound("CLWNBITE");
+	}
+    BCWN C 4
+    {
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack(3*random(1,10),"CLWNBITE");
+	}
+    BCWN B 3
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+	}
     BCWN B 0 A_PlaySound("CLWNBITE")
     Goto See+5
   Pain:
@@ -2990,16 +5075,60 @@ actor PennywiseHead2New : AetheriusMonsterZSC replaces PennywiseHead 14421
     Goto See
   Melee:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    CFHD D 4 A_FaceTarget  
-    CFHD E 3 A_FaceTarget 
-    CFHD D 3 A_MeleeAttack
-    CFHD A 3 A_FaceTarget 
+    CFHD D 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    CFHD E 3  
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+	}
+    CFHD D 3 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack(3*random(1,8), "imp/melee");
+	}
+    CFHD A 3  
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+	}
     Goto See
   Missile:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    CFHD D 4 A_FaceTarget 
-    CFHD E 6 A_ComboAttack
-    CFHD D 4 A_Chase 
+    CFHD D 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    CFHD E 6 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(3); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(4); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(5); }
+	 
+	 A_MonsterCrisisCheck;
+	 A_CrisisComboAttack("Ghost2Ball","Ghost2BallCrisis", 12, 3*random(1,8), "imp/melee");
+    }
+    CFHD D 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",0); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_ChangeFlag("MISSILEMORE",1); A_ChangeFlag("MISSILEEVENMORE",0); }
+  	 else { A_ChangeFlag("MISSILEMORE",0); A_ChangeFlag("MISSILEEVENMORE",0); }
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_Chase;
+	}
     Goto See
   Pain: 
     CFHD E 4 A_Pain 
@@ -3041,12 +5170,336 @@ actor PennywiseShield : PowerProtection
  Powerup.Duration 2147483646
 }
 
+//
+actor SkullSeeker666 : AetheriusProjectileZSC
+{
+    Damage (3 * random(1,8))
+    Radius 8
+    Height 6
+    Speed 9
+    Scale 1
+    +SEEKERMISSILE
+    PROJECTILE
+    //RENDERSTYLE ADD
+    //ALPHA 0.67
+    SeeSound ""	
+    DeathSound "BHIT3"
+    States
+    {
+    Spawn:
+        GHST ABABABABABABABABABABAB 4 A_SeekerMissile (5,20)
+        GHST ABABABABABAB 4 A_SeekerMissile (5,20)
+        GHST ABABABABABABABABCDEFG 4 A_SeekerMissile (5,20)
+        Stop
+    Death:
+        GHST CDEFG 4 Bright
+        Stop
+    }
+}
+actor SkullSeeker666CrisisParticle : BaseCrisisParticle
+{
+ scale 0.67
+ 
+ States
+ {
+  Spawn:
+    GHST A 0
+    "####" AB 2 Bright
+	{
+     A_SetScale(scaleX-0.1,scaleY-0.1);
+	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
+	 A_FadeOut(0.08);
+	}
+    loop
+ }
+}
+actor SkullSeeker666Crisis : SkullSeeker666
+{
+    Damage (3 * random(1,8))
+    States
+    {
+    Spawn:
+        GHST ABABABABABABABABABABAB 4 
+		{
+         A_SpawnItemEx("SkullSeeker666CrisisParticle",0,0,0,0,0,1.28);
+		 A_SeekerMissile(5,20);
+		}
+        GHST ABABABABABAB 4
+		{
+         A_SpawnItemEx("SkullSeeker666CrisisParticle",0,0,0,0,0,1.28);
+		 A_SeekerMissile(5,20);
+		}
+        GHST ABABABABABABABAB 4
+		{
+         A_SpawnItemEx("SkullSeeker666CrisisParticle",0,0,0,0,0,1.28);
+		 A_SeekerMissile(5,20);
+		}
+        goto Death
+    Death:
+        GHST CDEFG 4 Bright
+		{
+         A_SpawnItemEx("SkullSeeker666CrisisParticle",0,0,0,0,0,1.28);
+		 A_SeekerMissile(5,20);
+		}
+        Stop
+    }
+}
+
+actor Deadlight
+{
+  var int user_random; 
+  var int user_ailment1; var int user_ailmentmaxchance;
+  var int user_ailment2; var int user_ailmentmaxchance2;
+  var int user_ailment3; var int user_ailmentmaxchance3;
+  var int user_ailment4; var int user_ailmentmaxchance4;
+  Damage (5 * (4*random(1,8)))
+  DamageType "DeadLight"
+  Radius 8
+  Height 6
+  Speed 14
+  Scale 1
+  +SEEKERMISSILE
+  +HITMASTER
+  PROJECTILE
+  SeeSound ""
+  DeathSound "TRANEXP"
+  ExplosionRadius 96
+  ExplosionDamage 12
+  States
+  {
+  Spawn:
+    PWT2 A 1 
+	{
+	 if (random(1,16) > 1) { A_SeekerMissile(30,40); A_ScaleVelocity(1.0125); }
+	}
+    PWT2 B 1 
+	{
+	 if (random(1,16) == 1) { A_SeekerMissile(30,40); A_ScaleVelocity(1.0125); }
+	 A_CustomMissile("Deadlight2",0, 0, 0);
+	}
+    PWT2 CDABCD 1
+	{
+	 if (random(1,16) == 1) { A_SeekerMissile(30,40); A_ScaleVelocity(1.0125); }
+	}
+    Loop
+  Death:
+    TNT1 A 0 Bright
+	{	 
+	 if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE) 
+	 {
+	  // 1
+	  A_SetUserVar("user_ailmentmaxchance",4);
+	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (random(1,user_ailmentmaxchance) <= 2)
+	  {
+	   A_SetUserVar("user_random",random(1,12));
+	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21,random(105,175)); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19,random(105,175)); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20,random(105,175)); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 4) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(315,525)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 5) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(315,525)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 6) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(315,525)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 7) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(315,525)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 8) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(315,525)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 9) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(315,525)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 10) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(315,525)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 11) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(315,525)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 12) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(315,525)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	  }
+
+  	  // 2
+	  A_SetUserVar("user_ailmentmaxchance",4);
+	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (random(1,user_ailmentmaxchance) <= 2)
+	  {
+	   A_SetUserVar("user_random",random(1,12));
+	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21,random(105,175)); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19,random(105,175)); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20,random(105,175)); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 4) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(315,525)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 5) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(315,525)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 6) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(315,525)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 7) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(315,525)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 8) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(315,525)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 9) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(315,525)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 10) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(315,525)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 11) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(315,525)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 12) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(315,525)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	  }
+
+  	  // 3
+	  A_SetUserVar("user_ailmentmaxchance",4);
+	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (random(1,user_ailmentmaxchance) <= 2)
+	  {
+	   A_SetUserVar("user_random",random(1,12));
+	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21,random(105,175)); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19,random(105,175)); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20,random(105,175)); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 4) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(315,525)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 5) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(315,525)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 6) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(315,525)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 7) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(315,525)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 8) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(315,525)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 9) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(315,525)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 10) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(315,525)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 11) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(315,525)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 12) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(315,525)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	  }
+
+  	  // 4
+	  A_SetUserVar("user_ailmentmaxchance",4);
+	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (random(1,user_ailmentmaxchance) <= 2)
+	  {
+	   A_SetUserVar("user_random",random(1,12));
+	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21,random(105,175)); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19,random(105,175)); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20,random(105,175)); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 4) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(315,525)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 5) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(315,525)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 6) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(315,525)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 7) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(315,525)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 8) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(315,525)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 9) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(315,525)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 10) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(315,525)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 11) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(315,525)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 12) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(315,525)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	  }
+
+  	  // 5
+	  A_SetUserVar("user_ailmentmaxchance",4);
+	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (random(1,user_ailmentmaxchance) <= 2)
+	  {
+	   A_SetUserVar("user_random",random(1,12));
+	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21,random(105,175)); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19,random(105,175)); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20,random(105,175)); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 4) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(315,525)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 5) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(315,525)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 6) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(315,525)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 7) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(315,525)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 8) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(315,525)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 9) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(315,525)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 10) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(315,525)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 11) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(315,525)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 12) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(315,525)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	  }
+
+  	  // 6
+	  A_SetUserVar("user_ailmentmaxchance",4);
+	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (random(1,user_ailmentmaxchance) <= 2)
+	  {
+	   A_SetUserVar("user_random",random(1,12));
+	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21,random(105,175)); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19,random(105,175)); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20,random(105,175)); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 4) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(315,525)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 5) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(315,525)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 6) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(315,525)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 7) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(315,525)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 8) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(315,525)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 9) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(315,525)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 10) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(315,525)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 11) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(315,525)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 12) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(315,525)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	  }
+
+	  return state("");
+	 }
+	 return state("");
+	}
+	goto Death2
+  Death2:
+    PWT2 E 4 Bright 
+    PWT2 EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE 0 A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+    PWT2 F 4 Bright A_Explode(12,96,0,0,48)
+    PWT2 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF 0 A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+    PWT2 GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG  0 A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+    PWT2 GHI 4 Bright
+	PWH4 JKL 4 Bright
+    Stop
+  }
+}
+
+actor DeadlightCrisisParticle : BaseCrisisParticle
+{
+ scale 0.6667
+ 
+ States
+ {
+  Spawn:
+    PWT2 A 0
+    "####" AABBCCDD 2 Bright
+	{
+     A_SetScale(scaleX-0.1,scaleY-0.1);
+	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
+	 A_FadeOut(0.08);
+	}
+    loop
+ }
+}
+actor DeadlightCrisis : Deadlight
+{
+  Damage (5 * (4*random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+  States
+  {
+  Spawn:
+    PWT2 A 1 
+	{
+	 A_SpawnItemEx("DeadlightCrisisParticle",0,0,0,0,0,1.28);
+	 if (random(1,16) > 1) { A_SeekerMissile(30,40); A_ScaleVelocity(1.0125); }
+	}
+    PWT2 B 1 
+	{
+	 A_SpawnItemEx("DeadlightCrisisParticle",0,0,0,0,0,1.28);
+	 if (random(1,16) == 1) { A_SeekerMissile(30,40); A_ScaleVelocity(1.0125); }
+	 A_CustomMissile("Deadlight2",0, 0, 0);
+	}
+    PWT2 CDABCD 1
+	{
+	 A_SpawnItemEx("DeadlightCrisisParticle",0,0,0,0,0,1.28);
+	 if (random(1,16) == 1) { A_SeekerMissile(30,40); A_ScaleVelocity(1.0125); }
+	}
+    Loop
+
+  Death2:
+    PWT2 E 4 Bright 
+    PWT2 EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE 0 A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+    PWT2 F 4 Bright A_Explode(12*ACS_NamedExecuteWithResult("CrisisMultiplier"),96,0,0,48)
+    PWT2 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF 0 A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+    PWT2 GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG  0 A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
+    PWT2 GHI 4 Bright
+	PWH4 JKL 4 Bright
+    Stop
+  }
+}
+
 actor PennywiseBoss : AetheriusMonsterZSC replaces Pennywise 3672
 {
   //$Angled
   //$Color 12
   //$Category "Happy Time Circus/Bosses"
-
   Health 45000
   Radius 40
   Height 112
@@ -3063,11 +5516,13 @@ actor PennywiseBoss : AetheriusMonsterZSC replaces Pennywise 3672
   PainChance "Melee", 252
   PainChance "Sceptre", 256
   PainChance "Holy", 256
+  PainChance "Deadlight", 256
   DamageFactor "Sceptre", 2
   DamageFactor "Magic", 1.75
   DamageFactor "Holy", 1.75
   DamageFactor "Melee", 1.5
   DamageFactor "Normal", 0.67
+  DamageFactor "Deadlight", 5.0
   +FLOORCLIP +NORADIUSDMG +FULLVOLACTIVE +NOTARGET
   SeeSound ""
   PainSound "PENHURT"
@@ -3144,8 +5599,9 @@ actor PennywiseBoss : AetheriusMonsterZSC replaces Pennywise 3672
      Thing_ChangeTID(0,1222);
 	}
     PLIT QPONMLJKIHGFEDCB 2
-    PLIT Q 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
-    PENY A 0 A_GiveInventory("PennywiseShield",1)
+	goto See2
+  See2:
+    PENY A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
     PENY AABBCCDD 3
 	{
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",1); }
@@ -3155,57 +5611,138 @@ actor PennywiseBoss : AetheriusMonsterZSC replaces Pennywise 3672
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(2); }
 	 A_Chase;
+	 A_GiveInventory("PennywiseShield",1);
     }
-    Goto See + 17
+    loop
   Melee:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    PENY E 0 A_TakeInventory("PennywiseShield",9999)
-    PENY E 1 A_FaceTarget 
-    PENY E 1 A_CustomMissile("SoulAttack", 80, random(-4, 4), random(-45, 45), 2, random(-20, 20))
-    PENY E 1 A_CustomMissile("SoulAttack", 32, random(-4, 4), random(-45, 45), 2, random(-20, 20))
-    Goto See + 17     
+    PENY E 0 
+    PENY E 1  
+	{
+	 A_TakeInventory("PennywiseShield",9999);
+	 A_FaceTarget;
+	}
+    PENY E 1
+	{
+	 A_TakeInventory("PennywiseShield",9999);
+	 A_FaceTarget;
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 80, random(-4, 4), random(-45, 45), 2, random(-20, 20));
+	 if (random(1,10) <= 7) { A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 56, random(-4, 4), random(-45, 45), 2, random(-20, 20)); }
+	 if (random(1,10) <= 3) { A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 24, random(-4, 4), random(-45, 45), 2, random(-20, 20)); }
+	 if (random(1,20) <= 1) { A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 8, random(-4, 4), random(-45, 45), 2, random(-20, 20)); }
+	}
+    PENY E 1 
+	{
+	 A_TakeInventory("PennywiseShield",9999);
+	 A_FaceTarget;
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 32, random(-4, 4), random(-45, 45), 2, random(-20, 20));
+	 if (random(1,10) <= 7) { A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 22, random(-4, 4), random(-45, 45), 2, random(-20, 20)); }
+	 if (random(1,10) <= 3) { A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 10, random(-4, 4), random(-45, 45), 2, random(-20, 20)); }
+	 if (random(1,20) <= 1) { A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 3, random(-4, 4), random(-45, 45), 2, random(-20, 20)); }
+	}
+    Goto See2     
   Missile:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
     PENY A 0 A_ClearShadow 
     PENY E 0 A_TakeInventory("PennywiseShield",9999)
-    PENY A 0 A_Jump (32,4)
-    PENY E 9 A_FaceTarget  
-    PENY E 4 A_CustomMissile("Deadlight", 96, 0, 0,1) 
-    PENY E 9 A_FaceTarget 
-    Goto See + 17
-    PENY E 9 A_FaceTarget
-    PENY E 4 A_CustomMissile("Deadlight", 96, 0, 0,1)
-    PENY E 9 A_FaceTarget
-    Goto See + 17
+    PENY A 0 A_Jump (32,"Missile2")
+    PENY E 9
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(5); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(6); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(7); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(8); }
+	 A_FaceTarget;
+	}
+    PENY E 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("Deadlight", "DeadlightCrisis", 96, 0, 0, 1);
+	}
+    PENY E 9
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(5); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(6); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(7); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(8); }
+	 A_FaceTarget;
+	}
+    Goto See2     
+  Missile2:
+    PENY E 9
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(5); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(6); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(7); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(8); }
+	 A_FaceTarget;
+	}
+    PENY E 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("Deadlight", "DeadlightCrisis", 96, -9, 0, 1);
+	 A_CrisisSpawnProjectile("Deadlight", "DeadlightCrisis", 96, 9, 0, 1);
+	}
+    PENY E 9
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(5); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(6); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(7); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(8); }
+	 A_FaceTarget;
+	}
+    Goto See2     
   Pain:
     PENY F 0 A_GiveInventory("PennywiseShield",1)
     PENY F 8 A_Pain
-    PENY F 5 A_CustomMissile("SkullSeeker666", 96,0,random(-180, 180),1,random(-20, 20))
-    PENY F 5 A_CustomMissile("SkullSeeker666", 96,0,random(-180, 180),1,random(-20, 20))
-    PENY F 5 A_CustomMissile("SkullSeeker666", 96,0,random(-180, 180),1,random(-20, 20))
-    PENY F 5 A_CustomMissile("SkullSeeker666", 96,0,random(-180, 180),1,random(-20, 20))
-    PENY F 10 A_CustomMissile("SkullSeeker666", 96,0,random(-180, 180),1,random(-20, 20))
-    Goto See + 16
+    Goto PainRetaliate    
   Pain.Fist:
     PENY F 0 A_GiveInventory("PennywiseShield",1)
     PENY F 8 A_Pain
     PENY FF 8
-    PENY F 5 A_CustomMissile("SkullSeeker666", 96,0,random(-180, 180),1,random(-20, 20))
-    PENY F 5 A_CustomMissile("SkullSeeker666", 96,0,random(-180, 180),1,random(-20, 20))
-    PENY F 5 A_CustomMissile("SkullSeeker666", 96,0,random(-180, 180),1,random(-20, 20))
-    PENY F 5 A_CustomMissile("SkullSeeker666", 96,0,random(-180, 180),1,random(-20, 20))
-    PENY F 10 A_CustomMissile("SkullSeeker666", 96,0,random(-180, 180),1,random(-20, 20))
-    Goto See + 16
+    Goto PainRetaliate    
   Pain.Kick:
     PENY F 0 A_GiveInventory("PennywiseShield",1)
     PENY F 8 A_Pain
     PENY FFFF 8
-    PENY F 5 A_CustomMissile("SkullSeeker666", 96,0,random(-180, 180),1,random(-20, 20))
-    PENY F 5 A_CustomMissile("SkullSeeker666", 96,0,random(-180, 180),1,random(-20, 20))
-    PENY F 5 A_CustomMissile("SkullSeeker666", 96,0,random(-180, 180),1,random(-20, 20))
-    PENY F 5 A_CustomMissile("SkullSeeker666", 96,0,random(-180, 180),1,random(-20, 20))
-    PENY F 10 A_CustomMissile("SkullSeeker666", 96,0,random(-180, 180),1,random(-20, 20))
-    Goto See + 16
+    Goto PainRetaliate    
+  Pain.Deadlight:
+    PENY F 0 
+	{
+	 A_GiveInventory("PennywiseShield",1);
+	 if (random(1,4) == 1) { A_TakeInventory("PennywiseShield",9999); return state("See2"); }
+	 A_ChangeFlag("NOPAIN",1);
+	 return state("");
+	}
+    PENY F 8 A_Pain
+    PENY FFFFFFFFFFFFFFFF 8
+    PENY F 0 
+	{
+	 A_GiveInventory("PennywiseShield",1);
+	 A_ChangeFlag("NOPAIN",0);
+	}
+    goto See2   
+  PainRetaliate:
+    PENY FFFFFFF 5 
+	{
+	 A_SetTics(random(4,6));
+	 A_CrisisSpawnProjectile("SkullSeeker666", "SkullSeeker666Crisis", 96,0,random(-180, 180),1,random(-20, 20));
+	 A_MonsterCrisisCheck;
+	 if(user_canusecrisisatk == 1) 
+	 {
+	  A_CrisisSpawnProjectile("SkullSeeker666", "SkullSeeker666Crisis", 96,0,random(-180, 180),1,random(-20, 20));
+	  A_CrisisSpawnProjectile("SkullSeeker666", "SkullSeeker666Crisis", 96,0,random(-180, 180),1,random(-20, 20));
+	 }
+	}
+    Goto See2     
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,540000,0,1)
     TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
@@ -3874,19 +6411,19 @@ actor RevRocket2NoHurt
   Death:
     GLOB A 4 Bright 
     GLOB B 4 Bright A_Explode(12,96,0)
-    GLOB B 2 Bright A_CustomMissile(HappyCloud, 16, 8, 135, CMF_AIMOFFSET|CMF_TRACKOWNER) 
+    GLOB B 2 Bright A_CustomMissile("HappyCloud", 16, 8, 135, CMF_AIMOFFSET|CMF_TRACKOWNER) 
     GLOB BBBBBBB 0 A_CustomMissile("Sparkles", 4,4, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-180, 180))
-    GLOB B 2 Bright A_CustomMissile(HappyCloud, 12, 0, 90, CMF_AIMOFFSET|CMF_TRACKOWNER) 
-    GLOB B 2 Bright A_CustomMissile(HappyCloud, 16, -8, -135, CMF_AIMOFFSET|CMF_TRACKOWNER) 
-    GLOB C 2 Bright A_CustomMissile(HappyCloud, 16, 0, -200, CMF_AIMOFFSET|CMF_TRACKOWNER) 
+    GLOB B 2 Bright A_CustomMissile("HappyCloud", 12, 0, 90, CMF_AIMOFFSET|CMF_TRACKOWNER) 
+    GLOB B 2 Bright A_CustomMissile("HappyCloud", 16, -8, -135, CMF_AIMOFFSET|CMF_TRACKOWNER) 
+    GLOB C 2 Bright A_CustomMissile("HappyCloud", 16, 0, -200, CMF_AIMOFFSET|CMF_TRACKOWNER) 
     GLOB CCCCCCC 0 A_CustomMissile("Sparkles", 4, 4, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-180, 180))
-    GLOB D 2 Bright A_CustomMissile(HappyCloud, 18, 0, 45, CMF_AIMOFFSET|CMF_TRACKOWNER) 
-    GLOB E 2 Bright A_CustomMissile(HappyCloud, 16, 8, 300, CMF_AIMOFFSET|CMF_TRACKOWNER) 
-    GLOB E 2 Bright A_CustomMissile(HappyCloud, 16, 0, 200, CMF_AIMOFFSET|CMF_TRACKOWNER)
+    GLOB D 2 Bright A_CustomMissile("HappyCloud", 18, 0, 45, CMF_AIMOFFSET|CMF_TRACKOWNER) 
+    GLOB E 2 Bright A_CustomMissile("HappyCloud", 16, 8, 300, CMF_AIMOFFSET|CMF_TRACKOWNER) 
+    GLOB E 2 Bright A_CustomMissile("HappyCloud", 16, 0, 200, CMF_AIMOFFSET|CMF_TRACKOWNER)
     GLOB EEEEEEE 0 A_CustomMissile("Sparkles", 4, 4, random(-180, 180), CMF_AIMDIRECTION|CMF_TRACKOWNER, random(-180, 180))
-    GLOB F 2 Bright A_CustomMissile(HappyCloud, 22, -8, 315, CMF_AIMOFFSET|CMF_TRACKOWNER) 
-    GLOB G 2 Bright A_CustomMissile(HappyCloud, 16, 0, 270, CMF_AIMOFFSET|CMF_TRACKOWNER) 
-    GLOB G 2 Bright A_CustomMissile(HappyCloud, 12, 8, 180, CMF_AIMOFFSET|CMF_TRACKOWNER) 
+    GLOB F 2 Bright A_CustomMissile("HappyCloud", 22, -8, 315, CMF_AIMOFFSET|CMF_TRACKOWNER) 
+    GLOB G 2 Bright A_CustomMissile("HappyCloud", 16, 0, 270, CMF_AIMOFFSET|CMF_TRACKOWNER) 
+    GLOB G 2 Bright A_CustomMissile("HappyCloud", 12, 8, 180, CMF_AIMOFFSET|CMF_TRACKOWNER) 
     GLOB H 4 Bright 
     Stop
   }

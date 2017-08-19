@@ -373,7 +373,11 @@ ACTOR PennywiseHeadNew : AetheriusMonsterZSC replaces Pennywise 32119
     Loop
   Melee:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    PENY E 1 A_CustomMeleeAttack(random(2,4)*1,"hit1","none")
+    PENY E 1 
+	{
+	 A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack(random(2,4)*1,"hit1","none");
+	}
     PENY F 1
     Goto See
   Pain:
@@ -474,10 +478,27 @@ ACTOR JumpingSkullNew : AetheriusMonsterZSC replaces JumpingSkull 3117
     Loop
   Melee:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    JUMP A 3 A_FaceTarget
-    JUMP B 3 A_FaceTarget
-    JUMP C 4 A_CustomMeleeAttack(random(1,4)*1,"jumpbite","none")
-    JUMP B 3 A_FaceTarget
+    JUMP AB 3
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+	}
+    JUMP C 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack(random(1,4)*1,"jumpbite","none");
+	}
+    JUMP B 3 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+	 A_FaceTarget;
+	}
     Goto See
   Pain:
     JUMP B 4 A_Pain
@@ -565,8 +586,26 @@ ACTOR PossessedBalloonNew : AetheriusMonsterZSC replaces PossessedBalloon 3115
   Melee:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
     BSTN BC 4
-    BSTN D 4 A_CustomMeleeAttack(random(1,6)*1,"hit1","none")
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    BSTN D 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	 
+	 A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack(random(1,6)*1,"hit1","none");
+	}
     BSTN CB 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
     Goto See
   Pain:
     BSTN B 3 A_Pain
@@ -689,23 +728,121 @@ ACTOR BigBerthaNew : AetheriusMonsterZSC replaces BigBertha 3225
   Melee:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
     BSTN BC 4
-    BSTN D 4 A_MeleeAttack
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    BSTN D 4
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack(4*(random(1,8)),"hit1","none");
+	}
     BSTN CB 4 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
     Goto See
   Missile: 
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    BSTN BC 4 Bright A_FaceTarget
-    BSTN D 3 Bright A_CustomMissile("RevRocket", 96, 64, -30, 1)
-    BSTN BC 6 Bright A_FaceTarget
-    BSTN D 3 Bright A_CustomMissile("RevRocket", 96, -64, 30, 1)
-    BSTN BC 4 Bright A_FaceTarget
-    BSTN D 3 Bright A_CustomMissile("RevRocket", 96, 64, -60, 1)
-    BSTN BC 6 Bright A_FaceTarget
-    BSTN D 3 Bright A_CustomMissile("RevRocket", 96, -64, 60, 1)
-    BSTN BC 6 Bright A_FaceTarget
-    BSTN D 3 Bright A_CustomMissile("RevRocket", 96, 64, -90, 1)
-    BSTN BC 4 Bright A_FaceTarget
-    BSTN D 3 Bright A_CustomMissile("RevRocket", 96, -64, 90, 1)
+    BSTN BC 4 Bright 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+
+	 A_FaceTarget;
+	}
+    BSTN D 3 Bright
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("RevRocket", "RevRocketCrisis", 96, 64, -30, 1);
+	}
+    BSTN BC 6 Bright
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(3); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(4); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(5); }
+
+	 A_FaceTarget;
+	}
+    BSTN D 3 Bright 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("RevRocket", "RevRocketCrisis", 96, -64, 30, 1);
+	}
+    BSTN BC 4 Bright 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+
+	 A_FaceTarget;
+	}
+    BSTN D 3 Bright
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("RevRocket", "RevRocketCrisis", 96, 64, -60, 1);
+	}
+    BSTN BC 6 Bright
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(3); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(4); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(5); }
+
+	 A_FaceTarget;
+	}
+    BSTN D 3 Bright
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("RevRocket", "RevRocketCrisis", 96, -64, 60, 1);
+	}
+    BSTN BC 6 Bright
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(3); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(4); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(5); }
+
+	 A_FaceTarget;
+	}
+    BSTN D 3 Bright
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("RevRocket", "RevRocketCrisis", 96, 64, -90, 1);
+	}
+    BSTN BC 4 Bright 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    BSTN D 3 Bright 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("RevRocket", "RevRocketCrisis", 96, -64, 90, 1);
+	}
     Goto See 
   Pain:
     BSTN B 3 A_Pain
@@ -735,6 +872,192 @@ ACTOR BigBerthaNew : AetheriusMonsterZSC replaces BigBertha 3225
     wait
   }    
 }
+
+//******************************************************************************************
+actor RevRocket : AetheriusProjectileZSC
+{
+    Radius 8
+    Height 6
+    Speed 12
+    Damage (2 * random(1,8))
+    Scale .55
+    +SEEKERMISSILE
+    PROJECTILE
+    SeeSound "REVRCK"
+    DeathSound "explode"
+    ExplosionRadius 96
+    ExplosionDamage 12
+    States
+    {
+    Spawn:
+        RRCK A 1 A_SeekerMissile (30,40)
+        RRCK A 1 A_CustomMissile("RevTrail",0, 0, 0)
+        RRCK A 1 A_PlaySound("HISS")
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1)  
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1)  
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1)  
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1)  
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1)  
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1)  
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1)  
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1)  
+        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1)  
+        Loop
+    Death:
+        MISL ABC 4 Bright A_Explode(12,96)
+        Stop
+    }
+}
+
+actor RevRocketCrisisParticle : BaseCrisisParticle
+{
+ scale 0.3666666666666667
+ 
+ States
+ {
+  Spawn:
+    RRCK A 0
+    "####" A 2 Bright
+	{
+     A_SetScale(scaleX-0.055,scaleY-0.055);
+	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
+	 A_FadeOut(0.08);
+	}
+    loop
+ }
+}
+
+actor RevRocketCrisis : RevRocket
+{
+    Radius 8
+    Height 6
+    Speed 12
+    Damage ((2 * ACS_NamedExecuteWithResult("CrisisMultiplier")) * random(1,8))
+    Scale .55
+    +SEEKERMISSILE
+    PROJECTILE
+    SeeSound "REVRCK"
+    DeathSound "explode"
+    ExplosionRadius 96
+    ExplosionDamage 12
+    States
+    {
+    Spawn:
+        RRCK A 1 
+		{
+         A_SpawnItemEx("RevRocketCrisisParticle",0,0,0,0,0,1.28);
+         A_SeekerMissile(30,40);
+		}
+        RRCK A 1
+		{
+         A_SpawnItemEx("RevRocketCrisisParticle",0,0,0,0,0,1.28);
+         A_CustomMissile("RevTrail", 0, 0, 0);
+		}
+        RRCK A 1 
+		{
+         A_SpawnItemEx("RevRocketCrisisParticle",0,0,0,0,0,1.28);
+         A_PlaySound("HISS");
+		}
+        RRCK AAAAAAAAA 1 
+		{
+         A_SpawnItemEx("RevRocketCrisisParticle",0,0,0,0,0,1.28);
+         A_CustomMissile("RevTrail", 0, 0, 0, 1);
+		}
+        Loop
+    Death:
+        MISL ABC 4 Bright A_Explode((12 * ACS_NamedExecuteWithResult("CrisisMultiplier")),96)
+        Stop
+    }
+}
+
+//******************************************************************************************
+actor SpawnRck : AetheriusProjectileZSC
+{
+    Radius 8
+    Height 6
+    Speed 8
+    Damage (4 * random(1,8))
+    Scale .85
+    PROJECTILE
+    SeeSound "REVRCK"
+    DeathSound "explode"
+    States
+    {
+    Spawn:
+        RRCK A 0 A_Jump(200,2)
+        RRCK A 1 A_PlaySound("Joker")
+        RRCK A 8 
+        RRCK A 8
+        RRCK A 16
+        RRCK A 16
+        RRCK A 16
+        Loop
+    Death:
+        MISL ABC 4 Bright A_PlaySound("explode")
+        MISL BC 3 Bright A_PlaySound("explode")
+        MISL ABC 2 Bright A_PlaySound("explode")
+        MISL C 0  A_CustomMissile("PossessedBalloon", 64, 64, 60, 0)
+        MISL C 0  A_CustomMissile("PossessedBalloon", 32, -32, 0, 0)
+        MISL C 0  A_CustomMissile("PossessedBalloon", 32, 0, 0, 0)
+        MISL C 0  A_CustomMissile("JumpingSkull", 0, 0, 0, 0)
+        Stop
+    }
+}
+
+actor SpawnRckCrisisParticle : BaseCrisisParticle
+{
+ scale 0.5695
+ 
+ States
+ {
+  Spawn:
+    RRCK A 0
+    "####" A 2 Bright
+	{
+     A_SetScale(scaleX-0.085,scaleY-0.085);
+	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
+	 A_FadeOut(0.08);
+	}
+    loop
+ }
+}
+actor SpawnRckCrisis : SpawnRck
+{
+    Radius 8
+    Height 6
+    Speed 8
+    Damage ((4 * ACS_NamedExecuteWithResult("CrisisMultiplier")) * random(1,8))
+    Scale .85
+    PROJECTILE
+    SeeSound "REVRCK"
+    DeathSound "explode"
+    States
+    {
+    Spawn:
+        RRCK A 0 A_Jump(200,2)
+        RRCK A 0 A_PlaySound("Joker")
+        RRCK AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 1 
+		{
+		 A_SpawnItemEx("SpawnRckCrisisParticle",0,0,0,0,0,1.28);
+		}
+        Loop
+    Death:
+        MISL ABC 4 Bright A_PlaySound("explode")
+        MISL BC 3 Bright A_PlaySound("explode")
+        MISL ABC 2 Bright A_PlaySound("explode")
+        MISL C 0  A_CustomMissile("PossessedBalloon", 64, 64, 60, 0)
+        MISL C 0  A_CustomMissile("PossessedBalloon", 0, 0, 60, 0)
+        MISL C 0  A_CustomMissile("PossessedBalloon", 32, -32, 0, 0)
+        MISL C 0  A_CustomMissile("PossessedBalloon", 32, 0, 0, 0)
+        MISL C 0  A_CustomMissile("PossessedBalloon", 0, -32, 0, 0)
+        MISL C 0  A_CustomMissile("PossessedBalloon", 0, 32, 0, 0)
+        MISL C 0  A_CustomMissile("JumpingSkull", 0, 0, 0, 0)
+        MISL C 0  A_CustomMissile("JumpingSkull", 32, 0, 0, 0)
+        MISL C 0  A_CustomMissile("JumpingSkull", 0, 32, 0, 0)
+        Stop
+    }
+}
+
 
 ACTOR ClownHeadNew : AetheriusMonsterZSC replaces ClownHead 3206
 { 
@@ -881,19 +1204,78 @@ ACTOR ClownHeadNew : AetheriusMonsterZSC replaces ClownHead 3206
     CHED A 0 A_Jump(104,8)
     CHED A 0 A_Jump(136,2) 
     CHED A 0 A_Jump(88,10)
-    CHED A 4 A_FaceTarget 
-    CHED A 6 Bright A_ComboAttack
+    CHED A 4
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    CHED A 6 Bright 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(3); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(4); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(5); }
+	 A_FaceTarget;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisComboAttack("RevRocket","RevRocketCrisis", 28, (1*random(1,8)), "imp/melee");
+	}
     Goto See 
-    CHED A 2 Bright A_FaceTarget
-    CHED A 2 Bright A_CustomMissile("RevRocket", 28, -4, 0, 1)
+    CHED A 2 Bright
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+	 A_FaceTarget;
+	}
+    CHED A 2 Bright 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+	 A_FaceTarget;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisComboAttack("RevRocket", "RevRocketCrisis", 28, -4, 0, 1);
+	}
     Goto See 
-    CHED A 2 Bright A_FaceTarget
-    CHED A 2 Bright A_CustomMissile("RevRocket", 28, -12, -60, 1)
-    CHED A 2 Bright A_FaceTarget
-    CHED A 2 Bright A_CustomMissile("RevRocket", 28, -4, 60, 1)
+    CHED A 2 Bright
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+	 A_FaceTarget;
+	}
+    CHED A 2 Bright 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+	 A_FaceTarget;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("RevRocket", "RevRocketCrisis", 28, -12, -60, 1);
+	}
+    CHED A 2 Bright
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+	 A_FaceTarget;
+	}
+    CHED A 2 Bright
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+	 A_FaceTarget;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("RevRocket", "RevRocketCrisis", 28, -4, 60, 1);
+	}
     Goto See 
-    CHED A 4 Bright A_FaceTarget
-    CHED A 2 Bright A_CustomMissile("SpawnRck", 28, 12, 0, 1)
+    CHED A 4 Bright
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+	 A_FaceTarget;
+	}
+    CHED A 2 Bright
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+	 A_FaceTarget;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("SpawnRck", "SpawnRckCrisis", 28, 12, 0, 1);
+	}
     Goto See 
   Pain: 
     CHED A 4 A_Pain 

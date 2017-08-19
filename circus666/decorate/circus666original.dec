@@ -575,74 +575,7 @@ ACTOR ClownHead //3206
      
    } 
 } 
-//******************************************************************************************
-actor RevRocket
-{
-    Radius 8
-    Height 6
-    Speed 12
-    Damage 2
-    Scale .55
-    +SEEKERMISSILE
-    PROJECTILE
-    SeeSound "REVRCK"
-    DeathSound "explode"
-    ExplosionRadius 96
-    ExplosionDamage 12
-    States
-    {
-    Spawn:
-        RRCK A 1 A_SeekerMissile (30,40)
-        RRCK A 1 A_CustomMissile("RevTrail",0, 0, 0)
-        RRCK A 1 A_PlaySound("HISS")
-        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1)  
-        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1)  
-        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1)  
-        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1)  
-        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1)  
-        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1)  
-        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1)  
-        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1)  
-        RRCK A 1 A_CustomMissile("RevTrail", 0, 0, 0, 1)  
-        Loop
-    Death:
-        MISL ABC 4 Bright A_Explode
-        Stop
-    }
-}
-//******************************************************************************************
-actor SpawnRck
-{
-    Radius 8
-    Height 6
-    Speed 8
-    Damage 4
-    Scale .85
-    PROJECTILE
-    SeeSound "REVRCK"
-    DeathSound "explode"
-    States
-    {
-    Spawn:
-        RRCK A 0 A_Jump(200,2)
-        RRCK A 1 A_PlaySound("Joker")
-        RRCK A 8 
-        RRCK A 8
-        RRCK A 16
-        RRCK A 16
-        RRCK A 16
-        Loop
-    Death:
-        MISL ABC 4 Bright A_PlaySound("explode")
-        MISL BC 3 Bright A_PlaySound("explode")
-        MISL ABC 2 Bright A_PlaySound("explode")
-        MISL C 0  A_CustomMissile("PossessedBalloon", 64, 64, 60, 0)
-        MISL C 0  A_CustomMissile("PossessedBalloon", 32, -32, 0, 0)
-        MISL C 0  A_CustomMissile("PossessedBalloon", 32, 0, 0, 0)
-        MISL C 0  A_CustomMissile("JumpingSkull", 0, 0, 0, 0)
-        Stop
-    }
-}
+
 
 //******************************************************************************************
 actor RevTrail

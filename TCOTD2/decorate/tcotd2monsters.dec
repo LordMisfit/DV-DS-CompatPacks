@@ -1757,7 +1757,7 @@ Actor ClayDevilNew : AetheriusMonsterZSC replaces ClayDevil
 	 A_SetTics(user_autorestimer);
 	}
   RegenCycle:
-    N00B V 0 CanRaise Thing_Raise(0)       
+    N00B V 0 CanRaise Thing_Raise(0)
     N00B V 5 
     loop
 
