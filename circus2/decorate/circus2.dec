@@ -5163,13 +5163,6 @@ actor PennywiseHead2New : AetheriusMonsterZSC replaces PennywiseHead 14421
   }
 }
 
-actor PennywiseShield : PowerProtection
-{
- damagefactor "normal", 0.334 
- inventory.icon ""
- Powerup.Duration 2147483646
-}
-
 //
 actor SkullSeeker666 : AetheriusProjectileZSC
 {
@@ -5495,6 +5488,24 @@ actor DeadlightCrisis : Deadlight
   }
 }
 
+actor PennywiseShield : PowerProtection
+{
+ damagefactor "normal", 0.334 
+ inventory.icon ""
+ Powerup.Duration 2147483646
+}
+
+actor PennywiseNotShield : PowerProtection
+{
+ DamageFactor "Sceptre", 3
+ DamageFactor "Magic", 3
+ DamageFactor "Holy", 3
+ DamageFactor "Melee", 3
+ DamageFactor "Normal", 3
+ inventory.icon ""
+ Powerup.Duration 2147483646
+}
+
 actor PennywiseBoss : AetheriusMonsterZSC replaces Pennywise 3672
 {
   //$Angled
@@ -5612,6 +5623,7 @@ actor PennywiseBoss : AetheriusMonsterZSC replaces Pennywise 3672
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(2); }
 	 A_Chase;
 	 A_GiveInventory("PennywiseShield",1);
+	 A_TakeInventory("PennywiseNotShield",1);
     }
     loop
   Melee:
@@ -5717,16 +5729,24 @@ actor PennywiseBoss : AetheriusMonsterZSC replaces Pennywise 3672
   Pain.Deadlight:
     PENY F 0 
 	{
-	 A_GiveInventory("PennywiseShield",1);
-	 if (random(1,4) == 1) { A_TakeInventory("PennywiseShield",9999); return state("See2"); }
+	 if (random(1,4) == 1) 
+	 { 
+	  return state("See2"); 
+	 }
+	 A_TakeInventory("PennywiseShield",9999);
+	 A_GiveInventory("PennywiseNotShield",1);
 	 A_ChangeFlag("NOPAIN",1);
 	 return state("");
 	}
     PENY F 8 A_Pain
     PENY FFFFFFFFFFFFFFFF 8
+	{
+     A_SetTics(random(7,9));
+	}
     PENY F 0 
 	{
 	 A_GiveInventory("PennywiseShield",1);
+	 A_TakeInventory("PennywiseNotShield",1);
 	 A_ChangeFlag("NOPAIN",0);
 	}
     goto See2   
