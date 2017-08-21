@@ -3612,13 +3612,10 @@ actor HellFire2CrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    GHFF A 0
-    "####" ABCDEFGHIJ 2 Bright
-	{
-     A_SetScale(scaleX-0.1005,scaleY-0.1005);
-	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
-	 A_FadeOut(0.0804);
-	}
+    GHFF A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" ABCDEFGHIJ 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
     loop
  }
 }

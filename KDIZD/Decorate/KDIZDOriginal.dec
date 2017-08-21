@@ -23,13 +23,13 @@ PickupMessage "You picked up a Seismic Bomb."
 // MONSTERS
 
 actor NamiDarkImpSpawner : RandomSpawner 3100 { DropItem DarkImp 255 }
-actor VoidDarkImpSpawner : RandomSpawner 3101 { DropItem VoidDarkImp 255 }
-actor STDarkImpSpawner : RandomSpawner 3102 { DropItem STDarkImp 255 }
-ACTOR BloodDemonSpawner : RandomSpawner 3110 { DropItem BloodDemon 255 }
+actor VoidDarkImpSpawner : RandomSpawner { DropItem VoidDarkImp 255 }
+actor STDarkImpSpawner : RandomSpawner { DropItem STDarkImp 255 }
+ACTOR BloodDemonSpawner : RandomSpawner { DropItem BloodDemon 255 }
 ACTOR BloodDemonClone : RandomSpawner { DropItem BloodDemon 255 }
 ACTOR RocketGuySpawner : RandomSpawner 3202 { Dropitem RocketLauncherGuy 255 }
-ACTOR BruiserDemonSpawner : RandomSpawner 3333 { DropItem BruiserDemon 255 }
-ACTOR ChainsawZombie : RandomSpawner 3204 { DropItem ChainsawZombieNew 255 }
+ACTOR BruiserDemonSpawner : RandomSpawner { DropItem BruiserDemon 255 }
+ACTOR ChainsawZombie : RandomSpawner { DropItem ChainsawZombieNew 255 }
 ACTOR ChainsawZombieNew : AetheriusMonsterZSC 3204
 { 
   //$Angled
@@ -112,7 +112,14 @@ ACTOR ChainsawZombieNew : AetheriusMonsterZSC 3204
   Melee: 
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
     CHAN E 1 A_FaceTarget 
-    CHAN F 3 A_CrisisMeleeAttack(1*random(1,8),"weapons/sawhit") 
+    CHAN F 3 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack(1*random(1,8),"weapons/sawhit");
+	}
     Goto See 
   Pain: 
     CHAN G 4 
@@ -214,6 +221,7 @@ actor DemonCube : AetheriusMonsterZSC 26001
   +NOGRAVITY
   +FLOAT
   +DONTFALL
+  +LOOKALLAROUND
   SeeSound "demoncube/sight"
   DeathSound "demoncube/death"
   PainSound "demon/pain"
@@ -243,24 +251,33 @@ actor DemonCube : AetheriusMonsterZSC 26001
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
     DECU D 8
 	{
-	 A_FaceTarget;
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(6); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(7); }
+	 A_FaceTarget;
 	}
+  MissileLoop:
     DECU E 8 Bright
 	{
-	 A_FaceTarget;
-	 A_MissileAttack;
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(6); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(7); }
+	 A_FaceTarget;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("DemonCubeMissile", "DemonCubeMissileCrisis", frandom(-2.0,2.0), frandom(-2.0,2.0), frandom(-2.0,2.0), CMF_OFFSETPITCH|CMF_BADPITCH, frandom(-2.0,2.0));
 	}
     DECU D 8
 	{
-	 A_FaceTarget;
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(6); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(7); }
+	 A_FaceTarget;
+	}
+    DECU D 0
+	{
+	 if (random(1,3) == 1) { return state("MissileLoop"); }
+	 return state("");
 	}
     Goto See
+
   Pain:
     DECU D 3
     DECU D 3 A_Pain
@@ -298,7 +315,7 @@ actor DemonCubeMissile
     Radius 8
     Height 8
     Speed 18
-    Damage 4
+    Damage (4 * random(1,8))
     PROJECTILE
     RENDERSTYLE ADD
     ALPHA 0.75
@@ -314,23 +331,39 @@ actor DemonCubeMissile
         Stop
     }
 }
-actor KDIZDImpBall : DoomImpBall replaces DoomImpBall
+actor DemonCubeMissileCrisisParticle : BaseCrisisParticle
 {
-  Game Doom
-  Radius 6
-  Height 8
-  Speed 10
-  FastSpeed 20
-  Damage (3 * random(1,8))
-  Projectile
-  +RANDOMIZE
-  RenderStyle Add
-  Alpha 1
-  SeeSound "imp/attack"
-  DeathSound "imp/shotx"
-  DamageType "Fire"
-  Health 20
-  PROJECTILE
+ scale 0.6667
+ 
+ States
+ {
+  Spawn:
+    DCPF A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" AB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+actor DemonCubeMissileCrisis : DemonCubeMissile
+{
+  Damage ((4 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+  States
+  {
+  Spawn:
+    DCPF AB 2 Bright
+	{
+	 A_SpawnItemEx("DemonCubeMissileCrisisParticle",0,0,0,0,0,1.28);
+	}
+    Loop
+  Death:
+    DCPF ABCDE 3 Bright
+    Stop
+  }
+}
+
+actor KDIZDImpBall : DoomImpBallNew replaces DoomImpBall
+{
   RENDERSTYLE ADD
   ALPHA 0.7
   MissileType Ball1Trail
@@ -342,7 +375,25 @@ actor KDIZDImpBall : DoomImpBall replaces DoomImpBall
     Loop
 
   Death:
-    BAL1 CDE 3 Bright  A_MissileAttack
+    BAL1 CDE 3 Bright A_MissileAttack
+    Stop
+  }
+}
+actor KDIZDImpBallCrisis : KDIZDImpBall replaces DoomImpBallCrisis
+{
+  Damage ((3 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+  States
+  {
+  Spawn:
+    BAL1 AB 3 Bright 
+	{
+	 A_SpawnItemEx("DoomImpBallCrisisParticle",0,0,0,0,0,1.28);
+	 A_MissileAttack;
+	}
+    Loop
+
+  Death:
+    BAL1 CDE 3 Bright A_MissileAttack
     Stop
   }
 }
@@ -421,7 +472,9 @@ ACTOR HellsFury : AetheriusMonsterZSC 3127
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(6); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(7); }
 	 A_FaceTarget;
-	 A_ComboAttack;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisComboAttack("HellsFuryBall", "HellsFuryBallCrisis", 32, 11*random(1,8), "baron/melee");
 	}
 	Goto See
   Missile2:
@@ -436,9 +489,11 @@ ACTOR HellsFury : AetheriusMonsterZSC 3127
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(6); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(7); }
 	 A_FaceTarget;
-	 A_CustomMissile("SoulHarvesterBall", 60, 0, -45);
-	 A_CustomMissile("SoulHarvesterBall", 60, 0, 0);
-	 A_CustomMissile("SoulHarvesterBall", 60, 0, 45);
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("SoulHarvesterBall", "SoulHarvesterBallCrisis", 60, 0, -45);
+	 A_CrisisSpawnProjectile("SoulHarvesterBall", "SoulHarvesterBallCrisis", 60, 0, 0);
+	 A_CrisisSpawnProjectile("SoulHarvesterBall", "SoulHarvesterBallCrisis", 60, 0, 45);
 	}
 	Goto See
   Melee:
@@ -454,7 +509,9 @@ ACTOR HellsFury : AetheriusMonsterZSC 3127
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(6); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(7); }
 	 A_FaceTarget;
-	 A_ComboAttack;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisComboAttack("HellsFuryBall", "HellsFuryBallCrisis", 32, 11*random(1,8), "baron/melee");
 	}
 	Goto See
   Pain:
@@ -498,13 +555,46 @@ ACTOR HellsFury : AetheriusMonsterZSC 3127
 
 ACTOR HellsFuryBall : BaronBall
 {
-	Radius 6
-	Height 8
-	Speed 20
-	Damage 11
-	Translation 2
-    RenderStyle "ADD"
-    Decal BaronScorch
+  Radius 6
+  Height 8
+  Speed 20
+  Damage (11 * random(1,8))
+  Translation 2
+  RenderStyle "ADD"
+  Decal BaronScorch
+  States
+  {
+  Spawn:
+    BAL7 AB 4 Bright
+    Loop
+  Death:
+    BAL7 CDE 6 Bright
+    Stop
+  }
+}
+actor HellsFuryBallCrisisParticle : BaronOfHellBallCrisisParticle
+{
+  Translation 2
+}
+ACTOR HellsFuryBallCrisis : HellsFuryBall
+{
+  Radius 6
+  Height 8
+  Speed 20
+  Damage ((11 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+  Translation 2
+  RenderStyle "ADD"
+  Decal BaronScorch
+  States
+  {
+  Spawn:
+    BAL7 A 0
+    "####" AABB 2 Bright A_SpawnItemEx("HellsFuryBallCrisisParticle",0,0,0,0,0,1.28)
+    Loop
+  Death:
+    "####" CDE 6 Bright
+    Stop
+  }
 }
 
 ACTOR HellsFurySkull
@@ -542,7 +632,7 @@ ACTOR MaulerDemon : AetheriusMonsterZSC 3123
   Radius 30 
   Height 56 
   Mass 400 
-  Damage 2 //Horns = pain. I say no more 
+  Damage (2 * random(1,8)) //Horns = pain. I say no more 
   Monster 
   +FLOORCLIP 
   SeeSound "demon/sight" 
@@ -581,18 +671,9 @@ ACTOR MaulerDemon : AetheriusMonsterZSC 3123
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(5); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 80) { A_SetTics(6); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 40) { A_SetTics(7); }
-	 A_SetUserVar("user_canusecrisisatk",0);
-	 if(health <= user_HPLowRange) { if(health <= user_HPCritRange) { A_SetUserVar("user_canusecrisisatk",1); } else { if (random(1,4) == 4) { A_SetUserVar("user_canusecrisisatk",1);	} } }
-     if(GetCVar("dvds_monstercrisisattacks") == 0) { A_SetUserVar("user_canusecrisisatk",0); }
-	 if(user_canusecrisisatk == 1)
-	 {
-      A_PlayCrisisAtkSound;
-      A_CustomMeleeAttack( ((random(1,10)*4) * ACS_NamedExecuteWithResult("CrisisMultiplier")) ,"none","none"); // A_SargAttack
-	 }
-	 else
-	 {
-	  A_CustomMeleeAttack(random(1,10)*4,"none","none"); // A_SargAttack
-	 }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack(random(1,10)*4,"none","none"); // A_SargAttack
 	}
     goto See
   Missile: 
@@ -613,6 +694,10 @@ ACTOR MaulerDemon : AetheriusMonsterZSC 3123
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(8); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 30) { A_SetTics(9); }
 	 A_FaceTarget;
+
+	 SetDamage(2*random(1,8)); 
+	 A_MonsterCrisisCheck;
+	 if(user_canusecrisisatk == 1) { A_PlayCrisisAtkSound; SetDamage((2*random(1,8))*ACS_NamedExecuteWithResult("CrisisMultiplier")); } 
 	 A_SkullAttack;
 	}
     MAUD G 5
@@ -729,7 +814,9 @@ ACTOR NightmareNew : AetheriusMonsterZSC 26000
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(7); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 45) { A_SetTics(8); }
 	 A_FaceTarget;
-	 A_MeleeAttack;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack(4*random(1,8),"nightmare/melee");
 	}
     Goto See
   Pain:
@@ -831,45 +918,28 @@ ACTOR RapidFireTrooper : AetheriusMonsterZSC 3201
 	{
 	 A_SetUserVar("user_shotsfired",0);	 
 	 A_FaceTarget;
-	 A_SetUserVar("user_shotaccuracy",22.5);
-	 A_SetUserVar("user_shotzaccuracy",0.0);
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(7); A_SetUserVar("user_shotaccuracy",((user_shotaccuracy*6)/9)); A_SetUserVar("user_shotzaccuracy",((user_shotzaccuracy*6)/9)); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 80) { A_SetTics(8); A_SetUserVar("user_shotaccuracy",((user_shotaccuracy*7)/9)); A_SetUserVar("user_shotzaccuracy",((user_shotzaccuracy*7)/9)); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 40) { A_SetTics(9); A_SetUserVar("user_shotaccuracy",((user_shotaccuracy*8)/9)); A_SetUserVar("user_shotzaccuracy",((user_shotzaccuracy*8)/9)); }
-	 A_SetUserVar("user_shotaccuracy1",user_shotaccuracy/-2); A_SetUserVar("user_shotaccuracy2",user_shotaccuracy/2);
-	 A_SetUserVar("user_shotzaccuracy1",user_shotzaccuracy/-2); A_SetUserVar("user_shotzaccuracy2",user_shotzaccuracy/2);
+	 A_SetUserVarFloat("user_shotaccuracy",22.5);
+	 A_SetUserVarFloat("user_shotzaccuracy",0.0);
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(7); A_SetUserVarFloat("user_shotaccuracy",((user_shotaccuracy*6)/9)); A_SetUserVarFloat("user_shotzaccuracy",((user_shotzaccuracy*6)/9)); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 80) { A_SetTics(8); A_SetUserVarFloat("user_shotaccuracy",((user_shotaccuracy*7)/9)); A_SetUserVarFloat("user_shotzaccuracy",((user_shotzaccuracy*7)/9)); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 40) { A_SetTics(9); A_SetUserVarFloat("user_shotaccuracy",((user_shotaccuracy*8)/9)); A_SetUserVarFloat("user_shotzaccuracy",((user_shotzaccuracy*8)/9)); }
+	 A_SetUserVarFloat("user_shotaccuracy1",user_shotaccuracy/-2); A_SetUserVarFloat("user_shotaccuracy2",user_shotaccuracy/2);
+	 A_SetUserVarFloat("user_shotzaccuracy1",user_shotzaccuracy/-2); A_SetUserVarFloat("user_shotzaccuracy2",user_shotzaccuracy/2);
 	}
     RFTR F 5 Bright
 	{ 
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(3); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(4); }
 	 A_PlaySound ("grunt/attack");
-	 A_SetUserVar("user_canusecrisisatk",0);
-	 if(health <= user_HPLowRange) { if(health <= user_HPCritRange) { A_SetUserVar("user_canusecrisisatk",1); } else { if (random(1,4) == 4) { A_SetUserVar("user_canusecrisisatk",1);	} } }
-     if(GetCVar("dvds_monstercrisisattacks") == 0) { A_SetUserVar("user_canusecrisisatk",0); }
+
+	 A_MonsterCrisisCheck;
 	 if (GetCVar("dvds_monsterbulletstracers") == 0)
 	 {
-	  if(user_canusecrisisatk == 1)
-	  {
-       A_PlayCrisisAtkSound;
-	   A_CustomBulletAttack(user_shotaccuracy, user_shotzaccuracy, 1, ((random(1,5) * 3) * ACS_NamedExecuteWithResult("CrisisMultiplier")), "BulletPuff", 0, CBAF_NORANDOM);
-	  }
-	  else
-	  {
-	   A_CustomBulletAttack(user_shotaccuracy, user_shotzaccuracy, 1, random(1,5) * 3, "BulletPuff", 0, CBAF_NORANDOM);
-	  }
+	  A_CrisisBulletAttack(user_shotaccuracy, user_shotzaccuracy, 1, random(1,5) * 3, "BulletPuff", 0, CBAF_NORANDOM);
 	 }
 	 else
 	 {
-	  if(user_canusecrisisatk == 1)
-	  {
-       A_PlayCrisisAtkSound;
-       A_CustomMissile("ZombieBulletTracerCrisis", 32, 12, frandom(user_shotaccuracy1,user_shotaccuracy2), CMF_OFFSETPITCH, frandom(user_shotzaccuracy1,user_shotzaccuracy2));
-	  }
-	  else
-	  {
-       A_CustomMissile("ZombieBulletTracer", 32, 12, frandom(user_shotaccuracy1,user_shotaccuracy2), CMF_OFFSETPITCH, frandom(user_shotzaccuracy1,user_shotzaccuracy2));
-	  }
+      A_CrisisSpawnProjectile("ZombieBulletTracer", "ZombieBulletTracerCrisis", 32, 12, frandom(user_shotaccuracy1,user_shotaccuracy2), CMF_OFFSETPITCH|CMF_BADPITCH, frandom(user_shotzaccuracy1,user_shotzaccuracy2));
 	 }
     }
     RFTR E 5 
@@ -979,7 +1049,16 @@ ACTOR RifleZombie : AetheriusMonsterZSC 31657
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 25) { A_SetTics(17); }
 	 A_FaceTarget;
 	}
-    RPOS F 8 A_CustomMissile ("ZombieRifleBulletTracer", 32, 0, 0)
+    RPOS F 8 
+	{
+     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(4); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(5); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(6); }
+     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(7); }
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("ZombieRifleBulletTracer", "ZombieRifleBulletTracerCrisis", 32, 0, 0);
+	}
     RPOS E 5
 	{
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(3); }
@@ -1055,6 +1134,8 @@ ACTOR ZombieRifleBulletTracer : FastProjectile
    States
    {
    Spawn:
+      TNT1 A 0 NoDelay bright { A_ScaleVelocity(GetCVar("dvds_tracervelmulti")); }
+   Idle:
       TNT1 A 0 bright
       TNT1 A 0 bright A_SpawnItemEx("ZombieBulletTracerTrail",-15.0,0,0,0,0,0,0,128,0)
       TNT1 A 0 bright A_SpawnItemEx("ZombieBulletTracerTrail",-12.5,0,0,0,0,0,0,128,0)
@@ -1072,6 +1153,10 @@ ACTOR ZombieRifleBulletTracer : FastProjectile
       TNT1 A 1 A_SpawnItem("BulletPuff")
       stop
    }
+}
+ACTOR ZombieRifleBulletTracerCrisis : ZombieRifleBulletTracer
+{
+   Damage ((20 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
 }
 
 ACTOR Satyr : RandomSpawner { DropItem SatyrNew 255 }
@@ -1134,7 +1219,9 @@ actor SatyrNew : AetheriusMonsterZSC 3109
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(4); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(5); }
 	 A_FaceTarget;
-	 A_MeleeAttack;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack(8*random(1,8),"baron/melee");
 	}
     STYR G 0 A_JumpIfTargetOutsideMeleeRange("See")
     STYR PQ 6
@@ -1148,7 +1235,9 @@ actor SatyrNew : AetheriusMonsterZSC 3109
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(4); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(5); }
 	 A_FaceTarget;
-	 A_MeleeAttack;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack(8*random(1,8),"baron/melee");
 	}
     Goto See
   Melee2:
@@ -1163,7 +1252,9 @@ actor SatyrNew : AetheriusMonsterZSC 3109
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(4); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(5); }
 	 A_FaceTarget;
-	 A_MeleeAttack;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack(8*random(1,8),"baron/melee");
 	}
     STYR G 0 A_JumpIfTargetOutsideMeleeRange("See")
     STYR EF 6
@@ -1177,7 +1268,8 @@ actor SatyrNew : AetheriusMonsterZSC 3109
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(4); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(5); }
 	 A_FaceTarget;
-	 A_MeleeAttack;
+	 A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack(8*random(1,8),"baron/melee");
 	}
     Goto See
   Pain:
@@ -1363,7 +1455,9 @@ ACTOR ShadowNew : AetheriusMonsterZSC 3126
 	{
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(3); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(4); }
-	 A_MissileAttack;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("ShadowBall","ShadowBallCrisis");
 	}
 	SHDW F 5
 	{
@@ -1387,7 +1481,7 @@ ACTOR ShadowNew : AetheriusMonsterZSC 3126
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(0); }
 	}
 	SHDW E 0 A_SpidRefire
-	Goto Missile+2
+	loop
   Pain:
 	SHDW H 4
 	SHDW H 4 A_Pain
@@ -1467,7 +1561,7 @@ ACTOR ShadowBall
 	Radius 6
 	Height 8
 	Speed 12
-	Damage 4
+	Damage (4 * random(1,8))
 	Projectile
 	+RANDOMIZE
 	RenderStyle "ADD"
@@ -1481,6 +1575,37 @@ ACTOR ShadowBall
 	{
 	Spawn: 
 		SBAL ABC 4 BRIGHT A_MissileAttack
+		Loop
+	Death:
+		SBAL C 5 Bright
+		SBAL DEFGH 4 BRIGHT
+		Stop
+	}
+}
+actor ShadowBallCrisisParticle : BaseCrisisParticle
+{
+ ALPHA 0.75
+ States
+ {
+  Spawn:
+    SBAL A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" AABBCC 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+ACTOR ShadowBallCrisis : ShadowBall
+{
+	Damage ((4 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+	States
+	{
+	Spawn: 
+		SBAL ABC 4 BRIGHT 
+		{
+         A_SpawnItemEx("ShadowBallCrisisParticle",0,0,0,0,0,1.28);
+		 A_MissileAttack;
+		}
 		Loop
 	Death:
 		SBAL C 5 Bright
@@ -1627,7 +1752,9 @@ actor SoulHarvesterNew : AetheriusMonsterZSC 3117
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(6); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 45) { A_SetTics(7); }
 	 A_FaceTarget;
-	 A_MissileAttack;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisComboAttack("SoulHarvesterBall", "SoulHarvesterBallCrisis", 32, 3*random(1,8), "imp/melee");
 	}
     SLHV M 10
 	{
@@ -1687,65 +1814,100 @@ actor SoulHarvesterNew : AetheriusMonsterZSC 3117
   }
 }
 
-actor SoulHarvesterBall
+ACTOR SoulHarvesterBall
 {
-    Radius 8
-    Height 6
-    Scale 0.4
-    Speed 9
-    Damage 2
-    +SEEKERMISSILE
-    PROJECTILE
-    Renderstyle ADD
-    SeeSound "harvester/scream"
-    DeathSound "imp/shotx"
-	Decal DoomImpScorch
-    States
-    {
-    Spawn:
-    	SHBA A  0 Bright A_CustomMissile("SoulBallTrail", 0, 0, 180)
-        SHBA AB 2 Bright A_SeekerMissile (10,20)
-        Loop
-    Death:
-        SHBA CDEFGHIJKL 4 Bright
-        Stop
-    }
+  Damage (2 * random(1,8))
+  Radius 8
+  Height 6
+  Scale 0.4
+  Speed 9
+  +SeekerMissile
+  PROJECTILE
+  RENDERSTYLE ADD
+  SEESOUND "harvester/scream"
+  DEATHSOUND "imp/shotx"
+  Decal DoomImpScorch
+  states
+  {
+  Spawn:
+  	SHBA A 0 BRIGHT A_CustomMissile("SoulBallTrail", 0, 0, 180)
+    SHBA AB 2 BRIGHT 
+	{
+	 A_SeekerMissile(10,20);
+	}
+    Loop
+  Death:
+    SHBA CDEFGHIJKL 4 BRIGHT
+    Stop
+  }
 }
-	
-actor SoulHarvesterGhost
+actor SoulHarvesterBallCrisisParticle : BaseCrisisParticle
+{
+ scale 0.268
+ 
+ States
+ {
+  Spawn:
+    SHBA A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" AB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+ACTOR SoulHarvesterBallCrisis : SoulHarvesterBall
+{
+  Damage ((2 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+  states
+  {
+  Spawn:
+  	SHBA A 0 BRIGHT A_CustomMissile("SoulBallTrail", 0, 0, 180)
+    SHBA AB 2 BRIGHT 
+	{
+	 A_SpawnItemEx("SoulHarvesterBallCrisisParticle",0,0,0,0,0,1.28);
+	 A_SeekerMissile(10,20);
+	}
+    Loop
+  Death:
+    SHBA CDEFGHIJKL 4 BRIGHT
+    Stop
+  }
+}
+
+ACTOR SoulHarvesterGhost
 {
     Radius 1
     Height 1
     Speed 0
     PROJECTILE
     RENDERSTYLE ADD
-    ALPHA 0.7
-    +NOCLIP
-    SeeSound "harvester/ghost"
-    States
+    Alpha 0.7
+    +Noclip
+    SEESOUND "harvester/ghost"
+    states
     {
     Spawn:
     Death:
-        SHGH ABCDEFG 4 Bright
+        SHGH ABCDEFG 4 BRIGHT
         Stop
     }
 }
 
-actor SoulBallTrail
+ACTOR SoulBallTrail
 {
     Radius 1
     Height 1
     Speed 0
     PROJECTILE
     RENDERSTYLE ADD
-    ALPHA 0.5
-    +NOCLIP
-    States
+    Alpha 0.5
+    +Noclip
+    states
     {
     Spawn:
     Death:
     	SBTR H 6 
-        SBTR ABCDEFG 4 Bright
+        SBTR ABCDEFG 4 BRIGHT
         Stop
     }
 }
@@ -1817,7 +1979,9 @@ actor StoneImp : AetheriusMonsterZSC 3103
 	 A_FaceTarget;
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(4); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetTics(5); }
-	 A_MeleeAttack;
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisMeleeAttack(12*random(1,8),"stoneimp/hit");
 	}
     Goto See
   Pain:
@@ -1940,7 +2104,9 @@ ACTOR Magmantis : AetheriusMonsterZSC 26660
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 30) { A_SetTics(28); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 15) { A_SetTics(29); }
 	 A_FaceTarget;
-	 A_CustomMissile("Portal1", 240, 0, 0);
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("Portal1", "Portal1Crisis", 240, 0, 0);
 	}
 	Goto See
   BruiserBall:
@@ -1955,9 +2121,11 @@ ACTOR Magmantis : AetheriusMonsterZSC 26660
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 150) { A_SetTics(4); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 75) { A_SetTics(5); }
 	 A_FaceTarget;
-	 A_CustomMissile("BruiserBall", 40, 0, -10, 0);
-	 A_CustomMissile("BruiserBall", 40, 0, 0, 0);
-	 A_CustomMissile("BruiserBall", 40, 0, 10, 0);
+
+	 A_MonsterCrisisCheck;
+	 A_CrisisSpawnProjectile("BruiserBall", "BruiserBallCrisis", 40, 0, -10, 0);
+	 A_CrisisSpawnProjectile("BruiserBall", "BruiserBallCrisis", 40, 0, 0, 0);
+	 A_CrisisSpawnProjectile("BruiserBall", "BruiserBallCrisis", 40, 0, 10, 0);
 	}
 	DGRD U 6
 	{
@@ -2023,8 +2191,9 @@ ACTOR Magmantis : AetheriusMonsterZSC 26660
   }
 }
 
-actor Portal1 
+actor Portal1 : AetheriusProjectileZSC
 {
+  var int user_loops; var int user_maxloops;
   obituary "%o was eradicated by the Deimos Guardian."
   health 400
   radius 31
@@ -2055,39 +2224,83 @@ actor Portal1
     loop
   Missile:
     PORT ABCDEF 4 Bright
-    PORT GHIJ 4 Bright A_FaceTarget
-    TNT1 A 0 bright A_Missileattack 
-    PORT KLMN 4 Bright A_FaceTarget
-    PORT T 4 bright A_Missileattack 
-    PORT GHIJ 4 Bright A_FaceTarget
-    TNT1 A 0 bright A_Missileattack 
-    PORT KLMN 4 Bright A_FaceTarget
-    PORT T 4 bright A_Missileattack 
-    PORT GHIJ 4 Bright A_FaceTarget
-    TNT1 A 0 bright A_Missileattack 
-    PORT KLMN 4 Bright A_FaceTarget
-    PORT T 4 bright A_Missileattack 
-    PORT GHIJ 4 Bright A_FaceTarget
-    TNT1 A 0 bright A_Missileattack 
-    PORT KLMN 4 Bright A_FaceTarget
-    PORT T 4 bright A_Missileattack 
-    PORT GHIJ 4 Bright A_FaceTarget
-    TNT1 A 0 bright A_Missileattack 
-    PORT KLMN 4 Bright A_FaceTarget
-    PORT T 4 bright A_Missileattack 
-    PORT GHIJ 4 Bright A_FaceTarget
-    TNT1 A 0 bright A_Missileattack 
-    PORT KLMN 4 Bright A_FaceTarget
-    PORT T 4 bright A_Missileattack 
-    PORT GHIJ 4 Bright A_FaceTarget
-    TNT1 A 0 bright A_Missileattack 
-    PORT KLMN 4 Bright A_FaceTarget
-    PORT T 4 bright A_Missileattack 
-    PORT GHIJ 4 Bright A_FaceTarget
-    TNT1 A 0 bright A_Missileattack 
-    PORT KLMN 4 Bright A_FaceTarget
-    PORT T 4 bright A_Missileattack 
-    goto Death
+	{
+	 A_SetUserVar("user_loops",0);
+	 A_SetUserVar("user_maxloops",16);
+	}
+  MissileLoop: // 8 times
+    PORT GHIJ 4 Bright 
+	{
+	 A_FaceTarget;
+	}
+    TNT1 A 0 bright 
+	{
+	 A_Missileattack;
+	}
+    PORT KLMN 4 Bright
+	{
+	 A_FaceTarget;
+	}
+    PORT T 4 bright
+	{
+	 A_Missileattack;
+	}
+    TNT1 A 0 bright 
+	{
+	 A_SetUserVar("user_loops",user_loops+1);
+	 if (user_loops >= user_maxloops) { return state("Death"); }
+	 return state("");
+	}
+	loop
+  Death:
+    PORT HIJKLMNGOPQRS 4 Bright
+    stop
+  }
+}
+
+actor Portal1Crisis : Portal1
+{
+  MissileType RedstarCrisis
+  states
+  {
+  Spawn:
+    TNT1 A 1 Bright A_Look
+    loop
+  See:
+    TNT1 A 1 Bright A_Chase
+    loop
+  Missile:
+    PORT ABCDEF 4 Bright
+	{
+	 A_SetUserVar("user_loops",0);
+	 A_SetUserVar("user_maxloops",16);
+	}
+  MissileLoop: // 8 times
+    PORT GHIJ 4 Bright 
+	{
+	 A_FaceTarget;
+	}
+    TNT1 A 0 bright 
+	{
+	 A_PlayCrisisAtkSound;
+	 A_Missileattack;
+	}
+    PORT KLMN 4 Bright
+	{
+	 A_FaceTarget;
+	}
+    PORT T 4 bright
+	{
+	 A_PlayCrisisAtkSound;
+	 A_Missileattack;
+	}
+    TNT1 A 0 bright 
+	{
+	 A_SetUserVar("user_loops",user_loops+1);
+	 if (user_loops >= user_maxloops) { return state("Death"); }
+	 return state("");
+	}
+	loop
   Death:
     PORT HIJKLMNGOPQRS 4 Bright
     stop
@@ -2100,7 +2313,7 @@ actor Redstar
   Radius 10
   Height 20
   Speed 13
-  Damage 12
+  Damage (12 * random(1,8))
   DamageType "Thunder"
   DamageType "Dark"
   +SEEKERMISSILE
@@ -2154,7 +2367,80 @@ actor Redstar
     Stop
   }
 }
-
+actor RedstarCrisisParticle : BaseCrisisParticle
+{
+  ALPHA 0.8
+ States
+ {
+  Spawn:
+    STAR A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" ABCD 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+actor RedstarCrisis : Redstar
+{
+  Damage ((12 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+  States
+  {
+  Spawn:
+    STAR A 3 Bright
+	{
+     A_SpawnItemEx("RedstarCrisisParticle",0,0,0,0,0,1.28);
+	 A_SeekerMissile (4,8);
+	}
+    STAR B 3 Bright
+	{
+     A_SpawnItemEx("RedstarCrisisParticle",0,0,0,0,0,1.28);
+	}
+    STAR C 3 Bright
+	{
+     A_SpawnItemEx("RedstarCrisisParticle",0,0,0,0,0,1.28);
+	 A_SeekerMissile (4,8);
+	}
+    STAR D 3 Bright
+	{
+     A_SpawnItemEx("RedstarCrisisParticle",0,0,0,0,0,1.28);
+	}
+    Loop
+  Death:
+    TNT1 A 0 Bright
+	{
+     A_Explode(48,96,0,0,48);	
+	 if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE) 
+	 {
+	  A_SetUserVar("user_ailmentmaxchance",4);
+	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (random(1,user_ailmentmaxchance) == 1)
+	  {
+	   A_SetUserVar("user_random",random(1,13));
+	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21,random(105,175)); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19,random(105,175)); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20,random(105,175)); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 4) { ACS_NamedExecuteAlways("BuffTimer",0,8,18,random(105,175)); } // Fatigue for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 5) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(210,350)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 6) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(210,350)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 7) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(210,350)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 8) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(210,350)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 9) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(210,350)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 10) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(210,350)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 11) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(210,350)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 12) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(210,350)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 13) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(210,350)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	  }
+	 }
+	 return state("");
+	}
+  Death2:
+    STAR EFGHIJKLMNO 4 Bright
+    Stop
+  }
+}
 
 ACTOR Portal2
 {
@@ -3408,7 +3694,31 @@ ACTOR Rifle : MarineWeapon 31407 // replaces BFG9000
   States
   {
   FloraDetected: // bonus will be turned into something else
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,64)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,224)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,248)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,254)
+    TNT1 A 0 A_CheckFlag("DROPPED","FloraDetectedEnd") // Only a natural spawned weapon will drop extra health bonuses [and a tiny chance for a Max Health Bonus or Seed].
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,64)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,224)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,248)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,254)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,64)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,224)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,248)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,254)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,64)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,224)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,248)
+    TNT1 A 0 A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,254)
+    TNT1 A 0 A_SpawnItemEx("MaxHealthBonusREAL",random(-3,3),random(-3,3),0,random(-1,1),random(-1,1),random(-1,1),0,0,255)
+    TNT1 A 0 A_SpawnItemEx("RandomSeedDropForcedAlways",random(-3,3),random(-3,3),0,random(-1,1),random(-1,1),random(-1,1),0,0,255)
+    TNT1 A 0 A_SpawnItemEx("Backpack",random(-3,3),random(-3,3),0,random(-1,1),random(-1,1),random(-1,1),0,0,252)
     TNT1 A 0 A_SpawnItemEx("RandomHellcoreWeapon",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_NOCHECKPOSITION | SXF_TRANSFERSPECIAL,0,tid)
+  FloraDetectedEnd:
+    TNT1 A 0 
+    TNT1 A 0 A_SpawnItemEx("DiarisLongBow",0,0,0,0,0,0,0,0,254)
+	TNT1 A 0 { if (random(1,256) == 1) { A_SpawnItemEx("SapphireWandNew",-12,0,0,0,0,0,0,0,0); } }
     TNT1 A 0 A_FadeOut(1.0)
     Loop
 

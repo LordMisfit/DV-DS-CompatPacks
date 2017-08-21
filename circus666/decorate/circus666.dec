@@ -916,13 +916,10 @@ actor RevRocketCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    RRCK A 0
-    "####" A 2 Bright
-	{
-     A_SetScale(scaleX-0.055,scaleY-0.055);
-	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
-	 A_FadeOut(0.08);
-	}
+    RRCK A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" A 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
     loop
  }
 }
@@ -1011,13 +1008,10 @@ actor SpawnRckCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    RRCK A 0
-    "####" A 2 Bright
-	{
-     A_SetScale(scaleX-0.085,scaleY-0.085);
-	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
-	 A_FadeOut(0.08);
-	}
+    RRCK A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" A 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
     loop
  }
 }

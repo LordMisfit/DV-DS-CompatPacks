@@ -180,10 +180,12 @@ ACTOR MummyLeaderMan : MummyDude // 1338
 
 actor MiniFirePuff
 {
+    Damage (1 * random(1,8))
     Radius 6
     Height 10
     Speed 7
-    Damage 1
+	ProjectileKickback 0
+	+NODAMAGETHRUST
     PROJECTILE
     RENDERSTYLE ADD
     ALPHA 0.67
@@ -191,6 +193,35 @@ actor MiniFirePuff
     {
     Spawn:
         DFFP ABCDEFGH 2 Bright
+    Death:
+        DFFP IJKLMNOPQR 2 Bright
+        Stop
+    }
+}
+actor MiniFirePuffCrisisParticle : BaseCrisisParticle
+{
+ ALPHA 0.4489
+ 
+ States
+ {
+  Spawn:
+    DFFP A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" ABCDEFGH 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+actor MiniFirePuffCrisis : MiniFirePuff
+{
+    Damage ((1 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+    States
+    {
+    Spawn:
+        DFFP ABCDEFGH 2 Bright
+		{
+         A_SpawnItemEx("MiniFirePuffCrisisParticle",0,0,0,0,0,1.28);
+		}
     Death:
         DFFP IJKLMNOPQR 2 Bright
         Stop
@@ -305,10 +336,10 @@ actor ImpWarlord // 3105
 
 actor YellowSkullSeeker
 {
+    Damage (3 * random(1,8))
     Radius 8
     Height 6
     Speed 9
-    Damage 3
     +SEEKERMISSILE
     PROJECTILE
     RENDERSTYLE ADD
@@ -326,26 +357,122 @@ actor YellowSkullSeeker
         Stop
     }
 }
-
-actor GreenPoisonBall
+actor YellowSkullSeekerCrisisParticle : BaseCrisisParticle
 {
-    Radius 8
-    Height 6
-    Speed 10
-        Damage 3
-    PROJECTILE
-    RENDERSTYLE ADD
-    ALPHA 0.67
-    DeathSound "imp/shotx"
+ ALPHA 0.67
+ States
+ {
+  Spawn:
+    WLP2 A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" AABBCCDD 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+actor YellowSkullSeekerCrisis : YellowSkullSeeker
+{
+    Damage ((3 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
     States
     {
     Spawn:
-        WLP1 ABCD 4
+        WLP2 ABCD 3 Bright
+		{
+         A_SpawnItemEx("YellowSkullSeekerCrisisParticle",0,0,0,0,0,1.28);
+		 A_SeekerMissile(5,10);
+		}
         Loop
     Death:
-        WLP1 EFGH 4
+        WLP2 EFG 4 Bright
         Stop
     }
+}
+
+actor GreenPoisonBall
+{
+  var int user_random; var int user_ailment1; var int user_ailmentmaxchance;
+  Damage (3 * random(1,8))
+  Radius 8
+  Height 6
+  Speed 10
+  PROJECTILE
+  +HITMASTER
+  RENDERSTYLE ADD
+  ALPHA 0.67
+  DeathSound "imp/shotx"
+  States
+  {
+  Spawn:
+    WLP1 ABCD 4
+    Loop
+  Death:
+    TNT1 A 0 Bright
+	{
+	 if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE) 
+	 {
+	  A_SetUserVar("user_ailmentmaxchance",4);
+	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (random(1,user_ailmentmaxchance) <= 3)
+	  {
+	   ACS_NamedExecuteAlways("BuffTimer",0,8,16,random(35,70)); // Poison for 1-2 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	  }
+	 }
+	 return state("");
+	}
+  Death2:
+    WLP1 EFGH 4
+    Stop
+  }
+}
+actor GreenPoisonBallCrisisParticle : BaseCrisisParticle
+{
+ ALPHA 0.67
+ 
+ States
+ {
+  Spawn:
+    WLP1 A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" AABBCCDD 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+actor GreenPoisonBallCrisis : GreenPoisonBall
+{
+  Damage ((3 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+  States
+  {
+  Spawn:
+    WLP1 ABCD 4
+	{
+     A_SpawnItemEx("GreenPoisonBallCrisisParticle",0,0,0,0,0,1.28);
+	}
+    Loop
+  Death:
+    TNT1 A 0 Bright
+	{
+	 if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE) 
+	 {
+	  A_SetUserVar("user_ailmentmaxchance",4);
+	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (random(1,user_ailmentmaxchance) <= 3)
+	  {
+	   ACS_NamedExecuteAlways("BuffTimer",0,8,16,random(35*ACS_NamedExecuteWithResult("CrisisMultiplier"),70*ACS_NamedExecuteWithResult("CrisisMultiplier"))); // Poison for 1-2 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	  }
+	 }
+	 return state("");
+	}
+  Death2:
+    WLP1 EFGH 4
+    Stop
+  }
 }
 
 ACTOR FamiliarSpawner
@@ -376,10 +503,10 @@ ACTOR FamiliarSpawner
 
 actor RedSkullBall
 {
+    Damage (12 * random(1,8))
     Radius 8
     Height 6
     Speed 15
-    Damage 12
     PROJECTILE
     RENDERSTYLE ADD
     ALPHA 0.67
@@ -390,6 +517,36 @@ actor RedSkullBall
     {
     Spawn:
         WLP4 ABCB 4
+        Loop
+    Death:
+        WLP4 DEFG 4
+        Stop
+    }
+}
+actor RedSkullBallCrisisParticle : BaseCrisisParticle
+{
+ ALPHA 0.67
+ 
+ States
+ {
+  Spawn:
+    WLP4 A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" AABBCCDD 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+actor RedSkullBallCrisis : RedSkullBall
+{
+    Damage ((12 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+    States
+    {
+    Spawn:
+        WLP4 ABCB 4
+		{
+         A_SpawnItemEx("RedSkullBallCrisisParticle",0,0,0,0,0,1.28);
+		}
         Loop
     Death:
         WLP4 DEFG 4
@@ -987,7 +1144,7 @@ ACTOR ShadowBall
 	Radius 6
 	Height 8
 	Speed 12
-	Damage 4
+	Damage (4 * random(1,8))
 	Projectile
 	+RANDOMIZE
 	RenderStyle "ADD"
@@ -1006,6 +1163,38 @@ ACTOR ShadowBall
 		Stop
 	}
 }
+actor ShadowBallCrisisParticle : BaseCrisisParticle
+{
+ ALPHA 0.75
+ States
+ {
+  Spawn:
+    SBAL A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" AABBCC 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+ACTOR ShadowBallCrisis : ShadowBall
+{
+	Damage ((4 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+	States
+	{
+	Spawn: 
+		SBAL ABC 4 BRIGHT 
+		{
+         A_SpawnItemEx("ShadowBallCrisisParticle",0,0,0,0,0,1.28);
+		 A_MissileAttack;
+		}
+		Loop
+	Death:
+		SBAL C 5 Bright
+		SBAL DEFGH 4 BRIGHT
+		Stop
+	}
+}
+
 
 ACTOR ShadowGhostA
 {
@@ -1158,7 +1347,7 @@ actor SoulHarvesterBall
     Height 6
     Scale 0.4
     Speed 9
-    Damage 2
+    Damage (2 * random(1,8))
     +SEEKERMISSILE
     PROJECTILE
     Renderstyle ADD
@@ -1168,13 +1357,45 @@ actor SoulHarvesterBall
     States
     {
     Spawn:
-    	SHBA A  0 Bright A_SpawnItemEx("SoulBallTrail", 0, 0, 0, 0, 0, 0, 180, 128)
+    	SHBA A 0 Bright A_SpawnItemEx("SoulBallTrail", 0, 0, 0, 0, 0, 0, 180, 128)
         SHBA AB 2 Bright A_SeekerMissile (10,20)
         Loop
     Death:
         SHBA CDEFGHIJKL 4 Bright
         Stop
     }
+}
+actor SoulHarvesterBallCrisisParticle : BaseCrisisParticle
+{
+ scale 0.268
+ 
+ States
+ {
+  Spawn:
+    SHBA A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" AB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+ACTOR SoulHarvesterBallCrisis : SoulHarvesterBall
+{
+  Damage ((2 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+  states
+  {
+  Spawn:
+  	SHBA A 0 Bright A_SpawnItemEx("SoulBallTrail", 0, 0, 0, 0, 0, 0, 180, 128)
+    SHBA AB 2 BRIGHT 
+	{
+	 A_SpawnItemEx("SoulHarvesterBallCrisisParticle",0,0,0,0,0,1.28);
+	 A_SeekerMissile(5,8);
+	}
+    Loop
+  Death:
+    SHBA CDEFGHIJKL 4 BRIGHT
+    Stop
+  }
 }
 
 actor SoulHarvesterGhost
@@ -1279,50 +1500,80 @@ States
 
 ACTOR ThrallShot1
 {
+   Damage (1 * random(1,8))
    Radius 4
    Height 6
-   Speed 20
-   Damage 1
+   Speed 14
    RENDERSTYLE ADD
-   ALPHA 0.67
+   Alpha 0.67
    PROJECTILE
-   DeathSound "monster/disht1"
-   States
+   DEATHSOUND "monster/disht1"
+   states
    {
    Spawn:
-      CFX4 A 2 Bright
-      CFX4 B 2 Bright
-      loop
+      CFX4 AB 2 BRIGHT
+      Loop
    Death:
-      CFX4 CDEF 3 Bright
-      stop
+      CFX4 CDEF 3 BRIGHT
+      Stop
    }
 }
+actor ThrallShot1CrisisParticle : BaseCrisisParticle
+{
+ alpha 0.4489
+ 
+ States
+ {
+  Spawn:
+    CFX4 A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" AB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+ACTOR ThrallShot1Crisis : ThrallShot1
+{
+   Damage ((1 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+   states
+   {
+   Spawn:
+      CFX4 AB 2 BRIGHT
+	  {
+       A_SpawnItemEx("ThrallShot1CrisisParticle",0,0,0,0,0,1.28);
+	  }
+      Loop
+   Death:
+      CFX4 CDEF 3 BRIGHT
+      Stop
+   }
+}
+
 ACTOR AcolyteDude // 30118 
 { 
   //$Angled
   //$Color 12
   //$Category "Unloved Monsters"
-SpawnID 101
-Health 150 
-PainChance 170
-DropItem BloodAmmo
-Speed 8
-Scale 0.90
-Radius 20 
-Height 56 
-Mass 150 
-MONSTER
-+FLOORCLIP
-+DONTHURTSPECIES
--NOGRAVITY
--FLOAT
-Obituary "An Acolyte was promoted for killing %o."
-SeeSound "monster/acosit" 
-PainSound "monster/acopai" 
-DeathSound "monster/acodth" 
-ActiveSound "monster/acoact"
-States 
+  SpawnID 101
+  Health 150 
+  PainChance 170
+  DropItem BloodAmmo
+  Speed 8
+  Scale 0.90
+  Radius 20 
+  Height 56 
+  Mass 150 
+  MONSTER
+  +FLOORCLIP
+  +DONTHURTSPECIES
+  -NOGRAVITY
+  -FLOAT
+  Obituary "An Acolyte was promoted for killing %o."
+  SeeSound "monster/acosit" 
+  PainSound "monster/acopai" 
+  DeathSound "monster/acodth" 
+  ActiveSound "monster/acoact"
+  States 
    { 
    Spawn: 
        ACOL AB 10 A_Look 
@@ -1447,10 +1698,10 @@ ACTOR AcolFX2
 
 ACTOR AcolyteShot
 {
+   Damage (1 * random(1,8))
    Radius 8
    Height 16
    Speed 10
-   Damage 1
    RENDERSTYLE ADD
    ALPHA 0.67
    PROJECTILE
@@ -1461,10 +1712,42 @@ ACTOR AcolyteShot
    States
    {
    Spawn:
-      CFX1 A 1 Bright A_CStaffMissileSlither
-      CFX1 A 1 Bright A_CStaffMissileSlither
-      CFX1 B 1 Bright A_CStaffMissileSlither
-      CFX1 B 1 Bright A_CStaffMissileSlither
+      CFX1 AABB 1 Bright 
+	  {
+	   A_CStaffMissileSlither;
+	  }
+      CFX1 B 0 Bright A_SeekerMissile(1,3)
+      loop
+   Death:
+      CFX1 CDEFGH 3 Bright
+      stop
+   }
+}
+actor AcolyteShotCrisisParticle : BaseCrisisParticle
+{
+ alpha 0.4489
+ 
+ States
+ {
+  Spawn:
+    CFX1 A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" AABB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+ACTOR AcolyteShotCrisis : AcolyteShot
+{
+   Damage ((1 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+   States
+   {
+   Spawn:
+      CFX1 AABB 1 Bright 
+	  {
+       A_SpawnItemEx("AcolyteShotCrisisParticle",0,0,0,0,0,1.28);
+	   A_CStaffMissileSlither;
+	  }
       CFX1 B 0 Bright A_SeekerMissile(1,3)
       loop
    Death:
@@ -1645,10 +1928,10 @@ ACTOR DSFX3
 
 ACTOR DiscipleShot1
 {
+   Damage (3 * random(1,8))
    Radius 8
    Height 16
    Speed 15
-   Damage 3
    RENDERSTYLE ADD
    ALPHA 0.67
    PROJECTILE
@@ -1656,7 +1939,41 @@ ACTOR DiscipleShot1
    States
    {
    Spawn:
-      CFX2 ABCD 2 Bright A_CustomMissile("DSFX1",0,0,0,0)
+      CFX2 ABCD 2 Bright 
+	  {
+	   A_CustomMissile("DSFX1",0,0,0,0);
+	  }
+      loop
+   Death:
+      CFX2 EFGHI 3 Bright
+      stop
+   }
+}
+actor DiscipleShot1CrisisParticle : BaseCrisisParticle
+{
+ alpha 0.4489
+ 
+ States
+ {
+  Spawn:
+    CFX2 A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" ABCD 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+ACTOR DiscipleShot1Crisis : DiscipleShot1
+{
+   Damage ((3 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+   States
+   {
+   Spawn:
+      CFX2 ABCD 2 Bright 
+	  {
+       A_SpawnItemEx("DiscipleShot1CrisisParticle",0,0,0,0,0,1.28);
+	   A_CustomMissile("DSFX1",0,0,0,0);
+	  }
       loop
    Death:
       CFX2 EFGHI 3 Bright
@@ -1666,10 +1983,10 @@ ACTOR DiscipleShot1
 
 ACTOR DiscipleShot2
 {
+   Damage (6 * random(1,8))
    Radius 8
    Height 16
    Speed 15
-   Damage 6
    RENDERSTYLE ADD
    ALPHA 0.67
    PROJECTILE
@@ -1678,10 +1995,43 @@ ACTOR DiscipleShot2
    States
    {
    Spawn:
-      CFX3 A 3 Bright A_CustomMissile("DSFX2",0,0,0,0)
-      CFX3 A 0 Bright A_SeekerMissile(5,8)
-      CFX3 B 3 Bright A_CustomMissile("DSFX2",0,0,0,0)
-      CFX3 B 0 Bright A_SeekerMissile(5,8)
+      CFX3 AB 3 Bright 
+	  {
+	   A_CustomMissile("DSFX2",0,0,0,0);
+       A_SeekerMissile(5,8);
+	  }
+      loop
+   Death:
+      CFX3 CDEFG 3 Bright
+      stop
+   }
+}
+actor DiscipleShot2CrisisParticle : BaseCrisisParticle
+{
+ alpha 0.4489
+ 
+ States
+ {
+  Spawn:
+    CFX3 A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" AB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+ACTOR DiscipleShot2Crisis : DiscipleShot2
+{
+   Damage ((6 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+   States
+   {
+   Spawn:
+      CFX3 AB 3 Bright 
+	  {
+       A_SpawnItemEx("DiscipleShot2CrisisParticle",0,0,0,0,0,1.28);
+	   A_CustomMissile("DSFX2",0,0,0,0);
+       A_SeekerMissile(5,8);
+	  }
       loop
    Death:
       CFX3 CDEFG 3 Bright
@@ -1901,10 +2251,10 @@ States
 
 ACTOR WickedShot
 {
+   Damage (5 * random(1,8))
    Radius 8
    Height 8
    Speed 10
-   Damage 5
    RENDERSTYLE ADD
    DamageType "Fire"
    ALPHA 0.67
@@ -1916,8 +2266,74 @@ ACTOR WickedShot
    States
    {
    Spawn:
-      WIBL ABCDABCDABCDABCDABCDABCDABCD 1 Bright A_SpawnItemEx("WickedFX",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,128,0)
-      WIBL ABCD 0 Bright A_SeekerMissile(90,90)
+      WIBL ABCDABCDABCDAB 1 Bright
+      {	  
+	   A_SpawnItemEx("WickedFX",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,128,0);
+	  }
+      WIBL CDAB 1 Bright 
+	  {
+	   A_SeekerMissile(90,90);
+	   A_SpawnItemEx("WickedFX",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,128,0);
+	  }
+      loop
+      WIBL CDABCDABCDABCD 1 Bright
+      {	  
+	   A_SpawnItemEx("WickedFX",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,128,0);
+	  }
+      WIBL ABCD 1 Bright
+	  {
+	   A_SeekerMissile(90,90);
+	   A_SpawnItemEx("WickedFX",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,128,0);
+	  }
+      loop
+   Death:
+      WIBL JKLMN 3 Bright
+      stop
+   }
+}
+actor WickedShotCrisisParticle : BaseCrisisParticle
+{
+ alpha 0.4489
+ 
+ States
+ {
+  Spawn:
+    WIBL A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" ABCD 1 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+ACTOR WickedShotCrisis : WickedShot
+{
+   Damage ((5 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+   States
+   {
+   Spawn:
+      WIBL ABCDABCDABCDAB 1 Bright
+      {	  
+       A_SpawnItemEx("WickedShotCrisisParticle",0,0,0,0,0,1.28);
+	   A_SpawnItemEx("WickedFX",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,128,0);
+	  }
+      WIBL CDAB 1 Bright 
+	  {
+       A_SpawnItemEx("WickedShotCrisisParticle",0,0,0,0,0,1.28);
+	   A_SeekerMissile(90,90);
+	   A_SpawnItemEx("WickedFX",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,128,0);
+	  }
+      loop
+      WIBL CDABCDABCDABCD 1 Bright
+      {	  
+       A_SpawnItemEx("WickedShotCrisisParticle",0,0,0,0,0,1.28);
+	   A_SpawnItemEx("WickedFX",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,128,0);
+	  }
+      WIBL ABCD 1 Bright
+	  {
+       A_SpawnItemEx("WickedShotCrisisParticle",0,0,0,0,0,1.28);
+	   A_SeekerMissile(90,90);
+	   A_SpawnItemEx("WickedFX",0,0,0,random(-1,1),random(-1,1),random(-1,1),0,128,0);
+	  }
       loop
    Death:
       WIBL JKLMN 3 Bright
@@ -2009,47 +2425,119 @@ actor AoDGhost
     }
 }
 
-actor FireBlast
+ACTOR FireBlast
 {
+    Damage (3 * random(1,4))
     Speed 25
     Scale 0.75
-    Damage 3
     PROJECTILE
-    +STRIFEDAMAGE
-    +NOGRAVITY
-    Deathsound "fireblast/explode"
-    Decal Scorch
+    +StrifeDamage
+    +NoGravity
+    DEATHSOUND "fireblast/explode"
     states
     {
     Spawn:
-          PROJ ABC 4 Bright
+          PROJ AABBCC 2 BRIGHT
+		  {
+		  }
           Loop
     Death:
-          PROJ D 4 Bright A_Explode(8,64,0)
-          PROJ EFGH 4 Bright
-          PROJ I 4 Bright A_Fadeout(0.50)
+          PROJ D 4 BRIGHT 
+		  {
+		   A_Explode(8,64,0);
+		  }
+          PROJ EFGH 4 BRIGHT
+          PROJ I 4 BRIGHT A_FadeOut(0.50)
           Stop
-          }
+    }
+}
+actor FireBlastCrisisParticle : BaseCrisisParticle
+{
+ scale 0.5
+ 
+ States
+ {
+  Spawn:
+    PROJ A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" AABBCC 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+ACTOR FireBlastCrisis : FireBlast
+{
+    Damage ((3 * random(1,4)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+    states
+    {
+    Spawn:
+        PROJ AABBCC 2 BRIGHT
+	    {
+         A_SpawnItemEx("FireBlastCrisisParticle",0,0,0,0,0,1.28);
+		}
+        Loop
+    Death:
+        PROJ D 4 BRIGHT 
+		{
+		 A_Explode(8*ACS_NamedExecuteWithResult("CrisisMultiplier"),64,0);
+		}
+        PROJ EFGH 4 BRIGHT
+        PROJ I 4 BRIGHT A_FadeOut(0.50)
+        Stop
+    }
 }
 
-actor SuperFireBlast : FireBlast
+ACTOR SuperFireBlast : FireBlast
 {
+    Damage (24 * random(1,4))
     Speed 16
     Scale 1.5
-    Damage 24
-    Deathsound "superfireblast/explode"
-    Decal BigScorch
+    DEATHSOUND "superfireblast/explode"
     states
     {
     Spawn:
-          PROJ ABC 4 Bright
-          Loop
+        PROJ AABBCC 2 BRIGHT
+	    {
+		}
+        Loop
     Death:
-          PROJ D 4 Bright A_Explode(256,128,0)
-          PROJ EFGH 4 Bright
-          PROJ I 4 Bright A_Fadeout(0.50)
-          Stop
-          }
+        PROJ D 4 BRIGHT A_Explode(256,128,0)
+        PROJ EFGH 4 BRIGHT
+        PROJ I 4 BRIGHT A_FadeOut(0.50)
+        Stop
+    }
+}
+actor SuperFireBlastCrisisParticle : FireBlastCrisisParticle
+{
+ scale 1.0
+ 
+ States
+ {
+  Spawn:
+    GHBL A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" A 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+ACTOR SuperFireBlastCrisis : SuperFireBlast
+{
+    Damage ((24 * random(1,4)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+    states
+    {
+    Spawn:
+        PROJ AABBCC 2 BRIGHT
+	    {
+         A_SpawnItemEx("SuperFireBlastCrisisParticle",0,0,0,0,0,1.28);
+		}
+        Loop
+    Death:
+        PROJ D 4 BRIGHT A_Explode(256*ACS_NamedExecuteWithResult("CrisisMultiplier"),128,0)
+        PROJ EFGH 4 BRIGHT
+        PROJ I 4 BRIGHT A_FadeOut(0.50)
+        Stop
+    }
 }
 
 actor ApprenticeofDsparil // 30000
@@ -2314,51 +2802,187 @@ States
    } 
 }
 
-ACTOR RedLiteTop : LightningCeiling
+ACTOR RedLiteTop : AetheriusLightningTop
 {
-
+  Damage (8 * random(1,8))
+  States
+  {
+  Spawn:
+    MVFX A 2 Bright A_LightningZap("RedLiteZap")
+    MVFX BCD 2 Bright A_LightningClip
+    Loop
+  Death:
+    MVF2 A 2 Bright A_LightningRemove
+    MVF2 BCDEKLM 3 Bright
+    AVLO E 35
+    MVF2 NO 3 Bright
+    MVF2 P 4 Bright
+    MVF2 QP 3 Bright
+    MVF2 Q 4 Bright
+    MVF2 P 3 Bright
+    MVF2 O 3 Bright
+    MVF2 P 3 Bright
+    MVF2 P 1 Bright A_HideThing
+    AVLO E 1050
+    Stop
+  }
+}
+actor RedLiteTopCrisisParticle : BaseCrisisParticle
+{
+ VSpeed 32
+ scale 0.667
+ 
+ States
+ {
+  Spawn:
+    MVFX A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" ABCD 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+ACTOR RedLiteTopCrisis : RedLiteTop
+{
+  Damage ((8 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+  States
+  {
+  Spawn:
+    MVFX A 2 Bright 
+	{
+     A_SpawnItemEx("RedLiteTopCrisisParticle",0,0,0,0,0,1.28);
+	 A_LightningZap("RedLiteZapCrisis");
+	}
+    MVFX BCD 2 Bright 
+	{
+     A_SpawnItemEx("RedLiteTopCrisisParticle",0,0,0,0,0,1.28);
+	 A_LightningClip;
+	}
+    Loop
+  Death:
+    MVF2 A 2 Bright A_LightningRemove
+    MVF2 BCDEKLM 3 Bright
+    AVLO E 35
+    MVF2 NO 3 Bright
+    MVF2 P 4 Bright
+    MVF2 QP 3 Bright
+    MVF2 Q 4 Bright
+    MVF2 P 3 Bright
+    MVF2 O 3 Bright
+    MVF2 P 3 Bright
+    MVF2 P 1 Bright A_HideThing
+    AVLO E 1050
+    Stop
+  }
 }
 
-ACTOR RedLiteBot : LightningFloor
+ACTOR RedLiteBot : AetheriusLightningBottom
 {
-
+  Damage (8 * random(1,8))
+  States
+  {
+  Spawn:
+    MVFX E 2 Bright 
+	{
+	 A_LightningZap("RedLiteZap");
+	}
+    MVFX FGH 2 Bright 
+	{
+	 A_LightningClip;
+	}
+    Loop
+  Death:
+    MVF2 F 2 Bright A_LightningRemove
+    MVF2 GHIJKLM 3 Bright
+    AVLO E 20
+    MVF2 NO 3 Bright
+    MVF2 P 4 Bright
+    MVF2 QP 3 Bright
+    MVF2 Q 4 Bright A_LastZap("RedLiteZap")
+    MVF2 POP 3 Bright
+    MVF2 P 1 Bright A_HideThing
+    AVLO E 1050
+    Stop
+  }
 }
-
-ACTOR AvaBall1
+actor RedLiteBotCrisisParticle : BaseCrisisParticle
 {
-   Radius 20
-   Height 40
-   Speed 12
-   Damage 100
-   PROJECTILE
-   RENDERSTYLE ADD
-   ALPHA 0.80
-   SeeSound "weapons/gntini"
-   DeathSound "weapons/devexp"
-   States
-   {
-   Spawn:
-      AFX4 ABCDEFGH 1 Bright A_Explode(64,64,0)
-      loop
-   Death:
-      AFX4 I 5 Bright
-      AFX4 I 0 Bright A_CustomMissile("AvaBall2",0,0,0,2)
-      AFX4 I 0 Bright A_CustomMissile("AvaBall2",0,0,60,2)
-      AFX4 I 0 Bright A_CustomMissile("AvaBall2",0,0,120,2)
-      AFX4 I 0 Bright A_CustomMissile("AvaBall2",0,0,180,2)
-      AFX4 I 0 Bright A_CustomMissile("AvaBall2",0,0,240,2)
-      AFX4 I 0 Bright A_CustomMissile("AvaBall2",0,0,300,2)
-      AFX4 JKL 5 Bright A_Explode(128,128,0)
-      stop
-   }
+ scale 0.667
+ 
+ States
+ {
+  Spawn:
+    MVFX A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" EFGH 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+ACTOR RedLiteBotCrisis : RedLiteBot
+{
+  Damage ((8 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+  States
+  {
+  Spawn:
+    MVFX E 2 Bright 
+	{
+     A_SpawnItemEx("RedLiteBotCrisisParticle",0,0,0,0,0,1.28);
+	 A_LightningZap("RedLiteZapCrisis");
+	}
+    MVFX FGH 2 Bright 
+	{
+     A_SpawnItemEx("RedLiteBotCrisisParticle",0,0,0,0,0,1.28);
+	 A_LightningClip;
+	}
+    Loop
+  Death:
+    MVF2 F 2 Bright A_LightningRemove
+    MVF2 GHIJKLM 3 Bright
+    AVLO E 20
+    MVF2 NO 3 Bright
+    MVF2 P 4 Bright
+    MVF2 QP 3 Bright
+    MVF2 Q 4 Bright A_LastZap("RedLiteZapCrisis")
+    MVF2 POP 3 Bright
+    MVF2 P 1 Bright A_HideThing
+    AVLO E 1050
+    Stop
+  }
+}
+ACTOR RedLiteZap : AetheriusLightningZap
+{
+  Damage (2 * random(1,8))
+  States
+  {
+  Spawn:
+	MVFX IJKLM 2 Bright A_ZapMimic
+	Loop
+  Death:
+	MVFX NOPQRSTU 2 Bright
+	Stop
+  }
+}
+ACTOR RedLiteZapCrisis : RedLiteZap
+{
+  Damage ((2 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+  States
+  {
+  Spawn:
+	MVFX IJKLM 2 Bright A_ZapMimic
+	Loop
+  Death:
+	MVFX NOPQRSTU 2 Bright
+	Stop
+  }
 }
 
 ACTOR AvaFireBall
 {
+   Damage (5 * random(1,8))
    Radius 9
    Height 18
    Speed 20
-   Damage 5
    ExplosionDamage 8
    ExplosionRadius 32
    PROJECTILE
@@ -2372,67 +2996,268 @@ ACTOR AvaFireBall
       AFX5 ABC 3 Bright
       loop
    Death:
-      AFX5 D 3 Bright A_Explode
+      AFX5 D 3 Bright A_Explode(8,32)
       AFX5 EFGH 3 Bright
+      stop
+   }
+}
+actor AvaFireBallCrisisParticle : BaseCrisisParticle
+{
+ alpha 0.536
+ 
+ States
+ {
+  Spawn:
+    AFX5 A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" ABC 3 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+ACTOR AvaFireBallCrisis : AvaFireBall
+{
+   Damage ((5 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+   States
+   {
+   Spawn:
+      AFX5 ABC 3 Bright
+	  {
+       A_SpawnItemEx("AvaFireBallCrisisParticle",0,0,0,0,0,1.28);
+	  }
+      loop
+   Death:
+      AFX5 D 3 Bright A_Explode(8*ACS_NamedExecuteWithResult("CrisisMultiplier"),32)
+      AFX5 EFGH 3 Bright
+      stop
+   }
+}
+
+ACTOR AvaBall1
+{
+   Damage (100 * random(1,8))
+   Radius 20
+   Height 40
+   Speed 12
+   PROJECTILE
+   RENDERSTYLE ADD
+   ALPHA 0.80
+   SeeSound "weapons/gntini"
+   DeathSound "weapons/devexp"
+   DamageType "Avatar"
+   States
+   {
+   Spawn:
+      AFX4 ABCDEFGH 1 Bright
+	  {
+	   A_Explode(64,64,0);
+	  }
+      loop
+   Death:
+      AFX4 I 5 Bright
+      AFX4 I 0 Bright 
+	  {
+	   A_CustomMissile("AvaBall2",0,0,0,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall2",0,0,60,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall2",0,0,120,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall2",0,0,180,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall2",0,0,240,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall2",0,0,300,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+	  }
+      AFX4 JKL 5 Bright A_Explode(128,128,0)
+      stop
+   }
+}
+actor AvaBall1CrisisParticle : BaseCrisisParticle
+{
+ alpha 0.536
+ 
+ States
+ {
+  Spawn:
+    AFX4 A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" ABCDEFGH 1 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+ACTOR AvaBall1Crisis : AvaBall1
+{
+   Damage (100 * random(1,8) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+   States
+   {
+   Spawn:
+      AFX4 ABCDEFGH 1 Bright 
+	  {
+       A_SpawnItemEx("AvaBall1CrisisParticle",0,0,0,0,0,1.28);
+	   A_Explode(64*ACS_NamedExecuteWithResult("CrisisMultiplier"),64,0);
+	  }
+      loop
+   Death:
+      AFX4 I 5 Bright
+      AFX4 I 0 Bright 
+	  {
+	   A_CustomMissile("AvaBall2Crisis",0,0,0,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall2Crisis",0,0,60,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall2Crisis",0,0,120,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall2Crisis",0,0,180,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall2Crisis",0,0,240,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall2Crisis",0,0,300,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+	  }
+      AFX4 JKL 5 Bright A_Explode(128*ACS_NamedExecuteWithResult("CrisisMultiplier"),128,0)
       stop
    }
 }
 
 ACTOR AvaBall2
 {
+   Damage (random(2,3) * random(1,8))
    Radius 10
    Height 20
    Speed 15
-   Damage 0
    ExplosionDamage 64
    ExplosionRadius 32
    PROJECTILE
    RENDERSTYLE ADD
    ALPHA 0.75
+   DamageType "Avatar"
    DeathSound "weapons/devzap"
    States
    {
    Spawn:
       AFX1 ABC 1 Bright
+	  {
+	  }
       loop
    Death:
-      AFX1 DE 4 Bright A_Explode
-      AFX1 G 0 Bright A_CustomMissile("AvaBall3",0,0,0,2)
-      AFX1 G 0 Bright A_CustomMissile("AvaBall3",0,0,60,2)
-      AFX1 G 0 Bright A_CustomMissile("AvaBall3",0,0,120,2)
-      AFX1 G 0 Bright A_CustomMissile("AvaBall3",0,0,180,2)
-      AFX1 G 0 Bright A_CustomMissile("AvaBall3",0,0,240,2)
-      AFX1 G 0 Bright A_CustomMissile("AvaBall3",0,0,300,2)
+      AFX1 DE 4 Bright A_Explode(32,64)
+      AFX1 G 0 Bright
+	  {
+	   A_CustomMissile("AvaBall3",0,0,0,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall3",0,0,60,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall3",0,0,120,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall3",0,0,180,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall3",0,0,240,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall3",0,0,300,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+	  }
+      AFX1 FGHI 4 bright
+      stop
+   }
+}
+actor AvaBall2CrisisParticle : BaseCrisisParticle
+{
+ alpha 0.5025
+ 
+ States
+ {
+  Spawn:
+    AFX1 A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" ABC 1 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+ACTOR AvaBall2Crisis : AvaBall2
+{
+   Damage ((random(2,3) * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+   States
+   {
+   Spawn:
+      AFX1 ABC 1 Bright
+	  {
+       A_SpawnItemEx("AvaBall2CrisisParticle",0,0,0,0,0,1.28);
+	  }
+      loop
+   Death:
+      AFX1 DE 4 Bright A_Explode(32*ACS_NamedExecuteWithResult("CrisisMultiplier"),64)
+      AFX1 G 0 Bright
+	  {
+	   A_CustomMissile("AvaBall3Crisis",0,0,0,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall3Crisis",0,0,60,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall3Crisis",0,0,120,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall3Crisis",0,0,180,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall3Crisis",0,0,240,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall3Crisis",0,0,300,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+	  }
       AFX1 FGHI 4 bright
       stop
    }
 }
 
+
 ACTOR AvaBall3
 {
+   Damage (1 * random(1,8))
    Radius 6
    Height 12
    Speed 12
-   Damage 0
    ExplosionDamage 24
    ExplosionRadius 16
    PROJECTILE
    RENDERSTYLE ADD
    ALPHA 0.75
+   DamageType "Avatar"
    DeathSound "weapons/gnthit"
    States
    {
    Spawn:
       AFX2 ABC 1 Bright
+	  {
+	  }
       loop
    Death:
-      AFX2 D 4 Bright A_Explode
-      AFX2 D 0 Bright A_CustomMissile("AvaBall4",0,0,0,2)
-      AFX2 D 0 Bright A_CustomMissile("AvaBall4",0,0,60,2)
-      AFX2 D 0 Bright A_CustomMissile("AvaBall4",0,0,120,2)
-      AFX2 D 0 Bright A_CustomMissile("AvaBall4",0,0,180,2)
-      AFX2 D 0 Bright A_CustomMissile("AvaBall4",0,0,240,2)
-      AFX2 D 0 Bright A_CustomMissile("AvaBall4",0,0,300,2)
+      AFX2 D 4 Bright A_Explode(24,16)
+      AFX2 D 0 Bright
+	  {
+	   A_CustomMissile("AvaBall4",0,0,0,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall4",0,0,60,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall4",0,0,120,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall4",0,0,180,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall4",0,0,240,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall4",0,0,300,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+	  }
+      AFX2 EFG 4 bright
+      stop
+   }
+}
+actor AvaBall3CrisisParticle : BaseCrisisParticle
+{
+ alpha 0.5025
+ 
+ States
+ {
+  Spawn:
+    AFX2 A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" ABC 1 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+ACTOR AvaBall3Crisis : AvaBall3
+{
+   Damage ((1 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+   States
+   {
+   Spawn:
+      AFX2 ABC 1 Bright
+	  {
+       A_SpawnItemEx("AvaBall3CrisisParticle",0,0,0,0,0,1.28);
+	  }
+      loop
+   Death:
+      AFX2 D 4 Bright A_Explode(24*ACS_NamedExecuteWithResult("CrisisMultiplier"),16)
+      AFX2 D 0 Bright
+	  {
+	   A_CustomMissile("AvaBall4Crisis",0,0,0,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall4Crisis",0,0,60,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall4Crisis",0,0,120,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall4Crisis",0,0,180,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall4Crisis",0,0,240,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+       A_CustomMissile("AvaBall4Crisis",0,0,300,CMF_AIMDIRECTION|CMF_TRACKOWNER);
+	  }
       AFX2 EFG 4 bright
       stop
    }
@@ -2440,23 +3265,57 @@ ACTOR AvaBall3
 
 ACTOR AvaBall4
 {
+   Damage (random(0,1) * random(1,8))
    Radius 3
    Height 6
    Speed 10
-   Damage 0
    ExplosionDamage 8
    ExplosionRadius 8
    PROJECTILE
    RENDERSTYLE ADD
    ALPHA 0.75
+   DamageType "Avatar"
    DeathSound "monster/hadsit"
    States
    {
    Spawn:
       AFX3 ABC 1 Bright
+	  {
+	  }
       loop
    Death:
-      AFX3 D 3 Bright A_Explode
+      AFX3 D 3 Bright A_Explode(8,8)
+      AFX3 EFGH 3 Bright
+      stop
+   }
+}
+actor AvaBall4CrisisParticle : BaseCrisisParticle
+{
+ alpha 0.5025
+ 
+ States
+ {
+  Spawn:
+    AFX3 A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" ABC 1 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+ACTOR AvaBall4Crisis : AvaBall4
+{
+   Damage ((random(0,1) * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+   States
+   {
+   Spawn:
+      AFX3 ABC 1 Bright
+	  {
+       A_SpawnItemEx("AvaBall4CrisisParticle",0,0,0,0,0,1.28);
+	  }
+      loop
+   Death:
+      AFX3 D 3 Bright A_Explode(8*ACS_NamedExecuteWithResult("CrisisMultiplier"),8)
       AFX3 EFGH 3 Bright
       stop
    }
@@ -2745,43 +3604,59 @@ ACTOR DarkCyberGhostD : DarkCyberGhostA
 
 ACTOR DCBMiss1
 {
+	Damage (30 * random(1,8))
 	Radius 12
 	Height 12
 	Speed 16
-	Damage 30
 	PROJECTILE
-      +SeekerMissile
-      +ExtremeDeath
+    +SeekerMissile
+    +ExtremeDeath
 	Renderstyle Add
 	SEESOUND "q2weapon/bfgball"
     DEATHSOUND "q2weapon/bfgballexplo"
-    	Decal BFGLightning
+  	Decal BFGLightning
 	states
 	{
 	Spawn:
-		CBTS A 2 BRIGHT A_SeekerMissile(1,90)
-		NULL A 0 BRIGHT A_SpawnItemEx("DCBM1Trail",0,0,0,0,0,0,0,128)
-		CBTS B 2 BRIGHT A_SeekerMissile(1,90)
-		NULL A 0 BRIGHT A_SpawnItemEx("DCBM1Trail",0,0,0,0,0,0,0,128)
-		CBTS C 2 BRIGHT A_SeekerMissile(1,90)
-		NULL A 0 BRIGHT A_SpawnItemEx("DCBM1Trail",0,0,0,0,0,0,0,128)
-		CBTS D 2 BRIGHT A_SeekerMissile(1,90)
-		NULL A 0 BRIGHT A_SpawnItemEx("DCBM1Trail",0,0,0,0,0,0,0,128)
-		CBTS E 2 BRIGHT A_SeekerMissile(1,90)
-		NULL A 0 BRIGHT A_SpawnItemEx("DCBM1Trail",0,0,0,0,0,0,0,128)
-		CBTS F 2 BRIGHT A_SeekerMissile(1,90)
-		NULL A 0 BRIGHT A_SpawnItemEx("DCBM1Trail",0,0,0,0,0,0,0,128)
-		CBTS G 2 BRIGHT A_SeekerMissile(1,90)
-		NULL A 0 BRIGHT A_SpawnItemEx("DCBM1Trail",0,0,0,0,0,0,0,128)
-		CBTS H 2 BRIGHT A_SeekerMissile(1,90)
-		NULL A 0 BRIGHT A_SpawnItemEx("DCBM1Trail",0,0,0,0,0,0,0,128)
-		CBTS I 2 BRIGHT A_SeekerMissile(1,90)
-		NULL A 0 BRIGHT A_SpawnItemEx("DCBM1Trail",0,0,0,0,0,0,0,128)
-		CBTS J 2 BRIGHT A_SeekerMissile(1,90)
-		NULL A 0 BRIGHT A_SpawnItemEx("DCBM1Trail",0,0,0,0,0,0,0,128)
+		CBTS ABCDEFGHIJ 2 BRIGHT 
+		{
+		 A_SeekerMissile(1,90);
+		 A_SpawnItemEx("DCBM1Trail",0,0,0,0,0,0,0,128);
+		}
 		Loop
 	Death:
 		CBTS K 2 BRIGHT A_Explode(140,140)
+		CBTS LMNOPQRSTUVW 2 BRIGHT
+		Stop
+	}
+}
+actor DCBMiss1CrisisParticle : BaseCrisisParticle
+{ 
+ States
+ {
+  Spawn:
+    CBTS A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" ABCDEFGHIJ 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+ACTOR DCBMiss1Crisis : DCBMiss1
+{
+	Damage ((30 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+	states
+	{
+	Spawn:
+		CBTS ABCDEFGHIJ 2 BRIGHT 
+		{
+         A_SpawnItemEx("DCBMiss1CrisisParticle",0,0,0,0,0,1.28);
+		 A_SeekerMissile(1,90);
+		 A_SpawnItemEx("DCBM1Trail",0,0,0,0,0,0,0,128);
+		}
+		Loop
+	Death:
+		CBTS K 2 BRIGHT A_Explode(140*ACS_NamedExecuteWithResult("CrisisMultiplier"),140)
 		CBTS LMNOPQRSTUVW 2 BRIGHT
 		Stop
 	}
@@ -2808,21 +3683,51 @@ ACTOR DCBM1Trail
 
 ACTOR DCBMiss2
 {
+	Damage (15 * random(1,8))
 	Radius 12
 	Height 8
 	Health 5
 	Speed 28
-	Damage 15 
 	RENDERSTYLE Add
 	PROJECTILE
 	Translation "160:167=120:127", "208:223=120:127"
 	SEESOUND "q2weapon/rocketlauncherfire"
     DEATHSOUND "q2weapon/rocketexplo"
-    	Decal RevenantScorch
+   	Decal RevenantScorch
 	states
 	{
 	Spawn:
 		THZ4 A 2 BRIGHT 
+		{
+		}
+		Loop
+	Death:
+		FSFX DEFGHIJKLM 2 BRIGHT
+		Stop
+	}
+}
+actor DCBMiss2CrisisParticle : BaseCrisisParticle
+{ 
+ States
+ {
+  Spawn:
+    THZ4 A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" A 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+ACTOR DCBMiss2Crisis : DCBMiss2
+{
+	Damage ((15 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+	states
+	{
+	Spawn:
+		THZ4 A 2 BRIGHT 
+		{
+         A_SpawnItemEx("DCBMiss2CrisisParticle",0,0,0,0,0,1.28);
+		}
 		Loop
 	Death:
 		FSFX DEFGHIJKLM 2 BRIGHT
@@ -2832,11 +3737,11 @@ ACTOR DCBMiss2
 
 ACTOR DCBMiss3
 {
+	Damage (0 * random(1,8))
 	Radius 1
 	Height 1
 	Health 5
 	Speed 8
-	Damage 0
 	Scale 2
 	RENDERSTYLE Add
 	+BloodLessImpact
@@ -2847,7 +3752,10 @@ ACTOR DCBMiss3
 	states
 	{
 	Spawn:
-		NULL A 2 A_Gravity
+		NULL A 2 
+		{
+		 A_Gravity;
+		}
 		Loop
 	Death:
 		FSFX NOPQRSTNOPQRST 3
@@ -2855,14 +3763,31 @@ ACTOR DCBMiss3
 		Stop
 	}
 }
+ACTOR DCBMiss3Crisis : DCBMiss3
+{
+	Damage (0 * random(1,8))
+	states
+	{
+	Spawn:
+		NULL A 2 
+		{
+		 A_Gravity;
+		}
+		Loop
+	Death:
+		FSFX NOPQRSTNOPQRST 3
+		FSFX Z 0 A_CustomMissile("DCBMiss3MCrisis",0,0,180)
+		Stop
+	}
+}
 
 
 ACTOR DCBMiss3M
 {
+	Damage (20 * random(1,8))
 	Radius 10
 	Height 10
 	Speed 28
-	Damage 20
 	Scale 1.3
 	+FloorHugger
 	RENDERSTYLE Add
@@ -2872,10 +3797,53 @@ ACTOR DCBMiss3M
 	states
 	{
 	Spawn:
-		FSFX NOPQRSTNOPQRST 3 A_SpawnItemEx("DCBMiss3MG",0,0,0,0,0,0,0,128)
+		FSFX NOPQRSTNOPQRST 3 
+		{
+		 A_SpawnItemEx("DCBMiss3MG",0,0,0,0,0,0,0,128);
+		}	
 		Loop
 	Death:
 		NULL A 0 A_Explode(64,64)
+		FSFX UVW 3
+		Stop
+	}
+}
+actor DCBMiss3CrisisParticle : BaseCrisisParticle
+{ 
+ scale 0.871
+ States
+ {
+  Spawn:
+    FSFX A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" NOPQRSTNOPQRST 3 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    loop
+ }
+}
+ACTOR DCBMiss3MCrisis : DCBMiss3M
+{
+	Damage ((20 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+	Radius 10
+	Height 10
+	Speed 28
+	Scale 1.3
+	+FloorHugger
+	RENDERSTYLE Add
+	PROJECTILE
+	DEATHSOUND "comet/explosion"
+	Decal RevenantScorch
+	states
+	{
+	Spawn:
+		FSFX NOPQRSTNOPQRST 3 
+		{
+         A_SpawnItemEx("DCBMiss3CrisisParticle",0,0,0,0,0,1.28);
+		 A_SpawnItemEx("DCBMiss3MG",0,0,0,0,0,0,0,128);
+		}	
+		Loop
+	Death:
+		NULL A 0 A_Explode(64*ACS_NamedExecuteWithResult("CrisisMultiplier"),64)
 		FSFX UVW 3
 		Stop
 	}

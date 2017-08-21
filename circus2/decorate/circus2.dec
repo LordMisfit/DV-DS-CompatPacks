@@ -423,13 +423,10 @@ actor SkullSeekerCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    GHST A 0
-    "####" AB 2 Bright
-	{
-     A_SetScale(scaleX-0.03,scaleY-0.03);
-	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
-	 A_FadeOut(0.08);
-	}
+    GHST A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" AB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
     loop
  }
 }
@@ -946,13 +943,10 @@ actor PennywiseHeadProjCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    CFHD A 0
-    "####" A 2 Bright
-	{
-     A_SetScale(scaleX-0.025,scaleY-0.025);
-	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
-	 A_FadeOut(0.02);
-	}
+    CFHD A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" A 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
     loop
  }
 }
@@ -1385,13 +1379,10 @@ actor RevRocketCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    RRCK A 0
-    "####" A 2 Bright
-	{
-     A_SetScale(scaleX-0.055,scaleY-0.055);
-	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
-	 A_FadeOut(0.08);
-	}
+    RRCK A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" A 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
     loop
  }
 }
@@ -1427,13 +1418,10 @@ actor HappyCloudCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    CLOD A 0
-    "####" ABCBABCBABCBABCBABCDCBABCDCBCBABCDEFG 2 Bright
-	{
-     A_SetScale(scaleX-0.01,scaleY-0.01);
-	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
-	 A_FadeOut(0.05667);
-	}
+    CLOD A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" ABCBABCBABCBABCBABCDCBABCDCBCBABCDEFG 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
     loop
  }
 }
@@ -1844,13 +1832,10 @@ actor TinyBingoBallCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    ORBB A 0
-    "####" AB 2 Bright
-	{
-     A_SetScale(scaleX-0.05,scaleY-0.05);
-	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
-	 A_FadeOut(0.064);
-	}
+    ORBB A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" AB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
     loop
  }
 }
@@ -2067,13 +2052,10 @@ actor BeefyBall1CrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    MBBB A 0
-    "####" AB 2 Bright
-	{
-     A_SetScale(scaleX-0.08,scaleY-0.08);
-	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
-	 A_FadeOut(0.064);
-	}
+    MBBB A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" AB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
     loop
  }
 }
@@ -2168,13 +2150,10 @@ actor BeefyBall2CrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    MBBB A 0
-    "####" AB 2 Bright
-	{
-     A_SetScale(scaleX-0.1,scaleY-0.1);
-	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
-	 A_FadeOut(0.064);
-	}
+    MBBB A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" AB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
     loop
  }
 }
@@ -2883,13 +2862,10 @@ actor Ghost2BallCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    GHBL A 0
-    "####" A 2 Bright
-	{
-     A_SetScale(scaleX-0.1,scaleY-0.1);
-	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
-	 A_FadeOut(0.064);
-	}
+    GHBL A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" A 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
     loop
  }
 }
@@ -3151,13 +3127,10 @@ actor BulbyBallCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    BBBL A 0
-    "####" AABB 2 Bright
-	{
-     A_SetScale(scaleX-0.1,scaleY-0.1);
-	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
-	 A_FadeOut(0.064);
-	}
+    BBBL A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" AABB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
     loop
  }
 }
@@ -3229,13 +3202,10 @@ actor BulbyBall2CrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    BBBL A 0
-    "####" AABB 2 Bright
-	{
-     A_SetScale(scaleX-0.09,scaleY-0.09);
-	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
-	 A_FadeOut(0.064);
-	}
+    BBBL A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" AABB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
     loop
  }
 }
@@ -3315,13 +3285,10 @@ actor BulbyBall3CrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    BBBL A 0
-    "####" AABB 2 Bright
-	{
-     A_SetScale(scaleX-0.14,scaleY-0.14);
-	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
-	 A_FadeOut(0.112);
-	}
+    BBBL A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" AABB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
     loop
  }
 }
@@ -3783,13 +3750,10 @@ actor BerthaBallCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    BRTF A 0
-    "####" AB 2 Bright
-	{
-     A_SetScale(scaleX-0.1,scaleY-0.1);
-	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
-	 A_FadeOut(0.08);
-	}
+    BRTF A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" AB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
     loop
  }
 }
@@ -4084,13 +4048,10 @@ actor SoulAttackCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    SEEK A 0
-    "####" A 2 Bright
-	{
-     A_SetScale(scaleX-0.06,scaleY-0.06);
-	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
-	 A_FadeOut(0.032);
-	}
+    SEEK A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" A 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
     loop
  }
 }
@@ -5196,19 +5157,16 @@ actor SkullSeeker666CrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    GHST A 0
-    "####" AB 2 Bright
-	{
-     A_SetScale(scaleX-0.1,scaleY-0.1);
-	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
-	 A_FadeOut(0.08);
-	}
+    GHST A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" AB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
     loop
  }
 }
 actor SkullSeeker666Crisis : SkullSeeker666
 {
-    Damage (3 * random(1,8))
+    Damage ((3 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
     States
     {
     Spawn:
@@ -5442,13 +5400,10 @@ actor DeadlightCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    PWT2 A 0
-    "####" AABBCCDD 2 Bright
-	{
-     A_SetScale(scaleX-0.1,scaleY-0.1);
-	 if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); }
-	 A_FadeOut(0.08);
-	}
+    PWT2 A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+	goto Idle
+  Idle:
+    "####" AABBCCDD 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
     loop
  }
 }
@@ -5498,10 +5453,14 @@ actor PennywiseShield : PowerProtection
 actor PennywiseNotShield : PowerProtection
 {
  DamageFactor "Sceptre", 3
+ DamageFactor "Fist", 3
+ DamageFactor "Kick", 3
+ DamageFactor "Gauntlets", 3
  DamageFactor "Magic", 3
  DamageFactor "Holy", 3
  DamageFactor "Melee", 3
  DamageFactor "Normal", 3
+ DamageFactor "Deadlight", 3
  inventory.icon ""
  Powerup.Duration 2147483646
 }
@@ -5535,6 +5494,7 @@ actor PennywiseBoss : AetheriusMonsterZSC replaces Pennywise 3672
   DamageFactor "Normal", 0.67
   DamageFactor "Deadlight", 5.0
   +FLOORCLIP +NORADIUSDMG +FULLVOLACTIVE +NOTARGET
+  +LOOKALLAROUND
   SeeSound ""
   PainSound "PENHURT"
   DeathSound ""
