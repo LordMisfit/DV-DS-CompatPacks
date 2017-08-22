@@ -75,7 +75,7 @@ actor SonicFireballCrisisParticle : BaseCrisisParticle
 }
 ACTOR SonicFireballCrisis : SonicFireball
 {
-   Damage ((2 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+   Damage ((2 * random(1,8)) * CallACS("CrisisMultiplier"))
    States
    {
    Spawn:
@@ -235,7 +235,7 @@ actor ClayDevilMissileCrisisParticle : BaseCrisisParticle
 }
 Actor ClayDevilMissileCrisis : ClayDevilMissile
 {
- damage ((6 * random(1,4)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+ damage ((6 * random(1,4)) * CallACS("CrisisMultiplier"))
  states
  {
   Spawn:
@@ -440,7 +440,7 @@ actor FireBlastCrisisParticle : BaseCrisisParticle
 }
 ACTOR FireBlastCrisis : FireBlast
 {
-    Damage ((3 * random(1,4)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+    Damage ((3 * random(1,4)) * CallACS("CrisisMultiplier"))
     states
     {
     Spawn:
@@ -452,7 +452,7 @@ ACTOR FireBlastCrisis : FireBlast
     Death:
         PROJ D 4 BRIGHT 
 		{
-		 A_Explode(8*ACS_NamedExecuteWithResult("CrisisMultiplier"),64,0);
+		 A_Explode(8*CallACS("CrisisMultiplier"),64,0);
 		}
         PROJ EFGH 4 BRIGHT
         PROJ I 4 BRIGHT A_FadeOut(0.50)
@@ -496,7 +496,7 @@ actor SuperFireBlastCrisisParticle : FireBlastCrisisParticle
 }
 ACTOR SuperFireBlastCrisis : SuperFireBlast
 {
-    Damage ((24 * random(1,4)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+    Damage ((24 * random(1,4)) * CallACS("CrisisMultiplier"))
     states
     {
     Spawn:
@@ -506,7 +506,7 @@ ACTOR SuperFireBlastCrisis : SuperFireBlast
 		}
         Loop
     Death:
-        PROJ D 4 BRIGHT A_Explode(256*ACS_NamedExecuteWithResult("CrisisMultiplier"),128,0)
+        PROJ D 4 BRIGHT A_Explode(256*CallACS("CrisisMultiplier"),128,0)
         PROJ EFGH 4 BRIGHT
         PROJ I 4 BRIGHT A_FadeOut(0.50)
         Stop
@@ -819,7 +819,7 @@ actor ThrallShot1CrisisParticle : BaseCrisisParticle
 }
 ACTOR ThrallShot1Crisis : ThrallShot1
 {
-   Damage ((1 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+   Damage ((1 * random(1,8)) * CallACS("CrisisMultiplier"))
    states
    {
    Spawn:
@@ -1426,7 +1426,7 @@ actor ShadowBallCrisisParticle : BaseCrisisParticle
 }
 ACTOR ShadowBallCrisis : ShadowBall
 {
-	Damage ((4 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+	Damage ((4 * random(1,8)) * CallACS("CrisisMultiplier"))
 	States
 	{
 	Spawn: 
@@ -1635,7 +1635,7 @@ actor SoulHarvesterBallCrisisParticle : BaseCrisisParticle
 }
 ACTOR SoulHarvesterBallCrisis : SoulHarvesterBall
 {
-  Damage ((2 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+  Damage ((2 * random(1,8)) * CallACS("CrisisMultiplier"))
   states
   {
   Spawn:
@@ -2063,7 +2063,7 @@ actor DCBMiss1CrisisParticle : BaseCrisisParticle
 }
 ACTOR DCBMiss1Crisis : DCBMiss1
 {
-	Damage ((30 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+	Damage ((30 * random(1,8)) * CallACS("CrisisMultiplier"))
 	states
 	{
 	Spawn:
@@ -2075,7 +2075,7 @@ ACTOR DCBMiss1Crisis : DCBMiss1
 		}
 		Loop
 	Death:
-		CBTS K 2 BRIGHT A_Explode(140*ACS_NamedExecuteWithResult("CrisisMultiplier"),140)
+		CBTS K 2 BRIGHT A_Explode(140*CallACS("CrisisMultiplier"),140)
 		CBTS LMNOPQRSTUVW 2 BRIGHT
 		Stop
 	}
@@ -2139,7 +2139,7 @@ actor DCBMiss2CrisisParticle : BaseCrisisParticle
 }
 ACTOR DCBMiss2Crisis : DCBMiss2
 {
-	Damage ((15 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+	Damage ((15 * random(1,8)) * CallACS("CrisisMultiplier"))
 	states
 	{
 	Spawn:
@@ -2243,7 +2243,7 @@ actor DCBMiss3CrisisParticle : BaseCrisisParticle
 }
 ACTOR DCBMiss3MCrisis : DCBMiss3M
 {
-	Damage ((20 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+	Damage ((20 * random(1,8)) * CallACS("CrisisMultiplier"))
 	Radius 10
 	Height 10
 	Speed 28
@@ -2263,7 +2263,7 @@ ACTOR DCBMiss3MCrisis : DCBMiss3M
 		}	
 		Loop
 	Death:
-		NULL A 0 A_Explode(64*ACS_NamedExecuteWithResult("CrisisMultiplier"),64)
+		NULL A 0 A_Explode(64*CallACS("CrisisMultiplier"),64)
 		NULL AAAAAAAAAA 0 A_SpawnItemEx("DCBMiss3ExtraCrisis",0,0,5,random(-5,5),random(-5,5),random(-5,5),random(1,360))
 		FSFX UVW 3
 		Stop
@@ -2337,20 +2337,20 @@ actor DCBMiss3ExtraCrisisParticle : BaseCrisisParticle
 }
 Actor DCBMiss3ExtraCrisis : DCBMiss3Extra
 {
-	Damage ((2 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+	Damage ((2 * random(1,8)) * CallACS("CrisisMultiplier"))
 	States
 	{
 	Spawn:
 		CBTS SS 1 Bright
 		{
          A_SpawnItemEx("DCBMiss3ExtraCrisisParticle",0,0,0,0,0,1.28);
-		 A_Explode(12*ACS_NamedExecuteWithResult("CrisisMultiplier"),32);
+		 A_Explode(12*CallACS("CrisisMultiplier"),32);
 		}
 		NULL A 0 A_Jump(120,1)
 		Loop
 		CBTS SSS 1 Bright
 		{
-		 A_Explode(12*ACS_NamedExecuteWithResult("CrisisMultiplier"),32);
+		 A_Explode(12*CallACS("CrisisMultiplier"),32);
 		}
 		CBTS S 1 Bright A_FadeOut
 		Wait

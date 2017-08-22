@@ -929,7 +929,7 @@ actor RevRocketCrisis : RevRocket
     Radius 8
     Height 6
     Speed 12
-    Damage ((2 * ACS_NamedExecuteWithResult("CrisisMultiplier")) * random(1,8))
+    Damage ((2 * CallACS("CrisisMultiplier")) * random(1,8))
     Scale .55
     +SEEKERMISSILE
     PROJECTILE
@@ -962,7 +962,7 @@ actor RevRocketCrisis : RevRocket
 		}
         Loop
     Death:
-        MISL ABC 4 Bright A_Explode((12 * ACS_NamedExecuteWithResult("CrisisMultiplier")),96)
+        MISL ABC 4 Bright A_Explode((12 * CallACS("CrisisMultiplier")),96)
         Stop
     }
 }
@@ -1020,7 +1020,7 @@ actor SpawnRckCrisis : SpawnRck
     Radius 8
     Height 6
     Speed 8
-    Damage ((4 * ACS_NamedExecuteWithResult("CrisisMultiplier")) * random(1,8))
+    Damage ((4 * CallACS("CrisisMultiplier")) * random(1,8))
     Scale .85
     PROJECTILE
     SeeSound "REVRCK"

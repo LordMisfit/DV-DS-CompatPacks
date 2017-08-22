@@ -125,7 +125,7 @@ actor MummyFX1CrisisParticle : BaseCrisisParticle
 }
 ACTOR MummyFX1Crisis : MummyFX1New
 {
-  Damage ((4 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+  Damage ((4 * random(1,8)) * CallACS("CrisisMultiplier"))
   States
   {
   Spawn:
@@ -205,13 +205,13 @@ actor MummyLeaderNew : AetheriusMonsterZSC replaces MummyLeaderMan 1338
     Loop
   Melee:
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    MUMM E 6
+    MUMA E 6
 	{
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 150) { A_SetTics(4); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 75) { A_SetTics(5); }
 	 A_FaceTarget;
 	}
-    MUMM F 6
+    MUMA F 6
 	{
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 150) { A_SetTics(4); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 75) { A_SetTics(5); }
@@ -220,7 +220,7 @@ actor MummyLeaderNew : AetheriusMonsterZSC replaces MummyLeaderMan 1338
 	 A_MonsterCrisisCheck;
 	 A_CrisisMeleeAttack(random[MummyAttack](1,8)*2, "mummy/attack2", "mummy/attack");
 	}
-    MUMM G 6
+    MUMA G 6
 	{
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 150) { A_SetTics(4); }
      else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 75) { A_SetTics(5); }
@@ -360,7 +360,7 @@ actor VulgarShotCrisisParticle : BaseCrisisParticle
 }
 ACTOR VulgarShotCrisis : VulgarShotNew
 {
-  Damage ((4 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+  Damage ((4 * random(1,8)) * CallACS("CrisisMultiplier"))
   States
   {
   Spawn:
@@ -381,7 +381,7 @@ ACTOR VulgarShotCrisis : VulgarShotNew
 	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) <= 3)
 	  {
-	   ACS_NamedExecuteAlways("BuffTimer",0,8,16,random(140*ACS_NamedExecuteWithResult("CrisisMultiplier"),210*ACS_NamedExecuteWithResult("CrisisMultiplier"))); // Poison for 4-6 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   ACS_NamedExecuteAlways("BuffTimer",0,8,16, (random(140,210)*CallACS("CrisisMultiplier",5)) ); // Poison for 4-6 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	  }
 	 }
 	 return state("");
@@ -1396,7 +1396,7 @@ actor BloodShotCrisisParticle : BaseCrisisParticle
 }
 ACTOR BloodShotCrisis : BloodshotNew 
 {
-  Damage ((2 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+  Damage ((2 * random(1,8)) * CallACS("CrisisMultiplier"))
   States
   {
   Spawn:
@@ -1419,7 +1419,7 @@ ACTOR BloodShotCrisis : BloodshotNew
 	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) <= 3)
 	  {
-	   ACS_NamedExecuteAlways("BuffTimer",0,8,16,random(140*ACS_NamedExecuteWithResult("CrisisMultiplier"),210*ACS_NamedExecuteWithResult("CrisisMultiplier"))); // Poison for 4-6 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   ACS_NamedExecuteAlways("BuffTimer",0,8,16, (random(140,210)*CallACS("CrisisMultiplier",5)) ); // Poison for 4-6 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	  }
 	 }
 	 return state("");

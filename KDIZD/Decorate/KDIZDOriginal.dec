@@ -347,7 +347,7 @@ actor DemonCubeMissileCrisisParticle : BaseCrisisParticle
 }
 actor DemonCubeMissileCrisis : DemonCubeMissile
 {
-  Damage ((4 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+  Damage ((4 * random(1,8)) * CallACS("CrisisMultiplier"))
   States
   {
   Spawn:
@@ -381,7 +381,7 @@ actor KDIZDImpBall : DoomImpBallNew replaces DoomImpBall
 }
 actor KDIZDImpBallCrisis : KDIZDImpBall replaces DoomImpBallCrisis
 {
-  Damage ((3 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+  Damage ((3 * random(1,8)) * CallACS("CrisisMultiplier"))
   States
   {
   Spawn:
@@ -581,7 +581,7 @@ ACTOR HellsFuryBallCrisis : HellsFuryBall
   Radius 6
   Height 8
   Speed 20
-  Damage ((11 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+  Damage ((11 * random(1,8)) * CallACS("CrisisMultiplier"))
   Translation 2
   RenderStyle "ADD"
   Decal BaronScorch
@@ -697,7 +697,7 @@ ACTOR MaulerDemon : AetheriusMonsterZSC 3123
 
 	 SetDamage(2*random(1,8)); 
 	 A_MonsterCrisisCheck;
-	 if(user_canusecrisisatk == 1) { A_PlayCrisisAtkSound; SetDamage((2*random(1,8))*ACS_NamedExecuteWithResult("CrisisMultiplier")); } 
+	 if(user_canusecrisisatk == 1) { A_PlayCrisisAtkSound; SetDamage((2*random(1,8))*CallACS("CrisisMultiplier")); } 
 	 A_SkullAttack;
 	}
     MAUD G 5
@@ -1156,7 +1156,7 @@ ACTOR ZombieRifleBulletTracer : FastProjectile
 }
 ACTOR ZombieRifleBulletTracerCrisis : ZombieRifleBulletTracer
 {
-   Damage ((20 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+   Damage ((20 * random(1,8)) * CallACS("CrisisMultiplier"))
 }
 
 ACTOR Satyr : RandomSpawner { DropItem SatyrNew 255 }
@@ -1597,7 +1597,7 @@ actor ShadowBallCrisisParticle : BaseCrisisParticle
 }
 ACTOR ShadowBallCrisis : ShadowBall
 {
-	Damage ((4 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+	Damage ((4 * random(1,8)) * CallACS("CrisisMultiplier"))
 	States
 	{
 	Spawn: 
@@ -1857,7 +1857,7 @@ actor SoulHarvesterBallCrisisParticle : BaseCrisisParticle
 }
 ACTOR SoulHarvesterBallCrisis : SoulHarvesterBall
 {
-  Damage ((2 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+  Damage ((2 * random(1,8)) * CallACS("CrisisMultiplier"))
   states
   {
   Spawn:
@@ -2382,7 +2382,7 @@ actor RedstarCrisisParticle : BaseCrisisParticle
 }
 actor RedstarCrisis : Redstar
 {
-  Damage ((12 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+  Damage ((12 * random(1,8)) * CallACS("CrisisMultiplier"))
   States
   {
   Spawn:

@@ -432,7 +432,7 @@ actor SkullSeekerCrisisParticle : BaseCrisisParticle
 }
 actor SkullSeekerCrisis : SkullSeeker
 {
-	Damage ((6 * ACS_NamedExecuteWithResult("CrisisMultiplier")) * random(1,8))
+	Damage ((6 * CallACS("CrisisMultiplier")) * random(1,8))
     States
     {
     Spawn:
@@ -1046,7 +1046,7 @@ actor PennywiseHeadProjCrisis
     CFHD D 3
 	{
      A_SpawnItemEx("PennywiseHeadProjCrisisParticle",0,0,0,0,0,1.28);
-     A_CustomMeleeAttack((1*random(1,10))* ACS_NamedExecuteWithResult("CrisisMultiplier"));
+     A_CustomMeleeAttack((1*random(1,10))* CallACS("CrisisMultiplier"));
 	}
     CFHD A 3  
 	{
@@ -1431,7 +1431,7 @@ actor HappyCloudCrisis : HappyCloud
     Radius 32 
     Height 32 
     Speed 3 
-    Damage ((1 * ACS_NamedExecuteWithResult("CrisisMultiplier")) * random(1,4)) 
+    Damage ((1 * CallACS("CrisisMultiplier")) * random(1,4)) 
     +STRIFEDAMAGE 
     +RIPPER
 	+NODAMAGETHRUST
@@ -1459,7 +1459,7 @@ actor RevRocketCrisis : RevRocketNew
     Radius 8
     Height 6
     Speed 12
-    Damage ((2 * ACS_NamedExecuteWithResult("CrisisMultiplier")) * random(1,8))
+    Damage ((2 * CallACS("CrisisMultiplier")) * random(1,8))
     Scale .55
     +SEEKERMISSILE
     PROJECTILE
@@ -1508,7 +1508,7 @@ actor RevRocketCrisis : RevRocketNew
         Loop
     Death:
         GLOB A 4 Bright 
-        GLOB B 4 Bright A_Explode((12 * ACS_NamedExecuteWithResult("CrisisMultiplier")),96)
+        GLOB B 4 Bright A_Explode((12 * CallACS("CrisisMultiplier")),96)
         GLOB B 2 Bright A_CustomMissile("HappyCloudCrisis", 16, 8, 135,1) 
         GLOB BBBBBBB 0 A_CustomMissile("Sparkles", 4,4, random(-180, 180), 2, random(-180, 180))
         GLOB B 2 Bright A_CustomMissile("HappyCloudCrisis", 12, 0, 90,1) 
@@ -1842,7 +1842,7 @@ actor TinyBingoBallCrisisParticle : BaseCrisisParticle
 
 actor TinyBingoBallCrisis : TinyBingoBall
 {
-    Damage ((1 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+    Damage ((1 * random(1,8)) * CallACS("CrisisMultiplier"))
     scale 0.5
     ALPHA 0.8
     States
@@ -2061,7 +2061,7 @@ actor BeefyBall1CrisisParticle : BaseCrisisParticle
 }
 actor BeefyBall1Crisis : BeefyBall1
 {
-  Damage ((3 * ACS_NamedExecuteWithResult("CrisisMultiplier")) * random(1,8))
+  Damage ((3 * CallACS("CrisisMultiplier")) * random(1,8))
   States
   {
   Spawn:
@@ -2073,6 +2073,43 @@ actor BeefyBall1Crisis : BeefyBall1
 	 A_ScaleVelocity(1.0025);
 	}
     Goto Spawn+2
+  Death:
+    TNT1 A 0 Bright
+	{	 
+	 if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE)
+	 {
+	  A_SetUserVar("user_ailmentmaxchance",4);
+	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (random(1,user_ailmentmaxchance) == 1)
+	  {
+	   A_SetUserVar("user_random",random(1,13));
+	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 4) { ACS_NamedExecuteAlways("BuffTimer",0,8,18, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Fatigue for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 5) { ACS_NamedExecuteAlways("BuffTimer",0,8,14, (random(210,350)*CallACS("CrisisMultiplier",5)) ); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 6) { ACS_NamedExecuteAlways("BuffTimer",0,8,14, (random(210,350)*CallACS("CrisisMultiplier",5)) ); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 7) { ACS_NamedExecuteAlways("BuffTimer",0,8,14, (random(210,350)*CallACS("CrisisMultiplier",5)) ); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 8) { ACS_NamedExecuteAlways("BuffTimer",0,8,13, (random(210,350)*CallACS("CrisisMultiplier",5)) ); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 9) { ACS_NamedExecuteAlways("BuffTimer",0,8,13, (random(210,350)*CallACS("CrisisMultiplier",5)) ); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 10) { ACS_NamedExecuteAlways("BuffTimer",0,8,13, (random(210,350)*CallACS("CrisisMultiplier",5)) ); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 11) { ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(210,350)*CallACS("CrisisMultiplier",5)) ); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 12) { ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(210,350)*CallACS("CrisisMultiplier",5)) ); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 13) { ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(210,350)*CallACS("CrisisMultiplier",5)) ); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	  }
+	 }
+	 return state("");
+	}
+  Death2:
+    GLOB A 0 Bright A_Explode(20,48,0,0,24)
+    GLOB A 4 Bright A_Scream
+    GLOB B 4 Bright A_Fall
+    GLOB C 4 Bright 
+    GLOB DEFGH 4
+    Stop
   }
 }
 actor BeefyBall2 : BeefyBall1
@@ -2162,7 +2199,7 @@ actor BeefyBall2Crisis : BeefyBall2
   scale 1.0
   ALPHA 0.8
 
-  Damage ((4 * ACS_NamedExecuteWithResult("CrisisMultiplier")) * random(1,8))
+  Damage ((4 * CallACS("CrisisMultiplier")) * random(1,8))
   States
   {
   Spawn:
@@ -2192,24 +2229,24 @@ actor BeefyBall2Crisis : BeefyBall2
 	  if (random(1,user_ailmentmaxchance) == 1)
 	  {
 	   A_SetUserVar("user_random",random(1,12));
-	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21,random(105,175)); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
-	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19,random(105,175)); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
-	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20,random(105,175)); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
-	   else if (user_random == 4) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(210,350)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
-	   else if (user_random == 5) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(210,350)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
-	   else if (user_random == 6) { ACS_NamedExecuteAlways("BuffTimer",0,8,14,random(210,350)); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
-	   else if (user_random == 7) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(210,350)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
-	   else if (user_random == 8) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(210,350)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
-	   else if (user_random == 9) { ACS_NamedExecuteAlways("BuffTimer",0,8,13,random(210,350)); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
-	   else if (user_random == 10) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(210,350)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
-	   else if (user_random == 11) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(210,350)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
-	   else if (user_random == 12) { ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(210,350)); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 4) { ACS_NamedExecuteAlways("BuffTimer",0,8,14, (random(210,350)*CallACS("CrisisMultiplier",5)) ); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 5) { ACS_NamedExecuteAlways("BuffTimer",0,8,14, (random(210,350)*CallACS("CrisisMultiplier",5)) ); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 6) { ACS_NamedExecuteAlways("BuffTimer",0,8,14, (random(210,350)*CallACS("CrisisMultiplier",5)) ); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 7) { ACS_NamedExecuteAlways("BuffTimer",0,8,13, (random(210,350)*CallACS("CrisisMultiplier",5)) ); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 8) { ACS_NamedExecuteAlways("BuffTimer",0,8,13, (random(210,350)*CallACS("CrisisMultiplier",5)) ); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 9) { ACS_NamedExecuteAlways("BuffTimer",0,8,13, (random(210,350)*CallACS("CrisisMultiplier",5)) ); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 10) { ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(210,350)*CallACS("CrisisMultiplier",5)) ); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 11) { ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(210,350)*CallACS("CrisisMultiplier",5)) ); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 12) { ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(210,350)*CallACS("CrisisMultiplier",5)) ); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	  }
 	 }
 	 return state("");
 	}
   Death2:
-    GLOB A 0 Bright A_Explode(20 * ACS_NamedExecuteWithResult("CrisisMultiplier"),48,0,0,24)
+    GLOB A 0 Bright A_Explode(20 * CallACS("CrisisMultiplier"),48,0,0,24)
     GLOB A 4 Bright A_Scream
     GLOB B 4 Bright A_Fall
     GLOB C 4 Bright 
@@ -2613,7 +2650,7 @@ actor SkullSeeker2 : SkullSeeker
 }
 actor SkullSeeker2Crisis : SkullSeeker2
 {
-	Damage ((2 * ACS_NamedExecuteWithResult("CrisisMultiplier")) * random(1,8))
+	Damage ((2 * CallACS("CrisisMultiplier")) * random(1,8))
     States
     {
     Spawn:
@@ -2854,11 +2891,8 @@ actor Ghost2Ball : AetheriusProjectileZSC
         Stop      
     }
 }
-
 actor Ghost2BallCrisisParticle : BaseCrisisParticle
 {
- scale 0.667
- 
  States
  {
   Spawn:
@@ -2871,7 +2905,7 @@ actor Ghost2BallCrisisParticle : BaseCrisisParticle
 }
 actor Ghost2BallCrisis : Ghost2Ball
 {
-    Damage ((5 * ACS_NamedExecuteWithResult("CrisisMultiplier")) * random(1,8))
+    Damage ((5 * random(1,8) * CallACS("CrisisMultiplier")))
     States
     {
     Spawn:
@@ -3136,7 +3170,7 @@ actor BulbyBallCrisisParticle : BaseCrisisParticle
 }
 actor BulbyBallCrisis : BulbyBall
 {
-    Damage ((2 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+    Damage ((2 * random(1,8)) * CallACS("CrisisMultiplier"))
     States
     {
     Spawn:
@@ -3149,7 +3183,7 @@ actor BulbyBallCrisis : BulbyBall
         Loop
     Death:
     	BBBL D 1 Bright A_Fall
-        BBBL D 4 Bright A_Explode(16*ACS_NamedExecuteWithResult("CrisisMultiplier"),48)
+        BBBL D 4 Bright A_Explode(16*CallACS("CrisisMultiplier"),48)
         BBBL E 4 Bright A_Scream
         BBBL FG 4 Bright 
         Stop
@@ -3211,7 +3245,7 @@ actor BulbyBall2CrisisParticle : BaseCrisisParticle
 }
 actor BulbyBall2Crisis : BulbyBall2
 {
-    Damage ((3 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+    Damage ((3 * random(1,8)) * CallACS("CrisisMultiplier"))
 	States
 	{
     Spawn:
@@ -3232,7 +3266,7 @@ actor BulbyBall2Crisis : BulbyBall2
         Loop
     Death:
     	BBBL D 1 Bright A_Fall
-        BBBL D 4 Bright A_Explode(24*ACS_NamedExecuteWithResult("CrisisMultiplier"),64)
+        BBBL D 4 Bright A_Explode(24*CallACS("CrisisMultiplier"),64)
         BBBL E 4 Bright A_Scream
         BBBL FG 4 Bright 
         Stop
@@ -3294,7 +3328,7 @@ actor BulbyBall3CrisisParticle : BaseCrisisParticle
 }
 actor BulbyBall3Crisis : BulbyBall3
 {
-    Damage ((3 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+    Damage ((3 * random(1,8)) * CallACS("CrisisMultiplier"))
 	States
 	{
     Spawn:
@@ -3315,7 +3349,7 @@ actor BulbyBall3Crisis : BulbyBall3
         Loop
     Death:
     	BBBL D 1 Bright A_Fall
-        BBBL D 4 Bright A_Explode(32*ACS_NamedExecuteWithResult("CrisisMultiplier"),96)
+        BBBL D 4 Bright A_Explode(32*CallACS("CrisisMultiplier"),96)
         BBBL E 4 Bright A_Scream
         BBBL FG 4 Bright 
         Stop
@@ -3759,7 +3793,7 @@ actor BerthaBallCrisisParticle : BaseCrisisParticle
 }
 actor BerthaBallCrisis : BerthaBall
 {
-    Damage (5 * random(1,8) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+    Damage (5 * random(1,8) * CallACS("CrisisMultiplier"))
     States
     {
     Spawn:
@@ -4057,7 +4091,7 @@ actor SoulAttackCrisisParticle : BaseCrisisParticle
 }
 ACTOR SoulAttackCrisis : SoulAttack
 {   
-    Damage ((5 * ACS_NamedExecuteWithResult("CrisisMultiplier")) * random(1,8))
+    Damage ((5 * CallACS("CrisisMultiplier")) * random(1,8))
 	States
 	{
 	Spawn:
@@ -5166,7 +5200,7 @@ actor SkullSeeker666CrisisParticle : BaseCrisisParticle
 }
 actor SkullSeeker666Crisis : SkullSeeker666
 {
-    Damage ((3 * random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+    Damage ((3 * random(1,8)) * CallACS("CrisisMultiplier"))
     States
     {
     Spawn:
@@ -5409,7 +5443,7 @@ actor DeadlightCrisisParticle : BaseCrisisParticle
 }
 actor DeadlightCrisis : Deadlight
 {
-  Damage (5 * (4*random(1,8)) * ACS_NamedExecuteWithResult("CrisisMultiplier"))
+  Damage (5 * (4*random(1,8)) * CallACS("CrisisMultiplier"))
   States
   {
   Spawn:
@@ -5430,11 +5464,158 @@ actor DeadlightCrisis : Deadlight
 	 if (random(1,16) == 1) { A_SeekerMissile(30,40); A_ScaleVelocity(1.0125); }
 	}
     Loop
+  Death:
+    TNT1 A 0 Bright
+	{	 
+	 if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE) 
+	 {
+	  // 1
+	  A_SetUserVar("user_ailmentmaxchance",4);
+	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (random(1,user_ailmentmaxchance) <= 2)
+	  {
+	   A_SetUserVar("user_random",random(1,12));
+	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 4) { ACS_NamedExecuteAlways("BuffTimer",0,8,14, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 5) { ACS_NamedExecuteAlways("BuffTimer",0,8,14, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 6) { ACS_NamedExecuteAlways("BuffTimer",0,8,14, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 7) { ACS_NamedExecuteAlways("BuffTimer",0,8,13, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 8) { ACS_NamedExecuteAlways("BuffTimer",0,8,13, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 9) { ACS_NamedExecuteAlways("BuffTimer",0,8,13, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 10) { ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 11) { ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 12) { ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	  }
 
+  	  // 2
+	  A_SetUserVar("user_ailmentmaxchance",4);
+	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (random(1,user_ailmentmaxchance) <= 2)
+	  {
+	   A_SetUserVar("user_random",random(1,12));
+	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 4) { ACS_NamedExecuteAlways("BuffTimer",0,8,14, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 5) { ACS_NamedExecuteAlways("BuffTimer",0,8,14, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 6) { ACS_NamedExecuteAlways("BuffTimer",0,8,14, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 7) { ACS_NamedExecuteAlways("BuffTimer",0,8,13, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 8) { ACS_NamedExecuteAlways("BuffTimer",0,8,13, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 9) { ACS_NamedExecuteAlways("BuffTimer",0,8,13, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 10) { ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 11) { ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 12) { ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	  }
+
+  	  // 3
+	  A_SetUserVar("user_ailmentmaxchance",4);
+	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (random(1,user_ailmentmaxchance) <= 2)
+	  {
+	   A_SetUserVar("user_random",random(1,12));
+	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 4) { ACS_NamedExecuteAlways("BuffTimer",0,8,14, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 5) { ACS_NamedExecuteAlways("BuffTimer",0,8,14, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 6) { ACS_NamedExecuteAlways("BuffTimer",0,8,14, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 7) { ACS_NamedExecuteAlways("BuffTimer",0,8,13, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 8) { ACS_NamedExecuteAlways("BuffTimer",0,8,13, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 9) { ACS_NamedExecuteAlways("BuffTimer",0,8,13, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 10) { ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 11) { ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 12) { ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	  }
+
+  	  // 4
+	  A_SetUserVar("user_ailmentmaxchance",4);
+	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (random(1,user_ailmentmaxchance) <= 2)
+	  {
+	   A_SetUserVar("user_random",random(1,12));
+	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 4) { ACS_NamedExecuteAlways("BuffTimer",0,8,14, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 5) { ACS_NamedExecuteAlways("BuffTimer",0,8,14, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 6) { ACS_NamedExecuteAlways("BuffTimer",0,8,14, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 7) { ACS_NamedExecuteAlways("BuffTimer",0,8,13, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 8) { ACS_NamedExecuteAlways("BuffTimer",0,8,13, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 9) { ACS_NamedExecuteAlways("BuffTimer",0,8,13, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 10) { ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 11) { ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 12) { ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	  }
+
+  	  // 5
+	  A_SetUserVar("user_ailmentmaxchance",4);
+	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (random(1,user_ailmentmaxchance) <= 2)
+	  {
+	   A_SetUserVar("user_random",random(1,12));
+	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 4) { ACS_NamedExecuteAlways("BuffTimer",0,8,14, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 5) { ACS_NamedExecuteAlways("BuffTimer",0,8,14, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 6) { ACS_NamedExecuteAlways("BuffTimer",0,8,14, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 7) { ACS_NamedExecuteAlways("BuffTimer",0,8,13, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 8) { ACS_NamedExecuteAlways("BuffTimer",0,8,13, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 9) { ACS_NamedExecuteAlways("BuffTimer",0,8,13, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 10) { ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 11) { ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 12) { ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	  }
+
+  	  // 6
+	  A_SetUserVar("user_ailmentmaxchance",4);
+	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
+	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (random(1,user_ailmentmaxchance) <= 2)
+	  {
+	   A_SetUserVar("user_random",random(1,12));
+	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 4) { ACS_NamedExecuteAlways("BuffTimer",0,8,14, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 5) { ACS_NamedExecuteAlways("BuffTimer",0,8,14, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 6) { ACS_NamedExecuteAlways("BuffTimer",0,8,14, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Sap for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 7) { ACS_NamedExecuteAlways("BuffTimer",0,8,13, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 8) { ACS_NamedExecuteAlways("BuffTimer",0,8,13, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 9) { ACS_NamedExecuteAlways("BuffTimer",0,8,13, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Blunt for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 10) { ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 11) { ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	   else if (user_random == 12) { ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(315,525)*CallACS("CrisisMultiplier",5)) ); } // Deceleratle for 6-10 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+	  }
+
+	  return state("");
+	 }
+	 return state("");
+	}
+	goto Death2
   Death2:
     PWT2 E 4 Bright 
     PWT2 EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE 0 A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
-    PWT2 F 4 Bright A_Explode(12*ACS_NamedExecuteWithResult("CrisisMultiplier"),96,0,0,48)
+    PWT2 F 4 Bright A_Explode(12*CallACS("CrisisMultiplier"),96,0,0,48)
     PWT2 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF 0 A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
     PWT2 GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG  0 A_CustomMissile("Sparkles", 8, 0, random(-180, 180), 2, random(-180, 180))
     PWT2 GHI 4 Bright

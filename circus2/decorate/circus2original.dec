@@ -3641,7 +3641,7 @@ ACTOR HellFire2Crisis
 		  }
           GHFF C 0
 		  { 
-		   A_Explode(4*ACS_NamedExecuteWithResult("CrisisMultiplier"),64);
+		   A_Explode(4*CallACS("CrisisMultiplier"),64);
            if (random(1,256) <= 16)
 		   {
             A_CustomMissile("HellFire2Crisis", 0, 24, 0);
