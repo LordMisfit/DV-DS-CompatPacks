@@ -1,6 +1,5 @@
-actor MyBall2
+actor MyBall2 : AetheriusEffectProjectile
 {
-  var int user_random; var int user_ailment1; var int user_ailmentmaxchance;
   Radius 8
   Height 6
   Speed 10
@@ -8,7 +7,6 @@ actor MyBall2
   scale 0.8
   //+SEEKERMISSILE
   PROJECTILE
-  +HITMASTER
   ALPHA 0.8
   SeeSound "imp/attack"
   DeathSound "CBLAST1"
@@ -3211,9 +3209,8 @@ actor bsmoke
     }
 }
 
-actor MyBall3
+actor MyBall3 : AetheriusEffectProjectile
 {
-  var int user_random; var int user_ailment1; var int user_ailmentmaxchance;
   Radius 8
   Height 6
   Speed 5
@@ -3221,7 +3218,6 @@ actor MyBall3
   scale 1.0
   +SEEKERMISSILE
   PROJECTILE
-  +HITMASTER
   ALPHA 0.8
   SeeSound "imp/attack"
   DeathSound "EXPLODE"

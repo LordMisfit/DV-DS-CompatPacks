@@ -359,10 +359,14 @@ ACTOR GoreWormNew : AetheriusMonsterZSC replaces GoreWorm 30031
   States
   {
   Spawn:
-    WORM A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    WORM A 0 NoDelay A_AetheriusStats(0)
     WORM A 20 A_UnSetShootable
     WORM A 4 A_SetShootable
-    WORM A 4 A_Look
+    WORM A 4 
+	{
+	 A_AetheriusStats(0);
+	 A_Look;
+	}
     Goto Spawn+1
   See:   
     WORM A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
@@ -381,7 +385,7 @@ ACTOR GoreWormNew : AetheriusMonsterZSC replaces GoreWorm 30031
     Goto See 
   Death:
     WORM A 5 A_CustomMissile("ZGut2", 0, 0, 30) 
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    TNT1 A 0 A_AetheriusStats(1)
     WORM B 2 A_PlaySound("splat11")
     WORM B 2 A_TossGib
     WORM B 3 A_Scream 
@@ -508,11 +512,19 @@ ACTOR FluffyNew : AetheriusMonsterZSC replaces Fluffy2 32120
   States 
   {
   Spawn:
-    FLUF A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    FLUF A 2 A_Look
+    FLUF A 0 NoDelay A_AetheriusStats(0)
+    FLUF A 2 
+	{
+	 A_AetheriusStats(0);
+	 A_Look;
+	}
     goto Spawn+1
   See:
-    FLUF A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
+    FLUF A 0 
+	{
+     A_AetheriusStats(0);
+     ACS_NamedExecuteAlways("RefreshStealthInfo",0,0);
+	}
     FLUF ABCBJ 2
 	{
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",1); }
@@ -646,7 +658,7 @@ ACTOR FluffyNew : AetheriusMonsterZSC replaces Fluffy2 32120
     Goto See 
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,1150,0,1)
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    TNT1 A 0 A_AetheriusStats(1)
     FLUF JKLMN 10 
     FLUF N 100
   RegenCycle:
@@ -715,12 +727,19 @@ ACTOR MiniFluffyNew : AetheriusMonsterZSC replaces MiniFluffy 3194
   States 
   {
   Spawn:
-    RAIN B 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    RAIN B 0 NoDelay A_AetheriusStats(0)
     RAIN B 5 A_Look
     goto Spawn+1
   See:
-    SBUN H 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
+    SBUN H 0
+	{
+     A_AetheriusStats(0);
+     ACS_NamedExecuteAlways("RefreshStealthInfo",0,0);
+	}
     SBUN HHHHIIIJJ 3
+	{
+     A_AetheriusStats(0);
+	}
     SBUN ABCCB 1
 	{
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",1); }
@@ -762,7 +781,7 @@ ACTOR MiniFluffyNew : AetheriusMonsterZSC replaces MiniFluffy 3194
     Goto See + 11
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,85,0,1)
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    TNT1 A 0 A_AetheriusStats(1)
     SBUN DEF 8 
     SBUN G -1
     Stop
@@ -820,11 +839,19 @@ ACTOR JumpingSkullNew : AetheriusMonsterZSC replaces JumpingSkull 32121
   States
   {
   Spawn:
-    JSKL A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    JSKL A 4 A_Look
+    JSKL A 0 NoDelay //A_AetheriusStats(0)
+    JSKL A 4 
+	{
+	 //A_AetheriusStats(0);
+	 A_Look;
+	}
     goto Spawn+1
   See:
-    JSKL A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
+    JSKL A 0 
+	{
+	 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0);
+	 //A_AetheriusStats(0);
+	}
     JSKL ABCB 2
 	{
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",1); }
@@ -872,7 +899,7 @@ ACTOR JumpingSkullNew : AetheriusMonsterZSC replaces JumpingSkull 32121
     Goto See
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,75,0,1)
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    TNT1 A 0 //A_AetheriusStats(1)
     JSKL A 5 A_Scream
     JSKL D 4 A_Fall
     JSKL D 4 A_TossGib
@@ -892,6 +919,10 @@ ACTOR JumpingSkullNew : AetheriusMonsterZSC replaces JumpingSkull 32121
     JSKL B 5 A_GenericFreezeDeath
     JSKL B 1 A_FreezeDeathChunks
     wait
+  Raise:
+    JSKL H 8 //A_AetheriusStats(0)
+	JSKL GFED 8
+	goto See
   }
 }
 //
@@ -1103,11 +1134,19 @@ ACTOR JumpingSkull2New : AetheriusMonsterZSC replaces JumpingSkull2 3646 //spawn
   States
   {
   Spawn:
-    JSKL A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
-    JSKL A 4 A_Look
+    JSKL A 0 NoDelay A_AetheriusStats(0)
+    JSKL A 4 
+	{
+	 A_AetheriusStats(0);
+	 A_Look;
+	}
     goto Spawn+1
   See:
-    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
+    JSKL A 0 
+	{
+	 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0);
+	 A_AetheriusStats(0);
+	}
     JSKL ABCB 2
 	{
      if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",1); }
@@ -1160,7 +1199,7 @@ ACTOR JumpingSkull2New : AetheriusMonsterZSC replaces JumpingSkull2 3646 //spawn
     Goto See
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,random(75,80),0,1)
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    TNT1 A 0 A_AetheriusStats(1)
     JSKL A 5 A_Scream
     JSKL D 4 A_Fall
     JSKL D 4 A_TossGib
@@ -1237,7 +1276,7 @@ ACTOR PossessedBalloonNew : AetheriusMonsterZSC replaces PossessedBalloon 3115
   States
   {
   Spawn:
-    BSTN A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    BSTN A 0 NoDelay A_AetheriusStats(0)
     BSTN A 2 A_Look
     goto Spawn+1
   See:
@@ -1285,7 +1324,7 @@ ACTOR PossessedBalloonNew : AetheriusMonsterZSC replaces PossessedBalloon 3115
     Goto See
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,24,0,1)
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    TNT1 A 0 A_AetheriusStats(1)
     BSTN B 3
     BSTN C 3 A_CustomMissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
     BSTN D 3 A_Scream
@@ -1580,7 +1619,7 @@ ACTOR BingoNew : AetheriusMonsterZSC replaces Bingo 4110
   States 
   { 
   Spawn:
-    CHED A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    CHED A 0 NoDelay A_AetheriusStats(0)
     CHED A 10 A_Look 
     goto Spawn+1
   See: 
@@ -1780,7 +1819,7 @@ ACTOR BingoNew : AetheriusMonsterZSC replaces Bingo 4110
     Goto See 
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,500,0,1)
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    TNT1 A 0 A_AetheriusStats(1)
     CHED A 1 A_Scream 
     CHED B 6  A_NoBlocking 
     CHED CD 6
@@ -1907,7 +1946,7 @@ ACTOR TinyBingoNew : AetheriusMonsterZSC replaces TinyBingo 4179
   States 
   { 
   Spawn:
-    CHED A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    CHED A 0 NoDelay A_AetheriusStats(0)
     CHED A 10 A_Look 
     goto Spawn+1
   See: 
@@ -1959,7 +1998,7 @@ ACTOR TinyBingoNew : AetheriusMonsterZSC replaces TinyBingo 4179
     Goto See 
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,52,0,1)
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    TNT1 A 0 A_AetheriusStats(1)
     CHED A 1 A_Scream 
     CHED B 6 A_NoBlocking 
     CHED CD 6
@@ -1976,7 +2015,7 @@ ACTOR TinyBingoNew : AetheriusMonsterZSC replaces TinyBingo 4179
 } 
 
 //
-actor BeefyBall1 : AetheriusProjectileZSC
+actor BeefyBall1 : AetheriusEffectProjectile
 {
   Radius 8
   Height 6
@@ -1985,7 +2024,6 @@ actor BeefyBall1 : AetheriusProjectileZSC
   scale 0.8
   //+SEEKERMISSILE
   PROJECTILE
-  +HITMASTER
   ALPHA 0.8
   SeeSound "imp/attack"
   DeathSound "CBLAST1"
@@ -2121,7 +2159,6 @@ actor BeefyBall2 : BeefyBall1
   scale 1.0
   +SEEKERMISSILE
   PROJECTILE
-  +HITMASTER
   ALPHA 0.8
   SeeSound "imp/attack"
   DeathSound "EXPLODE"
@@ -2300,7 +2337,7 @@ actor BeefyNew : AetheriusMonsterZSC replaces Beefy 4333
   States
   {
   Spawn:
-    CIMP A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    CIMP A 0 NoDelay A_AetheriusStats(0)
     CIMP AB 10 A_Look
     goto Spawn+1
   See:
@@ -2455,7 +2492,7 @@ actor BeefyNew : AetheriusMonsterZSC replaces Beefy 4333
     Goto See
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,180,0,1)
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    TNT1 A 0 A_AetheriusStats(1)
     CIMP E 8 A_Scream
     CIMP F 4 A_CustomMissile("Gibb3", 20, -1, -60, 1)
     CIMP F 4 A_TossGib
@@ -2483,7 +2520,7 @@ actor BeefyNew : AetheriusMonsterZSC replaces Beefy 4333
     Stop
   XDeath:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,180,0,1)
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    TNT1 A 0 A_AetheriusStats(1)
     CIMP E 4 A_Scream
     CIMP E 4 A_TossGib
     CIMP F 4 A_CustomMissile("Gibb3", 20, 0, -60, 1)
@@ -2563,7 +2600,7 @@ ACTOR BlackBearNew : AetheriusMonsterZSC replaces BlackBear 3191
   States
   {
   Spawn:
-    BBER A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    BBER A 0 NoDelay A_AetheriusStats(0)
     BBER AB 4 
 	{
 	 A_Look;
@@ -2587,7 +2624,7 @@ ACTOR BlackBearNew : AetheriusMonsterZSC replaces BlackBear 3191
     BBER A 1 A_CrisisMeleeAttack(1*random(1,10), "")
     TNT1 A 0 
 	{
-	 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1);
+	 A_AetheriusStats(1);
 	 ACS_NamedExecuteAlways("AddEXP",0,36,0,1);
 	}
     BBER A 1 A_Scream
@@ -2610,7 +2647,7 @@ ACTOR BlackBearNew : AetheriusMonsterZSC replaces BlackBear 3191
   Death:
     TNT1 A 0 
 	{
-	 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1);
+	 A_AetheriusStats(1);
 	 ACS_NamedExecuteAlways("AddEXP",0,36,0,1);
 	}
     BBER A 1 A_Scream
@@ -2726,7 +2763,7 @@ actor ClownGhostNew : AetheriusMonsterZSC replaces ClownGhost 32128
   States 
   { 
   Spawn:
-    GHOS C 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    GHOS C 0 NoDelay A_AetheriusStats(0)
     GHOS C 10 A_Look
     goto Spawn+1
   See: 
@@ -2835,7 +2872,7 @@ actor ClownGhostNew : AetheriusMonsterZSC replaces ClownGhost 32128
     Goto See+4
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,350,0,1)
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    TNT1 A 0 A_AetheriusStats(1)
     GHOS B 1 A_Scream 
     GHOS F 8 A_NoBlocking 
     GHOS E 8 //A_CustomMissile("ClownSoulFloat1", 8, random(-15, 15), random(-180, 180), 2, random(80, 100))
@@ -2995,7 +3032,7 @@ actor ClownGhost2New : AetheriusMonsterZSC replaces ClownGhost2 31211
   States 
   { 
   Spawn:
-    GST2 A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    GST2 A 0 NoDelay A_AetheriusStats(0)
     GST2 AB 10 A_Look
     goto Spawn+1
   See: 
@@ -3100,7 +3137,7 @@ actor ClownGhost2New : AetheriusMonsterZSC replaces ClownGhost2 31211
     Goto See
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,175,0,1)
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    TNT1 A 0 A_AetheriusStats(1)
     GST2 D 1 A_Scream 
     GST2 D 2 A_TossGib
     GST2 E 2 A_CustomMissile("BSplatter", 16, 0,0, 1)
@@ -3406,7 +3443,7 @@ actor BulbyNew : AetheriusMonsterZSC replaces Bulby 3906
   States 
   { 
   Spawn:
-    LDEM A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    LDEM A 0 NoDelay A_AetheriusStats(0)
     LDEM A 2 A_UnSetShootable
     LDEM A 2 A_Look
     goto Spawn+1
@@ -3520,7 +3557,7 @@ actor BulbyNew : AetheriusMonsterZSC replaces Bulby 3906
     Goto See2
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,230,0,1)
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    TNT1 A 0 A_AetheriusStats(1)
     LDEM J 1 A_Scream 
     LDEM K 1 A_TossGib
     LDEM K 1 A_CustomMissile("BSplatter", 0, 0, 0, 1) 
@@ -3613,7 +3650,7 @@ actor MegaBulbyNew : AetheriusMonsterZSC replaces MegaBulby 3989
   States 
   { 
   Spawn:
-    LDEM G 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    LDEM G 0 NoDelay A_AetheriusStats(0)
     LDEM G 2 A_Look
     goto Spawn+1
   See: 
@@ -3713,7 +3750,7 @@ actor MegaBulbyNew : AetheriusMonsterZSC replaces MegaBulby 3989
     Goto See
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,460,0,1)
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    TNT1 A 0 A_AetheriusStats(1)
     LDEM J 1 A_Scream 
     LDEM K 1 A_CustomMissile("BSplatter", 0, 0, 0, 1) 
     LDEM K 1 A_TossGib
@@ -3879,7 +3916,7 @@ ACTOR BigBertha2New : AetheriusMonsterZSC replaces BigBertha2 3192
   States 
   { 
   Spawn:
-    BRTH A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    BRTH A 0 NoDelay A_AetheriusStats(0)
     BRTH A 10 A_Look 
     goto Spawn+1
   See: 
@@ -3987,7 +4024,7 @@ ACTOR BigBertha2New : AetheriusMonsterZSC replaces BigBertha2 3192
     Goto See 
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,925,0,1)
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    TNT1 A 0 A_AetheriusStats(1)
     BRTH I 7 A_Scream 
     BRTH J 6 A_NoBlocking 
     BRTH K 6
@@ -4211,7 +4248,7 @@ actor SuperBerthaNew : AetheriusMonsterZSC replaces SuperBertha 14768
   States
   {
   Spawn:
-    BRTH A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    BRTH A 0 NoDelay A_AetheriusStats(0)
     BBTH A 2 A_Look // A_SetInvulnerable
     BBTH A 2 A_Look
     goto Spawn+1
@@ -4341,7 +4378,7 @@ actor SuperBerthaNew : AetheriusMonsterZSC replaces SuperBertha 14768
     Goto See 
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,120000,0,1)
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    TNT1 A 0 A_AetheriusStats(1)
     BBTH B 3 A_Scream
     BBTH B 3 
     BBTH B 2 A_CustomMissile("BSplatter", 64, -16, -32, 1)
@@ -4418,7 +4455,7 @@ ACTOR EvilDeadHandNew : AetheriusMonsterZSC replaces EvilDeadHand 32212
   States
   {
   Spawn:
-    HAND A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    HAND A 0 NoDelay A_AetheriusStats(0)
     HAND A 4 A_Look
     goto Spawn+1
   See:
@@ -4582,7 +4619,7 @@ ACTOR BouncingClownNew : AetheriusMonsterZSC replaces BouncingClown 4822
   States
   {
   Spawn:
-    BCWN A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    BCWN A 0 NoDelay A_AetheriusStats(0)
     BCWN AB 4 A_Look
     goto Spawn+1
   See:
@@ -4681,7 +4718,7 @@ ACTOR BouncingClownNew : AetheriusMonsterZSC replaces BouncingClown 4822
     Goto See
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,75000,0,1)
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    TNT1 A 0 A_AetheriusStats(1)
     BCWN D 5 A_Scream
     BCWN E 0
     BCWN E 0 
@@ -4751,7 +4788,7 @@ ACTOR BabyClownNew : AetheriusMonsterZSC replaces BabyClown 4823
   States
   {
   Spawn:
-    BCWN A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    BCWN A 0 NoDelay A_AetheriusStats(0)
     BCWN AB 4 A_Look
     goto Spawn+1
   See:
@@ -4821,7 +4858,7 @@ ACTOR BabyClownNew : AetheriusMonsterZSC replaces BabyClown 4823
     Goto See
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,105,0,1)
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    TNT1 A 0 A_AetheriusStats(1)
     BCWN D 5 A_Scream
     BCWN E 4 A_Fall
     BCWN FFFF 2 A_CustomMissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
@@ -4891,7 +4928,7 @@ ACTOR BabyClown2New : AetheriusMonsterZSC replaces BabyClown2 4825
   States
   {
   Spawn:
-    CRWL A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    CRWL A 0 NoDelay A_AetheriusStats(0)
     CRWL A 4 A_Look
     goto Spawn+1
   See:
@@ -4972,7 +5009,7 @@ ACTOR BabyClown2New : AetheriusMonsterZSC replaces BabyClown2 4825
     Goto See+5
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,92,0,1)
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    TNT1 A 0 A_AetheriusStats(1)
     BCWN D 5 A_Scream
     BCWN E 4 A_Fall
     BCWN FFFF 2 A_CustomMissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
@@ -5053,7 +5090,7 @@ actor PennywiseHead2New : AetheriusMonsterZSC replaces PennywiseHead 14421
   States 
   { 
   Spawn:
-    CFHD A 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    CFHD A 0 NoDelay A_AetheriusStats(0)
     CFHD A 10 A_Look
     goto Spawn+1
   See: 
@@ -5138,7 +5175,7 @@ actor PennywiseHead2New : AetheriusMonsterZSC replaces PennywiseHead 14421
     Goto See
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,1125,0,1)
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    TNT1 A 0 A_AetheriusStats(1)
     CFHD F 1 A_Scream 
     CFHD G 2 A_TossGib
     CFHD H 2 A_CustomMissile("BSplatter", 16, 0,0, 1)
@@ -5230,7 +5267,7 @@ actor SkullSeeker666Crisis : SkullSeeker666
     }
 }
 
-actor Deadlight
+actor Deadlight : AetheriusEffectProjectile
 {
   var int user_random; 
   var int user_ailment1; var int user_ailmentmaxchance;
@@ -5244,7 +5281,6 @@ actor Deadlight
   Speed 14
   Scale 1
   +SEEKERMISSILE
-  +HITMASTER
   PROJECTILE
   SeeSound ""
   DeathSound "TRANEXP"
@@ -5741,7 +5777,7 @@ actor PennywiseBoss : AetheriusMonsterZSC replaces Pennywise 3672
   {
   Pain.Charm: Goto See
   Spawn:
-    PLIT J 0 NoDelay ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,0)
+    PLIT J 0 NoDelay A_AetheriusStats(0)
     PLIT J 10 A_Look
     goto Spawn+1
   See:
@@ -5906,7 +5942,7 @@ actor PennywiseBoss : AetheriusMonsterZSC replaces Pennywise 3672
     Goto See2     
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,540000,0,1)
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsHP_ATK_DEF_SPD",0,1)
+    TNT1 A 0 A_AetheriusStats(1)
     PENY G 8 A_Scream
     PENY GGGG 8
     PENY H 8 
