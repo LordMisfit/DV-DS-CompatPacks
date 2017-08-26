@@ -5269,11 +5269,6 @@ actor SkullSeeker666Crisis : SkullSeeker666
 
 actor Deadlight : AetheriusEffectProjectile
 {
-  var int user_random; 
-  var int user_ailment1; var int user_ailmentmaxchance;
-  var int user_ailment2; var int user_ailmentmaxchance2;
-  var int user_ailment3; var int user_ailmentmaxchance3;
-  var int user_ailment4; var int user_ailmentmaxchance4;
   Damage (5 * (4*random(1,8)))
   DamageType "DeadLight"
   Radius 8
