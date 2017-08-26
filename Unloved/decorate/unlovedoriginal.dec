@@ -2803,6 +2803,9 @@ States
 ACTOR RedLiteTop : AetheriusLightningTop
 {
   Damage (8 * random(1,8))
+  Mass 3
+  Stamina 1
+  Accuracy 1
   States
   {
   Spawn:
@@ -2843,6 +2846,9 @@ actor RedLiteTopCrisisParticle : BaseCrisisParticle
 ACTOR RedLiteTopCrisis : RedLiteTop
 {
   Damage ((8 * random(1,8)) * CallACS("CrisisMultiplier"))
+  Mass 3
+  Stamina 1
+  Accuracy 1
   States
   {
   Spawn:
@@ -2877,6 +2883,9 @@ ACTOR RedLiteTopCrisis : RedLiteTop
 ACTOR RedLiteBot : AetheriusLightningBottom
 {
   Damage (8 * random(1,8))
+  Mass 3
+  Stamina 1
+  Accuracy 1
   States
   {
   Spawn:
@@ -2920,6 +2929,9 @@ actor RedLiteBotCrisisParticle : BaseCrisisParticle
 ACTOR RedLiteBotCrisis : RedLiteBot
 {
   Damage ((8 * random(1,8)) * CallACS("CrisisMultiplier"))
+  Mass 3
+  Stamina 1
+  Accuracy 1
   States
   {
   Spawn:
