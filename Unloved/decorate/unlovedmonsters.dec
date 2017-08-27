@@ -30,7 +30,7 @@ actor MummyNew : AetheriusMonsterZSC replaces MummyDude 1337
  states
  {
   Spawn:
-    MUMM A 0 NoDelay //A_AetheriusStats(0)
+    MUMM A 0 NoDelay 
     MUMM AB 10 A_Look
     goto Spawn+1
   See:
@@ -90,7 +90,7 @@ actor MummyNew : AetheriusMonsterZSC replaces MummyDude 1337
     MUMM K 5 A_SpawnItemEx("MummySoul", 0, 0, 10, 0, 0, 1)
     MUMM L 5
     MUMM M 5 A_NoBlocking
-    MUMM NO 5 //A_AetheriusStats(1)
+    MUMM NO 5 
     MUMM P -1
     Stop
   Ice:
@@ -99,7 +99,7 @@ actor MummyNew : AetheriusMonsterZSC replaces MummyDude 1337
     MUMM H 1 A_FreezeDeathChunks
     wait
   Raise:
-    MUMM O 5 //A_AetheriusStats(0)
+    MUMM O 5 
     MUMM NMLKJI 5 
     goto See
  }
@@ -187,7 +187,7 @@ actor MummyLeaderNew : AetheriusMonsterZSC replaces MummyLeaderMan 1338
  states
  {
   Spawn:
-    MUMA A 0 NoDelay //A_AetheriusStats(0)
+    MUMA A 0 NoDelay 
     MUMA AB 10 A_Look
     goto Spawn+1
   See:
@@ -289,7 +289,7 @@ actor MummyLeaderNew : AetheriusMonsterZSC replaces MummyLeaderMan 1338
     MUMM K 5 A_SpawnItemEx("MummySoul", 0, 0, 10, 0, 0, 1)
     MUMM L 5
     MUMM M 5 A_NoBlocking
-    MUMM NO 5 //A_AetheriusStats(1)
+    MUMM NO 5 
     MUMM P -1
     Stop
   Ice:
@@ -298,7 +298,7 @@ actor MummyLeaderNew : AetheriusMonsterZSC replaces MummyLeaderMan 1338
     MUMA H 1 A_FreezeDeathChunks
     wait
   Raise:
-    MUMM O 5 //A_AetheriusStats(0)
+    MUMM O 5 
     MUMM NMLKJI 5 
     goto See
  }
@@ -421,7 +421,7 @@ actor VulgarNew : DSDoomImp replaces Vulgar 30127
   states
   {
   Spawn:
-    VULG A 0 NoDelay //A_AetheriusStats(0)
+    VULG A 0 NoDelay 
     VULG AB 10 A_Look
     goto Spawn+1
   See:
@@ -486,7 +486,7 @@ actor VulgarNew : DSDoomImp replaces Vulgar 30127
     VULG J 8 A_Scream
     VULG KL 6
     VULG M 6 A_NoBlocking
-    TNT1 A 0 //A_AetheriusStats(1)
+    TNT1 A 0 
     VULG N -1
     stop
 
@@ -497,11 +497,11 @@ actor VulgarNew : DSDoomImp replaces Vulgar 30127
     VULG Q 5
     VULG R 5 A_NoBlocking
     VULG STU 5
-    TNT1 A 0 //A_AetheriusStats(1)
+    TNT1 A 0 
     VULG V -1
     stop
   Raise:
-    VULG M 8 //A_AetheriusStats(0)
+    VULG M 8 
     VULG L 8 
     VULG KJI 6 
     goto See
@@ -537,7 +537,7 @@ ACTOR SoulHarvesterNew : AetheriusMonsterZSC replaces SoulHarvester 3117
   states
   {
   Spawn:
-    SLHV A 0 NoDelay //A_AetheriusStats(0)
+    SLHV A 0 NoDelay 
     SLHV AB 10 A_Look
     goto Spawn+1
   See:
@@ -610,7 +610,7 @@ ACTOR SoulHarvesterNew : AetheriusMonsterZSC replaces SoulHarvester 3117
     SLHV S 6 A_CustomMissile("SoulHarvesterGhost", 32, 0, 0)
     SLHV T 5 A_Fall
     SLHV UV 5
-    TNT1 A 0 //A_AetheriusStats(1)
+    TNT1 A 0 
     SLHV W -1
     Stop
 
@@ -621,11 +621,11 @@ ACTOR SoulHarvesterNew : AetheriusMonsterZSC replaces SoulHarvester 3117
     SLHV Z 6
     SLHV [ 6 A_Fall
     SLHV ] 6
-    TNT1 A 0 //A_AetheriusStats(1)
+    TNT1 A 0 
     SLHW A -1
     Stop
   Raise:
-    SLHV W 5 //A_AetheriusStats(0)
+    SLHV W 5 
     SLHV VUTSRQPO 5 
     Goto See
   }
@@ -660,7 +660,7 @@ actor ImpWarlordNew : AetheriusMonsterZSC replaces ImpWarlord 3105
   States
   {
   Spawn:
-    WARI A 0 NoDelay //A_AetheriusStats(0)
+    WARI A 0 NoDelay 
     WARI AB 10 A_Look
     goto Spawn+1
   See:
@@ -956,11 +956,11 @@ actor ImpWarlordNew : AetheriusMonsterZSC replaces ImpWarlord 3105
     WARI S 8 A_Scream
     WARI T 6
     WARI U 6 A_Fall
-    TNT1 A 0 //A_AetheriusStats(1)
+    TNT1 A 0 
     WARI V -1
     Stop
   Raise:
-    WARI V 8 //A_AetheriusStats(0)
+    WARI V 8 
     WARI U 8 
     WARI TSR 6 
     Goto See
@@ -998,7 +998,7 @@ actor BatFamiliarNew : AetheriusMonsterZSC replaces BatFamiliar 3107
   States
   {
   Spawn:
-    BFAM A 0 NoDelay //A_AetheriusStats(0)
+    BFAM A 0 NoDelay 
     BFAM ABCB 3 A_Look
     goto Spawn+1
   See:
@@ -1055,7 +1055,7 @@ actor BatFamiliarNew : AetheriusMonsterZSC replaces BatFamiliar 3107
     BFAM D 0 A_Die
     BFAM D 0 A_NoBlocking 
     BFAM D 5 A_Scream
-    TNT1 A 0 //A_AetheriusStats(1)
+    TNT1 A 0 
     BFAM E 5
     BFAM FDEF 5
     Goto Death+7
@@ -1098,7 +1098,7 @@ actor DragonFamiliarNew : AetheriusMonsterZSC replaces DragonFamiliar 3106
   States
   {
   Spawn:
-    DFAM A 0 NoDelay //A_AetheriusStats(0)
+    DFAM A 0 NoDelay 
     DFAM ABCD 10 A_Look
     goto Spawn+1
   See:
@@ -1160,7 +1160,7 @@ actor DragonFamiliarNew : AetheriusMonsterZSC replaces DragonFamiliar 3106
     DFAM H 8 A_Scream
     DFAM I 6 A_SetFloorClip
     DFAM JKL 6
-    TNT1 A 0 //A_AetheriusStats(1)
+    TNT1 A 0 
     DFAM M -1
     Stop
   XDeath:
@@ -1196,7 +1196,7 @@ ACTOR ChainsawZombieNew : AetheriusMonsterZSC replaces ChainsawZombie 32064
   States 
   { 
   Spawn: 
-    CHAN A 0 NoDelay //A_AetheriusStats(0)
+    CHAN A 0 NoDelay 
     CHAN A 4 A_Look 
     CHAN A 4 { A_PlayWeaponSound("weapons/sawidle"); A_Look; }
     CHAN A 4 A_Look 
@@ -1280,7 +1280,7 @@ ACTOR ChainsawZombieNew : AetheriusMonsterZSC replaces ChainsawZombie 32064
     CHAN I 5 A_Scream 
     CHAN J 5 A_Fall 
     CHAN KLM 5 
-    TNT1 A 0 //A_AetheriusStats(1)
+    TNT1 A 0 
     CHAN N -1 
     Stop 
 
@@ -1290,11 +1290,11 @@ ACTOR ChainsawZombieNew : AetheriusMonsterZSC replaces ChainsawZombie 32064
     CHAN P 5 A_XScream
     CHAN Q 5 A_Fall
     CHAN RSTUV 5
-    TNT1 A 0 //A_AetheriusStats(1)
+    TNT1 A 0 
     CHAN W -1
     Stop
   Raise: 
-    CHAN N 5 //A_AetheriusStats(0)
+    CHAN N 5 
     CHAN MLKJIH 5 
     Goto See 
   } 
@@ -1421,7 +1421,7 @@ ACTOR BloodFiendNew : AetheriusMonsterZSC replaces BloodFiend 30100
   states 
   { 
   Spawn: 
-    SAR2 A 0 NoDelay //A_AetheriusStats(0)
+    SAR2 A 0 NoDelay 
     SAR2 AB 10 A_Look 
     goto Spawn+1
   See: 
@@ -1499,7 +1499,7 @@ ACTOR BloodFiendNew : AetheriusMonsterZSC replaces BloodFiend 30100
     SAR2 K 4 
     SAR2 L 4 A_NoBlocking 
     SAR2 M 4 
-    TNT1 A 0 //A_AetheriusStats(1)
+    TNT1 A 0 
     SAR2 N -1 
     Stop
 
@@ -1509,11 +1509,11 @@ ACTOR BloodFiendNew : AetheriusMonsterZSC replaces BloodFiend 30100
     SAR2 P 5 A_XScream
     SAR2 Q 5 A_NoBlocking
     SAR2 RSTUV 5
-    TNT1 A 0 //A_AetheriusStats(1)
+    TNT1 A 0 
     SAR2 W -1
     Stop
   Raise: 
-    SAR2 N 5 //A_AetheriusStats(0)
+    SAR2 N 5 
     SAR2 MLKJI 5 
     Goto See 
   } 
@@ -1558,7 +1558,7 @@ ACTOR LordofHeresyNew : AetheriusMonsterZSC replaces LordofHeresy 3121
   States 
   { 
   Spawn: 
-    LOHS A 0 NoDelay //A_AetheriusStats(0)
+    LOHS A 0 NoDelay 
     LOHS AB 10 A_Look 
     goto Spawn+1
   See: 
@@ -1683,11 +1683,11 @@ ACTOR LordofHeresyNew : AetheriusMonsterZSC replaces LordofHeresy 3121
     LOHS J 8 A_Scream 
     LOHS K 8 A_Fall 
     LOHS LMN 8 
-    TNT1 A 0 //A_AetheriusStats(1)
+    TNT1 A 0 
     LOHS O -1 
     Stop 
   Raise: 
-    LOHS O 5 //A_AetheriusStats(0)
+    LOHS O 5 
     LOHS NMLKJI 5 
     Goto See 
   } 
@@ -1724,7 +1724,7 @@ actor SatyrNew : AetheriusMonsterZSC replaces Satyr 3109
   States
   {
   Spawn:
-    STYR A 0 NoDelay //A_AetheriusStats(0)
+    STYR A 0 NoDelay 
     STYR AB 10 A_Look
     goto Spawn+1
   See:
@@ -1829,11 +1829,11 @@ actor SatyrNew : AetheriusMonsterZSC replaces Satyr 3109
     STYR K 6
     STYR L 7 A_Fall
     STYR M 4
-    STYR N 4 //A_AetheriusStats(1)
+    STYR N 4 
     STYR O -1
     Stop
   Raise:
-    STYR O 8 //A_AetheriusStats(0)
+    STYR O 8 
     STYR NMLKJI 8 
     Goto See
   XDeath:
@@ -1870,7 +1870,7 @@ ACTOR ShadowNew : AetheriusMonsterZSC replaces Shadow 3126
   States
   {
   Spawn:
-    SHDW A 0 NoDelay //A_AetheriusStats(0)
+    SHDW A 0 NoDelay 
   See:
     SHDW A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
 	SHDW A 15
@@ -2032,7 +2032,7 @@ ACTOR ShadowNew : AetheriusMonsterZSC replaces Shadow 3126
 	SHDW K 5 A_SpawnItemEx("Shadowtorso", 0, 0, 0, 1, 0, 0, 0, 128)
 	SHDW L 5 A_Fall
 	SHDW MNO 6 
-	SHDW P 0 //A_AetheriusStats(1)
+	SHDW P 0 
 	SHDW P -1
 	Stop
   XDeath:
@@ -2042,11 +2042,11 @@ ACTOR ShadowNew : AetheriusMonsterZSC replaces Shadow 3126
 	SHDX C 6 
 	SHDX D 6 A_Fall
  	SHDX E 6
- 	SHDX F 6 //A_AetheriusStats(1)
+ 	SHDX F 6 
 	SHDX G -1
 	Stop
   Raise:
-	SHDW M 8 //A_AetheriusStats(0)
+	SHDW M 8 
 	SHDW KLJI 8 
 	Goto See
   }
@@ -2084,7 +2084,7 @@ ACTOR CultistNew : AetheriusMonsterZSC replaces Cultist 30119
   States 
   { 
   Spawn: 
-    CULT A 0 NoDelay //A_AetheriusStats(0)
+    CULT A 0 NoDelay 
     CULT AB 10 A_Look 
     goto Spawn+1
   See: 
@@ -2172,7 +2172,7 @@ ACTOR CultistNew : AetheriusMonsterZSC replaces Cultist 30119
     CULT I 8 A_Scream 
     CULT J 4 
     CULT K 4 A_NoBlocking 
-    CULT L 4 //A_AetheriusStats(1)
+    CULT L 4 
     CULT M -1 
     Stop
   XDeath:
@@ -2180,10 +2180,10 @@ ACTOR CultistNew : AetheriusMonsterZSC replaces Cultist 30119
     CULT N 5 
     CULT O 5 A_XScream 
     CULT P 5 A_NoBlocking 
-    CULT QRSTUV 5 //A_AetheriusStats(1)
+    CULT QRSTUV 5 
     CULT W -1 
   Raise: 
-    CULT M 5 //A_AetheriusStats(0)
+    CULT M 5 
     CULT LKJHI 5 
     Goto See 
   } 
@@ -2220,7 +2220,7 @@ ACTOR UnlovedAcolyteNew : AetheriusMonsterZSC replaces AcolyteDude 30118
   States 
   { 
   Spawn: 
-    ACOL A 0 NoDelay //A_AetheriusStats(0)
+    ACOL A 0 NoDelay 
     ACOL AB 10 A_Look 
     goto Spawn+1
   See: 
@@ -2300,11 +2300,11 @@ ACTOR UnlovedAcolyteNew : AetheriusMonsterZSC replaces AcolyteDude 30118
     ACOL J 5 Bright A_NoBlocking 
     ACOL KLM 5 Bright
     ACOL N 5 A_CustomMissile("AcolFX1",54,0,0,0)
-    ACOL O 5 //A_AetheriusStats(1)
+    ACOL O 5 
     ACOL P -1 
     Stop 
   Raise: 
-    ACOL P 5 //A_AetheriusStats(0)
+    ACOL P 5 
     ACOL ONMLKJIHG 5
     Goto See 
   XDeath:
@@ -2343,7 +2343,7 @@ ACTOR UnlovedDiscipleNew : AetheriusMonsterZSC replaces Disciple 30117
   States 
   { 
   Spawn: 
-    DISC A 0 NoDelay //A_AetheriusStats(0)
+    DISC A 0 NoDelay 
     DISC AB 10 A_Look 
     goto Spawn+1
   See: 
@@ -2511,11 +2511,11 @@ ACTOR UnlovedDiscipleNew : AetheriusMonsterZSC replaces Disciple 30117
     DISC I 5 Bright
     DISC J 5 Bright
     DISC K 5 Bright A_NoBlocking 
-    DISC LMN 4 Bright //A_AetheriusStats(1)
+    DISC LMN 4 Bright 
     DISC O -1 
     Stop 
   Raise: 
-    DISC O 5 //A_AetheriusStats(0)
+    DISC O 5 
     DISC NMLKJIH 5
     Goto See 
   XDeath:
@@ -2560,7 +2560,7 @@ actor UnlovedApprenticeNew : AetheriusMonsterZSC replaces ApprenticeofDsparil 30
   states
   {
   Spawn:
-    APDP A 0 NoDelay //A_AetheriusStats(0)
+    APDP A 0 NoDelay 
     APDP AB 10 A_Look
     goto Spawn+1
   See:
@@ -2742,11 +2742,11 @@ actor UnlovedApprenticeNew : AetheriusMonsterZSC replaces ApprenticeofDsparil 30
     APDP H 3 A_CustomMissile("AoDGhost",8,0,0)
     APDP I 3 A_Fall
     APDP JKL 2
-    TNT1 A 0 //A_AetheriusStats(1)
+    TNT1 A 0 
     APDP M -1
     Stop
   Raise:
-    APDP M 8 //A_AetheriusStats(0)
+    APDP M 8 
     APDP L 8 
     APDP KJI 6 
     Goto See
@@ -2782,7 +2782,7 @@ ACTOR WickedNew : AetheriusMonsterZSC replaces Wicked 30133
   States 
   { 
   Spawn: 
-    WICK A 0 NoDelay //A_AetheriusStats(0)
+    WICK A 0 NoDelay 
     WICK ABCD 8 A_Look 
     goto Spawn+1
   See:
@@ -2865,7 +2865,7 @@ ACTOR WickedNew : AetheriusMonsterZSC replaces Wicked 30133
     WICK P 0 A_SpawnItemEX("WickedTorso",0,0,48,0,0,0,0,16)
     WICT A 5 A_NoBlocking
     WICT BCDEF 5
-    WICT G 0 //A_AetheriusStats(1)	   
+    WICT G 0 	   
     WICT G -1 A_SetFloorClip 
     Stop 
   XDeath:
@@ -2874,7 +2874,7 @@ ACTOR WickedNew : AetheriusMonsterZSC replaces Wicked 30133
   Raise:
     WICT G 0 A_KillChildren
     WICK G 0 A_SpawnItemEx("WickedTorsoRes",0,0,0,0,0,1,0,0) 
-    WICT G 0 //A_AetheriusStats(0)
+    WICT G 0 
     WICT G 5 A_UnSetFloorClip 
     WICT FEDBC 5 
     WICK PON 5 
@@ -2917,7 +2917,7 @@ ACTOR AvatarNew : AetheriusMonsterZSC replaces Avatar 30125
   { 
   Pain.Charm: Goto See
   Spawn: 
-    AVAT A 0 NoDelay //A_AetheriusStats(0)
+    AVAT A 0 NoDelay 
     AVAT AB 10 A_Look 
     goto Spawn+1
   See: 
@@ -3096,7 +3096,7 @@ ACTOR AvatarNew : AetheriusMonsterZSC replaces Avatar 30125
     AVAT P 7 Bright
     AVAT Q 7 Bright A_NoBlocking 
     AVAT RSTU 7 Bright
-	AVAT V 0 //A_AetheriusStats(1)
+	AVAT V 0 
     AVAT V -1
   XDeath:
     goto Death
@@ -3149,12 +3149,12 @@ ACTOR ThamuzNew : AetheriusMonsterZSC replaces Thamuz 7228
   Pain.Charm: Goto See
   ResetLevel:
     DCYB A 1 A_Look
-    DCYB A 1 //A_AetheriusStats(1)
+    DCYB A 1 
     DCYB A 1 A_SetUserVar("user_ressurrectstr",user_ressurrectstr+random(30,60))
-    DCYB A 1 //A_AetheriusStats(0)
+    DCYB A 1 
 	goto Spawn+1
   Spawn:
-    DCYB A 0 NoDelay //A_AetheriusStats(0)
+    DCYB A 0 NoDelay 
     DCYB A 10 A_Look
     goto Spawn+1
   See:
@@ -3349,7 +3349,7 @@ ACTOR ThamuzNew : AetheriusMonsterZSC replaces Thamuz 7228
     DCYB I 5 A_Scream
     DCYB A 0 A_CustomMissile("BDS",0,0,0)
     DCYB JKLMNO 5
-    TNT1 A 0 //A_AetheriusStats(1)
+    TNT1 A 0 
     DCYB P -1 A_NoBlocking
     Stop
   }
