@@ -1,6 +1,6 @@
 BigBushTree
 {      
-       DoomEdNum 20000 
+       DoomEdNum 21644 
        Sprite MTRE
        Frames "10:A"
        Solid

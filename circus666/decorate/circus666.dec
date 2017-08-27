@@ -361,7 +361,7 @@ ACTOR PennywiseHeadNew : AetheriusMonsterZSC replaces Pennywise 32119
   States
   {
   Spawn:
-    PENY A 0 NoDelay A_AetheriusStats(0)
+    PENY A 0 NoDelay //A_AetheriusStats(0)
     PENY AB 1 A_Look
     goto Spawn+1
   See:
@@ -413,7 +413,7 @@ ACTOR PennywiseHeadNew : AetheriusMonsterZSC replaces Pennywise 32119
     PENY L 10 
     PENY M 10
     PENY N 10
-    TNT1 A 0 A_AetheriusStats(1)
+    TNT1 A 0 //A_AetheriusStats(1)
     Stop
   Ice:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,2250,0,1)
@@ -465,7 +465,7 @@ ACTOR JumpingSkullNew : AetheriusMonsterZSC replaces JumpingSkull 3117
   States
   {
   Spawn:
-    JUMP A 0 NoDelay A_AetheriusStats(0)
+    JUMP A 0 NoDelay //A_AetheriusStats(0)
     JUMP A 4 A_Look
     goto Spawn+1
   See:
@@ -518,7 +518,7 @@ ACTOR JumpingSkullNew : AetheriusMonsterZSC replaces JumpingSkull 3117
     JUMP E 8 
     JUMP F 8 
     JUMP GHI 8
-    TNT1 A 0 A_AetheriusStats(1)
+    TNT1 A 0 //A_AetheriusStats(1)
     Stop
   Ice:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,65,0,1)
@@ -572,7 +572,7 @@ ACTOR PossessedBalloonNew : AetheriusMonsterZSC replaces PossessedBalloon 3115
   States
   {
   Spawn:
-    BSTN A 0 NoDelay A_AetheriusStats(0)
+    BSTN A 0 NoDelay //A_AetheriusStats(0)
     BSTN A 2 A_Look
     goto Spawn+1
   See:
@@ -637,7 +637,7 @@ ACTOR PossessedBalloonNew : AetheriusMonsterZSC replaces PossessedBalloon 3115
     TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
     TNT1 A 0 A_SpawnItemEx("BloodNonSolid", 0, 0, 0, random(-8,8), random(-8,8), random(-8,8))
     BSTN FGHIJKLM 3
-    TNT1 A 0 A_AetheriusStats(1)
+    TNT1 A 0 //A_AetheriusStats(1)
     Stop
   Ice:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,24,0,1)
@@ -710,7 +710,7 @@ ACTOR BigBerthaNew : AetheriusMonsterZSC replaces BigBertha 3225
   States
   {
   Spawn:
-    BSTN A 0 NoDelay A_AetheriusStats(0)
+    BSTN A 0 NoDelay //A_AetheriusStats(0)
     BSTN B 2 A_Look
     goto Spawn+1
   See:
@@ -862,7 +862,7 @@ ACTOR BigBerthaNew : AetheriusMonsterZSC replaces BigBertha 3225
     BSTN D 3 A_Scream
     BSTN E 3 A_Fall
     BSTN FGHIJKLM 3
-    TNT1 A 0 A_AetheriusStats(1)
+    TNT1 A 0 //A_AetheriusStats(1)
     Stop
   Ice:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,97500,0,1)
@@ -1102,7 +1102,7 @@ ACTOR ClownHeadNew : AetheriusMonsterZSC replaces ClownHead 3206
   States 
   { 
   Spawn:
-    CHED A 0 NoDelay A_AetheriusStats(0)
+    CHED A 0 NoDelay //A_AetheriusStats(0)
     CHED A 10 A_Look 
     goto Spawn+1
   See: 
@@ -1286,7 +1286,7 @@ ACTOR ClownHeadNew : AetheriusMonsterZSC replaces ClownHead 3206
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,500,0,1)
     CHED A 1 A_Scream 
     MISL BC 8 Bright A_NoBlocking 
-    TNT1 A 0 A_AetheriusStats(1)
+    TNT1 A 0 //A_AetheriusStats(1)
     Stop 
   Ice:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,500,0,1)
