@@ -1,0 +1,216 @@
+//===========================================================================
+//
+// Adolf H (for TNT LE)
+//
+//===========================================================================
+ACTOR AdolfHitlerDS : AetheriusBossZSC 10917
+{
+  Health 3000 // 1000
+  Scale 1.5
+  Radius 20
+  Height 56
+  Speed 10 // 8
+  PainChance 20
+  Painchance "Fist", 30 // Fist attacks have a +50% chance of stunning an enemy
+  Painchance "Kick", 50 // Kick attacks have a +150% chance of stunning an enemy
+  Painchance "Gauntlets", 30 // Fist attacks have a +50% chance of stunning an enemy
+  Mass 900 // 300
+  Monster
+  +FLOORCLIP
+  +DONTHARMSPECIES
+  SeeSound "adolf/sight"
+  DeathSound "adolf/death"
+  ActiveSound "wolfss/active"
+  AttackSound "wolfss/attack"
+  PainSound "null/dummy"
+  Obituary "%o met Adolf."
+
+  States
+  {
+  Pain.Charm: goto See
+  Spawn:
+	ADLF AB 10 A_Look
+	Loop
+  See:
+	ADLF AABBCCDD 3 A_Chase
+	Loop
+  Missile:
+	ADLF E 10 A_FaceTarget
+	ADLF F 10 A_FaceTarget
+	ADLF G 4 A_CPosAttack
+	ADLF F 6 A_FaceTarget
+	ADLF G 4 A_CPosAttack
+	ADLF F 1 A_CPosRefire
+	Goto Missile+1
+  Pain:
+	ADLF H 3
+	ADLF H 3 A_Pain
+	Goto See
+  Ice:
+  XDeath:
+  Death:
+    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+	ADLF N 5 
+	ADLF O 15 A_Scream
+	ADLF P 1 A_Fall
+	ADLF QRSTU 5
+	ADLF V -1
+	Stop
+  }
+}
+
+/////////////////////
+// WOLF3D STUFFAGE //
+/////////////////////
+
+SS_CSAW
+{
+DoomEdNum 22312
+Sprite SSDF
+Frames "4:A"
+Radius 1
+Height 1
+}
+
+SS_COL2a0
+{
+DoomEdNum 22313
+Sprite SSD1
+Frames "4:A"
+Radius 8
+Height 64
+Solid
+}
+
+SS_GOR2A0
+{
+DoomEdNum 22314
+Sprite SSD2
+Frames "4:A"
+Radius 1
+Height 1
+}
+
+SS_SMITA0
+{
+DoomEdNum 22315
+Sprite SSD3
+Frames "4:A"
+Radius 16
+Height 56
+}
+
+SS_TRE2A0
+{
+DoomEdNum 22316
+Sprite SSD4
+Frames "4:A"
+Radius 8
+Height 56
+Solid
+}
+
+SS_GOR5A0
+{
+DoomEdNum 22317
+Sprite SSD5
+Frames "4:A"
+Radius 1
+Height 1
+}
+
+SS_POL1A0
+{
+DoomEdNum 22318
+Sprite SSD6
+Frames "4:A"
+Radius 8
+Height 32
+Solid
+}
+
+SS_TRE1A0
+{
+DoomEdNum 22319
+Sprite SSD7
+Frames "4:A"
+Radius 8
+Height 32
+Solid
+}
+
+SS_COL6A0
+{
+DoomEdNum 22320
+Sprite SSD8
+Frames "4:A"
+Radius 1
+Height 1
+}
+
+SS_CEYEa0
+{
+DoomEdNum 22321
+Sprite SSD9
+Frames "3:ABC"
+Radius 1
+Height 1
+}
+
+SS_GOR3A0
+{
+DoomEdNum 22322
+Sprite SSD0
+Frames "4:A"
+Radius 1
+Height 1
+}
+
+SS_POL6A0
+{
+DoomEdNum 22323
+Sprite SSDA
+Frames "4:A"
+Radius 32
+Height 128
+Solid
+}
+
+SS_COL4A0
+{
+DoomEdNum 22324
+Sprite SSDB
+Frames "4:A"
+Radius 16
+Height 64
+Solid
+}
+
+SS_BAR1A0
+{
+DoomEdNum 22325
+Sprite SSDC
+Frames "4:A"
+Radius 8
+Height 64
+Solid
+}
+
+SS_CBRAA0
+{
+DoomEdNum 22326
+Sprite SSDD
+Frames "4:A"
+Radius 8
+Height 100
+Solid
+}
+
+SS_BRS1A0
+{
+DoomEdNum 22327
+Sprite SSDE
+Frames "4:A"
+Radius 32
+Height 64
+}

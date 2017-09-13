@@ -1794,7 +1794,7 @@ actor TinyBingoBall : AetheriusProjectileZSC
 actor TinyBingoBallCrisisParticle : BaseCrisisParticle
 {
  scale 0.3333
- ALPHA 0.8
+ ALPHA 0.57
  
  States
  {

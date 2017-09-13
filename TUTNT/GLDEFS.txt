@@ -1,0 +1,127 @@
+//=======================================================================================================\\
+//Here begins the UTNT GLDefs... stuff :P
+//=======================================================================================================\\
+
+FlickerLight2 RedTorchA
+{
+ Size 60
+ SecondarySize 75
+ Interval 2.0
+ Color 1.0 0.2 0.0
+ Offset 0 52 0
+}
+
+FlickerLight2 RedTorchB
+{
+ Size 55
+ SecondarySize 70
+ Interval 2.0
+ Color 1.0 0.2 0.0
+ Offset 0 30 0
+}
+
+Object UTNT_Redtorch
+{
+ Frame TRCHA { Light RedTorchA }
+ Frame TRCHB { Light RedTorchA }
+ Frame TRCHC { Light RedTorchA }
+ Frame TRCHD { Light RedTorchA }
+}
+
+Object UTNT_ShortRedtorch
+{
+ Frame STCBA { Light RedTorchB }
+ Frame STCBB { Light RedTorchB }
+ Frame STCBC { Light RedTorchB }
+ Frame STCBD { Light RedTorchB }
+}
+
+FlickerLight2 GreenTorchA
+{
+ Size 60
+ SecondarySize 75
+ Interval 2.0
+ Color 0.0 0.6 0.0
+ Offset 0 52 0
+}
+
+FlickerLight2 GreenTorchB
+{
+ Size 55
+ SecondarySize 70
+ Interval 2.0
+ Color 0.0 0.6 0.0
+ Offset 0 30 0
+}
+
+Object UTNT_Greentorch
+{
+ Frame TRCHA { Light GreenTorchA }
+ Frame TRCHB { Light GreenTorchA }
+ Frame TRCHC { Light GreenTorchA }
+ Frame TRCHD { Light GreenTorchA }
+}
+
+Object UTNT_ShortGreentorch
+{
+ Frame STCBA { Light GreenTorchB }
+ Frame STCBB { Light GreenTorchB }
+ Frame STCBC { Light GreenTorchB }
+ Frame STCBD { Light GreenTorchB }
+}
+
+FlickerLight2 BlueTorchA
+{
+ Size 60
+ SecondarySize 75
+ Interval 2.0
+ Color 0.0 0.0 0.7
+ Offset 0 52 0
+}
+
+FlickerLight2 BlueTorchB
+{
+ Size 55
+ SecondarySize 70
+ Interval 2.0
+ Color 0.0 0.0 0.7
+ Offset 0 30 0
+}
+
+Object UTNT_Bluetorch
+{
+ Frame TRCHA { Light BlueTorchA }
+ Frame TRCHB { Light BlueTorchA }
+ Frame TRCHC { Light BlueTorchA }
+ Frame TRCHD { Light BlueTorchA }
+}
+
+Object UTNT_ShortBluetorch
+{
+ Frame STCBA { Light BlueTorchB }
+ Frame STCBB { Light BlueTorchB }
+ Frame STCBC { Light BlueTorchB }
+ Frame STCBD { Light BlueTorchB }
+}
+
+FlickerLight2 BurningBarrelA
+{
+ Size 70
+ SecondarySize 85
+ Interval 2.0
+ Color 1.0 0.3 0.0
+ Offset 0 52 0
+}
+
+Object UTNT_Barrel
+{
+ Frame FCANA { Light BurningBarrelA }
+ Frame FCANB { Light BurningBarrelA }
+ Frame FCANC { Light BurningBarrelA }
+}
+
+Object SourceLifeSeed
+{
+ Frame REGN { Light LifeSeed }
+}
+
