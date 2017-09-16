@@ -4,8 +4,8 @@
 ACTOR SourceGuardian : AetheriusBossZSC 16999 
 {
   SpawnID 239
-  Health 4800 // 1200
-  Mass 3200 // 8000
+  Health 12000 // 1200
+  Mass 80000 // 8000
   Radius 40
   Height 140
   Scale 1.1
@@ -423,7 +423,7 @@ actor SourceLifeSeed : CustomInventory 16998
 
 actor TheSource : AetheriusBossZSC 24999
 {
-  health 150000 // 15000
+  health 750000 // 15000
   radius 128 // 128
   height 128 // 128
   mass 99999999
