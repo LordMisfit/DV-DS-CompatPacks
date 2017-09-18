@@ -145,13 +145,12 @@ ACTOR AdolfHitlerDS : AetheriusBossZSC 10917
 
   Death:
     TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
-    HTLR H 0 A_PlaySoundEx("Hitler/Death1", "Body")
-    HTLR I 32
-    HTLR J 32
+    HTLR H 51 A_PlaySoundEx("Hitler/Death1", "Body")
+    HTLR I 6
+    HTLR J 6
     HTLR K 6
     HTLR L 6 A_Fall
     HTLR MNO 6 A_NoBlocking
-    TNT1 A 0 
     HTLR P -1 A_BossDeath
     Stop
   XDeath:
