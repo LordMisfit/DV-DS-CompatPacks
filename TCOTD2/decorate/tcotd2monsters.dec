@@ -259,7 +259,7 @@ ACTOR SpiderBiteProj : AetheriusEffectProjectile
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) <= 7)
 	  {
 	   ACS_NamedExecuteAlways("BuffTimer",0,8,16,random(35,105)); // Poison for 1-3 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -292,7 +292,7 @@ ACTOR SpiderBiteProjCrisis : SpiderBiteProj
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) <= 7)
 	  {
 	   ACS_NamedExecuteAlways("BuffTimer",0,8,16, (random(35,105)*CallACS("CrisisMultiplier",5)) ); // Poison for 1-3 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -405,7 +405,7 @@ ACTOR SpiderBiteProj2 : SpiderBiteProj
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) <= 17)
 	  {
 	   ACS_NamedExecuteAlways("BuffTimer",0,8,16,random(105,175)); // Poison for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -436,7 +436,7 @@ ACTOR SpiderBiteProj2Crisis : SpiderBiteProj2
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) <= 17)
 	  {
 	   ACS_NamedExecuteAlways("BuffTimer",0,8,16, (random(105,175)*CallACS("CrisisMultiplier",5)) ); // Poison for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -1325,7 +1325,7 @@ ACTOR ThrallNew : AetheriusMonsterZSC 30119
    } 
 }
 
-ACTOR NightmareNew : AetheriusMonsterZSC 26000
+ACTOR NightmareNew : AetheriusMonsterZSC replaces KDiZDNightmare 26000
 {
   //$Angled
   //$Color 12
@@ -1655,7 +1655,7 @@ ACTOR VulgarShotNew : AetheriusEffectProjectile
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) <= 3)
 	  {
 	   ACS_NamedExecuteAlways("BuffTimer",0,8,16,random(140,210)); // Poison for 4-6 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -1702,7 +1702,7 @@ ACTOR VulgarShotCrisis : VulgarShotNew
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) <= 3)
 	  {
 	   ACS_NamedExecuteAlways("BuffTimer",0,8,16, (random(140,210)*CallACS("CrisisMultiplier",5)) ); // Poison for 4-6 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -1884,6 +1884,7 @@ Actor ClayDevilNew : AetheriusMonsterZSC replaces ClayDevil
 
   states
   {
+  Pain.Charm: Goto See
   Spawn:
     N00B A 0 NoDelay 
     N00B A 0 Thing_ChangeTID(0,3334)
@@ -2536,7 +2537,7 @@ ACTOR ESoulNew : AetheriusMonsterZSC 29012 // : ESoul replaces ESoul 29012
   }
 }
 
-ACTOR DEWraithNew : AetheriusMonsterZSC 30106
+ACTOR DEWraithNew : AetheriusMonsterZSC replaces DEWraith 30106
 { 
   //$Angled
   //$Color 12
@@ -2694,7 +2695,7 @@ actor ButcherBarfNew : AetheriusEffectProjectile replaces ButcherBarf
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) <= 7)
 	  {
 	   ACS_NamedExecuteAlways("BuffTimer",0,8,16,random(70,140)); // Poison for 2-4 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -2750,7 +2751,7 @@ actor ButcherBarfCrisis : ButcherBarfNew
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) <= 7)
 	  {
 	   ACS_NamedExecuteAlways("BuffTimer",0,8,16, (random(70,140)*CallACS("CrisisMultiplier",5)) ); // Poison for 2-4 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -2836,7 +2837,7 @@ actor CleaverNew : AetheriusEffectProjectile replaces Cleaver
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) <= 5)
 	  {
 	   ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(70,105)); // Deceleratle for 2-3 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -2925,7 +2926,7 @@ actor CleaverNewCrisis : CleaverNew
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) <= 5)
 	  {
 	   ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(70,105)*CallACS("CrisisMultiplier",5)) ); // Deceleratle for 2-3 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)

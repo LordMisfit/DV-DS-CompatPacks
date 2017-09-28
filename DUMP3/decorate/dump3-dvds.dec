@@ -4,6 +4,21 @@ ACTOR AdolfHitlerDS : AetheriusMonsterZSC replaces AdolfHitler
  Health 2100
  Mass 80000
  Radius 28
+ Height 56
+ Speed 8
+ DamageFactor "Crush", 8
+ Painchance 200
+ Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+ Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
+ Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
+ DamageFactor "Crush", 8
+ DamageFactor "Fire", 1.333 // Zombies = +33% Fire Damage
+ Painchance "Fire", 255 // Zombies = +33% Pain Chance [maxed out in this case]
+ DamageFactor "Holy", 1.333 // Zombies = +33% Holy Damage
+ Painchance "Holy", 255 // Zombies = +33% Pain Chance [maxed out in this case]
+ Monster
+ +FLOORCLIP
+ +DOHARMSPECIES
  +BOSSDEATH
  SeeSound "Hitler/Active"
  DeathSound "Hitler/Death1"
@@ -11,12 +26,6 @@ ACTOR AdolfHitlerDS : AetheriusMonsterZSC replaces AdolfHitler
  AttackSound "Hitler/Attack"
  Obituary "%o was killed by Adolf Hitler."
  HitObituary "%o was Killed by Adolf Hitler."
-  
- DamageFactor "Crush", 8
- Painchance 200
- Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
- Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
- Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
 
   States
   {
@@ -115,18 +124,18 @@ ACTOR AdolfHitlerDS : AetheriusMonsterZSC replaces AdolfHitler
     Goto See
 
   Pain:
-    HTLR H 10
-    HTLR H 10 A_Pain
+    HTLR H 5
+    HTLR H 5 A_Pain
     Goto See
   Pain.Fist:
-    HTLR H 10
-    HTLR H 10 A_Pain
-    HTLR HH 10
+    HTLR H 5
+    HTLR H 5 A_Pain
+    HTLR HH 5
     Goto See
   Pain.Kick:
-    HTLR H 10
-    HTLR H 10 A_Pain
-    HTLR HHHH 10
+    HTLR H 5
+    HTLR H 5 A_Pain
+    HTLR HHHH 5
     Goto See
 
   Death:

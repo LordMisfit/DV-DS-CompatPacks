@@ -2381,7 +2381,7 @@ actor Redstar : AetheriusEffectProjectile
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) == 1)
 	  {
 	   A_SetUserVar("user_random",random(1,13));
@@ -2455,7 +2455,7 @@ actor RedstarCrisis : Redstar
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) == 1)
 	  {
 	   A_SetUserVar("user_random",random(1,13));

@@ -412,7 +412,7 @@ actor GreenPoisonBall : AetheriusEffectProjectile
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) <= 3)
 	  {
 	   ACS_NamedExecuteAlways("BuffTimer",0,8,16,random(35,70)); // Poison for 1-2 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -459,7 +459,7 @@ actor GreenPoisonBallCrisis : GreenPoisonBall
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) <= 3)
 	  {
 	   ACS_NamedExecuteAlways("BuffTimer",0,8,16, (random(35,70)*CallACS("CrisisMultiplier",5)) ); // Poison for 1-2 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)

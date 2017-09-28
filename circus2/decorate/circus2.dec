@@ -1975,7 +1975,7 @@ actor BeefyBall1 : AetheriusEffectProjectile
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) == 1)
 	  {
 	   A_SetUserVar("user_random",random(1,13));
@@ -2049,7 +2049,7 @@ actor BeefyBall1Crisis : BeefyBall1
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) == 1)
 	  {
 	   A_SetUserVar("user_random",random(1,13));
@@ -2116,7 +2116,7 @@ actor BeefyBall2 : BeefyBall1
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) == 1)
 	  {
 	   A_SetUserVar("user_random",random(1,12));
@@ -2191,7 +2191,7 @@ actor BeefyBall2Crisis : BeefyBall2
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) == 1)
 	  {
 	   A_SetUserVar("user_random",random(1,12));
@@ -5244,7 +5244,7 @@ actor Deadlight : AetheriusEffectProjectile
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) <= 2)
 	  {
 	   A_SetUserVar("user_random",random(1,12));
@@ -5267,7 +5267,7 @@ actor Deadlight : AetheriusEffectProjectile
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) <= 2)
 	  {
 	   A_SetUserVar("user_random",random(1,12));
@@ -5290,7 +5290,7 @@ actor Deadlight : AetheriusEffectProjectile
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) <= 2)
 	  {
 	   A_SetUserVar("user_random",random(1,12));
@@ -5313,7 +5313,7 @@ actor Deadlight : AetheriusEffectProjectile
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) <= 2)
 	  {
 	   A_SetUserVar("user_random",random(1,12));
@@ -5336,7 +5336,7 @@ actor Deadlight : AetheriusEffectProjectile
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) <= 2)
 	  {
 	   A_SetUserVar("user_random",random(1,12));
@@ -5359,7 +5359,7 @@ actor Deadlight : AetheriusEffectProjectile
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) <= 2)
 	  {
 	   A_SetUserVar("user_random",random(1,12));
@@ -5441,7 +5441,7 @@ actor DeadlightCrisis : Deadlight
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) <= 2)
 	  {
 	   A_SetUserVar("user_random",random(1,12));
@@ -5464,7 +5464,7 @@ actor DeadlightCrisis : Deadlight
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) <= 2)
 	  {
 	   A_SetUserVar("user_random",random(1,12));
@@ -5487,7 +5487,7 @@ actor DeadlightCrisis : Deadlight
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) <= 2)
 	  {
 	   A_SetUserVar("user_random",random(1,12));
@@ -5510,7 +5510,7 @@ actor DeadlightCrisis : Deadlight
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) <= 2)
 	  {
 	   A_SetUserVar("user_random",random(1,12));
@@ -5533,7 +5533,7 @@ actor DeadlightCrisis : Deadlight
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) <= 2)
 	  {
 	   A_SetUserVar("user_random",random(1,12));
@@ -5556,7 +5556,7 @@ actor DeadlightCrisis : Deadlight
 	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
 	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0) { return state("Death2"); }
+	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
 	  if (random(1,user_ailmentmaxchance) <= 2)
 	  {
 	   A_SetUserVar("user_random",random(1,12));
