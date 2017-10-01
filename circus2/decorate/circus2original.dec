@@ -22,12 +22,8 @@ actor MyBall2 : AetheriusEffectProjectile
 	{	 
 	 if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE)
 	 {
-	  A_SetUserVar("user_ailmentmaxchance",4);
-	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
-	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
-	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (random(1,user_ailmentmaxchance) == 1)
+	  A_StatusEffectChecker(4);
+	  if (random(1,user_ailmentmaxchance) <= 1 && user_canafflict > 0)
 	  {
 	   A_SetUserVar("user_random",random(1,13));
 	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21,random(105,175)); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -3234,12 +3230,8 @@ actor MyBall3 : AetheriusEffectProjectile
 	{	 
 	 if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE)
 	 {
-	  A_SetUserVar("user_ailmentmaxchance",4);
-	  if (CountInv("EWShieldIdleMode",AAPTR_PLAYER1) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
-	  if (CallACS("GetBuffTimer",7) > 0) { A_SetUserVar("user_ailmentmaxchance",user_ailmentmaxchance*4); }
-	  if (CountInv("EvadeAnAttack",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (CountInv("InvulnerabilitySpell",AAPTR_PLAYER1) > 0 || CountInv("IsInvulnerable",AAPTR_PLAYER1) > 0) { return state("Death2"); }
-	  if (random(1,user_ailmentmaxchance) == 1)
+	  A_StatusEffectChecker(4);
+	  if (random(1,user_ailmentmaxchance) <= 1 && user_canafflict > 0)
 	  {
 	   A_SetUserVar("user_random",random(1,12));
 	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21,random(105,175)); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
