@@ -109,7 +109,6 @@ ACTOR MummyFX1New : MummyFX1 replaces MummyFX1
 {
   Damage (4 * random(1,8))
   DamageType "Fire" 
-  DamageType "Magic" 
 }
 actor MummyFX1CrisisParticle : BaseCrisisParticle
 { 

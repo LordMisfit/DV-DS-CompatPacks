@@ -1131,7 +1131,7 @@ ACTOR TNTSpider : MaulotaurBase 10906
 ACTOR MinotaurFX1New : AetheriusProjectileZSC replaces MinotaurFX1 
 {
   Damage (3 * random(1,8))
-  DamageType "Fire" DamageType "Magic" 
+  DamageType "Fire"
   Radius 10
   Height 6
   Speed 20
@@ -1185,7 +1185,7 @@ ACTOR MinotaurFX1Crisis : MinotaurFX1New
 ACTOR MinotaurFX2New : MinotaurFX1New replaces MinotaurFX2 
 {
   Damage (4 * random(1,8))
-  DamageType "Fire" DamageType "Magic" 
+  DamageType "Fire" 
   Radius 5
   Height 12
   Speed 14
@@ -1246,7 +1246,7 @@ ACTOR MinotaurFX2Crisis : MinotaurFX2New
 
 ACTOR MinotaurFX3New : MinotaurFX2New replaces MinotaurFX3 
 {
-  DamageType "Fire" DamageType "Magic" 
+  DamageType "Fire" 
   Radius 8
   Height 16
   Speed 0
