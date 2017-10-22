@@ -3755,9 +3755,9 @@ ACTOR Rifle : MarineWeapon 31407 // replaces BFG9000
     Loop
 
   Spawn:
-    TNT1 A 0 NoDelay A_JumpIfInventory("FloraInPlay", 1, "FloraDetected", AAPTR_PLAYER1)
+    TNT1 A 0 NoDelay A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") == 2, "FloraDetected")
   Idle:
-  	RIFL A -1
+  	RIFL A 2 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") == 2, "FloraDetected")
    	Loop
 
   Select:
@@ -3943,9 +3943,9 @@ ACTOR KDiZDGrenadeLauncher : MarineWeapon 31410 // replaces PlasmaRifle
     Loop
 
   Spawn:
-    TNT1 A 0 NoDelay A_JumpIfInventory("FloraInPlay", 1, "FloraDetected", AAPTR_PLAYER1)
+    TNT1 A 0 NoDelay A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") == 2, "FloraDetected")
   Idle:
-	GLAU A -1
+	GLAU A 2 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") == 2, "FloraDetected")
 	Loop
 
   Select:
