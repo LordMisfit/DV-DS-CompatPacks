@@ -688,7 +688,7 @@ ACTOR TommyGunCultistNew : AetheriusMonsterZSC 29011
      A_PlaySound("fanatic/attack", CHAN_BODY);
      A_FaceTarget;
      A_MonsterCrisisCheck;
-	 if (GetCVar("dvds_monsterbulletstracers") == 0)
+	 if (bullet_tracer_mode == 0)
 	 {
 	  A_CrisisBulletAttack(10, 5.6, 1, (Random(4,6) * Random(1,2)), "BulletPuff2", 0, CBAF_NORANDOM);
 	 }
@@ -819,7 +819,7 @@ ACTOR ShotgunCultistNew : TommyGunCultistNew 29010
 	 if (GetCVar("dvds_shotgunnerspread") == 0) { A_SetUserVar("user_pelletsfired",3); } else { A_SetUserVar("user_pelletsfired",7); }
 
 	 A_MonsterCrisisCheck;
-	 if (GetCVar("dvds_monsterbulletstracers") == 0) // Hitscan
+	 if (bullet_tracer_mode == 0) // Hitscan
 	 {
 	  A_CrisisBulletAttack(user_shotaccuracy, user_shotzaccuracy, user_pelletsfired, Random(4,6) * Random(1,2), "BulletPuff", 0, CBAF_AIMFACING|CBAF_NORANDOM);
 	 }

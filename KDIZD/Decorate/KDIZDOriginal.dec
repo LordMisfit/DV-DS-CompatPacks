@@ -975,7 +975,7 @@ ACTOR RapidFireTrooper : AetheriusMonsterZSC 3201
 	 A_PlaySound ("grunt/attack");
 
 	 A_MonsterCrisisCheck;
-	 if (GetCVar("dvds_monsterbulletstracers") == 0)
+	 if (bullet_tracer_mode == 0)
 	 {
 	  A_CrisisBulletAttack(user_shotaccuracy, user_shotzaccuracy, 1, random(1,5) * 3, "BulletPuff", 0, CBAF_NORANDOM);
 	 }
