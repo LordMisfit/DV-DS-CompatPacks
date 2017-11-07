@@ -42,11 +42,11 @@ ACTOR AdolfHitlerDS : AetheriusMonsterZSC replaces AdolfHitler
 	}
     HTLR ABCD 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",0); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_ChangeFlag("MISSILEMORE",1); A_ChangeFlag("MISSILEEVENMORE",0); }
+     if (levelbehavior > 0 && user_monsterlevel > 180) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",0); }
+     else if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("MISSILEMORE",1); A_ChangeFlag("MISSILEEVENMORE",0); }
 	 else { A_ChangeFlag("MISSILEMORE",0); A_ChangeFlag("MISSILEEVENMORE",0); }
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); A_SetTics(2); }
 	 A_Chase;
 	}
     Loop
@@ -55,12 +55,12 @@ ACTOR AdolfHitlerDS : AetheriusMonsterZSC replaces AdolfHitler
     TNT1 A 0
 	{
  	 A_SetUserVar("user_shotsfiredmax",random(75,125));
-	 if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(30,60))); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 100) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(25,50))); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 80) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(20,40))); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(15,30))); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 40) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(10,20))); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 20) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(5,10))); }
+	 if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(30,60))); }
+     else if (levelbehavior > 0 && user_monsterlevel > 100) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(25,50))); }
+     else if (levelbehavior > 0 && user_monsterlevel > 80) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(20,40))); }
+     else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(15,30))); }
+     else if (levelbehavior > 0 && user_monsterlevel > 40) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(10,20))); }
+     else if (levelbehavior > 0 && user_monsterlevel > 20) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(5,10))); }
     }
     HTLR E 20 Bright A_FaceTarget
 	HTLR E 0 Bright A_MonsterRefire(10,"See")
@@ -68,8 +68,8 @@ ACTOR AdolfHitlerDS : AetheriusMonsterZSC replaces AdolfHitler
   Attack:
     HTLR F 4 Bright
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+     if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
 	 A_FaceTarget;
      A_PlaySound("Hitler/Attack");
 
@@ -93,8 +93,8 @@ ACTOR AdolfHitlerDS : AetheriusMonsterZSC replaces AdolfHitler
 	HTLR F 0 Bright A_MonsterRefire(10,"EndMissile")
     HTLR G 4 Bright
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+     if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
 	 A_FaceTarget;
      A_PlaySound("Hitler/Attack");
 
@@ -204,11 +204,11 @@ actor Benellus1DS : AetheriusMonsterZSC replaces Benellus1
 	}
     BENE ABCD 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",0); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_ChangeFlag("MISSILEMORE",1); A_ChangeFlag("MISSILEEVENMORE",0); }
+     if (levelbehavior > 0 && user_monsterlevel > 180) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",0); }
+     else if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("MISSILEMORE",1); A_ChangeFlag("MISSILEEVENMORE",0); }
 	 else { A_ChangeFlag("MISSILEMORE",0); A_ChangeFlag("MISSILEEVENMORE",0); }
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); A_SetTics(2); }
 	 A_Chase;
 	}
     loop
@@ -217,46 +217,46 @@ actor Benellus1DS : AetheriusMonsterZSC replaces Benellus1
     TNT1 A 0
 	{
  	 A_SetUserVar("user_shotsfiredmax",random(2,3));
-	 if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(3,4))); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 80) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(2,3))); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 40) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(1,2))); }
+	 if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(3,4))); }
+     else if (levelbehavior > 0 && user_monsterlevel > 80) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(2,3))); }
+     else if (levelbehavior > 0 && user_monsterlevel > 40) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(1,2))); }
     }
     BENE ABCD 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 	}
     BENE ABCD 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 	}
     BENE ABCD 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 	}
     BENE ABCD 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 	}
     BENE ABCD 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 	}
     BENE ABCD 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 	}
 
   Missile1:
     BENE L 3 Bright
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 
      A_CustomMissile("ShellProjectile1",64,0,0 - 12.0); // One
      A_CustomMissile("ShellProjectile1",64,0,0 + 12.0); // One
@@ -266,8 +266,8 @@ actor Benellus1DS : AetheriusMonsterZSC replaces Benellus1
 	}
     BENE A 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 
      A_CustomMissile("ShellProjectile2",64,0,2 - 12.0); // Two
      A_CustomMissile("ShellProjectile2",64,0,-2 - 12.0); // Two
@@ -281,13 +281,13 @@ actor Benellus1DS : AetheriusMonsterZSC replaces Benellus1
 	}
     BENE K 3 Bright
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 	}
     BENE B 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 
      A_CustomMissile("ShellProjectile3",64,0,4 - 12.0); // Three
      A_CustomMissile("ShellProjectile3",64,0,0 - 12.0); // Three
@@ -305,13 +305,13 @@ actor Benellus1DS : AetheriusMonsterZSC replaces Benellus1
 	}
     BENE J 3 Bright
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 	}
     BENE C 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 
      A_CustomMissile("ShellProjectile4",64,0,6 - 12.0); // Four
      A_CustomMissile("ShellProjectile4",64,0,2 - 12.0); // Four
@@ -333,13 +333,13 @@ actor Benellus1DS : AetheriusMonsterZSC replaces Benellus1
 	}
     BENE G 3 Bright
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 	}
     BENE D 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 
      A_CustomMissile("ShellProjectile5",64,0,8 - 12.0); // Five
      A_CustomMissile("ShellProjectile5",64,0,4 - 12.0); // Five
@@ -365,8 +365,8 @@ actor Benellus1DS : AetheriusMonsterZSC replaces Benellus1
 	}
     BENE F 3 Bright
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 	}
     TNT1 A 0
 	{
@@ -377,8 +377,8 @@ actor Benellus1DS : AetheriusMonsterZSC replaces Benellus1
 	}
     BENE ABCD 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 	}
     goto Missile1
 
@@ -386,8 +386,8 @@ actor Benellus1DS : AetheriusMonsterZSC replaces Benellus1
     TNT1 A 0 A_SetUserVar("user_shotsfired",0)
     BENE ABCD 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 	}
     Goto See
 
@@ -533,11 +533,11 @@ actor Benellus3DS : AetheriusMonsterZSC replaces Benellus3
 	}
     BENE ABCD 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",0); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_ChangeFlag("MISSILEMORE",1); A_ChangeFlag("MISSILEEVENMORE",0); }
+     if (levelbehavior > 0 && user_monsterlevel > 180) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",0); }
+     else if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("MISSILEMORE",1); A_ChangeFlag("MISSILEEVENMORE",0); }
 	 else { A_ChangeFlag("MISSILEMORE",0); A_ChangeFlag("MISSILEEVENMORE",0); }
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); A_SetTics(2); }
 	 A_Chase;
 	}
     loop
@@ -545,66 +545,66 @@ actor Benellus3DS : AetheriusMonsterZSC replaces Benellus3
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
     BENE ABCD 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 	}
     BENE ABCD 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 	}
     BENE ABCD 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 	}
     BENE ABCD 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 	}
     BENE ABCD 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 	}
     BENE ABCD 3 
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 	}
     BENE ABCD 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 	}
     BENE ABCD 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 	}
     BENE ABCD 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 	}
     BENE ABCD 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 	}
   Missile1:
     BENE ABCD 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 	 A_SetUserVar("user_spread",16);
 	}
   Missile2:
     BENE L 3 Bright
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 
      A_CustomMissile("ShellProjectile5Orange",64,0,8 - user_spread);
      A_CustomMissile("ShellProjectile4Orange",64,0,4 - user_spread);
@@ -626,8 +626,8 @@ actor Benellus3DS : AetheriusMonsterZSC replaces Benellus3
 	}
     BENE A 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 
      A_CustomMissile("ShellProjectile5Orange",64,0,8 - user_spread);
      A_CustomMissile("ShellProjectile4Orange",64,0,4 - user_spread);
@@ -649,8 +649,8 @@ actor Benellus3DS : AetheriusMonsterZSC replaces Benellus3
 	}
     BENE K 3 Bright
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 
      A_CustomMissile("ShellProjectile5Orange",64,0,8 - user_spread);
      A_CustomMissile("ShellProjectile4Orange",64,0,4 - user_spread);
@@ -672,8 +672,8 @@ actor Benellus3DS : AetheriusMonsterZSC replaces Benellus3
 	}
     BENE B 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 
      A_CustomMissile("ShellProjectile5Orange",64,0,8 - user_spread);
      A_CustomMissile("ShellProjectile4Orange",64,0,4 - user_spread);
@@ -695,8 +695,8 @@ actor Benellus3DS : AetheriusMonsterZSC replaces Benellus3
 	}
     BENE J 3 Bright
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 
      A_CustomMissile("ShellProjectile5Orange",64,0,8 - user_spread);
      A_CustomMissile("ShellProjectile4Orange",64,0,4 - user_spread);
@@ -718,8 +718,8 @@ actor Benellus3DS : AetheriusMonsterZSC replaces Benellus3
 	}
     BENE C 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 
      A_CustomMissile("ShellProjectile5Orange",64,0,8 - user_spread);
      A_CustomMissile("ShellProjectile4Orange",64,0,4 - user_spread);
@@ -741,8 +741,8 @@ actor Benellus3DS : AetheriusMonsterZSC replaces Benellus3
 	}
     BENE G 3 Bright
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 
      A_CustomMissile("ShellProjectile5Orange",64,0,8 - user_spread);
      A_CustomMissile("ShellProjectile4Orange",64,0,4 - user_spread);
@@ -764,8 +764,8 @@ actor Benellus3DS : AetheriusMonsterZSC replaces Benellus3
 	}
     BENE D 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 
      A_CustomMissile("ShellProjectile5Orange",64,0,8 - user_spread);
      A_CustomMissile("ShellProjectile4Orange",64,0,4 - user_spread);
@@ -787,8 +787,8 @@ actor Benellus3DS : AetheriusMonsterZSC replaces Benellus3
 	}
     BENE F 3 Bright
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 
      A_CustomMissile("ShellProjectile5Orange",64,0,8 - user_spread);
      A_CustomMissile("ShellProjectile4Orange",64,0,4 - user_spread);
@@ -811,8 +811,8 @@ actor Benellus3DS : AetheriusMonsterZSC replaces Benellus3
     TNT1 A 0 A_PlaySound("benellus/pump1",7)
     BENE ABCD 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 240) { A_SetTics(1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 	 A_SetUserVar("user_spread",16);
 	}
     TNT1 A 0 A_SpidRefire

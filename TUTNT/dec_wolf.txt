@@ -43,11 +43,11 @@ ACTOR AdolfHitlerDS : AetheriusBossZSC 10917
 	}
     HTLR ABCD 3
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",1); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",0); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_ChangeFlag("MISSILEMORE",1); A_ChangeFlag("MISSILEEVENMORE",0); }
+     if (levelbehavior > 0 && user_monsterlevel > 180) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",1); }
+     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_ChangeFlag("MISSILEEVENMORE",1); A_ChangeFlag("MISSILEMORE",0); }
+     else if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("MISSILEMORE",1); A_ChangeFlag("MISSILEEVENMORE",0); }
 	 else { A_ChangeFlag("MISSILEMORE",0); A_ChangeFlag("MISSILEEVENMORE",0); }
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); A_SetTics(2); }
+     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); A_SetTics(2); }
 	 A_Chase;
 	}
     Loop
@@ -56,12 +56,12 @@ ACTOR AdolfHitlerDS : AetheriusBossZSC 10917
     TNT1 A 0
 	{
  	 A_SetUserVar("user_shotsfiredmax",random(75,125));
-	 if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 120) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(30,60))); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 100) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(25,50))); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 80) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(20,40))); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 60) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(15,30))); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 40) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(10,20))); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 20) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(5,10))); }
+	 if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(30,60))); }
+     else if (levelbehavior > 0 && user_monsterlevel > 100) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(25,50))); }
+     else if (levelbehavior > 0 && user_monsterlevel > 80) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(20,40))); }
+     else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(15,30))); }
+     else if (levelbehavior > 0 && user_monsterlevel > 40) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(10,20))); }
+     else if (levelbehavior > 0 && user_monsterlevel > 20) { A_SetUserVar("user_shotsfiredmax",user_shotsfiredmax+(random(5,10))); }
     }
     HTLR E 20 Bright A_FaceTarget
 	HTLR E 0 Bright A_MonsterRefire(10,"See")
@@ -69,8 +69,8 @@ ACTOR AdolfHitlerDS : AetheriusBossZSC 10917
   Attack:
     HTLR F 4 Bright
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+     if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
 	 A_FaceTarget;
      A_PlaySound("Hitler/Attack");
 
@@ -94,8 +94,8 @@ ACTOR AdolfHitlerDS : AetheriusBossZSC 10917
 	HTLR F 0 Bright A_MonsterRefire(10,"EndMissile")
     HTLR G 4 Bright
 	{
-     if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 180) { A_SetTics(2); }
-     else if (GetCVar("dvds_monsterlevelbehavior") > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+     if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+     else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
 	 A_FaceTarget;
      A_PlaySound("Hitler/Attack");
 

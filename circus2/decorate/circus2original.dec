@@ -75,11 +75,11 @@ ACTOR Sparkles
 	Spawn:
 		PWT2 ABCDABCDABCDABCDABCD 1 Bright 
 		Stop
- 	death:
- 		PWT2 E 2 A_Scream
-       		PWT2 F 2 A_Fall
-       		PWT2 GHI 2
- 		Stop
+	Death:
+		PWT2 E 2 A_Scream
+		PWT2 F 2 A_Fall
+		PWT2 GHI 2
+		Stop
 	}
 } 
 
