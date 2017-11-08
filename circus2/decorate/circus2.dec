@@ -426,10 +426,10 @@ actor SkullSeekerCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    GHST A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    GHST A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" AB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" AB 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -956,10 +956,10 @@ actor PennywiseHeadProjCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    CFHD A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    CFHD A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" A 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" A 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -1395,10 +1395,10 @@ actor RevRocketCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    RRCK A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    RRCK A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" A 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" A 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -1434,10 +1434,10 @@ actor HappyCloudCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    CLOD A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    CLOD A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" ABCBABCBABCBABCBABCDCBABCDCBCBABCDEFG 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" ABCBABCBABCBABCBABCDCBABCDCBCBABCDEFG 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -1778,10 +1778,10 @@ actor TinyBingoBallCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    ORBB A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    ORBB A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" AB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" AB 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -1949,7 +1949,7 @@ actor BeefyBall1 : AetheriusEffectProjectile
 	  A_StatusEffectChecker(4);
 	  if (random(1,user_ailmentmaxchance) <= 1 && user_canafflict > 0)
 	  {
-	   A_SetUserVar("user_random",random(1,13));
+	   user_random = random(1,13);
 	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21,random(105,175)); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19,random(105,175)); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20,random(105,175)); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -1990,10 +1990,10 @@ actor BeefyBall1CrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    MBBB A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    MBBB A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" AB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" AB 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -2019,7 +2019,7 @@ actor BeefyBall1Crisis : BeefyBall1
 	  A_StatusEffectChecker(4);
 	  if (random(1,user_ailmentmaxchance) <= 1 && user_canafflict > 0)
 	  {
-	   A_SetUserVar("user_random",random(1,13));
+	   user_random = random(1,13);
 	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -2082,7 +2082,7 @@ actor BeefyBall2 : BeefyBall1
 	  A_StatusEffectChecker(4);
 	  if (random(1,user_ailmentmaxchance) <= 1 && user_canafflict > 0)
 	  {
-	   A_SetUserVar("user_random",random(1,12));
+	   user_random = random(1,12);
 	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21,random(105,175)); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19,random(105,175)); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20,random(105,175)); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -2116,10 +2116,10 @@ actor BeefyBall2CrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    MBBB A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    MBBB A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" AB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" AB 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -2153,7 +2153,7 @@ actor BeefyBall2Crisis : BeefyBall2
 	  A_StatusEffectChecker(4);
 	  if (random(1,user_ailmentmaxchance) <= 1 && user_canafflict > 0)
 	  {
-	   A_SetUserVar("user_random",random(1,12));
+	   user_random = random(1,12);
 	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -2798,10 +2798,10 @@ actor Ghost2BallCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    GHBL A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    GHBL A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" A 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" A 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -3053,10 +3053,10 @@ actor BulbyBallCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    BBBL A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    BBBL A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" AABB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" AABB 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -3128,10 +3128,10 @@ actor BulbyBall2CrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    BBBL A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    BBBL A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" AABB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" AABB 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -3211,10 +3211,10 @@ actor BulbyBall3CrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    BBBL A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    BBBL A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" AABB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" AABB 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -3670,10 +3670,10 @@ actor BerthaBallCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    BRTF A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    BRTF A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" AB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" AB 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -3965,10 +3965,10 @@ actor SoulAttackCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    SEEK A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    SEEK A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" A 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" A 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -5031,10 +5031,10 @@ actor SkullSeeker666CrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    GHST A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    GHST A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" AB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" AB 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -5110,7 +5110,7 @@ actor Deadlight : AetheriusEffectProjectile
 	  A_StatusEffectChecker(4);
 	  if (random(1,user_ailmentmaxchance) <= 2 && user_canafflict > 0)
 	  {
-	   A_SetUserVar("user_random",random(1,12));
+	   user_random = random(1,12);
 	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21,random(105,175)); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19,random(105,175)); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20,random(105,175)); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -5129,7 +5129,7 @@ actor Deadlight : AetheriusEffectProjectile
 	  A_StatusEffectChecker(4);
 	  if (random(1,user_ailmentmaxchance) <= 2 && user_canafflict > 0)
 	  {
-	   A_SetUserVar("user_random",random(1,12));
+	   user_random = random(1,12);
 	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21,random(105,175)); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19,random(105,175)); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20,random(105,175)); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -5148,7 +5148,7 @@ actor Deadlight : AetheriusEffectProjectile
 	  A_StatusEffectChecker(4);
 	  if (random(1,user_ailmentmaxchance) <= 2 && user_canafflict > 0)
 	  {
-	   A_SetUserVar("user_random",random(1,12));
+	   user_random = random(1,12);
 	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21,random(105,175)); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19,random(105,175)); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20,random(105,175)); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -5167,7 +5167,7 @@ actor Deadlight : AetheriusEffectProjectile
 	  A_StatusEffectChecker(4);
 	  if (random(1,user_ailmentmaxchance) <= 2 && user_canafflict > 0)
 	  {
-	   A_SetUserVar("user_random",random(1,12));
+	   user_random = random(1,12);
 	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21,random(105,175)); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19,random(105,175)); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20,random(105,175)); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -5186,7 +5186,7 @@ actor Deadlight : AetheriusEffectProjectile
 	  A_StatusEffectChecker(4);
 	  if (random(1,user_ailmentmaxchance) <= 2 && user_canafflict > 0)
 	  {
-	   A_SetUserVar("user_random",random(1,12));
+	   user_random = random(1,12);
 	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21,random(105,175)); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19,random(105,175)); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20,random(105,175)); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -5205,7 +5205,7 @@ actor Deadlight : AetheriusEffectProjectile
 	  A_StatusEffectChecker(4);
 	  if (random(1,user_ailmentmaxchance) <= 2 && user_canafflict > 0)
 	  {
-	   A_SetUserVar("user_random",random(1,12));
+	   user_random = random(1,12);
 	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21,random(105,175)); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19,random(105,175)); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20,random(105,175)); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -5244,10 +5244,10 @@ actor DeadlightCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    PWT2 A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    PWT2 A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" AABBCCDD 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" AABBCCDD 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -5283,7 +5283,7 @@ actor DeadlightCrisis : Deadlight
 	  A_StatusEffectChecker(4);
 	  if (random(1,user_ailmentmaxchance) <= 2 && user_canafflict > 0)
 	  {
-	   A_SetUserVar("user_random",random(1,12));
+	   user_random = random(1,12);
 	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -5302,7 +5302,7 @@ actor DeadlightCrisis : Deadlight
 	  A_StatusEffectChecker(4);
 	  if (random(1,user_ailmentmaxchance) <= 2 && user_canafflict > 0)
 	  {
-	   A_SetUserVar("user_random",random(1,12));
+	   user_random = random(1,12);
 	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -5321,7 +5321,7 @@ actor DeadlightCrisis : Deadlight
 	  A_StatusEffectChecker(4);
 	  if (random(1,user_ailmentmaxchance) <= 2 && user_canafflict > 0)
 	  {
-	   A_SetUserVar("user_random",random(1,12));
+	   user_random = random(1,12);
 	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -5340,7 +5340,7 @@ actor DeadlightCrisis : Deadlight
 	  A_StatusEffectChecker(4);
 	  if (random(1,user_ailmentmaxchance) <= 2 && user_canafflict > 0)
 	  {
-	   A_SetUserVar("user_random",random(1,12));
+	   user_random = random(1,12);
 	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -5359,7 +5359,7 @@ actor DeadlightCrisis : Deadlight
 	  A_StatusEffectChecker(4);
 	  if (random(1,user_ailmentmaxchance) <= 2 && user_canafflict > 0)
 	  {
-	   A_SetUserVar("user_random",random(1,12));
+	   user_random = random(1,12);
 	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -5378,7 +5378,7 @@ actor DeadlightCrisis : Deadlight
 	  A_StatusEffectChecker(4);
 	  if (random(1,user_ailmentmaxchance) <= 2 && user_canafflict > 0)
 	  {
-	   A_SetUserVar("user_random",random(1,12));
+	   user_random = random(1,12);
 	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20, (random(105,175)*CallACS("CrisisMultiplier",5)) ); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)

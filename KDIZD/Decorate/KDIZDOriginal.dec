@@ -318,10 +318,10 @@ actor DemonCubeMissileCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    DCPF A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    DCPF A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" AB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" AB 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -925,17 +925,19 @@ ACTOR RapidFireTrooper : AetheriusMonsterZSC 3201
   Missile: 
     TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
     RFTR E 10
-	{
-	 user_shotsfired = 0;	 
-	 A_FaceTarget;
-	 A_SetUserVarFloat("user_shotaccuracy",22.5);
-	 A_SetUserVarFloat("user_shotzaccuracy",0.0);
-     if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(7); A_SetUserVarFloat("user_shotaccuracy",((user_shotaccuracy*6)/9)); A_SetUserVarFloat("user_shotzaccuracy",((user_shotzaccuracy*6)/9)); }
-     else if (levelbehavior > 0 && user_monsterlevel > 80) { A_SetTics(8); A_SetUserVarFloat("user_shotaccuracy",((user_shotaccuracy*7)/9)); A_SetUserVarFloat("user_shotzaccuracy",((user_shotzaccuracy*7)/9)); }
-     else if (levelbehavior > 0 && user_monsterlevel > 40) { A_SetTics(9); A_SetUserVarFloat("user_shotaccuracy",((user_shotaccuracy*8)/9)); A_SetUserVarFloat("user_shotzaccuracy",((user_shotzaccuracy*8)/9)); }
-	 A_SetUserVarFloat("user_shotaccuracy1",user_shotaccuracy/-2); A_SetUserVarFloat("user_shotaccuracy2",user_shotaccuracy/2);
-	 A_SetUserVarFloat("user_shotzaccuracy1",user_shotzaccuracy/-2); A_SetUserVarFloat("user_shotzaccuracy2",user_shotzaccuracy/2);
-	}
+		{
+		 user_shotsfired = 0;	 
+		 A_FaceTarget;
+		 user_shotaccuracy = 22.5;
+		 user_shotzaccuracy = 0.0;
+     if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(7); user_shotaccuracy = user_shotaccuracy * 6 / 9; user_shotzaccuracy = user_shotzaccuracy * 6 / 9; }
+     else if (levelbehavior > 0 && user_monsterlevel > 80) { A_SetTics(8); user_shotaccuracy = user_shotaccuracy * 7 / 9; user_shotzaccuracy = user_shotzaccuracy * 7 / 9; }
+     else if (levelbehavior > 0 && user_monsterlevel > 40) { A_SetTics(9); user_shotaccuracy = user_shotaccuracy * 8 / 9; user_shotzaccuracy = user_shotzaccuracy * 8 / 9; }
+		 user_shotaccuracy1 = user_shotaccuracy * -0.5;
+		 user_shotaccuracy2 = user_shotaccuracy * 0.5;
+		 user_shotzaccuracy1 = user_shotzaccuracy * -0.5;
+		 user_shotzaccuracy2 = user_shotzaccuracy * 0.5;
+		}
     RFTR F 5 Bright
 	{ 
      if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(3); }
@@ -1558,10 +1560,10 @@ actor ShadowBallCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    SBAL A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    SBAL A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" AABBCC 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" AABBCC 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -1814,10 +1816,10 @@ actor SoulHarvesterBallCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    SHBA A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    SHBA A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" AB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" AB 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -2155,118 +2157,118 @@ ACTOR Magmantis : AetheriusMonsterZSC 26660
 
 actor Portal1 : AetheriusProjectileZSC
 {
-  var int user_loops; var int user_maxloops;
-  obituary "%o was eradicated by the Deimos Guardian."
-  health 400
-  radius 31
-  height 56
-  mass 400
-  speed 0
-  renderstyle Add
-  alpha 0.8
-  painchance 0
-  MissileType Redstar
-  Missileheight 0
-  MONSTER
-  +FLOAT
-  +NOGRAVITY
-  +DONTFALL
-  +LOOKALLAROUND
-  +MISSILEEVENMORE
-  - Shootable
-  - Solid
-  - Countkill
-  states
-  {
-  Spawn:
-    TNT1 A 1 Bright A_Look
-    loop
-  See:
-    TNT1 A 1 Bright A_Chase
-    loop
-  Missile:
-    PORT ABCDEF 4 Bright
+	var int user_loops; var int user_maxloops;
+	obituary "%o was eradicated by the Deimos Guardian."
+	health 400
+	radius 31
+	height 56
+	mass 400
+	speed 0
+	renderstyle Add
+	alpha 0.8
+	painchance 0
+	MissileType Redstar
+	Missileheight 0
+	MONSTER
+	+FLOAT
+	+NOGRAVITY
+	+DONTFALL
+	+LOOKALLAROUND
+	+MISSILEEVENMORE
+	- Shootable
+	- Solid
+	- Countkill
+	states
 	{
-	 A_SetUserVar("user_loops",0);
-	 A_SetUserVar("user_maxloops",16);
+		Spawn:
+			TNT1 A 1 Bright A_Look
+			loop
+		See:
+			TNT1 A 1 Bright A_Chase
+			loop
+		Missile:
+			PORT ABCDEF 4 Bright
+			{
+			 user_loops = 0;
+			 user_maxloops = 16;
+			}
+		MissileLoop: // 8 times
+			PORT GHIJ 4 Bright 
+			{
+			 A_FaceTarget;
+			}
+			TNT1 A 0 bright 
+			{
+			 A_Missileattack;
+			}
+			PORT KLMN 4 Bright
+			{
+			 A_FaceTarget;
+			}
+			PORT T 4 bright
+			{
+			 A_Missileattack;
+			}
+			TNT1 A 0 bright 
+			{
+			 user_loops += 1;
+			 if (user_loops >= user_maxloops) { return state("Death"); }
+			 return state("");
+			}
+			loop
+		Death:
+			PORT HIJKLMNGOPQRS 4 Bright
+			stop
 	}
-  MissileLoop: // 8 times
-    PORT GHIJ 4 Bright 
-	{
-	 A_FaceTarget;
-	}
-    TNT1 A 0 bright 
-	{
-	 A_Missileattack;
-	}
-    PORT KLMN 4 Bright
-	{
-	 A_FaceTarget;
-	}
-    PORT T 4 bright
-	{
-	 A_Missileattack;
-	}
-    TNT1 A 0 bright 
-	{
-	 A_SetUserVar("user_loops",user_loops+1);
-	 if (user_loops >= user_maxloops) { return state("Death"); }
-	 return state("");
-	}
-	loop
-  Death:
-    PORT HIJKLMNGOPQRS 4 Bright
-    stop
-  }
 }
 
 actor Portal1Crisis : Portal1
 {
-  MissileType RedstarCrisis
-  states
-  {
-  Spawn:
-    TNT1 A 1 Bright A_Look
-    loop
-  See:
-    TNT1 A 1 Bright A_Chase
-    loop
-  Missile:
-    PORT ABCDEF 4 Bright
+	MissileType RedstarCrisis
+	states
 	{
-	 A_SetUserVar("user_loops",0);
-	 A_SetUserVar("user_maxloops",16);
+		Spawn:
+			TNT1 A 1 Bright A_Look
+			loop
+		See:
+			TNT1 A 1 Bright A_Chase
+			loop
+		Missile:
+			PORT ABCDEF 4 Bright
+			{
+			 user_loops = 0;
+			 user_maxloops = 16;
+			}
+		MissileLoop: // 8 times
+			PORT GHIJ 4 Bright 
+			{
+			 A_FaceTarget;
+			}
+			TNT1 A 0 bright 
+			{
+			 A_PlayCrisisAtkSound;
+			 A_Missileattack;
+			}
+			PORT KLMN 4 Bright
+			{
+			 A_FaceTarget;
+			}
+			PORT T 4 bright
+			{
+			 A_PlayCrisisAtkSound;
+			 A_Missileattack;
+			}
+			TNT1 A 0 bright 
+			{
+			 user_loops += 1;
+			 if (user_loops >= user_maxloops) { return state("Death"); }
+			 return state("");
+			}
+			loop
+		Death:
+			PORT HIJKLMNGOPQRS 4 Bright
+			stop
 	}
-  MissileLoop: // 8 times
-    PORT GHIJ 4 Bright 
-	{
-	 A_FaceTarget;
-	}
-    TNT1 A 0 bright 
-	{
-	 A_PlayCrisisAtkSound;
-	 A_Missileattack;
-	}
-    PORT KLMN 4 Bright
-	{
-	 A_FaceTarget;
-	}
-    PORT T 4 bright
-	{
-	 A_PlayCrisisAtkSound;
-	 A_Missileattack;
-	}
-    TNT1 A 0 bright 
-	{
-	 A_SetUserVar("user_loops",user_loops+1);
-	 if (user_loops >= user_maxloops) { return state("Death"); }
-	 return state("");
-	}
-	loop
-  Death:
-    PORT HIJKLMNGOPQRS 4 Bright
-    stop
-  }
 }
 
 actor Redstar : AetheriusEffectProjectile
@@ -2300,7 +2302,7 @@ actor Redstar : AetheriusEffectProjectile
 	  A_StatusEffectChecker(4);
 	  if (random(1,user_ailmentmaxchance) <= 1 && user_canafflict > 0)
 	  {
-	   A_SetUserVar("user_random",random(1,13));
+	   user_random = random(1,13);
 	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21,random(105,175)); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19,random(105,175)); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20,random(105,175)); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -2329,10 +2331,10 @@ actor RedstarCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    STAR A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    STAR A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" ABCD 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" ABCD 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -2370,7 +2372,7 @@ actor RedstarCrisis : Redstar
 	  A_StatusEffectChecker(4);
 	  if (random(1,user_ailmentmaxchance) <= 1 && user_canafflict > 0)
 	  {
-	   A_SetUserVar("user_random",random(1,13));
+	   user_random = random(1,13);
 	   if (user_random == 1) { ACS_NamedExecuteAlways("BuffTimer",0,8,21,random(105,175)); } // Silence for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 2) { ACS_NamedExecuteAlways("BuffTimer",0,8,19,random(105,175)); } // Blind for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
 	   else if (user_random == 3) { ACS_NamedExecuteAlways("BuffTimer",0,8,20,random(105,175)); } // Sleep for 3-5 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
@@ -2519,9 +2521,9 @@ actor MagmantisLostSoul : AetheriusMonsterZSC
     SKUL C 10 BRIGHT A_FaceTarget
     SKUL D 4 BRIGHT
 	{
-	 A_SetUserVar("user_canusecrisisatk",0);
-	 if(health <= user_HPLowRange) { if(health <= user_HPCritRange) { A_SetUserVar("user_canusecrisisatk",1); } else { if (random(1,4) == 4) { A_SetUserVar("user_canusecrisisatk",1);	} } }
-     if(GetCVar("dvds_monstercrisisattacks") == 0) { A_SetUserVar("user_canusecrisisatk",0); }
+	 user_canusecrisisatk = 0;
+	 if(health <= user_HPLowRange) { if(health <= user_HPCritRange) { user_canusecrisisatk = 1; } else { if (random(1,4) == 4) { user_canusecrisisatk = 1;	} } }
+     if(GetCVar("dvds_monstercrisisattacks") == 0) { user_canusecrisisatk = 0; }
 	 if(user_canusecrisisatk == 1)
 	 {
       A_PlayCrisisAtkSound;
@@ -2534,9 +2536,9 @@ actor MagmantisLostSoul : AetheriusMonsterZSC
 	}
     SKUL CCDD 2 BRIGHT
 	{
-	 A_SetUserVar("user_canusecrisisatk",0);
-	 if(health <= user_HPLowRange) { if(health <= user_HPCritRange) { A_SetUserVar("user_canusecrisisatk",1); } else { if (random(1,4) == 4) { A_SetUserVar("user_canusecrisisatk",1);	} } }
-     if(GetCVar("dvds_monstercrisisattacks") == 0) { A_SetUserVar("user_canusecrisisatk",0); }
+	 user_canusecrisisatk = 0;
+	 if(health <= user_HPLowRange) { if(health <= user_HPCritRange) { user_canusecrisisatk = 1; } else { if (random(1,4) == 4) { user_canusecrisisatk = 1;	} } }
+     if(GetCVar("dvds_monstercrisisattacks") == 0) { user_canusecrisisatk = 0; }
 	 if(user_canusecrisisatk == 1)
 	 {
 	  A_CustomMeleeAttack(random(1,8)*6,"none","none");

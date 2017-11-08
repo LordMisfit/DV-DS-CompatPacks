@@ -66,10 +66,10 @@ actor SonicFireballCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    VOGG A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    VOGG A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" ABCDEFGH 3 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" ABCDEFGH 3 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -226,10 +226,10 @@ actor ClayDevilMissileCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    BAL2 E 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    BAL2 E 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" E 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" E 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -431,10 +431,10 @@ actor FireBlastCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    PROJ A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    PROJ A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" AABBCC 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" AABBCC 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -487,10 +487,10 @@ actor SuperFireBlastCrisisParticle : FireBlastCrisisParticle
  States
  {
   Spawn:
-    GHBL A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    GHBL A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" A 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" A 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -810,10 +810,10 @@ actor ThrallShot1CrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    CFX4 A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    CFX4 A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" AB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" AB 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -1417,10 +1417,10 @@ actor ShadowBallCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    SBAL A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    SBAL A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" AABBCC 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" AABBCC 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -1626,10 +1626,10 @@ actor SoulHarvesterBallCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    SHBA A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    SHBA A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" AB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" AB 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -2054,10 +2054,10 @@ actor DCBMiss1CrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    CBTS A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    CBTS A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" ABCDEFGHIJ 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" ABCDEFGHIJ 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -2130,10 +2130,10 @@ actor DCBMiss2CrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    THZ4 A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    THZ4 A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" A 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" A 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -2234,10 +2234,10 @@ actor DCBMiss3CrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    FSFX A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    FSFX A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" NOPQRSTNOPQRST 3 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" NOPQRSTNOPQRST 3 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -2328,10 +2328,10 @@ actor DCBMiss3ExtraCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    CBTS S 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    CBTS S 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" S 1 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" S 1 Bright A_CrisisParticleDo
     loop
  }
 }

@@ -262,10 +262,10 @@ actor SGuardianFlameBreathCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    FRFX A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    FRFX A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" ABCDEFGHIJKLMMNOP 3 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" ABCDEFGHIJKLMMNOP 3 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -286,54 +286,52 @@ ACTOR SGuardianFlameBreathCrisis : SGuardianFlameBreath
 
 ACTOR SourceGuardianDetonator : AetheriusProjectileZSC
 {
-  var int user_angleshots;
-  var int user_angleshotsmax;
-  var int user_angleshotsangle;
-  var int user_detonationtimer;
-  Radius 6
-  Height 8
-  Speed 20
-  SEESOUND "cycloid/bounce"
-  DEATHSOUND "catharsi/shotdth"
-  PROJECTILE
-  -SHOOTABLE
-  +DOOMBOUNCE
-  +RANDOMIZE
-  -NOGRAVITY
-  states
-  {
-  Spawn:
-    THR2 A 4 
+	var int user_angleshots;
+	var int user_angleshotsmax;
+	var int user_angleshotsangle;
+	var int user_detonationtimer;
+	Radius 6
+	Height 8
+	Speed 20
+	SEESOUND "cycloid/bounce"
+	DEATHSOUND "catharsi/shotdth"
+	PROJECTILE
+	-SHOOTABLE
+	+DOOMBOUNCE
+	+RANDOMIZE
+	-NOGRAVITY
+	states
 	{
-	 A_PlaySound("catharsi/thermtick");
+		Spawn:
+			THR2 A 4 
+			{
+			 A_PlaySound("catharsi/thermtick");
+			}
+			THR2 BBBB 4
+			THR2 B 0
+			{
+			 user_detonationtimer + 1;
+			 if (user_detonationtimer >= 4) { return state("Death"); }
+			 return state("");
+			}
+			loop
+		Death:
+			SDFB B 0 
+			{
+			 user_angleshots = 0;
+			 user_angleshotsmax = 36;
+			 user_angleshotsangle = 10;
+			}
+			SDFB B 0 
+			{
+			 for (user_angleshots = 0; user_angleshots < user_angleshotsmax; user_angleshots++)
+			 {
+				A_SpawnProjectile("CatharsiBall", 4, 0, user_angleshots*user_angleshotsangle, CMF_AIMOFFSET | CMF_TRACKOWNER | CMF_OFFSETPITCH | CMF_BADPITCH, 4);
+			 }
+			}
+			SDFB BCDE 6 BRIGHT A_Die
+			stop
 	}
-    THR2 BBBB 4
-	{
-	}
-    THR2 B 0
-	{
-	 user_detonationtimer + 1;
-	 if (user_detonationtimer >= 4) { return state("Death"); }
-	 return state("");
-	}
-	loop
-  Death:
-    SDFB B 0 
-	{
-	 user_angleshots = 0;
-	 user_angleshotsmax = 36;
-	 user_angleshotsangle = 10;
-	}
-    SDFB B 0 
-	{
-	 for (A_SetUserVar(user_angleshots, 0); user_angleshots < user_angleshotsmax; A_SetUserVar(user_angleshots, user_angleshots + 1))
-	 {
-	  A_SpawnProjectile("CatharsiBall", 4, 0, user_angleshots*user_angleshotsangle, CMF_AIMOFFSET | CMF_TRACKOWNER | CMF_OFFSETPITCH | CMF_BADPITCH, 4);
-	 }
-	}
-    SDFB BCDE 6 BRIGHT A_Die
-    stop
-  }
 }
 actor SourceGuardianDetonatorCrisisParticle : BaseCrisisParticle
 {
@@ -343,51 +341,51 @@ actor SourceGuardianDetonatorCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    THR2 A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    THR2 A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" ABBBB 4 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" ABBBB 4 Bright A_CrisisParticleDo
     loop
  }
 }
 ACTOR SourceGuardianDetonatorCrisis : SourceGuardianDetonator
 {
-  states
-  {
-  Spawn:
-    THR2 A 4 
+	states
 	{
-     A_SpawnItemEx("SourceGuardianDetonatorCrisisParticle",0,0,0,0,0,1.28);
-	 A_PlaySound("catharsi/thermtick");
+		Spawn:
+			THR2 A 4 
+			{
+			 A_SpawnItemEx("SourceGuardianDetonatorCrisisParticle",0,0,0,0,0,1.28);
+			 A_PlaySound("catharsi/thermtick");
+			}
+			THR2 BBBB 4
+			{
+			 A_SpawnItemEx("SourceGuardianDetonatorCrisisParticle",0,0,0,0,0,1.28);
+			}
+			THR2 B 0
+			{
+			 user_detonationtimer + 1;
+			 if (user_detonationtimer >= 4) { return state("Death"); }
+			 return state("");
+			}
+			loop
+		Death:
+			SDFB B 0 
+			{
+			 user_angleshots = 0;
+			 user_angleshotsmax = 36;
+			 user_angleshotsangle = 10;
+			}
+			SDFB B 0 
+			{
+			 for (user_angleshots = 0; user_angleshots < user_angleshotsmax; user_angleshots++)
+			 {
+				A_SpawnProjectile("CatharsiBallCrisis", 4, 0, user_angleshots*user_angleshotsangle, CMF_AIMOFFSET | CMF_TRACKOWNER | CMF_OFFSETPITCH | CMF_BADPITCH, 4);
+			 }
+			}
+			SDFB BCDE 6 BRIGHT A_Die
+			stop
 	}
-    THR2 BBBB 4
-	{
-     A_SpawnItemEx("SourceGuardianDetonatorCrisisParticle",0,0,0,0,0,1.28);
-	}
-    THR2 B 0
-	{
-	 user_detonationtimer + 1;
-	 if (user_detonationtimer >= 4) { return state("Death"); }
-	 return state("");
-	}
-	loop
-  Death:
-    SDFB B 0 
-	{
-	 user_angleshots = 0;
-	 user_angleshotsmax = 36;
-	 user_angleshotsangle = 10;
-	}
-    SDFB B 0 
-	{
-	 for (A_SetUserVar(user_angleshots, 0); user_angleshots < user_angleshotsmax; A_SetUserVar(user_angleshots, user_angleshots + 1))
-	 {
-	  A_SpawnProjectile("CatharsiBallCrisis", 4, 0, user_angleshots*user_angleshotsangle, CMF_AIMOFFSET | CMF_TRACKOWNER | CMF_OFFSETPITCH | CMF_BADPITCH, 4);
-	 }
-	}
-    SDFB BCDE 6 BRIGHT A_Die
-    stop
-  }
 }
 
 actor SourceLifeSeed : CustomInventory 16998
@@ -794,10 +792,10 @@ actor CatharsiBallCrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    SDFB A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    SDFB A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" A 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" A 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -1146,10 +1144,10 @@ actor MinotaurFX1CrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    FX12 A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    FX12 A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" AAABBB 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" AAABBB 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -1204,10 +1202,10 @@ actor MinotaurFX2CrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    FX13 A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    FX13 A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" A 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" A 2 Bright A_CrisisParticleDo
     loop
  }
 }
@@ -1281,10 +1279,10 @@ actor MinotaurFX3CrisisParticle : BaseCrisisParticle
  States
  {
   Spawn:
-    FX13 A 0 NoDelay { A_SetUserVarFloat("user_basealpha",alpha*0.10); A_SetUserVarFloat("user_basescaleX",scaleX*0.10); A_SetUserVarFloat("user_basescaleY",scaleY*0.10); }
+    FX13 A 0 NoDelay A_CrisisParticleInit
 	goto Idle
   Idle:
-    "####" DDCCBBCCDDEEFFGGHH 2 Bright { A_SetScale(scaleX-user_basescaleX,scaleY-user_basescaleY); if (scalex < 0.00 && scaley < 0.00) { A_FadeOut(2); } A_FadeOut(user_basealpha); }
+    "####" DDCCBBCCDDEEFFGGHH 2 Bright A_CrisisParticleDo
     loop
  }
 }
