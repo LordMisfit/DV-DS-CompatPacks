@@ -1,718 +1,709 @@
 BigBushTree
 {      
-       DoomEdNum 21644 
-       Sprite MTRE
-       Frames "10:A"
-       Solid
-       Radius 48
-       Height 128
+	DoomEdNum 21644 
+	Sprite MTRE
+	Frames "10:A"
+	Solid
+	Radius 48
+	Height 128
 }
 GreenTree
 {      
-       DoomEdNum 20001 
-       Sprite MTR1
-       Frames "10:A"
-       Solid
-       Radius 32
-       Height 110
+	DoomEdNum 20001 
+	Sprite MTR1
+	Frames "10:A"
+	Solid
+	Radius 32
+	Height 110
 }
 Blossom1
 {      
-       DoomEdNum 20002 
-       Sprite MTR2
-       Frames "10:A"
-       Solid
-       Radius 32
-       Height 110
+	DoomEdNum 20002 
+	Sprite MTR2
+	Frames "10:A"
+	Solid
+	Radius 32
+	Height 110
 }
 Blossom2
 {      
-       DoomEdNum 20003 
-       Sprite MTR3
-       Frames "10:A"
-       Solid
-       Radius 32
-       Height 110
+	DoomEdNum 20003 
+	Sprite MTR3
+	Frames "10:A"
+	Solid
+	Radius 32
+	Height 110
 }
 Blossom3
 {      
-       DoomEdNum 20008
-       Sprite MTR8
-       Frames "10:A"
-       Solid
-       Radius 24
-       Height 112
+	DoomEdNum 20008
+	Sprite MTR8
+	Frames "10:A"
+	Solid
+	Radius 24
+	Height 112
 }
 TwistedPine
 {      
-       DoomEdNum 20004 
-       Sprite MTR4
-       Frames "10:A"
-       Solid
-       Radius 36
-       Height 110
+	DoomEdNum 20004 
+	Sprite MTR4
+	Frames "10:A"
+	Solid
+	Radius 36
+	Height 110
 }
 Spruce
 {      
-       DoomEdNum 20005 
-       Sprite MTR5
-       Frames "10:A"
-       Solid
-       Radius 36
-       Height 110
+	DoomEdNum 20005 
+	Sprite MTR5
+	Frames "10:A"
+	Solid
+	Radius 36
+	Height 110
 }
 Poplar
 {      
-       DoomEdNum 20006 
-       Sprite MTR6
-       Frames "10:A"
-       Solid
-       Radius 40
-       Height 128
+	DoomEdNum 20006 
+	Sprite MTR6
+	Frames "10:A"
+	Solid
+	Radius 40
+	Height 128
 }
 OakTree
 {      
-       DoomEdNum 20007
-       Sprite MTR7
-       Frames "10:A"
-       Solid
-       Radius 32
-       Height 112
+	DoomEdNum 20007
+	Sprite MTR7
+	Frames "10:A"
+	Solid
+	Radius 32
+	Height 112
 }
 
 ACTOR Pennywise //32119
 {
-    Health 100
-    Radius 29
-    Height 56
-    Speed 30
-    Mass 250
-    PainChance 80
-    MONSTER 
-    +FLOORCLIP
-    +NOGRAVITY
-    +FLOAT
-    +FULLVOLDEATH
-    +COUNTKILL
-    MELEEDAMAGE 1
-    SeeSound "float"
-    PainSound "ithit"
-    DeathSound "ithit"
-    ActiveSound "float"
-    MeleeSound "hit1"
-    HitObituary "%o was eaten by the Pennywise the Dancing Clown"
-    States
-    {
-    Spawn:
-        PENY AB 1 A_Look
-        Loop
-    See:
-        PENY AB 1 A_Chase
-        Loop
-    Pain:
-        PENY H 2
-        PENY H 3 A_Pain
-        Goto See
-    Melee:
-        PENY E  1 A_MeleeAttack
-        PENY F  1
-        Goto See
-    Death:
-        PENY H 5
-        PENY I 10 
-        PENY J 10 A_Scream
-        PENY K 10 A_Fall
-        PENY L 10 
-        PENY M 10
-        PENY N 10
-        Stop
-    }
+	Health 100
+	Radius 29
+	Height 56
+	Speed 30
+	Mass 250
+	PainChance 80
+	MONSTER 
+	+FLOORCLIP
+	+NOGRAVITY
+	+FLOAT
+	+FULLVOLDEATH
+	+COUNTKILL
+	MELEEDAMAGE 1
+	SeeSound "float"
+	PainSound "ithit"
+	DeathSound "ithit"
+	ActiveSound "float"
+	MeleeSound "hit1"
+	HitObituary "%o was eaten by the Pennywise the Dancing Clown"
+	States
+	{
+		Spawn:
+				PENY AB 1 A_Look
+				Loop
+		See:
+				PENY AB 1 A_Chase
+				Loop
+		Pain:
+				PENY H 2
+				PENY H 3 A_Pain
+				Goto See
+		Melee:
+				PENY E  1 A_MeleeAttack
+				PENY F  1
+				Goto See
+		Death:
+				PENY H 5
+				PENY I 10 
+				PENY J 10 A_Scream
+				PENY K 10 A_Fall
+				PENY L 10 
+				PENY M 10
+				PENY N 10
+				Stop
+	}
 }
 
 /*=======================*/
 actor Skull 3100
 { 
-    Radius 8 
-    Height 6 
-    States 
-    { 
-    Spawn: 
-        ASKL A 4 
-        Loop 
-    } 
+	Radius 8 
+	Height 6 
+	States 
+	{ 
+		Spawn: 
+				ASKL A 4 
+				Loop 
+	} 
 } 
 /*=======================*/
 actor BSkull 3111
 { 
-    Radius 8 
-    Height 6   
-    States 
-    { 
-    Spawn: 
-        BSKL A 4 
-        Loop 
-    } 
+	Radius 8 
+	Height 6   
+	States 
+	{ 
+		Spawn: 
+				BSKL A 4 
+				Loop 
+	} 
 } 
 /*=======================*/
 
 actor Balloon 3112
 {
-Radius 12
-Height 40
-HEALTH 2
-Mass 25
-+SHOOTABLE 
-+NOGRAVITY
-+HEXENBOUNCE
-+PUSHABLE 
-+FloatBob
-+SPAWNFLOAT 
-+NOLIFTDROP
-+DONTOVERLAP
-+CANNOTPUSH
-+NOBLOCKMONST    
-DropItem Blood 255 8
-DropItem Blood
-DropItem Blood
-DropItem Blood
-DropItem Blood
-DropItem Blood
-DropItem Blood
-DropItem BloodSplashBase
-DropItem BloodSplashBase 
-DropItem BloodSplashBase 
-DropItem BloodSplashBase  
-PainSound "pop1"
-DeathSound "pop1"
-States
-    {
-    Spawn:
-        BOON A 4 A_Look
-        Loop
-    See:
-        BOON A 4 A_Chase
-        Loop
-    Pain:
-        BOON A 4
-        Goto See
-    Death:
-        BOON B 2 A_Scream
-        BOON C 2 A_Fall
-        BOON D 2
-        BOON E 2
-        BOON F 2
-        BOON G 2
-        Stop
-    }
+	Radius 12
+	Height 40
+	HEALTH 2
+	Mass 25
+	+SHOOTABLE 
+	+NOGRAVITY
+	+HEXENBOUNCE
+	+PUSHABLE 
+	+FloatBob
+	+SPAWNFLOAT 
+	+NOLIFTDROP
+	+DONTOVERLAP
+	+CANNOTPUSH
+	+NOBLOCKMONST    
+	DropItem Blood 255 8
+	DropItem Blood
+	DropItem Blood
+	DropItem Blood
+	DropItem Blood
+	DropItem Blood
+	DropItem Blood
+	DropItem BloodSplashBase
+	DropItem BloodSplashBase 
+	DropItem BloodSplashBase 
+	DropItem BloodSplashBase  
+	PainSound "pop1"
+	DeathSound "pop1"
+	States
+	{
+		Spawn:
+			BOON A 4 A_Look
+			Loop
+		See:
+			BOON A 4 A_Chase
+			Loop
+		Pain:
+			BOON A 4
+			Goto See
+		Death:
+			BOON B 2 A_Scream
+			BOON C 2 A_Fall
+			BOON D 2
+			BOON E 2
+			BOON F 2
+			BOON G 2
+			Stop
+	}
 }
 /*=======================*/
 
 actor BallYel 3113
 {
-Radius 12
-Height 40
-HEALTH 2
-Mass 25
-+SHOOTABLE 
-+NOGRAVITY
-+HEXENBOUNCE
-+PUSHABLE 
-+FloatBob
-+SPAWNFLOAT 
-+NOLIFTDROP
-+NOBLOOD
-+DONTOVERLAP
-+CANNOTPUSH
-+NOBLOCKMONST     
-PainSound "pop1"
-DeathSound "pop1"
-States
-    {
-    Spawn:
-        BNYL A 4 A_Look
-        Loop
-    See:
-        BNYL A 4 A_Chase
-        Loop
-    Pain:
-        BOON A 4
-        Goto See
-    Death:
-        BNYL B 2 A_Scream
-        BNYL C 2 A_Fall
-        BNYL DEF 2   
-        Stop
-    }
+	Radius 12
+	Height 40
+	HEALTH 2
+	Mass 25
+	+SHOOTABLE 
+	+NOGRAVITY
+	+HEXENBOUNCE
+	+PUSHABLE 
+	+FloatBob
+	+SPAWNFLOAT 
+	+NOLIFTDROP
+	+NOBLOOD
+	+DONTOVERLAP
+	+CANNOTPUSH
+	+NOBLOCKMONST     
+	PainSound "pop1"
+	DeathSound "pop1"
+	States
+	{
+		Spawn:
+			BNYL A 4 A_Look
+			Loop
+		See:
+			BNYL A 4 A_Chase
+			Loop
+		Pain:
+			BOON A 4
+			Goto See
+		Death:
+			BNYL B 2 A_Scream
+			BNYL C 2 A_Fall
+			BNYL DEF 2   
+			Stop
+	}
 }
 /*=======================*/
 
 actor BallTarg 3114
 {
-Radius 12
-Height 40
-HEALTH 2
-Mass 25
-+SHOOTABLE 
-+PUSHABLE 
-+CANNOTPUSH
-+DROPOFF
-+CANPASS
-+NOBLOCKMONST 
-DropItem Blood 255 8
-DropItem Blood
-DropItem Blood
-DropItem Blood
-DropItem Blood
-DropItem Blood
-DropItem Blood
-DropItem BloodSplashBase
-DropItem BloodSplashBase 
-DropItem BloodSplashBase 
-DropItem BloodSplashBase  
-PainSound "pop1"
-DeathSound "pop1"
-States
-    {
-    Spawn:
-        BOON A 4 A_Look
-        Loop
-    See:
-        BOON A 4 A_Chase
-        Loop
-    Pain:
-        BOON A 4
-        Goto See
-    Death:
-        BOON B 2 A_Scream
-        BOON C 2 A_Fall
-        BOON D 2
-        BOON E 2
-        BOON F 2
-        BOON G 2
-        Stop
-    }
+	Radius 12
+	Height 40
+	HEALTH 2
+	Mass 25
+	+SHOOTABLE 
+	+PUSHABLE 
+	+CANNOTPUSH
+	+DROPOFF
+	+CANPASS
+	+NOBLOCKMONST 
+	DropItem Blood 255 8
+	DropItem Blood
+	DropItem Blood
+	DropItem Blood
+	DropItem Blood
+	DropItem Blood
+	DropItem Blood
+	DropItem BloodSplashBase
+	DropItem BloodSplashBase 
+	DropItem BloodSplashBase 
+	DropItem BloodSplashBase  
+	PainSound "pop1"
+	DeathSound "pop1"
+	States
+	{
+		Spawn:
+			BOON A 4 A_Look
+			Loop
+		See:
+			BOON A 4 A_Chase
+			Loop
+		Pain:
+			BOON A 4
+			Goto See
+		Death:
+			BOON B 2 A_Scream
+			BOON C 2 A_Fall
+			BOON D 2
+			BOON E 2
+			BOON F 2
+			BOON G 2
+			Stop
+	}
 }
 
 ACTOR PossessedBalloon //3115
 {
-    Health 15
-    Radius 15
-    Height 40
-    Speed 2
-    Mass 20
-    PainChance 50
-    MONSTER 
-    +FLOORCLIP
-    +NOGRAVITY
-    +FLOAT
-    +COUNTKILL
-    +CANPASS
-    +PUSHABLE
-    +FloatBob
-    DropItem Blood 255 8
-    DropItem Blood
-    DropItem Blood
-    DropItem Blood
-    DropItem Blood
-    DropItem Blood
-    DropItem Blood
-    DropItem BloodSplashBase
-    DropItem BloodSplashBase 
-    DropItem BloodSplashBase 
-    DropItem BloodSplashBase  
-    MELEEDAMAGE 1
-    SeeSound "delfate4"
-    PainSound "hit1"
-    DeathSound "delfate3"
-    ActiveSound "hit1"
-    MeleeSound "hit1"
-    HitObituary "%o wanted to float with all the pretty balloons."
-    States
-    {
-    Spawn:
-        BSTN A 2 A_Look
-        Loop
-    See:
-        BSTN A 2 A_Chase
-        Loop
-    Pain:
-        BSTN B 3 A_Pain
-        Goto See
-    Melee:
-        BSTN BC 4
-        BSTN  D 4 A_MeleeAttack
-        BSTN  CB  4 
-       
-        Goto See
-    Death:
-        BSTN B 3
-        BSTN C 3 
-        BSTN D 3 A_Scream
-        BSTN E 3 A_Fall
-        BSTN FGHIJKLM 3
-        Stop
-    }
+	Health 15
+	Radius 15
+	Height 40
+	Speed 2
+	Mass 20
+	PainChance 50
+	MONSTER 
+	+FLOORCLIP
+	+NOGRAVITY
+	+FLOAT
+	+COUNTKILL
+	+CANPASS
+	+PUSHABLE
+	+FloatBob
+	DropItem Blood 255 8
+	DropItem Blood
+	DropItem Blood
+	DropItem Blood
+	DropItem Blood
+	DropItem Blood
+	DropItem Blood
+	DropItem BloodSplashBase
+	DropItem BloodSplashBase 
+	DropItem BloodSplashBase 
+	DropItem BloodSplashBase  
+	MELEEDAMAGE 1
+	SeeSound "delfate4"
+	PainSound "hit1"
+	DeathSound "delfate3"
+	ActiveSound "hit1"
+	MeleeSound "hit1"
+	HitObituary "%o wanted to float with all the pretty balloons."
+	States
+	{
+		Spawn:
+			BSTN A 2 A_Look
+			Loop
+		See:
+			BSTN A 2 A_Chase
+			Loop
+		Pain:
+			BSTN B 3 A_Pain
+			Goto See
+		Melee:
+			BSTN BC 4
+			BSTN D 4 A_MeleeAttack
+			BSTN CB 4 
+			Goto See
+		Death:
+			BSTN B 3
+			BSTN C 3 
+			BSTN D 3 A_Scream
+			BSTN E 3 A_Fall
+			BSTN FGHIJKLM 3
+			Stop
+	}
 }
 ACTOR BigBertha : PossessedBalloon //3225
 {
-    Scale 12
-    Health 6500
-    Radius 64
-    Height 128
-    Speed 6
-    Mass 800
-    PainChance 50
-    MONSTER
-    +NORADIUSDMG 
-    MELEEDAMAGE 4
-    HitObituary "%o was eaten by big bertha." 
-    Obituary "%o was blasted by big bertha."
-    MissileHeight 32
-    MissileType RevRocket
-    States
-    {
-    Spawn:
-        BSTN B 2 A_Look
-        Loop
-    See:
-        BSTN BC 8 A_Chase
-        Loop
-    Pain:
-        BSTN B 3 A_Pain
-        Goto See
-    Melee:
-        BSTN BC 4
-        BSTN  D 4 A_MeleeAttack
-        BSTN  CB  4 
-        Goto See
-    Missile: 
-        BSTN BC 4 Bright A_FaceTarget
-        BSTN D 3 Bright A_CustomMissile("RevRocket", 96, 64, -30, 1)
-        BSTN BC 6 Bright A_FaceTarget
-        BSTN D 3 Bright A_CustomMissile("RevRocket", 96, -64, 30, 1)
-        BSTN BC 4 Bright A_FaceTarget
-        BSTN D 3 Bright A_CustomMissile("RevRocket", 96, 64, -60, 1)
-        BSTN BC 6 Bright A_FaceTarget
-        BSTN D 3 Bright A_CustomMissile("RevRocket", 96, -64, 60, 1)
-        BSTN BC 6 Bright A_FaceTarget
-        BSTN D 3 Bright A_CustomMissile("RevRocket", 96, 64, -90, 1)
-        BSTN BC 4 Bright A_FaceTarget
-        BSTN D 3 Bright A_CustomMissile("RevRocket", 96, -64, 90, 1)
-        Goto See 
-    Death:
-        BSTN B 3
-        BSTN C 3 
-        BSTN D 3 A_Scream
-        BSTN E 3 A_Fall
-        BSTN FGHIJKLM 3
-        Stop
-    }
-    
+	Scale 12
+	Health 6500
+	Radius 64
+	Height 128
+	Speed 6
+	Mass 800
+	PainChance 50
+	MONSTER
+	+NORADIUSDMG 
+	MELEEDAMAGE 4
+	HitObituary "%o was eaten by big bertha." 
+	Obituary "%o was blasted by big bertha."
+	MissileHeight 32
+	MissileType RevRocket
+	States
+	{
+		Spawn:
+			BSTN B 2 A_Look
+			Loop
+		See:
+			BSTN BC 8 A_Chase
+			Loop
+		Pain:
+			BSTN B 3 A_Pain
+			Goto See
+		Melee:
+			BSTN BC 4
+			BSTN D 4 A_MeleeAttack
+			BSTN CB 4 
+			Goto See
+		Missile: 
+			BSTN BC 4 Bright A_FaceTarget
+			BSTN D 3 Bright A_CustomMissile("RevRocket", 96, 64, -30, 1)
+			BSTN BC 6 Bright A_FaceTarget
+			BSTN D 3 Bright A_CustomMissile("RevRocket", 96, -64, 30, 1)
+			BSTN BC 4 Bright A_FaceTarget
+			BSTN D 3 Bright A_CustomMissile("RevRocket", 96, 64, -60, 1)
+			BSTN BC 6 Bright A_FaceTarget
+			BSTN D 3 Bright A_CustomMissile("RevRocket", 96, -64, 60, 1)
+			BSTN BC 6 Bright A_FaceTarget
+			BSTN D 3 Bright A_CustomMissile("RevRocket", 96, 64, -90, 1)
+			BSTN BC 4 Bright A_FaceTarget
+			BSTN D 3 Bright A_CustomMissile("RevRocket", 96, -64, 90, 1)
+			Goto See 
+		Death:
+			BSTN B 3
+			BSTN C 3 
+			BSTN D 3 A_Scream
+			BSTN E 3 A_Fall
+			BSTN FGHIJKLM 3
+			Stop
+	}
 }
 
 /*=======================*/
 
 actor BallGreen 3116
 {
-Radius 12
-Height 40
-HEALTH 2
-Mass 25
-+SHOOTABLE 
-+NOGRAVITY
-+HEXENBOUNCE
-+PUSHABLE 
-+FloatBob
-+SPAWNFLOAT 
-+NOLIFTDROP
-+NOBLOOD
-+DONTOVERLAP
-+CANNOTPUSH
-+NOBLOCKMONST 
-DropItem Clip    60
-DropItem Shell   50
-DropItem HealthBonus   40
-DropItem ArmorBonus   40
-DropItem Medikit   5
-DropItem Stimpack   10
-
-PainSound "pop1"
-DeathSound "pop1"
-States
-    {
-    Spawn:
-        GBON A 4 A_Look
-        Loop
-    See:
-        GBON A 4 A_Chase
-        Loop
-    Pain:
-        GBON A 4
-        Goto See
-    Death:
-        GBON B 2 A_Scream
-        GBON C 2 A_Fall
-        GBON DEFG 3   
-        Stop
-    }
+	Radius 12
+	Height 40
+	HEALTH 2
+	Mass 25
+	+SHOOTABLE 
+	+NOGRAVITY
+	+HEXENBOUNCE
+	+PUSHABLE 
+	+FloatBob
+	+SPAWNFLOAT 
+	+NOLIFTDROP
+	+NOBLOOD
+	+DONTOVERLAP
+	+CANNOTPUSH
+	+NOBLOCKMONST 
+	DropItem Clip    60
+	DropItem Shell   50
+	DropItem HealthBonus   40
+	DropItem ArmorBonus   40
+	DropItem Medikit   5
+	DropItem Stimpack   10
+	PainSound "pop1"
+	DeathSound "pop1"
+	States
+	{
+		Spawn:
+			GBON A 4 A_Look
+			Loop
+		See:
+			GBON A 4 A_Chase
+			Loop
+		Pain:
+			GBON A 4
+			Goto See
+		Death:
+			GBON B 2 A_Scream
+			GBON C 2 A_Fall
+			GBON DEFG 3   
+			Stop
+	}
 }
 ACTOR JumpingSkull //3117
 {
-    Health 30
-    Radius 8
-    Height 11
-    Speed 9
-    Mass 20
-    PainChance 70
-    MONSTER 
-    +FLOORCLIP 
-    +RANDOMIZE 
-    +COUNTKILL
-    +CANPASS   
-    MELEEDAMAGE 1
-    SeeSound "jump11"
-    PainSound "jumphit"
-    DeathSound "jumpdie"
-    ActiveSound "laff4"
-    MeleeSound "jumpbite"
-    HitObituary "%o was bitten by a bouncing skull."
-    States
-    {
-    Spawn:
-        JUMP A 4 A_Look
-        Loop
-    See:
-        JUMP ABCBA 2 A_Chase
-        Loop
-    Pain:
-        JUMP B 4 A_Pain
-        Goto See
-    Melee:
-        JUMP A 3
-        JUMP B 3
-        JUMP C 4 A_MeleeAttack
-        JUMP B 3 
-       
-        Goto See
-    Death:
-        JUMP A 5 A_Scream
-        JUMP D 8 A_Fall
-        JUMP E 8 
-        JUMP F 8 
-        JUMP GHI 8
-        Stop
-    }
+	Health 30
+	Radius 8
+	Height 11
+	Speed 9
+	Mass 20
+	PainChance 70
+	MONSTER 
+	+FLOORCLIP 
+	+RANDOMIZE 
+	+COUNTKILL
+	+CANPASS   
+	MELEEDAMAGE 1
+	SeeSound "jump11"
+	PainSound "jumphit"
+	DeathSound "jumpdie"
+	ActiveSound "laff4"
+	MeleeSound "jumpbite"
+	HitObituary "%o was bitten by a bouncing skull."
+	States
+	{
+		Spawn:
+			JUMP A 4 A_Look
+			Loop
+		See:
+			JUMP ABCBA 2 A_Chase
+			Loop
+		Pain:
+			JUMP B 4 A_Pain
+			Goto See
+		Melee:
+			JUMP A 3
+			JUMP B 3
+			JUMP C 4 A_MeleeAttack
+			JUMP B 3 
+			Goto See
+		Death:
+			JUMP A 5 A_Scream
+			JUMP D 8 A_Fall
+			JUMP E 8 
+			JUMP F 8 
+			JUMP GHI 8
+			Stop
+	}
 }
 /*=======================*/
 //******************************************************************************************
 ACTOR ClownHead //3206
 { 
-   Health 400 
-   Speed 5 
-   Radius 16
-   Height 48
-   PainChance 128
-   Mass 300
-   Meleedamage 1 
-   REACTIONTIME 8 
-   MONSTER
-   +FLOORCLIP
-   +NOGRAVITY
-   +FLOAT
-   +PUSHABLE 
-   +NORADIUSDMG 
-   +FloatBob
-   +SPAWNFLOAT 
-   SeeSound ""
-   PainSound "REVN3"
-   DeathSound "explode"
-   ActiveSound "REVN2"  
-   Obituary "%o got blasted by a freaky clown head." 
-   MissileHeight 12
-   MissileType RevRocket
-   States 
-   { 
-   Spawn: 
-      CHED A 10  A_Look 
-      Loop 
-   See: 
-      CHED A 2 A_PlaySound("DRONE")
-      CHED A 2 A_CustomMissile("RFlame", -18, 0, 0, 1)  
-      CHED A 2   A_Chase 
-      CHED A 2 A_CustomMissile("RFlame", -18, 0, 0, 1)  
-      CHED A 2   A_Chase
-      CHED A 2 A_CustomMissile("RFlame", -18, 0, 0, 1)  
-      CHED A 2   A_Chase
-      CHED A 2 A_CustomMissile("RFlame", -18, 0, 0, 1)  
-      CHED A 2   A_Chase
-      Goto See
-  Missile:   
-     CHED A 0 A_Jump(104,8)
-     CHED A 0 A_Jump(136,2) 
-     CHED A 0 A_Jump(88,10)
-     CHED A 4 A_FaceTarget 
-     CHED A 6 Bright A_ComboAttack
-     Goto See 
-     CHED A 2 Bright A_FaceTarget
-     CHED A 2 Bright A_CustomMissile("RevRocket", 28, -4, 0, 1)
-     Goto See 
-     CHED A 2 Bright A_FaceTarget
-     CHED A 2 Bright A_CustomMissile("RevRocket", 28, -12, -60, 1)
-     CHED A 2 Bright A_FaceTarget
-     CHED A 2 Bright A_CustomMissile("RevRocket", 28, -4, 60, 1)
-     Goto See 
-     CHED A 4 Bright A_FaceTarget
-     CHED A 2 Bright A_CustomMissile("SpawnRck", 28, 12, 0, 1)
-     Goto See 
-   Pain: 
-      CHED A 4  A_Pain 
-      Goto See 
-   Death: 
-      CHED A 1 A_Scream 
-      MISL BC 8 Bright A_NoBlocking 
-      Stop 
-   
-     
-   } 
+	Health 400 
+	Speed 5 
+	Radius 16
+	Height 48
+	PainChance 128
+	Mass 300
+	Meleedamage 1 
+	REACTIONTIME 8 
+	MONSTER
+	+FLOORCLIP
+	+NOGRAVITY
+	+FLOAT
+	+PUSHABLE 
+	+NORADIUSDMG 
+	+FloatBob
+	+SPAWNFLOAT 
+	SeeSound ""
+	PainSound "REVN3"
+	DeathSound "explode"
+	ActiveSound "REVN2"  
+	Obituary "%o got blasted by a freaky clown head." 
+	MissileHeight 12
+	MissileType RevRocket
+	States 
+	{ 
+		Spawn: 
+			CHED A 10  A_Look 
+			Loop 
+		See: 
+			CHED A 2 A_PlaySound("DRONE")
+			CHED A 2 A_CustomMissile("RFlame", -18, 0, 0, 1)  
+			CHED A 2 A_Chase 
+			CHED A 2 A_CustomMissile("RFlame", -18, 0, 0, 1)  
+			CHED A 2 A_Chase
+			CHED A 2 A_CustomMissile("RFlame", -18, 0, 0, 1)  
+			CHED A 2 A_Chase
+			CHED A 2 A_CustomMissile("RFlame", -18, 0, 0, 1)  
+			CHED A 2 A_Chase
+			Goto See
+		Missile:   
+			CHED A 0 A_Jump(104,8)
+			CHED A 0 A_Jump(136,2) 
+			CHED A 0 A_Jump(88,10)
+			CHED A 4 A_FaceTarget 
+			CHED A 6 Bright A_ComboAttack
+			Goto See 
+			CHED A 2 Bright A_FaceTarget
+			CHED A 2 Bright A_CustomMissile("RevRocket", 28, -4, 0, 1)
+			Goto See 
+			CHED A 2 Bright A_FaceTarget
+			CHED A 2 Bright A_CustomMissile("RevRocket", 28, -12, -60, 1)
+			CHED A 2 Bright A_FaceTarget
+			CHED A 2 Bright A_CustomMissile("RevRocket", 28, -4, 60, 1)
+			Goto See 
+			CHED A 4 Bright A_FaceTarget
+			CHED A 2 Bright A_CustomMissile("SpawnRck", 28, 12, 0, 1)
+			Goto See 
+		Pain: 
+			CHED A 4  A_Pain 
+			Goto See 
+		Death: 
+			CHED A 1 A_Scream 
+			MISL BC 8 Bright A_NoBlocking 
+			Stop 
+	} 
 } 
 
 
 //******************************************************************************************
 actor RevTrail
 {
-    PROJECTILE
-    RENDERSTYLE ADD
-    +NOCLIP
-    Scale .5
-    ALPHA 0.4
-    States
-    {
-    Spawn:
-        PIXX A 3
-        RTRL AABBCCDDEE 2 Bright
-        Stop
-    }
+	PROJECTILE
+	RENDERSTYLE ADD
+	+NOCLIP
+	Scale .5
+	ALPHA 0.4
+	States
+	{
+		Spawn:
+			PIXX A 3
+			RTRL AABBCCDDEE 2 Bright
+			Stop
+	}
 }
 actor RFlame
 {
-    +NOCLIP
-    Speed 0
-    PROJECTILE
-    RENDERSTYLE ADD
-    ALPHA 0.4
-    Scale .8
-    SeeSound ""
-    DeathSound ""
-    MissileHeight 0
-    States
-    {
-    Spawn:
-        RFLM AB 4 Bright A_CustomMissile("RevTrail", 15, 0, 0, 1)
-        stop
-    Death:
-        RFLM  A 1 A_Scream
-        RFLM  A 1 A_Fall
-        stop
-    }
+	+NOCLIP
+	Speed 0
+	PROJECTILE
+	RENDERSTYLE ADD
+	ALPHA 0.4
+	Scale .8
+	SeeSound ""
+	DeathSound ""
+	MissileHeight 0
+	States
+	{
+		Spawn:
+			RFLM AB 4 Bright A_CustomMissile("RevTrail", 15, 0, 0, 1)
+			stop
+		Death:
+			RFLM  A 1 A_Scream
+			RFLM  A 1 A_Fall
+			stop
+	}
 }
 /*=======================*/
 
 actor RetardDrink1 4000
 {
-Radius 6
-Height 9
-HEALTH 2
-Mass 25
-scale .85
-+SHOOTABLE 
-+HEXENBOUNCE
+	Radius 6
+	Height 9
+	HEALTH 2
+	Mass 25
+	scale .85
+	+SHOOTABLE 
+	+HEXENBOUNCE
 
-+NOBLOOD
-+DONTOVERLAP
-+CANNOTPUSH
-+NOBLOCKMONST     
-DeathSound "CANPOP"
-States
-    {
-    Spawn:
-        CCAN A 4 A_Look
-        Loop
-    See:
-        CCAN A 4 A_Chase
-        Loop
-    Pain:
-        CCAN A 4
-        Goto See
-    Death:
-        CCAN B 2 A_Scream
-        CCAN BCD 4 A_Fall
-        CCAN E -1
-        Stop
-    }
+	+NOBLOOD
+	+DONTOVERLAP
+	+CANNOTPUSH
+	+NOBLOCKMONST     
+	DeathSound "CANPOP"
+	States
+	{
+		Spawn:
+			CCAN A 4 A_Look
+			Loop
+		See:
+			CCAN A 4 A_Chase
+			Loop
+		Pain:
+			CCAN A 4
+			Goto See
+		Death:
+			CCAN B 2 A_Scream
+			CCAN BCD 4 A_Fall
+			CCAN E -1
+			Stop
+	}
 }
 /*=======================*/
 actor RetardDrink2 : RetardDrink1 4101
 {
-
-States
-    {
-    Spawn:
-        CAN1 A 4 A_Look
-        Loop
-    See:
-        CAN1 A 4 A_Chase
-        Loop
-    Pain:
-        CAN1 A 4
-        Goto See
-    Death:
-        CAN1 B 2 A_Scream
-        CAN2 BCD 4 A_Fall
-        CAN2 E -1
-        Stop
-    }
+	States
+	{
+		Spawn:
+			CAN1 A 4 A_Look
+			Loop
+		See:
+			CAN1 A 4 A_Chase
+			Loop
+		Pain:
+			CAN1 A 4
+			Goto See
+		Death:
+			CAN1 B 2 A_Scream
+			CAN2 BCD 4 A_Fall
+			CAN2 E -1
+			Stop
+	}
 }
 /*=======================*/
 actor RetardDrink3 : RetardDrink1  4102
 {
-
-States
-    {
-    Spawn:
-        CAN2 A 4 A_Look
-        Loop
-    See:
-        CAN2 A 4 A_Chase
-        Loop
-    Pain:
-        CAN2 A 4
-        Goto See
-    Death:
-        CAN2 B 2 A_Scream
-        CAN3 BCD 4 A_Fall
-        CAN3 E -1
-        Stop
-    }
+	States
+	{
+		Spawn:
+			CAN2 A 4 A_Look
+			Loop
+		See:
+			CAN2 A 4 A_Chase
+			Loop
+		Pain:
+			CAN2 A 4
+			Goto See
+		Death:
+			CAN2 B 2 A_Scream
+			CAN3 BCD 4 A_Fall
+			CAN3 E -1
+			Stop
+	}
 }
 /*=======================*/
 actor RetardDrink4 :  RetardDrink1 4103
 {
-States
-    {
-    Spawn:
-        CAN3 A 4 A_Look
-        Loop
-    See:
-        CAN3 A 4 A_Chase
-        Loop
-    Pain:
-        CAN3 A 4
-        Goto See
-    Death:
-        CAN4 B 2 A_Scream
-        CAN4 BCD 4 A_Fall
-        CAN4 E -1
-        
-        Stop
-    }
+	States
+	{
+		Spawn:
+			CAN3 A 4 A_Look
+			Loop
+		See:
+			CAN3 A 4 A_Chase
+			Loop
+		Pain:
+			CAN3 A 4
+			Goto See
+		Death:
+			CAN4 B 2 A_Scream
+			CAN4 BCD 4 A_Fall
+			CAN4 E -1
+			Stop
+	}
 }

@@ -521,222 +521,222 @@ ACTOR LargeSpiderNew : AetheriusMonsterZSC 22291
 
 ACTOR TCOTDBulletTracer : FastProjectile
 {
-   Damage ((Random(4,6) * Random(1,2)))
-   Damagetype "Bullet"
-   Radius 1
-   Height 1
-   Mass 5
-   Speed 160 // 80
-   PROJECTILE
-   +DONTREFLECT
-   +BLOODSPLATTER
-   +NODAMAGETHRUST
-   Renderstyle Add
-   Alpha 1.0
-   Scale 0.5
-   decal BulletChip
-   States
-   {
-   Spawn:
-      TNT1 A 0 NoDelay bright { A_ScaleVelocity(GetCVar("dvds_tracervelmulti")); }
-   Idle:
-      TNT1 A 0 bright
-      TNT1 A 0 bright A_SpawnItemEx("TCOTDBulletTracerTrail",-15.0,0,0,0,0,0,0,128,0)
-      TNT1 A 0 bright A_SpawnItemEx("TCOTDBulletTracerTrail",-12.5,0,0,0,0,0,0,128,0)
-      TNT1 A 0 bright A_SpawnItemEx("TCOTDBulletTracerTrail",-10.0,0,0,0,0,0,0,128,0)
-      TNT1 A 0 bright A_SpawnItemEx("TCOTDBulletTracerTrail",-7.5,0,0,0,0,0,0,128,0)
-      TNT1 A 0 bright A_SpawnItemEx("TCOTDBulletTracerTrail",-5.0,0,0,0,0,0,0,128,0)
-      TNT1 A 0 bright A_SpawnItemEx("TCOTDBulletTracerTrail",-2.5,0,0,0,0,0,0,128,0)
-	  TNT1 A 1 bright A_SpawnItemEx("TCOTDBulletTracerTrail",0.0,0,0,0,0,0,0,128,0)
-      loop
-   XDeath:
-      TNT1 A 1 //A_SpawnItem("BulletPuff")
-      stop
-   Death:
-   Crash:
-      TNT1 A 1 A_SpawnItem("BulletPuff")
-      stop
-   }
+	Damage ((Random(4,6) * Random(1,2)))
+	Damagetype "Bullet"
+	Radius 1
+	Height 1
+	Mass 5
+	Speed 160 // 80
+	PROJECTILE
+	+DONTREFLECT
+	+BLOODSPLATTER
+	+NODAMAGETHRUST
+	Renderstyle Add
+	Alpha 1.0
+	Scale 0.5
+	decal BulletChip
+	States
+	{
+		Spawn:
+			TNT1 A 0 NoDelay bright { A_ScaleVelocity(GetCVar("dvds_tracervelmulti")); }
+		Idle:
+			TNT1 A 0 bright
+			TNT1 A 0 bright A_SpawnItemEx("TCOTDBulletTracerTrail",-15.0,0,0,0,0,0,0,128,0)
+			TNT1 A 0 bright A_SpawnItemEx("TCOTDBulletTracerTrail",-12.5,0,0,0,0,0,0,128,0)
+			TNT1 A 0 bright A_SpawnItemEx("TCOTDBulletTracerTrail",-10.0,0,0,0,0,0,0,128,0)
+			TNT1 A 0 bright A_SpawnItemEx("TCOTDBulletTracerTrail",-7.5,0,0,0,0,0,0,128,0)
+			TNT1 A 0 bright A_SpawnItemEx("TCOTDBulletTracerTrail",-5.0,0,0,0,0,0,0,128,0)
+			TNT1 A 0 bright A_SpawnItemEx("TCOTDBulletTracerTrail",-2.5,0,0,0,0,0,0,128,0)
+		TNT1 A 1 bright A_SpawnItemEx("TCOTDBulletTracerTrail",0.0,0,0,0,0,0,0,128,0)
+			loop
+		XDeath:
+			TNT1 A 1 //A_SpawnItem("BulletPuff")
+			stop
+		Death:
+		Crash:
+			TNT1 A 1 A_SpawnItem("BulletPuff")
+			stop
+	}
 }
 
 ACTOR TCOTDBulletTracerCrisis : TCOTDBulletTracer
 {
-   Damage ((Random(4,6) * Random(1,2)) * CallACS("CrisisMultiplier"))
-   States
-   {
-   Spawn:
-      TNT1 A 0 NoDelay bright { A_ScaleVelocity(GetCVar("dvds_tracervelmulti")); }
-   Idle:
-      TNT1 A 0 bright
-      TNT1 A 0 bright A_SpawnItemEx("TCOTDBulletTracerTrail",-15.0,0,0,0,0,0,0,128,0)
-      TNT1 A 0 bright A_SpawnItemEx("TCOTDBulletTracerTrail",-12.5,0,0,0,0,0,0,128,0)
-      TNT1 A 0 bright A_SpawnItemEx("TCOTDBulletTracerTrail",-10.0,0,0,0,0,0,0,128,0)
-      TNT1 A 0 bright A_SpawnItemEx("TCOTDBulletTracerTrail",-7.5,0,0,0,0,0,0,128,0)
-      TNT1 A 0 bright A_SpawnItemEx("TCOTDBulletTracerTrail",-5.0,0,0,0,0,0,0,128,0)
-      TNT1 A 0 bright A_SpawnItemEx("TCOTDBulletTracerTrail",-2.5,0,0,0,0,0,0,128,0)
-	  TNT1 A 1 bright A_SpawnItemEx("TCOTDBulletTracerTrail",0.0,0,0,0,0,0,0,128,0)
-      loop
-   }
+	Damage ((Random(4,6) * Random(1,2)) * CallACS("CrisisMultiplier"))
+	States
+	{
+		Spawn:
+			TNT1 A 0 NoDelay bright { A_ScaleVelocity(GetCVar("dvds_tracervelmulti")); }
+		Idle:
+			TNT1 A 0 bright
+			TNT1 A 0 bright A_SpawnItemEx("TCOTDBulletTracerTrail",-15.0,0,0,0,0,0,0,128,0)
+			TNT1 A 0 bright A_SpawnItemEx("TCOTDBulletTracerTrail",-12.5,0,0,0,0,0,0,128,0)
+			TNT1 A 0 bright A_SpawnItemEx("TCOTDBulletTracerTrail",-10.0,0,0,0,0,0,0,128,0)
+			TNT1 A 0 bright A_SpawnItemEx("TCOTDBulletTracerTrail",-7.5,0,0,0,0,0,0,128,0)
+			TNT1 A 0 bright A_SpawnItemEx("TCOTDBulletTracerTrail",-5.0,0,0,0,0,0,0,128,0)
+			TNT1 A 0 bright A_SpawnItemEx("TCOTDBulletTracerTrail",-2.5,0,0,0,0,0,0,128,0)
+			TNT1 A 1 bright A_SpawnItemEx("TCOTDBulletTracerTrail",0.0,0,0,0,0,0,0,128,0)
+			loop
+	}
 }
 
 actor TCOTDBulletTracerTrail
 {
-  Radius 1
-  Height 1
-  Speed 0
-  Damage 0
-  Projectile
-  +CLIENTSIDEONLY
-  +NOINTERACTION
-  +NOCLIP
-  +DONTSPLASH
-  Scale 0.5
-  Renderstyle Add
-  States
-  {
-  Spawn:
-    CTAC A 2 bright
-    stop
-  }
+	Radius 1
+	Height 1
+	Speed 0
+	Damage 0
+	Projectile
+	+CLIENTSIDEONLY
+	+NOINTERACTION
+	+NOCLIP
+	+DONTSPLASH
+	Scale 0.5
+	Renderstyle Add
+	States
+	{
+		Spawn:
+			CTAC A 2 bright
+			stop
+	}
 }
 
 ACTOR TommyGunCultistNew : AetheriusMonsterZSC 29011
 {
-  //$Angled
-  //$Color 12
-  //$Category "TCOTD:A Monsters/Blood Style"
-  SpawnID 246
-  decal BloodBulletChip
-  health 125 // 40,60,80,100,125
-  radius 20
-  height 56 
-  mass 200
-  speed 4
-  fastspeed 5
-  MaxDropoffHeight 128
-  MinMissileChance 160
-  Scale 0.55
-  painchance 170
-  PainChance "Shock", 255
-  PainChance "Lightning", 255
-  PainChance "Electric", 255
-  PainChance "Thunder", 255
-  Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
-  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
-  Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
-  DamageFactor "Crush", 8
-  obituary "%o was made hole-y by a Fanatic"
-  MONSTER
-  +NOSPLASHALERT
-  +FLOORCLIP
-  +DONTHURTSPECIES +MISSILEMORE
-  +NOSPLASHALERT
-  +SLIDESONWALLS //+DROPOFF -NODROPOFF
-  +STRIFEDAMAGE
-  +NOINFIGHTING
-  attacksound "fanatic/attack"
-  painsound "Fanatic/pain"
-  deathsound "fanatic/death"
-  activesound "dovile"
-  seesound "zombieman/sight"
-  DropItem "Clip" 255
-  DropItem "Clip" 255
+	//$Angled
+	//$Color 12
+	//$Category "TCOTD:A Monsters/Blood Style"
+	SpawnID 246
+	decal BloodBulletChip
+	health 125 // 40,60,80,100,125
+	radius 20
+	height 56 
+	mass 200
+	speed 4
+	fastspeed 5
+	MaxDropoffHeight 128
+	MinMissileChance 160
+	Scale 0.55
+	painchance 170
+	PainChance "Shock", 255
+	PainChance "Lightning", 255
+	PainChance "Electric", 255
+	PainChance "Thunder", 255
+	Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+	Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
+	Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
+	DamageFactor "Crush", 8
+	obituary "%o was made hole-y by a Fanatic"
+	MONSTER
+	+NOSPLASHALERT
+	+FLOORCLIP
+	+DONTHURTSPECIES +MISSILEMORE
+	+NOSPLASHALERT
+	+SLIDESONWALLS //+DROPOFF -NODROPOFF
+	+STRIFEDAMAGE
+	+NOINFIGHTING
+	attacksound "fanatic/attack"
+	painsound "Fanatic/pain"
+	deathsound "fanatic/death"
+	activesound "dovile"
+	seesound "zombieman/sight"
+	DropItem "Clip" 255
+	DropItem "Clip" 255
 
-  states
-  {
-  Spawn:  
-    XFAN G 0 NoDelay 
-	XFAN G 5 A_Look
-    goto Spawn+1
-	XFAN AAABBBCCCDDDFFFGGG 1 A_wander
-	XFAN B 5 A_Look
-    goto Spawn+1
-  See:
-    XFAN A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
-    XFAN A 0 A_ChangeFlag("DROPOFF",random(0,1))
-    XFAN AABBCCDDFF 1
+	states
 	{
-     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-	 A_Chase;
-	}
-    XFAN A 0 A_Jump(8,"Shout")
-	loop
-  Shout:
-  	XFAN A 0 A_AlertMonsters(256)
-  	XFAN A 0 A_PlaySound("fanatic/sight")
-	Goto See
-  Missile:
-    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    XFAN G 2 bright
-	{
-     A_PlaySound("fanatic/attack", CHAN_BODY);
-     A_FaceTarget;
-     A_MonsterCrisisCheck;
-	 if (bullet_tracer_mode == 0)
-	 {
-	  A_CrisisBulletAttack(10, 5.6, 1, (Random(4,6) * Random(1,2)), "BulletPuff2", 0, CBAF_NORANDOM);
-	 }
-	 else
-	 {
-      A_CrisisSpawnProjectile("TCOTDBulletTracer", "TCOTDBulletTracerCrisis", 32, 12, frandom(-5.0,5.0), CMF_OFFSETPITCH, frandom(-2.8,2.8));
-     }
-	}
-    XFAN H 2 A_FaceTarget
-    XFAN H 0 A_MonsterRefire(48,"See")
-    goto Missile
+		Spawn:  
+			XFAN G 0 NoDelay 
+			XFAN G 5 A_Look
+			goto Spawn+1
+			XFAN AAABBBCCCDDDFFFGGG 1 A_wander
+			XFAN B 5 A_Look
+			goto Spawn+1
+		See:
+			XFAN A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
+			XFAN A 0 A_ChangeFlag("DROPOFF",random(0,1))
+			XFAN AABBCCDDFF 1
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+			 A_Chase;
+			}
+			XFAN A 0 A_Jump(8,"Shout")
+			loop
+		Shout:
+			XFAN A 0 A_AlertMonsters(256)
+			XFAN A 0 A_PlaySound("fanatic/sight")
+			Goto See
+		Missile:
+			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+			XFAN G 2 bright
+			{
+			 A_PlaySound("fanatic/attack", CHAN_BODY);
+			 A_FaceTarget;
+			 A_MonsterCrisisCheck;
+			 if (bullet_tracer_mode == 0)
+			 {
+				A_CrisisBulletAttack(10, 5.6, 1, (Random(4,6) * Random(1,2)), "BulletPuff2", 0, CBAF_NORANDOM);
+			 }
+			 else
+			 {
+				A_CrisisSpawnProjectile("TCOTDBulletTracer", "TCOTDBulletTracerCrisis", 32, 12, frandom(-5.0,5.0), CMF_OFFSETPITCH, frandom(-2.8,2.8));
+			 }
+			}
+			XFAN H 2 A_FaceTarget
+			XFAN H 0 A_MonsterRefire(48,"See")
+			goto Missile
 
-  Frightened:
-    XFAN A 0 A_ChangeFlag("Frightened", 1)
-    XFAN AABBCCDDEEFF 3 A_Chase
-    loop
-  Pain.Shock:
-  Pain.Lightning:
-  Pain.Thunder:
-  Pain.Electric:
-	7ZAP AAAAAAAAAAAAAAAAAAAAAAAA 1 A_SpawnItemEx("ShockHuman",random(-1,1),random(-1,1),random(0,3))
-	7ZAP A 4 A_Pain
-	7ZAP A 0 A_JumpIfHealthLower(20,2)
-	7ZAP A 0 A_Jump(192,"See")
-	7ZAP AAAAAAAAAAAAAAAAAAAAAAAA 1 A_SpawnItemEx("ShockHuman",random(-1,1),random(-1,1),random(0,3))
-	Goto See
-  Pain:
-    XFAN I 3
-    XFAN I 3 A_Pain
-    goto See
-  Pain.Fist:
-    XFAN I 3
-    XFAN I 3 A_Pain
-    XFAN II 3
-    goto See
-  Pain.Kick:
-    XFAN I 3
-    XFAN I 3 A_Pain
-    XFAN IIII 3
-    goto See
-  Death:
-    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
-    XFAN J 5 ThrustThingZ(0,10,0,0)
-    XFAN K 5 A_Scream
-    XFAN L 5 A_Fall
-    XFAN MNO 5
-    XFAN P 140
-    TNT1 A 0 
-	XFAN Q 0 A_Jump(192,"Twitch")
-    XFAN Q -1
-    stop
-  Twitch:
-    XFAN PQPQ 5
-	XFAN P 70 A_Jump(80,"Twitch")
-	XFAN Q 70 A_Jump(80,"Twitch")
-	XFAN P 70 A_Jump(80,"Twitch")
-	XFAN Q -1
-	Stop
-  Raise:
-    XFAN Q 0 A_UnHideThing
-    XFAN P 6 
-    XFAN ONMLKJ 4 
-    goto See
-  }
+		Frightened:
+			XFAN A 0 A_ChangeFlag("Frightened", 1)
+			XFAN AABBCCDDEEFF 3 A_Chase
+			loop
+		Pain.Shock:
+		Pain.Lightning:
+		Pain.Thunder:
+		Pain.Electric:
+			7ZAP AAAAAAAAAAAAAAAAAAAAAAAA 1 A_SpawnItemEx("ShockHuman",random(-1,1),random(-1,1),random(0,3))
+			7ZAP A 4 A_Pain
+			7ZAP A 0 A_JumpIfHealthLower(20,2)
+			7ZAP A 0 A_Jump(192,"See")
+			7ZAP AAAAAAAAAAAAAAAAAAAAAAAA 1 A_SpawnItemEx("ShockHuman",random(-1,1),random(-1,1),random(0,3))
+			Goto See
+		Pain:
+			XFAN I 3
+			XFAN I 3 A_Pain
+			goto See
+		Pain.Fist:
+			XFAN I 3
+			XFAN I 3 A_Pain
+			XFAN II 3
+			goto See
+		Pain.Kick:
+			XFAN I 3
+			XFAN I 3 A_Pain
+			XFAN IIII 3
+			goto See
+		Death:
+			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+			XFAN J 5 ThrustThingZ(0,10,0,0)
+			XFAN K 5 A_Scream
+			XFAN L 5 A_Fall
+			XFAN MNO 5
+			XFAN P 140
+			TNT1 A 0 
+			XFAN Q 0 A_Jump(192,"Twitch")
+			XFAN Q -1
+			stop
+		Twitch:
+			XFAN PQPQ 5
+			XFAN P 70 A_Jump(80,"Twitch")
+			XFAN Q 70 A_Jump(80,"Twitch")
+			XFAN P 70 A_Jump(80,"Twitch")
+			XFAN Q -1
+			Stop
+		Raise:
+			XFAN Q 0 A_UnHideThing
+			XFAN P 6 
+			XFAN ONMLKJ 4 
+			goto See
+	}
 }
 
 ACTOR ShotgunCultistNew : TommyGunCultistNew 29010
@@ -1025,736 +1025,731 @@ ACTOR HellHoundNew : AetheriusMonsterZSC 30121
 
 ACTOR DogFireNew replaces DogFire
 {
-   Damage (1 * random(1,8))
-   Radius 2
-   Height 4
-   Speed 16
-   PROJECTILE
-   RENDERSTYLE ADD
-   DamageType Fire
-   Alpha 0.67
-   Scale 0.67
-   SEESOUND "weapons/bigbrn"
-   DEATHSOUND "weapons/bigbrn"
-   +NODAMAGETHRUST
-   +DONTHARMSPECIES
-   +MTHRUSPECIES
-   DontHurtShooter
-   states
-   {
-   Spawn:
-      NULL A 2 BRIGHT
-	  {
-	  }
-      FRFX ABCD 2 BRIGHT 
-	  {
-	   A_Explode(random(1,3),random(6,10));
-	  }
-      FRFX D 0 BRIGHT
-	  {
-	   A_LowGravity;
-	  }
-      FRFX EFG 2 BRIGHT 
-	  {
-	   A_Explode(random(1,3),random(12,20));
-	  }
-	  goto Death
-   Death:
-      FRFX HIJ 2 BRIGHT 
-	  {
-	   A_Explode(random(1,3),random(24,40));
-	  }
-      FRFX KLM 2 BRIGHT 
-	  {
-	   A_Explode(random(1,3),random(48,80));
-	  }
-      FRFX NO 2 BRIGHT
-	  {
-	   A_Explode(random(1,3),random(24,40));
-	  }
-      Stop
-   }
+	Damage (1 * random(1,8))
+	Radius 2
+	Height 4
+	Speed 16
+	PROJECTILE
+	RENDERSTYLE ADD
+	DamageType Fire
+	Alpha 0.67
+	Scale 0.67
+	SEESOUND "weapons/bigbrn"
+	DEATHSOUND "weapons/bigbrn"
+	+NODAMAGETHRUST
+	+DONTHARMSPECIES
+	+MTHRUSPECIES
+	DontHurtShooter
+	states
+	{
+		Spawn:
+			NULL A 2 BRIGHT
+			FRFX ABCD 2 BRIGHT 
+			{
+			 A_Explode(random(1,3),random(6,10));
+			}
+			FRFX D 0 BRIGHT
+			{
+			 A_LowGravity;
+			}
+			FRFX EFG 2 BRIGHT 
+			{
+			 A_Explode(random(1,3),random(12,20));
+			}
+			goto Death
+		Death:
+			FRFX HIJ 2 BRIGHT 
+			{
+			 A_Explode(random(1,3),random(24,40));
+			}
+			FRFX KLM 2 BRIGHT 
+			{
+			 A_Explode(random(1,3),random(48,80));
+			}
+			FRFX NO 2 BRIGHT
+			{
+			 A_Explode(random(1,3),random(24,40));
+			}
+			Stop
+	}
 }
 actor DogFireCrisisParticle : BaseCrisisParticle
 {
- Alpha 0.4489
- Scale 0.4489
- 
- States
- {
-  Spawn:
-    FRFX A 0 NoDelay A_CrisisParticleInit
-	goto Idle
-  Idle:
-    "####" ABCDEFGHIJKLMNO 1 Bright A_CrisisParticleDo
-    loop
- }
+	Alpha 0.4489
+	Scale 0.4489
+
+	States
+	{
+		Spawn:
+			FRFX A 0 NoDelay A_CrisisParticleInit
+			goto Idle
+		Idle:
+			"####" ABCDEFGHIJKLMNO 1 Bright A_CrisisParticleDo
+			loop
+	}
 }
 ACTOR DogFireCrisis : DogFireNew
 {
-   Damage ((1 * random(1,8)) * CallACS("CrisisMultiplier"))
-   states
-   {
-   Spawn:
-      NULL A 2 BRIGHT
-	  {
-	  }
-      FRFX ABCD 2 BRIGHT 
-	  {
-       A_SpawnItemEx("DogFireCrisisParticle",0,0,0,0,0,1.28);
-	   A_Explode(random(1,3)*CallACS("CrisisMultiplier"),random(6,10));
-	  }
-      FRFX D 0 BRIGHT
-	  {
-	   A_LowGravity;
-	  }
-      FRFX EFG 2 BRIGHT 
-	  {
-       A_SpawnItemEx("DogFireCrisisParticle",0,0,0,0,0,1.28);
-	   A_Explode(random(1,3)*CallACS("CrisisMultiplier"),random(12,20));
-	  }
-	  goto Death
-   Death:
-      FRFX HIJ 2 BRIGHT 
-	  {
-       A_SpawnItemEx("DogFireCrisisParticle",0,0,0,0,0,1.28);
-	   A_Explode(random(1,3)*CallACS("CrisisMultiplier"),random(24,40));
-	  }
-      FRFX KLM 2 BRIGHT 
-	  {
-       A_SpawnItemEx("DogFireCrisisParticle",0,0,0,0,0,1.28);
-	   A_Explode(random(1,3)*CallACS("CrisisMultiplier"),random(48,80));
-	  }
-      FRFX NO 2 BRIGHT
-	  {
-       A_SpawnItemEx("DogFireCrisisParticle",0,0,0,0,0,1.28);
-	   A_Explode(random(1,3)*CallACS("CrisisMultiplier"),random(24,40));
-	  }
-      Stop
-   }
+	Damage ((1 * random(1,8)) * CallACS("CrisisMultiplier"))
+	states
+	{
+		Spawn:
+			NULL A 2 BRIGHT
+			FRFX ABCD 2 BRIGHT 
+			{
+			 A_SpawnItemEx("DogFireCrisisParticle",0,0,0,0,0,1.28);
+			 A_Explode(random(1,3)*CallACS("CrisisMultiplier"),random(6,10));
+			}
+			FRFX D 0 BRIGHT
+			{
+			 A_LowGravity;
+			}
+			FRFX EFG 2 BRIGHT 
+			{
+			 A_SpawnItemEx("DogFireCrisisParticle",0,0,0,0,0,1.28);
+			 A_Explode(random(1,3)*CallACS("CrisisMultiplier"),random(12,20));
+			}
+			goto Death
+		Death:
+			FRFX HIJ 2 BRIGHT 
+			{
+			 A_SpawnItemEx("DogFireCrisisParticle",0,0,0,0,0,1.28);
+			 A_Explode(random(1,3)*CallACS("CrisisMultiplier"),random(24,40));
+			}
+			FRFX KLM 2 BRIGHT 
+			{
+			 A_SpawnItemEx("DogFireCrisisParticle",0,0,0,0,0,1.28);
+			 A_Explode(random(1,3)*CallACS("CrisisMultiplier"),random(48,80));
+			}
+			FRFX NO 2 BRIGHT
+			{
+			 A_SpawnItemEx("DogFireCrisisParticle",0,0,0,0,0,1.28);
+			 A_Explode(random(1,3)*CallACS("CrisisMultiplier"),random(24,40));
+			}
+			Stop
+	}
 }
 
 // Magic Using Cultist
 ACTOR ThrallNew : AetheriusMonsterZSC 30119
 { 
-  //$Angled
-  //$Color 12
-  //$Category "TCOTD:A Monsters/Raven Style"
-  health 125 // 40,60,80,100,125
-  Scale 0.90
-  Speed 8 
-  Radius 20 
-  Height 56 
-  Mass 100 
-  PainChance 200
-  Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
-  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
-  Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
-  DamageFactor "Magic", 0.75
-  DamageFactor "Crush", 8
-  MONSTER
-  +FLOORCLIP
-  +DONTHURTSPECIES
-  -NOGRAVITY
-  -FLOAT
-  SEESOUND "monster/culsit" 
-  ATTACKSOUND "monster/culatk" 
-  PAINSOUND "monster/culpai" 
-  DEATHSOUND "monster/culdth" 
-  ACTIVESOUND "monster/culact"
-  OBITUARY "%o was killed by a lowly Cultist."
+	//$Angled
+	//$Color 12
+	//$Category "TCOTD:A Monsters/Raven Style"
+	health 125 // 40,60,80,100,125
+	Scale 0.90
+	Speed 8 
+	Radius 20 
+	Height 56 
+	Mass 100 
+	PainChance 200
+	Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
+	Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
+	Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
+	DamageFactor "Magic", 0.75
+	DamageFactor "Crush", 8
+	MONSTER
+	+FLOORCLIP
+	+DONTHURTSPECIES
+	-NOGRAVITY
+	-FLOAT
+	SEESOUND "monster/culsit" 
+	ATTACKSOUND "monster/culatk" 
+	PAINSOUND "monster/culpai" 
+	DEATHSOUND "monster/culdth" 
+	ACTIVESOUND "monster/culact"
+	OBITUARY "%o was killed by a lowly Cultist."
 
-  states 
-  { 
-  Spawn: 
-    CULT A 0 NoDelay 
-    CULT AB 10 A_Look 
-    goto Spawn+1
-  See: 
-    CULT A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
-    CULT AABBCCDD 2
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-     if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(1); }
-	 A_Chase;
-	}
-    CULT A 0
-	{
-	 if (random(1,256) <= 8)
-	 {
-  	  A_AlertMonsters(256);
-  	  A_PlaySound("fanatic/sight");
-	 }
-	}
-	loop
-  Missile:
-    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    CULT EE 5 
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(3); }
-     else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(4); }
-	 A_FaceTarget;
-	}
-    CULT F 8 BRIGHT 
-	{
-	 A_FaceTarget;
-	 A_PlaySound("monster/culatk");
-	 A_MonsterCrisisCheck;
-     if (levelbehavior > 0 && user_monsterlevel > 120) 
-	 {
-	  A_SetTics(5); 
-      A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,-8,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
-      A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",44,-6,0,CMF_AIMOFFSET|CMF_BADPITCH,2);
-      A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,-4,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
-      A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",44,-2,0,CMF_AIMOFFSET|CMF_BADPITCH,2);
-      A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,-0,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
-      A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",44,2,0,CMF_AIMOFFSET|CMF_BADPITCH,2);
-      A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,4,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
-      A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",44,6,0,CMF_AIMOFFSET|CMF_BADPITCH,2);
-      A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,8,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
-	 }
-     else if (levelbehavior > 0 && user_monsterlevel > 80) 
-	 {
-	  A_SetTics(6); 
-      A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,-6,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
-      A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",44,-4,0,CMF_AIMOFFSET|CMF_BADPITCH,2);
-      A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,-2,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
-      A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,2,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
-      A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",44,4,0,CMF_AIMOFFSET|CMF_BADPITCH,2);
-      A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,6,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
-	 }
-     else if (levelbehavior > 0 && user_monsterlevel > 40) 
-	 {
- 	  A_SetTics(7); 
-      A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,-6,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
-      A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,-2,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
-      A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,2,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
-      A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,6,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
-	 }
-	 else
-	 {
-      A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,-6,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
-      A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,6,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
-	 }
-	}
-    Goto See
-  Pain: 
-    CULT G 2 
-    CULT G 2 A_Pain 
-    Goto See 
-  Pain.Fist: 
-    CULT G 2 
-    CULT G 2 A_Pain 
-    CULT GG 2 
-    Goto See 
-  Pain.Kick: 
-    CULT G 2 
-    CULT G 2 A_Pain 
-    CULT GGGG 2 
-    Goto See 
+	states 
+	{ 
+		Spawn: 
+			CULT A 0 NoDelay 
+			CULT AB 10 A_Look 
+			goto Spawn+1
+		See: 
+			CULT A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
+			CULT AABBCCDD 2
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+			 if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(1); }
+			 A_Chase;
+			}
+			CULT A 0
+			{
+			 if (random(1,256) <= 8)
+			 {
+				A_AlertMonsters(256);
+				A_PlaySound("fanatic/sight");
+			 }
+			}
+			loop
+		Missile:
+			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+			CULT EE 5 
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(3); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(4); }
+			 A_FaceTarget;
+			}
+			CULT F 8 BRIGHT 
+			{
+			 A_FaceTarget;
+			 A_PlaySound("monster/culatk");
+			 A_MonsterCrisisCheck;
+			 if (levelbehavior > 0 && user_monsterlevel > 120) 
+			 {
+				A_SetTics(5); 
+				A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,-8,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
+				A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",44,-6,0,CMF_AIMOFFSET|CMF_BADPITCH,2);
+				A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,-4,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
+				A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",44,-2,0,CMF_AIMOFFSET|CMF_BADPITCH,2);
+				A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,-0,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
+				A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",44,2,0,CMF_AIMOFFSET|CMF_BADPITCH,2);
+				A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,4,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
+				A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",44,6,0,CMF_AIMOFFSET|CMF_BADPITCH,2);
+				A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,8,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
+			 }
+			 else if (levelbehavior > 0 && user_monsterlevel > 80) 
+			 {
+				A_SetTics(6); 
+				A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,-6,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
+				A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",44,-4,0,CMF_AIMOFFSET|CMF_BADPITCH,2);
+				A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,-2,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
+				A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,2,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
+				A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",44,4,0,CMF_AIMOFFSET|CMF_BADPITCH,2);
+				A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,6,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
+			 }
+			 else if (levelbehavior > 0 && user_monsterlevel > 40) 
+			 {
+				A_SetTics(7); 
+				A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,-6,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
+				A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,-2,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
+				A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,2,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
+				A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,6,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
+			 }
+			 else
+			 {
+				A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,-6,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
+				A_CrisisSpawnProjectile("ThrallShot1","ThrallShot1Crisis",42,6,0,CMF_AIMOFFSET|CMF_BADPITCH,0);
+			 }
+			}
+			Goto See
+		Pain: 
+			CULT G 2 
+			CULT G 2 A_Pain 
+			Goto See 
+		Pain.Fist: 
+			CULT G 2 
+			CULT G 2 A_Pain 
+			CULT GG 2 
+			Goto See 
+		Pain.Kick: 
+			CULT G 2 
+			CULT G 2 A_Pain 
+			CULT GGGG 2 
+			Goto See 
 
-  Death:
-    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
-    CULT H 8 
-    CULT I 8 A_Scream 
-    CULT J 4 
-    CULT K 4 A_NoBlocking 
-    CULT L 4 
-    TNT1 A 0 
-    CULT M -1 
-    Stop
+		Death:
+			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+			CULT H 8 
+			CULT I 8 A_Scream 
+			CULT J 4 
+			CULT K 4 A_NoBlocking 
+			CULT L 4 
+			TNT1 A 0 
+			CULT M -1 
+			Stop
 
-  XDeath:
-    Goto Death
+		XDeath:
+			Goto Death
 
-  Raise: 
-    CULT M 5 
-    CULT LKJHI 5
-    Goto See 
-   } 
+		Raise: 
+			CULT M 5 
+			CULT LKJHI 5
+			Goto See 
+	} 
 }
 
 ACTOR NightmareNew : AetheriusMonsterZSC replaces KDiZDNightmare 26000
 {
-  //$Angled
-  //$Color 12
-  //$Category "TCOTD:A Monsters/Doom Style"
-  health 175 // 100
-  PainChance 144
-  Painchance "Fist", 216 // Fist attacks have a +50% chance of stunning an enemy
-  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
-  Painchance "Gauntlets", 216 // Fist attacks have a +50% chance of stunning an enemy
-  DamageFactor "Crush", 0
-  Radius 20
-  Height 56
-  Speed 15
-  MONSTER 
-  +FLOORCLIP
-  +STEALTH
-  +THRUSPECIES
-  +NOFEAR
-  +NOTARGET
-  +DONTTHRUST
-  +GHOST
-  +DONTBLAST
-  +NOINFIGHTSPECIES
-  Species "Nightmare"
-  RenderStyle Add
-  Alpha 0.4
-  SeeSound "nightmare/sight"
-  PainSound "nightmare/pain"
-  DeathSound "nightmare/death"
-  ActiveSound "nightmare/active"
-  MeleeSound "nightmare/melee"
-  HitObituary "%o was tormented by a nightmare."
-  MeleeDamage 4
+	//$Angled
+	//$Color 12
+	//$Category "TCOTD:A Monsters/Doom Style"
+	health 175 // 100
+	PainChance 144
+	Painchance "Fist", 216 // Fist attacks have a +50% chance of stunning an enemy
+	Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
+	Painchance "Gauntlets", 216 // Fist attacks have a +50% chance of stunning an enemy
+	DamageFactor "Crush", 0
+	Radius 20
+	Height 56
+	Speed 15
+	MONSTER 
+	+FLOORCLIP
+	+STEALTH
+	+THRUSPECIES
+	+NOFEAR
+	+NOTARGET
+	+DONTTHRUST
+	+GHOST
+	+DONTBLAST
+	+NOINFIGHTSPECIES
+	Species "Nightmare"
+	RenderStyle Add
+	Alpha 0.4
+	SeeSound "nightmare/sight"
+	PainSound "nightmare/pain"
+	DeathSound "nightmare/death"
+	ActiveSound "nightmare/active"
+	MeleeSound "nightmare/melee"
+	HitObituary "%o was tormented by a nightmare."
+	MeleeDamage 4
 
-  states
-  {
-  Spawn:
-    NMRE A 0 NoDelay 
-    NMRE AABB 5 
+	states
 	{
-     A_NightmarePhaseOut;
-	 A_Look;
-	}
-    goto Spawn+1
-  See:
-    NMRE A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
-    NMRE AABBCCDD 3
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(2); }
-	 A_NightmarePhaseOut;
-	 A_Chase;
-	}
-    NMRE D 0 
-	{
-	 if (random (1,256) <= 32) { A_CustomMissile("NightmareWisp",0,0,0); }
-	}
-    Loop
-  Melee:
-    TNT1 A 0 
-	{
-	 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1); // makes a Stealth Monster become more visible
-     A_NightmarePhaseIn;
-	}
-    NMRE EF 9 
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(5); }
-     else if (levelbehavior > 0 && user_monsterlevel > 135) { A_SetTics(6); }
-     else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(7); }
-     else if (levelbehavior > 0 && user_monsterlevel > 45) { A_SetTics(8); }
-     A_NightmarePhaseIn;
-	 A_FaceTarget;
-	}
-    NMRE G 9 
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(5); }
-     else if (levelbehavior > 0 && user_monsterlevel > 135) { A_SetTics(6); }
-     else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(7); }
-     else if (levelbehavior > 0 && user_monsterlevel > 45) { A_SetTics(8); }
-     A_NightmarePhaseIn;
-	 A_FaceTarget;
+		Spawn:
+			NMRE A 0 NoDelay 
+			NMRE AABB 5 
+			{
+			 A_NightmarePhaseOut;
+			 A_Look;
+			}
+			goto Spawn+1
+		See:
+			NMRE A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
+			NMRE AABBCCDD 3
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(2); }
+			 A_NightmarePhaseOut;
+			 A_Chase;
+			}
+			NMRE D 0 
+			{
+			 if (random (1,256) <= 32) { A_CustomMissile("NightmareWisp",0,0,0); }
+			}
+			Loop
+		Melee:
+			TNT1 A 0 
+			{
+			 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1); // makes a Stealth Monster become more visible
+			 A_NightmarePhaseIn;
+			}
+			NMRE EF 9 
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(5); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 135) { A_SetTics(6); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(7); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 45) { A_SetTics(8); }
+			 A_NightmarePhaseIn;
+			 A_FaceTarget;
+			}
+			NMRE G 9 
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(5); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 135) { A_SetTics(6); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(7); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 45) { A_SetTics(8); }
+			 A_NightmarePhaseIn;
+			 A_FaceTarget;
 
-	 A_MonsterCrisisCheck;
-	 A_CrisisMeleeAttack(4*random(1,8),"nightmare/melee");
-	}
-    Goto See
-  Pain:
-    NMRE H 2 
-	{
-     A_NightmarePhaseIn;
-	}
-    NMRE H 10 
-	{
-     A_NightmarePhaseIn;
-	 A_Pain;
-	}
-    Goto See
-  Pain.Fist:
-    NMRE H 2 
-	{
-     A_NightmarePhaseIn;
-	}
-    NMRE H 10 
-	{
-     A_NightmarePhaseIn;
-	 A_Pain;
-	}
-    NMRE HH 5
-	{
-     A_NightmarePhaseIn;
-	}
-    Goto See
-  Pain.Kick:
-    NMRE H 2 
-	{
-     A_NightmarePhaseIn;
-	}
-    NMRE H 10
-	{
-     A_NightmarePhaseIn;
-	 A_Pain;
-	}
-    NMRE HHHH 5
-	{
-     A_NightmarePhaseIn;
-	}
-    Goto See
+			 A_MonsterCrisisCheck;
+			 A_CrisisMeleeAttack(4*random(1,8),"nightmare/melee");
+			}
+			Goto See
+		Pain:
+			NMRE H 2 
+			{
+			 A_NightmarePhaseIn;
+			}
+			NMRE H 10 
+			{
+			 A_NightmarePhaseIn;
+			 A_Pain;
+			}
+			Goto See
+		Pain.Fist:
+			NMRE H 2 
+			{
+			 A_NightmarePhaseIn;
+			}
+			NMRE H 10 
+			{
+			 A_NightmarePhaseIn;
+			 A_Pain;
+			}
+			NMRE HH 5
+			{
+			 A_NightmarePhaseIn;
+			}
+			Goto See
+		Pain.Kick:
+			NMRE H 2 
+			{
+			 A_NightmarePhaseIn;
+			}
+			NMRE H 10
+			{
+			 A_NightmarePhaseIn;
+			 A_Pain;
+			}
+			NMRE HHHH 5
+			{
+			 A_NightmarePhaseIn;
+			}
+			Goto See
 
-  Death:
-    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
-    NMRE I 3 A_ScreamAndUnblock
-    TNT1 A 0 
-    NMRE JKLMNO 3 
-    Stop
-  Ice:
-    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
-    TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
-    NMRE H 5 A_GenericFreezeDeath
-    NMRE H 1 A_FreezeDeathChunks
-    wait
-  }
+		Death:
+			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+			NMRE I 3 A_ScreamAndUnblock
+			TNT1 A 0 
+			NMRE JKLMNO 3 
+			Stop
+		Ice:
+			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+			TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
+			NMRE H 5 A_GenericFreezeDeath
+			NMRE H 1 A_FreezeDeathChunks
+			wait
+	}
 }
 
 ACTOR SirenNightmareNew : NightmareNew 31111
 {
-  //$Angled
-  //$Color 12
-  //$Category "TCOTD:A Monsters/Doom Style"
-  health 525
-  Radius 10
-  PainChance 48
-  Painchance "Fist", 72 // Fist attacks have a +50% chance of stunning an enemy
-  Painchance "Kick", 120 // Kick attacks have a +150% chance of stunning an enemy
-  Painchance "Gauntlets", 72 // Fist attacks have a +50% chance of stunning an enemy
-  DamageFactor "Normal", 0.2
-  DamageFactor "Holy", 5
-  DamageFactor "Crush", 0
-  Radius 12 // 10
-  Height 36 // 30
-  Speed 30
-  Scale 1.25
-  MeleeDamage 40
-  -FloorClip
-  +LOOKALLAROUND
-  +ActivateMCross
-  SEESOUND "nightmare2/sight"
-  PAINSOUND "nightmare2/pain"
-  DEATHSOUND "nightmare2/death"
-  ACTIVESOUND "nightmare2/active"
-  MELEESOUND "nightmare2/melee"
-  HitObituary "%o should've heeded the siren..."
-  SpawnID 247
+	//$Angled
+	//$Color 12
+	//$Category "TCOTD:A Monsters/Doom Style"
+	health 525
+	Radius 10
+	PainChance 48
+	Painchance "Fist", 72 // Fist attacks have a +50% chance of stunning an enemy
+	Painchance "Kick", 120 // Kick attacks have a +150% chance of stunning an enemy
+	Painchance "Gauntlets", 72 // Fist attacks have a +50% chance of stunning an enemy
+	DamageFactor "Normal", 0.2
+	DamageFactor "Holy", 5
+	DamageFactor "Crush", 0
+	Radius 12 // 10
+	Height 36 // 30
+	Speed 30
+	Scale 1.25
+	MeleeDamage 40
+	-FloorClip
+	+LOOKALLAROUND
+	+ActivateMCross
+	SEESOUND "nightmare2/sight"
+	PAINSOUND "nightmare2/pain"
+	DEATHSOUND "nightmare2/death"
+	ACTIVESOUND "nightmare2/active"
+	MELEESOUND "nightmare2/melee"
+	HitObituary "%o should've heeded the siren..."
+	SpawnID 247
 
-  states
-  {
-  Spawn:
-    NMRE A 0 NoDelay 
-    NMRE AABB 5 
+	states
 	{
-	 A_NightmarePhaseOut;
-	 A_Look;
-	}
-    goto Spawn+1
-  See:
-    NMRE A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
-    NMRE AABB 2
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(1); }
-	 A_Explode(random(12,20),24,0,0,8);
-	 A_NightmarePhaseOut;
-	 A_Chase;
-	}
-    NMRE B 0 { if (random(1,256) <= 96) { A_CustomMissile("NightmareWisp",0,0,0); } }
-    NMRE CCDD 2
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(1); }
-	 A_Explode(random(12,20),24,0,0,8);
-	 A_NightmarePhaseOut;
-	 A_Chase;
-	}
-    NMRE D 0 { if (random(1,256) <= 96) { A_CustomMissile("NightmareWisp",0,0,0); } }
-    Loop
-  Melee:
-    TNT1 A 0 
-	{
-	 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1); // makes a Stealth Monster become more visible
-     A_NightmarePhaseIn;
-	}
-    NMRE EF 6 
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(2); }
-     else if (levelbehavior > 0 && user_monsterlevel > 112) { A_SetTics(3); }
-     else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
-     else if (levelbehavior > 0 && user_monsterlevel > 37) { A_SetTics(5); }
-     A_NightmarePhaseIn;
-	 A_Explode(random(12,20),24,0,0,8);
-	 A_FaceTarget;
-	}
-    NMRE G 6
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(2); }
-     else if (levelbehavior > 0 && user_monsterlevel > 112) { A_SetTics(3); }
-     else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
-     else if (levelbehavior > 0 && user_monsterlevel > 37) { A_SetTics(5); }
-     A_NightmarePhaseIn;
-	 A_Explode(random(12,20),24,0,0,8);
-	 A_FaceTarget;
+		Spawn:
+			NMRE A 0 NoDelay 
+			NMRE AABB 5 
+			{
+			 A_NightmarePhaseOut;
+			 A_Look;
+			}
+			goto Spawn+1
+		See:
+			NMRE A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
+			NMRE AABB 2
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(1); }
+			 A_Explode(random(12,20),24,0,0,8);
+			 A_NightmarePhaseOut;
+			 A_Chase;
+			}
+			NMRE B 0 { if (random(1,256) <= 96) { A_CustomMissile("NightmareWisp",0,0,0); } }
+			NMRE CCDD 2
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(1); }
+			 A_Explode(random(12,20),24,0,0,8);
+			 A_NightmarePhaseOut;
+			 A_Chase;
+			}
+			NMRE D 0 { if (random(1,256) <= 96) { A_CustomMissile("NightmareWisp",0,0,0); } }
+			Loop
+		Melee:
+			TNT1 A 0 
+			{
+			 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1); // makes a Stealth Monster become more visible
+			 A_NightmarePhaseIn;
+			}
+			NMRE EF 6 
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(2); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 112) { A_SetTics(3); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 37) { A_SetTics(5); }
+			 A_NightmarePhaseIn;
+			 A_Explode(random(12,20),24,0,0,8);
+			 A_FaceTarget;
+			}
+			NMRE G 6
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(2); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 112) { A_SetTics(3); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 37) { A_SetTics(5); }
+			 A_NightmarePhaseIn;
+			 A_Explode(random(12,20),24,0,0,8);
+			 A_FaceTarget;
 
-	 A_MonsterCrisisCheck;
-	 A_CrisisMeleeAttack(40*random(1,8),"nightmare2/melee");
-	}
-    Goto See
+			 A_MonsterCrisisCheck;
+			 A_CrisisMeleeAttack(40*random(1,8),"nightmare2/melee");
+			}
+			Goto See
 
-  Pain:
-    NMRE H 1
-	{
-     A_NightmarePhaseIn;
-	 A_Explode(random(12,20),24,0,0,8);
-	}
-    NMRE H 5 
-	{
-	 A_Pain;
-     A_NightmarePhaseIn;
-	 A_Explode(random(12,20),24,0,0,8);
-	}
-    Goto See
-  Pain.Fist:
-    NMRE H 1
-	{
-     A_NightmarePhaseIn;
-	 A_Explode(random(12,20),24,0,0,8);
-	}
-    NMRE H 5 
-	{
-	 A_Pain;
-     A_NightmarePhaseIn;
-	 A_Explode(random(12,20),24,0,0,8);
-	}
-    NMRE HH 2
-	{
-     A_NightmarePhaseIn;
-	 A_Explode(random(12,20),24,0,0,8);
-	}
-    Goto See
-  Pain.Kick:
-    NMRE H 1
-	{
-     A_NightmarePhaseIn;
-	 A_Explode(random(12,20),24,0,0,8);
-	}
-    NMRE H 5 
-	{
-	 A_Pain;
-     A_NightmarePhaseIn;
-	 A_Explode(random(12,20),24,0,0,8);
-	}
-    NMRE HHHH 2
-	{
-     A_NightmarePhaseIn;
-	 A_Explode(random(12,20),24,0,0,8);
-	}
-    Goto See
+		Pain:
+			NMRE H 1
+			{
+			 A_NightmarePhaseIn;
+			 A_Explode(random(12,20),24,0,0,8);
+			}
+			NMRE H 5 
+			{
+			 A_Pain;
+			 A_NightmarePhaseIn;
+			 A_Explode(random(12,20),24,0,0,8);
+			}
+			Goto See
+		Pain.Fist:
+			NMRE H 1
+			{
+			 A_NightmarePhaseIn;
+			 A_Explode(random(12,20),24,0,0,8);
+			}
+			NMRE H 5 
+			{
+			 A_Pain;
+			 A_NightmarePhaseIn;
+			 A_Explode(random(12,20),24,0,0,8);
+			}
+			NMRE HH 2
+			{
+			 A_NightmarePhaseIn;
+			 A_Explode(random(12,20),24,0,0,8);
+			}
+			Goto See
+		Pain.Kick:
+			NMRE H 1
+			{
+			 A_NightmarePhaseIn;
+			 A_Explode(random(12,20),24,0,0,8);
+			}
+			NMRE H 5 
+			{
+			 A_Pain;
+			 A_NightmarePhaseIn;
+			 A_Explode(random(12,20),24,0,0,8);
+			}
+			NMRE HHHH 2
+			{
+			 A_NightmarePhaseIn;
+			 A_Explode(random(12,20),24,0,0,8);
+			}
+			Goto See
 
-  Pain.GravityHP: Goto See
-  Pain.GravityMP: Goto See
-  Pain.GravityHPMP: Goto See
-  Death.Sceptre: Goto Death
-  Pain.Gauntlets: Goto Pain
-  Death.Gauntlets: Goto Death
-  }
-
+		Pain.GravityHP: Goto See
+		Pain.GravityMP: Goto See
+		Pain.GravityHPMP: Goto See
+		Death.Sceptre: Goto Death
+		Pain.Gauntlets: Goto Pain
+		Death.Gauntlets: Goto Death
+	}
 }
 
 ACTOR VulgarShotNew : AetheriusEffectProjectile
 {
-  Damage (4 * random(1,8))
-  Radius 8
-  Height 16
-  Speed 10
-  RENDERSTYLE ADD
-  ALPHA 0.67
-  PROJECTILE
-  Seesound "poly/stmdr1"
-  DeathSound "weapons/bloodx"
-  States
-  {
-  Spawn:
-    FVUL AAABBB 1 Bright 
-    loop
-  Death:
-    TNT1 A 0 Bright
+	Damage (4 * random(1,8))
+	Radius 8
+	Height 16
+	Speed 10
+	RENDERSTYLE ADD
+	ALPHA 0.67
+	PROJECTILE
+	Seesound "poly/stmdr1"
+	DeathSound "weapons/bloodx"
+	States
 	{
-	 if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE) 
-	 {
-	  A_StatusEffectChecker(4);
-	  if (random(1,user_ailmentmaxchance) <= 3 && user_canafflict > 0)
-	  {
-	   ACS_NamedExecuteAlways("BuffTimer",0,8,16,random(140,210)); // Poison for 4-6 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
-	  }
-	 }
-	 return state("");
+		Spawn:
+			FVUL AAABBB 1 Bright 
+			loop
+		Death:
+			TNT1 A 0 Bright
+			{
+			 if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE) 
+			 {
+				A_StatusEffectChecker(4);
+				if (random(1,user_ailmentmaxchance) <= 3 && user_canafflict > 0)
+				{
+				 ACS_NamedExecuteAlways("BuffTimer",0,8,16,random(140,210)); // Poison for 4-6 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+				}
+			 }
+			 return state("");
+			}
+		Death2:
+			FVUL CDEF 4 Bright
+			stop
 	}
-  Death2:
-    FVUL CDEF 4 Bright
-    stop
-  }
 }
 actor VulgarShotCrisisParticle : BaseCrisisParticle
 {
- scale 0.67
- 
- States
- {
-  Spawn:
-    FVUL A 0 NoDelay A_CrisisParticleInit
-	goto Idle
-  Idle:
-    "####" AB 2 Bright A_CrisisParticleDo
-    loop
- }
+	scale 0.67
+
+	States
+	{
+	Spawn:
+		FVUL A 0 NoDelay A_CrisisParticleInit
+		goto Idle
+	Idle:
+		"####" AB 2 Bright A_CrisisParticleDo
+		loop
+	}
 }
 ACTOR VulgarShotCrisis : VulgarShotNew
 {
-  Damage ((4 * random(1,8)) * CallACS("CrisisMultiplier"))
-  States
-  {
-  Spawn:
-    FVUL AAABBB 1 Bright
+	Damage ((4 * random(1,8)) * CallACS("CrisisMultiplier"))
+	States
 	{
-     A_SpawnItemEx("VulgarShotCrisisParticle",0,0,0,0,0,1.28);
+		Spawn:
+			FVUL AAABBB 1 Bright
+			{
+			 A_SpawnItemEx("VulgarShotCrisisParticle",0,0,0,0,0,1.28);
+			}
+			loop
+		Death:
+			TNT1 A 0 Bright
+			{
+			 if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE) 
+			 {
+				A_StatusEffectChecker(4);
+				if (random(1,user_ailmentmaxchance) <= 3 && user_canafflict > 0)
+				{
+				 ACS_NamedExecuteAlways("BuffTimer",0,8,16, (random(140,210)*CallACS("CrisisMultiplier",5)) ); // Poison for 4-6 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+				}
+			 }
+			 return state("");
+			}
+		Death2:
+			FVUL CDEF 4 Bright
+			stop
 	}
-    loop
-  Death:
-    TNT1 A 0 Bright
-	{
-	 if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE) 
-	 {
-	  A_StatusEffectChecker(4);
-	  if (random(1,user_ailmentmaxchance) <= 3 && user_canafflict > 0)
-	  {
-	   ACS_NamedExecuteAlways("BuffTimer",0,8,16, (random(140,210)*CallACS("CrisisMultiplier",5)) ); // Poison for 4-6 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
-	  }
-	 }
-	 return state("");
-	}
-  Death2:
-    FVUL CDEF 4 Bright
-    stop
-  }
 }
 
 actor VulgarNew : DSDoomImp replaces Vulgar
 {
-  //$Angled
-  //$Color 12
-  //$Category "TCOTD:A Monsters/Doom Style"
-  health 135 // 100
-  radius 20
-  height 56
-  mass 120
-  speed 8
-  MeleeDamage 4
-  painchance 120
-  Painchance "Fist", 180 // Fist attacks have a +50% chance of stunning an enemy
-  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
-  Painchance "Gauntlets", 180 // Fist attacks have a +50% chance of stunning an enemy
-  DamageFactor "Crush", 6.4
-  MONSTER
-  +FLOORCLIP
-  +DONTHURTSPECIES
-  seesound "monster/vulsit"
-  painsound "monster/vulpai"
-  deathsound "monster/vuldth"
-  activesound "monster/vulact"
-  meleesound "monster/vulhit"
-  DropItem "Heart" 128
-  obituary "%o was poisoned by a vulgar."
-  hitobituary "A Vulgar had %o for lunch."
+	//$Angled
+	//$Color 12
+	//$Category "TCOTD:A Monsters/Doom Style"
+	health 135 // 100
+	radius 20
+	height 56
+	mass 120
+	speed 8
+	MeleeDamage 4
+	painchance 120
+	Painchance "Fist", 180 // Fist attacks have a +50% chance of stunning an enemy
+	Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
+	Painchance "Gauntlets", 180 // Fist attacks have a +50% chance of stunning an enemy
+	DamageFactor "Crush", 6.4
+	MONSTER
+	+FLOORCLIP
+	+DONTHURTSPECIES
+	seesound "monster/vulsit"
+	painsound "monster/vulpai"
+	deathsound "monster/vuldth"
+	activesound "monster/vulact"
+	meleesound "monster/vulhit"
+	DropItem "Heart" 128
+	obituary "%o was poisoned by a vulgar."
+	hitobituary "A Vulgar had %o for lunch."
 
-  states
-  {
-  Spawn:
-    VULG A 0 NoDelay 
-    VULG AB 10 A_Look
-    goto Spawn+1
-  See:
-    VULG A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
-    VULG AABBCCDD 3
+	States
 	{
-     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-     if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(2); }
-	 A_Chase;
-	}
-    loop
-  Melee:
-  Missile:
-    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    VULG E 8 
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(5); }
-     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(6); }
-     else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(7); }
-	 A_FaceTarget;
-	}
-    VULG F 8
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(5); }
-     else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(6); }
-     else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(7); }
-	 A_FaceTarget;
-	 A_PlaySound("monster/vulswg");
-	}
-    VULG G 6 
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(4); }
-     else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(5); }
-	 A_FaceTarget;
-	 A_BasicAttack(4, "imp/melee", "VulgarShotNew", 37); // A_CustomMissile("VulgarShotNew",37,0,0,0,0);
-	}
-    goto See
-  Pain:
-    VULG H 2
-    VULG H 2 A_Pain
-    goto See
-  Pain.Fist:
-    VULG H 2
-    VULG H 2 A_Pain
-    VULG HH 2
-    goto See
-  Pain.Kick:
-    VULG H 2
-    VULG H 2 A_Pain
-    VULG HHHH 2
-    goto See
+		Spawn:
+			VULG A 0 NoDelay 
+			VULG AB 10 A_Look
+			goto Spawn+1
+		See:
+			VULG A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
+			VULG AABBCCDD 3
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+			 if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(2); }
+			 A_Chase;
+			}
+			loop
+		Melee:
+		Missile:
+			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+			VULG E 8 
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(5); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(6); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(7); }
+			 A_FaceTarget;
+			}
+			VULG F 8
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(5); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(6); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(7); }
+			 A_FaceTarget;
+			 A_PlaySound("monster/vulswg");
+			}
+			VULG G 6 
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(4); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(5); }
+			 A_FaceTarget;
+			 A_BasicAttack(4, "imp/melee", "VulgarShotNew", 37); // A_CustomMissile("VulgarShotNew",37,0,0,0,0);
+			}
+			goto See
+		Pain:
+			VULG H 2
+			VULG H 2 A_Pain
+			goto See
+		Pain.Fist:
+			VULG H 2
+			VULG H 2 A_Pain
+			VULG HH 2
+			goto See
+		Pain.Kick:
+			VULG H 2
+			VULG H 2 A_Pain
+			VULG HHHH 2
+			goto See
 
-  Death:
-    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
-    VULG I 8
-    VULG J 8 A_Scream
-    VULG KL 6
-    VULG M 6 A_NoBlocking
-    TNT1 A 0 
-    VULG N -1
-    stop
+		Death:
+			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+			VULG I 8
+			VULG J 8 A_Scream
+			VULG KL 6
+			VULG M 6 A_NoBlocking
+			TNT1 A 0 
+			VULG N -1
+			stop
 
-  XDeath:
-    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
-    VULG O 5
-    VULG P 5 A_XScream
-    VULG Q 5
-    VULG R 5 A_NoBlocking
-    VULG STU 5
-    TNT1 A 0 
-    VULG V -1
-    stop
-  Raise:
-    VULG M 8 
-    VULG L 8 
-    VULG KJI 6 
-    goto See
-  }
+		XDeath:
+			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+			VULG O 5
+			VULG P 5 A_XScream
+			VULG Q 5
+			VULG R 5 A_NoBlocking
+			VULG STU 5
+			TNT1 A 0 
+			VULG V -1
+			stop
+		Raise:
+			VULG M 8 
+			VULG L 8 
+			VULG KJI 6 
+			goto See
+	}
 }
 
 Actor ClayDevilNew : AetheriusMonsterZSC replaces ClayDevil
@@ -1999,1068 +1994,1066 @@ Actor ClayDevilNew : AetheriusMonsterZSC replaces ClayDevil
 
 ACTOR TCOTDAShadowNew : AetheriusMonsterZSC replaces Shadow 3126
 {
-  //$Angled
-  //$Color 12
-  //$Category "TCOTD:A Monsters/Doom Style"
-  Health 675
-  Radius 20
-  Height 56
-  Mass 100
-  bloodcolor "white"
-  Scale 1.5
-  RENDERSTYLE "Add"
-  Alpha 0.9
-  Speed 8
-  PainChance 128
-  Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
-  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
-  Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
-  DamageFactor "Crush", 6.4
-  MONSTER
-  +FLOORCLIP
-  SEESOUND "imp/sight"
-  PAINSOUND "imp/pain"
-  DEATHSOUND "imp/death"
-  ACTIVESOUND "imp/active"
-  OBITUARY "%o was assassinated by a grand shadow creature."
-  MissileType ShadowBall
+	//$Angled
+	//$Color 12
+	//$Category "TCOTD:A Monsters/Doom Style"
+	Health 675
+	Radius 20
+	Height 56
+	Mass 100
+	bloodcolor "white"
+	Scale 1.5
+	RENDERSTYLE "Add"
+	Alpha 0.9
+	Speed 8
+	PainChance 128
+	Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+	Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
+	Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
+	DamageFactor "Crush", 6.4
+	MONSTER
+	+FLOORCLIP
+	SEESOUND "imp/sight"
+	PAINSOUND "imp/pain"
+	DEATHSOUND "imp/death"
+	ACTIVESOUND "imp/active"
+	OBITUARY "%o was assassinated by a grand shadow creature."
+	MissileType ShadowBall
 
-  states
-  {
-  ResetLevel:
-    TROX A 1 A_Look
-    TROX A 1 
-    TROX A 1 
-		{
-		 user_ressurrectstr += random(10,20);
-		}
-    TROX A 1 
-	goto Spawn+1
-  Spawn:
-    TROX A 0 NoDelay 
-  See:
-    TROX A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
-	TROX A 5
-    TROX AAA 1
+	states
 	{
-     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-	 A_Chase;
-	}
-	TROX A 0 A_CustomMissile("ShadowGhostA", 0, 0, 0)
-	TROX BBB 1
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-	 A_Chase;
-	}
-	TROX B 0 A_CustomMissile("ShadowGhostB", 0, 0, 0)
-	TROX CCC 1
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-	 A_Chase;
-	}
-	TROX C 0 A_CustomMissile("ShadowGhostC", 0, 0, 0)
-	TROX DDD 1
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-	 A_Chase;
-	}
-	TROX D 0 A_CustomMissile("ShadowGhostD", 0, 0, 0)
-    TROX AAA 1
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-	 A_Chase;
-	}
-	TROX A 0 A_CustomMissile("ShadowGhostA", 0, 0, 0)
-	TROX BBB 1
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-	 A_Chase;
-	}
-	TROX B 0 A_CustomMissile("ShadowGhostB", 0, 0, 0)
-	TROX CCC 1
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-	 A_Chase;
-	}
-	TROX C 0 A_CustomMissile("ShadowGhostC", 0, 0, 0)
-	TROX DDD 1
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-	 A_Chase;
-	}
-	TROX D 0 A_CustomMissile("ShadowGhostD", 0, 0, 0)
-	Goto See+2
-  Missile:
-    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-	TROX E 8
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(4); }
-     else if (levelbehavior > 0 && user_monsterlevel > 135) { A_SetTics(5); }
-     else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(6); }
-     else if (levelbehavior > 0 && user_monsterlevel > 45) { A_SetTics(7); }
-	 A_FaceTarget;
-	}
-	TROX F 0 A_SpidRefire
-  MissileFire:
-	TROX F 3
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 270) { A_SetTics(1); }
-     else if (levelbehavior > 0 && user_monsterlevel > 135) { A_SetTics(2); }
-	}
-	TROX G 3 BRIGHT
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 270) { A_SetTics(1); }
-     else if (levelbehavior > 0 && user_monsterlevel > 135) { A_SetTics(2); }
+		ResetLevel:
+			TROX A 1 A_Look
+			TROX A 1 
+			TROX A 1 
+			{
+			 user_ressurrectstr += random(10,20);
+			}
+			TROX A 1 
+			goto Spawn+1
+		Spawn:
+			TROX A 0 NoDelay 
+		See:
+			TROX A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
+			TROX A 5
+			TROX AAA 1
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+			A_Chase;
+			}
+			TROX A 0 A_CustomMissile("ShadowGhostA", 0, 0, 0)
+			TROX BBB 1
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+			 A_Chase;
+			}
+			TROX B 0 A_CustomMissile("ShadowGhostB", 0, 0, 0)
+			TROX CCC 1
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+			 A_Chase;
+			}
+			TROX C 0 A_CustomMissile("ShadowGhostC", 0, 0, 0)
+			TROX DDD 1
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+			 A_Chase;
+			}
+			TROX D 0 A_CustomMissile("ShadowGhostD", 0, 0, 0)
+			TROX AAA 1
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+			 A_Chase;
+			}
+			TROX A 0 A_CustomMissile("ShadowGhostA", 0, 0, 0)
+			TROX BBB 1
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+			 A_Chase;
+			}
+			TROX B 0 A_CustomMissile("ShadowGhostB", 0, 0, 0)
+			TROX CCC 1
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+			 A_Chase;
+			}
+			TROX C 0 A_CustomMissile("ShadowGhostC", 0, 0, 0)
+			TROX DDD 1
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+			 A_Chase;
+			}
+			TROX D 0 A_CustomMissile("ShadowGhostD", 0, 0, 0)
+			Goto See+2
+		Missile:
+			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+			TROX E 8
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(4); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 135) { A_SetTics(5); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(6); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 45) { A_SetTics(7); }
+			 A_FaceTarget;
+			}
+			TROX F 0 A_SpidRefire
+		MissileFire:
+			TROX F 3
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 270) { A_SetTics(1); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 135) { A_SetTics(2); }
+			}
+			TROX G 3 BRIGHT
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 270) { A_SetTics(1); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 135) { A_SetTics(2); }
 
-	 A_MonsterCrisisCheck;
-	 A_CrisisSpawnProjectile("ShadowBall","ShadowBallCrisis");
-	}
-	TROX F 3
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 270) { A_SetTics(1); }
-     else if (levelbehavior > 0 && user_monsterlevel > 135) { A_SetTics(2); }
-	}
-	TROX E 12
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(8); }
-     else if (levelbehavior > 0 && user_monsterlevel > 135) { A_SetTics(9); }
-     else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(11); }
-     else if (levelbehavior > 0 && user_monsterlevel > 45) { A_SetTics(10); }
-	 A_FaceTarget;
-	}
-	TROX E 1
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(0); }
-	}
-	TROX E 0 A_SpidRefire
-	Goto Missile+1      
-  Pain:
-	TROX H 3
-	TROX H 3 A_Pain
-	Goto See+2
-  Pain.Fist:
-	TROX H 3
-	TROX H 3 A_Pain
-	TROX HH 3
-	Goto See+2
-  Pain.Kick:
-	TROX H 3
-	TROX H 3 A_Pain
-	TROX HHHH 3
-	Goto See+2
+			 A_MonsterCrisisCheck;
+			 A_CrisisSpawnProjectile("ShadowBall","ShadowBallCrisis");
+			}
+			TROX F 3
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 270) { A_SetTics(1); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 135) { A_SetTics(2); }
+			}
+			TROX E 12
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(8); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 135) { A_SetTics(9); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(11); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 45) { A_SetTics(10); }
+			 A_FaceTarget;
+			}
+			TROX E 1
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(0); }
+			}
+			TROX E 0 A_SpidRefire
+			Goto Missile+1      
+		Pain:
+			TROX H 3
+			TROX H 3 A_Pain
+			Goto See+2
+		Pain.Fist:
+			TROX H 3
+			TROX H 3 A_Pain
+			TROX HH 3
+			Goto See+2
+		Pain.Kick:
+			TROX H 3
+			TROX H 3 A_Pain
+			TROX HHHH 3
+			Goto See+2
 
-  Death:
-    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
-	TROX I 6 A_Scream
-	TROX J 5
-	TROX K 5 A_CustomMissile("Shadowtorso", 0, 0, 0)
-	TROX L 5 A_Fall
-	TROX MNO 6 
-    TNT1 A 0 
-	TROX P -1
-	Stop
+		Death:
+			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+			TROX I 6 A_Scream
+			TROX J 5
+			TROX K 5 A_CustomMissile("Shadowtorso", 0, 0, 0)
+			TROX L 5 A_Fall
+			TROX MNO 6 
+			TNT1 A 0 
+			TROX P -1
+			Stop
 
-  XDeath:
-    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
-	TROX W 5
-	TROX X 4 A_XScream
-	TROX Y 4 
-	TROX Z 4 A_Fall
- 	TROX ] 4
- 	TROX [ 4
-    TNT1 A 0 
-	TROX \ -1
-	Stop
+		XDeath:
+			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+			TROX W 5
+			TROX X 4 A_XScream
+			TROX Y 4 
+			TROX Z 4 A_Fall
+			TROX ] 4
+			TROX [ 4
+			TNT1 A 0 
+			TROX \ -1
+			Stop
 
-  Raise:
-	TROX M 8 
-	TROX KLJI 8 
-	Goto See
-  }
+		Raise:
+			TROX M 8 
+			TROX KLJI 8 
+			Goto See
+	}
 }
 
 ACTOR SoulHarvesterNew : AetheriusMonsterZSC 3117
 {
-  //$Angled
-  //$Color 12
-  //$Category "TCOTD:A Monsters/Doom Style"
-  Health 175 // 120
-  Radius 20
-  Height 56
-  Speed 8
-  PainChance 120
-  Painchance "Fist", 180 // Fist attacks have a +50% chance of stunning an enemy
-  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
-  Painchance "Gauntlets", 180 // Fist attacks have a +50% chance of stunning an enemy
-  DamageFactor "Crush", 6.4
-  MONSTER 
-  +FloorClip
-  SEESOUND "harvester/sight"
-  PAINSOUND "imp/pain"
-  DEATHSOUND "harvester/death"
-  ACTIVESOUND "imp/active"
-  MELEESOUND "imp/melee"
-  OBITUARY "%o couldn't evade the soul harvester's attack."
-  MissileType SoulHarvesterBall
-  MeleeDamage 3
+	//$Angled
+	//$Color 12
+	//$Category "TCOTD:A Monsters/Doom Style"
+	Health 175 // 120
+	Radius 20
+	Height 56
+	Speed 8
+	PainChance 120
+	Painchance "Fist", 180 // Fist attacks have a +50% chance of stunning an enemy
+	Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
+	Painchance "Gauntlets", 180 // Fist attacks have a +50% chance of stunning an enemy
+	DamageFactor "Crush", 6.4
+	MONSTER 
+	+FloorClip
+	SEESOUND "harvester/sight"
+	PAINSOUND "imp/pain"
+	DEATHSOUND "harvester/death"
+	ACTIVESOUND "imp/active"
+	MELEESOUND "imp/melee"
+	OBITUARY "%o couldn't evade the soul harvester's attack."
+	MissileType SoulHarvesterBall
+	MeleeDamage 3
 
-  states
-  {
-  Spawn:
-    SLHV A 0 NoDelay 
-    SLHV AB 10 A_Look
-    goto Spawn+1
-  See:
-    SLHV A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
-    SLHV AABBCCDD 3
+	states
 	{
-     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-     if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(2); }
-	 A_Chase;
-	}
-    Loop
-  Melee:
-  Missile:
-    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    SLHV EFG 4
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(2); }
-     else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
-	 A_FaceTarget;
-	}
-    SLHV HIJK 5 BRIGHT
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
-     else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
-	 A_FaceTarget;
-	}
-    SLHV L 8 BRIGHT 
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(4); }
-     else if (levelbehavior > 0 && user_monsterlevel > 135) { A_SetTics(5); }
-     else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(6); }
-     else if (levelbehavior > 0 && user_monsterlevel > 45) { A_SetTics(7); }
-	 A_FaceTarget;
+		Spawn:
+			SLHV A 0 NoDelay 
+			SLHV AB 10 A_Look
+			goto Spawn+1
+		See:
+			SLHV A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
+			SLHV AABBCCDD 3
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+			 if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(2); }
+			 A_Chase;
+			}
+			Loop
+		Melee:
+		Missile:
+			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+			SLHV EFG 4
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+			 A_FaceTarget;
+			}
+			SLHV HIJK 5 BRIGHT
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
+			 A_FaceTarget;
+			}
+			SLHV L 8 BRIGHT 
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(4); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 135) { A_SetTics(5); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(6); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 45) { A_SetTics(7); }
+			 A_FaceTarget;
 
-	 A_MonsterCrisisCheck;
-	 A_CrisisComboAttack("SoulHarvesterBall", "SoulHarvesterBallCrisis", 32, 3*random(1,8), "imp/melee");
-	}
-    SLHV M 10
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(6); }
-     else if (levelbehavior > 0 && user_monsterlevel > 112) { A_SetTics(7); }
-     else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(8); }
-     else if (levelbehavior > 0 && user_monsterlevel > 37) { A_SetTics(9); }
-	 A_FaceTarget;
-	}
-    Goto See
-  Pain:
- 	SLHV N 3
-   	SLHV N 3 A_Pain
-   	Goto See
-  Pain.Fist:
- 	SLHV N 3
-   	SLHV N 3 A_Pain
- 	SLHV NN 3
-   	Goto See
-  Pain.Kick:
- 	SLHV N 3
-   	SLHV N 3 A_Pain
- 	SLHV NNNN 3
-   	Goto See
+			 A_MonsterCrisisCheck;
+			 A_CrisisComboAttack("SoulHarvesterBall", "SoulHarvesterBallCrisis", 32, 3*random(1,8), "imp/melee");
+			}
+			SLHV M 10
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(6); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 112) { A_SetTics(7); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(8); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 37) { A_SetTics(9); }
+			 A_FaceTarget;
+			}
+			Goto See
+		Pain:
+			SLHV N 3
+			SLHV N 3 A_Pain
+			Goto See
+		Pain.Fist:
+			SLHV N 3
+			SLHV N 3 A_Pain
+			SLHV NN 3
+			Goto See
+		Pain.Kick:
+			SLHV N 3
+			SLHV N 3 A_Pain
+			SLHV NNNN 3
+			Goto See
 
-  Death:
-    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
-    SLHV O 7 A_Scream
-    SLHV PQR 7 
-    SLHV S 6 A_CustomMissile("SoulHarvesterGhost", 32, 0, 0)
-    SLHV T 5 A_Fall
-    SLHV UV 5
-    TNT1 A 0 
-    SLHV W -1
-    Stop
+		Death:
+			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+			SLHV O 7 A_Scream
+			SLHV PQR 7 
+			SLHV S 6 A_CustomMissile("SoulHarvesterGhost", 32, 0, 0)
+			SLHV T 5 A_Fall
+			SLHV UV 5
+			TNT1 A 0 
+			SLHV W -1
+			Stop
 
-  XDeath:
-    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
-    SLHV X 6 A_XScream
-    SLHV Y 6 A_CustomMissile("SoulHarvesterGhost", 32, 0, 0)
-    SLHV Z 6
-    SLHV [ 6 A_Fall
-    SLHV ] 6
-    TNT1 A 0 
-    SLHW A -1
-    Stop
-  Raise:
-    SLHV W 5 
-    SLHV VUTSRQPO 5 
-    Goto See
-  }
+		XDeath:
+			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+			SLHV X 6 A_XScream
+			SLHV Y 6 A_CustomMissile("SoulHarvesterGhost", 32, 0, 0)
+			SLHV Z 6
+			SLHV [ 6 A_Fall
+			SLHV ] 6
+			TNT1 A 0 
+			SLHW A -1
+			Stop
+		Raise:
+			SLHV W 5 
+			SLHV VUTSRQPO 5 
+			Goto See
+	}
 }
 
 ACTOR ESoulNew : AetheriusMonsterZSC 29012 // : ESoul replaces ESoul 29012
 { 
-  //$Angled
-  //$Color 12
-  //$Category "TCOTD:A Monsters/Doom Style"
-  obituary "%o's soul was leeched by the etheral soul"
-  health 230 // 150
-  radius 16
-  height 32
-  speed 5
-  damage 5
-  bloodcolor "black"
-  Alpha 0.4
-  RenderStyle Add
-  Painchance 128
-  Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
-  Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
-  Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
-  DamageFactor "Dark", 0.4
-  DamageFactor "Crush", 0
-  DamageFactor "Holy", 1.75
-  MONSTER
-  +FLOAT
-  +NOGRAVITY
-  +NOICEDEATH
-  +MISSILEMORE
-  +DONTFALL
-  +NOBLOOD
-  attacksound "skull/melee"
-  PainSound "nightmare/pain"
-  DeathSound "nightmare/death"
-  ActiveSound "nightmare/active"
+	//$Angled
+	//$Color 12
+	//$Category "TCOTD:A Monsters/Doom Style"
+	obituary "%o's soul was leeched by the etheral soul"
+	health 230 // 150
+	radius 16
+	height 32
+	speed 5
+	damage 5
+	bloodcolor "black"
+	Alpha 0.4
+	RenderStyle Add
+	Painchance 128
+	Painchance "Fist", 192 // Fist attacks have a +50% chance of stunning an enemy
+	Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
+	Painchance "Gauntlets", 192 // Fist attacks have a +50% chance of stunning an enemy
+	DamageFactor "Dark", 0.4
+	DamageFactor "Crush", 0
+	DamageFactor "Holy", 1.75
+	MONSTER
+	+FLOAT
+	+NOGRAVITY
+	+NOICEDEATH
+	+MISSILEMORE
+	+DONTFALL
+	+NOBLOOD
+	attacksound "skull/melee"
+	PainSound "nightmare/pain"
+	DeathSound "nightmare/death"
+	ActiveSound "nightmare/active"
 
-  states
-  {
-  Spawn:
-    ETHS A 0 NoDelay 
-    ETHS ABCD 10 bright A_Look
-    goto Spawn+1
-  See:
-    ETHS A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
-    ETHS AABBCCDD 3 bright
+	states
 	{
-     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-     if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(2); }
-	 A_Chase;
-	}
-    loop
-  Missile:
-    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    ETHS C 0 bright A_Jump(128,"Missile2")
-    ETHS C 6 bright 
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(4); }
-     else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(5); }
-     A_FaceTarget;
-	}
-    ETHS EFEF 4 bright
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(2); }
-     else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
-     A_FaceTarget;
+		Spawn:
+			ETHS A 0 NoDelay 
+			ETHS ABCD 10 bright A_Look
+			goto Spawn+1
+		See:
+			ETHS A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
+			ETHS AABBCCDD 3 bright
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+			 if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(2); }
+			 A_Chase;
+			}
+			loop
+		Missile:
+			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+			ETHS C 0 bright A_Jump(128,"Missile2")
+			ETHS C 6 bright 
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(4); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(5); }
+			 A_FaceTarget;
+			}
+			ETHS EFEF 4 bright
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+			 A_FaceTarget;
 
-	 SetDamage(5+(user_monsterlevel/60)); 
-	 A_MonsterCrisisCheck;
-	 if(user_canusecrisisatk == 1) { A_PlayCrisisAtkSound; SetDamage((5+(user_monsterlevel/60))*CallACS("CrisisMultiplier")); } 
-	 A_SkullAttack;
-	}
-    goto See
-  Missile2:
-    ETHS P 3 bright
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(1); }
-     else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(2); }
-     A_FaceTarget;
-	}
-    ETHS Q 4 bright
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(2); }
-     else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
-     A_FaceTarget;
-	}
-    ETHS R 5 bright 
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(4); }
-     else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(5); }
-     A_FaceTarget;
+			 SetDamage(5+(user_monsterlevel/60)); 
+			 A_MonsterCrisisCheck;
+			 if(user_canusecrisisatk == 1) { A_PlayCrisisAtkSound; SetDamage((5+(user_monsterlevel/60))*CallACS("CrisisMultiplier")); } 
+			 A_SkullAttack;
+			}
+			goto See
+		Missile2:
+			ETHS P 3 bright
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(1); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(2); }
+			 A_FaceTarget;
+			}
+			ETHS Q 4 bright
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+			 A_FaceTarget;
+			}
+			ETHS R 5 bright 
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(4); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(5); }
+			 A_FaceTarget;
 
-	 A_MonsterCrisisCheck;
-	 A_CrisisSpawnProjectile("ShadowBall", "ShadowBallCrisis", 0, 0, 0);
-	}
-    ETHS E 4 bright
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(2); }
-     else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
-     A_FaceTarget;
-	}
-    goto See
-  Pain:
-    ETHS G 3 bright
-    ETHS G 3 bright A_Pain
-    goto See
-  Pain.Fist:
-    ETHS G 3 bright
-    ETHS G 3 bright A_Pain
-    ETHS GG 3 bright
-    goto See
-  Pain.Kick:
-    ETHS G 3 bright
-    ETHS G 3 bright A_Pain
-    ETHS GGGG 3 bright
-    goto See
+			 A_MonsterCrisisCheck;
+			 A_CrisisSpawnProjectile("ShadowBall", "ShadowBallCrisis", 0, 0, 0);
+			}
+			ETHS E 4 bright
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+			 A_FaceTarget;
+			}
+			goto See
+		Pain:
+			ETHS G 3 bright
+			ETHS G 3 bright A_Pain
+			goto See
+		Pain.Fist:
+			ETHS G 3 bright
+			ETHS G 3 bright A_Pain
+			ETHS GG 3 bright
+			goto See
+		Pain.Kick:
+			ETHS G 3 bright
+			ETHS G 3 bright A_Pain
+			ETHS GGGG 3 bright
+			goto See
 
-  Death:
-    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
-    ETHS F 3 bright
-    ETHS H 3 bright A_ScreamAndUnblock
-    ETHS IJKLMNO 3 bright
-    stop
-  }
+		Death:
+			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+			ETHS F 3 bright
+			ETHS H 3 bright A_ScreamAndUnblock
+			ETHS IJKLMNO 3 bright
+			stop
+	}
 }
 
 ACTOR DEWraithNew : AetheriusMonsterZSC replaces DEWraith 30106
 { 
-  //$Angled
-  //$Color 12
-  //$Category "TCOTD:A Monsters/Raven Style"
-  Health 80 // 50
-  Radius 16 
-  Height 32 
-  Mass 50 
-  Speed 10 
-  Damage 2
-  bloodcolor "darkred"
-  RENDERSTYLE ADD
-  MeleeDamage 1
-  Alpha 0.67 
-  PainChance 64 
-  Painchance "Fist", 96 // Fist attacks have a +50% chance of stunning an enemy
-  Painchance "Kick", 160 // Kick attacks have a +150% chance of stunning an enemy
-  Painchance "Gauntlets", 96 // Fist attacks have a +50% chance of stunning an enemy
-  DamageFactor "Holy", 1.75
-  DamageFactor "Crush", 0
-  MONSTER
-  +DONTGIB
-  +NOTARGET
-  +NOGRAVITY 
-  +FLOAT
-  +DONTFALL
-  +DONTHURTSPECIES
-  +THRUSPECIES
-  ATTACKSOUND "monster/sprsit"
-  MELEESOUND "monster/spratk"
-  PAINSOUND "archvile/pain" 
-  DEATHSOUND "monster/sprdth"
-  OBITUARY "A wraith had it's way with %o."
-  HITOBITUARY "%o got bitten by a wraith too many times."
-  SpawnID 176
+	//$Angled
+	//$Color 12
+	//$Category "TCOTD:A Monsters/Raven Style"
+	Health 80 // 50
+	Radius 16 
+	Height 32 
+	Mass 50 
+	Speed 10 
+	Damage 2
+	bloodcolor "darkred"
+	RENDERSTYLE ADD
+	MeleeDamage 1
+	Alpha 0.67 
+	PainChance 64 
+	Painchance "Fist", 96 // Fist attacks have a +50% chance of stunning an enemy
+	Painchance "Kick", 160 // Kick attacks have a +150% chance of stunning an enemy
+	Painchance "Gauntlets", 96 // Fist attacks have a +50% chance of stunning an enemy
+	DamageFactor "Holy", 1.75
+	DamageFactor "Crush", 0
+	MONSTER
+	+DONTGIB
+	+NOTARGET
+	+NOGRAVITY 
+	+FLOAT
+	+DONTFALL
+	+DONTHURTSPECIES
+	+THRUSPECIES
+	ATTACKSOUND "monster/sprsit"
+	MELEESOUND "monster/spratk"
+	PAINSOUND "archvile/pain" 
+	DEATHSOUND "monster/sprdth"
+	OBITUARY "A wraith had it's way with %o."
+	HITOBITUARY "%o got bitten by a wraith too many times."
+	SpawnID 176
 
-  states 
-  { 
-  Spawn: 
-    WRAI A 0 NoDelay 
-    WRAI AB 10 A_Look 
-    goto Spawn+1
-  See: 
-    WRAI A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
-    WRAI AABB 3 
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-     if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(2); }
-	 A_VileChase;
-	}
-    Loop 
-  Missile: 
-    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    WRAI A 10
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(6); }
-     else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(7); }
-     else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(8); }
-     else if (levelbehavior > 0 && user_monsterlevel > 30) { A_SetTics(9); }
-	 A_FaceTarget;
-	}
-    WRAI B 4
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(2); }
-     else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(3); }
+	states 
+	{ 
+		Spawn: 
+			WRAI A 0 NoDelay 
+			WRAI AB 10 A_Look 
+			goto Spawn+1
+		See: 
+			WRAI A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
+			WRAI AABB 3 
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+			 if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(2); }
+			 A_VileChase;
+			}
+			Loop 
+		Missile: 
+			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+			WRAI A 10
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(6); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(7); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(8); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 30) { A_SetTics(9); }
+			 A_FaceTarget;
+			}
+			WRAI B 4
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(2); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(3); }
 
-	 SetDamage(2+(user_monsterlevel/135)); 
-	 A_MonsterCrisisCheck;
-	 if(user_canusecrisisatk == 1) { A_PlayCrisisAtkSound; SetDamage((2+(user_monsterlevel/135))*CallACS("CrisisMultiplier")); } 
-	 A_SkullAttack;
-	}
-    WRAI AB 4 
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(2); }
-     else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(3); }
-	 A_FaceTarget;
-	}
-    Goto Missile+2
-  Melee:
-    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    WRAI A 5 
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(3); }
-     else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(4); }
-	 A_FaceTarget;
-	}
-    WRAI B 5 
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(3); }
-     else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(4); }
-	 A_FaceTarget;
+			 SetDamage(2+(user_monsterlevel/135)); 
+			 A_MonsterCrisisCheck;
+			 if(user_canusecrisisatk == 1) { A_PlayCrisisAtkSound; SetDamage((2+(user_monsterlevel/135))*CallACS("CrisisMultiplier")); } 
+			 A_SkullAttack;
+			}
+			WRAI AB 4 
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(2); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(3); }
+			 A_FaceTarget;
+			}
+			Goto Missile+2
+		Melee:
+			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+			WRAI A 5 
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(3); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(4); }
+			 A_FaceTarget;
+			}
+			WRAI B 5 
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(3); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(4); }
+			 A_FaceTarget;
 
-	 A_MonsterCrisisCheck;
-	 A_CrisisMeleeAttack(1*random(1,8), "monster/spratk");
-	}
-    Goto See
-  Heal:
-    WRAI AB 3
-    Goto Death 
-  Pain: 
-    WRAI A 3  
-    WRAI A 3 A_Pain 
-    Goto See 
-  Pain.Fist: 
-    WRAI A 3  
-    WRAI A 3 A_Pain 
-    WRAI AA 3  
-    Goto See 
-  Pain.Kick: 
-    WRAI A 3  
-    WRAI A 3 A_Pain 
-    WRAI AAAA 3  
-    Goto See 
+			 A_MonsterCrisisCheck;
+			 A_CrisisMeleeAttack(1*random(1,8), "monster/spratk");
+			}
+			Goto See
+		Heal:
+			WRAI AB 3
+			Goto Death 
+		Pain: 
+			WRAI A 3  
+			WRAI A 3 A_Pain 
+			Goto See 
+		Pain.Fist: 
+			WRAI A 3  
+			WRAI A 3 A_Pain 
+			WRAI AA 3  
+			Goto See 
+		Pain.Kick: 
+			WRAI A 3  
+			WRAI A 3 A_Pain 
+			WRAI AAAA 3  
+			Goto See 
 
-  Death:
-    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
-    WRAI E 4 A_NoBlocking
-    WRAI F 5 A_Scream 
-    WRAI GHIJ 4  
-    Stop 
-  } 
+		Death:
+			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+			WRAI E 4 A_NoBlocking
+			WRAI F 5 A_Scream 
+			WRAI GHIJ 4  
+			Stop 
+	} 
 }
 
 actor ButcherBarfNew : AetheriusEffectProjectile replaces ButcherBarf
 {
- Damage (3 * random(1,8))
- Mass 1
- Radius 8
- Height 6
- Speed 16
- Scale 0.45
- Alpha 0.3
- obituary "%o was poisoned to death by the puke of a bloated butcher."
- PROJECTILE
- SeeSound "DSFZATK"
- DeathSound "NONE"
- States
- {
-  Spawn:
-    PUKE AB 2 
+	Damage (3 * random(1,8))
+	Mass 1
+	Radius 8
+	Height 6
+	Speed 16
+	Scale 0.45
+	Alpha 0.3
+	obituary "%o was poisoned to death by the puke of a bloated butcher."
+	PROJECTILE
+	SeeSound "DSFZATK"
+	DeathSound "NONE"
+	States
 	{
-	 A_SpawnItemEx("POOK",0+random(-5,5),0+random(-5,5),0+random(-5,5),0,0,1,0,128);
+		Spawn:
+			PUKE AB 2 
+			{
+			 A_SpawnItemEx("POOK",0+random(-5,5),0+random(-5,5),0+random(-5,5),0,0,1,0,128);
+			}
+			Loop
+		Death:
+			TNT1 A 0 Bright
+			{
+			 if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE) 
+			 {
+				A_StatusEffectChecker(8);
+				if (random(1,user_ailmentmaxchance) <= 7 && user_canafflict > 0)
+				{
+				 ACS_NamedExecuteAlways("BuffTimer",0,8,16,random(70,140)); // Poison for 2-4 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+				}
+			 }
+			 return state("");
+			}
+		Death2:
+			SDTH F 0 A_SpawnItemEx("POOK", 0, 0,0,random(-9,9),random(-9,9),random(5,9), 48, 128)
+			SDTH D 0 A_SpawnItemEx("POOK", 0, 0,0,random(-9,9),random(-9,9),random(5,9), 48, 128)
+			SDTH E 0 A_SpawnItemEx("POOK", 0, 0,0,random(-9,9),random(-9,9),random(5,9), 48, 128)
+			SDTH F 0 A_SpawnItemEx("POOK", 0, 0,0,random(-9,9),random(-9,9),random(5,9), 48, 128)
+			SDTH D 0 A_SpawnItemEx("POOK", 0, 0,0,random(-9,9),random(-9,9),random(5,9), 48, 128)
+			SDTH E 0 A_SpawnItemEx("POOK", 0, 0,0,random(-9,9),random(-9,9),random(5,9), 48, 128)
+			PUKE A 8 A_FADEOUT
+			PUKE B 6  A_FADEOUT
+			stop
 	}
-    Loop
-  Death:
-    TNT1 A 0 Bright
-	{
-	 if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE) 
-	 {
-	  A_StatusEffectChecker(8);
-	  if (random(1,user_ailmentmaxchance) <= 7 && user_canafflict > 0)
-	  {
-	   ACS_NamedExecuteAlways("BuffTimer",0,8,16,random(70,140)); // Poison for 2-4 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
-	  }
-	 }
-	 return state("");
-	}
-  Death2:
-    SDTH F 0 A_SpawnItemEx("POOK", 0, 0,0,random(-9,9),random(-9,9),random(5,9), 48, 128)
-    SDTH D 0 A_SpawnItemEx("POOK", 0, 0,0,random(-9,9),random(-9,9),random(5,9), 48, 128)
-    SDTH E 0 A_SpawnItemEx("POOK", 0, 0,0,random(-9,9),random(-9,9),random(5,9), 48, 128)
-    SDTH F 0 A_SpawnItemEx("POOK", 0, 0,0,random(-9,9),random(-9,9),random(5,9), 48, 128)
-    SDTH D 0 A_SpawnItemEx("POOK", 0, 0,0,random(-9,9),random(-9,9),random(5,9), 48, 128)
-    SDTH E 0 A_SpawnItemEx("POOK", 0, 0,0,random(-9,9),random(-9,9),random(5,9), 48, 128)
-    PUKE A 8 A_FADEOUT
-    PUKE B 6  A_FADEOUT
-    stop
- }
 }
 actor ButcherBarfCrisisParticle : BaseCrisisParticle
 { 
- Scale 0.3015
- Alpha 0.201
+	Scale 0.3015
+	Alpha 0.201
 
- States
- {
-  Spawn:
-    PUKE A 0 NoDelay A_CrisisParticleInit
-	goto Idle
-  Idle:
-    "####" AB 2 Bright A_CrisisParticleDo
-    loop
- }
+	States
+	{
+		Spawn:
+			PUKE A 0 NoDelay A_CrisisParticleInit
+			goto Idle
+		Idle:
+			"####" AB 2 Bright A_CrisisParticleDo
+			loop
+	}
 }
 actor ButcherBarfCrisis : ButcherBarfNew
 {
- Damage ((3 * random(1,8)) * CallACS("CrisisMultiplier"))
- States
- {
-  Spawn:
-    PUKE AB 2 
+	Damage ((3 * random(1,8)) * CallACS("CrisisMultiplier"))
+	States
 	{
-     A_SpawnItemEx("ButcherBarfCrisisParticle",0,0,0,0,0,1.28);
-	 A_SpawnItemEx("POOK",0+random(-5,5),0+random(-5,5),0+random(-5,5),0,0,1,0,128);
+		Spawn:
+			PUKE AB 2 
+			{
+			 A_SpawnItemEx("ButcherBarfCrisisParticle",0,0,0,0,0,1.28);
+			 A_SpawnItemEx("POOK",0+random(-5,5),0+random(-5,5),0+random(-5,5),0,0,1,0,128);
+			}
+			Loop
+		Death:
+			TNT1 A 0 Bright
+			{
+			 if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE) 
+			 {
+				A_StatusEffectChecker(8);
+				if (random(1,user_ailmentmaxchance) <= 7 && user_canafflict > 0)
+				{
+				 ACS_NamedExecuteAlways("BuffTimer",0,8,16, (random(70,140)*CallACS("CrisisMultiplier",5)) ); // Poison for 2-4 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+				}
+			 }
+			 return state("");
+			}
+		Death2:
+			SDTH F 0 A_SpawnItemEx("POOK", 0, 0,0,random(-9,9),random(-9,9),random(5,9), 48, 128)
+			SDTH D 0 A_SpawnItemEx("POOK", 0, 0,0,random(-9,9),random(-9,9),random(5,9), 48, 128)
+			SDTH E 0 A_SpawnItemEx("POOK", 0, 0,0,random(-9,9),random(-9,9),random(5,9), 48, 128)
+			SDTH F 0 A_SpawnItemEx("POOK", 0, 0,0,random(-9,9),random(-9,9),random(5,9), 48, 128)
+			SDTH D 0 A_SpawnItemEx("POOK", 0, 0,0,random(-9,9),random(-9,9),random(5,9), 48, 128)
+			SDTH E 0 A_SpawnItemEx("POOK", 0, 0,0,random(-9,9),random(-9,9),random(5,9), 48, 128)
+			PUKE A 8 A_FADEOUT
+			PUKE B 6  A_FADEOUT
+			stop
 	}
-    Loop
-  Death:
-    TNT1 A 0 Bright
-	{
-	 if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE) 
-	 {
-	  A_StatusEffectChecker(8);
-	  if (random(1,user_ailmentmaxchance) <= 7 && user_canafflict > 0)
-	  {
-	   ACS_NamedExecuteAlways("BuffTimer",0,8,16, (random(70,140)*CallACS("CrisisMultiplier",5)) ); // Poison for 2-4 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
-	  }
-	 }
-	 return state("");
-	}
-  Death2:
-    SDTH F 0 A_SpawnItemEx("POOK", 0, 0,0,random(-9,9),random(-9,9),random(5,9), 48, 128)
-    SDTH D 0 A_SpawnItemEx("POOK", 0, 0,0,random(-9,9),random(-9,9),random(5,9), 48, 128)
-    SDTH E 0 A_SpawnItemEx("POOK", 0, 0,0,random(-9,9),random(-9,9),random(5,9), 48, 128)
-    SDTH F 0 A_SpawnItemEx("POOK", 0, 0,0,random(-9,9),random(-9,9),random(5,9), 48, 128)
-    SDTH D 0 A_SpawnItemEx("POOK", 0, 0,0,random(-9,9),random(-9,9),random(5,9), 48, 128)
-    SDTH E 0 A_SpawnItemEx("POOK", 0, 0,0,random(-9,9),random(-9,9),random(5,9), 48, 128)
-    PUKE A 8 A_FADEOUT
-    PUKE B 6  A_FADEOUT
-    stop
- }
 }
 
 actor CleaverNew : AetheriusEffectProjectile replaces Cleaver
 { 
-  damage (5 * random(1,8))
-  decal GarScorch
-  radius 6
-  height 16
-  speed 12
-  seesound "BloodThrow"
-  activesound ""
-  obituary "%o was cut down by a bloated butcher."
-  PROJECTILE
-  +RANDOMIZE
-  states
-  {
-  Spawn:
-    CLVR A 4 
+	damage (5 * random(1,8))
+	decal GarScorch
+	radius 6
+	height 16
+	speed 12
+	seesound "BloodThrow"
+	activesound ""
+	obituary "%o was cut down by a bloated butcher."
+	PROJECTILE
+	+RANDOMIZE
+	states
 	{
-	 A_LoopActiveSound;
-	 A_SpawnItemEx("CleaverTrail1",0,0,0,0,0,0,0,128);
+		Spawn:
+			CLVR A 4 
+			{
+			 A_LoopActiveSound;
+			 A_SpawnItemEx("CleaverTrail1",0,0,0,0,0,0,0,128);
+			}
+			CLVR B 4 
+			{
+			 A_LoopActiveSound;
+			 A_SpawnItemEx("CleaverTrail2",0,0,0,0,0,0,0,128);
+			}
+			CLVR C 4 
+			{
+			 A_LoopActiveSound;
+			 A_SpawnItemEx("CleaverTrail3",0,0,0,0,0,0,0,128);
+			}
+			CLVR D 4 
+			{
+			 A_LoopActiveSound;
+			 A_SpawnItemEx("CleaverTrail4",0,0,0,0,0,0,0,128);
+			}
+			CLVR E 4 
+			{
+			 A_LoopActiveSound;
+			 A_SpawnItemEx("CleaverTrail5",0,0,0,0,0,0,0,128);
+			}
+			CLVR F 4 
+			{
+			 A_LoopActiveSound;
+			 A_SpawnItemEx("CleaverTrail6",0,0,0,0,0,0,0,128);
+			}
+			CLVR G 4 
+			{
+			 A_LoopActiveSound;
+			 A_SpawnItemEx("CleaverTrail7",0,0,0,0,0,0,0,128);
+			}
+			CLVR H 4 
+			{
+			 A_LoopActiveSound;
+			 A_SpawnItemEx("CleaverTrail8",0,0,0,0,0,0,0,128);
+			}
+			loop
+		Death:
+			TNT1 A 0 Bright
+			{
+			 if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE) 
+			 {
+				A_StatusEffectChecker(12);
+				if (random(1,user_ailmentmaxchance) <= 5 && user_canafflict > 0)
+				{
+				 ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(70,105)); // Deceleratle for 2-3 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+				}
+			 }
+			 return state("");
+			}
+		Death2:
+			CLVR IIIIJJJJKKKKLLLL 1 A_FadeOut(0.05)
+			stop
 	}
-    CLVR B 4 
-	{
-	 A_LoopActiveSound;
-	 A_SpawnItemEx("CleaverTrail2",0,0,0,0,0,0,0,128);
-	}
-    CLVR C 4 
-	{
-	 A_LoopActiveSound;
-	 A_SpawnItemEx("CleaverTrail3",0,0,0,0,0,0,0,128);
-	}
-    CLVR D 4 
-	{
-	 A_LoopActiveSound;
-	 A_SpawnItemEx("CleaverTrail4",0,0,0,0,0,0,0,128);
-	}
-    CLVR E 4 
-	{
-	 A_LoopActiveSound;
-	 A_SpawnItemEx("CleaverTrail5",0,0,0,0,0,0,0,128);
-	}
-    CLVR F 4 
-	{
-	 A_LoopActiveSound;
-	 A_SpawnItemEx("CleaverTrail6",0,0,0,0,0,0,0,128);
-	}
-    CLVR G 4 
-	{
-	 A_LoopActiveSound;
-	 A_SpawnItemEx("CleaverTrail7",0,0,0,0,0,0,0,128);
-	}
-    CLVR H 4 
-	{
-	 A_LoopActiveSound;
-	 A_SpawnItemEx("CleaverTrail8",0,0,0,0,0,0,0,128);
-	}
-    loop
-  Death:
-    TNT1 A 0 Bright
-	{
-	 if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE) 
-	 {
-	  A_StatusEffectChecker(12);
-	  if (random(1,user_ailmentmaxchance) <= 5 && user_canafflict > 0)
-	  {
-	   ACS_NamedExecuteAlways("BuffTimer",0,8,15,random(70,105)); // Deceleratle for 2-3 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
-	  }
-	 }
-	 return state("");
-	}
-  Death2:
-    CLVR IIIIJJJJKKKKLLLL 1 A_FadeOut(0.05)
-    stop
-  }
 }
 actor CleaverNewCrisisParticle : BaseCrisisParticle
 { 
- States
- {
-  Spawn:
-    CLVR A 0 NoDelay A_CrisisParticleInit
-	goto Idle
-  Idle:
-    "####" AABBCCDDEEFFGGHH 2 Bright A_CrisisParticleDo
-    loop
- }
+	States
+	{
+		Spawn:
+			CLVR A 0 NoDelay A_CrisisParticleInit
+			goto Idle
+		Idle:
+			"####" AABBCCDDEEFFGGHH 2 Bright A_CrisisParticleDo
+			loop
+	}
 }
 actor CleaverNewCrisis : CleaverNew
 { 
-  damage ((5 * random(1,8)) * CallACS("CrisisMultiplier"))
-  states
-  {
-  Spawn:
-    CLVR A 4 
+	damage ((5 * random(1,8)) * CallACS("CrisisMultiplier"))
+	states
 	{
-     A_SpawnItemEx("CleaverNewCrisisParticle",0,0,0,0,0,1.28);
-	 A_LoopActiveSound;
-	 A_SpawnItemEx("CleaverTrail1",0,0,0,0,0,0,0,128);
+		Spawn:
+			CLVR A 4 
+			{
+			 A_SpawnItemEx("CleaverNewCrisisParticle",0,0,0,0,0,1.28);
+			 A_LoopActiveSound;
+			 A_SpawnItemEx("CleaverTrail1",0,0,0,0,0,0,0,128);
+			}
+			CLVR B 4 
+			{
+			 A_SpawnItemEx("CleaverNewCrisisParticle",0,0,0,0,0,1.28);
+			 A_LoopActiveSound;
+			 A_SpawnItemEx("CleaverTrail2",0,0,0,0,0,0,0,128);
+			}
+			CLVR C 4 
+			{
+			 A_SpawnItemEx("CleaverNewCrisisParticle",0,0,0,0,0,1.28);
+			 A_LoopActiveSound;
+			 A_SpawnItemEx("CleaverTrail3",0,0,0,0,0,0,0,128);
+			}
+			CLVR D 4 
+			{
+			 A_SpawnItemEx("CleaverNewCrisisParticle",0,0,0,0,0,1.28);
+			 A_LoopActiveSound;
+			 A_SpawnItemEx("CleaverTrail4",0,0,0,0,0,0,0,128);
+			}
+			CLVR E 4 
+			{
+			 A_SpawnItemEx("CleaverNewCrisisParticle",0,0,0,0,0,1.28);
+			 A_LoopActiveSound;
+			 A_SpawnItemEx("CleaverTrail5",0,0,0,0,0,0,0,128);
+			}
+			CLVR F 4 
+			{
+			 A_SpawnItemEx("CleaverNewCrisisParticle",0,0,0,0,0,1.28);
+			 A_LoopActiveSound;
+			 A_SpawnItemEx("CleaverTrail6",0,0,0,0,0,0,0,128);
+			}
+			CLVR G 4 
+			{
+			 A_SpawnItemEx("CleaverNewCrisisParticle",0,0,0,0,0,1.28);
+			 A_LoopActiveSound;
+			 A_SpawnItemEx("CleaverTrail7",0,0,0,0,0,0,0,128);
+			}
+			CLVR H 4 
+			{
+			 A_SpawnItemEx("CleaverNewCrisisParticle",0,0,0,0,0,1.28);
+			 A_LoopActiveSound;
+			 A_SpawnItemEx("CleaverTrail8",0,0,0,0,0,0,0,128);
+			}
+			loop
+		Death:
+			TNT1 A 0 Bright
+			{
+			 if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE) 
+			 {
+				A_StatusEffectChecker(12);
+				if (random(1,user_ailmentmaxchance) <= 5 && user_canafflict > 0)
+				{
+				 ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(70,105)*CallACS("CrisisMultiplier",5)) ); // Deceleratle for 2-3 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
+				}
+			 }
+			 return state("");
+			}
+		Death2:
+			CLVR IIIIJJJJKKKKLLLL 1 A_FadeOut(0.05)
+			stop
 	}
-    CLVR B 4 
-	{
-     A_SpawnItemEx("CleaverNewCrisisParticle",0,0,0,0,0,1.28);
-	 A_LoopActiveSound;
-	 A_SpawnItemEx("CleaverTrail2",0,0,0,0,0,0,0,128);
-	}
-    CLVR C 4 
-	{
-     A_SpawnItemEx("CleaverNewCrisisParticle",0,0,0,0,0,1.28);
-	 A_LoopActiveSound;
-	 A_SpawnItemEx("CleaverTrail3",0,0,0,0,0,0,0,128);
-	}
-    CLVR D 4 
-	{
-     A_SpawnItemEx("CleaverNewCrisisParticle",0,0,0,0,0,1.28);
-	 A_LoopActiveSound;
-	 A_SpawnItemEx("CleaverTrail4",0,0,0,0,0,0,0,128);
-	}
-    CLVR E 4 
-	{
-     A_SpawnItemEx("CleaverNewCrisisParticle",0,0,0,0,0,1.28);
-	 A_LoopActiveSound;
-	 A_SpawnItemEx("CleaverTrail5",0,0,0,0,0,0,0,128);
-	}
-    CLVR F 4 
-	{
-     A_SpawnItemEx("CleaverNewCrisisParticle",0,0,0,0,0,1.28);
-	 A_LoopActiveSound;
-	 A_SpawnItemEx("CleaverTrail6",0,0,0,0,0,0,0,128);
-	}
-    CLVR G 4 
-	{
-     A_SpawnItemEx("CleaverNewCrisisParticle",0,0,0,0,0,1.28);
-	 A_LoopActiveSound;
-	 A_SpawnItemEx("CleaverTrail7",0,0,0,0,0,0,0,128);
-	}
-    CLVR H 4 
-	{
-     A_SpawnItemEx("CleaverNewCrisisParticle",0,0,0,0,0,1.28);
-	 A_LoopActiveSound;
-	 A_SpawnItemEx("CleaverTrail8",0,0,0,0,0,0,0,128);
-	}
-    loop
-  Death:
-    TNT1 A 0 Bright
-	{
-	 if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE) 
-	 {
-	  A_StatusEffectChecker(12);
-	  if (random(1,user_ailmentmaxchance) <= 5 && user_canafflict > 0)
-	  {
-	   ACS_NamedExecuteAlways("BuffTimer",0,8,15, (random(70,105)*CallACS("CrisisMultiplier",5)) ); // Deceleratle for 2-3 seconds [tics] (do not ignore God/Invuln/Mercy-Invuln)
-	  }
-	 }
-	 return state("");
-	}
-  Death2:
-    CLVR IIIIJJJJKKKKLLLL 1 A_FadeOut(0.05)
-    stop
-  }
 }
 
 ACTOR ButcherZombieNew : AetheriusMonsterZSC 25010
 {
-  //$Angled
-  //$Color 12
-  //$Category "TCOTD:A Monsters/Blood Style"
-  Health 1090 // 308,436,630,850,1090
-  Radius 12
-  Height 56
-  Mass 500
-  speed 3
-  painchance 98
-  Painchance "Fist", 147 // Fist attacks have a +50% chance of stunning an enemy
-  Painchance "Kick", 245 // Kick attacks have a +150% chance of stunning an enemy
-  Painchance "Gauntlets", 147 // Fist attacks have a +50% chance of stunning an enemy
-  DamageFactor "Normal", 0.95
-  DamageFactor "Melee", 0.80
-  DamageFactor "Fire", 2.25
-  DamageFactor "Holy", 1.625
-  DamageFactor "Crush", 3.2
-  obituary "%o was cut down by a bloated butcher."
-  hitobituary "%o was cut up by a bloated butcher."
-  meleesound "twix"
-  seesound "BLOATEDBUTCHER/OTHER"
-  painsound "BLOATEDBUTCHER/OTHER"
-  deathsound "BLOATEDBUTCHER/DEATH"
-  activesound "BLOATEDBUTCHER/OTHER"
-  Scale 0.6
-  MONSTER
-  +BOSSDEATH
-  +NOSPLASHALERT
-  +FLOORCLIP
-  +NOSPLASHALERT
+	//$Angled
+	//$Color 12
+	//$Category "TCOTD:A Monsters/Blood Style"
+	Health 1090 // 308,436,630,850,1090
+	Radius 12
+	Height 56
+	Mass 500
+	speed 3
+	painchance 98
+	Painchance "Fist", 147 // Fist attacks have a +50% chance of stunning an enemy
+	Painchance "Kick", 245 // Kick attacks have a +150% chance of stunning an enemy
+	Painchance "Gauntlets", 147 // Fist attacks have a +50% chance of stunning an enemy
+	DamageFactor "Normal", 0.95
+	DamageFactor "Melee", 0.80
+	DamageFactor "Fire", 2.25
+	DamageFactor "Holy", 1.625
+	DamageFactor "Crush", 3.2
+	obituary "%o was cut down by a bloated butcher."
+	hitobituary "%o was cut up by a bloated butcher."
+	meleesound "twix"
+	seesound "BLOATEDBUTCHER/OTHER"
+	painsound "BLOATEDBUTCHER/OTHER"
+	deathsound "BLOATEDBUTCHER/DEATH"
+	activesound "BLOATEDBUTCHER/OTHER"
+	Scale 0.6
+	MONSTER
+	+BOSSDEATH
+	+NOSPLASHALERT
+	+FLOORCLIP
+	+NOSPLASHALERT
 
-  states
-  {
-  Spawn:
-    E15W A 0 NoDelay 
-    E15W A 10 A_Look
-    goto Spawn+1
-  See:
-    E15W A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
-    E15W AAAAAABBBBBBCCCCCCDDDDDDEEEEEEFFFFFF 1
+	states
 	{
-     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-	 A_Chase;
-	}
-    TNT1 A 0 A_Jump(96,"See2")
-    loop
-  See2:
-    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
-    E15W A 3
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-     if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(2); }
-	 A_Chase;
-	}
-    E15W A 3
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-     if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(2); }
-	 A_Chase("","");
-	}
-    E15W A 3
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-     if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(2); }
-	 A_Chase;
-	}
-    E15W A 2
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-     if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(1); }
-	 A_Chase("","");
-	}
-    E15W A 2
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-     if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(1); }
-	 A_Chase;
-	}
-    E15W A 2
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-     if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(1); }
-	 A_Chase("","");
-	}
-    E15W B 2
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-     if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(1); }
-	 A_Chase;
-	}
-    E15W B 3
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-     if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(2); }
-	 A_Chase("","");
-	}
-    TNT1 A 0 A_Jump(96,"See")
-    loop
-  Melee:
-    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    E15A B 5
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
-     else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
-	 A_SkelWhoosh;
-	 A_FaceTarget;
-	}
-    E15A C 5
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
-     else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
-	 A_FaceTarget;
-	}
-    E15A D 5
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
-     else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
-	 A_FaceTarget;
+		Spawn:
+			E15W A 0 NoDelay 
+			E15W A 10 A_Look
+			goto Spawn+1
+		See:
+			E15W A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
+			E15W AAAAAABBBBBBCCCCCCDDDDDDEEEEEEFFFFFF 1
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+			 A_Chase;
+			}
+			TNT1 A 0 A_Jump(96,"See2")
+			loop
+		See2:
+			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
+			E15W A 3
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+			 if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(2); }
+			 A_Chase;
+			}
+			E15W A 3
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+			 if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(2); }
+			 A_Chase("","");
+			}
+			E15W A 3
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+			 if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(2); }
+			 A_Chase;
+			}
+			E15W A 2
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+			 if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(1); }
+			 A_Chase("","");
+			}
+			E15W A 2
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+			 if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(1); }
+			 A_Chase;
+			}
+			E15W A 2
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+			 if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(1); }
+			 A_Chase("","");
+			}
+			E15W B 2
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+			 if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(1); }
+			 A_Chase;
+			}
+			E15W B 3
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+			 if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(2); }
+			 A_Chase("","");
+			}
+			TNT1 A 0 A_Jump(96,"See")
+			loop
+		Melee:
+			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+			E15A B 5
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
+			 A_SkelWhoosh;
+			 A_FaceTarget;
+			}
+			E15A C 5
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
+			 A_FaceTarget;
+			}
+			E15A D 5
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
+			 A_FaceTarget;
 
-	 A_CrisisComboAttack("CleaverNew","CleaverNew", random(34,40), 12 * random(1,5), "skeleton/melee");
-	}
-    E15A EF 5
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
-     else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
-	 A_FaceTarget;
-	}
-    goto See
-  Missile:
-    TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-    BYBR E 0 A_JumpIfCloser(128, "Missile1")
-    BYBR E 0 A_Jump(64,"Missile1")
-    BYBR E 0 A_Jump(256,"Missile2")
-    goto see
-  Missile1:
-    //E15A G 0 A_JumpIfCloser(320, 9)
-    E15A B 5
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
-     else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
-	 A_SkelWhoosh;
-	 A_FaceTarget;
-	}
-    E15A C 5
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
-     else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
-	 A_FaceTarget;
-	}
-    E15A D 5
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
-     else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
-	 A_FaceTarget;
+			 A_CrisisComboAttack("CleaverNew","CleaverNew", random(34,40), 12 * random(1,5), "skeleton/melee");
+			}
+			E15A EF 5
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
+			 A_FaceTarget;
+			}
+			goto See
+		Missile:
+			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+			BYBR E 0 A_JumpIfCloser(128, "Missile1")
+			BYBR E 0 A_Jump(64,"Missile1")
+			BYBR E 0 A_Jump(256,"Missile2")
+			goto see
+		Missile1:
+			E15A B 5
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
+			 A_SkelWhoosh;
+			 A_FaceTarget;
+			}
+			E15A C 5
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
+			 A_FaceTarget;
+			}
+			E15A D 5
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
+			 A_FaceTarget;
 
-	 A_MonsterCrisisCheck;
-	 A_CrisisComboAttack("CleaverNew","CleaverNew", random(34,40), 12 * random(1,5), "skeleton/melee");
-	 // A_CrisisSpawnProjectile("CleaverNew","CleaverNewCrisis",random(34,40),0,random(-6,6),1,0);
-	}
-    E15A EF 5
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
-     else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
-	 A_FaceTarget;
-	}
-    goto See
-  Missile2:
-    E15W J 0 A_FaceTarget
-    E15A GH 5
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
-     else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
-	 A_FaceTarget;
-	}
-    E15A I 5 
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
-     else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
-	 A_FaceTarget;
+			 A_MonsterCrisisCheck;
+			 A_CrisisComboAttack("CleaverNew","CleaverNew", random(34,40), 12 * random(1,5), "skeleton/melee");
+			}
+			E15A EF 5
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
+			 A_FaceTarget;
+			}
+			goto See
+		Missile2:
+			E15W J 0 A_FaceTarget
+			E15A GH 5
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
+			 A_FaceTarget;
+			}
+			E15A I 5 
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
+			 A_FaceTarget;
 
-	 A_MonsterCrisisCheck;
-	 A_CrisisSpawnProjectile("ButcherBarfNew","ButcherBarfCrisis",random(44,52),0,random(-10,10),1,0);
-	}
-    E15A JIH 4
-	{
-     if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
-     else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(3); }
-	 A_FaceTarget;
-	}
-    goto See
-  Pain:
-    E15A A 3
-    E15A A 6 A_Pain
-    E15A A 3
-    goto See
-  Pain.Fist:
-    E15A A 3
-    E15A A 6 A_Pain
-    E15A AA 6
-    goto See
-  Pain.Kick:
-    E15A A 3
-    E15A A 6 A_Pain
-    E15A AAAA 6
-    goto See
+			 A_MonsterCrisisCheck;
+			 A_CrisisSpawnProjectile("ButcherBarfNew","ButcherBarfCrisis",random(44,52),0,random(-10,10),1,0);
+			}
+			E15A JIH 4
+			{
+			 if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
+			 else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(3); }
+			 A_FaceTarget;
+			}
+			goto See
+		Pain:
+			E15A A 3
+			E15A A 6 A_Pain
+			E15A A 3
+			goto See
+		Pain.Fist:
+			E15A A 3
+			E15A A 6 A_Pain
+			E15A AA 6
+			goto See
+		Pain.Kick:
+			E15A A 3
+			E15A A 6 A_Pain
+			E15A AAAA 6
+			goto See
 
-  Death:
-    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
-    E15D A 7
-    E15D B 7
-    E15D C 7 A_Scream
-    E15D D 7 A_NoBlocking
-    E15D D 2  A_playsound("DSTHUUD")
-    E15D EFFFFFFFF 7
-    TNT1 A 0 
-    E15D G -1
-    stop
-  Death1:
-    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
-    BBT2 M 7 A_Scream
-    BBT2 L 0 A_Fall
-    BBT2 M 5 A_XScream
-    BBT2 LLLL 0 A_SpawnDebris ("OrganDebris")
-    BBT2 LLL 0 A_SpawnDebris ("Bloodliver")
-    BBT2 L 0 A_SpawnDebris ("Hand1")
-	BBT2 L 0 A_SpawnItemEx("EyeGuts",random(-8,8),random(-8,8),random(random(0,16),random(32,48)),random(-3,3),random(-2,2),random(-2,2))
-    BBT2 M 5 A_SpawnItemEx("FlyingBlood",random(-8,8),random(-8,8),random(random(0,16),random(32,48)),random(-3,3),random(-2,2),random(-2,2))
-    BBT2 N 5 A_SpawnItemEx("FlyingBlood",random(-8,8),random(-8,8),random(random(0,16),random(32,48)),random(-3,3),random(-2,2),random(-2,2))
-    BBT2 O 5  A_playsound("DSTHUUD")
-    BBT2 PQRSTUV 5 A_SpawnItemEx("FlyingBlood",random(-8,8),random(-8,8),random(random(0,4),random(16,32)),random(-2,2),random(-2,2),random(-2,2))
-    BBT2 VWVWVWVWVVWVWVWVWVVWVWVWVWVVWVWVWVWV 5
-    TNT1 A 0 
-    BBT2 W -1
-    Stop
-  Raise:
-    E15D G 5 
-    E15D FDCBA 5 
-    goto See
+		Death:
+			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+			E15D A 7
+			E15D B 7
+			E15D C 7 A_Scream
+			E15D D 7 A_NoBlocking
+			E15D D 2  A_playsound("DSTHUUD")
+			E15D EFFFFFFFF 7
+			TNT1 A 0 
+			E15D G -1
+			stop
+		Death1:
+			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+			BBT2 M 7 A_Scream
+			BBT2 L 0 A_Fall
+			BBT2 M 5 A_XScream
+			BBT2 LLLL 0 A_SpawnDebris ("OrganDebris")
+			BBT2 LLL 0 A_SpawnDebris ("Bloodliver")
+			BBT2 L 0 A_SpawnDebris ("Hand1")
+		BBT2 L 0 A_SpawnItemEx("EyeGuts",random(-8,8),random(-8,8),random(random(0,16),random(32,48)),random(-3,3),random(-2,2),random(-2,2))
+			BBT2 M 5 A_SpawnItemEx("FlyingBlood",random(-8,8),random(-8,8),random(random(0,16),random(32,48)),random(-3,3),random(-2,2),random(-2,2))
+			BBT2 N 5 A_SpawnItemEx("FlyingBlood",random(-8,8),random(-8,8),random(random(0,16),random(32,48)),random(-3,3),random(-2,2),random(-2,2))
+			BBT2 O 5  A_playsound("DSTHUUD")
+			BBT2 PQRSTUV 5 A_SpawnItemEx("FlyingBlood",random(-8,8),random(-8,8),random(random(0,4),random(16,32)),random(-2,2),random(-2,2),random(-2,2))
+			BBT2 VWVWVWVWVVWVWVWVWVVWVWVWVWVVWVWVWVWV 5
+			TNT1 A 0 
+			BBT2 W -1
+			Stop
+		Raise:
+			E15D G 5 
+			E15D FDCBA 5 
+			goto See
 
-  XDeath:
-    TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
-    E15X A 6 A_Scream
-    E15X B 5 A_Fall
-    E15X CDEF 4
-    E15X G 25
-    E15X HIJK 6
-    TNT1 A 0 
-    E15X L -1
-    Stop
-  PAIN.Shock:
-	7ZAP AAAAAAAAAAAAAAAAAAAAAAAA 1 A_SpawnItemEx("ShockHuman",random(-1,1),random(-1,1),random(0,3))
-	7ZAP A 4 A_Pain
-	7ZAP A 0 A_JumpIfHealthLower(20,2)
-	7ZAP A 0 A_Jump(192,"See")
-	7ZAP AAAAAAAAAAAAAAAAAAAAAAAA 1 A_SpawnItemEx("ShockHuman",random(-1,1),random(-1,1),random(0,3))
-	Goto See
-  }
+		XDeath:
+			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+			E15X A 6 A_Scream
+			E15X B 5 A_Fall
+			E15X CDEF 4
+			E15X G 25
+			E15X HIJK 6
+			TNT1 A 0 
+			E15X L -1
+			Stop
+		PAIN.Shock:
+			7ZAP AAAAAAAAAAAAAAAAAAAAAAAA 1 A_SpawnItemEx("ShockHuman",random(-1,1),random(-1,1),random(0,3))
+			7ZAP A 4 A_Pain
+			7ZAP A 0 A_JumpIfHealthLower(20,2)
+			7ZAP A 0 A_Jump(192,"See")
+			7ZAP AAAAAAAAAAAAAAAAAAAAAAAA 1 A_SpawnItemEx("ShockHuman",random(-1,1),random(-1,1),random(0,3))
+			Goto See
+	}
 }
 
 actor BloodZombieNew : AetheriusMonsterZSC 31002
@@ -3312,9 +3305,9 @@ actor BloodZombieNew : AetheriusMonsterZSC 31002
 
 actor ThamuzApocalypseDefendMode : PowerProtection
 {
- damagefactor "normal", 0.20 
- inventory.icon ""
- Powerup.Duration 2147483646
+	damagefactor "normal", 0.20 
+	inventory.icon ""
+	Powerup.Duration 2147483646
 }
 
 ACTOR ThamuzNew : AetheriusMonsterZSC 7228
@@ -3749,4 +3742,3 @@ Actor TchernobogNew : ThamuzNew replaces Tchernobog 7258
 			Stop
 	}
 }
-
