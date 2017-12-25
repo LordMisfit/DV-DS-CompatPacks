@@ -37,26 +37,26 @@ ACTOR AdolfHitlerDS : AetheriusBossZSC 10917
 		See:
 			HTLR A 0
 			{ 
-			 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0);
-			 user_shotsfired = 0;	 
+				ACS_NamedExecuteAlways("RefreshStealthInfo",0,0);
+				user_shotsfired = 0;
 			}
 			HTLR ABCD 3
 			{
-			 if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); A_SetTics(2); }
-			 A_Chase;
+				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); A_SetTics(2); }
+				A_Chase;
 			}
 			Loop
 		Missile:
 			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
 			TNT1 A 0
 			{
-			 user_shotsfiredmax = random(75,125);
-			 if (levelbehavior > 0 && user_monsterlevel > 120) { user_shotsfiredmax += random(30,60); }
-			 else if (levelbehavior > 0 && user_monsterlevel > 100) { user_shotsfiredmax += random(25,50); }
-			 else if (levelbehavior > 0 && user_monsterlevel > 80) { user_shotsfiredmax += random(20,40); }
-			 else if (levelbehavior > 0 && user_monsterlevel > 60) { user_shotsfiredmax += random(15,30); }
-			 else if (levelbehavior > 0 && user_monsterlevel > 40) { user_shotsfiredmax += random(10,20); }
-			 else if (levelbehavior > 0 && user_monsterlevel > 20) { user_shotsfiredmax += random(5,10); }
+				user_shotsfiredmax = random(75,125);
+				if (levelbehavior > 0 && user_monsterlevel > 120) { user_shotsfiredmax += random(30,60); }
+				else if (levelbehavior > 0 && user_monsterlevel > 100) { user_shotsfiredmax += random(25,50); }
+				else if (levelbehavior > 0 && user_monsterlevel > 80) { user_shotsfiredmax += random(20,40); }
+				else if (levelbehavior > 0 && user_monsterlevel > 60) { user_shotsfiredmax += random(15,30); }
+				else if (levelbehavior > 0 && user_monsterlevel > 40) { user_shotsfiredmax += random(10,20); }
+				else if (levelbehavior > 0 && user_monsterlevel > 20) { user_shotsfiredmax += random(5,10); }
 			}
 			HTLR E 20 Bright A_FaceTarget
 			HTLR E 0 Bright A_MonsterRefire(10,"See")
@@ -64,52 +64,52 @@ ACTOR AdolfHitlerDS : AetheriusBossZSC 10917
 		Attack:
 			HTLR F 4 Bright
 			{
-			 if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(2); }
-			 else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
-			 A_FaceTarget;
-			 A_PlaySound("Hitler/Attack");
-
-			 A_MonsterCrisisCheck;
-			 if (bullet_tracer_mode == 0)
-			 {
-				A_CrisisBulletAttack(user_shotaccuracy, user_shotzaccuracy, 6, random(1,5) * 3, "BulletPuff", 0, CBAF_NORANDOM);
-			 }
-			 else
-			 {
-				for (user_currenttracer = 0; user_currenttracer < 6; user_currenttracer++)
+				if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+				else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+				A_FaceTarget;
+				A_PlaySound("Hitler/Attack");
+	
+				A_MonsterCrisisCheck;
+				if (bullet_tracer_mode == 0)
 				{
-				 A_CrisisSpawnProjectile("ZombieBulletTracer", "ZombieBulletTracerCrisis", 32, 0, frandom(user_shotaccuracy1,user_shotaccuracy2), CMF_OFFSETPITCH|CMF_BADPITCH, frandom(user_shotzaccuracy1,user_shotzaccuracy2));
+					A_CrisisBulletAttack(user_shotaccuracy, user_shotzaccuracy, 6, random(1,5) * 3, "BulletPuff", 0, CBAF_NORANDOM);
 				}
-			 }
-
-			 user_shotsfired += 1;
-			 If (A_JumpIf(user_shotsfired > user_shotsfiredmax, "EndMissile")) { return state("EndMissile"); }
-			 return state("");
+				else
+				{
+					for (user_currenttracer = 0; user_currenttracer < 6; user_currenttracer++)
+					{
+						A_CrisisSpawnProjectile("ZombieBulletTracer", "ZombieBulletTracerCrisis", 32, 0, frandom(user_shotaccuracy1,user_shotaccuracy2), CMF_OFFSETPITCH|CMF_BADPITCH, frandom(user_shotzaccuracy1,user_shotzaccuracy2));
+					}
+				}
+	
+				user_shotsfired += 1;
+				If (A_JumpIf(user_shotsfired > user_shotsfiredmax, "EndMissile")) { return state("EndMissile"); }
+				return state("");
 			}
 			HTLR F 0 Bright A_MonsterRefire(10,"EndMissile")
 			HTLR G 4 Bright
 			{
-			 if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(2); }
-			 else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
-			 A_FaceTarget;
-			 A_PlaySound("Hitler/Attack");
-
-			 A_MonsterCrisisCheck;
-			 if (bullet_tracer_mode == 0)
-			 {
-				A_CrisisBulletAttack(user_shotaccuracy, user_shotzaccuracy, 6, random(1,5) * 3, "BulletPuff", 0, CBAF_NORANDOM);
-			 }
-			 else
-			 {
-				for (user_currenttracer = 0; user_currenttracer < 6; user_currenttracer++)
+				if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(2); }
+				else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+				A_FaceTarget;
+				A_PlaySound("Hitler/Attack");
+	
+				A_MonsterCrisisCheck;
+				if (bullet_tracer_mode == 0)
 				{
-				 A_CrisisSpawnProjectile("ZombieBulletTracer", "ZombieBulletTracerCrisis", 32, 0, frandom(user_shotaccuracy1,user_shotaccuracy2), CMF_OFFSETPITCH|CMF_BADPITCH, frandom(user_shotzaccuracy1,user_shotzaccuracy2));
+					A_CrisisBulletAttack(user_shotaccuracy, user_shotzaccuracy, 6, random(1,5) * 3, "BulletPuff", 0, CBAF_NORANDOM);
 				}
-			 }
-
-			 user_shotsfired += 1;
-			 If (A_JumpIf(user_shotsfired > user_shotsfiredmax, "EndMissile")) { return state("EndMissile"); }
-			 return state("");
+				else
+				{
+					for (user_currenttracer = 0; user_currenttracer < 6; user_currenttracer++)
+					{
+						A_CrisisSpawnProjectile("ZombieBulletTracer", "ZombieBulletTracerCrisis", 32, 0, frandom(user_shotaccuracy1,user_shotaccuracy2), CMF_OFFSETPITCH|CMF_BADPITCH, frandom(user_shotzaccuracy1,user_shotzaccuracy2));
+					}
+				}
+	
+				user_shotsfired += 1;
+				If (A_JumpIf(user_shotsfired > user_shotsfiredmax, "EndMissile")) { return state("EndMissile"); }
+				return state("");
 			}
 			HTLR G 1 Bright A_MonsterRefire(10,"EndMissile")
 			goto Attack

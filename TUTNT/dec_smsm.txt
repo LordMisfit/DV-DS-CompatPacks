@@ -264,15 +264,15 @@ SamNMax_TV
 
 ACTOR SamNMax_MaxnCat 22278
 {
-   Radius 32
-   Height 64
-   +Solid
-   States
-   {
-   Spawn:
-      SMMX ABCDEFGHIJKLMNOPQRSTUTSRQPONMLKJIHGFEDCBAABBAABBAABBA 5
-      Loop
-   }
+	Radius 32
+	Height 64
+	+Solid
+	States
+	{
+		Spawn:
+			SMMX ABCDEFGHIJKLMNOPQRSTUTSRQPONMLKJIHGFEDCBAABBAABBAABBA 5
+			Loop
+	}
 }
 
 ACTOR SamNMax_Sam 22279
