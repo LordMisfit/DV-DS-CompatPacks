@@ -36,7 +36,7 @@ ACTOR AdolfHitlerDS : AetheriusBossZSC 10917
 			goto Spawn+1
 		See:
 			HTLR A 0
-			{ 
+			{
 				ACS_NamedExecuteAlways("RefreshStealthInfo",0,0);
 				user_shotsfired = 0;
 			}

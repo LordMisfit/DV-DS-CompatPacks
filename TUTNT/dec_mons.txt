@@ -46,7 +46,7 @@ ACTOR SourceGuardian : AetheriusBossZSC 16999
 			Loop
 		See:
 			CYCL A 0
-			{ 
+			{
 				ACS_NamedExecuteAlways("RefreshStealthInfo",0,0);
 				user_shotsfired == 0;
 				user_nolegendarytrans == 1;
@@ -178,11 +178,11 @@ ACTOR SourceGuardian : AetheriusBossZSC 16999
 				A_FaceTarget;
 				A_MonsterCrisisCheck;
 				if (levelbehavior > 0 && user_monsterlevel > 300) 
-				{ 
+				{
 					A_CrisisSpawnProjectile("SGuardianFlameBreath", "SGuardianFlameBreathCrisis", random(42,46), 0, 2*random(-4,4));
 				}
 				else if (levelbehavior > 0 && user_monsterlevel > 150) 
-				{ 
+				{
 					A_CrisisSpawnProjectile("SGuardianFlameBreath", "SGuardianFlameBreathCrisis", random(42,46), 0, 2*random(-4,4));
 				}
 				A_CrisisSpawnProjectile("SGuardianFlameBreath", "SGuardianFlameBreathCrisis", random(42,46), 0, 2*random(-4,4));
@@ -1039,7 +1039,7 @@ ACTOR TNTSpider : MaulotaurBase 10906
 				SetDamage(7+(user_monsterlevel/45));
 				A_MonsterCrisisCheck;
 				if(user_canusecrisisatk == 1) 
-				{ 
+				{
 					A_PlayCrisisAtkSound;
 					SetDamage((7+(user_monsterlevel/45))*CallACS("CrisisMultiplier"));
 				}

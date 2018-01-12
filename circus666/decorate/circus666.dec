@@ -868,7 +868,7 @@ ACTOR BigBerthaNew : AetheriusMonsterZSC replaces BigBertha 3225
 			BSTN B 5 A_GenericFreezeDeath
 			BSTN B 1 A_FreezeDeathChunks
 			wait
-	}    
+	}
 }
 
 //******************************************************************************************
@@ -1099,7 +1099,7 @@ ACTOR ClownHeadNew : AetheriusMonsterZSC replaces ClownHead 3206
 	var int user_flametimer;
 
 	States 
-	{ 
+	{
 		Spawn:
 			CHED A 0 NoDelay 
 			CHED A 10 A_FloatLook(8) 
@@ -1114,7 +1114,7 @@ ACTOR ClownHeadNew : AetheriusMonsterZSC replaces ClownHead 3206
 				if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(1); }
 				user_flametimer += 1;
 				if(user_flametimer == 2) 
-				{ 
+				{
 					A_CustomMissile("RFlame", -18, 0, 0, 1);
 					user_flametimer == 0;
 				}
@@ -1222,7 +1222,7 @@ ACTOR ClownHeadNew : AetheriusMonsterZSC replaces ClownHead 3206
 			CHED A 5 A_GenericFreezeDeath
 			CHED A 1 A_FreezeDeathChunks
 			wait
-	} 
+	}
 } 
 
 actor BSplatter

@@ -135,11 +135,11 @@ actor Skull 3100
 	Radius 8 
 	Height 6 
 	States 
-	{ 
+	{
 		Spawn: 
 				ASKL A 4 
-				Loop 
-	} 
+				loop
+	}
 } 
 /*=======================*/
 actor BSkull 3111
@@ -147,11 +147,11 @@ actor BSkull 3111
 	Radius 8 
 	Height 6   
 	States 
-	{ 
+	{
 		Spawn: 
 				BSKL A 4 
-				Loop 
-	} 
+				loop
+	}
 } 
 /*=======================*/
 
@@ -527,10 +527,10 @@ ACTOR ClownHead //3206
 	MissileHeight 12
 	MissileType RevRocket
 	States 
-	{ 
+	{
 		Spawn: 
 			CHED A 10  A_Look 
-			Loop 
+			loop
 		See: 
 			CHED A 2 A_PlaySound("DRONE")
 			CHED A 2 A_CustomMissile("RFlame", -18, 0, 0, 1)  
@@ -567,7 +567,7 @@ ACTOR ClownHead //3206
 			CHED A 1 A_Scream 
 			MISL BC 8 Bright A_NoBlocking 
 			Stop 
-	} 
+	}
 } 
 
 

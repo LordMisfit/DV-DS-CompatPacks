@@ -35,7 +35,7 @@ ACTOR BerserkMarine : BaseAllyMarine 30000
 			Loop
 		See:
 			ALY1 A 0
-			{ 
+			{
 				ACS_NamedExecuteAlways("RefreshStealthInfo",0,0);
 				user_shotsfired == 0;
 				user_nolegendarytrans == 1;
@@ -86,7 +86,7 @@ ACTOR PistolMarine : BaseAllyMarine 30001
 			Loop
 		See:
 			ALY2 A 0
-			{ 
+			{
 				ACS_NamedExecuteAlways("RefreshStealthInfo",0,0);
 				user_shotsfired == 0;
 				user_nolegendarytrans == 1;
@@ -140,7 +140,7 @@ ACTOR ShotgunMarine : BaseAllyMarine 30002
 			Loop
 		See:
 			ALY5 A 0
-			{ 
+			{
 				ACS_NamedExecuteAlways("RefreshStealthInfo",0,0);
 				user_shotsfired == 0;
 				user_nolegendarytrans == 1;
@@ -204,7 +204,7 @@ ACTOR SuperShotgunMarine : BaseAllyMarine 30003
 			Loop
 		See:
 			AL11 A 0
-			{ 
+			{
 				ACS_NamedExecuteAlways("RefreshStealthInfo",0,0);
 				user_shotsfired == 0;
 				user_nolegendarytrans == 1;
@@ -272,7 +272,7 @@ ACTOR ChaingunMarine : BaseAllyMarine 30004
 			Loop
 		See:
 			ALY4 A 0
-			{ 
+			{
 				ACS_NamedExecuteAlways("RefreshStealthInfo",0,0);
 				user_shotsfired == 0;
 				user_nolegendarytrans == 1;
@@ -331,7 +331,7 @@ ACTOR RocketMarine : BaseAllyMarine 30005
 			Loop
 		See:
 			ALY9 A 0
-			{ 
+			{
 				ACS_NamedExecuteAlways("RefreshStealthInfo",0,0);
 				user_shotsfired == 0;
 				user_nolegendarytrans == 1;
@@ -391,7 +391,7 @@ ACTOR PlasmaRifleMarine : BaseAllyMarine 30006
 			Loop
 		See:
 			ALY8 A 0
-			{ 
+			{
 				ACS_NamedExecuteAlways("RefreshStealthInfo",0,0);
 				user_shotsfired == 0;
 				user_nolegendarytrans == 1;
@@ -449,7 +449,7 @@ ACTOR RailgunMarine : BaseAllyMarine 30007
 			Loop
 		See:
 			AL12 A 0
-			{ 
+			{
 				ACS_NamedExecuteAlways("RefreshStealthInfo",0,0);
 				user_shotsfired == 0;
 				user_nolegendarytrans == 1;
@@ -515,7 +515,7 @@ ACTOR ChainsawMarine : BaseAllyMarine 30008
 			Loop
 		See:
 			ALY7 A 0
-			{ 
+			{
 				ACS_NamedExecuteAlways("RefreshStealthInfo",0,0);
 				user_shotsfired == 0;
 				user_nolegendarytrans == 1;
@@ -584,7 +584,7 @@ ACTOR BFGMarine : BaseAllyMarine 30009
 			Loop
 		See:
 			AL10 A 0
-			{ 
+			{
 				ACS_NamedExecuteAlways("RefreshStealthInfo",0,0);
 				user_shotsfired == 0;
 				user_nolegendarytrans == 1;
@@ -639,7 +639,7 @@ ACTOR FistMarine : BaseAllyMarine 30010
 			Loop
 		See:
 			ALY1 A 0
-			{ 
+			{
 				ACS_NamedExecuteAlways("RefreshStealthInfo",0,0);
 				user_shotsfired == 0;
 				user_nolegendarytrans == 1;

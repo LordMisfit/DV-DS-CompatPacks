@@ -737,13 +737,13 @@ ACTOR Thrall // 30119
 	DEATHSOUND "monster/culdth" 
 	ACTIVESOUND "monster/culact"
 	states 
-	{ 
+	{
 		Spawn: 
 			CULT AB 10 A_Look 
-			Loop 
+			loop
 		See: 
 			CULT AABBCCDD 2 A_Chase
-			Loop 
+			loop
 		Missile:
 			CULT EE 5 A_FaceTarget
 			CULT F 0 BRIGHT A_CustomMissile ("ThrallShot1",42,-6,0,1,0)
@@ -771,7 +771,7 @@ ACTOR Thrall // 30119
 		Raise: 
 			CULT MLKJHI 5 
 			Goto See 
-	} 
+	}
 }
 
 ACTOR ThrallShot1
@@ -852,13 +852,13 @@ ACTOR HotDog // 30121
 	ACTIVESOUND "monster/dogact"
 	SpawnID 170
 	states 
-	{ 
+	{
 		Spawn: 
 			HDOG AA 10 A_Look 
-			Loop 
+			loop
 		See: 
 			HDOG AAAABBBBCCCCDDDDEEEEFFFF 1 A_Chase 
-			Loop 
+			loop
 		Melee: 
 			HDOG GH 6 A_FaceTarget
 			HDOG I 6 A_MeleeAttack
@@ -897,7 +897,7 @@ ACTOR HotDog // 30121
 		Raise: 
 			HDOG QPONMLK 5 
 			Goto See 
-	} 
+	}
 }
 
 ACTOR DogFire
@@ -2306,13 +2306,13 @@ ACTOR DEWraith // 30106
 	DEATHSOUND "monster/sprdth"
 	SpawnID 176
 	states 
-	{ 
+	{
 		Spawn: 
 			WRAI AB 10 A_Look 
-			Loop 
+			loop
 		See: 
 			WRAI AABB 3 A_VileChase 
-			Loop 
+			loop
 		Missile: 
 			WRAI A 10 A_FaceTarget 
 			WRAI B 4 A_SkullAttack 
@@ -2334,7 +2334,7 @@ ACTOR DEWraith // 30106
 			WRAI F 5 A_Scream 
 			WRAI GHIJ 4  
 			Stop 
-	} 
+	}
 }
 
 

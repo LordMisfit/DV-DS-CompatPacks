@@ -776,7 +776,7 @@ ACTOR MiniFluffyNew : AetheriusMonsterZSC replaces MiniFluffy 3194
 			SBUN D 5 A_GenericFreezeDeath
 			SBUN D 1 A_FreezeDeathChunks
 			wait
-	} 
+	}
 }
 
 ACTOR JumpingSkullNew : AetheriusMonsterZSC replaces JumpingSkull 32121
@@ -917,7 +917,7 @@ actor PennywiseHeadProj
 	MeleeSound ""
 	Obituary "%o got killed by an evil clown-shaped spirit." 
 	States 
-	{ 
+	{
 		Spawn: 
 			CFHD AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 4 A_Look
 			goto Dissipate
@@ -972,7 +972,7 @@ actor PennywiseHeadProjCrisis
 	MeleeSound ""
 	Obituary "%o got killed by an evil clown-shaped spirit." 
 	States 
-	{ 
+	{
 		Spawn: 
 			CFHD AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 4
 			{
@@ -1415,14 +1415,14 @@ actor HappyCloud : AetheriusProjectileZSC
 	RENDERSTYLE Translucent 
 	ALPHA 0.67 
 	States 
-	{ 
+	{
 		Spawn: 
 			CLOD ABCBABCBABCBABCBABCDCBABCDCBCBABCDEFG 6 
 			Stop 
 		Death: 
 			CLOD ABCDEFG 4 
 			Stop 
-	} 
+	}
 } 
 actor HappyCloudCrisisParticle : BaseCrisisParticle
 {
@@ -1454,7 +1454,7 @@ actor HappyCloudCrisis : HappyCloud
 	RENDERSTYLE Translucent 
 	ALPHA 0.67 
 	States 
-	{ 
+	{
 		Spawn: 
 			CLOD ABCBABCBABCBABCBABCDCBABCDCBCBABCDEFG 6
 			{
@@ -1464,7 +1464,7 @@ actor HappyCloudCrisis : HappyCloud
 		Death: 
 			CLOD ABCDEFG 4 
 			Stop 
-	} 
+	}
 } 
 
 actor RevRocketCrisis : RevRocketNew
@@ -1591,7 +1591,7 @@ ACTOR BingoNew : AetheriusMonsterZSC replaces Bingo 4110
 	var int user_flametimer;
 
 	States 
-	{ 
+	{
 		Spawn:
 			CHED A 0 NoDelay 
 			CHED A 10 A_FloatLook(8)
@@ -1606,7 +1606,7 @@ ACTOR BingoNew : AetheriusMonsterZSC replaces Bingo 4110
 				if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(1); }
 				user_flametimer += 1;
 				if(user_flametimer == 2) 
-				{ 
+				{
 					A_CustomMissile("RFlame", -8, 0, 0, 1);
 					user_flametimer == 0;
 				}
@@ -1735,7 +1735,7 @@ ACTOR BingoNew : AetheriusMonsterZSC replaces Bingo 4110
 			CHED A 5 A_GenericFreezeDeath
 			CHED A 1 A_FreezeDeathChunks
 			wait
-	} 
+	}
 } 
 
 //
@@ -1847,7 +1847,7 @@ ACTOR TinyBingoNew : AetheriusMonsterZSC replaces TinyBingo 4179
 	dropitem FloraRandomArmor
 
 	States 
-	{ 
+	{
 		Spawn:
 			CHED A 0 NoDelay 
 			CHED A 10 A_FloatLook(16) 
@@ -1911,7 +1911,7 @@ ACTOR TinyBingoNew : AetheriusMonsterZSC replaces TinyBingo 4179
 			CHED A 5 A_GenericFreezeDeath
 			CHED A 1 A_FreezeDeathChunks
 			wait
-	} 
+	}
 } 
 
 //
@@ -1939,7 +1939,7 @@ actor BeefyBall1 : AetheriusEffectProjectile
 			Goto Spawn+2
 		Death:
 			TNT1 A 0 Bright
-			{ 
+			{
 				if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE)
 				{
 					A_StatusEffectChecker(4);
@@ -2009,7 +2009,7 @@ actor BeefyBall1Crisis : BeefyBall1
 			Goto Spawn+2
 		Death:
 			TNT1 A 0 Bright
-			{ 
+			{
 				if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE)
 				{
 					A_StatusEffectChecker(4);
@@ -2143,7 +2143,7 @@ actor BeefyBall2Crisis : BeefyBall2
 			Loop
 		Death:
 			TNT1 A 0 Bright
-			{ 
+			{
 				if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE)
 				{
 					A_StatusEffectChecker(4);
@@ -2635,7 +2635,7 @@ actor ClownGhostNew : AetheriusMonsterZSC replaces ClownGhost 32128
 	dropitem FloraRandomArmor
 
 	States 
-	{ 
+	{
 		Spawn:
 			GHOS C 0 NoDelay 
 			GHOS C 10 A_FloatLook(12)
@@ -2746,7 +2746,7 @@ actor ClownGhostNew : AetheriusMonsterZSC replaces ClownGhost 32128
 			GHOS A 5 A_GenericFreezeDeath
 			GHOS A 1 A_FreezeDeathChunks
 			wait
-	} 
+	}
 }
 
 //
@@ -2891,7 +2891,7 @@ actor ClownGhost2New : AetheriusMonsterZSC replaces ClownGhost2 31211
 	dropitem FloraRandomArmor
 
 	States 
-	{ 
+	{
 		Spawn:
 			GST2 A 0 NoDelay 
 			GST2 AB 10 A_FloatLook(12)
@@ -3292,7 +3292,7 @@ actor BulbyNew : AetheriusMonsterZSC replaces Bulby 3906
 	dropitem FloraRandomArmor
 
 	States 
-	{ 
+	{
 		Spawn:
 			LDEM A 0 NoDelay 
 			LDEM A 2 A_UnSetShootable
@@ -3432,7 +3432,7 @@ actor BulbyNew : AetheriusMonsterZSC replaces Bulby 3906
 			LDEM J 5 A_GenericFreezeDeath
 			LDEM J 1 A_FreezeDeathChunks
 			wait
-	}    
+	}
 }
 
 actor MegaBulbyNew : AetheriusMonsterZSC replaces MegaBulby 3989
@@ -3496,7 +3496,7 @@ actor MegaBulbyNew : AetheriusMonsterZSC replaces MegaBulby 3989
 	dropitem FloraRandomArmor
 
 	States 
-	{ 
+	{
 		Spawn:
 			LDEM G 0 NoDelay 
 			LDEM G 2 A_FloatLook(8)
@@ -3629,7 +3629,7 @@ actor MegaBulbyNew : AetheriusMonsterZSC replaces MegaBulby 3989
 			LDEM J 5 A_GenericFreezeDeath
 			LDEM J 1 A_FreezeDeathChunks
 			wait
-	}    
+	}
 }
 
 //
@@ -3759,7 +3759,7 @@ ACTOR BigBertha2New : AetheriusMonsterZSC replaces BigBertha2 3192
 	dropitem FloraRandomArmor
 
 	States 
-	{ 
+	{
 		Spawn:
 			BRTH A 0 NoDelay 
 			BRTH A 10 A_FloatLook(8) 
@@ -3894,7 +3894,7 @@ ACTOR BigBertha2New : AetheriusMonsterZSC replaces BigBertha2 3192
 			BRTH A 5 A_GenericFreezeDeath
 			BRTH A 1 A_FreezeDeathChunks
 			wait
-	} 
+	}
 }
 
 //
@@ -4118,7 +4118,7 @@ actor SuperBerthaNew : AetheriusMonsterZSC replaces SuperBertha 14768
 				A_MonsterCrisisCheck;
 				A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
 				if(user_canusecrisisatk == 1) 
-				{ 
+				{
 					A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
 				}
 				A_FaceTarget;
@@ -4129,7 +4129,7 @@ actor SuperBerthaNew : AetheriusMonsterZSC replaces SuperBertha 14768
 				A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
 				A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
 				if(user_canusecrisisatk == 1) 
-				{ 
+				{
 					A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
 					A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
 				}
@@ -4140,7 +4140,7 @@ actor SuperBerthaNew : AetheriusMonsterZSC replaces SuperBertha 14768
 				A_MonsterCrisisCheck;
 				A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
 				if(user_canusecrisisatk == 1) 
-				{ 
+				{
 					A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
 				}
 				A_FaceTarget;
@@ -4151,7 +4151,7 @@ actor SuperBerthaNew : AetheriusMonsterZSC replaces SuperBertha 14768
 				A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
 				A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
 				if(user_canusecrisisatk == 1) 
-				{ 
+				{
 					A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
 					A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
 				}
@@ -4162,7 +4162,7 @@ actor SuperBerthaNew : AetheriusMonsterZSC replaces SuperBertha 14768
 				A_MonsterCrisisCheck;
 				A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
 				if(user_canusecrisisatk == 1) 
-				{ 
+				{
 					A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
 				}
 				A_FaceTarget;
@@ -4893,7 +4893,7 @@ actor PennywiseHead2New : AetheriusMonsterZSC replaces PennywiseHead 14421
 	dropitem FloraRandomArmor
 
 	States 
-	{ 
+	{
 		Spawn:
 			CFHD A 0 NoDelay 
 			CFHD A 10 A_FloatLook(8)
@@ -5098,7 +5098,7 @@ actor Deadlight : AetheriusEffectProjectile
 			Loop
 		Death:
 			TNT1 A 0 Bright
-			{ 
+			{
 				if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE) 
 				{
 					// 1
@@ -5270,7 +5270,7 @@ actor DeadlightCrisis : Deadlight
 			Loop
 		Death:
 			TNT1 A 0 Bright
-			{ 
+			{
 				if (IsPointerEqual(AAPTR_MASTER, AAPTR_PLAYER1) == TRUE) 
 				{
 					// 1
@@ -5820,21 +5820,21 @@ ACTOR PopcornGunNew : Circus2Weapon replaces PopcornGun 30204
 	AttackSound "" 
 	Scale 0.75
 	States 
-	{ 
+	{
 		Spawn: 
 			PPPG A -1 
-			LOOP 
+			loop
 		Ready: 
 			PGUN AAACCCDDDEEEFFFGGG 1 A_WeaponReady(WRF_ALLOWUSER1)
-			LOOP 
+			loop
 		Deselect: 
 			PGUN A 0 A_Lower 
 			PGUN A 1 A_Lower 
-			LOOP 
+			loop
 		Select: 
 			PGUN A 0 A_Raise 
 			PGUN A 1 A_Raise 
-			LOOP 
+			loop
 		Fire:
 			PGUN A 0 A_Jump (200,"FirePhase2")
 			PGUN A 4
@@ -5845,7 +5845,7 @@ ACTOR PopcornGunNew : Circus2Weapon replaces PopcornGun 30204
 				A_SpreadAuraFireProjectile("Popcorn2",0,0,"",6,1,0,0);
 			}
 			PGUN B 2 
-			{ 
+			{
 				ACS_NamedExecuteAlways("StartTensionCountDown");
 				A_SpreadAuraFireProjectile("Popcorn3",1,0,"",5,1,0,0);
 			}
@@ -5890,7 +5890,7 @@ ACTOR PopcornGunNew : Circus2Weapon replaces PopcornGun 30204
 				A_SpreadAuraFireProjectile("Popcorn1",3,0,"",5,1,0,0);
 			}
 			PGUN B 1 
-			{ 
+			{
 				ACS_NamedExecuteAlways("StartTensionCountDown");
 				A_PlaySound("POPFIRE");
 				A_SpreadAuraFireProjectile("Popcorn2",0,0,"",0,1,0,0);
@@ -5926,7 +5926,7 @@ ACTOR PopcornGunNew : Circus2Weapon replaces PopcornGun 30204
 		FirePhaseEnd:
 			PGUN A 0 
 			Goto Ready 
-	} 
+	}
 }
 
 ACTOR GoreBalloonNew : Circus2Weapon replaces GoreBalloon 30030
@@ -5940,17 +5940,17 @@ ACTOR GoreBalloonNew : Circus2Weapon replaces GoreBalloon 30030
 	Obituary "%o wanted %k's balloon."
 	Scale 0.75
 	States 
-	{ 
+	{
 		Spawn: 
 			BLNN J -1 
-			LOOP 
+			loop
 		Ready: 
 			TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") == 2, 6)
 			BLNN ABCD 6 A_WeaponReady(WRF_ALLOWUSER1) 
 			TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") != 2, 5)
 			BLNF ABCD 6 A_WeaponReady(WRF_ALLOWUSER1)
 			TNT1 A 0
-			LOOP 
+			loop
 			TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") == 2, 4)
 			BLNN AA 1 
 			TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") != 2, 3)
@@ -5970,7 +5970,7 @@ ACTOR GoreBalloonNew : Circus2Weapon replaces GoreBalloon 30030
 			TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") != 2, 5)
 			BLNF EEEE 1 A_Raise 
 			TNT1 A 0
-			LOOP 
+			loop
 		Fire: 
 			TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") == 2, 5)
 			BLNN A 1 
@@ -5991,7 +5991,7 @@ ACTOR GoreBalloonNew : Circus2Weapon replaces GoreBalloon 30030
 			BLNF IH 6
 			TNT1 A 0 
 			Goto Select
-	} 
+	}
 }
 actor GoreBalloon666NoHurt
 {
@@ -6066,21 +6066,21 @@ ACTOR ClownGrenadeNew : Circus2Weapon replaces ClownGrenade 30029
 	+FloatBob 
 	Scale 0.3
 	States 
-	{ 
+	{
 		Spawn: 
 			CGRD ABCDEFGHIJKL 3
-			LOOP 
+			loop
 		Ready: 
 			GHND ABCDEFFFFFEDCBAA 1 A_WeaponReady(WRF_ALLOWUSER1) 
-			LOOP 
+			loop
 		Deselect: 
 			GHND A 0 A_Lower 
 			GHND A 1 A_Lower 
-			LOOP 
+			loop
 		Select: 
 			GHND A 0 A_Raise 
 			GHND A 1 A_Raise 
-			LOOP 
+			loop
 		Fire: 
 			GHND I 4
 			{
@@ -6090,7 +6090,7 @@ ACTOR ClownGrenadeNew : Circus2Weapon replaces ClownGrenade 30029
 			GHND G 4 
 			GHND H 10 
 			Goto Ready 
-	} 
+	}
 }
 actor CGrenadeNoHurt
 {
@@ -6187,21 +6187,21 @@ ACTOR GutFlingerNew : Circus2Weapon replaces GutFlinger 30028
 	AttackSound "" 
 	Scale 1
 	States 
-	{ 
+	{
 		Spawn: 
 			CCCC F -1 
-			LOOP 
+			loop
 		Ready: 
 			CCCC A 1 A_WeaponReady(WRF_ALLOWUSER1) 
-			LOOP 
+			loop
 		Deselect: 
 			CCCC A 0 A_Lower 
 			CCCC A 1 A_Lower 
-			LOOP 
+			loop
 		Select: 
 			CCCC A 0 A_Raise 
 			CCCC A 1 A_Raise 
-			LOOP 
+			loop
 		Fire:
 			CCCC A 1 A_JumpIfNoAmmo("FireNoAmmo") 
 			CCCC B 1
@@ -6216,7 +6216,7 @@ ACTOR GutFlingerNew : Circus2Weapon replaces GutFlinger 30028
 		FireNoAmmo:
 			CCCC E 0
 			Goto Deselect
-	} 
+	}
 } 
 
 // FlyingGut with no-damage [for player] explosion (for spread aura)
@@ -6277,21 +6277,21 @@ ACTOR GasRocketLauncherNew : Circus2Weapon replaces GasRocketLauncher 30203
 	AttackSound "" 
 	Scale 0.75
 	States 
-	{ 
+	{
 		Spawn: 
 			PRCK V -1 
-			LOOP 
+			loop
 		Ready: 
 			PRCK G 1 A_WeaponReady(WRF_ALLOWUSER1) 
-			LOOP 
+			loop
 		Deselect: 
 			PRCK G 0 A_Lower 
 			PRCK G 1 A_Lower 
-			LOOP 
+			loop
 		Select: 
 			PRCK D 0 A_Raise 
 			PRCK D 1 A_Raise 
-			LOOP 
+			loop
 		Fire:
 			PRCK G 0 
 			{
@@ -6305,7 +6305,7 @@ ACTOR GasRocketLauncherNew : Circus2Weapon replaces GasRocketLauncher 30203
 			PRCK G 4  
 			PRCK G 0 
 			Goto Ready 
-	} 
+	}
 } 
 actor RevRocket2NoHurt
 {
@@ -6374,7 +6374,7 @@ ACTOR CrazyBall2New : Circus2Weapon replaces CrazyBall2 30205
 	Scale 0.6
 	+FLOATBOB
 	States 
-	{ 
+	{
 		Spawn: 
 			CRZY A 0 A_Jump(240,2)
 			CRZY A 0 A_PlaySound("CRZ") 
@@ -6382,18 +6382,18 @@ ACTOR CrazyBall2New : Circus2Weapon replaces CrazyBall2 30205
 			CRZY BCDODCB 2 
 			CRZY A 0 A_Jump(128,3)		//Randomize
 			CRZY AAAAAA 8
-			LOOP       
+			loop
 		Ready: 
 			HCRZ S 1 A_WeaponReady(WRF_ALLOWUSER1) 
-			LOOP 
+			loop
 		Deselect: 
 			HCRZ S 0 A_Lower 
 			HCRZ S 1 A_Lower 
-			LOOP 
+			loop
 		Select: 
 			HCRZ S 0 A_Raise 
 			HCRZ S 1 A_Raise 
-			LOOP 
+			loop
 		Fire:
 			HCRZ S 1 A_JumpIfNoAmmo("FireNoAmmo") 
 			HCRZ T 0 
@@ -6409,7 +6409,7 @@ ACTOR CrazyBall2New : Circus2Weapon replaces CrazyBall2 30205
 		FireNoAmmo:
 			HCRZ U 0
 			GoTo Deselect
-	} 
+	}
 } 
 Actor CrazyBallsNoHurt
 {

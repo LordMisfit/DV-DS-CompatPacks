@@ -911,7 +911,7 @@ ACTOR HellHoundNew : AetheriusMonsterZSC 30121
 	ACTIVESOUND "monster/dogact"
 
 	states 
-	{ 
+	{
 		ResetLevel:
 			HDOG A 1 A_Look
 			HDOG A 1 
@@ -932,7 +932,7 @@ ACTOR HellHoundNew : AetheriusMonsterZSC 30121
 				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
 				A_Chase;
 			}
-			Loop 
+			loop
 		Melee: 
 			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
 			HDOG GH 6
@@ -1020,7 +1020,7 @@ ACTOR HellHoundNew : AetheriusMonsterZSC 30121
 			HDOG Q 5 
 			HDOG PONMLK 5 
 			Goto See 
-	} 
+	}
 }
 
 ACTOR DogFireNew replaces DogFire
@@ -1161,7 +1161,7 @@ ACTOR ThrallNew : AetheriusMonsterZSC 30119
 	OBITUARY "%o was killed by a lowly Cultist."
 
 	states 
-	{ 
+	{
 		Spawn: 
 			CULT A 0 NoDelay 
 			CULT AB 10 A_Look 
@@ -1267,7 +1267,7 @@ ACTOR ThrallNew : AetheriusMonsterZSC 30119
 			CULT M 5 
 			CULT LKJHI 5
 			Goto See 
-	} 
+	}
 }
 
 ACTOR NightmareNew : AetheriusMonsterZSC replaces KDiZDNightmare 26000
@@ -1989,7 +1989,7 @@ Actor ClayDevilNew : AetheriusMonsterZSC replaces ClayDevil
 			N00B VPONMLK 4
 			N00B K 0 Thing_Hate(0,1001,4)
 			goto See
-	}   
+	}
 }
 
 ACTOR TCOTDAShadowNew : AetheriusMonsterZSC replaces Shadow 3126
@@ -2452,7 +2452,7 @@ ACTOR DEWraithNew : AetheriusMonsterZSC replaces DEWraith 30106
 	SpawnID 176
 
 	states 
-	{ 
+	{
 		Spawn: 
 			WRAI A 0 NoDelay 
 			WRAI AB 10 A_Look 
@@ -2465,7 +2465,7 @@ ACTOR DEWraithNew : AetheriusMonsterZSC replaces DEWraith 30106
 				if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(2); }
 				A_VileChase;
 			}
-			Loop 
+			loop
 		Missile: 
 			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
 			WRAI A 10
@@ -2535,7 +2535,7 @@ ACTOR DEWraithNew : AetheriusMonsterZSC replaces DEWraith 30106
 			WRAI F 5 A_Scream 
 			WRAI GHIJ 4  
 			Stop 
-	} 
+	}
 }
 
 actor ButcherBarfNew : AetheriusEffectProjectile replaces ButcherBarf

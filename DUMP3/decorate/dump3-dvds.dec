@@ -36,7 +36,7 @@ ACTOR AdolfHitlerDS : AetheriusMonsterZSC replaces AdolfHitler
 			goto Spawn+1
 		See:
 			HTLR A 0
-			{ 
+			{
 				ACS_NamedExecuteAlways("RefreshStealthInfo",0,0);
 				user_shotsfired = 0;
 			}
@@ -197,7 +197,7 @@ actor Benellus1DS : AetheriusMonsterZSC replaces Benellus1
 			goto Spawn+1
 		See:
 			HTLR A 0
-			{ 
+			{
 				ACS_NamedExecuteAlways("RefreshStealthInfo",0,0);
 				user_shotsfired = 0;
 			}
@@ -525,7 +525,7 @@ actor Benellus3DS : AetheriusMonsterZSC replaces Benellus3
 			goto Spawn+1
 		See:
 			HTLR A 0
-			{ 
+			{
 				ACS_NamedExecuteAlways("RefreshStealthInfo",0,0);
 				user_shotsfired = 0;
 			}

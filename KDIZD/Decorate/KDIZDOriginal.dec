@@ -56,7 +56,7 @@ ACTOR ChainsawZombieNew : AetheriusMonsterZSC 3204
 	DropItem Chainsaw 8 // 64
 
 	States 
-	{ 
+	{
 		Spawn: 
 			CHAN A 0 NoDelay 
 			CHAN A 4 A_Look 
@@ -92,7 +92,7 @@ ACTOR ChainsawZombieNew : AetheriusMonsterZSC 3204
 				A_Chase;
 			}
 			CHAN A 0 A_PlayWeaponSound("weapons/sawidle") 
-			Loop 
+			loop
 		Melee: 
 			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
 			CHAN E 1 A_FaceTarget 
@@ -149,7 +149,7 @@ ACTOR ChainsawZombieNew : AetheriusMonsterZSC 3204
 			CHAN N 5 
 			CHAN MLKJIH 5 
 			Goto See 
-	} 
+	}
 } 
 
 ACTOR KDIZDChaingunner : DSChaingunGuy replaces DSChaingunGuy
@@ -182,7 +182,7 @@ ACTOR KDIZDChaingunner : DSChaingunGuy replaces DSChaingunGuy
 			CPOS O 5 
 			CPOS NMLKJIH 5
 			goto See
-	} 
+	}
 }
 
 actor DemonCube : AetheriusMonsterZSC 26001
@@ -618,7 +618,7 @@ ACTOR MaulerDemon : AetheriusMonsterZSC 3123
 	Obituary "%o was gored by a Mauler Demon."
 	HitObituary "%o was mauled by a Mauler Demon"
 	States 
-	{ 
+	{
 		Spawn: 
 			MAUD A 0 NoDelay  
 			MAUD AB 10 A_Look 
@@ -630,7 +630,7 @@ ACTOR MaulerDemon : AetheriusMonsterZSC 3123
 				if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(1); }
 				A_Chase;
 			}
-			Loop 
+			loop
 		Melee: 
 			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
 			MAUD EF 8
@@ -716,7 +716,7 @@ ACTOR MaulerDemon : AetheriusMonsterZSC 3123
 			MAUD H 5 A_GenericFreezeDeath
 			MAUD H 1 A_FreezeDeathChunks
 			wait
-	} 
+	}
 } 
 
 ACTOR KDiZDNightmare : RandomSpawner { DropItem NightmareNew 255 }
@@ -904,14 +904,14 @@ ACTOR RapidFireTrooper : AetheriusMonsterZSC 3201
 	Obituary "%o was surprised by the Rapid Assault Zombieman's weaponry." 
 	Decal BulletChip
 	States 
-	{ 
+	{
 		Spawn: 
 			RFTR A 0 NoDelay 
 			RFTR AB 10 A_Look 
-			Loop 
+			loop
 		See: 
 			RFTR A 0
-			{ 
+			{
 				ACS_NamedExecuteAlways("RefreshStealthInfo",0,0);
 				user_shotsfired = 0;
 			}
@@ -920,7 +920,7 @@ ACTOR RapidFireTrooper : AetheriusMonsterZSC 3201
 				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); A_SetTics(3); }
 				A_Chase;
 			}
-			Loop 
+			loop
 		Missile: 
 			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
 			RFTR E 10
@@ -938,7 +938,7 @@ ACTOR RapidFireTrooper : AetheriusMonsterZSC 3201
 				user_shotzaccuracy2 = user_shotzaccuracy * 0.5;
 			}
 			RFTR F 5 Bright
-			{ 
+			{
 				if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(3); }
 				else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(4); }
 				A_PlaySound ("grunt/attack");
@@ -1004,7 +1004,7 @@ ACTOR RapidFireTrooper : AetheriusMonsterZSC 3201
 			RFTR G 5 A_GenericFreezeDeath
 			RFTR G 1 A_FreezeDeathChunks
 			wait
-	} 
+	}
 } 
 
 ACTOR RifleZombie : AetheriusMonsterZSC 31657
@@ -2519,7 +2519,7 @@ actor MagmantisLostSoul : AetheriusMonsterZSC
 			SKUL D 4 BRIGHT
 			{
 				user_canusecrisisatk = 0;
-				if(health <= user_HPLowRange) { if(health <= user_HPCritRange) { user_canusecrisisatk = 1; } else { if (random(1,4) == 4) { user_canusecrisisatk = 1;	} } }
+				if(health <= user_HPLowRange) { if(health <= user_HPCritRange) { user_canusecrisisatk = 1; } else { if (random(1,4) == 4) { user_canusecrisisatk = 1; } } }
 				if(GetCVar("dvds_monstercrisisattacks") == 0) { user_canusecrisisatk = 0; }
 				if(user_canusecrisisatk == 1)
 				{
@@ -2534,7 +2534,7 @@ actor MagmantisLostSoul : AetheriusMonsterZSC
 			SKUL CCDD 2 BRIGHT
 			{
 				user_canusecrisisatk = 0;
-				if(health <= user_HPLowRange) { if(health <= user_HPCritRange) { user_canusecrisisatk = 1; } else { if (random(1,4) == 4) { user_canusecrisisatk = 1;	} } }
+				if(health <= user_HPLowRange) { if(health <= user_HPCritRange) { user_canusecrisisatk = 1; } else { if (random(1,4) == 4) { user_canusecrisisatk = 1; } } }
 				if(GetCVar("dvds_monstercrisisattacks") == 0) { user_canusecrisisatk = 0; }
 				if(user_canusecrisisatk == 1)
 				{
@@ -2959,7 +2959,7 @@ actor CypressPot : FakeInventory 6007
 			CSPL B 4
 			CSPL B 4 bright
 			loop
-	} 
+	}
 }
    
 /////////////////////////////
