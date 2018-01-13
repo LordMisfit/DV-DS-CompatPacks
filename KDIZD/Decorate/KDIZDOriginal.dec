@@ -2024,6 +2024,7 @@ ACTOR Magmantis : AetheriusMonsterZSC 26660
 	HitObituary "%o was eradicated by the Deimos Guardian"
 	States
 	{
+		Pain.Charm: goto See
 		Spawn:
 			TNT1 A 0 NoDelay 
 			TNT1 A 6 A_UnSetSolid
