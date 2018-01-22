@@ -116,7 +116,7 @@ actor YellowBalloon replaces Balloon_Yellow 3113
 		Pain: Goto See
 		Drop:
 			BNYL B 0 A_DropItem("SauronGauntlets",1,1)
-			BNYL B 0 A_DropItem("SapphireWandNew",1,1)
+			BNYL B 0 { if (GetCVar("dvds_florawandscandrop") > 0) A_DropItem("SapphireWandNew",1,1); }
 			BNYL B 0 A_DropItem("DiarisLongBow",1,1)
 			BNYL B 0 A_DropItem("ImpClawCI",1,1)
 			BNYL B 0 A_DropItem("DarkImpClawCI",1,1)
