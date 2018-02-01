@@ -72,7 +72,23 @@ ACTOR Zakachi : AetheriusMonsterZSC 27043
 			{
 				if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(3); }
 				else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(4); }
-				A_CustomMissile("LightningBallL",32,0,0,2,0);
+
+				if (levelbehavior > 0 && user_monsterlevel > 240)
+				{
+					A_CustomMissile("LightningBallL",32,0,8,2,0);
+					A_CustomMissile("LightningBallL",32,0,0,2,0);
+					A_CustomMissile("LightningBallL",32,0,-8,2,0);
+				}
+				else
+				if (levelbehavior > 0 && user_monsterlevel > 120)
+				{
+					A_CustomMissile("LightningBallL",32,0,8,2,0);
+					A_CustomMissile("LightningBallL",32,0,-8,2,0);
+				}
+				else
+				{
+					A_CustomMissile("LightningBallL",32,0,0,2,0);
+				}
 			}
 			THOR T 5
 			{
@@ -88,18 +104,16 @@ ACTOR Zakachi : AetheriusMonsterZSC 27043
 				else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(4); }
 				A_FaceTarget;
 			}
-			THOR T 1 BRIGHT A_CustomMissile("MiniLightningPuff",55,45,0,0) 
-			THOR T 1 BRIGHT A_CustomMissile("MiniLightningPuff",55,-45,0,0) 
-			THOR T 1 BRIGHT A_CustomMissile("MiniLightningPuff",55,45,0,0) 
-			THOR T 1 BRIGHT A_CustomMissile("MiniLightningPuff",55,-45,0,0) 
-			THOR T 1 BRIGHT A_CustomMissile("MiniLightningPuff",55,45,0,0) 
-			THOR T 1 BRIGHT A_CustomMissile("MiniLightningPuff",55,-45,0,0) 
-			THOR T 1 BRIGHT A_CustomMissile("MiniLightningPuff",55,45,0,0) 
-			THOR T 1 BRIGHT A_CustomMissile("MiniLightningPuff",55,-45,0,0) 
-			THOR T 1 BRIGHT A_CustomMissile("MiniLightningPuff",55,45,0,0) 
-			THOR T 1 BRIGHT A_CustomMissile("MiniLightningPuff",55,-45,0,0) 
-			THOR T 1 BRIGHT A_CustomMissile("MiniLightningPuff",55,45,0,0) 
-			THOR T 1 BRIGHT A_CustomMissile("MiniLightningPuff",55,-45,0,0)  
+			THOR TTTTTT 1 BRIGHT
+			{
+				A_CustomMissile("MiniLightningPuff",55,45,0,0);
+				A_CustomMissile("MiniLightningPuff",55,-45,0,0);
+				if (levelbehavior > 0 && user_monsterlevel > 120)
+				{
+					A_CustomMissile("MiniLightningPuff",55,67.5,0,0);
+					A_CustomMissile("MiniLightningPuff",55,-67.5,0,0);
+				}
+			}
 			TNT1 A 0 A_GiveInventory("ThorCounter", 1)
 			TNT1 A 0 A_JumpIfInventory("ThorCounter", 9, "EndStream")
 			Goto LightningStream+2
@@ -188,13 +202,25 @@ ACTOR Zakachi : AetheriusMonsterZSC 27043
 				else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(6); }
 				else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(7); }
 
-				A_CustomMissile("LightningRod1",55,45,0,0,0);
-				A_CustomMissile("LightningRod1",55,-45,0,0,0);
+				A_MonsterCrisisCheck;
+				A_CrisisSpawnProjectile("LightningRod1", "LightningRod1Crisis", 55, 45, 0, CMF_OFFSETPITCH|CMF_BADPITCH, 0);
+				A_CrisisSpawnProjectile("LightningRod1", "LightningRod1Crisis", 55, -45, 0, CMF_OFFSETPITCH|CMF_BADPITCH, 0);
+				if (levelbehavior > 0 && user_monsterlevel > 120) 
+				{ 
+					A_CrisisSpawnProjectile("LightningRod1", "LightningRod1Crisis", 55, 67.5, 0, CMF_OFFSETPITCH|CMF_BADPITCH, 0);
+					A_CrisisSpawnProjectile("LightningRod1", "LightningRod1Crisis", 55, -67.5, 0, CMF_OFFSETPITCH|CMF_BADPITCH, 0);
+				}
 			}
 			THOR TT 2 BRIGHT
 			{
-				A_CustomMissile("LightningRod1",55,45,0,0,0);
-				A_CustomMissile("LightningRod1",55,-45,0,0,0);
+				A_MonsterCrisisCheck;
+				A_CrisisSpawnProjectile("LightningRod1", "LightningRod1Crisis", 55, 45, 0, CMF_OFFSETPITCH|CMF_BADPITCH, 0);
+				A_CrisisSpawnProjectile("LightningRod1", "LightningRod1Crisis", 55, -45, 0, CMF_OFFSETPITCH|CMF_BADPITCH, 0);
+				if (levelbehavior > 0 && user_monsterlevel > 120) 
+				{ 
+					A_CrisisSpawnProjectile("LightningRod1", "LightningRod1Crisis", 55, 67.5, 0, CMF_OFFSETPITCH|CMF_BADPITCH, 0);
+					A_CrisisSpawnProjectile("LightningRod1", "LightningRod1Crisis", 55, -67.5, 0, CMF_OFFSETPITCH|CMF_BADPITCH, 0);
+				}
 			}
 			TNT1 A 0 A_GiveInventory("ThorCounter", 1)
 			TNT1 A 0 A_JumpIfInventory("ThorCounter", 3, "FilibusterEnd")
@@ -238,11 +264,18 @@ ACTOR Zakachi : AetheriusMonsterZSC 27043
 				else if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(5); }
 				else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(6); }
 				else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(7); }
+
+				A_CustomMissile("GroundLightningTracer",0,random(-20,20),random(-45,45),0,0);
+				A_CustomMissile("GroundLightningTracer",0,random(-20,20),random(-45,45),0,0);
+				A_CustomMissile("GroundLightningTracer",0,random(-20,20),random(-45,45),0,0);
+				if (levelbehavior > 0 && user_monsterlevel > 120) 
+				{
+					A_CustomMissile("GroundLightningTracer",0,random(-20,20),random(-45,45),0,0);
+					A_CustomMissile("GroundLightningTracer",0,random(-20,20),random(-45,45),0,0);
+					A_CustomMissile("GroundLightningTracer",0,random(-20,20),random(-45,45),0,0);
+				}
 				A_FaceTarget;
 			}
-			THOR X 0 BRIGHT A_CustomMissile("GroundLightningTracer",0,random(-20,20),random(-45,45),0,0)
-			THOR X 0 BRIGHT A_CustomMissile("GroundLightningTracer",0,random(-20,20),random(-45,45),0,0)
-			THOR X 0 BRIGHT A_CustomMissile("GroundLightningTracer",0,random(-20,20),random(-45,45),0,0)
 			THOR X 8 Bright
 			{
 				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(4); }
@@ -259,10 +292,16 @@ ACTOR Zakachi : AetheriusMonsterZSC 27043
 				if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(3); }
 				else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(4); }
 				A_FaceTarget;
+
+				A_CustomMissile("LightningRod3", 0, 0, 0, CMF_AIMOFFSET);
+				A_CustomMissile("LightningRod3", 0, 45, random(-25, -15), CMF_AIMOFFSET);
+				A_CustomMissile("LightningRod3", 0, -45, random(15, 25), CMF_AIMOFFSET);
+				if (levelbehavior > 0 && user_monsterlevel > 120) 
+				{
+					A_CustomMissile("LightningRod3", 0, 90, random(-50, -30), CMF_AIMOFFSET);
+					A_CustomMissile("LightningRod3", 0, -90, random(30, 50), CMF_AIMOFFSET);
+				}
 			}
-			TNT1 A 0 A_CustomMissile("LightningRod3", 0, 0, 0, CMF_AIMOFFSET)
-			TNT1 A 0 A_CustomMissile("LightningRod3", 0, 45, random(-25, -15), CMF_AIMOFFSET)
-			TNT1 A 0 A_CustomMissile("LightningRod3", 0, -45, random(15, 25), CMF_AIMOFFSET)
 			THOR T 5 Bright
 			{
 				if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(3); }
@@ -502,7 +541,7 @@ ACTOR GroundSmoke
 	Radius 12
 	Height 12
 	Speed 15
-	Damage 1//5
+	Damage 1 // 5
 	RENDERSTYLE Add
 	Alpha 0.30
 	SEESOUND "thor/smoke"
@@ -584,7 +623,7 @@ ACTOR LightningRod1
 	Radius 24
 	Height 24
 	Speed 30
-	Damage 3//5
+	Damage (3*random(1,8))
 	RENDERSTYLE Add
 	Alpha 0.50
 	Scale 0.75
@@ -599,7 +638,33 @@ ACTOR LightningRod1
 	{
 		Spawn:
 			ZAP6 ABC 2 BRIGHT
-			//ZAP6 A 0 BRIGHT A_MissileAttack
+			Loop
+		Death:
+			ZOTS ABCDEF 2 BRIGHT
+			Stop
+	}
+}
+
+Actor LightningRod1CrisisParticle : BaseCrisisParticle
+{ 
+	States
+	{
+		Spawn:
+			ZAP6 A 0 NoDelay A_CrisisParticleInit
+			goto Idle
+		Idle:
+			"####" ABC 2 Bright A_CrisisParticleDo
+			loop
+	}
+}
+
+ACTOR LightningRod1Crisis : LightningRod1
+{
+	Damage ((3 * CallACS("CrisisMultiplier")) * random(1,8))
+	states
+	{
+		Spawn:
+			ZAP6 ABC 2 BRIGHT A_SpawnItemEx("LightningRod1CrisisParticle",0,0,0,0,0,1.28)
 			Loop
 		Death:
 			ZOTS ABCDEF 2 BRIGHT

@@ -3069,8 +3069,6 @@ actor BloodZombieNew : AetheriusMonsterZSC 31002
 	meleerange 70
 	Mass 500
 	meleedamage 5
-	painchance 40
-
 	painchance 20
 	Painchance "Fist", 30 // Fist attacks have a +50% chance of stunning an enemy
 	Painchance "Kick", 50 // Kick attacks have a +150% chance of stunning an enemy
