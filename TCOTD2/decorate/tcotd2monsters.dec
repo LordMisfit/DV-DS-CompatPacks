@@ -678,7 +678,7 @@ ACTOR TommyGunCultistNew : AetheriusMonsterZSC 29011
 				}
 				else
 				{
-					A_CrisisSpawnProjectile("TCOTDBulletTracer", "TCOTDBulletTracerCrisis", 32, 12, frandom(-5.0,5.0), CMF_OFFSETPITCH, frandom(-2.8,2.8));
+					A_CrisisSpawnProjectile("TCOTDBulletTracer", "TCOTDBulletTracerCrisis", 32, 12, frandom(-5.0,5.0), CMF_OFFSETPITCH|CMF_BADPITCH, frandom(-2.8,2.8));
 				}
 			}
 			XFAN H 2 A_FaceTarget
@@ -809,7 +809,7 @@ ACTOR ShotgunCultistNew : TommyGunCultistNew 29010
 				{
 					for (user_currenttracer = 0; user_currenttracer < user_pelletsfired; user_currenttracer++)
 					{
-						A_CrisisSpawnProjectile("TCOTDBulletTracer", "TCOTDBulletTracerCrisis", 32, 12, frandom(user_shotaccuracy1,user_shotaccuracy2), CMF_OFFSETPITCH, frandom(user_shotzaccuracy1,user_shotzaccuracy2));       
+						A_CrisisSpawnProjectile("TCOTDBulletTracer", "TCOTDBulletTracerCrisis", 32, 12, frandom(user_shotaccuracy1,user_shotaccuracy2), CMF_OFFSETPITCH|CMF_BADPITCH, frandom(user_shotzaccuracy1,user_shotzaccuracy2));       
 					}
 				}
 			}
