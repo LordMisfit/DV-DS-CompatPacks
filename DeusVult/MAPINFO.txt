@@ -2,8 +2,6 @@
 
 gameinfo
 {
- InfoPage = "HELP"
- AddInfoPage = "GENHELP", "HINTHELP", "STATHELP", "FLORA-1", "FLORA-2", "FLORA-3"
  TitlePage = "TITLEPIC"
  AddCreditPage = "TITLEPI1", "TITLEPI2", "CREDIT"
  borderflat = "FIGHT1"
