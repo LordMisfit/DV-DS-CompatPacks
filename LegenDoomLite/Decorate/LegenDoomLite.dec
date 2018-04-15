@@ -242,13 +242,11 @@ ACTOR LDLegendaryMonsterStatBoost : LDCustomFunction
 			TNT1 A 0 A_ChangeFlag ("NOTIMEFREEZE", 1)
 			TNT1 A 0 A_ChangeFlag ("SEEINVISIBLE", 1)
 			TNT1 A 0 A_ChangeFlag ("DONTDRAIN", 1)
-			TNT1 A 0 A_ChangeFlag ("NOBLOODDECALS", 1)
 			TNT1 A 0 A_ChangeFlag ("NOICEDEATH", 1)
 			TNT1 A 0 A_ChangeFlag ("DONTGIB", 1)
 			TNT1 A 0 A_ChangeFlag ("DROPOFF", 1)
 			TNT1 A 0 A_ChangeFlag ("BRIGHT", 1)
 			TNT1 A 0 A_ChangeFlag ("BUDDHA", 0)
-//		TNT1 A 0 A_ChangeFlag ("FRIENDLY", 0) // EHEHEHEHEHHEHEHE
 			Stop
 	}
 }
@@ -273,7 +271,6 @@ ACTOR LDLegendaryMonsterBossStatBoost : LDCustomFunction
 			TNT1 A 0 A_ChangeFlag ("NOTIMEFREEZE", 1)
 			TNT1 A 0 A_ChangeFlag ("SEEINVISIBLE", 1)
 			TNT1 A 0 A_ChangeFlag ("DONTDRAIN", 1)
-			TNT1 A 0 A_ChangeFlag ("NOBLOODDECALS", 1)
 			TNT1 A 0 A_ChangeFlag ("NOICEDEATH", 1)
 			TNT1 A 0 A_ChangeFlag ("DONTGIB", 1)
 			TNT1 A 0 A_ChangeFlag ("DROPOFF", 1)
@@ -281,7 +278,6 @@ ACTOR LDLegendaryMonsterBossStatBoost : LDCustomFunction
 			TNT1 A 0 A_ChangeFlag ("DONTTHRUST", 1)
 			TNT1 A 0 A_ChangeFlag ("BRIGHT", 1)
 			TNT1 A 0 A_ChangeFlag ("BUDDHA", 0)
-//		TNT1 A 0 A_ChangeFlag ("FRIENDLY", 0) // EHEHEHEHEHHEHEHE
 			Stop
 	}
 }

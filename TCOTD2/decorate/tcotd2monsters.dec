@@ -2813,6 +2813,8 @@ ACTOR ButcherZombieNew : AetheriusMonsterZSC 25010
 	Painchance "Gauntlets", 147 // Fist attacks have a +50% chance of stunning an enemy
 	DamageFactor "Normal", 0.95
 	DamageFactor "Melee", 0.80
+	DamageFactor "Stomp", 0.80
+	DamageFactor "Trample", 0.80
 	DamageFactor "Fire", 2.25
 	DamageFactor "Holy", 1.625
 	DamageFactor "Crush", 3.2

@@ -4397,6 +4397,8 @@ ACTOR BouncingClownNew : AetheriusMonsterZSC replaces BouncingClown 4822
 	DamageFactor "Magic", 0.75 // Magic does damage, but not quite a full amount
 	DamageFactor "Holy", 2 // Diaris Arrows hurt it like no-one's business
 	DamageFactor "Melee", 1.25
+	DamageFactor "Stomp", 1.25
+	DamageFactor "Trample", 1.25
 	DamageFactor "Normal", 0.125 // Most other damage doesn't work well [1/8th normal damage]
 	dropitem DoomSpellMana3 24
 	dropitem DoomSpellMana3 24
@@ -5419,6 +5421,8 @@ actor PennywiseNotShield : PowerProtection
 	DamageFactor "Magic", 3
 	DamageFactor "Holy", 3
 	DamageFactor "Melee", 3
+	DamageFactor "Stomp", 3
+	DamageFactor "Trample", 3
 	DamageFactor "Normal", 3
 	DamageFactor "Deadlight", 3
 	inventory.icon ""
@@ -5451,6 +5455,8 @@ actor PennywiseBoss : AetheriusMonsterZSC replaces Pennywise 3672
 	DamageFactor "Magic", 1.75
 	DamageFactor "Holy", 1.75
 	DamageFactor "Melee", 1.5
+	DamageFactor "Stomp", 1.5
+	DamageFactor "Trample", 1.5
 	DamageFactor "Normal", 0.67
 	DamageFactor "Deadlight", 5.0
 	+FLOORCLIP +NORADIUSDMG +FULLVOLACTIVE +NOTARGET

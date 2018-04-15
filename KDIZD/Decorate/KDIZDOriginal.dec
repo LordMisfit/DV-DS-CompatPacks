@@ -1897,6 +1897,8 @@ actor StoneImp : AetheriusMonsterZSC 3103
 	Painchance "Ice", 100
 	Painchance "Thunder", 12
 	DamageFactor "Melee", 0.5
+	DamageFactor "Stomp", 0.5
+	DamageFactor "Trample", 0.5
 	DamageFactor "Fire", 0.5
 	DamageFactor "Ice", 2.0
 	DamageFactor "Thunder", 0.25
