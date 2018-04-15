@@ -519,7 +519,7 @@ ACTOR LargeSpiderNew : AetheriusMonsterZSC 22291
 
 // Bullet Tracers
 
-ACTOR TCOTDBulletTracer : FastProjectile
+ACTOR TCOTDBulletTracer : AetheriusFastProjectileZSC
 {
 	Damage ((Random(4,6) * Random(1,2)))
 	Damagetype "Bullet"

@@ -1120,7 +1120,7 @@ ACTOR RifleZombie : AetheriusMonsterZSC 31657
 	}
 }
 
-ACTOR ZombieRifleBulletTracer : FastProjectile
+ACTOR ZombieRifleBulletTracer : AetheriusFastProjectileZSC
 {
 	Damage 20
 	Damagetype "Bullet"
