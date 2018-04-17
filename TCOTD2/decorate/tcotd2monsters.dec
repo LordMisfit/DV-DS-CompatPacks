@@ -223,6 +223,11 @@ ACTOR ApprenticeNew : AetheriusMonsterZSC 30000
 			Goto See
 		XDeath:
 			goto Death
+		Ice:
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
+			APDP E 5 A_GenericFreezeDeath
+			APDP E 1 A_FreezeDeathChunks
+			wait
 	}
 }
 
@@ -366,6 +371,11 @@ ACTOR MiniSpiderNew : AetheriusMonsterZSC 22290
 			TNT1 A 0 
 			MNTS A -1 A_BossDeath
 			Stop
+		Ice:
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
+			MNTR A 5 A_GenericFreezeDeath
+			MNTR A 1 A_FreezeDeathChunks
+			wait
 	}
 }
 
@@ -514,6 +524,11 @@ ACTOR LargeSpiderNew : AetheriusMonsterZSC 22291
 			TNT1 A 0 
 			MNTS A -1 A_BossDeath
 			Stop
+		Ice:
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
+			MNTR A 5 A_GenericFreezeDeath
+			MNTR A 1 A_FreezeDeathChunks
+			wait
 	}
 }
 
@@ -736,6 +751,11 @@ ACTOR TommyGunCultistNew : AetheriusMonsterZSC 29011
 			XFAN P 6 
 			XFAN ONMLKJ 4 
 			goto See
+		Ice:
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
+			XFAN I 5 A_GenericFreezeDeath
+			XFAN I 1 A_FreezeDeathChunks
+			wait
 	}
 }
 
@@ -874,6 +894,11 @@ ACTOR ShotgunCultistNew : TommyGunCultistNew 29010
 			BCUL M 5 
 			BCUL LKJIH 5 
 			goto See
+		Ice:
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
+			BCUL G 5 A_GenericFreezeDeath
+			BCUL G 1 A_FreezeDeathChunks
+			wait
 	}
 }
 
@@ -1020,6 +1045,11 @@ ACTOR HellHoundNew : AetheriusMonsterZSC 30121
 			HDOG Q 5 
 			HDOG PONMLK 5 
 			Goto See 
+		Ice:
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
+			HDOG J 5 A_GenericFreezeDeath
+			HDOG J 1 A_FreezeDeathChunks
+			wait
 	}
 }
 
@@ -1259,14 +1289,17 @@ ACTOR ThrallNew : AetheriusMonsterZSC 30119
 			TNT1 A 0 
 			CULT M -1 
 			Stop
-
 		XDeath:
 			Goto Death
-
 		Raise: 
 			CULT M 5 
 			CULT LKJHI 5
 			Goto See 
+		Ice:
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
+			CULT G 5 A_GenericFreezeDeath
+			CULT G 1 A_FreezeDeathChunks
+			wait
 	}
 }
 
@@ -1405,8 +1438,7 @@ ACTOR NightmareNew : AetheriusMonsterZSC replaces KDiZDNightmare 26000
 			NMRE JKLMNO 3 
 			Stop
 		Ice:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
-			TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
 			NMRE H 5 A_GenericFreezeDeath
 			NMRE H 1 A_FreezeDeathChunks
 			wait
@@ -1749,6 +1781,11 @@ actor VulgarNew : DSDoomImp replaces Vulgar
 			VULG L 8 
 			VULG KJI 6 
 			goto See
+		Ice:
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
+			VULG H 5 A_GenericFreezeDeath
+			VULG H 1 A_FreezeDeathChunks
+			wait
 	}
 }
 
@@ -2171,6 +2208,11 @@ ACTOR TCOTDAShadowNew : AetheriusMonsterZSC replaces Shadow 3126
 			TROX M 8 
 			TROX KLJI 8 
 			Goto See
+		Ice:
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
+			TROX H 5 A_GenericFreezeDeath
+			TROX H 1 A_FreezeDeathChunks
+			wait
 	}
 }
 
@@ -2289,6 +2331,11 @@ ACTOR SoulHarvesterNew : AetheriusMonsterZSC 3117
 			SLHV W 5 
 			SLHV VUTSRQPO 5 
 			Goto See
+		Ice:
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
+			SLHV N 5 A_GenericFreezeDeath
+			SLHV N 1 A_FreezeDeathChunks
+			wait
 	}
 }
 
@@ -2411,6 +2458,8 @@ ACTOR ESoulNew : AetheriusMonsterZSC 29012 // : ESoul replaces ESoul 29012
 			ETHS H 3 bright A_ScreamAndUnblock
 			ETHS IJKLMNO 3 bright
 			stop
+		Ice:
+			goto Death
 	}
 }
 
@@ -2535,12 +2584,14 @@ ACTOR DEWraithNew : AetheriusMonsterZSC replaces DEWraith 30106
 			WRAI F 5 A_Scream 
 			WRAI GHIJ 4  
 			Stop 
+		Ice:
+			goto Death
 	}
 }
 
 actor ButcherBarfNew : AetheriusEffectProjectile replaces ButcherBarf
 {
-	Damage (3 * random(1,8))
+	Damage (3 * random(4,9))
 	Mass 1
 	Radius 8
 	Height 6
@@ -2601,7 +2652,7 @@ actor ButcherBarfCrisisParticle : BaseCrisisParticle
 }
 actor ButcherBarfCrisis : ButcherBarfNew
 {
-	Damage ((3 * random(1,8)) * CallACS("CrisisMultiplier"))
+	Damage ((3 * random(4,9)) * CallACS("CrisisMultiplier"))
 	States
 	{
 		Spawn:
@@ -2639,7 +2690,7 @@ actor ButcherBarfCrisis : ButcherBarfNew
 
 actor CleaverNew : AetheriusEffectProjectile replaces Cleaver
 { 
-	damage (5 * random(1,8))
+	damage (2 * random(5,13))
 	decal GarScorch
 	radius 6
 	height 16
@@ -2725,7 +2776,7 @@ actor CleaverNewCrisisParticle : BaseCrisisParticle
 }
 actor CleaverNewCrisis : CleaverNew
 { 
-	damage ((5 * random(1,8)) * CallACS("CrisisMultiplier"))
+	damage ((2 * random(5,13)) * CallACS("CrisisMultiplier"))
 	states
 	{
 		Spawn:
@@ -2805,12 +2856,14 @@ ACTOR ButcherZombieNew : AetheriusMonsterZSC 25010
 	Health 1090 // 308,436,630,850,1090
 	Radius 12
 	Height 56
-	Mass 500
+	Mass 2125
 	speed 3
-	painchance 98
-	Painchance "Fist", 147 // Fist attacks have a +50% chance of stunning an enemy
-	Painchance "Kick", 245 // Kick attacks have a +150% chance of stunning an enemy
-	Painchance "Gauntlets", 147 // Fist attacks have a +50% chance of stunning an enemy
+	painchance 4
+	meleerange 48 // 44
+	Painchance "Fist", 8 // Fist attacks have a +50% chance of stunning an enemy
+	Painchance "Kick", 16 // Kick attacks have a +150% chance of stunning an enemy
+	Painchance "Gauntlets", 8 // Fist attacks have a +50% chance of stunning an enemy
+	Painchance "Melee", 8
 	DamageFactor "Normal", 0.95
 	DamageFactor "Melee", 0.80
 	DamageFactor "Stomp", 0.80
@@ -2840,61 +2893,122 @@ ACTOR ButcherZombieNew : AetheriusMonsterZSC 25010
 			goto Spawn+1
 		See:
 			E15W A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
-			E15W AAAAAABBBBBBCCCCCCDDDDDDEEEEEEFFFFFF 1
+			E15W AAABBBCCCDDDEEEFFF 2
 			{
 				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
 				A_Chase;
 			}
 			TNT1 A 0 A_Jump(96,"See2")
 			loop
 		See2:
 			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
-			E15W A 3
+			E15W A 2
 			{
 				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-				if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(2); }
-				A_Chase;
-			}
-			E15W A 3
-			{
-				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-				if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(2); }
-				A_Chase("","");
-			}
-			E15W A 3
-			{
-				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-				if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(2); }
+				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
 				A_Chase;
 			}
 			E15W A 2
 			{
 				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-				if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(1); }
+				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
 				A_Chase("","");
 			}
 			E15W A 2
 			{
 				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-				if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(1); }
+				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
 				A_Chase;
 			}
-			E15W A 2
+			E15W B 2
 			{
 				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-				if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(1); }
+				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
 				A_Chase("","");
 			}
 			E15W B 2
 			{
 				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-				if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(1); }
+				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
 				A_Chase;
 			}
-			E15W B 3
+			E15W B 2
 			{
 				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
-				if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(2); }
+				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+				A_Chase("","");
+			}
+			E15W C 2
+			{
+				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+				A_Chase;
+			}
+			E15W C 2
+			{
+				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+				A_Chase("","");
+			}
+			E15W C 2
+			{
+				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+				A_Chase;
+			}
+			E15W D 2
+			{
+				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+				A_Chase("","");
+			}
+			E15W D 2
+			{
+				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+				A_Chase;
+			}
+			E15W D 2
+			{
+				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+				A_Chase("","");
+			}
+			E15W E 2
+			{
+				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+				A_Chase;
+			}
+			E15W E 2
+			{
+				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+				A_Chase("","");
+			}
+			E15W E 2
+			{
+				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+				A_Chase;
+			}
+			E15W F 2
+			{
+				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+				A_Chase("","");
+			}
+			E15W F 2
+			{
+				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
+				A_Chase;
+			}
+			E15W F 2
+			{
+				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
+				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
 				A_Chase("","");
 			}
 			TNT1 A 0 A_Jump(96,"See")
@@ -2903,6 +3017,7 @@ ACTOR ButcherZombieNew : AetheriusMonsterZSC 25010
 			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
 			E15A B 5
 			{
+				A_ScaleVelocity(0.25);
 				if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
 				else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
 				A_SkelWhoosh;
@@ -2910,27 +3025,35 @@ ACTOR ButcherZombieNew : AetheriusMonsterZSC 25010
 			}
 			E15A C 5
 			{
+				A_ScaleVelocity(0.25);
 				if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
 				else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
 				A_FaceTarget;
 			}
 			E15A D 5
 			{
+				A_ScaleVelocity(0.25);
 				if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
 				else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
 				A_FaceTarget;
 
-				A_CrisisComboAttack("CleaverNew","CleaverNew", random(34,40), 12 * random(1,5), "skeleton/melee");
+				A_CrisisComboAttack("CleaverNew","CleaverCrisis", random(34,40), 2*random(7,13), "skeleton/melee");
 			}
 			E15A EF 5
 			{
+				A_ScaleVelocity(0.25);
 				if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
 				else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
 				A_FaceTarget;
 			}
+			E15A F 0 { A_ScaleVelocity(0.25); }
 			goto See
 		Missile:
-			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+			TNT1 A 0 
+			{
+				A_ScaleVelocity(0.25);
+				ACS_NamedExecuteAlways("RefreshStealthInfo",0,1); // makes a Stealth Monster become more visible
+			}
 			BYBR E 0 A_JumpIfCloser(128, "Missile1")
 			BYBR E 0 A_Jump(64,"Missile1")
 			BYBR E 0 A_Jump(256,"Missile2")
@@ -2938,6 +3061,7 @@ ACTOR ButcherZombieNew : AetheriusMonsterZSC 25010
 		Missile1:
 			E15A B 5
 			{
+				A_ScaleVelocity(0.25);
 				if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
 				else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
 				A_SkelWhoosh;
@@ -2945,36 +3069,42 @@ ACTOR ButcherZombieNew : AetheriusMonsterZSC 25010
 			}
 			E15A C 5
 			{
+				A_ScaleVelocity(0.25);
 				if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
 				else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
 				A_FaceTarget;
 			}
 			E15A D 5
 			{
+				A_ScaleVelocity(0.25);
 				if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
 				else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
 				A_FaceTarget;
 
 				A_MonsterCrisisCheck;
-				A_CrisisComboAttack("CleaverNew","CleaverNew", random(34,40), 12 * random(1,5), "skeleton/melee");
+				A_CrisisComboAttack("CleaverNew","CleaverCrisis", random(34,40), 2*random(7,13), "skeleton/melee");
 			}
 			E15A EF 5
 			{
+				A_ScaleVelocity(0.25);
 				if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
 				else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
 				A_FaceTarget;
 			}
+			E15A F 0 { A_ScaleVelocity(0.25); }
 			goto See
 		Missile2:
 			E15W J 0 A_FaceTarget
 			E15A GH 5
 			{
+				A_ScaleVelocity(0.25);
 				if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
 				else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
 				A_FaceTarget;
 			}
 			E15A I 5 
 			{
+				A_ScaleVelocity(0.25);
 				if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(3); }
 				else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(4); }
 				A_FaceTarget;
@@ -2984,34 +3114,43 @@ ACTOR ButcherZombieNew : AetheriusMonsterZSC 25010
 			}
 			E15A JIH 4
 			{
+				A_ScaleVelocity(0.25);
 				if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 				else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(3); }
 				A_FaceTarget;
 			}
+			E15A H 0 { A_ScaleVelocity(0.25); }
 			goto See
+
+		PAIN.Shock:
+			7ZAP AAAAAAAAAAAAAAAAAAAAAAAA 1 A_SpawnItemEx("ShockHuman",random(-1,1),random(-1,1),random(0,3))
+			7ZAP A 4 A_Pain
+			7ZAP A 0 A_JumpIfHealthLower(20,2)
+			7ZAP A 0 A_Jump(192,"See")
+			7ZAP AAAAAAAAAAAAAAAAAAAAAAAA 1 A_SpawnItemEx("ShockHuman",random(-1,1),random(-1,1),random(0,3))
+			Goto See
 		Pain:
-			E15A A 3
-			E15A A 6 A_Pain
-			E15A A 3
+			E15A A 1
+			E15A A 1
 			goto See
 		Pain.Fist:
-			E15A A 3
-			E15A A 6 A_Pain
-			E15A AA 6
+			E15A A 1
+			E15A A 1
+			E15A AA 1
 			goto See
 		Pain.Kick:
-			E15A A 3
-			E15A A 6 A_Pain
-			E15A AAAA 6
+			E15A A 1
+			E15A A 1
+			E15A AAAA 1
 			goto See
 
 		Death:
 			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
-			E15D A 7
+			E15D A 7 A_Scream
 			E15D B 7
-			E15D C 7 A_Scream
+			E15D C 7
 			E15D D 7 A_NoBlocking
-			E15D D 2  A_playsound("DSTHUUD")
+			E15D D 2 A_playsound("DSTHUUD")
 			E15D EFFFFFFFF 7
 			TNT1 A 0 
 			E15D G -1
@@ -3024,7 +3163,7 @@ ACTOR ButcherZombieNew : AetheriusMonsterZSC 25010
 			BBT2 LLLL 0 A_SpawnDebris ("OrganDebris")
 			BBT2 LLL 0 A_SpawnDebris ("Bloodliver")
 			BBT2 L 0 A_SpawnDebris ("Hand1")
-		BBT2 L 0 A_SpawnItemEx("EyeGuts",random(-8,8),random(-8,8),random(random(0,16),random(32,48)),random(-3,3),random(-2,2),random(-2,2))
+			BBT2 L 0 A_SpawnItemEx("EyeGuts",random(-8,8),random(-8,8),random(random(0,16),random(32,48)),random(-3,3),random(-2,2),random(-2,2))
 			BBT2 M 5 A_SpawnItemEx("FlyingBlood",random(-8,8),random(-8,8),random(random(0,16),random(32,48)),random(-3,3),random(-2,2),random(-2,2))
 			BBT2 N 5 A_SpawnItemEx("FlyingBlood",random(-8,8),random(-8,8),random(random(0,16),random(32,48)),random(-3,3),random(-2,2),random(-2,2))
 			BBT2 O 5  A_playsound("DSTHUUD")
@@ -3048,13 +3187,11 @@ ACTOR ButcherZombieNew : AetheriusMonsterZSC 25010
 			TNT1 A 0 
 			E15X L -1
 			Stop
-		PAIN.Shock:
-			7ZAP AAAAAAAAAAAAAAAAAAAAAAAA 1 A_SpawnItemEx("ShockHuman",random(-1,1),random(-1,1),random(0,3))
-			7ZAP A 4 A_Pain
-			7ZAP A 0 A_JumpIfHealthLower(20,2)
-			7ZAP A 0 A_Jump(192,"See")
-			7ZAP AAAAAAAAAAAAAAAAAAAAAAAA 1 A_SpawnItemEx("ShockHuman",random(-1,1),random(-1,1),random(0,3))
-			Goto See
+		Ice:
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
+			E15A A 5 A_GenericFreezeDeath
+			E15A A 1 A_FreezeDeathChunks
+			wait
 	}
 }
 
@@ -3067,14 +3204,15 @@ actor BloodZombieNew : AetheriusMonsterZSC 31002
 	Height 56
 	Radius 12
 	scale 0.45
-	speed 5
-	meleerange 70
-	Mass 500
+	speed 4
+	meleerange 57 // 44
+	Mass 1250
 	meleedamage 5
-	painchance 20
-	Painchance "Fist", 30 // Fist attacks have a +50% chance of stunning an enemy
-	Painchance "Kick", 50 // Kick attacks have a +150% chance of stunning an enemy
-	Painchance "Gauntlets", 30 // Fist attacks have a +50% chance of stunning an enemy
+	painchance 4
+	Painchance "Fist", 8 // Fist attacks have a +50% chance of stunning an enemy
+	Painchance "Kick", 16 // Kick attacks have a +150% chance of stunning an enemy
+	Painchance "Gauntlets", 8 // Fist attacks have a +50% chance of stunning an enemy
+	Painchance "Melee", 8 // Fist attacks have a +50% chance of stunning an enemy
 	PainChance "Shock", 255
 	PainChance "Lightning", 255
 	PainChance "Electric", 255
@@ -3095,6 +3233,8 @@ actor BloodZombieNew : AetheriusMonsterZSC 31002
 	deathsound "BZOMBIEDIE"
 	activesound "BZOMBIEACTIVE"
 	obituary "A zombie 'axed' %o a question. :V"
+	var int user_downedtime;
+	var int user_downedtimemax;
 
 	states
 	{
@@ -3108,41 +3248,46 @@ actor BloodZombieNew : AetheriusMonsterZSC 31002
 			goto Spawn+1
 		See:
 			AZUM A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
-			AZUM AAABBBCCCDDDEEEFFF 1
+			AZUM AAAABBBBCCCCDDDDEEEEFFFF 1
 			{
 				A_Chase;
 			}
 			loop
 		Melee:
 			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
-			BZUM AB 5 
+			BZUM AB 4
 			{
+				A_ScaleVelocity(0.25);
 				if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(3); }
 				else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(4); }
 				A_FaceTarget;
 			}
 			BZUM CDE 4
 			{
+				A_ScaleVelocity(0.25);
 				if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(2); }
 				else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(3); }
 				A_FaceTarget;
 			}
 			BZUM F 4 
 			{
+				A_ScaleVelocity(0.25);
 				if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(2); }
 				else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(3); }
 				A_FaceTarget;
 				A_PlaySound("ZAXE");
 
 				A_MonsterCrisisCheck;
-				A_CrisisMeleeAttack(5*random(1,8), "TWIX");
+				A_CrisisMeleeAttack(2*random(5,13), "TWIX");
 			}
 			BZUM G 4
 			{
+				A_ScaleVelocity(0.25);
 				if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(2); }
 				else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(3); }
 				A_FaceTarget;
 			}
+			BZUM G 0 { A_ScaleVelocity(0.25); }
 			goto See
 
 		Pain.Electric: 
@@ -3157,27 +3302,26 @@ actor BloodZombieNew : AetheriusMonsterZSC 31002
 			Goto See
 
 		Pain:    
-			AZUM G 0 A_Jump (120, "FallDown")
-			AZUM G 8 { if (random(1,256) <= 32) { A_Pain; } }
+			AZUM G 0 A_Jump (24, "FallDown")
+			AZUM G 1 { if (random(1,512) <= 3) { A_Pain; } else { return state("See"); } return state(""); }
 			goto See
 		Pain.Fist:    
-			AZUM G 0 A_Jump (135, "FallDown")
-			AZUM G 8 { if (random(1,256) <= 34) { A_Pain; } }
-			AZUM GG 8    
+			AZUM G 0 A_Jump (32, "FallDown")
+			AZUM G 1 { if (random(1,256) <= 4) { A_Pain; } else { return state("See"); } return state(""); }
+			AZUM GG 1
 			goto See
 		Pain.Kick:    
-			AZUM G 0 A_Jump (180, "FallDown")
-			AZUM G 8 { if (random(1,256) <= 48) { A_Pain; } }
-			AZUM GGGG 8    
+			AZUM G 0 A_Jump (96, "FallDown")
+			AZUM G 1 { if (random(1,256) <= 12) { A_Pain; } else { return state("See"); } return state(""); }
+			AZUM GGGG 1
 			goto See
 		FallDown:
 			AZUM H 5
 			{
 				A_Pain;
-				if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(1); }
-				else if (levelbehavior > 0 && user_monsterlevel > 135) { A_SetTics(2); }
-				else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
-				else if (levelbehavior > 0 && user_monsterlevel > 45) { A_SetTics(4); }
+				user_downedtimemax = 5 - ((user_monsterlevel / 45) * 1);
+				if (user_downedtimemax <= 1) { user_downedtimemax = 1; }
+				A_SetTics(user_downedtimemax);
 			}
 			AZUM H 0
 			{
@@ -3186,66 +3330,43 @@ actor BloodZombieNew : AetheriusMonsterZSC 31002
 			}
 			AZUM IJKL 5
 			{
-				if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(1); }
-				else if (levelbehavior > 0 && user_monsterlevel > 135) { A_SetTics(2); }
-				else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
-				else if (levelbehavior > 0 && user_monsterlevel > 45) { A_SetTics(4); }
+				user_downedtimemax = 5 - ((user_monsterlevel / 45) * 1);
+				if (user_downedtimemax <= 1) { user_downedtimemax = 1; }
+				A_SetTics(user_downedtimemax);
 			}
 			AZUM L 175
 			{
-				if (levelbehavior > 0 && user_monsterlevel > 210) { A_SetTics(105); }
-				else if (levelbehavior > 0 && user_monsterlevel > 195) { A_SetTics(110); }
-				else if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(115); }
-				else if (levelbehavior > 0 && user_monsterlevel > 165) { A_SetTics(120); }
-				else if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(125); }
-				else if (levelbehavior > 0 && user_monsterlevel > 135) { A_SetTics(130); }
-				else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(135); }
-				else if (levelbehavior > 0 && user_monsterlevel > 105) { A_SetTics(140); }
-				else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(145); }
-				else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(150); }
-				else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(155); }
-				else if (levelbehavior > 0 && user_monsterlevel > 45) { A_SetTics(160); }
-				else if (levelbehavior > 0 && user_monsterlevel > 30) { A_SetTics(165); }
-				else if (levelbehavior > 0 && user_monsterlevel > 15) { A_SetTics(170); }
+				user_downedtimemax = 175 - ((user_monsterlevel / 15) * 8);
+				if (user_downedtimemax <= 43) { user_downedtimemax = 43; }
+				A_SetTics(user_downedtimemax);
 			}
 		DownCycle:
 			AZUM L 20
 			{
-				if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(8); }
-				else if (levelbehavior > 0 && user_monsterlevel > 165) { A_SetTics(9); }
-				else if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(10); }
-				else if (levelbehavior > 0 && user_monsterlevel > 135) { A_SetTics(11); }
-				else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(12); }
-				else if (levelbehavior > 0 && user_monsterlevel > 105) { A_SetTics(13); }
-				else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(14); }
-				else if (levelbehavior > 0 && user_monsterlevel > 75) { A_SetTics(15); }
-				else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(16); }
-				else if (levelbehavior > 0 && user_monsterlevel > 45) { A_SetTics(17); }
-				else if (levelbehavior > 0 && user_monsterlevel > 30) { A_SetTics(18); }
-				else if (levelbehavior > 0 && user_monsterlevel > 15) { A_SetTics(19); }
+				user_downedtimemax = 20 - ((user_monsterlevel / 15) * 1);
+				if (user_downedtimemax <= 5) { user_downedtimemax = 5; }
+				A_SetTics(user_downedtimemax);
 			}
-			AZUM N 0 A_JumpIfCloser (144, 2) 
+			AZUM N 0 A_JumpIfCloser (144, 2)
 			AZUM L 0 A_Jump (256, "GetUp")
-			AZUM L 0 A_Jump (32, "GetUp")
+			AZUM L 0 A_Jump (64, "GetUp")
 			loop
 		GetUp:
 			AZUM L 10
 			{
-				if (levelbehavior > 0 && user_monsterlevel > 150) { A_SetTics(5); }
-				else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(6); }
-				else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(7); }
-				else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(8); }
-				else if (levelbehavior > 0 && user_monsterlevel > 30) { A_SetTics(9); }
+				user_downedtimemax = 10 - ((user_monsterlevel / 30) * 1);
+				if (user_downedtimemax <= 5) { user_downedtimemax = 5; }
+				A_SetTics(user_downedtimemax);
+
 				A_RadiusThrust(256,128,0);
 				A_SetShootable;
 				A_SetSolid;
 			}
 			AZUM MNOPQR 5
 			{
-				if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(1); }
-				else if (levelbehavior > 0 && user_monsterlevel > 135) { A_SetTics(2); }
-				else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
-				else if (levelbehavior > 0 && user_monsterlevel > 45) { A_SetTics(4); }
+				user_downedtimemax = 5 - ((user_monsterlevel / 45) * 1);
+				if (user_downedtimemax <= 1) { user_downedtimemax = 1; }
+				A_SetTics(user_downedtimemax);
 			}
 			goto See
 
@@ -3300,6 +3421,11 @@ actor BloodZombieNew : AetheriusMonsterZSC 31002
 			}
 			AZUM NOPQR 5 
 			goto See
+		Ice:
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
+			AZUM G 5 A_GenericFreezeDeath
+			AZUM G 1 A_FreezeDeathChunks
+			wait
 	}
 }
 
@@ -3536,6 +3662,8 @@ ACTOR ThamuzNew : AetheriusMonsterZSC 7228
 			TNT1 A 0 
 			DCYB P -1 A_NoBlocking
 			Stop
+		Ice:
+			Goto Death
 	}
 }
 
@@ -3740,5 +3868,7 @@ Actor TchernobogNew : ThamuzNew replaces Tchernobog 7258
 			TNT1 A 0 
 			TNT1 A -1 A_NoBlocking
 			Stop
+		Ice:
+			Goto Death
 	}
 }

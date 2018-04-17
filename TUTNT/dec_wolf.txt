@@ -147,8 +147,7 @@ ACTOR AdolfHitlerDS : AetheriusBossZSC 10917
 		XDeath:
 			goto Death
 		Ice:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
-			TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
 			HTLR H 5 A_GenericFreezeDeath
 			HTLR H 1 A_FreezeDeathChunks
 			wait

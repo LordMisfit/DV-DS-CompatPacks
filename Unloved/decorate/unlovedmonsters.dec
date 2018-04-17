@@ -90,7 +90,7 @@ actor MummyNew : AetheriusMonsterZSC replaces MummyDude 1337
 			MUMM P -1
 			Stop
 		Ice:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
 			MUMM H 5 A_GenericFreezeDeath
 			MUMM H 1 A_FreezeDeathChunks
 			wait
@@ -284,7 +284,7 @@ actor MummyLeaderNew : AetheriusMonsterZSC replaces MummyLeaderMan 1338
 			MUMM P -1
 			Stop
 		Ice:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,-2,0,1)
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
 			MUMA H 5 A_GenericFreezeDeath
 			MUMA H 1 A_FreezeDeathChunks
 			wait
@@ -484,6 +484,11 @@ actor VulgarNew : DSDoomImp replaces Vulgar 30127
 			VULG L 8 
 			VULG KJI 6 
 			goto See
+		Ice:
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
+			VULG H 5 A_GenericFreezeDeath
+			VULG H 1 A_FreezeDeathChunks
+			wait
 	}
 }
 
@@ -603,6 +608,11 @@ ACTOR SoulHarvesterNew : AetheriusMonsterZSC replaces SoulHarvester 3117
 			SLHV W 5 
 			SLHV VUTSRQPO 5 
 			Goto See
+		Ice:
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
+			SLHV N 5 A_GenericFreezeDeath
+			SLHV N 1 A_FreezeDeathChunks
+			wait
 	}
 }
 
@@ -936,6 +946,11 @@ actor ImpWarlordNew : AetheriusMonsterZSC replaces ImpWarlord 3105
 			Goto See
 		XDeath:
 			goto Death
+		Ice:
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
+			WARI H 5 A_GenericFreezeDeath
+			WARI H 1 A_FreezeDeathChunks
+			wait
 	}
 }
 
@@ -1033,6 +1048,7 @@ actor BatFamiliarNew : AetheriusMonsterZSC replaces BatFamiliar 3107
 			BFAM J -1
 			Stop
 		XDeath:
+		Ice:
 			goto Death
 	}
 }
@@ -1126,6 +1142,7 @@ actor DragonFamiliarNew : AetheriusMonsterZSC replaces DragonFamiliar 3106
 			DFAM M -1
 			Stop
 		XDeath:
+		Ice:
 			goto Death
 	}
 }
@@ -1243,6 +1260,11 @@ ACTOR ChainsawZombieNew : AetheriusMonsterZSC replaces ChainsawZombie 32064
 			CHAN N 5 
 			CHAN MLKJIH 5 
 			Goto See 
+		Ice:
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
+			CHAN G 5 A_GenericFreezeDeath
+			CHAN G 1 A_FreezeDeathChunks
+			wait
 	}
 }
 
@@ -1450,6 +1472,11 @@ ACTOR BloodFiendNew : AetheriusMonsterZSC replaces BloodFiend 30100
 			SAR2 N 5 
 			SAR2 MLKJI 5 
 			Goto See 
+		Ice:
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
+			SAR2 H 5 A_GenericFreezeDeath
+			SAR2 H 1 A_FreezeDeathChunks
+			wait
 	}
 }
 
@@ -1620,6 +1647,11 @@ ACTOR LordofHeresyNew : AetheriusMonsterZSC replaces LordofHeresy 3121
 			LOHS O 5 
 			LOHS NMLKJI 5 
 			Goto See 
+		Ice:
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
+			LOHS H 5 A_GenericFreezeDeath
+			LOHS H 1 A_FreezeDeathChunks
+			wait
 	}
 }
 
@@ -1764,6 +1796,11 @@ actor SatyrNew : AetheriusMonsterZSC replaces Satyr 3109
 			Goto See
 		XDeath:
 			goto Death
+		Ice:
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
+			STYR H 5 A_GenericFreezeDeath
+			STYR H 1 A_FreezeDeathChunks
+			wait
 	}
 }
 
@@ -1943,6 +1980,11 @@ ACTOR ShadowNew : AetheriusMonsterZSC replaces Shadow 3126
 			SHDW M 8 
 			SHDW KLJI 8 
 			Goto See
+		Ice:
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
+			SHDW H 5 A_GenericFreezeDeath
+			SHDW H 1 A_FreezeDeathChunks
+			wait
 	}
 }
 
@@ -2076,6 +2118,11 @@ ACTOR CultistNew : AetheriusMonsterZSC replaces Cultist 30119
 			CULT M 5 
 			CULT LKJHI 5 
 			Goto See 
+		Ice:
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
+			CULT G 5 A_GenericFreezeDeath
+			CULT G 1 A_FreezeDeathChunks
+			wait
 	}
 }
 
@@ -2191,6 +2238,11 @@ ACTOR UnlovedAcolyteNew : AetheriusMonsterZSC replaces AcolyteDude 30118
 			Goto See 
 		XDeath:
 			goto Death
+		Ice:
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
+			ACOL C 5 A_GenericFreezeDeath
+			ACOL C 1 A_FreezeDeathChunks
+			wait
 	}
 }
 
@@ -2394,6 +2446,11 @@ ACTOR UnlovedDiscipleNew : AetheriusMonsterZSC replaces Disciple 30117
 			Goto See 
 		XDeath:
 			goto Death
+		Ice:
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
+			DISC G 5 A_GenericFreezeDeath
+			DISC G 1 A_FreezeDeathChunks
+			wait
 	}
 }
 
@@ -2622,6 +2679,11 @@ actor UnlovedApprenticeNew : AetheriusMonsterZSC replaces ApprenticeofDsparil 30
 			Goto See
 		XDeath:
 			goto Death
+		Ice:
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
+			APDP E 5 A_GenericFreezeDeath
+			APDP E 1 A_FreezeDeathChunks
+			wait
 	}
 }
 
@@ -2732,16 +2794,11 @@ ACTOR WickedNew : AetheriusMonsterZSC replaces Wicked 30133
 			Stop 
 		XDeath:
 			goto Death
-/*
-		Raise:
-			WICT G 0 A_KillChildren
-			WICK G 0 A_SpawnItemEx("WickedTorsoRes",0,0,0,0,0,1,0,0) 
-			WICT G 0 
-			WICT G 5 A_UnSetFloorClip 
-			WICT FEDBC 5 
-			WICK PON 5 
-			Goto See 
-*/
+		Ice:
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
+			WICK M 5 A_GenericFreezeDeath
+			WICK M 1 A_FreezeDeathChunks
+			wait
 	}
 }
 
@@ -2958,6 +3015,11 @@ ACTOR AvatarNew : AetheriusMonsterZSC replaces Avatar 30125
 			AVAT V -1
 		XDeath:
 			goto Death
+		Ice:
+			"####" # 0 A_DVDSIceDeath(-2,0,1)
+			AVAT M 5 A_GenericFreezeDeath
+			AVAT M 1 A_FreezeDeathChunks
+			wait
 	}
 }
 

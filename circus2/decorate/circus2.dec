@@ -771,8 +771,7 @@ ACTOR MiniFluffyNew : AetheriusMonsterZSC replaces MiniFluffy 3194
 			SBUN G -1
 			Stop
 		Ice:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,85,0,1)
-			TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
+			"####" # 0 A_DVDSIceDeath(85,0,1)
 			SBUN D 5 A_GenericFreezeDeath
 			SBUN D 1 A_FreezeDeathChunks
 			wait
@@ -893,8 +892,7 @@ ACTOR JumpingSkullNew : AetheriusMonsterZSC replaces JumpingSkull 32121
 			JSKL I -1 
 			Stop
 		Ice:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,75,0,1)
-			TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
+			"####" # 0 A_DVDSIceDeath(75,0,1)
 			JSKL B 5 A_GenericFreezeDeath
 			JSKL B 1 A_FreezeDeathChunks
 			wait
@@ -1192,8 +1190,7 @@ ACTOR JumpingSkull2New : AetheriusMonsterZSC replaces JumpingSkull2 3646 //spawn
 			JSKL I -1 
 			Stop
 		Ice:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,random(75,80),0,1)
-			TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
+			"####" # 0 A_DVDSIceDeath(random(75,80),0,1)
 			JSKL B 5 A_GenericFreezeDeath
 			JSKL B 1 A_FreezeDeathChunks
 			wait
@@ -1321,8 +1318,7 @@ ACTOR PossessedBalloonNew : AetheriusMonsterZSC replaces PossessedBalloon 3115
 			BSTN GHIJKLM 3
 			Stop
 		Ice:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,24,0,1)
-			TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
+			"####" # 0 A_DVDSIceDeath(24,0,1)
 			BSTN B 5 A_GenericFreezeDeath
 			BSTN B 1 A_FreezeDeathChunks
 			wait
@@ -1730,8 +1726,7 @@ ACTOR BingoNew : AetheriusMonsterZSC replaces Bingo 4110
 			CHED M 4
 			Stop 
 		Ice:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,500,0,1)
-			TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
+			"####" # 0 A_DVDSIceDeath(500,0,1)
 			CHED A 5 A_GenericFreezeDeath
 			CHED A 1 A_FreezeDeathChunks
 			wait
@@ -1906,8 +1901,7 @@ ACTOR TinyBingoNew : AetheriusMonsterZSC replaces TinyBingo 4179
 			CHED M 4     
 			Stop    
 		Ice:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,52,0,1)
-			TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
+			"####" # 0 A_DVDSIceDeath(52,0,1)
 			CHED A 5 A_GenericFreezeDeath
 			CHED A 1 A_FreezeDeathChunks
 			wait
@@ -2430,8 +2424,7 @@ actor BeefyNew : AetheriusMonsterZSC replaces Beefy 4333
 			CIMP I -1
 			Stop
 		Ice:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,180,0,1)
-			TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
+			"####" # 0 A_DVDSIceDeath(180,0,1)
 			CIMP L 5 A_GenericFreezeDeath
 			CIMP L 1 A_FreezeDeathChunks
 			wait
@@ -2536,8 +2529,7 @@ ACTOR BlackBearNew : AetheriusMonsterZSC replaces BlackBear 3191
 			BBER A 1
 			Stop
 		Ice:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,36,0,1)
-			TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
+			"####" # 0 A_DVDSIceDeath(36,0,1)
 			BBER B 5 A_GenericFreezeDeath
 			BBER B 1 A_FreezeDeathChunks
 			wait
@@ -2741,8 +2733,7 @@ actor ClownGhostNew : AetheriusMonsterZSC replaces ClownGhost 32128
 			GHOS C 0 A_CustomMissile("Balloon_Black", 8, 0, 0, 1)
 			Stop 
 		Ice:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,350,0,1)
-			TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
+			"####" # 0 A_DVDSIceDeath(350,0,1)
 			GHOS A 5 A_GenericFreezeDeath
 			GHOS A 1 A_FreezeDeathChunks
 			wait
@@ -3001,8 +2992,7 @@ actor ClownGhost2New : AetheriusMonsterZSC replaces ClownGhost2 31211
 			GST2 H 2 A_TossGib
 			Stop   
 		Ice:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,175,0,1)
-			TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
+			"####" # 0 A_DVDSIceDeath(175,0,1)
 			GST2 B 5 A_GenericFreezeDeath
 			GST2 B 1 A_FreezeDeathChunks
 			wait
@@ -3427,8 +3417,7 @@ actor BulbyNew : AetheriusMonsterZSC replaces Bulby 3906
 			LDEM N -1
 			Stop   
 		Ice:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,230,0,1)
-			TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
+			"####" # 0 A_DVDSIceDeath(230,0,1)
 			LDEM J 5 A_GenericFreezeDeath
 			LDEM J 1 A_FreezeDeathChunks
 			wait
@@ -3624,8 +3613,7 @@ actor MegaBulbyNew : AetheriusMonsterZSC replaces MegaBulby 3989
 			LDEM N 2 A_IceGuyDie 
 			Stop   
 		Ice:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,460,0,1)
-			TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
+			"####" # 0 A_DVDSIceDeath(460,0,1)
 			LDEM J 5 A_GenericFreezeDeath
 			LDEM J 1 A_FreezeDeathChunks
 			wait
@@ -3889,8 +3877,7 @@ ACTOR BigBertha2New : AetheriusMonsterZSC replaces BigBertha2 3192
 			}
 			Stop
 		Ice:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,925,0,1)
-			TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
+			"####" # 0 A_DVDSIceDeath(925,0,1)
 			BRTH A 5 A_GenericFreezeDeath
 			BRTH A 1 A_FreezeDeathChunks
 			wait
@@ -4241,8 +4228,7 @@ actor SuperBerthaNew : AetheriusMonsterZSC replaces SuperBertha 14768
 			SPL2 ABCDE 4 A_Fall
 			Stop
 		Ice:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,120000,0,1)
-			TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
+			"####" # 0 A_DVDSIceDeath(120000,0,1)
 			BBTH C 5 A_GenericFreezeDeath
 			BBTH C 1 A_FreezeDeathChunks
 			wait
@@ -4356,8 +4342,7 @@ ACTOR EvilDeadHandNew : AetheriusMonsterZSC replaces EvilDeadHand 32212
 			HAND H -1 
 			Stop 
 		Ice:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,25,0,1)
-			TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
+			"####" # 0 A_DVDSIceDeath(25,0,1)
 			HAND B 5 A_GenericFreezeDeath
 			HAND B 1 A_FreezeDeathChunks
 			wait
@@ -4555,8 +4540,7 @@ ACTOR BouncingClownNew : AetheriusMonsterZSC replaces BouncingClown 4822
 			BCWN J 0 
 			Stop
 		Ice:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,75000,0,1)
-			TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
+			"####" # 0 A_DVDSIceDeath(75000,0,1)
 			BCWN D 5 A_GenericFreezeDeath
 			BCWN D 1 A_FreezeDeathChunks
 			wait
@@ -4687,8 +4671,7 @@ ACTOR BabyClownNew : AetheriusMonsterZSC replaces BabyClown 4823
 			BCWN N -1 A_CustomMissile("cloud1", 12, 0, 0, 1)
 			Stop
 		Ice:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,105,0,1)
-			TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
+			"####" # 0 A_DVDSIceDeath(105,0,1)
 			BCWN D 5 A_GenericFreezeDeath
 			BCWN D 1 A_FreezeDeathChunks
 			wait
@@ -4830,8 +4813,7 @@ ACTOR BabyClown2New : AetheriusMonsterZSC replaces BabyClown2 4825
 			BCWN N -1 A_CustomMissile("cloud1", 12, 0, 0, 1)
 			Stop
 		Ice:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,92,0,1)
-			TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
+			"####" # 0 A_DVDSIceDeath(92,0,1)
 			BCWN D 5 A_GenericFreezeDeath
 			BCWN D 1 A_FreezeDeathChunks
 			wait
@@ -4987,8 +4969,7 @@ actor PennywiseHead2New : AetheriusMonsterZSC replaces PennywiseHead 14421
 			CFHD N 2
 			Stop   
 		Ice:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,1125,0,1)
-			TNT1 A 0 A_ChangeFlag("CANTSEEK", TRUE)
+			"####" # 0 A_DVDSIceDeath(1125,0,1)
 			CFHD E 5 A_GenericFreezeDeath
 			CFHD E 1 A_FreezeDeathChunks
 			wait
