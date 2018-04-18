@@ -1,6 +1,0 @@
-ACTOR PSXNightmareSpectreReplaces : RandomSpawner replaces PSXNightmareSpectre
-{
-	+DONTGIB
-	DropItem "BloodSpectre"
-	DropItem "ChaingunSpectre"
-}
