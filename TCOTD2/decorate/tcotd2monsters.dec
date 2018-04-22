@@ -231,7 +231,6 @@ ACTOR ApprenticeNew : AetheriusMonsterZSC 30000
 	}
 }
 
-
 ACTOR SpiderBiteProj : AetheriusEffectProjectile
 {
 	Damage (random(6,14))
@@ -533,7 +532,6 @@ ACTOR LargeSpiderNew : AetheriusMonsterZSC 22291
 }
 
 // Bullet Tracers
-
 ACTOR TCOTDBulletTracer : AetheriusFastProjectileZSC
 {
 	Damage ((Random(4,6) * Random(1,2)))
@@ -1053,12 +1051,12 @@ ACTOR HellHoundNew : AetheriusMonsterZSC 30121
 	}
 }
 
-ACTOR DogFireNew replaces DogFire
+ACTOR DogFireNew : AetheriusProjectileZSC replaces DogFire
 {
-	Damage (1 * random(1,8))
 	Radius 2
 	Height 4
 	Speed 16
+	Damage (1 * random(1,8))
 	PROJECTILE
 	RENDERSTYLE ADD
 	DamageType Fire
@@ -2856,7 +2854,7 @@ ACTOR ButcherZombieNew : AetheriusMonsterZSC 25010
 	Health 1090 // 308,436,630,850,1090
 	Radius 12
 	Height 56
-	Mass 2125
+	Mass 1250
 	speed 3
 	painchance 4
 	meleerange 48 // 44
@@ -3206,7 +3204,7 @@ actor BloodZombieNew : AetheriusMonsterZSC 31002
 	scale 0.45
 	speed 4
 	meleerange 57 // 44
-	Mass 1250
+	Mass 500
 	meleedamage 5
 	painchance 4
 	Painchance "Fist", 8 // Fist attacks have a +50% chance of stunning an enemy

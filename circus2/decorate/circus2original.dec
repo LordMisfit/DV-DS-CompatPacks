@@ -3144,7 +3144,7 @@ actor BSplatter
 			Stop
 	}
 }
-actor MyBall
+actor MyBall : AetheriusProjectileZSC
 {
 	Radius 8
 	Height 6
@@ -4235,7 +4235,7 @@ ACTOR GutFlinger : Weapon //30028
 			Goto Deselect
 	}
 } 
-actor SpiralBall
+actor SpiralBall : AetheriusProjectileZSC
 {
 	Radius 8
 	Height 6
@@ -4300,7 +4300,7 @@ ACTOR ClownGrenade : Weapon //30029
 			Goto Ready 
 	}
 }
-actor CGrenade
+actor CGrenade : AetheriusProjectileZSC
 {
 	Radius 8
 	Height 16
@@ -4453,7 +4453,7 @@ ACTOR GoreBalloon : Weapon //30030
 			Goto Select
 	}
 }
-actor GoreBalloon666
+actor GoreBalloon666 : AetheriusProjectileZSC
 {
 	Radius 8
 	Height 6
@@ -5640,7 +5640,7 @@ ACTOR BloodSpeck3 : BloodSpeck1
 			Stop
 	}
 } 
-actor FlyingGut
+actor FlyingGut : AetheriusProjectileZSC
 {
 	Radius 8
 	Height 6

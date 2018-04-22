@@ -616,7 +616,7 @@ actor TheSource : AetheriusBossZSC 24999
 // STONE & ROCK PROJECTILE //
 /////////////////////////////
 
-ACTOR FallingRock1
+ACTOR FallingRock1 : AetheriusProjectileZSC
 {
 	SpawnID 201
 	Radius 8
@@ -644,7 +644,7 @@ ACTOR FallingRock1
 	}
 }
 
-ACTOR FallingRock2
+ACTOR FallingRock2 : AetheriusProjectileZSC
 {
 	SpawnID 202
 	Radius 8
@@ -672,7 +672,7 @@ ACTOR FallingRock2
 	}
 }
 
-ACTOR FallingRockFrac1 
+ACTOR FallingRockFrac1 : AetheriusProjectileZSC
 {
 	Radius 4
 	Height 4
@@ -722,7 +722,7 @@ ACTOR FallingRockFrac3 : FallingRockFrac1
 /////////////////
 // FIRE BREATH //
 /////////////////
-ACTOR FlameBreathSource 
+ACTOR FlameBreathSource : AetheriusProjectileZSC
 {
 	SpawnID 196
 	Radius 16
@@ -757,11 +757,7 @@ ACTOR FlameBreathSource
 			Stop
 	}
 }
-
 ///////////////////////////////////////////
-
-
-
 
 ACTOR CatharsiBall : AetheriusProjectileZSC
 {
@@ -816,7 +812,7 @@ ACTOR CatharsiBallCrisis : CatharsiBall
 	}
 }
 
-actor Comet
+actor Comet : AetheriusProjectileZSC
 {
 	Radius 6
 	Height 8

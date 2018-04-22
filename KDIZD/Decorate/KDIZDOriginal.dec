@@ -293,7 +293,7 @@ actor DemonCube : AetheriusMonsterZSC 26001
 	}
 }
 
-actor DemonCubeMissile
+actor DemonCubeMissile : AetheriusProjectileZSC
 {
 	Radius 8
 	Height 8
@@ -1523,7 +1523,7 @@ ACTOR Shadowtorso
 // Shadow fireball
 //
 //===========================================================================
-ACTOR ShadowBall
+ACTOR ShadowBall : AetheriusProjectileZSC
 {
 	Radius 6
 	Height 8
@@ -1776,7 +1776,7 @@ actor SoulHarvesterNew : AetheriusMonsterZSC 3117
 	}
 }
 
-ACTOR SoulHarvesterBall
+ACTOR SoulHarvesterBall : AetheriusProjectileZSC
 {
 	Damage (2 * random(1,8))
 	Radius 8
@@ -2391,7 +2391,7 @@ actor RedstarCrisis : Redstar
 	}
 }
 
-ACTOR Portal2
+ACTOR Portal2 : AetheriusProjectileZSC
 {
 	Radius 8
 	Height 8
@@ -3235,7 +3235,7 @@ ACTOR NewPuff : BulletPuff
 	}
 }
 
-ACTOR Puff2
+ACTOR Puff2 : AetheriusPuffZSC
 {
 	PROJECTILE
 	+NOCLIP
@@ -3554,12 +3554,11 @@ ACTOR GrenadeCasing : PistolCasing
 	}
 }
 
-ACTOR KDiZDGrenade // replaces PlasmaBall
+ACTOR KDiZDGrenade : AetheriusProjectileZSC // replaces PlasmaBall
 {
 	Radius 11
 	Height 8
 	Speed 20
-
 	Damage (15*random(1,16))
 	PROJECTILE
 	+DOOMBOUNCE
@@ -3604,7 +3603,7 @@ ACTOR KDiZDGrenadeNoAOE : KDiZDGrenade // replaces PlasmaBall
 			Stop
 	}
 }
-ACTOR KDiZDGrenade2
+ACTOR KDiZDGrenade2 : AetheriusProjectileZSC
 {
 	Radius 11
 	Height 8

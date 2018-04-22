@@ -378,7 +378,6 @@ actor VulgarNew : DSDoomImp replaces Vulgar 30127
 	//$Angled
 	//$Color 12
 	//$Category "Unloved Monsters/Doom Style"
-
 	health 135 // 100
 	radius 20
 	height 56
@@ -2813,6 +2812,7 @@ ACTOR AvatarNew : AetheriusMonsterZSC replaces Avatar 30125
 	Painchance "Kick", 25 // Kick attacks have a +150% chance of stunning an enemy
 	Painchance "Gauntlets", 15 // Fist attacks have a +50% chance of stunning an enemy
 	DamageFactor "Normal", 0.625
+	DamageFactor "Magic", 0.75
 	DamageFactor "Crush", 1
 	DamageFactor "Avatar", 0
 	Speed 15 

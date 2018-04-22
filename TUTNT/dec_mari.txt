@@ -600,7 +600,7 @@ ACTOR BFGMarine : BaseAllyMarine 30009
 			AL10 E 0 A_PlaySound ("weapons/bfgf")
 			AL10 E 25 A_FaceTarget
 			AL10 F 8 A_FaceTarget
-			AL10 E 8 A_CustomMissile ("BFGBall", 32, 0, 0)
+			AL10 E 8 A_CustomMissile ("BFGBallMonster", 32, 0, 0)
 			Goto See
 		Pain:
 			AL10 G 4

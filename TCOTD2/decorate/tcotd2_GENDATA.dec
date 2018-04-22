@@ -29,7 +29,7 @@ actor BulletPuff2 : BulletPuff // Bullet sparks
 			Stop
 	}
 }
-ACTOR SonicFireball
+ACTOR SonicFireball : AetheriusProjectileZSC
 {
 	Damage (2 * random(1,8))
 	Radius 10
@@ -183,7 +183,7 @@ actor WHSMOKE
 	}
 }
 
-Actor ClayDevilMissile : DoomImpBall
+Actor ClayDevilMissile : DoomImpBallNew
 {
 	damage (6 * random(1,4))
 	height 8
@@ -391,7 +391,7 @@ ACTOR AoDGhost
 	}
 }
 
-ACTOR FireBlast
+ACTOR FireBlast : AetheriusProjectileZSC
 {
 	Damage (3 * random(1,4))
 	Speed 25
@@ -774,12 +774,13 @@ ACTOR Thrall // 30119
 	}
 }
 
-ACTOR ThrallShot1
+ACTOR ThrallShot1 : AetheriusProjectileZSC
 {
-	Damage (1 * random(1,8))
+	Damage ((1 * random(1,8)) + random(2,6))
 	Radius 4
 	Height 6
 	Speed 14
+	DamageType "Ice"
 	RENDERSTYLE ADD
 	Alpha 0.67
 	PROJECTILE
@@ -810,7 +811,7 @@ actor ThrallShot1CrisisParticle : BaseCrisisParticle
 }
 ACTOR ThrallShot1Crisis : ThrallShot1
 {
-	Damage ((1 * random(1,8)) * CallACS("CrisisMultiplier"))
+	Damage (((1 * random(1,8)) + random(2,6)) * CallACS("CrisisMultiplier"))
 	states
 	{
 		Spawn:
@@ -900,7 +901,7 @@ ACTOR HotDog // 30121
 	}
 }
 
-ACTOR DogFire
+ACTOR DogFire : AetheriusProjectileZSC
 {
 	Radius 2
 	Height 4
@@ -908,7 +909,7 @@ ACTOR DogFire
 	Damage 1
 	PROJECTILE
 	RENDERSTYLE ADD
-	DamageType Fire
+	DamageType "Fire"
 	Alpha 0.67
 	Scale 0.67
 	SEESOUND "weapons/bigbrn"
@@ -933,7 +934,7 @@ ACTOR DogFire
 	}
 }
 
-ACTOR DogShot
+ACTOR DogShot : AetheriusProjectileZSC
 {
 	Radius 8
 	Height 12
@@ -941,7 +942,7 @@ ACTOR DogShot
 	Damage 7
 	PROJECTILE
 	RENDERSTYLE ADD
-	DamageType fire
+	DamageType "fire"
 	SEESOUND "monster/dogsht"
 	DEATHSOUND "monster/doghit"
 	+FireDamage
@@ -1140,7 +1141,7 @@ ACTOR Shadow // 3126
 	}
 }
 
-ACTOR ShadowBall
+ACTOR ShadowBall : AetheriusProjectileZSC
 {
 	Radius 6
 	Height 8
@@ -1346,7 +1347,7 @@ ACTOR SoulHarvester // 3117
 	}
 }
 
-ACTOR SoulHarvesterBall
+ACTOR SoulHarvesterBall : AetheriusProjectileZSC
 {
 	Damage (2 * random(1,8))
 	Radius 8
@@ -1775,7 +1776,7 @@ ACTOR DarkCyberGhostD : DarkCyberGhostA
 }
 
 //************************************
-ACTOR DCBMiss1
+ACTOR DCBMiss1 : AetheriusProjectileZSC
 {
 	Damage (30 * random(1,8))
 	Radius 12
@@ -1835,7 +1836,7 @@ ACTOR DCBMiss1Crisis : DCBMiss1
 	}
 }
 
-ACTOR DCBM1Trail
+ACTOR DCBM1Trail : AetheriusProjectileZSC
 {   
 	Radius 1
 	Height 1
@@ -1854,7 +1855,7 @@ ACTOR DCBM1Trail
 	}
 }
 
-ACTOR DCBMiss2
+ACTOR DCBMiss2 : AetheriusProjectileZSC
 {
 	Damage (15 * random(1,8))
 	Radius 12
@@ -1908,7 +1909,7 @@ ACTOR DCBMiss2Crisis : DCBMiss2
 	}
 }
 
-ACTOR DCBMiss3
+ACTOR DCBMiss3 : AetheriusProjectileZSC
 {
 	Damage (0 * random(1,8))
 	Radius 1
@@ -1955,7 +1956,7 @@ ACTOR DCBMiss3Crisis : DCBMiss3
 }
 
 
-ACTOR DCBMiss3M
+ACTOR DCBMiss3M : AetheriusProjectileZSC
 {
 	Damage (20 * random(1,8))
 	Radius 10
@@ -2025,7 +2026,7 @@ ACTOR DCBMiss3MCrisis : DCBMiss3M
 }
 
 
-ACTOR DCBMiss3MG
+ACTOR DCBMiss3MG : AetheriusProjectileZSC
 {   
 	Radius 1
 	Height 1
@@ -2044,7 +2045,7 @@ ACTOR DCBMiss3MG
 	}
 }
 
-Actor DCBMiss3Extra
+Actor DCBMiss3Extra : AetheriusProjectileZSC
 {
 	Damage (2 * random(1,8))
 	Projectile
@@ -2182,7 +2183,7 @@ actor Vulgar : DoomImp
 	}
 }
 
-ACTOR VulgarShot
+ACTOR VulgarShot : AetheriusProjectileZSC
 {
 	Radius 8
 	Height 16
@@ -2543,11 +2544,7 @@ ACTOR AngstHase 29234
 /////////////////
 // FAT ASSHOLE //
 /////////////////
-
-
-
-
-actor butcherbarf
+actor ButcherBarf : AetheriusProjectileZSC
 {
 	Mass 1
 	Radius 8
@@ -2576,7 +2573,7 @@ actor butcherbarf
 			stop
 	}
 }
-actor Pook // small chunks of puke barf :P.
+actor Pook : AetheriusProjectileZSC // small chunks of puke barf :P.
 {
 	Radius 11
 	Height 8
@@ -2684,7 +2681,7 @@ actor CleaverTrail8 : CleaverTrail1
 	}
 }
 
-actor Cleaver
+actor Cleaver : AetheriusProjectileZSC
 { 
 	decal GarScorch
 	radius 6
@@ -3070,7 +3067,7 @@ ACTOR Fatty2
 	}
 }        
 
-ACTOR FattyTracer1
+ACTOR FattyTracer1 : AetheriusProjectileZSC
 {
 	Radius 11
 	Height 8
@@ -4520,7 +4517,7 @@ actor HitPuff
 	}
 } 
 
-ACTOR Pitchfork_thrown
+ACTOR Pitchfork_thrown : AetheriusProjectileZSC
 {
 	Radius 2
 	Height 1
@@ -4802,7 +4799,7 @@ ACTOR AutoShotgunClip : Ammo
 
 // Tesla Coil
 
-actor TeslaBall // Tesla ball (lightning?)
+actor TeslaBall : AetheriusProjectileZSC // Tesla ball (lightning?)
 {
 	Game Doom
 	Radius 13
@@ -4836,7 +4833,7 @@ actor TeslaBall // Tesla ball (lightning?)
 	}
 }
 
-actor TeslaBall2 // Tesla blast
+actor TeslaBall2 : AetheriusProjectileZSC // Tesla blast
 {
 	Game Doom
 	Radius 12
@@ -5042,7 +5039,7 @@ actor TeslaHalo // A halo that surrounds the Tesla ball
 			Stop
 		}
 }
-actor RocketBlood
+actor RocketBlood : AetheriusProjectileZSC
 {
 	obituary "%o rode %k's flame blast."
 	radius 11
@@ -5107,7 +5104,7 @@ actor NapalmAmmo : Ammo replaces RocketAmmo
 	}
 }
 */
-Actor WraithFX22
+Actor WraithFX22 : AetheriusProjectileZSC
 {
 	Projectile
 	Damage 0
@@ -5155,7 +5152,7 @@ ACTOR NewPuff : BulletPuff replaces BulletPuff
 	}
 }
 
-ACTOR Puff2
+ACTOR Puff2 : AetheriusPuffZSC
 {
 	PROJECTILE
 	+NOCLIP   

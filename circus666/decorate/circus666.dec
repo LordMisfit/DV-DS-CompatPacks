@@ -902,7 +902,6 @@ actor RevRocket : AetheriusProjectileZSC
 			Stop
 	}
 }
-
 actor RevRocketCrisisParticle : BaseCrisisParticle
 {
 	scale 0.3666666666666667
@@ -917,7 +916,6 @@ actor RevRocketCrisisParticle : BaseCrisisParticle
 			loop
 	}
 }
-
 actor RevRocketCrisis : RevRocket
 {
 	Radius 8
@@ -994,7 +992,6 @@ actor SpawnRck : AetheriusProjectileZSC
 			Stop
 	}
 }
-
 actor SpawnRckCrisisParticle : BaseCrisisParticle
 {
 	scale 0.5695
@@ -1045,7 +1042,6 @@ actor SpawnRckCrisis : SpawnRck
 			Stop
 	}
 }
-
 
 ACTOR ClownHeadNew : AetheriusMonsterZSC replaces ClownHead 3206
 { 
