@@ -32,6 +32,12 @@ OptionValue "NoMonstersType"
 	1, "All Fun Disabled"
 }
 
+OptionValue "MonsterCheckType"
+{
+	0, "Any monster at all"
+	1, "Sensible enemies only"
+}
+
 OptionValue "NoBossesType"
 {
 	0, "totally gotta have em"
@@ -58,27 +64,12 @@ OptionMenu "LegenDoomLite"
 	Option "DIE.exe", "LD_diemode", "DieModeType"
 	Option "Legendary Monsters", "LD_nomonsters", "NoMonstersType"
 	Option "Legendary Bosses", "LD_nobosses", "NoBossesType"
+	//Option "Legendary Constraints", "LD_monstercheck", "MonsterCheckType"
 	Option "Legendary Map Markers", "LD_legendarymarkers", "OnOff"
 	Option "Legendary Debug Mode", "LD_legendarydebug", "OnOff"
 	StaticText 	""
-	TextField 	"Delay to Reroll [seconds]", "LD_restartdelayseconds"
+	TextField "Legendaries' Proj. Spd Multi.", "LD_projspeedmulti"
+	TextField "Delay to Reroll [seconds]", "LD_restartdelayseconds"
 	StaticText 	""
 	Command "Restore Default Settings", 			"LD_defaults"
-//	StaticText 	"Access to other compatible menus through here", 1
-//	SubMenu "Yholl Mod Options",		"YhollMods"
-//	SubMenu "Other Mod Options",		"OtherMods"
 }
-
-/*
-OptionMenu "YhollMods"
-{
-	Title "All Mod menus"
-	SubMenu "DRLA Options",		"DoomRLA"
-}
-
-OptionMenu "OtherMods"
-{
-	Title "All other compatible Mod menus"
-	SubMenu "Colourful Hell",		"Colourful Hell"
-}
-*/

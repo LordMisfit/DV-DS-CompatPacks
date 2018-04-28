@@ -63,7 +63,7 @@ actor LDMaxHax
 }
 
 //==============================================================================
-//LEGENDARY MONSTER GENERATOR
+//				LEGENDARY SELECTION
 //==============================================================================
 
 Actor LDLegendaryMonsterToken : LDPermanentInventory {}
@@ -125,6 +125,11 @@ ACTOR LDLegendaryMonsterChooserNightmare : LDMaxHax
 	}
 }
 
+//==============================================================================
+//			LEGENDARY GENERATION
+//==============================================================================
+
+// The steps a monster goes through to determine if it can be legendary or not
 ACTOR LDLegendaryMonsterPickupEasy : LDCustomFunction
 {
 	States
@@ -282,6 +287,11 @@ ACTOR LDLegendaryMonsterBossStatBoost : LDCustomFunction
 	}
 }
 
+//==============================================================================
+//			LEGENDARY EFFECTS
+//==============================================================================
+
+// Removes the special effects from the legendary monsters on death
 ACTOR LDLegendaryMonsterDed : LDCustomFunction
 {
 	States
@@ -293,6 +303,7 @@ ACTOR LDLegendaryMonsterDed : LDCustomFunction
 	}
 }
 
+// Constantly alternates visuals based on maxhax funtiems
 ACTOR LDLegendaryMonsterVisualEffectMaker : LDCustomFunction
 {
 	States
@@ -349,6 +360,11 @@ actor LDLegendaryMonsterVisualEffect2 : LDLegendaryMonsterVisualEffect1
 	}
 }
 
+//==============================================================================
+//			LEGENDARY MAP MARKERS
+//==============================================================================
+
+// These appear on the automap if enabled in the options
 ACTOR LDLegendaryMonsterMarker : MapMarker
 {
 	Scale 0.3
@@ -418,33 +434,21 @@ ACTOR LDLiteDVDSItem : LDMaxHax
 			TNT1 A 0
 			{
 				A_SpawnItemEx ("LDLiteDVDSItemSpawner", 0,0,0, velx,vely,velz, 0, SXF_NOCHECKPOSITION);
-				if (random(1,8) == 1) { A_SpawnItemEx ("LDLiteDVDSItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-				if (random(1,64) == 1) { A_SpawnItemEx ("LDLiteDVDSItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-				if (random(1,512) == 1) { A_SpawnItemEx ("LDLiteDVDSItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+				if (random(1,16) == 1) { A_SpawnItemEx ("LDLiteDVDSItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+				if (random(1,256) == 1) { A_SpawnItemEx ("LDLiteDVDSItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
 				if (random(1,4096) == 1) { A_SpawnItemEx ("LDLiteDVDSItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-				if (random(1,32768) == 1) { A_SpawnItemEx ("LDLiteDVDSItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-				if (random(1,262144) == 1) { A_SpawnItemEx ("LDLiteDVDSItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-				if (random(1,2097152) == 1) { A_SpawnItemEx ("LDLiteDVDSItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
 
 				if (ACS_NamedExecuteWithResult("CheckCharacterClass") != 2)
 				{
 					A_SpawnItemEx ("LDLiteDVDSArmorSpawner", 0,0,0, velx,vely,velz, 0, SXF_NOCHECKPOSITION);
-					if (random(1,8) == 1) { A_SpawnItemEx ("LDLiteDVDSArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,64) == 1) { A_SpawnItemEx ("LDLiteDVDSArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,512) == 1) { A_SpawnItemEx ("LDLiteDVDSArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+					if (random(1,16) == 1) { A_SpawnItemEx ("LDLiteDVDSArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+					if (random(1,256) == 1) { A_SpawnItemEx ("LDLiteDVDSArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
 					if (random(1,4096) == 1) { A_SpawnItemEx ("LDLiteDVDSArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,32768) == 1) { A_SpawnItemEx ("LDLiteDVDSArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,262144) == 1) { A_SpawnItemEx ("LDLiteDVDSArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,2097152) == 1) { A_SpawnItemEx ("LDLiteDVDSArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
 	
 					A_SpawnItemEx ("LDLiteDVDSAmmoSpawner", 0,0,0, velx,vely,velz, 0, SXF_NOCHECKPOSITION);
-					if (random(1,8) == 1) { A_SpawnItemEx ("LDLiteDVDSAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,64) == 1) { A_SpawnItemEx ("LDLiteDVDSAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,512) == 1) { A_SpawnItemEx ("LDLiteDVDSAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+					if (random(1,16) == 1) { A_SpawnItemEx ("LDLiteDVDSAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+					if (random(1,256) == 1) { A_SpawnItemEx ("LDLiteDVDSAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
 					if (random(1,4096) == 1) { A_SpawnItemEx ("LDLiteDVDSAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,32768) == 1) { A_SpawnItemEx ("LDLiteDVDSAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,262144) == 1) { A_SpawnItemEx ("LDLiteDVDSAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,2097152) == 1) { A_SpawnItemEx ("LDLiteDVDSAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
 				}
 			}
 			TNT1 A 2
@@ -496,56 +500,71 @@ ACTOR LDLiteDVDSBossItem : LDMaxHax
 			{
 				A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx,vely,velz, 0, SXF_NOCHECKPOSITION);
 				A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx,vely,velz, 0, SXF_NOCHECKPOSITION);
-				if (random(1,2) == 1) { A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-				if (random(1,2) == 1) { A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-				if (random(1,4) == 1) { A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-				if (random(1,4) == 1) { A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-				if (random(1,8) == 1) { A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-				if (random(1,8) == 1) { A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-				if (random(1,16) == 1) { A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-				if (random(1,16) == 1) { A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-				if (random(1,32) == 1) { A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-				if (random(1,32) == 1) { A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-				if (random(1,64) == 1) { A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-				if (random(1,64) == 1) { A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-				if (random(1,128) == 1) { A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-				if (random(1,128) == 1) { A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+				A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx,vely,velz, 0, SXF_NOCHECKPOSITION);
+				if (random(1,4) == 1) 
+				{
+					A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+					A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+					A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+				}
+				if (random(1,16) == 1) 
+				{
+					A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+					A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+					A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+				}
+				if (random(1,64) == 1) 
+				{
+					A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+					A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+					A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+				}
 
-				If (ACS_NamedExecuteWithResult("CheckCharacterClass") != 2)
+				if (ACS_NamedExecuteWithResult("CheckCharacterClass") != 2)
 				{
 					A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx,vely,velz, 0, SXF_NOCHECKPOSITION);
 					A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx,vely,velz, 0, SXF_NOCHECKPOSITION);
-					if (random(1,2) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,2) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,4) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,4) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,8) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,8) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,16) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,16) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,32) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,32) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,64) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,64) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,128) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,128) == 1) { A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+					A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx,vely,velz, 0, SXF_NOCHECKPOSITION);
+					if (random(1,4) == 1) 
+					{
+						A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+						A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+						A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+					}
+					if (random(1,16) == 1) 
+					{
+						A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+						A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+						A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+					}
+					if (random(1,64) == 1) 
+					{
+						A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+						A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+						A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+					}
 	
 					A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx,vely,velz, 0, SXF_NOCHECKPOSITION);
 					A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx,vely,velz, 0, SXF_NOCHECKPOSITION);
-					if (random(1,2) == 1) { A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,2) == 1) { A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,4) == 1) { A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,4) == 1) { A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,8) == 1) { A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,8) == 1) { A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,16) == 1) { A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,16) == 1) { A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,32) == 1) { A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,32) == 1) { A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,64) == 1) { A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,64) == 1) { A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,128) == 1) { A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
-					if (random(1,128) == 1) { A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
+					A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx,vely,velz, 0, SXF_NOCHECKPOSITION);
+					if (random(1,4) == 1) 
+					{
+						A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+						A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+						A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+					}
+					if (random(1,16) == 1) 
+					{
+						A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+						A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+						A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+					}
+					if (random(1,64) == 1) 
+					{
+						A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+						A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+						A_SpawnItemEx ("LDLiteDVDSBossAmmoSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
+					}
 				}
 			}
 			TNT1 A 2

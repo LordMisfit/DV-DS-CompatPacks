@@ -2,34 +2,9 @@
 Yholl					-	I have made it my life's goal to hax as much as possible
 							Also did most of the DECORATE code and shit I guess
 Kyle873					-	Super scripterising/crying
-							Responsible for all the cool shit like the info screen and floating weapon names
-							Monster frisbee
-Sgt_Shivers				-	A crapton of effect icons
-							The common Legendary weapon sprites
-							Smooth shotgun animations (minus the vanilla shotgun)
-							Edit of Common Chaingun
-							Uncommon Melee sprites
-							Recolored smooth explosions
-							Fancy pants Hud stuff
-							Weapon Info background
-							Robo-frisbee
+Marrub					-	Helped out with the health-based item drop checks cus he's
+							some sort of cool helping thing
 
-Perkristian				-	Smooth Standard Fist, Chainsaw, Pistol, Shotgun, Chaingun
-Blox					-	Smooth Standard Plasma Rifle, shinyness of Common Chaingun
-Z86						-	Smooth Standard Rocket Launcher, BFG 9000
-Jimmy					-	ZDoom 2012, Miniplicity and DBIGFONT Square Fonts
-Captain J				-	All the glorious casings getting spammed out of guns
-Gifty					-	Smooth D64 Rocket Launcher
-Seryder					-	A bunch of effect icons
-Ryan_Cordell			-	Buff/debuff icons
-Eriance/Amuscaria		-	DE sprites for Uncommon and Rare weaponry
 Edward850				-	Recoding my pentagram into beautiful ACSiness
 							A bunch of scripty goodness, like init stuff
-Lord Smash				-	Common Chaingun base
-DavidPH					-	Getting his stuff broken I DIDN'T MEAN TO I SWEAR
-Cage					-	D64 extra frames for shotguns and chaingun
-Mike12					-	Epic Chainsaw sprites
-Minigunner				-	Smooth explosions
 TerminusEst13			-	Terrifyingly awesome transformation sound for monsters
-							Also some other sound stuff that isn't as cool by comparison
-							The CREDIT picture because he likes to constructively troll
