@@ -17,5 +17,3 @@ server	int		LD_nobosses = 0;
 server	bool	LD_legendarymarkers = false;
 server	bool	LD_legendarydebug = false;
 server	int		LD_restartdelayseconds = 600;
-
-server	float	LD_projspeedmulti = 1.0;
