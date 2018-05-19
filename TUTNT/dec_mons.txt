@@ -830,6 +830,10 @@ actor Comet : AetheriusProjectileZSC
 	States
 	{
 		Spawn:
+			COMT A 0 NoDelay
+			{
+			}
+		Idle:
 			COMT AAAABBBBCCCC 1 Bright A_SpawnItemEx("CometTail", 0, 0, 0, 0, 0, 0, 0, 128)
 			Loop
 		Death:
