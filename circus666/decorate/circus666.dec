@@ -406,7 +406,7 @@ ACTOR PennywiseHeadNew : AetheriusMonsterZSC replaces Pennywise 32119
 			PENY H 4
 			Goto See
 		Death:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,2250,0,1)
+			TNT1 A 0 ACS_NamedExecuteWithResult("AddEXP",2250,0,1)
 			PENY H 5
 			PENY I 10 
 			PENY J 10 A_Scream
@@ -512,7 +512,7 @@ ACTOR JumpingSkullNew : AetheriusMonsterZSC replaces JumpingSkull 3117
 			JUMP BB 4
 			Goto See
 		Death:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,65,0,1)
+			TNT1 A 0 ACS_NamedExecuteWithResult("AddEXP",65,0,1)
 			JUMP A 5 A_Scream
 			JUMP D 8 A_Fall
 			JUMP E 8 
@@ -619,7 +619,7 @@ ACTOR PossessedBalloonNew : AetheriusMonsterZSC replaces PossessedBalloon 3115
 			BSTN BBBB 3
 			Goto See
 		Death:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,24,0,1)
+			TNT1 A 0 ACS_NamedExecuteWithResult("AddEXP",24,0,1)
 			BSTN B 3
 			BSTN C 3 
 			BSTN D 3 A_Scream
@@ -851,7 +851,7 @@ ACTOR BigBerthaNew : AetheriusMonsterZSC replaces BigBertha 3225
 			BSTN BB 3
 			Goto See
 		Death:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,97500,0,1)
+			TNT1 A 0 ACS_NamedExecuteWithResult("AddEXP",97500,0,1)
 			BSTN B 3
 			BSTN C 3 
 			BSTN D 3 A_Scream
@@ -1203,7 +1203,7 @@ ACTOR ClownHeadNew : AetheriusMonsterZSC replaces ClownHead 3206
 			CHED AAAA 4
 			Goto See 
 		Death:
-			TNT1 A 0 ACS_NamedExecuteAlways("AddEXP",0,500,0,1)
+			TNT1 A 0 ACS_NamedExecuteWithResult("AddEXP",500,0,1)
 			CHED A 1 A_Scream 
 			MISL BC 8 Bright A_NoBlocking 
 			TNT1 A 0 
