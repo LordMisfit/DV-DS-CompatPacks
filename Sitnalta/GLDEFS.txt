@@ -52,7 +52,7 @@ Color 0.4 0.4 0.7
 Size 28
 }
 
-Object Thor
+Object Zakachi
 {
 Frame THORR { Light ThorAttack }
 Frame THORS { Light ThorAttack }
@@ -118,7 +118,7 @@ Color 0.6 0.6 1.0
 Size 20
 }
 
-Object Smokeightning
+Object SmokeLightning
 {
 Frame ZOT3A { Light SmokeLightning }
 Frame ZOT3B { Light SmokeLightning }

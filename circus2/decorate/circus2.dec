@@ -648,7 +648,7 @@ ACTOR FluffyNew : AetheriusMonsterZSC replaces Fluffy2 32120
 			FLUF C 8
 			Goto See 
 		Death:
-			TNT1 A 0 ACS_NamedExecuteWithResult("AddEXP",1150,0,1)
+			TNT1 A 0 A_DVDSNormalDeath(1150,0,1)
 			TNT1 A 0 
 			FLUF JKLMN 10 
 			FLUF N 100
@@ -763,7 +763,7 @@ ACTOR MiniFluffyNew : AetheriusMonsterZSC replaces MiniFluffy 3194
 			SBUN E 8 A_SetShootable
 			Goto See + 11
 		Death:
-			TNT1 A 0 ACS_NamedExecuteWithResult("AddEXP",85,0,1)
+			TNT1 A 0 A_DVDSNormalDeath(85,0,1)
 			TNT1 A 0 
 			SBUN DEF 8 
 			SBUN G -1
@@ -874,7 +874,7 @@ ACTOR JumpingSkullNew : AetheriusMonsterZSC replaces JumpingSkull 32121
 			JSKL BBBB 4
 			Goto See
 		Death:
-			TNT1 A 0 ACS_NamedExecuteWithResult("AddEXP",75,0,1)
+			TNT1 A 0 A_DVDSNormalDeath(75,0,1)
 			TNT1 A 0 //
 			JSKL A 5 A_Scream
 			JSKL D 4 A_Fall
@@ -1167,7 +1167,7 @@ ACTOR JumpingSkull2New : AetheriusMonsterZSC replaces JumpingSkull2 3646 //spawn
 			JSKL BBBB 4
 			Goto See
 		Death:
-			TNT1 A 0 ACS_NamedExecuteWithResult("AddEXP",random(75,80),0,1)
+			TNT1 A 0 A_DVDSNormalDeath(random(75,80),0,1)
 			TNT1 A 0 
 			JSKL A 5 A_Scream
 			JSKL D 4 A_Fall
@@ -1292,7 +1292,7 @@ ACTOR PossessedBalloonNew : AetheriusMonsterZSC replaces PossessedBalloon 3115
 			BSTN BBBB 3
 			Goto See
 		Death:
-			TNT1 A 0 ACS_NamedExecuteWithResult("AddEXP",24,0,1)
+			TNT1 A 0 A_DVDSNormalDeath(24,0,1)
 			TNT1 A 0 
 			BSTN B 3
 			BSTN C 3 A_CustomMissile("BloodSpeck1", 8, 0, random(-180, 180), 2, random(0, 90))
@@ -1713,7 +1713,7 @@ ACTOR BingoNew : AetheriusMonsterZSC replaces Bingo 4110
 			CHED AAAA 4
 			Goto See 
 		Death:
-			TNT1 A 0 ACS_NamedExecuteWithResult("AddEXP",500,0,1)
+			TNT1 A 0 A_DVDSNormalDeath(500,0,1)
 			TNT1 A 0 
 			CHED A 1 A_Scream 
 			CHED B 6  A_NoBlocking 
@@ -1886,7 +1886,7 @@ ACTOR TinyBingoNew : AetheriusMonsterZSC replaces TinyBingo 4179
 			CHED AAAA 4
 			Goto See 
 		Death:
-			TNT1 A 0 ACS_NamedExecuteWithResult("AddEXP",52,0,1)
+			TNT1 A 0 A_DVDSNormalDeath(52,0,1)
 			TNT1 A 0 
 			CHED A 1 A_Scream 
 			CHED B 6 A_NoBlocking 
@@ -2359,7 +2359,7 @@ actor BeefyNew : AetheriusMonsterZSC replaces Beefy 4333
 			CIMP LLLL 2
 			Goto See
 		Death:
-			TNT1 A 0 ACS_NamedExecuteWithResult("AddEXP",180,0,1)
+			TNT1 A 0 A_DVDSNormalDeath(180,0,1)
 			TNT1 A 0 
 			CIMP E 8 A_Scream
 			CIMP F 4 A_CustomMissile("Gibb3", 20, -1, -60, 1)
@@ -2387,7 +2387,7 @@ actor BeefyNew : AetheriusMonsterZSC replaces Beefy 4333
 			CIMP I -1
 			Stop
 		XDeath:
-			TNT1 A 0 ACS_NamedExecuteWithResult("AddEXP",180,0,1)
+			TNT1 A 0 A_DVDSNormalDeath(180,0,1)
 			TNT1 A 0 
 			CIMP E 4 A_Scream
 			CIMP E 4 A_TossGib
@@ -2487,7 +2487,7 @@ ACTOR BlackBearNew : AetheriusMonsterZSC replaces BlackBear 3191
 			BBER A 1 A_CrisisMeleeAttack(1*random(1,10), "")
 			TNT1 A 0 
 			{
-				ACS_NamedExecuteWithResult("AddEXP",36,0,1);
+				A_DVDSNormalDeath(36,0,1);
 			}
 			BBER A 1 A_Scream
 			BBER A 1 A_Fall
@@ -2509,7 +2509,7 @@ ACTOR BlackBearNew : AetheriusMonsterZSC replaces BlackBear 3191
 		Death:
 			TNT1 A 0 
 			{
-				ACS_NamedExecuteWithResult("AddEXP",36,0,1);
+				A_DVDSNormalDeath(36,0,1);
 			}
 			BBER A 1 A_Scream
 			BBER A 1 A_Fall
@@ -2718,7 +2718,7 @@ actor ClownGhostNew : AetheriusMonsterZSC replaces ClownGhost 32128
 			GHOS AAAA 4
 			Goto See+4
 		Death:
-			TNT1 A 0 ACS_NamedExecuteWithResult("AddEXP",350,0,1)
+			TNT1 A 0 A_DVDSNormalDeath(350,0,1)
 			TNT1 A 0 
 			GHOS B 1 A_Scream 
 			GHOS F 8 A_NoBlocking 
@@ -2972,7 +2972,7 @@ actor ClownGhost2New : AetheriusMonsterZSC replaces ClownGhost2 31211
 			GST2 BBBBBB 4
 			Goto See
 		Death:
-			TNT1 A 0 ACS_NamedExecuteWithResult("AddEXP",175,0,1)
+			TNT1 A 0 A_DVDSNormalDeath(175,0,1)
 			TNT1 A 0 
 			GST2 D 1 A_Scream 
 			GST2 D 2 A_TossGib
@@ -3387,7 +3387,7 @@ actor BulbyNew : AetheriusMonsterZSC replaces Bulby 3906
 			LDEM JJJJ 4 
 			Goto See2
 		Death:
-			TNT1 A 0 ACS_NamedExecuteWithResult("AddEXP",230,0,1)
+			TNT1 A 0 A_DVDSNormalDeath(230,0,1)
 			TNT1 A 0 
 			LDEM J 1 A_Scream 
 			LDEM K 1 A_TossGib
@@ -3576,7 +3576,7 @@ actor MegaBulbyNew : AetheriusMonsterZSC replaces MegaBulby 3989
 			LDEM JJJJ 4 
 			Goto See
 		Death:
-			TNT1 A 0 ACS_NamedExecuteWithResult("AddEXP",460,0,1)
+			TNT1 A 0 A_DVDSNormalDeath(460,0,1)
 			TNT1 A 0 
 			LDEM J 1 A_Scream 
 			LDEM K 1 A_CustomMissile("BSplatter", 0, 0, 0, 1) 
@@ -3846,7 +3846,7 @@ ACTOR BigBertha2New : AetheriusMonsterZSC replaces BigBertha2 3192
 			BRTH AAAA 4
 			Goto See 
 		Death:
-			TNT1 A 0 ACS_NamedExecuteWithResult("AddEXP",925,0,1)
+			TNT1 A 0 A_DVDSNormalDeath(925,0,1)
 			TNT1 A 0 
 			BRTH I 7 A_Scream 
 			BRTH J 6 A_NoBlocking 
@@ -4195,7 +4195,7 @@ actor SuperBerthaNew : AetheriusMonsterZSC replaces SuperBertha 14768
 			}
 			Goto See 
 		Death:
-			TNT1 A 0 ACS_NamedExecuteWithResult("AddEXP",120000,0,1)
+			TNT1 A 0 A_DVDSNormalDeath(120000,0,1)
 			BBTH B 3 A_Scream
 			BBTH B 3 
 			BBTH B 2 A_CustomMissile("BSplatter", 64, -16, -32, 1)
@@ -4325,7 +4325,7 @@ ACTOR EvilDeadHandNew : AetheriusMonsterZSC replaces EvilDeadHand 32212
 			HAND BBBB 8 
 			Goto See 
 		Death:
-			TNT1 A 0 ACS_NamedExecuteWithResult("AddEXP",25,0,1)
+			TNT1 A 0 A_DVDSNormalDeath(25,0,1)
 			HAND D 5 A_CustomMissile("ZGut2", 0, 0, 30) 
 			HAND E 2 A_PlaySound("splat11")
 			HAND E 3 A_Scream 
@@ -4518,7 +4518,7 @@ ACTOR BouncingClownNew : AetheriusMonsterZSC replaces BouncingClown 4822
 			BCWN D 0 A_UnSetReflectiveInvulnerable
 			Goto See
 		Death:
-			TNT1 A 0 ACS_NamedExecuteWithResult("AddEXP",75000,0,1)
+			TNT1 A 0 A_DVDSNormalDeath(75000,0,1)
 			TNT1 A 0 
 			BCWN D 5 A_Scream
 			BCWN E 0
@@ -4649,7 +4649,7 @@ ACTOR BabyClownNew : AetheriusMonsterZSC replaces BabyClown 4823
 			BCWN BBBB 4
 			Goto See
 		Death:
-			TNT1 A 0 ACS_NamedExecuteWithResult("AddEXP",105,0,1)
+			TNT1 A 0 A_DVDSNormalDeath(105,0,1)
 			TNT1 A 0 
 			BCWN D 5 A_Scream
 			BCWN E 4 A_Fall
@@ -4791,7 +4791,7 @@ ACTOR BabyClown2New : AetheriusMonsterZSC replaces BabyClown2 4825
 			BCWN BBBB 4
 			Goto See+5
 		Death:
-			TNT1 A 0 ACS_NamedExecuteWithResult("AddEXP",92,0,1)
+			TNT1 A 0 A_DVDSNormalDeath(92,0,1)
 			TNT1 A 0 
 			BCWN D 5 A_Scream
 			BCWN E 4 A_Fall
@@ -4949,7 +4949,7 @@ actor PennywiseHead2New : AetheriusMonsterZSC replaces PennywiseHead 14421
 			CFHD EEEE 4
 			Goto See
 		Death:
-			TNT1 A 0 ACS_NamedExecuteWithResult("AddEXP",1125,0,1)
+			TNT1 A 0 A_DVDSNormalDeath(1125,0,1)
 			TNT1 A 0 
 			CFHD F 1 A_Scream 
 			CFHD G 2 A_TossGib
@@ -5657,7 +5657,7 @@ actor PennywiseBoss : AetheriusMonsterZSC replaces Pennywise 3672
 			}
 			Goto See2     
 		Death:
-			TNT1 A 0 ACS_NamedExecuteWithResult("AddEXP",540000,0,1)
+			TNT1 A 0 A_DVDSNormalDeath(540000,0,1)
 			TNT1 A 0 
 			PENY G 8 A_Scream
 			PENY GGGG 8
