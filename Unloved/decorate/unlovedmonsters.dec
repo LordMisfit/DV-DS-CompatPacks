@@ -3278,11 +3278,11 @@ actor UnlovedDecoy replaces BossBrain
 	{
 		Spawn:
 			TNT1 A 0 NoDelay
-			TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") == 0,"Class1")
-			TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") == 1,"Class2")
-			TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") == 2,"Class3")	
-			TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") == 8,"Class4")	
-			TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") == 9,"Class5")	
+			TNT1 A 0 A_JumpIf(CallACS("CheckCharacterClass") == 0,"Class1")
+			TNT1 A 0 A_JumpIf(CallACS("CheckCharacterClass") == 1,"Class2")
+			TNT1 A 0 A_JumpIf(CallACS("CheckCharacterClass") == 2,"Class3")
+			TNT1 A 0 A_JumpIf(CallACS("CheckCharacterClass") == 8,"Class4")
+			TNT1 A 0 A_JumpIf(CallACS("CheckCharacterClass") == 9,"Class5")
 			TNT1 A 1
 			loop
 

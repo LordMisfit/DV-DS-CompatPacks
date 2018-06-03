@@ -3305,9 +3305,9 @@ ACTOR Rifle : MarineWeapon 31407 // replaces BFG9000
 			Loop
 
 		Spawn:
-			TNT1 A 0 NoDelay A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") == 2, "FloraDetected")
+			TNT1 A 0 NoDelay A_JumpIf(CallACS("CheckCharacterClass") == 2, "FloraDetected")
 		Idle:
-			RIFL A 2 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") == 2, "FloraDetected")
+			RIFL A 2 A_JumpIf(CallACS("CheckCharacterClass") == 2, "FloraDetected")
 			Loop
 
 		Select:
@@ -3325,7 +3325,7 @@ ACTOR Rifle : MarineWeapon 31407 // replaces BFG9000
 			RIFG A 0 
 			RIFG A 4
 			{
-				ACS_NamedExecuteAlways("StartTensionCountDown");
+				CallACS("StartTensionCountDown");
 				A_SpreadAuraFireBullets(0,0,9,10,"BlankPuff",0,0);
 				A_SpreadAuraFireBullets(0,0,1,10,"NewPuff",0,0);
 			}
@@ -3439,9 +3439,9 @@ ACTOR KDiZDGrenadeLauncher : MarineWeapon 31410 // replaces PlasmaRifle
 			Loop
 
 		Spawn:
-			TNT1 A 0 NoDelay A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") == 2, "FloraDetected")
+			TNT1 A 0 NoDelay A_JumpIf(CallACS("CheckCharacterClass") == 2, "FloraDetected")
 		Idle:
-			GLAU A 2 A_JumpIf(ACS_NamedExecuteWithResult("CheckCharacterClass") == 2, "FloraDetected")
+			GLAU A 2 A_JumpIf(CallACS("CheckCharacterClass") == 2, "FloraDetected")
 			Loop
 
 		Select:
@@ -3458,7 +3458,7 @@ ACTOR KDiZDGrenadeLauncher : MarineWeapon 31410 // replaces PlasmaRifle
 			GLAG B 0 BRIGHT A_PlaySound("weapons/grenadefire")
 			GLAG B 4 BRIGHT
 			{
-				ACS_NamedExecuteAlways("StartTensionCountDown");
+				CallACS("StartTensionCountDown");
 				A_SpreadAuraFireProjectileAoE("KDiZDGrenade","KDiZDGrenadeNoAOE",0,1,"RocketAmmo",0,0,0,0);
 			}
 			GLAG I 4
@@ -3479,7 +3479,7 @@ ACTOR KDiZDGrenadeLauncher : MarineWeapon 31410 // replaces PlasmaRifle
 			GLAG B 0 BRIGHT A_PlaySound("weapons/grenadefire")
 			GLAG B 4 BRIGHT 
 			{
-				ACS_NamedExecuteAlways("StartTensionCountDown");
+				CallACS("StartTensionCountDown");
 				A_SpreadAuraFireProjectileAoE("KDiZDGrenade2","KDiZDGrenade2NoAOE",0,1,"RocketAmmo",0,0,0,0);
 			}
 			GLAG I 4

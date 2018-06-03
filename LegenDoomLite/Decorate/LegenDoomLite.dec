@@ -438,7 +438,7 @@ ACTOR LDLiteDVDSItem : LDMaxHax
 				if (random(1,256) == 1) { A_SpawnItemEx ("LDLiteDVDSItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
 				if (random(1,4096) == 1) { A_SpawnItemEx ("LDLiteDVDSItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
 
-				if (ACS_NamedExecuteWithResult("CheckCharacterClass") != 2)
+				if (CallACS("CheckCharacterClass") != 2)
 				{
 					A_SpawnItemEx ("LDLiteDVDSArmorSpawner", 0,0,0, velx,vely,velz, 0, SXF_NOCHECKPOSITION);
 					if (random(1,16) == 1) { A_SpawnItemEx ("LDLiteDVDSArmorSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION); }
@@ -520,7 +520,7 @@ ACTOR LDLiteDVDSBossItem : LDMaxHax
 					A_SpawnItemEx ("LDLiteDVDSBossItemSpawner", 0,0,0, velx+random(-8,8),vely+random(-8,8),velz+random(-8,8), 0, SXF_NOCHECKPOSITION);
 				}
 
-				if (ACS_NamedExecuteWithResult("CheckCharacterClass") != 2)
+				if (CallACS("CheckCharacterClass") != 2)
 				{
 					A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx,vely,velz, 0, SXF_NOCHECKPOSITION);
 					A_SpawnItemEx ("LDLiteDVDSBossArmorSpawner", 0,0,0, velx,vely,velz, 0, SXF_NOCHECKPOSITION);

@@ -404,7 +404,7 @@ actor SourceLifeSeed : CustomInventory 16998
 			TNT1 A 0 ACS_NamedExecuteAlways("PickupMedicalItem",0,1,1,0)
 			Stop
 		Pickup:
-			TNT1 A 0 { if (ACS_NamedExecuteWithResult("CheckHealthLevels",1) > 0) { return state("Success"); } return state(""); }
+			TNT1 A 0 { if (CallACS("CheckHealthLevels",1) > 0) { return state("Success"); } return state(""); }
 			Fail
 	}
 }
