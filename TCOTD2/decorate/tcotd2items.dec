@@ -1,4 +1,4 @@
-Actor PitchforkChecker : CustomInventory replaces Pitchfork 30876
+Actor PitchforkChecker : AetheriusCustomInventory replaces Pitchfork 30876
 {
 	States
 	{
@@ -25,7 +25,7 @@ Actor PitchforkChecker : CustomInventory replaces Pitchfork 30876
 	}
 }
 
-Actor BloodPistolChecker : CustomInventory replaces PistolBlood 19999
+Actor BloodPistolChecker : AetheriusCustomInventory replaces PistolBlood 19999
 {
 	States
 	{
@@ -40,11 +40,11 @@ Actor BloodPistolChecker : CustomInventory replaces PistolBlood 19999
 	}
 }
 
-Actor BloodPistolChecker2 : CustomInventory replaces RevolverBlood { }
-Actor BloodPistolChecker3 : CustomInventory replaces PistolBloodPickup { }
+Actor BloodPistolChecker2 : AetheriusCustomInventory replaces RevolverBlood { }
+Actor BloodPistolChecker3 : AetheriusCustomInventory replaces PistolBloodPickup { }
 
 
-Actor BloodTommygunChecker : CustomInventory replaces BloodTommygun
+Actor BloodTommygunChecker : AetheriusCustomInventory replaces BloodTommygun
 {
 	States
 	{
@@ -79,7 +79,7 @@ Actor BloodTommygunChecker : CustomInventory replaces BloodTommygun
 	}
 }
 
-Actor TelsaCannonChecker : CustomInventory replaces NapalmLauncher_
+Actor TelsaCannonChecker : AetheriusCustomInventory replaces NapalmLauncher_
 {
 	States
 	{

@@ -10,7 +10,7 @@ Actor LDPermanentInventory : Inventory
 	inventory.maxamount 1
 }
 
-ACTOR LDCustomFunction : CustomInventory
+ACTOR LDCustomFunction : AetheriusCustomInventory
 {
 	-COUNTITEM
 	+INVENTORY.ALWAYSPICKUP

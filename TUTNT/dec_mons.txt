@@ -4,7 +4,7 @@
 ACTOR SourceGuardian : AetheriusBossZSC 16999 
 {
 	SpawnID 239
-	Health 12000 // 1200
+	Health 9600 // 1200
 	Mass 80000 // 8000
 	Radius 40
 	Height 140
@@ -388,7 +388,7 @@ ACTOR SourceGuardianDetonatorCrisis : SourceGuardianDetonator
 	}
 }
 
-actor SourceLifeSeed : CustomInventory 16998
+actor SourceLifeSeed : AetheriusCustomInventory 16998
 {
 	radius 20
 	height 16
@@ -417,9 +417,9 @@ actor SourceLifeSeed : CustomInventory 16998
 
 actor TheSource : AetheriusBossZSC 24999
 {
-	health 750000 // 15000
-	radius 128 // 128
-	height 128 // 128
+	health 450000 // 15000
+	radius 256 // 128
+	height 256 // 128
 	mass 99999999
 	speed 0
 	renderstyle add

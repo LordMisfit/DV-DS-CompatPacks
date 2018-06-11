@@ -5304,7 +5304,7 @@ actor PistolBlood_ : Weapon replaces PistolBlood
 	}
 }
 
-actor PistolBloodPickup : CustomInventory // 19999
+actor PistolBloodPickup : AetheriusCustomInventory // 19999
 {
 	Inventory.PickupMessage "You got the anaconda!"
 	Inventory.PickupSound "misc/w_pkup"

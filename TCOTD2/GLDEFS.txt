@@ -13,6 +13,11 @@ SKYB_B
 //GLDefs for TCoTD:A
 //===============================================================================================================================
 
+object TCOTDBulletTracerTrail
+{
+	Frame CTAC { light BULLERTRACERTRAIL }
+}
+
 FlickerLight2 FireBlast
 {
  Color 1.0 0.635 0.0
