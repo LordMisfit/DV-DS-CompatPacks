@@ -174,7 +174,7 @@ ACTOR ApprenticeNew : AetheriusMonsterZSC 30000
 				A_SetTranslucent(1,0);
 			}
 			APDP E 2
-			APDP E 2 A_Pain
+			APDP E 2 A_DVDSPain
 			Goto See
 		Pain.Fist:
 			APDP E 0 // A_UnsetInvulnerable
@@ -184,7 +184,7 @@ ACTOR ApprenticeNew : AetheriusMonsterZSC 30000
 				A_SetTranslucent(1,0);
 			}
 			APDP E 2
-			APDP E 2 A_Pain
+			APDP E 2 A_DVDSPain
 			APDP EE 2
 			Goto See
 		Pain.Kick:
@@ -195,7 +195,7 @@ ACTOR ApprenticeNew : AetheriusMonsterZSC 30000
 				A_SetTranslucent(1,0);
 			}
 			APDP E 2
-			APDP E 2 A_Pain
+			APDP E 2 A_DVDSPain
 			APDP EEEE 2
 			Goto See
 
@@ -707,23 +707,23 @@ ACTOR TommyGunCultistNew : AetheriusMonsterZSC 29011
 		Pain.Thunder:
 		Pain.Electric:
 			7ZAP AAAAAAAAAAAAAAAAAAAAAAAA 1 A_SpawnItemEx("ShockHuman",random(-1,1),random(-1,1),random(0,3))
-			7ZAP A 4 A_Pain
+			7ZAP A 4 A_DVDSPain
 			7ZAP A 0 A_JumpIfHealthLower(20,2)
 			7ZAP A 0 A_Jump(192,"See")
 			7ZAP AAAAAAAAAAAAAAAAAAAAAAAA 1 A_SpawnItemEx("ShockHuman",random(-1,1),random(-1,1),random(0,3))
 			Goto See
 		Pain:
 			XFAN I 3
-			XFAN I 3 A_Pain
+			XFAN I 3 A_DVDSPain
 			goto See
 		Pain.Fist:
 			XFAN I 3
-			XFAN I 3 A_Pain
+			XFAN I 3 A_DVDSPain
 			XFAN II 3
 			goto See
 		Pain.Kick:
 			XFAN I 3
-			XFAN I 3 A_Pain
+			XFAN I 3 A_DVDSPain
 			XFAN IIII 3
 			goto See
 		Death:
@@ -849,23 +849,23 @@ ACTOR ShotgunCultistNew : TommyGunCultistNew 29010
 		Pain.Thunder:
 		Pain.Electric:
 			7ZAP AAAAAAAAAAAAAAAAAAAAAAAA 1 A_SpawnItemEx("ShockHuman",random(-1,1),random(-1,1),random(0,3))
-			7ZAP A 4 A_Pain
+			7ZAP A 4 A_DVDSPain
 			7ZAP A 0 A_JumpIfHealthLower(20,2)
 			7ZAP A 0 A_Jump(192,"See")
 			7ZAP AAAAAAAAAAAAAAAAAAAAAAAA 1 A_SpawnItemEx("ShockHuman",random(-1,1),random(-1,1),random(0,3))
 			Goto See
 		Pain:
 			BCUL G 3
-			BCUL G 3 A_Pain
+			BCUL G 3 A_DVDSPain
 			goto See
 		Pain.Fist:
 			BCUL G 3
-			BCUL G 3 A_Pain
+			BCUL G 3 A_DVDSPain
 			BCUL GG 3
 			goto See
 		Pain.Kick:
 			BCUL G 3
-			BCUL G 3 A_Pain
+			BCUL G 3 A_DVDSPain
 			BCUL GGGG 3
 			goto See
 
@@ -1016,16 +1016,16 @@ ACTOR HellHoundNew : AetheriusMonsterZSC 30121
 			Goto See
 		Pain: 
 			HDOG J 2 
-			HDOG J 2 A_Pain 
+			HDOG J 2 A_DVDSPain 
 			Goto See 
 		Pain.Fist: 
 			HDOG J 2 
-			HDOG J 2 A_Pain 
+			HDOG J 2 A_DVDSPain 
 			HDOG JJ 2 
 			Goto See 
 		Pain.Kick: 
 			HDOG J 2 
-			HDOG J 2 A_Pain 
+			HDOG J 2 A_DVDSPain 
 			HDOG JJJJ 2 
 			Goto See 
 
@@ -1264,16 +1264,16 @@ ACTOR ThrallNew : AetheriusMonsterZSC 30119
 			Goto See
 		Pain: 
 			CULT G 2 
-			CULT G 2 A_Pain 
+			CULT G 2 A_DVDSPain 
 			Goto See 
 		Pain.Fist: 
 			CULT G 2 
-			CULT G 2 A_Pain 
+			CULT G 2 A_DVDSPain 
 			CULT GG 2 
 			Goto See 
 		Pain.Kick: 
 			CULT G 2 
-			CULT G 2 A_Pain 
+			CULT G 2 A_DVDSPain 
 			CULT GGGG 2 
 			Goto See 
 
@@ -1395,7 +1395,7 @@ ACTOR NightmareNew : AetheriusMonsterZSC replaces KDiZDNightmare 26000
 			NMRE H 10 
 			{
 				A_NightmarePhaseIn;
-				A_Pain;
+				A_DVDSPain;
 			}
 			Goto See
 		Pain.Fist:
@@ -1406,7 +1406,7 @@ ACTOR NightmareNew : AetheriusMonsterZSC replaces KDiZDNightmare 26000
 			NMRE H 10 
 			{
 				A_NightmarePhaseIn;
-				A_Pain;
+				A_DVDSPain;
 			}
 			NMRE HH 5
 			{
@@ -1421,7 +1421,7 @@ ACTOR NightmareNew : AetheriusMonsterZSC replaces KDiZDNightmare 26000
 			NMRE H 10
 			{
 				A_NightmarePhaseIn;
-				A_Pain;
+				A_DVDSPain;
 			}
 			NMRE HHHH 5
 			{
@@ -1541,7 +1541,7 @@ ACTOR SirenNightmareNew : NightmareNew 31111
 			}
 			NMRE H 5 
 			{
-				A_Pain;
+				A_DVDSPain;
 				A_NightmarePhaseIn;
 				A_Explode(random(12,20),24,0,0,8);
 			}
@@ -1554,7 +1554,7 @@ ACTOR SirenNightmareNew : NightmareNew 31111
 			}
 			NMRE H 5 
 			{
-				A_Pain;
+				A_DVDSPain;
 				A_NightmarePhaseIn;
 				A_Explode(random(12,20),24,0,0,8);
 			}
@@ -1572,7 +1572,7 @@ ACTOR SirenNightmareNew : NightmareNew 31111
 			}
 			NMRE H 5 
 			{
-				A_Pain;
+				A_DVDSPain;
 				A_NightmarePhaseIn;
 				A_Explode(random(12,20),24,0,0,8);
 			}
@@ -1741,16 +1741,16 @@ actor VulgarNew : DSDoomImp replaces Vulgar
 			goto See
 		Pain:
 			VULG H 2
-			VULG H 2 A_Pain
+			VULG H 2 A_DVDSPain
 			goto See
 		Pain.Fist:
 			VULG H 2
-			VULG H 2 A_Pain
+			VULG H 2 A_DVDSPain
 			VULG HH 2
 			goto See
 		Pain.Kick:
 			VULG H 2
-			VULG H 2 A_Pain
+			VULG H 2 A_DVDSPain
 			VULG HHHH 2
 			goto See
 
@@ -1903,19 +1903,19 @@ Actor ClayDevilNew : AetheriusMonsterZSC replaces ClayDevil
 			goto See
 
 		Pain:
-			N00B J 6 A_Pain
+			N00B J 6 A_DVDSPain
 			goto See
 		Pain.Fist:
-			N00B J 6 A_Pain
+			N00B J 6 A_DVDSPain
 			N00B JJ 6
 			goto See
 		Pain.Kick:
-			N00B J 6 A_Pain
+			N00B J 6 A_DVDSPain
 			N00B JJJ 6
 			goto See
 
 		Pain.Fire:
-			N00B J 9 A_Pain
+			N00B J 9 A_DVDSPain
 			N00B JJJ 9
 			goto See
 		Pain.Ice:
@@ -1923,7 +1923,7 @@ Actor ClayDevilNew : AetheriusMonsterZSC replaces ClayDevil
 		Pain.Electric:
 		Pain.Lightning:
 		Pain.Shock:
-			N00B J 4 A_Pain
+			N00B J 4 A_DVDSPain
 			goto See
 
 
@@ -2166,16 +2166,16 @@ ACTOR TCOTDAShadowNew : AetheriusMonsterZSC replaces Shadow 3126
 			Goto Missile+1      
 		Pain:
 			TROX H 3
-			TROX H 3 A_Pain
+			TROX H 3 A_DVDSPain
 			Goto See+2
 		Pain.Fist:
 			TROX H 3
-			TROX H 3 A_Pain
+			TROX H 3 A_DVDSPain
 			TROX HH 3
 			Goto See+2
 		Pain.Kick:
 			TROX H 3
-			TROX H 3 A_Pain
+			TROX H 3 A_DVDSPain
 			TROX HHHH 3
 			Goto See+2
 
@@ -2291,16 +2291,16 @@ ACTOR SoulHarvesterNew : AetheriusMonsterZSC 3117
 			Goto See
 		Pain:
 			SLHV N 3
-			SLHV N 3 A_Pain
+			SLHV N 3 A_DVDSPain
 			Goto See
 		Pain.Fist:
 			SLHV N 3
-			SLHV N 3 A_Pain
+			SLHV N 3 A_DVDSPain
 			SLHV NN 3
 			Goto See
 		Pain.Kick:
 			SLHV N 3
-			SLHV N 3 A_Pain
+			SLHV N 3 A_DVDSPain
 			SLHV NNNN 3
 			Goto See
 
@@ -2437,16 +2437,16 @@ ACTOR ESoulNew : AetheriusMonsterZSC 29012 // : ESoul replaces ESoul 29012
 			goto See
 		Pain:
 			ETHS G 3 bright
-			ETHS G 3 bright A_Pain
+			ETHS G 3 bright A_DVDSPain
 			goto See
 		Pain.Fist:
 			ETHS G 3 bright
-			ETHS G 3 bright A_Pain
+			ETHS G 3 bright A_DVDSPain
 			ETHS GG 3 bright
 			goto See
 		Pain.Kick:
 			ETHS G 3 bright
-			ETHS G 3 bright A_Pain
+			ETHS G 3 bright A_DVDSPain
 			ETHS GGGG 3 bright
 			goto See
 
@@ -2563,16 +2563,16 @@ ACTOR DEWraithNew : AetheriusMonsterZSC replaces DEWraith 30106
 			Goto Death 
 		Pain: 
 			WRAI A 3  
-			WRAI A 3 A_Pain 
+			WRAI A 3 A_DVDSPain 
 			Goto See 
 		Pain.Fist: 
 			WRAI A 3  
-			WRAI A 3 A_Pain 
+			WRAI A 3 A_DVDSPain 
 			WRAI AA 3  
 			Goto See 
 		Pain.Kick: 
 			WRAI A 3  
-			WRAI A 3 A_Pain 
+			WRAI A 3 A_DVDSPain 
 			WRAI AAAA 3  
 			Goto See 
 
@@ -3122,7 +3122,7 @@ ACTOR ButcherZombieNew : AetheriusMonsterZSC 25010
 
 		PAIN.Shock:
 			7ZAP AAAAAAAAAAAAAAAAAAAAAAAA 1 A_SpawnItemEx("ShockHuman",random(-1,1),random(-1,1),random(0,3))
-			7ZAP A 4 A_Pain
+			7ZAP A 4 A_DVDSPain
 			7ZAP A 0 A_JumpIfHealthLower(20,2)
 			7ZAP A 0 A_Jump(192,"See")
 			7ZAP AAAAAAAAAAAAAAAAAAAAAAAA 1 A_SpawnItemEx("ShockHuman",random(-1,1),random(-1,1),random(0,3))
@@ -3293,7 +3293,7 @@ actor BloodZombieNew : AetheriusMonsterZSC 31002
 		Pain.Thunder: 
 		Pain.Shock:
 			7ZAP AAAAAAAAAAAAAAAAAAAAAAAA 1 A_SpawnItemEx("ShockHuman",random(-1,1),random(-1,1),random(0,3))
-			7ZAP A 4 A_Pain
+			7ZAP A 4 A_DVDSPain
 			7ZAP A 0 A_JumpIfHealthLower(20,2)
 			7ZAP A 0 A_Jump(192,"See")
 			7ZAP AAAAAAAAAAAAAAAAAAAAAAAA 1 A_SpawnItemEx("ShockHuman",random(-1,1),random(-1,1),random(0,3))
@@ -3301,22 +3301,22 @@ actor BloodZombieNew : AetheriusMonsterZSC 31002
 
 		Pain:    
 			AZUM G 0 A_Jump (24, "FallDown")
-			AZUM G 1 { if (random(1,512) <= 3) { A_Pain; } else { return state("See"); } return state(""); }
+			AZUM G 1 { if (random(1,512) <= 3) { A_DVDSPain; } else { return state("See"); } return state(""); }
 			goto See
 		Pain.Fist:    
 			AZUM G 0 A_Jump (32, "FallDown")
-			AZUM G 1 { if (random(1,256) <= 4) { A_Pain; } else { return state("See"); } return state(""); }
+			AZUM G 1 { if (random(1,256) <= 4) { A_DVDSPain; } else { return state("See"); } return state(""); }
 			AZUM GG 1
 			goto See
 		Pain.Kick:    
 			AZUM G 0 A_Jump (96, "FallDown")
-			AZUM G 1 { if (random(1,256) <= 12) { A_Pain; } else { return state("See"); } return state(""); }
+			AZUM G 1 { if (random(1,256) <= 12) { A_DVDSPain; } else { return state("See"); } return state(""); }
 			AZUM GGGG 1
 			goto See
 		FallDown:
 			AZUM H 5
 			{
-				A_Pain;
+				A_DVDSPain;
 				user_downedtimemax = 5 - ((user_monsterlevel / 45) * 1);
 				if (user_downedtimemax <= 1) { user_downedtimemax = 1; }
 				A_SetTics(user_downedtimemax);
@@ -3621,18 +3621,18 @@ ACTOR ThamuzNew : AetheriusMonsterZSC 7228
 		Pain:
 			DCYB A 0 A_TakeInventory("ThamuzApocalypseDefendMode",0x7FFFFFFF) // A_UnsetInvulnerable
 			DCYB G 2
-			DCYB G 2 A_Pain
+			DCYB G 2 A_DVDSPain
 			Goto See
 		Pain.Fist:
 			DCYB A 0 A_TakeInventory("ThamuzApocalypseDefendMode",0x7FFFFFFF) // A_UnsetInvulnerable
 			DCYB G 2
-			DCYB G 2 A_Pain
+			DCYB G 2 A_DVDSPain
 			DCYB GG 2
 			Goto See
 		Pain.Kick:
 			DCYB A 0 A_TakeInventory("ThamuzApocalypseDefendMode",0x7FFFFFFF) // A_UnsetInvulnerable
 			DCYB G 2
-			DCYB G 2 A_Pain
+			DCYB G 2 A_DVDSPain
 			DCYB GGGG 2
 			Goto See
 
@@ -3827,18 +3827,18 @@ Actor TchernobogNew : ThamuzNew replaces Tchernobog 7258
 		Pain:
 			TCHR A 0 A_TakeInventory("ThamuzApocalypseDefendMode",0x7FFFFFFF) // A_UnsetInvulnerable
 			TCHR G 2
-			TCHR G 2 A_Pain
+			TCHR G 2 A_DVDSPain
 			Goto See
 		Pain.Fist:
 			TCHR A 0 A_TakeInventory("ThamuzApocalypseDefendMode",0x7FFFFFFF) // A_UnsetInvulnerable
 			TCHR G 2
-			TCHR G 2 A_Pain
+			TCHR G 2 A_DVDSPain
 			TCHR GG 2
 			Goto See
 		Pain.Kick:
 			TCHR A 0 A_TakeInventory("ThamuzApocalypseDefendMode",0x7FFFFFFF) // A_UnsetInvulnerable
 			TCHR G 2
-			TCHR G 2 A_Pain
+			TCHR G 2 A_DVDSPain
 			TCHR GGGG 2
 			Goto See
 

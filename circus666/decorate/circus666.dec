@@ -397,12 +397,12 @@ ACTOR PennywiseHeadNew : AetheriusMonsterZSC replaces Pennywise 32119
 			Goto See
 		Pain.Holy:
 			PENY H 2
-			PENY H 3 A_Pain
+			PENY H 3 A_DVDSPain
 			PENY H 16
 			Goto See
 		Pain.Magic:
 			PENY H 2
-			PENY H 3 A_Pain
+			PENY H 3 A_DVDSPain
 			PENY H 4
 			Goto See
 		Death:
@@ -501,14 +501,14 @@ ACTOR JumpingSkullNew : AetheriusMonsterZSC replaces JumpingSkull 3117
 			}
 			Goto See
 		Pain:
-			JUMP B 4 A_Pain
+			JUMP B 4 A_DVDSPain
 			Goto See
 		Pain.Fist:
-			JUMP B 4 A_Pain
+			JUMP B 4 A_DVDSPain
 			JUMP B 4
 			Goto See
 		Pain.Kick:
-			JUMP B 4 A_Pain
+			JUMP B 4 A_DVDSPain
 			JUMP BB 4
 			Goto See
 		Death:
@@ -840,14 +840,14 @@ ACTOR BigBerthaNew : AetheriusMonsterZSC replaces BigBertha 3225
 			}
 			Goto See 
 		Pain:
-			BSTN B 3 A_Pain
+			BSTN B 3 A_DVDSPain
 			Goto See
 		Pain.Fist:
-			BSTN B 3 A_Pain
+			BSTN B 3 A_DVDSPain
 			BSTN B 3
 			Goto See
 		Pain.Kick:
-			BSTN B 3 A_Pain
+			BSTN B 3 A_DVDSPain
 			BSTN BB 3
 			Goto See
 		Death:

@@ -380,7 +380,7 @@ ACTOR GoreWormNew : AetheriusMonsterZSC replaces GoreWorm 30031
 			WORM C 0
 			Goto Death
 		Pain:
-			WORM A 8 A_Pain 
+			WORM A 8 A_DVDSPain 
 			Goto See 
 		Death:
 			WORM A 5 A_CustomMissile("ZGut2", 0, 0, 30) 
@@ -630,21 +630,21 @@ ACTOR FluffyNew : AetheriusMonsterZSC replaces Fluffy2 32120
 			Goto See
 		Pain:
 			FLUF C 2
-			FLUF C 3 A_Pain
+			FLUF C 3 A_DVDSPain
 			Goto See 
 		Pain.Fist:
 			FLUF C 2
-			FLUF C 3 A_Pain
+			FLUF C 3 A_DVDSPain
 			FLUF CC 3
 			Goto See 
 		Pain.Kick:
 			FLUF C 2
-			FLUF C 3 A_Pain
+			FLUF C 3 A_DVDSPain
 			FLUF CCCC 3
 			Goto See 
 		Pain.Holy:
 			FLUF C 2
-			FLUF C 3 A_Pain
+			FLUF C 3 A_DVDSPain
 			FLUF C 8
 			Goto See 
 		Death:
@@ -751,7 +751,7 @@ ACTOR MiniFluffyNew : AetheriusMonsterZSC replaces MiniFluffy 3194
 			}
 			Goto See + 11
 		Pain:
-			SBUN D 8 A_Pain
+			SBUN D 8 A_DVDSPain
 			SBUN E 8 A_UnSetShootable
 			SBUN F 100 
 			SBUN F 0 A_Jump(128,3) 
@@ -863,14 +863,14 @@ ACTOR JumpingSkullNew : AetheriusMonsterZSC replaces JumpingSkull 32121
 			}
 			Goto See
 		Pain:
-			JSKL B 4 A_Pain
+			JSKL B 4 A_DVDSPain
 			Goto See
 		Pain.Fist:
-			JSKL B 4 A_Pain
+			JSKL B 4 A_DVDSPain
 			JSKL BB 4
 			Goto See
 		Pain.Kick:
-			JSKL B 4 A_Pain
+			JSKL B 4 A_DVDSPain
 			JSKL BBBB 4
 			Goto See
 		Death:
@@ -1156,14 +1156,14 @@ ACTOR JumpingSkull2New : AetheriusMonsterZSC replaces JumpingSkull2 3646 //spawn
 			}
 			Goto See
 		Pain:
-			JSKL B 4 A_Pain
+			JSKL B 4 A_DVDSPain
 			Goto See
 		Pain.Fist:
-			JSKL B 4 A_Pain
+			JSKL B 4 A_DVDSPain
 			JSKL BB 4
 			Goto See
 		Pain.Kick:
-			JSKL B 4 A_Pain
+			JSKL B 4 A_DVDSPain
 			JSKL BBBB 4
 			Goto See
 		Death:
@@ -2346,16 +2346,16 @@ actor BeefyNew : AetheriusMonsterZSC replaces Beefy 4333
 			Goto See
 		Pain:
 			CIMP L 2
-			CIMP L 2 A_Pain
+			CIMP L 2 A_DVDSPain
 			Goto See
 		Pain.Fist:
 			CIMP L 2
-			CIMP L 2 A_Pain
+			CIMP L 2 A_DVDSPain
 			CIMP LL 2
 			Goto See
 		Pain.Kick:
 			CIMP L 2
-			CIMP L 2 A_Pain
+			CIMP L 2 A_DVDSPain
 			CIMP LLLL 2
 			Goto See
 		Death:
@@ -2496,14 +2496,14 @@ ACTOR BlackBearNew : AetheriusMonsterZSC replaces BlackBear 3191
 			BBER A 1 A_CustomMissile("BSplatter", 0, 0, 0, 1)
 			Stop
 		Pain:
-			BBER B 4 A_Pain
+			BBER B 4 A_DVDSPain
 			Goto See
 		Pain.Fist:
-			BBER B 4 A_Pain
+			BBER B 4 A_DVDSPain
 			BBER BB 4
 			Goto See
 		Pain.Kick:
-			BBER B 4 A_Pain
+			BBER B 4 A_DVDSPain
 			BBER BBBB 4
 			Goto See
 		Death:
@@ -4314,14 +4314,14 @@ ACTOR EvilDeadHandNew : AetheriusMonsterZSC replaces EvilDeadHand 32212
 			}
 			Goto See 
 		Pain:
-			HAND B 8 A_Pain 
+			HAND B 8 A_DVDSPain 
 			Goto See 
 		Pain.Fist:
-			HAND B 8 A_Pain 
+			HAND B 8 A_DVDSPain 
 			HAND BB 8 
 			Goto See 
 		Pain.Kick:
-			HAND B 8 A_Pain 
+			HAND B 8 A_DVDSPain 
 			HAND BBBB 8 
 			Goto See 
 		Death:
@@ -4492,14 +4492,14 @@ ACTOR BouncingClownNew : AetheriusMonsterZSC replaces BouncingClown 4822
 			}
 			Goto See
 		Pain:
-			BCWN D 5 A_Pain
+			BCWN D 5 A_DVDSPain
 			goto PainRetreat
 		Pain.Fist:
-			BCWN D 5 A_Pain
+			BCWN D 5 A_DVDSPain
 			BCWN DD 5
 			goto PainRetreat
 		Pain.Kick:
-			BCWN D 5 A_Pain
+			BCWN D 5 A_DVDSPain
 			BCWN DDDD 5
 			goto PainRetreat
 		PainRetreat:
@@ -4638,14 +4638,14 @@ ACTOR BabyClownNew : AetheriusMonsterZSC replaces BabyClown 4823
 			BCWN B 0 A_PlaySound("CLWNBITE")
 			Goto See
 		Pain:
-			BCWN B 4 A_Pain
+			BCWN B 4 A_DVDSPain
 			Goto See
 		Pain.Fist:
-			BCWN B 4 A_Pain
+			BCWN B 4 A_DVDSPain
 			BCWN BB 4
 			Goto See
 		Pain.Kick:
-			BCWN B 4 A_Pain
+			BCWN B 4 A_DVDSPain
 			BCWN BBBB 4
 			Goto See
 		Death:
@@ -4741,11 +4741,11 @@ ACTOR BabyClown2New : AetheriusMonsterZSC replaces BabyClown2 4825
 			BCWN B 2
 			Goto See+5
 		Pain.Fist:
-			BCWN B 4 A_Pain
+			BCWN B 4 A_DVDSPain
 			BCWN BB 4
 			Goto See+5
 		Pain.Kick:
-			BCWN B 4 A_Pain
+			BCWN B 4 A_DVDSPain
 			BCWN BBBB 4
 			Goto See+5
 		Melee:
@@ -4780,14 +4780,14 @@ ACTOR BabyClown2New : AetheriusMonsterZSC replaces BabyClown2 4825
 			BCWN B 0 A_PlaySound("CLWNBITE")
 			Goto See+5
 		Pain:
-			BCWN B 4 A_Pain
+			BCWN B 4 A_DVDSPain
 			Goto See+5
 		Pain.Fist:
-			BCWN B 4 A_Pain
+			BCWN B 4 A_DVDSPain
 			BCWN BB 4
 			Goto See+5
 		Pain.Kick:
-			BCWN B 4 A_Pain
+			BCWN B 4 A_DVDSPain
 			BCWN BBBB 4
 			Goto See+5
 		Death:
@@ -5610,16 +5610,16 @@ actor PennywiseBoss : AetheriusMonsterZSC replaces Pennywise 3672
 			Goto See2     
 		Pain:
 			PENY F 0 A_GiveInventory("PennywiseShield",1)
-			PENY F 8 A_Pain
+			PENY F 8 A_DVDSPain
 			Goto PainRetaliate    
 		Pain.Fist:
 			PENY F 0 A_GiveInventory("PennywiseShield",1)
-			PENY F 8 A_Pain
+			PENY F 8 A_DVDSPain
 			PENY FF 8
 			Goto PainRetaliate    
 		Pain.Kick:
 			PENY F 0 A_GiveInventory("PennywiseShield",1)
-			PENY F 8 A_Pain
+			PENY F 8 A_DVDSPain
 			PENY FFFF 8
 			Goto PainRetaliate    
 		Pain.Deadlight:
@@ -5631,7 +5631,7 @@ actor PennywiseBoss : AetheriusMonsterZSC replaces Pennywise 3672
 				A_ChangeFlag("NOPAIN",1);
 				return state("");
 			}
-			PENY F 8 A_Pain
+			PENY F 8 A_DVDSPain
 			PENY FFFFFFFFFFFFFFFF 8
 			{
 				A_SetTics(random(7,9));
