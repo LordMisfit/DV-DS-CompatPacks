@@ -1,0 +1,83 @@
+[enu default]
+
+// Intermission Screens
+//"                                             \n"
+//Up to 20 lines. :V
+C1TEXT = 
+  "More trials... Great... wonderful... You\n"
+  "Wonder why sometimes you even accept these\n"
+  "things after what you've already been\n"
+  "through over the last 10 or so years...\n"
+  "\n"
+  "Either way, your path led you to a secret\n" 
+  "UAC lab infested with demons. The Gateway\n"
+  "looked operational and intact, so you\n"
+  "entered into the swirling madness while\n"
+  "wondering where it will take you.\n"
+  "\n"
+  "Seems like some of your stuff ended up\n"
+  "being someplace else. According to the\n"
+  "nearby computers there are several inter-\n"
+  "connecting UAC facilities nearby...\n"
+  "\n"
+  "You suspect the source of this invasion,\n"
+  "might be in one of them.";
+C2TEXT = 
+  "At least you made it to the UAC base. You\n"
+  "smell the stench of corruption here, and\n"
+  "you feel the pulse of evil all over the\n"
+  "place. First you need to bring the power\n"
+  "back on line.\n"
+  "\n"
+  "The structural damage seems to be minimal\n"
+  "here, but you wonder about the deeper sectors.\n"
+  "\n"
+  "It tugs at your mind that this version of\n"
+  "Earth is also undergoing a crisis not unlike\n"
+  "the original 'Doom' War of the past. Just\n"
+  "what exactly happed in this world...?";
+C3TEXT = 
+  "You took the Gateway and ended up in some\n"
+  "unknown place, where the UAC tried to take\n"
+  "the fight to hell, with little success...\n"
+  "\n"
+  "In the borderworld between hell and this\n"
+  "dimension you found the portal to hell.\n"
+  "\n"
+  "This is it. Hell. Again. You stand before\n"
+  "the very gates of it, yet again and again.\n"
+  "\n"
+  "Whether it's your own universe or another,\n"
+  "Hell just loves conquering Earth like a game.\n"
+  "\n"
+  "Time to finally take the battle to them here,\n"
+  "and teach them the same lession you taught\n"
+  "your universe's version of Hell...";
+C4TEXT = 
+  "As in the past, the forces of hell could with-\n"
+  "stand the fury you unleashed on them.\n"
+  "\n"
+  "Hell almost succeeded in planting an Icon of\n"
+  "Sin on this Earth, but you destroyed that fool\n"
+  "-ish creature in time.\n"
+  "\n"
+  "Earth is saved, the hellgates dim out and\n"
+  "collapse in on themselves...\n"
+  "\n"
+  "The remaining UAC forces should be able to\n"
+  "clean up the mess now, for all their faults.\n"
+  "\n"
+  "You return home to your own universe,\n"
+  "returning to a much earned rest with\n"
+  "family and friends... for now...";
+C5TEXT = 
+  "Just what is this place you stumbled upon?\n"
+  "Is it some virtual reality?\n"
+  "\nIt seems to be invaded by demons, so\n"
+  "you might as well clear it out!";
+C6TEXT = 
+  "You are not only unsure where you are,\n"
+  "but also when...\n"
+  "\n"
+  "You hear an Earth langauge you recall\n"
+  "as 'German', nearby... What now?";
