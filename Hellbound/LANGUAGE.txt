@@ -35,7 +35,7 @@ C2TEXT =
   "It tugs at your mind that this version of\n"
   "Earth is also undergoing a crisis not unlike\n"
   "the original 'Doom' War of the past. Just\n"
-  "what exactly happed in this world...?";
+  "what exactly happened in this world...?";
 C3TEXT = 
   "You took the Gateway and ended up in some\n"
   "unknown place, where the UAC tried to take\n"
@@ -54,12 +54,13 @@ C3TEXT =
   "and teach them the same lession you taught\n"
   "your universe's version of Hell...";
 C4TEXT = 
-  "As in the past, the forces of hell could with-\n"
-  "stand the fury you unleashed on them.\n"
+  "As in the past, the forces of hell could not\n"
+  "withstand the rightouse fury you unleashed on\n"
+  "them.\n"
   "\n"
   "Hell almost succeeded in planting an Icon of\n"
-  "Sin on this Earth, but you destroyed that fool\n"
-  "-ish creature in time.\n"
+  "Sin similar to Baphomet on this Earth, but\n"
+  "you destroyed that foolish creature in time.\n"
   "\n"
   "Earth is saved, the hellgates dim out and\n"
   "collapse in on themselves...\n"

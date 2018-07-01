@@ -5795,7 +5795,7 @@ ACTOR PopcornGunNew : Circus2Weapon replaces PopcornGun 30204
 	Weapon.AmmoType "PopcornPiece" 
 	Weapon.AmmoGive 20 
 	Weapon.AmmoUse 1
-	Inventory.Pickupmessage "You got the Popcorn Gun! Don't eat the popcorn..." 
+	Inventory.Pickupmessage "You got the Popcorn Gun! Don't eat the popcorn... \cx[Slot 8]\c-" 
 	Obituary "%o ate some of %k's popcorn."
 	AttackSound "" 
 	Scale 0.75
@@ -5916,7 +5916,7 @@ ACTOR GoreBalloonNew : Circus2Weapon replaces GoreBalloon 30030
 	Weapon.AmmoType "GoreBalloons" 
 	Weapon.AmmoGive 5 
 	Weapon.AmmoUse 1
-	Inventory.Pickupmessage "You got some gore balloons!" 
+	Inventory.Pickupmessage "You got some gore balloons! \cx[Slot 8]\c-" 
 	Obituary "%o wanted %k's balloon."
 	Scale 0.75
 	States 
@@ -6041,7 +6041,7 @@ ACTOR ClownGrenadeNew : Circus2Weapon replaces ClownGrenade 30029
 	Weapon.AmmoType "CGrenadeAmmo" 
 	Weapon.AmmoGive 5 
 	Weapon.AmmoUse 1
-	Inventory.Pickupmessage "You picked up some clown grenades"
+	Inventory.Pickupmessage "You picked up some clown grenades \cx[Slot 0]\c-"
 	AttackSound "" 
 	+FloatBob 
 	Scale 0.3
@@ -6163,7 +6163,7 @@ ACTOR GutFlingerNew : Circus2Weapon replaces GutFlinger 30028
 	Weapon.AmmoType "ClownSouls" 
 	Weapon.AmmoGive 5 
 	Weapon.AmmoUse 1
-	Inventory.Pickupmessage "You got the Gut Flinger!" 
+	Inventory.Pickupmessage "You got the Gut Flinger! \cx[Slot 9]\c-" 
 	AttackSound "" 
 	Scale 1
 	States 
@@ -6252,7 +6252,7 @@ ACTOR GasRocketLauncherNew : Circus2Weapon replaces GasRocketLauncher 30203
 	Weapon.AmmoType "ClownSouls" 
 	Weapon.AmmoGive 20 
 	Weapon.AmmoUse 5
-	Inventory.Pickupmessage "You got the Gas Rocket Launcher" 
+	Inventory.Pickupmessage "You got the Gas Rocket Launcher \cx[Slot 9]\c-" 
 	Obituary "%o choked on %k's gas."
 	AttackSound "" 
 	Scale 0.75
@@ -6349,7 +6349,7 @@ ACTOR CrazyBall2New : Circus2Weapon replaces CrazyBall2 30205
 	Weapon.AmmoType "CzBall" 
 	Weapon.AmmoGive 1 
 	Weapon.AmmoUse 1
-	Inventory.Pickupmessage "You got a crazy ball, use it wisely..." 
+	Inventory.Pickupmessage "You got a crazy ball, use it wisely... \cx[Slot 0]\c-" 
 	AttackSound "" 
 	Scale 0.6
 	+FLOATBOB
