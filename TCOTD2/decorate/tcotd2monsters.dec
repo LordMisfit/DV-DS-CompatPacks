@@ -532,7 +532,7 @@ ACTOR LargeSpiderNew : AetheriusMonsterZSC 22291
 }
 
 // Bullet Tracers
-ACTOR TCOTDBulletTracer : AetheriusFastProjectileZSC
+ACTOR TCOTDBulletTracer : AetheriusBulletTracerZSC
 {
 	Damage ((Random(4,6) * Random(1,2)))
 	Damagetype "Bullet"
@@ -551,7 +551,7 @@ ACTOR TCOTDBulletTracer : AetheriusFastProjectileZSC
 	States
 	{
 		Spawn:
-			TNT1 A 0 NoDelay bright { A_ScaleVelocity(GetCVar("dvds_tracervelmulti")); }
+			TNT1 A 0 NoDelay bright
 		Idle:
 			TNT1 A 0 bright
 			TNT1 A 0 bright A_SpawnItemEx("TCOTDBulletTracerTrail",-15.0,0,0,0,0,0,0,128,0)
@@ -578,7 +578,7 @@ ACTOR TCOTDBulletTracerCrisis : TCOTDBulletTracer
 	States
 	{
 		Spawn:
-			TNT1 A 0 NoDelay bright { A_ScaleVelocity(GetCVar("dvds_tracervelmulti")); }
+			TNT1 A 0 NoDelay bright
 		Idle:
 			TNT1 A 0 bright
 			TNT1 A 0 bright A_SpawnItemEx("TCOTDBulletTracerTrail",-15.0,0,0,0,0,0,0,128,0)

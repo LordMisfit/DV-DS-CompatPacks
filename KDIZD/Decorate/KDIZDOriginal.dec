@@ -216,14 +216,14 @@ ACTOR NightmareWisp
 	}
 }
 
-ACTOR ZombieRifleBulletTracer : AetheriusFastProjectileZSC
+ACTOR ZombieRifleBulletTracer : AetheriusBulletTracerZSC
 {
 	Damage 20
 	Damagetype "Bullet"
 	Radius 1
 	Height 1
 	Mass 5
-	Speed 190 // 95
+	Speed 160 // 80
 	PROJECTILE
 	+STRIFEDAMAGE
 	+DONTREFLECT
@@ -237,7 +237,7 @@ ACTOR ZombieRifleBulletTracer : AetheriusFastProjectileZSC
 	States
 	{
 		Spawn:
-			TNT1 A 0 NoDelay bright { A_ScaleVelocity(GetCVar("dvds_tracervelmulti")); }
+			TNT1 A 0 NoDelay bright
 		Idle:
 			TNT1 A 0 bright
 			TNT1 A 0 bright A_SpawnItemEx("ZombieBulletTracerTrail",-15.0,0,0,0,0,0,0,128,0)
