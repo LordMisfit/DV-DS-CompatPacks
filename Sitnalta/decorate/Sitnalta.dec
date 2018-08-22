@@ -2,6 +2,7 @@
 
 ACTOR Zakachi : AetheriusMonsterZSC 27043 
 {
+	Tag "\cfZakachi Daemonbourne\c-"
 	OBITUARY "%o witnessed the true power of Zakachi Daemonbourne."
 	Health 48000
 	Radius 25

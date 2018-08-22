@@ -11,6 +11,8 @@ ACTOR ApprenticeNew : AetheriusMonsterZSC 30000
 	//$Angled
 	//$Color 12
 	//$Category "TCOTD:A Monsters/Raven Style"
+	Tag "Darkmoon Grand Apprentice"
+	
 	Health 1250
 	Radius 20
 	Height 56
@@ -268,7 +270,6 @@ ACTOR SpiderBiteProj : AetheriusEffectProjectile
 			stop
 	}
 }
-
 ACTOR SpiderBiteProjCrisis : SpiderBiteProj
 {
 	Damage (random(6,14) * CallACS("CrisisMultiplier"))
@@ -302,6 +303,8 @@ ACTOR MiniSpiderNew : AetheriusMonsterZSC 22290
 	//$Angled
 	//$Color 12
 	//$Category "TCOTD:A Monsters/Blood Style"
+	Tag "Spider [smaller]"
+	
 	health 38 // 15
 	Speed 15 // 10
 	Radius 7
@@ -406,7 +409,6 @@ ACTOR SpiderBiteProj2 : SpiderBiteProj
 			stop
 	}
 }
-
 ACTOR SpiderBiteProj2Crisis : SpiderBiteProj2
 {
 	Damage ((random(9,21)) * CallACS("CrisisMultiplier"))
@@ -440,6 +442,8 @@ ACTOR LargeSpiderNew : AetheriusMonsterZSC 22291
 	//$Angled
 	//$Color 12
 	//$Category "TCOTD:A Monsters/Blood Style"
+	Tag "Spider [huge]"
+
 	SpawnID 221
 	Health 525 // 150
 	Speed 15
@@ -571,7 +575,6 @@ ACTOR TCOTDBulletTracer : AetheriusBulletTracerZSC
 			stop
 	}
 }
-
 ACTOR TCOTDBulletTracerCrisis : TCOTDBulletTracer
 {
 	Damage ((Random(4,6) * Random(1,2)) * CallACS("CrisisMultiplier"))
@@ -591,7 +594,6 @@ ACTOR TCOTDBulletTracerCrisis : TCOTDBulletTracer
 			loop
 	}
 }
-
 actor TCOTDBulletTracerTrail
 {
 	Radius 1
@@ -618,6 +620,8 @@ ACTOR TommyGunCultistNew : AetheriusMonsterZSC 29011
 	//$Angled
 	//$Color 12
 	//$Category "TCOTD:A Monsters/Blood Style"
+	Tag "Darkmoon Cultist [tommy gun]"
+
 	SpawnID 246
 	decal BloodBulletChip
 	health 125 // 40,60,80,100,125
@@ -762,6 +766,8 @@ ACTOR ShotgunCultistNew : TommyGunCultistNew 29010
 	//$Angled
 	//$Color 12
 	//$Category "TCOTD:A Monsters/Blood Style"
+	Tag "Darkmoon Cultist [shotgun]"
+
 	Health 125 // 40,60,80,100,125
 	painchance 170
 	PainChance "Shock", 255
@@ -905,8 +911,9 @@ ACTOR HellHoundNew : AetheriusMonsterZSC 30121
 	//$Angled
 	//$Color 12
 	//$Category "TCOTD:A Monsters/Blood Style"
-	SpawnID 170
+	Tag "Hell Hound"
 
+	SpawnID 170
 	health 750
 	Speed 16 
 	Radius 30 
@@ -1164,6 +1171,8 @@ ACTOR ThrallNew : AetheriusMonsterZSC 30119
 	//$Angled
 	//$Color 12
 	//$Category "TCOTD:A Monsters/Raven Style"
+	Tag "Darkmoon Cultist [magician]"
+
 	health 125 // 40,60,80,100,125
 	Scale 0.90
 	Speed 8 
@@ -1306,6 +1315,8 @@ ACTOR NightmareNew : AetheriusMonsterZSC replaces KDiZDNightmare 26000
 	//$Angled
 	//$Color 12
 	//$Category "TCOTD:A Monsters/Doom Style"
+	Tag "Nightmare"
+
 	health 175 // 100
 	PainChance 144
 	Painchance "Fist", 216 // Fist attacks have a +50% chance of stunning an enemy
@@ -1448,6 +1459,8 @@ ACTOR SirenNightmareNew : NightmareNew 31111
 	//$Angled
 	//$Color 12
 	//$Category "TCOTD:A Monsters/Doom Style"
+	Tag "MEGA Nightmare"
+
 	health 525
 	Radius 10
 	PainChance 48
@@ -1675,6 +1688,8 @@ actor VulgarNew : DSDoomImp replaces Vulgar
 	//$Angled
 	//$Color 12
 	//$Category "TCOTD:A Monsters/Doom Style"
+	Tag "Vulgar"
+
 	health 135 // 100
 	radius 20
 	height 56
@@ -1792,6 +1807,8 @@ Actor ClayDevilNew : AetheriusMonsterZSC replaces ClayDevil
 	//$Angled
 	//$Color 12
 	//$Category "TCOTD:A Monsters/Others"
+	Tag "Clay Devil"
+
 	Mass 1875
 	health 120
 	radius 20
@@ -2032,6 +2049,8 @@ ACTOR TCOTDAShadowNew : AetheriusMonsterZSC replaces Shadow 3126
 	//$Angled
 	//$Color 12
 	//$Category "TCOTD:A Monsters/Doom Style"
+	Tag "Grand Shadow Creature"
+
 	Health 675
 	Radius 20
 	Height 56
@@ -2219,6 +2238,8 @@ ACTOR SoulHarvesterNew : AetheriusMonsterZSC 3117
 	//$Angled
 	//$Color 12
 	//$Category "TCOTD:A Monsters/Doom Style"
+	Tag "Soul Harvester"
+
 	Health 175 // 120
 	Radius 20
 	Height 56
@@ -2342,6 +2363,8 @@ ACTOR ESoulNew : AetheriusMonsterZSC 29012 // : ESoul replaces ESoul 29012
 	//$Angled
 	//$Color 12
 	//$Category "TCOTD:A Monsters/Doom Style"
+	Tag "Ethereal Soul"
+
 	obituary "%o's soul was leeched by the etheral soul"
 	health 230 // 150
 	radius 16
@@ -2466,6 +2489,8 @@ ACTOR DEWraithNew : AetheriusMonsterZSC replaces DEWraith 30106
 	//$Angled
 	//$Color 12
 	//$Category "TCOTD:A Monsters/Raven Style"
+	Tag "Wraith of the Eclipse"
+
 	Health 80 // 50
 	Radius 16 
 	Height 32 
@@ -2851,6 +2876,8 @@ ACTOR ButcherZombieNew : AetheriusMonsterZSC 25010
 	//$Angled
 	//$Color 12
 	//$Category "TCOTD:A Monsters/Blood Style"
+	Tag "Bloated Butcher"
+
 	Health 1090 // 308,436,630,850,1090
 	Radius 12
 	Height 56
@@ -3198,6 +3225,8 @@ actor BloodZombieNew : AetheriusMonsterZSC 31002
 	//$Angled
 	//$Color 12
 	//$Category "TCOTD:A Monsters/Blood Style"
+	Tag "Axe Zombie"
+
 	Health 220 // 68,90,130,170,220
 	Height 56
 	Radius 12
@@ -3439,6 +3468,8 @@ ACTOR ThamuzNew : AetheriusMonsterZSC 7228
 	//$Angled
 	//$Color 12
 	//$Category "TCOTD:A Monsters/Boss"
+	Tag "\cfThamuz, The Dark God\c-"
+
 	Radius 40
 	Height 110
 	Bloodcolor "00 aa 00"
@@ -3670,6 +3701,8 @@ Actor TchernobogNew : ThamuzNew replaces Tchernobog 7258
 	//$Angled
 	//$Color 12
 	//$Category "TCOTD:A Monsters/Boss"
+	Tag "\cfTchernobog, The One That Binds\c-"
+
 	Radius 40
 	Height 110
 	Health 21333

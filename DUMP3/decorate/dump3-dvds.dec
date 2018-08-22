@@ -1,6 +1,7 @@
 // Map27
 ACTOR AdolfHitlerDS : AetheriusMonsterZSC replaces AdolfHitler
 {
+	Tag "\cfAdolf Hitler"
 	Health 2100
 	Mass 80000
 	Radius 28
@@ -161,6 +162,7 @@ ACTOR AdolfHitlerDS : AetheriusMonsterZSC replaces AdolfHitler
 // Benellus
 actor Benellus1DS : AetheriusMonsterZSC replaces Benellus1
 {
+	Tag "\cfBenellus, God of Shotguns"
 	Radius 32
 	Height 76
 	Scale 1.25
@@ -407,6 +409,7 @@ actor Benellus1DS : AetheriusMonsterZSC replaces Benellus1
 
 actor Benellus2DS : AetheriusMonsterZSC replaces Benellus2
 {
+	Tag "\cfBenellus, God of Shotguns"
 	Radius 32
 	Height 76
 	Scale 1.25
@@ -488,6 +491,7 @@ actor Benellus2DS : AetheriusMonsterZSC replaces Benellus2
 
 actor Benellus3DS : AetheriusMonsterZSC replaces Benellus3
 {
+	Tag "\cfBenellus, God of Shotguns"
 	Radius 32
 	Height 76
 	Scale 1.25

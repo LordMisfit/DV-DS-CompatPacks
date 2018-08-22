@@ -3,6 +3,8 @@ ACTOR ChainsawZombieNew : AetheriusMonsterZSC 3204
 	//$Angled
 	//$Color 12
 	//$Category "KDIZD Monsters"
+	Tag "Chainsaw Zombie"
+
 	Health 50 
 	Radius 20 
 	Height 56 
@@ -129,6 +131,8 @@ ACTOR KDIZDChaingunner : DSChaingunGuy replaces DSChaingunGuy
 	//$Angled
 	//$Color 12
 	//$Category "KDIZD Monsters"
+	Tag "Chaingun Guy"
+
 	Decal BulletChip
 	States
 	{
@@ -162,6 +166,8 @@ actor DemonCube : AetheriusMonsterZSC 26001
 	//$Angled
 	//$Color 12
 	//$Category "KDIZD Monsters"
+	Tag "Demon Cube"
+	
 	Health 50
 	Radius 20
 	Height 20
@@ -266,6 +272,8 @@ ACTOR HellsFury : AetheriusMonsterZSC 3127
 	//$Angled
 	//$Color 12
 	//$Category "KDIZD Monsters"
+	Tag "Hell's Fury"
+
 	Health 1000
 	Radius 24
 	Height 64
@@ -400,6 +408,8 @@ ACTOR MaulerDemon : AetheriusMonsterZSC 3123
 	//$Angled
 	//$Color 12
 	//$Category "KDIZD Monsters"
+	Tag "Mauler Pinky"
+
 	Health 150 
 	PainChance 180 
 	Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
@@ -526,6 +536,8 @@ ACTOR NightmareNew : AetheriusMonsterZSC 26000
 	//$Angled
 	//$Color 12
 	//$Category "KDIZD Monsters"
+	Tag "Nightmare"
+
 	health 100 // 100
 	PainChance 144
 	Painchance "Fist", 216 // Fist attacks have a +50% chance of stunning an enemy
@@ -667,6 +679,8 @@ ACTOR RapidFireTrooper : AetheriusMonsterZSC 3201
 	//$Angled
 	//$Color 12
 	//$Category "KDIZD Monsters"
+	Tag "Rapid Assault Zombieman"
+
 	Health 30
 	Radius 20
 	Height 56
@@ -793,6 +807,8 @@ ACTOR RifleZombie : AetheriusMonsterZSC 31657
 	//$Angled
 	//$Color 12
 	//$Category "KDIZD Monsters"
+	Tag "Rifle Zombie"
+
 	Health 40
 	Speed 8
 	Radius 20
@@ -905,6 +921,8 @@ actor SatyrNew : AetheriusMonsterZSC 3109
 	//$Angled
 	//$Color 12
 	//$Category "KDIZD Monsters"
+	Tag "Satyr"
+
 	Health 400
 	Radius 18
 	Height 48
@@ -1052,6 +1070,8 @@ ACTOR ShadowNew : AetheriusMonsterZSC 3126
 	//$Angled
 	//$Color 12
 	//$Category "KDIZD Monsters"
+	Tag "Shadow"
+
 	Health 80
 	Radius 20
 	Height 56
@@ -1235,6 +1255,7 @@ actor SoulHarvesterNew : AetheriusMonsterZSC 3117
 	//$Angled
 	//$Color 12
 	//$Category "KDIZD Monsters"
+	Tag "Soul Harvester"
 
 	Health 175 // 120
 	PainChance 160
@@ -1359,6 +1380,8 @@ actor StoneImp : AetheriusMonsterZSC 3103
 	//$Angled
 	//$Color 12
 	//$Category "KDIZD Monsters"
+	Tag "Stone Imp"
+
 	Health 180
 	Radius 20
 	Height 56
@@ -1471,6 +1494,8 @@ ACTOR Magmantis : AetheriusMonsterZSC 26660
 	//$Angled
 	//$Color 12
 	//$Category "KDIZD Monsters"
+	Tag "\cfMagmantis, Guardian of Deimos\c-"
+
 	Health 30000 // 12000
 	Radius 120
 	Height 144
@@ -1632,6 +1657,7 @@ ACTOR Magmantis : AetheriusMonsterZSC 26660
 
 actor MagmantisLostSoul : AetheriusMonsterZSC
 {
+	Tag "Lost Soul"
 	health 100
 	radius 16
 	height 56

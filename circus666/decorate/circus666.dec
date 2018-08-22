@@ -311,6 +311,7 @@ actor BlueBalloon
 // Monsters
 ACTOR PennywiseHeadNew : AetheriusMonsterZSC replaces Pennywise 32119
 {
+	Tag "Flying Pennywise Head"
 	Health 250
 	Radius 29
 	Height 56
@@ -426,6 +427,7 @@ ACTOR PennywiseHeadNew : AetheriusMonsterZSC replaces Pennywise 32119
 
 ACTOR JumpingSkullNew : AetheriusMonsterZSC replaces JumpingSkull 3117
 {
+	Tag "Bouncing Skull"
 	Health 30
 	Radius 8
 	Height 11
@@ -530,6 +532,7 @@ ACTOR JumpingSkullNew : AetheriusMonsterZSC replaces JumpingSkull 3117
 
 ACTOR PossessedBalloonNew : AetheriusMonsterZSC replaces PossessedBalloon 3115
 {
+	Tag "Possessed Balloon"
 	Health 15
 	Radius 15
 	Height 40
@@ -649,6 +652,7 @@ ACTOR PossessedBalloonNew : AetheriusMonsterZSC replaces PossessedBalloon 3115
 
 ACTOR BigBerthaNew : AetheriusMonsterZSC replaces BigBertha 3225
 {
+	Tag "Big Bertha"
 	Scale 12
 	Health 6500
 	Radius 64
@@ -1045,6 +1049,7 @@ actor SpawnRckCrisis : SpawnRck
 
 ACTOR ClownHeadNew : AetheriusMonsterZSC replaces ClownHead 3206
 { 
+	Tag "Freaky Clown Head"
 	Health 400 
 	Speed 5 
 	Radius 16

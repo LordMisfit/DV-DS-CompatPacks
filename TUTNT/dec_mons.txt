@@ -3,6 +3,7 @@
 //////////////////////
 ACTOR SourceGuardian : AetheriusBossZSC 16999 
 {
+	Tag "\cgGuardian of the Source"
 	SpawnID 239
 	Health 9600 // 1200
 	Mass 80000 // 8000
@@ -417,6 +418,7 @@ actor SourceLifeSeed : AetheriusCustomInventory 16998
 
 actor TheSource : AetheriusBossZSC 24999
 {
+	Tag "\cfThe Source of All Evil"
 	health 450000 // 15000
 	radius 256 // 128
 	height 256 // 128
@@ -868,6 +870,7 @@ actor CometTail
 //============================================================================
 ACTOR TNTSpider : MaulotaurBase 10906
 {
+	Tag "Giant Spider"
 	Radius 28
 	Height 60
 	Health 1800
@@ -1299,6 +1302,8 @@ ACTOR TNTMiniSpider : AetheriusMonsterZSC 22290
 	//$Angled
 	//$Color 12
 	//$Category "TUTNT Monsters/Blood Style"
+	Tag "Small Spider"
+
 	Health 38
 	Speed 15
 	Radius 7
@@ -1416,7 +1421,6 @@ ACTOR SpiderBiteProj : AetheriusEffectProjectile
 			stop
 	}
 }
-
 ACTOR SpiderBiteProjCrisis : SpiderBiteProj
 {
 	Damage (random(6,14) * CallACS("CrisisMultiplier"))

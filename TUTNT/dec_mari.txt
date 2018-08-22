@@ -24,6 +24,8 @@ ACTOR BerserkMarine : BaseAllyMarine 30000
 	//$Angled
 	//$Color 8
 	//$Category "TUTNT/Allied Marines"
+	Tag "Space Marine [Berserked]"
+	
 	MeleeDamage 25
 	MeleeSound "marine/punch"
 	TRANSLATION 2
@@ -76,6 +78,8 @@ ACTOR PistolMarine : BaseAllyMarine 30001
 	//$Angled
 	//$Color 8
 	//$Category "TUTNT/Allied Marines"
+	Tag "Space Marine [Pistol]"
+
 	AttackSound "weapons/pistol"
 	Damage 1
 	Obituary "%o got shot by a pistol marine"
@@ -130,6 +134,8 @@ ACTOR ShotgunMarine : BaseAllyMarine 30002
 	//$Angled
 	//$Color 8
 	//$Category "TUTNT/Allied Marines"
+	Tag "Space Marine [Shotgun]"
+
 	Damage 7
 	AttackSound "weapons/shotgf"
 	Obituary "%o was riddled full of buckshot by a shotgun marine"
@@ -191,6 +197,8 @@ ACTOR SuperShotgunMarine : BaseAllyMarine 30003
 	//$Angled
 	//$Color 8
 	//$Category "TUTNT/Allied Marines"
+	Tag "Space Marine [Super Shotgun]"
+
 	Damage 7
 	AttackSound "weapons/sshotf"
 	TRANSLATION 2
@@ -258,6 +266,8 @@ ACTOR ChaingunMarine : BaseAllyMarine 30004
 	//$Angled
 	//$Color 8
 	//$Category "TUTNT/Allied Marines"
+	Tag "Space Marine [Chaingun]"
+
 	Damage 1
 	AttackSound "weapons/chngun"
 	TRANSLATION 0
@@ -319,6 +329,8 @@ ACTOR RocketMarine : BaseAllyMarine 30005
 	//$Angled
 	//$Color 8
 	//$Category "TUTNT/Allied Marines"
+	Tag "Space Marine [Rocket Launcher]"
+
 	TRANSLATION 1
 	Obituary "%o rode a marines rocket"
 	//DropItem RocketLauncher
@@ -379,6 +391,8 @@ ACTOR PlasmaRifleMarine : BaseAllyMarine 30006
 	//$Angled
 	//$Color 8
 	//$Category "TUTNT/Allied Marines"
+	Tag "Space Marine [Plasma Rifle]"
+
 	TRANSLATION 0
 	Obituary "%o felt the energy of a plasma rifle marine"
 	//DropItem PlasmaRifle
@@ -437,6 +451,8 @@ ACTOR RailgunMarine : BaseAllyMarine 30007
 	//$Angled
 	//$Color 8
 	//$Category "TUTNT/Allied Marines"
+	Tag "Space Marine [Railgun]"
+
 	Damage 100
 	Obituary "%o was railed by a railgun marine"
 	//DropItem Cell 255 40
@@ -492,6 +508,8 @@ ACTOR ChainsawMarine : BaseAllyMarine 30008
 	//$Angled
 	//$Color 8
 	//$Category "TUTNT/Allied Marines"
+	Tag "Space Marine [Chainsaw]"
+
 	MeleeDamage 4
 	MeleeSound "weapons/sawhit"
 	TRANSLATION 2
@@ -572,6 +590,8 @@ ACTOR BFGMarine : BaseAllyMarine 30009
 	//$Angled
 	//$Color 8
 	//$Category "TUTNT/Allied Marines"
+	Tag "Space Marine [BFG9000]"
+
 	Obituary "%o was blown away by a BFG marine"
 	//DropItem BFG9000
 	//DropItem Cell 192 20
@@ -628,6 +648,8 @@ ACTOR FistMarine : BaseAllyMarine 30010
 	//$Angled
 	//$Color 8
 	//$Category "TUTNT/Allied Marines"
+	Tag "Space Marine [Grappler]"
+
 	MeleeDamage 25
 	MeleeSound "marine/punch"
 	TRANSLATION 2

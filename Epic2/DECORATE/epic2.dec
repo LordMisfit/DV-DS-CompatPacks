@@ -3,5 +3,7 @@ actor StrangeAlien : DSWolfensteinSS replaces DSWolfensteinSS
 	//$Angled
 	//$Color 12
 	//$Category "DV-DS Monsters/Epic2"
+	Tag "Strange Alien Creature"
+	
 	Obituary "%o was vaporized from the mortal plane by a strange alien creature."
 }

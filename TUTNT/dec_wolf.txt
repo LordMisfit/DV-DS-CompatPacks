@@ -5,6 +5,7 @@
 //===========================================================================
 ACTOR AdolfHitlerDS : AetheriusBossZSC 10917
 {
+	Tag "\cfAdolf Hitler"
 	Health 3250
 	Mass 80000
 	Radius 20

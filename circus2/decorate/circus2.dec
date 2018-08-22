@@ -335,6 +335,8 @@ ACTOR GoreWormNew : AetheriusMonsterZSC replaces GoreWorm 30031
 	//$Angled
 	//$Color 12
 	//$Category "Happy Time Circus/Monsters"
+	Tag "Gore Worm"
+
 	Health 20
 	Radius 8
 	Height 4
@@ -455,6 +457,8 @@ ACTOR FluffyNew : AetheriusMonsterZSC replaces Fluffy2 32120
 	//$Angled
 	//$Color 12
 	//$Category "Happy Time Circus/Monsters"
+	Tag "Fluffy"
+
 	Health 1000
 	Radius 25
 	Height 56
@@ -673,6 +677,7 @@ ACTOR FluffyNew : AetheriusMonsterZSC replaces Fluffy2 32120
 
 ACTOR MiniFluffyNew : AetheriusMonsterZSC replaces MiniFluffy 3194
 {
+	Tag "Mini Fluffy"
 	//$Angled
 	//$Color 12
 	//$Category "Happy Time Circus/Monsters"
@@ -781,6 +786,7 @@ ACTOR JumpingSkullNew : AetheriusMonsterZSC replaces JumpingSkull 32121
 	//$Angled
 	//$Color 12
 	//$Category "Happy Time Circus/Monsters"
+	Tag "Bouncing Skull"
 
 	Health 40
 	Radius 8
@@ -1075,6 +1081,8 @@ ACTOR JumpingSkull2New : AetheriusMonsterZSC replaces JumpingSkull2 3646 //spawn
 	//$Angled
 	//$Color 12
 	//$Category "Happy Time Circus/Monsters"
+	Tag "Bouncing Skull"
+
 	Health 40
 	Speed 10
 	Radius 8
@@ -1200,6 +1208,8 @@ ACTOR PossessedBalloonNew : AetheriusMonsterZSC replaces PossessedBalloon 3115
 	//$Angled
 	//$Color 12
 	//$Category "Happy Time Circus/Monsters"
+	Tag "Possessed Balloon"
+
 	Health 15
 	Radius 15
 	Height 40
@@ -1378,7 +1388,6 @@ actor RevRocketNew : AetheriusProjectileZSC replaces RevRocket
 			Stop
 	}
 }
-
 actor RevRocketCrisisParticle : BaseCrisisParticle
 {
 	scale 0.3666666666666667
@@ -1537,6 +1546,8 @@ ACTOR BingoNew : AetheriusMonsterZSC replaces Bingo 4110
 	//$Angled
 	//$Color 12
 	//$Category "Happy Time Circus/Monsters"
+	Tag "Bingo"
+
 	Health 400 
 	Speed 5 
 	Radius 18
@@ -1799,6 +1810,8 @@ ACTOR TinyBingoNew : AetheriusMonsterZSC replaces TinyBingo 4179
 	//$Angled
 	//$Color 12
 	//$Category "Happy Time Circus/Monsters"
+	Tag "Tiny Bingo"
+
 	Health 35 
 	Speed 6 
 	Radius 9
@@ -2169,6 +2182,8 @@ actor BeefyNew : AetheriusMonsterZSC replaces Beefy 4333
 	//$Angled
 	//$Color 12
 	//$Category "Happy Time Circus/Monsters"
+	Tag "Beefy The Clown"
+	
 	Health 120
 	Radius 20
 	Height 56
@@ -2430,6 +2445,8 @@ ACTOR BlackBearNew : AetheriusMonsterZSC replaces BlackBear 3191
 	//$Angled
 	//$Color 12
 	//$Category "Happy Time Circus/Monsters"
+	Tag "Tiny Black Bear"
+
 	Health 16
 	Radius 8
 	Height 20
@@ -2568,6 +2585,8 @@ actor ClownGhostNew : AetheriusMonsterZSC replaces ClownGhost 32128
 	//$Angled
 	//$Color 12
 	//$Category "Happy Time Circus/Monsters"
+	Tag "Clown Ghost Balloon"
+
 	Health 300 
 	Speed 5 
 	Radius 16
@@ -2824,6 +2843,8 @@ actor ClownGhost2New : AetheriusMonsterZSC replaces ClownGhost2 31211
 	//$Angled
 	//$Color 12
 	//$Category "Happy Time Circus/Monsters"
+	Tag "Ghost Clown Face"
+
 	Health 150
 	Speed 6 
 	Radius 16
@@ -3232,6 +3253,8 @@ actor BulbyNew : AetheriusMonsterZSC replaces Bulby 3906
 	//$Angled
 	//$Color 12
 	//$Category "Happy Time Circus/Monsters"
+	Tag "Bulby"
+
 	Health 200 
 	Speed 5 
 	Radius 16
@@ -3422,6 +3445,8 @@ actor MegaBulbyNew : AetheriusMonsterZSC replaces MegaBulby 3989
 	//$Angled
 	//$Color 12
 	//$Category "Happy Time Circus/Monsters"
+	Tag "Mega Bulby"
+
 	Health 400 
 	Speed 6 
 	Radius 32
@@ -3681,6 +3706,8 @@ ACTOR BigBertha2New : AetheriusMonsterZSC replaces BigBertha2 3192
 	//$Angled
 	//$Color 12
 	//$Category "Happy Time Circus/Monsters"
+	Tag "Big Bertha"
+
 	Health 675 
 	Speed 6 
 	Radius 24
@@ -3933,7 +3960,6 @@ ACTOR SoulAttack : AetheriusProjectileZSC
 			Stop
 	}
 } 
-
 actor SoulAttackCrisisParticle : BaseCrisisParticle
 {
 	scale 0.40
@@ -3998,6 +4024,8 @@ actor SuperBerthaNew : AetheriusMonsterZSC replaces SuperBertha 14768
 	//$Angled
 	//$Color 12
 	//$Category "Happy Time Circus/Monsters"
+	Tag "\cfSUPER Big Bertha\c-"
+	
 	Health 6000 
 	Speed 7 
 	Radius 50
@@ -4233,6 +4261,8 @@ ACTOR EvilDeadHandNew : AetheriusMonsterZSC replaces EvilDeadHand 32212
 	//$Angled
 	//$Color 12
 	//$Category "Happy Time Circus/Monsters"
+	Tag "Evil Dead Hand"
+
 	Health 20
 	Radius 8
 	Height 16
@@ -4347,6 +4377,7 @@ ACTOR BouncingClownNew : AetheriusMonsterZSC replaces BouncingClown 4822
 	//$Angled
 	//$Color 12
 	//$Category "Happy Time Circus/Monsters"
+	Tag "Giant Bouncing Clown"
 
 	Health 6000
 	Radius 24
@@ -4545,6 +4576,8 @@ ACTOR BabyClownNew : AetheriusMonsterZSC replaces BabyClown 4823
 	//$Angled
 	//$Color 12
 	//$Category "Happy Time Circus/Monsters"
+	Tag "Baby Bouncing Clown"
+
 	Health 88
 	Radius 8
 	Height 32
@@ -4676,6 +4709,8 @@ ACTOR BabyClown2New : AetheriusMonsterZSC replaces BabyClown2 4825
 	//$Angled
 	//$Color 12
 	//$Category "Happy Time Circus/Monsters"
+	Tag "Baby Bouncing Clown"
+
 	Health 75
 	Radius 8
 	Height 32
@@ -4818,6 +4853,8 @@ actor PennywiseHead2New : AetheriusMonsterZSC replaces PennywiseHead 14421
 	//$Angled
 	//$Color 12
 	//$Category "Happy Time Circus/Monsters"
+	Tag "Flying Pennywise Head"
+
 	Health 450
 	Speed 11 
 	Radius 16
@@ -5206,7 +5243,6 @@ actor Deadlight : AetheriusEffectProjectile
 			Stop
 	}
 }
-
 actor DeadlightCrisisParticle : BaseCrisisParticle
 {
 	scale 0.6667
@@ -5408,6 +5444,8 @@ actor PennywiseBoss : AetheriusMonsterZSC replaces Pennywise 3672
 	//$Angled
 	//$Color 12
 	//$Category "Happy Time Circus/Bosses"
+	Tag "\cfPennywise The Dancing Clown\c-"
+
 	Health 45000
 	Radius 40
 	Height 112
@@ -5790,6 +5828,7 @@ actor PennywiseBoss : AetheriusMonsterZSC replaces Pennywise 3672
 // Weapons
 ACTOR PopcornGunNew : Circus2Weapon replaces PopcornGun 30204
 {
+	Tag "Popcorn Gun"
 	Weapon.SelectionOrder 100
 	Inventory.PickupSound "misc/w_pkup" 
 	Weapon.AmmoType "PopcornPiece" 
@@ -5911,6 +5950,7 @@ ACTOR PopcornGunNew : Circus2Weapon replaces PopcornGun 30204
 
 ACTOR GoreBalloonNew : Circus2Weapon replaces GoreBalloon 30030
 {
+	Tag "Explosive Gore Balloon"
 	Weapon.SelectionOrder 1500
 	Inventory.PickupSound "misc/w_pkup" 
 	Weapon.AmmoType "GoreBalloons" 
@@ -6052,6 +6092,7 @@ actor GoreBalloon666NoHurt : AetheriusProjectileZSC
 
 ACTOR ClownGrenadeNew : Circus2Weapon replaces ClownGrenade 30029
 {
+	Tag "Clownish Grenade"
 	Weapon.SelectionOrder 1400
 	Inventory.PickupSound "misc/w_pkup" 
 	Weapon.AmmoType "CGrenadeAmmo" 
@@ -6174,6 +6215,7 @@ Actor GrenadeSpark2NoHurt
 
 ACTOR GutFlingerNew : Circus2Weapon replaces GutFlinger 30028
 {
+	Tag "The Gutflinger"
 	Weapon.SelectionOrder 1150
 	Inventory.PickupSound "misc/w_pkup" 
 	Weapon.AmmoType "ClownSouls" 
@@ -6263,6 +6305,7 @@ actor FlyingGutNoHurt : AetheriusProjectileZSC
 
 ACTOR GasRocketLauncherNew : Circus2Weapon replaces GasRocketLauncher 30203
 {
+	Tag "ClownGas Rocket Launcher"
 	Weapon.SelectionOrder 1050
 	Inventory.PickupSound "misc/w_pkup" 
 	Weapon.AmmoType "ClownSouls" 
@@ -6360,6 +6403,7 @@ actor RevRocket2NoHurt : AetheriusProjectileZSC
 
 ACTOR CrazyBall2New : Circus2Weapon replaces CrazyBall2 30205
 {
+	Tag "The Crazy Ball"
 	Weapon.SelectionOrder 3000
 	Inventory.PickupSound "misc/w_pkup" 
 	Weapon.AmmoType "CzBall" 
