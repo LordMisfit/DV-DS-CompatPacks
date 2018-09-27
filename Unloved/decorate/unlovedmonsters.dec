@@ -2484,8 +2484,8 @@ ACTOR UnlovedDiscipleNew : AetheriusMonsterZSC replaces Disciple 30117
 
 actor ApprenticeSheenMode : PowerProtection
 {
-	damagefactor "normal", 0.125
-	radiusdamagefactor 0.125
+	damagefactor "normal", 0.25
+	radiusdamagefactor 0.25
 	inventory.icon ""
 	Powerup.Duration 2147483646
 }
