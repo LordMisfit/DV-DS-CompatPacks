@@ -1848,7 +1848,7 @@ actor Balloon_Black 4175
   //$Category "Happy Time Circus/Balloons"
 	Radius 12
 	Height 40
-	HEALTH 2
+	HEALTH 1
 	Mass 25
 	+SHOOTABLE +NOGRAVITY +HEXENBOUNCE +PUSHABLE +FloatBob 
 	+NOLIFTDROP +DONTOVERLAP +CANNOTPUSH +NOBLOCKMONST    
@@ -2105,7 +2105,7 @@ actor Balloon_Rotten 4787
   //$Category "Happy Time Circus/Balloons"
 	Radius 12
 	Height 40
-	HEALTH 2
+	HEALTH 1
 	Mass 25
 	+SHOOTABLE +NOGRAVITY +HEXENBOUNCE +PUSHABLE +FloatBob +SpawnFLOAT 
 	+NOLIFTDROP +NOBLOOD +DONTOVERLAP +CANNOTPUSH +NOBLOCKMONST 
