@@ -402,10 +402,17 @@ actor SourceLifeSeed : AetheriusCustomInventory 16998
 			REGN ABCD 4
 			loop
 		Success:
-			TNT1 A 0 A_PickupMedicalItem(-1,1)
+			TNT1 A 0 
+			{
+				A_PickupMedicalItem(-1,1);
+			}
 			Stop
 		Pickup:
-			TNT1 A 0 { if (CallACS("CheckHealthLevels",1) > 0) { return state("Success"); } return state(""); }
+			TNT1 A 0 
+			{
+				A_CheckHealthLevels(1);
+				if (CountInv("HealthPickupResult") > 0) { return state("Success"); } return state(""); 
+			}
 			Fail
 	}
 }
