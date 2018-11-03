@@ -366,7 +366,7 @@ ACTOR PennywiseHeadNew : AetheriusMonsterZSC replaces Pennywise 32119
 			PENY AB 1 A_FloatLook(4)
 			goto Spawn+1
 		See:
-			PENY A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
+			PENY A 0 A_RefreshStealthInfo(0)
 			PENY AB 1
 			{
 				A_FloatChaseCheck(1,2,3,4,0.25,0.25);
@@ -374,7 +374,7 @@ ACTOR PennywiseHeadNew : AetheriusMonsterZSC replaces Pennywise 32119
 			}
 			Loop
 		Melee:
-			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+			TNT1 A 0 A_RefreshStealthInfo(1) // makes a Stealth Monster become more visible
 			PENY E 1 
 			{
 				A_MonsterCrisisCheck;
@@ -471,7 +471,7 @@ ACTOR JumpingSkullNew : AetheriusMonsterZSC replaces JumpingSkull 3117
 			JUMP A 4 A_Look
 			goto Spawn+1
 		See:
-			JUMP A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
+			JUMP A 0 A_RefreshStealthInfo(0)
 			JUMP ABCB 2
 			{
 				if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(1); }
@@ -479,7 +479,7 @@ ACTOR JumpingSkullNew : AetheriusMonsterZSC replaces JumpingSkull 3117
 			}
 			Loop
 		Melee:
-			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+			TNT1 A 0 A_RefreshStealthInfo(1) // makes a Stealth Monster become more visible
 			JUMP AB 3
 			{
 				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
@@ -578,7 +578,7 @@ ACTOR PossessedBalloonNew : AetheriusMonsterZSC replaces PossessedBalloon 3115
 			BSTN A 2 A_FloatLook(16)
 			goto Spawn+1
 		See:
-			BSTN A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
+			BSTN A 0 A_RefreshStealthInfo(0)
 			BSTN A 2
 			{
 				A_FloatChaseCheck(4,8,12,16,0.67,0.67);
@@ -587,7 +587,7 @@ ACTOR PossessedBalloonNew : AetheriusMonsterZSC replaces PossessedBalloon 3115
 			}
 			Loop
 		Melee:
-			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+			TNT1 A 0 A_RefreshStealthInfo(1) // makes a Stealth Monster become more visible
 			BSTN BC 4
 			{
 				if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(2); }
@@ -717,7 +717,7 @@ ACTOR BigBerthaNew : AetheriusMonsterZSC replaces BigBertha 3225
 			BSTN B 2 A_Look
 			goto Spawn+1
 		See:
-			BSTN A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
+			BSTN A 0 A_RefreshStealthInfo(0)
 			BSTN BC 8
 			{
 				if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(1); }
@@ -725,7 +725,7 @@ ACTOR BigBerthaNew : AetheriusMonsterZSC replaces BigBertha 3225
 			}
 			Loop
 		Melee:
-			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+			TNT1 A 0 A_RefreshStealthInfo(1) // makes a Stealth Monster become more visible
 			BSTN BC 4
 			{
 				if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(2); }
@@ -749,7 +749,7 @@ ACTOR BigBerthaNew : AetheriusMonsterZSC replaces BigBertha 3225
 			}
 			Goto See
 		Missile: 
-			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+			TNT1 A 0 A_RefreshStealthInfo(1) // makes a Stealth Monster become more visible
 			BSTN BC 4 Bright 
 			{
 				if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(2); }
@@ -1102,7 +1102,7 @@ ACTOR ClownHeadNew : AetheriusMonsterZSC replaces ClownHead 3206
 			CHED A 10 A_FloatLook(8) 
 			goto Spawn+1
 		See: 
-			CHED A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,0)
+			CHED A 0 A_RefreshStealthInfo(0)
 			CHED A 0 A_PlaySound("DRONE")
 			CHED AAAAAAAA 2
 			{
@@ -1119,7 +1119,7 @@ ACTOR ClownHeadNew : AetheriusMonsterZSC replaces ClownHead 3206
 			}
 			Goto See
 		Missile:   
-			TNT1 A 0 ACS_NamedExecuteAlways("RefreshStealthInfo",0,1) // makes a Stealth Monster become more visible
+			TNT1 A 0 A_RefreshStealthInfo(1) // makes a Stealth Monster become more visible
 			CHED A 0 A_Jump(104,8)
 			CHED A 0 A_Jump(136,2) 
 			CHED A 0 A_Jump(88,10)
