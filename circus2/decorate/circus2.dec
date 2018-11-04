@@ -5556,8 +5556,8 @@ actor PennywiseBoss : AetheriusMonsterZSC replaces Pennywise 3672
 				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
 				if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(2); }
 				A_Chase;
-				A_GiveInventory("PennywiseShield",1);
-				A_TakeInventory("PennywiseNotShield",1);
+				A_SetInventory("PennywiseShield",1);
+				A_SetInventory("PennywiseNotShield",0);
 			}
 			loop
 		Melee:
@@ -5565,12 +5565,12 @@ actor PennywiseBoss : AetheriusMonsterZSC replaces Pennywise 3672
 			PENY E 0 
 			PENY E 1  
 			{
-				A_TakeInventory("PennywiseShield",0x7FFFFFFF);
+				A_SetInventory("PennywiseShield",0);
 				A_FaceTarget;
 			}
 			PENY E 1
 			{
-				A_TakeInventory("PennywiseShield",0x7FFFFFFF);
+				A_SetInventory("PennywiseShield",0);
 				A_FaceTarget;
 				A_MonsterCrisisCheck;
 				A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 80, random(-4, 4), random(-45, 45), 2, random(-20, 20));
@@ -5580,7 +5580,7 @@ actor PennywiseBoss : AetheriusMonsterZSC replaces Pennywise 3672
 			}
 			PENY E 1 
 			{
-				A_TakeInventory("PennywiseShield",0x7FFFFFFF);
+				A_SetInventory("PennywiseShield",0);
 				A_FaceTarget;
 				A_MonsterCrisisCheck;
 				A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 32, random(-4, 4), random(-45, 45), 2, random(-20, 20));
@@ -5592,7 +5592,7 @@ actor PennywiseBoss : AetheriusMonsterZSC replaces Pennywise 3672
 		Missile:
 			TNT1 A 0 A_RefreshStealthInfo(1) // makes a Stealth Monster become more visible
 			PENY A 0 A_ClearShadow 
-			PENY E 0 A_TakeInventory("PennywiseShield",0x7FFFFFFF)
+			PENY E 0 A_SetInventory("PennywiseShield",0)
 			PENY A 0 A_Jump (32,"Missile2")
 			PENY E 9
 			{
@@ -5647,16 +5647,16 @@ actor PennywiseBoss : AetheriusMonsterZSC replaces Pennywise 3672
 			}
 			Goto See2     
 		Pain:
-			PENY F 0 A_GiveInventory("PennywiseShield",1)
+			PENY F 0 A_SetInventory("PennywiseShield",1)
 			PENY F 8 A_DVDSPain
 			Goto PainRetaliate    
 		Pain.Fist:
-			PENY F 0 A_GiveInventory("PennywiseShield",1)
+			PENY F 0 A_SetInventory("PennywiseShield",1)
 			PENY F 8 A_DVDSPain
 			PENY FF 8
 			Goto PainRetaliate    
 		Pain.Kick:
-			PENY F 0 A_GiveInventory("PennywiseShield",1)
+			PENY F 0 A_SetInventory("PennywiseShield",1)
 			PENY F 8 A_DVDSPain
 			PENY FFFF 8
 			Goto PainRetaliate    
@@ -5664,8 +5664,8 @@ actor PennywiseBoss : AetheriusMonsterZSC replaces Pennywise 3672
 			PENY F 0 
 			{
 				if (random(1,4) == 1) { return state("See2"); }
-				A_TakeInventory("PennywiseShield",0x7FFFFFFF);
-				A_GiveInventory("PennywiseNotShield",1);
+				A_SetInventory("PennywiseShield",0);
+				A_SetInventory("PennywiseNotShield",1);
 				A_ChangeFlag("NOPAIN",1);
 				return state("");
 			}
@@ -5676,8 +5676,8 @@ actor PennywiseBoss : AetheriusMonsterZSC replaces Pennywise 3672
 			}
 			PENY F 0 
 			{
-				A_GiveInventory("PennywiseShield",1);
-				A_TakeInventory("PennywiseNotShield",1);
+				A_SetInventory("PennywiseShield",1);
+				A_SetInventory("PennywiseNotShield",0);
 				A_ChangeFlag("NOPAIN",0);
 			}
 			goto See2   

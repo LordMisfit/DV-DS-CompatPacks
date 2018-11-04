@@ -919,7 +919,7 @@ ACTOR TNTSpider : MaulotaurBase 10906
 			MNTR A 0 A_RefreshStealthInfo(0)
 			MNTR ABCD 5
 			{
-				A_TakeInventory("MaulotaurChargeDefense",0x7FFFFFFF);
+				A_SetInventory("MaulotaurChargeDefense",0);
 				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
 				if (levelbehavior > 0 && user_monsterlevel > 45) { A_SetTics(4); }
 				if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
@@ -930,7 +930,7 @@ ACTOR TNTSpider : MaulotaurBase 10906
 			MNTR A 0 A_RefreshStealthInfo(0)
 			MNTR ABCD 5 
 			{
-				A_TakeInventory("MaulotaurChargeDefense",0x7FFFFFFF);
+				A_SetInventory("MaulotaurChargeDefense",0);
 				if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); }
 				if (levelbehavior > 0 && user_monsterlevel > 45) { A_SetTics(4); }
 				if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
@@ -940,7 +940,7 @@ ACTOR TNTSpider : MaulotaurBase 10906
 		Melee:
 			TNT1 A 0 
 			{
-				A_TakeInventory("MaulotaurChargeDefense",0x7FFFFFFF);
+				A_SetInventory("MaulotaurChargeDefense",0);
 				A_RefreshStealthInfo(1); // makes a Stealth Monster become more visible
 			}
 			MNTR V 10 
@@ -973,7 +973,7 @@ ACTOR TNTSpider : MaulotaurBase 10906
 		Missile:
 			TNT1 A 0 
 			{
-				A_TakeInventory("MaulotaurChargeDefense",0x7FFFFFFF);
+				A_SetInventory("MaulotaurChargeDefense",0);
 				A_RefreshStealthInfo(1); // makes a Stealth Monster become more visible
 			}
 			MNTR V 10
@@ -1001,7 +1001,7 @@ ACTOR TNTSpider : MaulotaurBase 10906
 		Hammer:
 			TNT1 A 0 
 			{
-				A_TakeInventory("MaulotaurChargeDefense",0x7FFFFFFF);
+				A_SetInventory("MaulotaurChargeDefense",0);
 				A_RefreshStealthInfo(1); // makes a Stealth Monster become more visible
 			}
 			MNTR V 10 
@@ -1031,7 +1031,7 @@ ACTOR TNTSpider : MaulotaurBase 10906
 		HammerLoop:
 			TNT1 A 0 
 			{
-				A_TakeInventory("MaulotaurChargeDefense",0x7FFFFFFF);
+				A_SetInventory("MaulotaurChargeDefense",0);
 				A_RefreshStealthInfo(1); // makes a Stealth Monster become more visible
 			}
 			MNTR X 12
