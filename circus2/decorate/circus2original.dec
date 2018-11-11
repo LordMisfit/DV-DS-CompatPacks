@@ -2193,147 +2193,197 @@ ACTOR PossessedBalloon //3115
 	}
 }
 //================Plants/Trees===============================================
-FruitTree1
+actor FruitTree1 20005
 {
-	DoomEdNum 20005 
-	Sprite GREN
-	Frames "10:A"
-	Solid
+	+SOLID
 	Radius 32
 	Height 128
+	states
+	{
+		Spawn:
+			GREN A -1
+			stop
+	}
 }
-FruitTree2
+actor FruitTree2 20006
 {
-	DoomEdNum 20006 
-	Sprite GREN
-	Frames "10:B"
-	Solid
+	+SOLID
 	Radius 32
 	Height 128
+	states
+	{
+		Spawn:
+			GREN B -1
+			stop
+	}
 }
-FruitTree3
+actor FruitTree3 20007
 {
-	DoomEdNum 20007 
-	Sprite GREN
-	Frames "10:C"
-	Solid
+	+SOLID
 	Radius 32
 	Height 128
+	states
+	{
+		Spawn:
+			GREN C -1
+			stop
+	}
 }
-Blossom1
+actor Blossom1 20008
 {
-	DoomEdNum 20008 
-	Sprite BLSM
-	Frames "10:A"
-	Solid
+	+SOLID
 	Radius 32
 	Height 110
+	states
+	{
+		Spawn:
+			BLSM A -1
+			stop
+	}
 }
-Blossom2
+actor Blossom2 20009
 {
-	DoomEdNum 20009 
-	Sprite BLSM
-	Frames "10:B"
-	Solid
+	+SOLID
 	Radius 32
 	Height 110
+	states
+	{
+		Spawn:
+			BLSM B -1
+			stop
+	}
 }
-Blossom3
-{      
-	DoomEdNum 20010
-	Sprite BLSM
-	Frames "10:C"
-	Solid
+actor Blossom3 20010
+{
+	+SOLID
 	Radius 24
 	Height 112
+	states
+	{
+		Spawn:
+			BLSM C -1
+			stop
+	}
 }
-Poplar
+actor Poplar 20011
 {
-	DoomEdNum 20011
-	Sprite POPL
-	Frames "10:A"
-	Solid
+	+SOLID
 	Radius 32
 	Height 112
+	states
+	{
+		Spawn:
+			POPL A -1
+			stop
+	}
 }
-GreenTree
+actor GreenTree 20012
 {
-	DoomEdNum 20012
-	Sprite GRNN
-	Frames "10:A"
-	Solid
+	+SOLID
 	Radius 28
 	Height 112
+	states
+	{
+		Spawn:
+			GRNN A -1
+			stop
+	}
 }
-Dead_Tree1
+actor Dead_Tree1 4116
 {
-	DoomEdNum 4116
-	Sprite DED1
-	Frames "10:A"
-	Solid
+	+SOLID
 	Radius 24
 	Height 112
+	states
+	{
+		Spawn:
+			DED1 A -1
+			stop
+	}
 }
-Dead_Tree2 
+actor Dead_Tree2 4117
 {
-	DoomEdNum 4117
-	Sprite DED2
-	Frames "10:A"
-	Solid
+	+SOLID
 	Radius 24
 	Height 112
+	states
+	{
+		Spawn:
+			DED2 A -1
+			stop
+	}
 }
-Dead_Tree3 
+actor Dead_Tree3 4118
 {
-	DoomEdNum 4118
-	Sprite DED3
-	Frames "10:A"
-	Solid
+	+SOLID
 	Radius 24
 	Height 112
+	states
+	{
+		Spawn:
+			DED3 A -1
+			stop
+	}
 }
-CandyTree1
+actor CandyTree1 20002
 {
-	DoomEdNum 20002 
-	Sprite CTRE
-	Frames "10:A"
-	Solid
+	+SOLID
 	Radius 24
 	Height 80
+	states
+	{
+		Spawn:
+			CTRE A -1
+			stop
+	}
 }
-CandyTree2
+actor CandyTree2 20003
 {
-	DoomEdNum 20003 
-	Sprite CTRE
-	Frames "10:B"
-	Solid
+	+SOLID
 	Radius 24
 	Height 80
+	states
+	{
+		Spawn:
+			CTRE B -1
+			stop
+	}
 }
-TwistStump1
+actor TwistStump1 20004
 {
-	DoomEdNum 20004 
-	Sprite PTRE
-	Frames "10:A"
-	Solid
+	+SOLID
 	Radius 24
 	Height 112
+	states
+	{
+		Spawn:
+			PTRE A -1
+			stop
+	}
 }
-GardenStalk1 
+actor GardenStalk1 4177
 {
-	DoomEdNum 4177
-	Sprite GARD
-	Frames "10:A"
+	+SOLID
 	Radius 4
 	Height 64
+	states
+	{
+		Spawn:
+			GARD A -1
+			stop
+	}
 }
-GardenStalk2 
+actor GardenStalk2 4178
 {
-	DoomEdNum 4178
-	Sprite GARD
-	Frames "10:B"
+	+SOLID
 	Radius 4
 	Height 64
+	states
+	{
+		Spawn:
+			GARD B -1
+			stop
+	}
 }
 //=============================MISC=============================================
 actor Web2 20013
@@ -2369,75 +2419,96 @@ actor Web3 20001
 	}
 }
 
-OldDesklamp
+actor OldDesklamp 4111
 {
-	DoomEdNum 4111
-	Sprite OLD6
-	Frames "10:A"
-	Solid
-	Scale .8
+	+SOLID
+	Scale 0.8
 	Radius 12
 	Height 40
+	states
+	{
+		Spawn:
+			OLD6 A -1
+			stop
+	}
 }
-Lamp2
+actor Lamp2 3899
 {
-	DoomEdNum 3899
-	Sprite LMMP
-	Frames "10:A"
-	Solid
-	scale .8
+	+SOLID
+	Scale 0.8
 	Radius 12
 	Height 40
+	states
+	{
+		Spawn:
+			LMMP A -1
+			stop
+	}
 }
-Lamp3
+actor Lamp3 3900
 {
-	DoomEdNum 3900
-	Sprite LMMP
-	Frames "10:B"
-	Solid
-	scale .8
+	+SOLID
+	Scale 0.8
 	Radius 12
 	Height 40
+	states
+	{
+		Spawn:
+			LMMP B -1
+			stop
+	}
 }
-
-Lamp4
+actor Lamp4 3901
 {
-	DoomEdNum 3901
-	Sprite LMMP
-	Frames "10:C"
-	Solid
-	scale .8
+	+SOLID
+	Scale 0.8
 	Radius 12
 	Height 40
+	states
+	{
+		Spawn:
+			LMMP C -1
+			stop
+	}
 }
-FloorLamp
+actor FloorLamp 3681
 {
-	DoomEdNum 3681
-	Sprite FRLP
-	Frames "10:A"
-	Solid
-	scale .8
+	+SOLID
+	Scale 0.8
 	Radius 12
 	Height 40
+	states
+	{
+		Spawn:
+			FRLP A -1
+			stop
+	}
 }
-FloorLamp2
+actor FloorLamp2 3682
 {
-	DoomEdNum 3682
-	Sprite FRLP
-	Frames "10:B"
-	Solid
-	scale .8
+	+SOLID
+	Scale 0.8
 	Radius 12
 	Height 40
+	states
+	{
+		Spawn:
+			FRLP B -1
+			stop
+	}
 }
-LampShade
+actor LampShade 3683
 {
-	DoomEdNum 3683
-	Sprite FRLP
-	Frames "10:C"
-	scale .8
+	+SOLID
+	Scale 0.8
 	Radius 12
 	Height 16
+	states
+	{
+		Spawn:
+			FRLP C -1
+			stop
+	}
 }
 actor Transformer 4114
 {
@@ -2863,32 +2934,45 @@ actor StandingBottle3 4109
 			Stop
 	}
 }
-ClownFigure1
+actor ClownFigure1 3198
 {
-	DoomEdNum 3198
-	Sprite FIGR
-	Frames "100:A, 4:EFG"
-	Scale .3
+	+NOINTERACTION
+	Scale 0.3
 	Radius 4
 	Height 8
+	states
+	{
+		Spawn:
+			FIGR A 100
+			FIGR EFG 4
+			loop
+	}
 }
-ClownFigure2
+actor ClownFigure2 3199
 {
-	DoomEdNum 3199
-	Sprite FIGR
-	Frames "10:B"
-	Scale .3
+	+NOINTERACTION
+	Scale 0.3
 	Radius 4
 	Height 8
+	states
+	{
+		Spawn:
+			FIGR B -1
+			stop
+	}
 }
-ClownFigure3
-{      
-	DoomEdNum 3200
-	Sprite FIGR
-	Frames "10:C"
-	Scale .3
+actor ClownFigure3 3200
+{
+	+NOINTERACTION
+	Scale 0.3
 	Radius 4
 	Height 8
+	states
+	{
+		Spawn:
+			FIGR C -1
+			stop
+	}
 }
 
 
@@ -2921,15 +3005,18 @@ actor PennywiseToy1 4106
 	}
 }
 
-Trikey
+actor Trikey 4107
 {
-	DoomEdNum 4107
-	Sprite TRIC
-	Frames "10:A"
-	Scale .6
-	Solid
+	Scale 0.6
+	+SOLID
 	Radius 25
 	Height 32
+	states
+	{
+		Spawn:
+			TRIC A -1
+			stop
+	}
 }
 //=========================================STEAM========================================
 actor SteamVent1 4112
@@ -3114,23 +3201,29 @@ actor big5 : big1
 			Stop
 	}
 }
-Newspaper1
-{      
-	DoomEdNum 4200
-	Sprite NEWS
-	Scale .5
-	Frames "10:A"
+actor Newspaper1 4200
+{
+	Scale 0.5
 	Radius 8
 	Height 8
+	States
+	{
+		Spawn:
+			NEWS A -1
+			Stop
+	}
 }
-Newspaper2
-{      
-	DoomEdNum 4201
-	Sprite NEWS
-	Scale .5
-	Frames "10:B"
+actor Newspaper2 4201
+{
+	Scale 0.5
 	Radius 8
 	Height 8
+	States
+	{
+		Spawn:
+			NEWS B -1
+			Stop
+	}
 }
 //==============================================================================
 actor BSplatter
@@ -3321,35 +3414,44 @@ actor Vortex 3897
 			Stop 
 	}
 }
-Chair1
-{      
-	DoomEdNum 3898
-	Sprite CHAR
-	Frames "10:A"
-	Solid
-	scale .5 
+actor Chair1 3898
+{
+	+SOLID
+	scale 0.5 
 	Radius 16
 	Height 32
+	states
+	{
+		Spawn:
+			CHAR A -1
+			stop
+	}
 }
-Chair2
-{      
-	DoomEdNum 3833
-	Sprite CHAR
-	Frames "10:B"
-	Solid
-	scale .5 
+actor Chair2 3833
+{
+	+SOLID
+	scale 0.5 
 	Radius 16
 	Height 32
+	states
+	{
+		Spawn:
+			CHAR B -1
+			stop
+	}
 }
-Table_Round
-{      
-	DoomEdNum 3680
-	Sprite TABL
-	Frames "10:A"
-	Solid
-	scale .75 
+actor Table_Round 3680
+{
+	+SOLID
+	scale 0.75 
 	Radius 16
 	Height 32
+	states
+	{
+		Spawn:
+			TABL A -1
+			stop
+	}
 }
 actor TeleSprite 1367
 {        
@@ -3995,32 +4097,43 @@ actor TapeRecorder 29201
 			Stop
 	}
 }
-GoreSkull
-{      
-	DoomEdNum 29202
-	Sprite GBNN
-	Frames "10:A"
-	scale .5 
+actor GoreSkull 29202
+{
+	+NOINTERACTION
+	scale 0.5 
 	Radius 16
 	Height 32
+	states
+	{
+		Spawn:
+			GBNN A -1
+			stop
+	}
 }
-GoreBone
-{      
-	DoomEdNum 29203
-	Sprite GBNN
-	Frames "10:B"
-	scale .5
+actor GoreBone 29203
+{
+	+NOINTERACTION
+	scale 0.5 
 	Radius 16
 	Height 32
+	states
+	{
+		Spawn:
+			GBNN B -1
+			stop
+	}
 }
-ClownCandle
-{      
-	DoomEdNum 29204
-	Sprite PCAN
-	Frames "6:A*B*C*"
-	scale .5
+actor ClownCandle 29204
+{
+	scale 0.5
 	Radius 8
 	Height 16
+	states
+	{
+		Spawn:
+			PCAN ABC 6
+			loop
+	}
 }
 actor CottonCandy1 29205
 {
