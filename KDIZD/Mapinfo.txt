@@ -1,5 +1,5 @@
 clearepisodes
-episode E1M0
+episode Z1M0
 name "Knee-Deep in ZDoom"
 
 clusterdef 1
@@ -12,7 +12,7 @@ evenlighting
 forcefallingdamage
 next INTER
 
-map E1M0 "Skip Map"
+map Z1M0 "Skip Map"
 levelnum 1000
 next "Z1M1"
 cluster 32
