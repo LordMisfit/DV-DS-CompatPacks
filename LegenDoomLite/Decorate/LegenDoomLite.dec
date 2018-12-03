@@ -135,39 +135,48 @@ ACTOR LDLegendaryMonsterPickupEasy : LDCustomFunction
 	States
 	{
 		Pickup:
-			TNT1 A 0 A_JumpIf ((CallACS("LD_nomonsters", 0) == 1), "GoddamnIneedMoreJumps")
-			TNT1 A 0 A_JumpIf ((CallACS("LD_nobosses", 0) == 2), "BOSSCheckeroonie")
-			TNT1 A 0 A_JumpIf ((CallACS("LD_diemode", 0) == 1), "LEGENDARIFYSuccess")
+			TNT1 A 0 A_JumpIf ((GetCVar("LD_nomonsters") == 1), "NoLegendary")
+			TNT1 A 0 A_JumpIf ((GetCVar("LD_nobosses") == 2), "BOSSCheckeroonie")
+			TNT1 A 0 A_JumpIf ((GetCVar("LD_diemode") == 1), "LEGENDARIFYSuccess")
 			TNT1 A 0 A_Jump (256, "DifficultyChance")
 			Goto DifficultyChance
+
 		DifficultyChance:
-			TNT1 A 0 A_Jump ((CallACS("PlayerCount", 0)*4) + (CallACS("LD_legendarychance", 0)*5), "LEGENDARIFY")
+			TNT1 A 0 A_Jump (random(2,4) + (CallACS("PlayerCount", 0) * 4) + (CallACS("LD_legendarychance", 0) * 3), "LEGENDARIFY")
 			Stop
+
 		LEGENDARIFY:
-			TNT1 A 0 A_CheckFlag ("SPECIAL", "GoddamnIneedMoreJumps")
+			TNT1 A 0 A_CheckFlag ("SPECIAL", "NoLegendary")
 			TNT1 A 0 A_CheckFlag ("BOSS", "BOSSTIEM")
-			TNT1 A 0 A_Jump (240, "GoddamnIneedMoreJumps")
+			TNT1 A 0 A_Jump (160, "NoLegendary") // 240
 			Goto LEGENDARIFYSuccess
 		LEGENDARIFYSuccess:
-			TNT1 A 0 A_JumpIf(CallACS("LD_legendarymarkers") == 0, 2)
-			TNT1 A 0 A_SpawnItemEx ("LDLegendaryMonsterMarker", 0,0,0, 0,0,0, 0, SXF_NOCHECKPOSITION)
-			TNT1 A 0 ACS_NamedExecuteAlways("LDMonsterInit", 0)
+			TNT1 A 0
+			{
+				if (GetCVar("LD_legendarymarkers") > 0) { A_SpawnItemEx ("LDLegendaryMonsterMarker", 0,0,0, 0,0,0, 0, SXF_NOCHECKPOSITION); }
+				ACS_NamedExecuteAlways("LDMonsterInit", 0);
+			}
 			Stop
-		GoddamnIneedMoreJumps:
+		
+		NoLegendary:
 			TNT1 A 0
 			Stop
+		
 		BOSSCheckeroonie:
 			TNT1 A 0 A_CheckFlag ("BOSS", "BOSSACTIVAAAATE")
 			TNT1 A 0 A_Jump (256, "DifficultyChance")
 			Goto DifficultyChance
+		
 		BOSSTIEM:
-			TNT1 A 0 A_JumpIf ((CallACS("LD_nobosses", 0) == 1), "GoddamnIneedMoreJumps")
-			TNT1 A 0 A_Jump (180, "GoddamnIneedMoreJumps")
+			TNT1 A 0 A_JumpIf ((GetCVar("LD_nobosses") == 1), "NoLegendary")
+			TNT1 A 0 A_Jump (118, "NoLegendary") // 176
 			Goto BOSSACTIVAAAATE
 		BOSSACTIVAAAATE:
-			TNT1 A 0 A_JumpIf(CallACS("LD_legendarymarkers") == 0, 2)
-			TNT1 A 0 A_SpawnItemEx ("LDLegendaryMonsterBossMarker", 0,0,0, 0,0,0, 0, SXF_NOCHECKPOSITION)
-			TNT1 A 0 ACS_NamedExecuteAlways("LDMonsterInit", 0)
+			TNT1 A 0
+			{
+				if (GetCVar("LD_legendarymarkers") > 0) { A_SpawnItemEx ("LDLegendaryMonsterBossMarker", 0,0,0, 0,0,0, 0, SXF_NOCHECKPOSITION); }
+				ACS_NamedExecuteAlways("LDMonsterInit", 0);
+			}
 			Stop
 	}
 }
@@ -177,7 +186,7 @@ ACTOR LDLegendaryMonsterPickupNormal : LDLegendaryMonsterPickupEasy
 	States
 	{
 		DifficultyChance:
-			TNT1 A 0 A_Jump ((CallACS("PlayerCount", 0)*6) + (CallACS("LD_legendarychance", 0)*5), "LEGENDARIFY")
+			TNT1 A 0 A_Jump (random(3,6) + (CallACS("PlayerCount", 0) * 6) + (CallACS("LD_legendarychance", 0) * 4), "LEGENDARIFY")
 			Stop
 	}
 }
@@ -187,7 +196,7 @@ ACTOR LDLegendaryMonsterPickupHard : LDLegendaryMonsterPickupEasy
 	States
 	{
 		DifficultyChance:
-			TNT1 A 0 A_Jump ((CallACS("PlayerCount", 0)*8) + (CallACS("LD_legendarychance", 0)*5), "LEGENDARIFY")
+			TNT1 A 0 A_Jump (random(4,8) + (CallACS("PlayerCount", 0) * 8) + (CallACS("LD_legendarychance", 0) * 5), "LEGENDARIFY")
 			Stop
 	}
 }
@@ -197,7 +206,7 @@ ACTOR LDLegendaryMonsterPickupUV : LDLegendaryMonsterPickupEasy
 	States
 	{
 		DifficultyChance:
-			TNT1 A 0 A_Jump ((CallACS("PlayerCount", 0)*10) + (CallACS("LD_legendarychance", 0)*5), "LEGENDARIFY")
+			TNT1 A 0 A_Jump (random(5,10) + (CallACS("PlayerCount", 0) * 10) + (CallACS("LD_legendarychance", 0) * 6), "LEGENDARIFY")
 			Stop
 	}
 }
@@ -207,8 +216,47 @@ ACTOR LDLegendaryMonsterPickupNightmare : LDLegendaryMonsterPickupEasy
 	States
 	{
 		DifficultyChance:
-			TNT1 A 0 A_Jump ((CallACS("PlayerCount", 0)*14) + (CallACS("LD_legendarychance", 0)*6), "LEGENDARIFY")
-	//	TNT1 A 0 A_Jump ((CallACS("PlayerCount", 0)*20) + (CallACS("LD_legendarychance", 0)*5), "LEGENDARIFY")
+			TNT1 A 0 A_Jump (random(7,14) + (CallACS("PlayerCount", 0) * 14) + (CallACS("LD_legendarychance", 0) * 7), "LEGENDARIFY")
+			Stop
+	}
+}
+
+ACTOR LDLegendaryMonsterPickupExtreme : LDLegendaryMonsterPickupEasy
+{
+	States
+	{
+		DifficultyChance:
+			TNT1 A 0 A_Jump (random(8,18) + (CallACS("PlayerCount", 0) * 18) + (CallACS("LD_legendarychance", 0) * 8), "LEGENDARIFY")
+			Stop
+	}
+}
+
+ACTOR LDLegendaryMonsterPickupHorrible : LDLegendaryMonsterPickupEasy
+{
+	States
+	{
+		DifficultyChance:
+			TNT1 A 0 A_Jump (random(11,22) + (CallACS("PlayerCount", 0) * 22) + (CallACS("LD_legendarychance", 0) * 9), "LEGENDARIFY")
+			Stop
+	}
+}
+
+ACTOR LDLegendaryMonsterPickupImpossible : LDLegendaryMonsterPickupEasy
+{
+	States
+	{
+		DifficultyChance:
+			TNT1 A 0 A_Jump (random(13,27) + (CallACS("PlayerCount", 0) * 27) + (CallACS("LD_legendarychance", 0) * 10), "LEGENDARIFY")
+			Stop
+	}
+}
+
+ACTOR LDLegendaryMonsterPickupOmega : LDLegendaryMonsterPickupEasy
+{
+	States
+	{
+		DifficultyChance:
+			TNT1 A 0 A_Jump (random(16,32) + (CallACS("PlayerCount", 0) * 32) + (CallACS("LD_legendarychance", 0) * 11), "LEGENDARIFY")
 			Stop
 	}
 }

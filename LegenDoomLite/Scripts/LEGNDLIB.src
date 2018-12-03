@@ -2,7 +2,7 @@
 
 #include "zcommon.acs"
 
-#define MAX_SKILLS                  7
+#define MAX_SKILLS                  9
 
 str monsterChooser[MAX_SKILLS] =
 {
@@ -11,8 +11,10 @@ str monsterChooser[MAX_SKILLS] =
 	"LDLegendaryMonsterChooserHard",
 	"LDLegendaryMonsterChooserUV",
 	"LDLegendaryMonsterChooserNightmare",
-	"LDLegendaryMonsterChooserNightmare", // DRLA Technophobia
-	"LDLegendaryMonsterChooserNightmare" // DRLA Armageddon
+	"LDLegendaryMonsterPickupExtreme",
+	"LDLegendaryMonsterPickupHorrible",
+	"LDLegendaryMonsterPickupImpossible",
+	"LDLegendaryMonsterPickupOmega"
 };
 
 // --------------------------------------------------
@@ -29,7 +31,6 @@ function void TossItem(str item)
 	int xspeed = FixedMul(cos(angle), 8.0);
 	int yspeed = FixedMul(sin(angle), 8.0);
 
-//	SpawnProjectile(0, item, 0, 0, 0, 0, tid);
 	SpawnForced(item, x,y,z, tid, 0);
 	SetActorVelocity(tid, xspeed, yspeed, -4.0, true, false);
 	SetActorAngle(tid, angle);
@@ -45,13 +46,19 @@ function void ClearHudMessage(int id)
 // --------------------------------------------------
 // SCRIPTS
 // 
-
+/*
 script "LDWorldInit" open
 {
 	Delay(1); // Give the world a chance to spawn
 	
 	int skill = GameSkill();
 	int rerolldelay;
+	if (skill == SKILL_VERY_EASY) 	rerolldelay = 35 * (GetCVar("LD_restartdelayseconds") * 5 / 4);
+	if (skill == SKILL_EASY) 		rerolldelay = 35 * (GetCVar("LD_restartdelayseconds") * 9 / 8);
+	if (skill == SKILL_NORMAL) 		rerolldelay = 35 * (GetCVar("LD_restartdelayseconds") * 1 / 1);
+	if (skill == SKILL_HARD) 		rerolldelay = 35 * (GetCVar("LD_restartdelayseconds") * 7 / 8);
+	if (skill == SKILL_VERY_HARD) 	rerolldelay = 35 * (GetCVar("LD_restartdelayseconds") * 3 / 4);
+	Delay(rerolldelay);
 	
 	if (skill > MAX_SKILLS-1)
 	{
@@ -59,22 +66,18 @@ script "LDWorldInit" open
 		skill = MAX_SKILLS - 1;
 	}
 	
-	// Assuming the radius of each chooser is 16384, the total reach is 32768 units each
-	for (int x = -32768; x < 32768; x += 16384)
-		for (int y = -32768; y < 32768; y += 16384)
-			for (int z = -32768; z < 32768; z += 16384)
-				SpawnForced(monsterChooser[skill], x << 16, y << 16, z << 16, 0, false);
+	if (GetCVar("LD_Reroll") > 0)
+	{
+		// Assuming the radius of each chooser is 16384, the total reach is 32768 units each
+		for (int x = -32768; x < 32768; x += 16384)
+			for (int y = -32768; y < 32768; y += 16384)
+				for (int z = -32768; z < 32768; z += 16384)
+					SpawnForced(monsterChooser[skill], x << 16, y << 16, z << 16, 0, false);
+	}
 	
-	if (skill == SKILL_VERY_EASY) 	rerolldelay = 35 * (GetCVar("LD_restartdelayseconds") * 5 / 4);
-	if (skill == SKILL_EASY) 		rerolldelay = 35 * (GetCVar("LD_restartdelayseconds") * 9 / 8);
-	if (skill == SKILL_NORMAL) 		rerolldelay = 35 * (GetCVar("LD_restartdelayseconds") * 1 / 1);
-	if (skill == SKILL_HARD) 		rerolldelay = 35 * (GetCVar("LD_restartdelayseconds") * 7 / 8);
-	if (skill == SKILL_VERY_HARD) 	rerolldelay = 35 * (GetCVar("LD_restartdelayseconds") * 3 / 4);
-	
-	Delay(rerolldelay);
 	restart;
 }
-
+*/
 script "LDMonsterInit" (void)
 {
 	Delay(1); // Give the monster a chance to calc it's DV-DS stats first

@@ -1,3 +1,6 @@
+//
+// LDL
+//
 
 server	int		LD_legendaryhealth = 200;
 server	float	LD_legendarydamage = 2.0;
@@ -16,4 +19,6 @@ server	bool	LD_monstercheck = true;
 server	int		LD_nobosses = 0;
 server	bool	LD_legendarymarkers = false;
 server	bool	LD_legendarydebug = false;
+server  int   LD_Reroll = 1;		// Aetherius-Specific
+server	bool	LD_legendaryrerolldebug = false;
 server	int		LD_restartdelayseconds = 600;
