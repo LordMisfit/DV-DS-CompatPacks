@@ -67,7 +67,7 @@ Actor BloodTommygunChecker : AetheriusCustomInventory replaces BloodTommygun
 				A_SpawnItemEx("HealthBonus",random(-12,12),random(-12,12),0,random(-2,2),random(-2,2),random(-2,2),0,0,232);
 				A_SpawnItemEx("MaxHealthBonusREAL",random(-3,3),random(-3,3),0,random(-1,1),random(-1,1),random(-1,1),0,0,253);
 				A_SpawnItemEx("RandomSeedDropForcedAlways",random(-3,3),random(-3,3),0,random(-1,1),random(-1,1),random(-1,1),0,0,254);
-				A_SpawnItemEx("Backpack",random(-3,3),random(-3,3),0,random(-1,1),random(-1,1),random(-1,1),0,0,250);
+				A_SpawnItemEx("Backpack",random(-3,3),random(-3,3),0,random(-1,1),random(-1,1),random(-1,1),0,0,253);
 			}
 
 		FloraDetectedEnd:
@@ -117,7 +117,7 @@ Actor TelsaCannonChecker : AetheriusCustomInventory replaces NapalmLauncher_
 				A_SpawnItemEx("MaxHealthBonus",random(-3,3),random(-3,3),0,random(-1,1),random(-1,1),random(-1,1),0,0,252);
 				A_SpawnItemEx("MaxHealthBonusREAL",random(-3,3),random(-3,3),0,random(-1,1),random(-1,1),random(-1,1),0,0,240);
 				A_SpawnItemEx("RandomSeedDropForcedAlways",random(-3,3),random(-3,3),0,random(-1,1),random(-1,1),random(-1,1),0,0,244);
-				A_SpawnItemEx("Backpack",random(-3,3),random(-3,3),0,random(-1,1),random(-1,1),random(-1,1),0,0,232);
+				A_SpawnItemEx("Backpack",random(-3,3),random(-3,3),0,random(-1,1),random(-1,1),random(-1,1),0,0,244);
 			}
 
 		FloraDetectedEnd:

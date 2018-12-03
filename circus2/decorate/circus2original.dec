@@ -1636,7 +1636,7 @@ ACTOR BlackBlob
 			Stop
 	}
 }
-Actor BeefyHead 3977
+Actor BeefyHead : AetheriusCustomGib 3977
 {
 	+DOOMBOUNCE
 	Radius 12
@@ -1661,7 +1661,7 @@ Actor BeefyHead 3977
 			Stop
 	}
 }
-actor Gibb1 3978
+actor Gibb1 : AetheriusCustomGib 3978
 {   
 	HEALTH 1
 	+SHOOTABLE +LOWGRAVITY 
@@ -1697,7 +1697,7 @@ actor Gibb1 3978
 	}
 }
 
-actor Gibb2 3979 
+actor Gibb2 : AetheriusCustomGib 3979 
 {   
 	HEALTH 1
 	+SHOOTABLE +LOWGRAVITY 
@@ -1733,7 +1733,7 @@ actor Gibb2 3979
 			Stop
 	}
 }
-actor Gibb3 3980 
+actor Gibb3 : AetheriusCustomGib 3980 
 {   
 	HEALTH 1
 	+SHOOTABLE +LOWGRAVITY 
@@ -1769,7 +1769,7 @@ actor Gibb3 3980
 			Stop
 	}
 }
-actor Gibb4 3981
+actor Gibb4 : AetheriusCustomGib 3981
 {   
 	HEALTH 1
 	+SHOOTABLE +LOWGRAVITY 
@@ -1805,7 +1805,7 @@ actor Gibb4 3981
 			Stop
 	}
 }
-actor Gibb5 3982
+actor Gibb5 : AetheriusCustomGib 3982
 {   
 	HEALTH 1
 	+SHOOTABLE +LOWGRAVITY 
