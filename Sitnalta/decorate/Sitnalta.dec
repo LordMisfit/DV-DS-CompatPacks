@@ -42,8 +42,7 @@ ACTOR Zakachi : AetheriusMonsterZSC 27043
 				else if (levelbehavior > 0 && user_monsterlevel > 120) { A_ChangeFlag("AVOIDMELEE",1); A_SetTics(4); }
 				else if (levelbehavior > 0 && user_monsterlevel > 60) { A_ChangeFlag("AVOIDMELEE",1); A_SetTics(5); }
 
-				if (levelbehavior > 0) { user_fastchaseextra = user_monsterlevel/9; }
-				user_fastchasechance = 16 + user_fastchaseextra + user_painfastchase;
+				A_FastChaseCalc(16,9);
 				if (random(1,256) <= user_fastchasechance) { A_Chase("Melee","Missile",CHF_FASTCHASE); } else { A_Chase; }
 				user_painfastchase = 0;
 			}
