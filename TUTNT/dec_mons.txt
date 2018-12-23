@@ -1087,7 +1087,7 @@ ACTOR TNTSpider : MaulotaurBase 10906
 				A_CustomMissile("TNTSpiderSpawner",32,0,288);
 			}
 			MNTR OPQRS 5
-			MNTR T -1 A_BossDeath
+			MNTR T -1 A_DVDSBossDeath
 			Stop
 		Raise:
 			MNTR S 5 
@@ -1385,7 +1385,7 @@ ACTOR TNTMiniSpider : AetheriusMonsterZSC 22290
 			MNTS D 5
 			MNTS C 5 A_NoBlocking
 			MNTS B 5
-			MNTS A -1 A_BossDeath
+			MNTS A -1 A_DVDSBossDeath
 			Stop
 	}
 }

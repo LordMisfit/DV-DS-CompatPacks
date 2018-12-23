@@ -143,7 +143,7 @@ ACTOR AdolfHitlerDS : AetheriusBossZSC 10917
 			HTLR K 6
 			HTLR L 6 A_Fall
 			HTLR MNO 6 A_NoBlocking
-			HTLR P -1 A_BossDeath
+			HTLR P -1 A_DVDSBossDeath
 			Stop
 		XDeath:
 			goto Death

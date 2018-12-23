@@ -147,7 +147,7 @@ ACTOR AdolfHitlerDS : AetheriusMonsterZSC replaces AdolfHitler
 			HTLR L 6 A_Fall
 			HTLR MNO 6 A_NoBlocking
 			TNT1 A 0 
-			HTLR P -1 A_BossDeath
+			HTLR P -1 A_DVDSBossDeath
 			Stop
 		XDeath:
 			goto Death

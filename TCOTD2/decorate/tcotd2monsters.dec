@@ -372,7 +372,7 @@ ACTOR MiniSpiderNew : AetheriusMonsterZSC 22290
 			MNTS C 4 A_NoBlocking
 			MNTS B 4
 			TNT1 A 0 
-			MNTS A -1 A_BossDeath
+			MNTS A -1 A_DVDSBossDeath
 			Stop
 		Ice:
 			"####" # 0 A_DVDSIceDeath(-2,0,1)
@@ -526,7 +526,7 @@ ACTOR LargeSpiderNew : AetheriusMonsterZSC 22291
 			MNTS C 5 A_NoBlocking
 			MNTS B 5
 			TNT1 A 0 
-			MNTS A -1 A_BossDeath
+			MNTS A -1 A_DVDSBossDeath
 			Stop
 		Ice:
 			"####" # 0 A_DVDSIceDeath(-2,0,1)
