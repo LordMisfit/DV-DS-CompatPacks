@@ -1597,9 +1597,6 @@ ACTOR SirenNightmareNew : NightmareNew 31111
 			}
 			Goto See
 
-		Pain.GravityHP: Goto See
-		Pain.GravityMP: Goto See
-		Pain.GravityHPMP: Goto See
 		Death.Sceptre: Goto Death
 		Pain.Gauntlets: Goto Pain
 		Death.Gauntlets: Goto Death
@@ -3484,9 +3481,6 @@ ACTOR ThamuzNew : AetheriusMonsterZSC 7228
 	Painchance "Fist", 52 // Fist attacks have a +50% chance of stunning an enemy
 	Painchance "Kick", 87 // Kick attacks have a +150% chance of stunning an enemy
 	Painchance "Gauntlets", 52 // Fist attacks have a +50% chance of stunning an enemy
-	Painchance "GravityHP", 1
-	Painchance "GravityMP", 1
-	Painchance "GravityHPMP", 1
 	DamageFactor "Normal", 0.375
 	DamageFactor "Crush", 0.5
 	MONSTER
@@ -3668,21 +3662,6 @@ ACTOR ThamuzNew : AetheriusMonsterZSC 7228
 			DCYB GGGG 2
 			Goto See
 
-		Pain.GravityHP:
-			TNT1 A 0 A_Jump(248,2) // 1/32 chance of working
-			TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
-			TNT1 A 0 
-			Goto See
-		Pain.GravityMP:
-			TNT1 A 0 A_Jump(248,2) // 1/32 chance of working
-			TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
-			TNT1 A 0 
-			Goto See
-		Pain.GravityHPMP:
-			TNT1 A 0 A_Jump(248,2) // 1/32 chance of working
-			TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
-			TNT1 A 0 
-			Goto See
 		Death:
 			TNT1 A 0 A_DVDSNormalDeath(-2,0,1)
 			DCYB H 5
@@ -3709,9 +3688,6 @@ Actor TchernobogNew : ThamuzNew replaces Tchernobog 7258
 	Health 21333
 	DamageFactor "Normal", 0.25
 	DamageFactor "Crush", 0.5
-	Painchance "GravityHP", 1
-	Painchance "GravityMP", 1
-	Painchance "GravityHPMP", 1
 	Mass 80000
 	Speed 16
 	OBITUARY "%o fell before the might of The One That Binds."
@@ -3876,21 +3852,6 @@ Actor TchernobogNew : ThamuzNew replaces Tchernobog 7258
 			TCHR GGGG 2
 			Goto See
 
-		Pain.GravityHP:
-			TNT1 A 0 A_Jump(248,2) // 1/32 chance of working
-			TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,0,0,0)
-			TNT1 A 0 
-			Goto See
-		Pain.GravityMP:
-			TNT1 A 0 A_Jump(248,2) // 1/32 chance of working
-			TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,1,0,0)
-			TNT1 A 0 
-			Goto See
-		Pain.GravityHPMP:
-			TNT1 A 0 A_Jump(248,2) // 1/32 chance of working
-			TNT1 A 0 ACS_NamedExecuteAlways("Hand-GravityAttack",0,2,0,0)
-			TNT1 A 0 
-			Goto See
 		Death:
 			TNT1 A 0 A_DVDSNormalDeath(-2,0,1)
 			TCHR Q 5
