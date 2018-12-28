@@ -1109,21 +1109,6 @@ ACTOR DogFireNew : AetheriusProjectileZSC replaces DogFire
 			Stop
 	}
 }
-actor DogFireCrisisParticle : BaseCrisisParticle
-{
-	Alpha 0.4489
-	Scale 0.4489
-
-	States
-	{
-		Spawn:
-			FRFX A 0 NoDelay A_CrisisParticleInit
-			goto Idle
-		Idle:
-			"####" ABCDEFGHIJKLMNO 1 Bright A_CrisisParticleDo
-			loop
-	}
-}
 ACTOR DogFireCrisis : DogFireNew
 {
 	Damage ((1 * random(1,8)) * CallACS("CrisisMultiplier"))
@@ -1133,7 +1118,7 @@ ACTOR DogFireCrisis : DogFireNew
 			NULL A 2 BRIGHT
 			FRFX ABCD 2 BRIGHT 
 			{
-				A_SpawnItemEx("DogFireCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 				A_Explode(random(1,3)*CallACS("CrisisMultiplier"),random(6,10));
 			}
 			FRFX D 0 BRIGHT
@@ -1142,24 +1127,24 @@ ACTOR DogFireCrisis : DogFireNew
 			}
 			FRFX EFG 2 BRIGHT 
 			{
-				A_SpawnItemEx("DogFireCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 				A_Explode(random(1,3)*CallACS("CrisisMultiplier"),random(12,20));
 			}
 			goto Death
 		Death:
 			FRFX HIJ 2 BRIGHT 
 			{
-				A_SpawnItemEx("DogFireCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 				A_Explode(random(1,3)*CallACS("CrisisMultiplier"),random(24,40));
 			}
 			FRFX KLM 2 BRIGHT 
 			{
-				A_SpawnItemEx("DogFireCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 				A_Explode(random(1,3)*CallACS("CrisisMultiplier"),random(48,80));
 			}
 			FRFX NO 2 BRIGHT
 			{
-				A_SpawnItemEx("DogFireCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 				A_Explode(random(1,3)*CallACS("CrisisMultiplier"),random(24,40));
 			}
 			Stop
@@ -1637,20 +1622,6 @@ ACTOR VulgarShotNew : AetheriusEffectProjectile
 			stop
 	}
 }
-actor VulgarShotCrisisParticle : BaseCrisisParticle
-{
-	scale 0.67
-
-	States
-	{
-	Spawn:
-		FVUL A 0 NoDelay A_CrisisParticleInit
-		goto Idle
-	Idle:
-		"####" AB 2 Bright A_CrisisParticleDo
-		loop
-	}
-}
 ACTOR VulgarShotCrisis : VulgarShotNew
 {
 	Damage ((4 * random(1,8)) * CallACS("CrisisMultiplier"))
@@ -1659,7 +1630,7 @@ ACTOR VulgarShotCrisis : VulgarShotNew
 		Spawn:
 			FVUL AAABBB 1 Bright
 			{
-				A_SpawnItemEx("VulgarShotCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 			}
 			loop
 		Death:
@@ -2656,21 +2627,6 @@ actor ButcherBarfNew : AetheriusEffectProjectile replaces ButcherBarf
 			stop
 	}
 }
-actor ButcherBarfCrisisParticle : BaseCrisisParticle
-{ 
-	Scale 0.3015
-	Alpha 0.201
-
-	States
-	{
-		Spawn:
-			PUKE A 0 NoDelay A_CrisisParticleInit
-			goto Idle
-		Idle:
-			"####" AB 2 Bright A_CrisisParticleDo
-			loop
-	}
-}
 actor ButcherBarfCrisis : ButcherBarfNew
 {
 	Damage ((3 * random(4,9)) * CallACS("CrisisMultiplier"))
@@ -2679,7 +2635,7 @@ actor ButcherBarfCrisis : ButcherBarfNew
 		Spawn:
 			PUKE AB 2 
 			{
-				A_SpawnItemEx("ButcherBarfCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 				A_SpawnItemEx("POOK",0+random(-5,5),0+random(-5,5),0+random(-5,5),0,0,1,0,128);
 			}
 			Loop
@@ -2783,18 +2739,6 @@ actor CleaverNew : AetheriusEffectProjectile replaces Cleaver
 			stop
 	}
 }
-actor CleaverNewCrisisParticle : BaseCrisisParticle
-{ 
-	States
-	{
-		Spawn:
-			CLVR A 0 NoDelay A_CrisisParticleInit
-			goto Idle
-		Idle:
-			"####" AABBCCDDEEFFGGHH 2 Bright A_CrisisParticleDo
-			loop
-	}
-}
 actor CleaverNewCrisis : CleaverNew
 { 
 	damage ((2 * random(5,13)) * CallACS("CrisisMultiplier"))
@@ -2803,49 +2747,49 @@ actor CleaverNewCrisis : CleaverNew
 		Spawn:
 			CLVR A 4 
 			{
-				A_SpawnItemEx("CleaverNewCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 				A_LoopActiveSound;
 				A_SpawnItemEx("CleaverTrail1",0,0,0,0,0,0,0,128);
 			}
 			CLVR B 4 
 			{
-				A_SpawnItemEx("CleaverNewCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 				A_LoopActiveSound;
 				A_SpawnItemEx("CleaverTrail2",0,0,0,0,0,0,0,128);
 			}
 			CLVR C 4 
 			{
-				A_SpawnItemEx("CleaverNewCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 				A_LoopActiveSound;
 				A_SpawnItemEx("CleaverTrail3",0,0,0,0,0,0,0,128);
 			}
 			CLVR D 4 
 			{
-				A_SpawnItemEx("CleaverNewCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 				A_LoopActiveSound;
 				A_SpawnItemEx("CleaverTrail4",0,0,0,0,0,0,0,128);
 			}
 			CLVR E 4 
 			{
-				A_SpawnItemEx("CleaverNewCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 				A_LoopActiveSound;
 				A_SpawnItemEx("CleaverTrail5",0,0,0,0,0,0,0,128);
 			}
 			CLVR F 4 
 			{
-				A_SpawnItemEx("CleaverNewCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 				A_LoopActiveSound;
 				A_SpawnItemEx("CleaverTrail6",0,0,0,0,0,0,0,128);
 			}
 			CLVR G 4 
 			{
-				A_SpawnItemEx("CleaverNewCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 				A_LoopActiveSound;
 				A_SpawnItemEx("CleaverTrail7",0,0,0,0,0,0,0,128);
 			}
 			CLVR H 4 
 			{
-				A_SpawnItemEx("CleaverNewCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 				A_LoopActiveSound;
 				A_SpawnItemEx("CleaverTrail8",0,0,0,0,0,0,0,128);
 			}

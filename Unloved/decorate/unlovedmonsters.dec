@@ -102,22 +102,10 @@ actor MummyNew : AetheriusMonsterZSC replaces MummyDude 1337
 	}
 }
 
-ACTOR MummyFX1New : MummyFX1 replaces MummyFX1 
+ACTOR MummyFX1New : AetheriusProjectileZSC replaces MummyFX1 
 {
 	Damage (4 * random(1,8))
 	DamageType "Fire" 
-}
-actor MummyFX1CrisisParticle : BaseCrisisParticle
-{ 
-	States
-	{
-		Spawn:
-			FX15 A 0 NoDelay A_CrisisParticleInit
-			goto Idle
-		Idle:
-			"####" AABBCCBB 2 Bright A_CrisisParticleDo
-			loop
-	}
 }
 ACTOR MummyFX1Crisis : MummyFX1New
 {
@@ -127,21 +115,21 @@ ACTOR MummyFX1Crisis : MummyFX1New
 		Spawn:
 			FX15 A 5 Bright 
 			{
-				A_SpawnItemEx("MummyFX1CrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 				A_PlaySound("mummy/head");
 			}
 			FX15 B 5 Bright 
 			{
-				A_SpawnItemEx("MummyFX1CrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 				A_SeekerMissile(10, 20);
 			}
 			FX15 C 5 Bright
 			{
-				A_SpawnItemEx("MummyFX1CrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 			}
 			FX15 B 5 Bright 
 			{
-				A_SpawnItemEx("MummyFX1CrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 				A_SeekerMissile(10, 20);
 			}
 			Loop
@@ -331,20 +319,6 @@ ACTOR VulgarShotNew : AetheriusEffectProjectile
 			stop
 	}
 }
-actor VulgarShotCrisisParticle : BaseCrisisParticle
-{
-	scale 0.67
-
-	States
-	{
-		Spawn:
-			FVUL A 0 NoDelay A_CrisisParticleInit
-			goto Idle
-		Idle:
-			"####" AB 2 Bright A_CrisisParticleDo
-			loop
-	}
-}
 ACTOR VulgarShotCrisis : VulgarShotNew
 {
 	Damage ((4 * random(1,8)) * CallACS("CrisisMultiplier"))
@@ -353,7 +327,7 @@ ACTOR VulgarShotCrisis : VulgarShotNew
 		Spawn:
 			FVUL AAABBB 1 Bright
 			{
-				A_SpawnItemEx("VulgarShotCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 			}
 			loop
 		Death:
@@ -1317,20 +1291,6 @@ ACTOR BloodshotNew : AetheriusEffectProjectile replaces BloodShot
 			stop
 	}
 }
-actor BloodShotCrisisParticle : BaseCrisisParticle
-{
-	alpha 0.536
-
-	States
-	{
-		Spawn:
-			FBLD A 0 NoDelay A_CrisisParticleInit
-			goto Idle
-		Idle:
-			"####" AB 2 Bright A_CrisisParticleDo
-			loop
-	}
-}
 ACTOR BloodShotCrisis : BloodshotNew 
 {
 	Damage ((2 * random(1,8)) * CallACS("CrisisMultiplier"))
@@ -1339,7 +1299,7 @@ ACTOR BloodShotCrisis : BloodshotNew
 		Spawn:
 			FBLD AB 2 Bright 
 			{
-				A_SpawnItemEx("BloodShotCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 				A_CStaffMissileSlither;
 				A_SpawnItem("Bloodtrail",0,0);
 			}

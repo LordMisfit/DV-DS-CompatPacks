@@ -255,21 +255,6 @@ ACTOR SGuardianFlameBreath : AetheriusProjectileZSC
 			Stop
 	}
 }
-actor SGuardianFlameBreathCrisisParticle : BaseCrisisParticle
-{
-	scale 1.0
-	ALPHA 0.334
-
-	States
-	{
-		Spawn:
-			FRFX A 0 NoDelay A_CrisisParticleInit
-			goto Idle
-		Idle:
-			"####" ABCDEFGHIJKLMMNOP 3 Bright A_CrisisParticleDo
-			loop
-	}
-}
 ACTOR SGuardianFlameBreathCrisis : SGuardianFlameBreath
 {
 	Damage (4 * CallACS("CrisisMultiplier"))
@@ -278,7 +263,7 @@ ACTOR SGuardianFlameBreathCrisis : SGuardianFlameBreath
 		Spawn:
 			FRFX ABCDEFGHIJKLMMNOP 3 BRIGHT 
 			{
-				A_SpawnItemEx("SGuardianFlameBreathCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 				A_Explode((4 * CallACS("CrisisMultiplier")), 64, 0, 0, 32);
 			}
 			Stop
@@ -334,21 +319,6 @@ ACTOR SourceGuardianDetonator : AetheriusProjectileZSC
 			stop
 	}
 }
-actor SourceGuardianDetonatorCrisisParticle : BaseCrisisParticle
-{
-	scale 0.67
-	ALPHA 0.67
-
-	States
-	{
-		Spawn:
-			THR2 A 0 NoDelay A_CrisisParticleInit
-			goto Idle
-		Idle:
-			"####" ABBBB 4 Bright A_CrisisParticleDo
-			loop
-	}
-}
 ACTOR SourceGuardianDetonatorCrisis : SourceGuardianDetonator
 {
 	states
@@ -356,12 +326,12 @@ ACTOR SourceGuardianDetonatorCrisis : SourceGuardianDetonator
 		Spawn:
 			THR2 A 4 
 			{
-				A_SpawnItemEx("SourceGuardianDetonatorCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 				A_PlaySound("catharsi/thermtick");
 			}
 			THR2 BBBB 4
 			{
-				A_SpawnItemEx("SourceGuardianDetonatorCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 			}
 			THR2 B 0
 			{
@@ -789,21 +759,6 @@ ACTOR CatharsiBall : AetheriusProjectileZSC
 			stop
 	}
 }
-actor CatharsiBallCrisisParticle : BaseCrisisParticle
-{
-	scale 0.67
-	ALPHA 0.67
-
-	States
-	{
-		Spawn:
-			SDFB A 0 NoDelay A_CrisisParticleInit
-			goto Idle
-		Idle:
-			"####" A 2 Bright A_CrisisParticleDo
-			loop
-	}
-}
 ACTOR CatharsiBallCrisis : CatharsiBall
 {
 	Damage (3 * random(1,8) * CallACS("CrisisMultiplier"))
@@ -812,7 +767,7 @@ ACTOR CatharsiBallCrisis : CatharsiBall
 		Spawn:
 			SDFB A 2 BRIGHT
 			{
-				A_SpawnItemEx("CatharsiBallCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 			}
 			Loop
 		Death:
@@ -1117,18 +1072,6 @@ ACTOR MinotaurFX1New : AetheriusProjectileZSC replaces MinotaurFX1
 			Stop
 	}
 }
-actor MinotaurFX1CrisisParticle : BaseCrisisParticle
-{
-	States
-	{
-		Spawn:
-			FX12 A 0 NoDelay A_CrisisParticleInit
-			goto Idle
-		Idle:
-			"####" AAABBB 2 Bright A_CrisisParticleDo
-			loop
-	}
-}
 ACTOR MinotaurFX1Crisis : MinotaurFX1New
 {
 	Damage ((3 * random(1,8)) * CallACS("CrisisMultiplier"))
@@ -1137,7 +1080,7 @@ ACTOR MinotaurFX1Crisis : MinotaurFX1New
 		Spawn:
 			FX12 AAABBB 2 Bright
 			{
-				A_SpawnItemEx("MinotaurFX1CrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 			}
 			Loop
 		Death:
@@ -1173,18 +1116,6 @@ ACTOR MinotaurFX2New : MinotaurFX1New replaces MinotaurFX2
 			}
 			FX13 JKLM 4 Bright
 			Stop
-	}
-}
-actor MinotaurFX2CrisisParticle : BaseCrisisParticle
-{
-	States
-	{
-		Spawn:
-			FX13 A 0 NoDelay A_CrisisParticleInit
-			goto Idle
-		Idle:
-			"####" A 2 Bright A_CrisisParticleDo
-			loop
 	}
 }
 ACTOR MinotaurFX2Crisis : MinotaurFX2New 
@@ -1232,18 +1163,6 @@ ACTOR MinotaurFX3New : MinotaurFX2New replaces MinotaurFX3
 			Stop
 	}
 }
-actor MinotaurFX3CrisisParticle : BaseCrisisParticle
-{
-	States
-	{
-		Spawn:
-			FX13 A 0 NoDelay A_CrisisParticleInit
-			goto Idle
-		Idle:
-			"####" DDCCBBCCDDEEFFGGHH 2 Bright A_CrisisParticleDo
-			loop
-	}
-}
 ACTOR MinotaurFX3Crisis : MinotaurFX3New
 {
 	States
@@ -1251,31 +1170,31 @@ ACTOR MinotaurFX3Crisis : MinotaurFX3New
 		Spawn:
 			FX13 DDCC 2 Bright
 			{
-				A_SpawnItemEx("MinotaurFX3CrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 			}
 			FX13 BB 2 Bright
 			{
-				A_SpawnItemEx("MinotaurFX3CrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 			}
 			FX13 B 1 Bright
 			FX13 CC 2 Bright
 			{
-				A_SpawnItemEx("MinotaurFX3CrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 			}
 			FX13 C 1 Bright
 			FX13 DD 2 Bright
 			{
-				A_SpawnItemEx("MinotaurFX3CrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 			}
 			FX13 D 1 Bright
 			FX13 EE 2 Bright
 			{
-				A_SpawnItemEx("MinotaurFX3CrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 			}
 			FX13 E 1 Bright
 			FX13 FFGGHH 2 Bright
 			{
-				A_SpawnItemEx("MinotaurFX3CrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 			}
 			Stop
 	}

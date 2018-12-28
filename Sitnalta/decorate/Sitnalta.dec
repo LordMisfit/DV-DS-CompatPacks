@@ -616,25 +616,13 @@ ACTOR LightningRod1 : AetheriusProjectileZSC
 			Stop
 	}
 }
-Actor LightningRod1CrisisParticle : BaseCrisisParticle
-{ 
-	States
-	{
-		Spawn:
-			ZAP6 A 0 NoDelay A_CrisisParticleInit
-			goto Idle
-		Idle:
-			"####" ABC 2 Bright A_CrisisParticleDo
-			loop
-	}
-}
 ACTOR LightningRod1Crisis : LightningRod1
 {
 	Damage ((3 * CallACS("CrisisMultiplier")) * random(1,8))
 	states
 	{
 		Spawn:
-			ZAP6 ABC 2 BRIGHT A_SpawnItemEx("LightningRod1CrisisParticle",0,0,0,0,0,1.28)
+			ZAP6 ABC 2 BRIGHT A_GenerateCrisisParticle
 			Loop
 		Death:
 			ZOTS ABCDEF 2 BRIGHT

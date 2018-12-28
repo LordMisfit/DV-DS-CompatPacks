@@ -51,20 +51,6 @@ actor DemonCubeMissile : AetheriusProjectileZSC
 				Stop
 	}
 }
-actor DemonCubeMissileCrisisParticle : BaseCrisisParticle
-{
-	scale 0.6667
-
-	States
-	{
-		Spawn:
-			DCPF A 0 NoDelay A_CrisisParticleInit
-			goto Idle
-		Idle:
-			"####" AB 2 Bright A_CrisisParticleDo
-			loop
-	}
-}
 actor DemonCubeMissileCrisis : DemonCubeMissile
 {
 	Damage ((4 * random(1,8)) * CallACS("CrisisMultiplier"))
@@ -73,7 +59,7 @@ actor DemonCubeMissileCrisis : DemonCubeMissile
 		Spawn:
 			DCPF AB 2 Bright
 			{
-				A_SpawnItemEx("DemonCubeMissileCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 			}
 			Loop
 		Death:
@@ -106,7 +92,7 @@ actor KDIZDImpBallCrisis : KDIZDImpBall replaces DoomImpBallCrisis
 		Spawn:
 			BAL1 AB 3 Bright 
 			{
-				A_SpawnItemEx("DoomImpBallCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 				A_MissileAttack;
 			}
 			Loop
@@ -133,7 +119,7 @@ actor Ball1Trail
 	}
 }
 
-ACTOR HellsFuryBall : BaronBall
+ACTOR HellsFuryBall : BaronBallNew
 {
 	Radius 6
 	Height 8
@@ -152,10 +138,6 @@ ACTOR HellsFuryBall : BaronBall
 			Stop
 	}
 }
-actor HellsFuryBallCrisisParticle : BaronOfHellBallCrisisParticle
-{
-	Translation 2
-}
 ACTOR HellsFuryBallCrisis : HellsFuryBall
 {
 	Radius 6
@@ -169,7 +151,7 @@ ACTOR HellsFuryBallCrisis : HellsFuryBall
 	{
 		Spawn:
 			BAL7 A 0
-			"####" AABB 2 Bright A_SpawnItemEx("HellsFuryBallCrisisParticle",0,0,0,0,0,1.28)
+			"####" AABB 2 Bright A_GenerateCrisisParticle
 			Loop
 		Death:
 			"####" CDE 6 Bright
@@ -319,19 +301,6 @@ ACTOR ShadowBall : AetheriusProjectileZSC
 		Stop
 	}
 }
-actor ShadowBallCrisisParticle : BaseCrisisParticle
-{
-	ALPHA 0.75
-	States
-	{
-		Spawn:
-			SBAL A 0 NoDelay A_CrisisParticleInit
-			goto Idle
-		Idle:
-			"####" AABBCC 2 Bright A_CrisisParticleDo
-			loop
-	}
-}
 ACTOR ShadowBallCrisis : ShadowBall
 {
 	Damage ((4 * random(1,8)) * CallACS("CrisisMultiplier"))
@@ -340,7 +309,7 @@ ACTOR ShadowBallCrisis : ShadowBall
 		Spawn: 
 			SBAL ABC 4 BRIGHT 
 			{
-				A_SpawnItemEx("ShadowBallCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 				A_MissileAttack;
 			}
 			Loop
@@ -450,20 +419,6 @@ ACTOR SoulHarvesterBall : AetheriusProjectileZSC
 			Stop
 	}
 }
-actor SoulHarvesterBallCrisisParticle : BaseCrisisParticle
-{
-	scale 0.268
-
-	States
-	{
-		Spawn:
-			SHBA A 0 NoDelay A_CrisisParticleInit
-			goto Idle
-		Idle:
-			"####" AB 2 Bright A_CrisisParticleDo
-			loop
-	}
-}
 ACTOR SoulHarvesterBallCrisis : SoulHarvesterBall
 {
 	Damage ((2 * random(1,8)) * CallACS("CrisisMultiplier"))
@@ -473,7 +428,7 @@ ACTOR SoulHarvesterBallCrisis : SoulHarvesterBall
 			SHBA A 0 BRIGHT A_CustomMissile("SoulBallTrail", 0, 0, 180)
 			SHBA AB 2 BRIGHT 
 			{
-				A_SpawnItemEx("SoulHarvesterBallCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 				A_SeekerMissile(10,20);
 			}
 			Loop
@@ -691,19 +646,6 @@ actor Redstar : AetheriusEffectProjectile
 			Stop
 	}
 }
-actor RedstarCrisisParticle : BaseCrisisParticle
-{
-	ALPHA 0.8
-	States
-	{
-		Spawn:
-			STAR A 0 NoDelay A_CrisisParticleInit
-			goto Idle
-		Idle:
-			"####" ABCD 2 Bright A_CrisisParticleDo
-			loop
-	}
-}
 actor RedstarCrisis : Redstar
 {
 	Damage ((12 * random(1,8)) * CallACS("CrisisMultiplier"))
@@ -712,21 +654,21 @@ actor RedstarCrisis : Redstar
 		Spawn:
 			STAR A 3 Bright
 			{
-				A_SpawnItemEx("RedstarCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 				A_SeekerMissile (4,8);
 			}
 			STAR B 3 Bright
 			{
-				A_SpawnItemEx("RedstarCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 			}
 			STAR C 3 Bright
 			{
-				A_SpawnItemEx("RedstarCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 				A_SeekerMissile (4,8);
 			}
 			STAR D 3 Bright
 			{
-				A_SpawnItemEx("RedstarCrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 			}
 			Loop
 		Death:

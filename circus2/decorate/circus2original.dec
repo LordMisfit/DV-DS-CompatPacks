@@ -3676,22 +3676,7 @@ ACTOR EvilDeadHand //32212
 	}
 }
 
-actor HellFire2CrisisParticle : BaseCrisisParticle
-{
-	scale 1.005
-
-	States
-	{
-	Spawn:
-		GHFF A 0 NoDelay A_CrisisParticleInit
-		goto Idle
-	Idle:
-		"####" ABCDEFGHIJ 2 Bright A_CrisisParticleDo
-		loop
-	}
-}
-
-ACTOR HellFire2Crisis
+ACTOR HellFire2Crisis : AetheriusProjectileZSC
 {
 	+NOCLIP +MISSILE +DROPOFF +RANDOMIZE +FLOORHUGGER 
 	Scale 1.5
@@ -3708,7 +3693,7 @@ ACTOR HellFire2Crisis
 			RAIN B 4
 			GHFF ABC 3 Bright
 			{
-				A_SpawnItemEx("HellFire2CrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 			}
 			GHFF C 0
 			{
@@ -3722,12 +3707,12 @@ ACTOR HellFire2Crisis
 			}
 			GHFF DEFGHIJ 3 Bright
 			{
-				A_SpawnItemEx("HellFire2CrisisParticle",0,0,0,0,0,1.28);
+				A_GenerateCrisisParticle;
 			}
 			Stop
 	}
 }
-ACTOR HellFire2
+ACTOR HellFire2 : AetheriusProjectileZSC
 {
 	+NOCLIP +MISSILE +DROPOFF +RANDOMIZE +FLOORHUGGER 
 	Scale 1.5
@@ -3758,7 +3743,7 @@ ACTOR HellFire2
 	}
 }
 
-ACTOR HellFire1Crisis
+ACTOR HellFire1Crisis : AetheriusProjectileZSC
 {
 	+NOCLIP
 	+MISSILE
@@ -3776,7 +3761,7 @@ ACTOR HellFire1Crisis
 			Stop
 	}
 }
-ACTOR HellFire1
+ACTOR HellFire1 : AetheriusProjectileZSC
 {
 	+NOCLIP
 	+MISSILE
