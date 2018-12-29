@@ -2263,7 +2263,7 @@ ACTOR ShotgunCultist // 29011
 			Goto See
 		Missile:
 			XFAN G 2 A_FaceTarget
-			XFAN H 3 bright A_CustomBulletAttack(10,5.6,1,2,"BulletPuff2")
+			XFAN H 3 bright A_CustomBulletAttack(10,5.6,1,2,"BulletPuff2") // Non-Crisis Bullet
 			//XFAN F 0 A_CustomMissile("TommygunCasing",30,4,24,1)
 			XFAN H 2 A_PlayWeaponSound ("fanatic/attack")
 			XFAN E 0 A_SentinelRefire

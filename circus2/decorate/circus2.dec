@@ -541,6 +541,7 @@ ACTOR FluffyNew : AetheriusMonsterZSC replaces Fluffy2 32120
 				if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(3); }
 				else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(4); }
 				else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(5); }
+				A_FaceTarget;
 
 				A_MonsterCrisisCheck; // Combo Attack
 				A_CrisisComboAttack("SkullSeeker", "SkullSeekerCrisis", 28, 7*random(1,8), "BCHOMP");
@@ -613,8 +614,8 @@ ACTOR FluffyNew : AetheriusMonsterZSC replaces Fluffy2 32120
 				if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(3); }
 				else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(4); }
 				else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(5); }
-
-				A_MonsterCrisisCheck; // Single Melee Attack
+				A_FaceTarget;
+				
 				A_CrisisMeleeAttack(7*random(1,10),"BCHOMP");
 			}
 			Goto See
@@ -736,8 +737,8 @@ ACTOR MiniFluffyNew : AetheriusMonsterZSC replaces MiniFluffy 3194
 				if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(3); }
 				else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(4); }
 				else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(5); }
-
-				A_MonsterCrisisCheck; // Single Melee Attack
+				A_FaceTarget;
+				
 				A_CrisisMeleeAttack(1*random(1,10),"BCHOMP");
 			}
 			Goto See + 11
@@ -843,8 +844,7 @@ ACTOR JumpingSkullNew : AetheriusMonsterZSC replaces JumpingSkull 32121
 				if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(2); }
 				else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
 				A_FaceTarget;
-
-				A_MonsterCrisisCheck; // Single Melee Attack
+				
 				A_CrisisMeleeAttack(random(2,6)*1,"SKULBITE","none");
 			}
 			JSKL B 3  
@@ -1124,8 +1124,7 @@ ACTOR JumpingSkull2New : AetheriusMonsterZSC replaces JumpingSkull2 3646 //spawn
 				if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(2); }
 				else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
 				A_FaceTarget;
-
-				A_MonsterCrisisCheck; // Single Melee Attack
+				
 				A_CrisisMeleeAttack(random(3,8)*1,"SKULBITE","none");
 			}
 			JSKL B 3  
@@ -1252,7 +1251,6 @@ ACTOR PossessedBalloonNew : AetheriusMonsterZSC replaces PossessedBalloon 3115
 				else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
 				A_FaceTarget;
 				
-				A_MonsterCrisisCheck; // Single Melee Attack
 				A_CrisisMeleeAttack(random(1,6)*1,"BOONBITE","none");
 			}
 			BSTN CB 4 
@@ -2151,6 +2149,7 @@ actor BeefyNew : AetheriusMonsterZSC replaces Beefy 4333
 				if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(3); }
 				else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(4); }
 				else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(5); }
+				A_FaceTarget;
 
 				A_MonsterCrisisCheck; // Combo Attack
 				A_CrisisComboAttack("BeefyBall1", "BeefyBall1Crisis", 32, 3*random(1,8), "imp/melee");
@@ -2402,8 +2401,9 @@ ACTOR BlackBearNew : AetheriusMonsterZSC replaces BlackBear 3191
 			TNT1 A 0 A_RefreshStealthInfo(1) // makes a Stealth Monster become more visible
 			BBER A 1 
 			{
-				A_MonsterCrisisCheck; // Single Melee Attack
-				A_CrisisMeleeAttack(1*random(1,10), "")
+				A_FaceTarget;
+				
+				A_CrisisMeleeAttack(1*random(1,10), "");
 			}
 			TNT1 A 0 
 			{
@@ -2593,8 +2593,8 @@ actor ClownGhostNew : AetheriusMonsterZSC replaces ClownGhost 32128
 			{
 				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
 				else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
-
-				A_MonsterCrisisCheck; // Single Melee Attack
+				A_FaceTarget;
+				
 				A_CrisisMeleeAttack(3*random(1,10), "imp/melee");
 			}
 			GHOS F 3  
@@ -2832,8 +2832,8 @@ actor ClownGhost2New : AetheriusMonsterZSC replaces ClownGhost2 31211
 			{
 				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
 				else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
-
-				A_MonsterCrisisCheck; // Single Melee Attack
+				A_FaceTarget;
+				
 				A_CrisisMeleeAttack(3*random(1,10), "imp/melee");
 			}
 			GST2 B 3  
@@ -3190,8 +3190,7 @@ actor BulbyNew : AetheriusMonsterZSC replaces Bulby 3906
 				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
 				else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 				A_FaceTarget;
-
-				A_MonsterCrisisCheck; // Single Melee Attack
+				
 				A_CrisisMeleeAttack((3*random(1,10)), "imp/melee");
 			}
 			LDEM H 3 
@@ -3382,8 +3381,7 @@ actor MegaBulbyNew : AetheriusMonsterZSC replaces MegaBulby 3989
 				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
 				else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
 				A_FaceTarget;
-
-				A_MonsterCrisisCheck; // Single Melee Attack
+				
 				A_CrisisMeleeAttack((7*random(1,10)), "imp/melee");
 			}
 			LDEM H 3 
@@ -4009,8 +4007,8 @@ actor SuperBerthaNew : AetheriusMonsterZSC replaces SuperBertha 14768
 			{
 				if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(2); }
 				else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
+				A_FaceTarget;
 				
-				A_MonsterCrisisCheck; // Single Melee Attack
 				A_CrisisMeleeAttack(1*random(1,10), "imp/melee");
 			}
 			BBTH AB 4 
@@ -4155,8 +4153,8 @@ ACTOR EvilDeadHandNew : AetheriusMonsterZSC replaces EvilDeadHand 32212
 				if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(3); }
 				else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(4); }
 				else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(5); }
-
-				A_MonsterCrisisCheck; // Single Melee Attack
+				A_FaceTarget;
+				
 				A_CrisisMeleeAttack(1*random(1,10), "SKULBITE");
 			}
 			HAND B 6
@@ -4335,8 +4333,8 @@ ACTOR BouncingClownNew : AetheriusMonsterZSC replaces BouncingClown 4822
 			{
 				if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(2); }
 				else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
-
-				A_MonsterCrisisCheck; // Single Melee Attack
+				A_FaceTarget;
+				
 				A_CrisisMeleeAttack(10*random(1,10), "BCHOMP");
 			}
 			BCWN B 3  
@@ -4482,8 +4480,8 @@ ACTOR BabyClownNew : AetheriusMonsterZSC replaces BabyClown 4823
 			{
 				if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(2); }
 				else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
-
-				A_MonsterCrisisCheck; // Single Melee Attack
+				A_FaceTarget;
+				
 				A_CrisisMeleeAttack(3*random(1,10),"CLWNBITE");
 			}
 			BCWN B 3
@@ -4626,8 +4624,8 @@ ACTOR BabyClown2New : AetheriusMonsterZSC replaces BabyClown2 4825
 			{
 				if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(2); }
 				else if (levelbehavior > 0 && user_monsterlevel > 90) { A_SetTics(3); }
-
-				A_MonsterCrisisCheck; // Single Melee Attack
+				A_FaceTarget;
+				
 				A_CrisisMeleeAttack(3*random(1,10),"CLWNBITE");
 			}
 			BCWN B 3
@@ -4763,8 +4761,8 @@ actor PennywiseHead2New : AetheriusMonsterZSC replaces PennywiseHead 14421
 			{
 				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }
 				else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(2); }
-
-				A_MonsterCrisisCheck; // Single Melee Attack
+				A_FaceTarget;
+				
 				A_CrisisMeleeAttack(3*random(1,8), "imp/melee");
 			}
 			CFHD A 3  
@@ -4787,6 +4785,7 @@ actor PennywiseHead2New : AetheriusMonsterZSC replaces PennywiseHead 14421
 				if (levelbehavior > 0 && user_monsterlevel > 180) { A_SetTics(3); }
 				else if (levelbehavior > 0 && user_monsterlevel > 120) { A_SetTics(4); }
 				else if (levelbehavior > 0 && user_monsterlevel > 60) { A_SetTics(5); }
+				A_FaceTarget;
 
 				A_MonsterCrisisCheck; // Combo Attack
 				A_CrisisComboAttack("Ghost2Ball","Ghost2BallCrisis", 12, 3*random(1,8), "imp/melee");

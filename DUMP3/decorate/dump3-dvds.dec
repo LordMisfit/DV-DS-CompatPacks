@@ -73,7 +73,7 @@ ACTOR AdolfHitlerDS : AetheriusMonsterZSC replaces AdolfHitler
 				A_MonsterCrisisCheck; // Multiple Pellets
 				if (bullet_tracer_mode == 0)
 				{
-					A_CrisisBulletAttack(user_shotaccuracy, user_shotzaccuracy, 6, random(1,5) * 3, "BulletPuff", 0, CBAF_NORANDOM);
+					A_CustomBulletAttack(user_shotaccuracy, user_shotzaccuracy, 6, random(1,5) * 3, "BulletPuff", 0, CBAF_NORANDOM);
 				}
 				else
 				{
@@ -98,7 +98,7 @@ ACTOR AdolfHitlerDS : AetheriusMonsterZSC replaces AdolfHitler
 				A_MonsterCrisisCheck; // Multiple Pellets
 				if (bullet_tracer_mode == 0)
 				{
-					A_CrisisBulletAttack(user_shotaccuracy, user_shotzaccuracy, 6, random(1,5) * 3, "BulletPuff", 0, CBAF_NORANDOM);
+					A_CustomBulletAttack(user_shotaccuracy, user_shotzaccuracy, 6, random(1,5) * 3, "BulletPuff", 0, CBAF_NORANDOM);
 				}
 				else
 				{
