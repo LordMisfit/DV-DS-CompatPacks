@@ -1000,7 +1000,7 @@ ACTOR TNTSpider : MaulotaurBase 10906
 				A_RefreshStealthInfo(1); // makes a Stealth Monster become more visible
 				SetDamage(7+(user_monsterlevel/45));
 				A_MonsterCrisisCheck; // Minotaur Charge
-				if(user_canusecrisisatk == 1) 
+				if (user_canusecrisisatk == 1) 
 				{
 					A_PlayCrisisAtkSound;
 					SetDamage((7+(user_monsterlevel/45))*CallACS("CrisisMultiplier"));
@@ -1161,6 +1161,13 @@ ACTOR MinotaurFX3New : MinotaurFX2New replaces MinotaurFX3
 			FX13 E 1 Bright
 			FX13 FFGGHH 2 Bright
 			Stop
+		Death:
+			FX13 I 4 Bright 
+			{
+				A_Explode(128,128);
+			}
+			FX13 JKLM 4 Bright
+			Stop
 	}
 }
 ACTOR MinotaurFX3Crisis : MinotaurFX3New
@@ -1196,6 +1203,13 @@ ACTOR MinotaurFX3Crisis : MinotaurFX3New
 			{
 				A_GenerateCrisisParticle;
 			}
+			Stop
+		Death:
+			FX13 I 4 Bright 
+			{
+				A_Explode((128*CallACS("CrisisMultiplier")),128);
+			}
+			FX13 JKLM 4 Bright
 			Stop
 	}
 }

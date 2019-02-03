@@ -1721,9 +1721,7 @@ actor MagmantisLostSoul : AetheriusMonsterZSC
 			SKUL C 10 BRIGHT A_FaceTarget
 			SKUL D 4 BRIGHT
 			{
-				user_canusecrisisatk = 0;
-				if(health <= user_HPLowRange) { if(health <= user_HPCritRange) { user_canusecrisisatk = 1; } else { if (random(1,4) == 4) { user_canusecrisisatk = 1; } } }
-				if(GetCVar("dvds_monstercrisisattacks") == 0) { user_canusecrisisatk = 0; }
+				A_MonsterCrisisCheck;
 				if(user_canusecrisisatk == 1)
 				{
 					A_PlayCrisisAtkSound;

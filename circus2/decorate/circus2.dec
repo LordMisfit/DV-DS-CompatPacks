@@ -3957,7 +3957,7 @@ actor SuperBerthaNew : AetheriusMonsterZSC replaces SuperBertha 14768
 				A_MonsterCrisisCheck; // Multiple Projectiles
 				A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
 				A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
-				if(user_canusecrisisatk == 1) 
+				if (user_canusecrisisatk == 1) 
 				{
 					A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
 					A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
@@ -3968,7 +3968,7 @@ actor SuperBerthaNew : AetheriusMonsterZSC replaces SuperBertha 14768
 			{
 				A_MonsterCrisisCheck; // Multiple Projectiles
 				A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
-				if(user_canusecrisisatk == 1) 
+				if (user_canusecrisisatk == 1) 
 				{
 					A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
 				}
@@ -3979,7 +3979,7 @@ actor SuperBerthaNew : AetheriusMonsterZSC replaces SuperBertha 14768
 				A_MonsterCrisisCheck; // Multiple Projectiles
 				A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
 				A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
-				if(user_canusecrisisatk == 1) 
+				if (user_canusecrisisatk == 1) 
 				{
 					A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
 					A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
@@ -3990,7 +3990,7 @@ actor SuperBerthaNew : AetheriusMonsterZSC replaces SuperBertha 14768
 			{
 				A_MonsterCrisisCheck; // Multiple Projectiles
 				A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
-				if(user_canusecrisisatk == 1) 
+				if (user_canusecrisisatk == 1) 
 				{
 					A_CrisisSpawnProjectile("SoulAttack", "SoulAttackCrisis", 45, 0, random(-45, 45), 2, random(-20, 20));
 				}
@@ -5482,7 +5482,7 @@ actor PennywiseBoss : AetheriusMonsterZSC replaces Pennywise 3672
 				A_SetTics(random(4,6));
 				A_MonsterCrisisCheck; // Multiple Projectiles
 				A_CrisisSpawnProjectile("SkullSeeker666", "SkullSeeker666Crisis", 96,0,random(-180, 180),1,random(-20, 20));
-				if(user_canusecrisisatk == 1) 
+				if (user_canusecrisisatk == 1) 
 				{
 					A_CrisisSpawnProjectile("SkullSeeker666", "SkullSeeker666Crisis", 96,0,random(-180, 180),1,random(-20, 20));
 					A_CrisisSpawnProjectile("SkullSeeker666", "SkullSeeker666Crisis", 96,0,random(-180, 180),1,random(-20, 20));
