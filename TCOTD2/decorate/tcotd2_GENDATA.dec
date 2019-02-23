@@ -3684,7 +3684,7 @@ actor burntcorpse
 	}
 }
 
-actor VulgarClaySpawner : RandomSpawner 30127
+actor VulgarClaySpawner : RandomSpawner2 30127
 {   
 	//$Angled
 	//$Color 12
@@ -3701,7 +3701,7 @@ actor VulgarClaySpawner : RandomSpawner 30127
 			Stop
 	}
 }
-actor DeadBodySpawner1 : RandomSpawner  22081
+actor DeadBodySpawner1 : RandomSpawner2  22081
 {   
 	dropitem "bloodcorpse3"
 	dropitem "pspileofheads"
@@ -3733,7 +3733,7 @@ actor DeadBodySpawner1 : RandomSpawner  22081
 	DROPITEM "bloodcorpse1"
 	DROPITEM "bloodfaceblink"
 }
-actor DeadBodySpawner2 : RandomSpawner 22481
+actor DeadBodySpawner2 : RandomSpawner2 22481
 {   
 	dropitem "bloodcorpse3"
 	dropitem "pspileofheads"

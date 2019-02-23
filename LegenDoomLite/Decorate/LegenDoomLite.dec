@@ -130,7 +130,7 @@ ACTOR LDLegendaryMonsterChooserNightmare : LDMaxHax
 //==============================================================================
 
 // The steps a monster goes through to determine if it can be legendary or not
-ACTOR LDLegendaryMonsterPickupEasy : LDCustomFunction
+ACTOR LDLegendaryMonsterPickupBase : LDCustomFunction
 {
 	States
 	{
@@ -181,7 +181,17 @@ ACTOR LDLegendaryMonsterPickupEasy : LDCustomFunction
 	}
 }
 
-ACTOR LDLegendaryMonsterPickupNormal : LDLegendaryMonsterPickupEasy
+ACTOR LDLegendaryMonsterPickupEasy : LDLegendaryMonsterPickupBase
+{
+	States
+	{
+		DifficultyChance:
+			TNT1 A 0 A_Jump (random(2,4) + (CallACS("PlayerCount", 0) * 4) + (CallACS("LD_legendarychance", 0) * 3), "LEGENDARIFY")
+			Stop
+	}
+}
+
+ACTOR LDLegendaryMonsterPickupNormal : LDLegendaryMonsterPickupBase
 {
 	States
 	{
@@ -191,7 +201,7 @@ ACTOR LDLegendaryMonsterPickupNormal : LDLegendaryMonsterPickupEasy
 	}
 }
 
-ACTOR LDLegendaryMonsterPickupHard : LDLegendaryMonsterPickupEasy
+ACTOR LDLegendaryMonsterPickupHard : LDLegendaryMonsterPickupBase
 {
 	States
 	{
@@ -201,7 +211,7 @@ ACTOR LDLegendaryMonsterPickupHard : LDLegendaryMonsterPickupEasy
 	}
 }
 
-ACTOR LDLegendaryMonsterPickupUV : LDLegendaryMonsterPickupEasy
+ACTOR LDLegendaryMonsterPickupUV : LDLegendaryMonsterPickupBase
 {
 	States
 	{
@@ -211,7 +221,7 @@ ACTOR LDLegendaryMonsterPickupUV : LDLegendaryMonsterPickupEasy
 	}
 }
 
-ACTOR LDLegendaryMonsterPickupNightmare : LDLegendaryMonsterPickupEasy
+ACTOR LDLegendaryMonsterPickupNightmare : LDLegendaryMonsterPickupBase
 {
 	States
 	{
@@ -221,7 +231,7 @@ ACTOR LDLegendaryMonsterPickupNightmare : LDLegendaryMonsterPickupEasy
 	}
 }
 
-ACTOR LDLegendaryMonsterPickupExtreme : LDLegendaryMonsterPickupEasy
+ACTOR LDLegendaryMonsterPickupExtreme : LDLegendaryMonsterPickupBase
 {
 	States
 	{
@@ -231,7 +241,7 @@ ACTOR LDLegendaryMonsterPickupExtreme : LDLegendaryMonsterPickupEasy
 	}
 }
 
-ACTOR LDLegendaryMonsterPickupHorrible : LDLegendaryMonsterPickupEasy
+ACTOR LDLegendaryMonsterPickupHorrible : LDLegendaryMonsterPickupBase
 {
 	States
 	{
@@ -241,7 +251,7 @@ ACTOR LDLegendaryMonsterPickupHorrible : LDLegendaryMonsterPickupEasy
 	}
 }
 
-ACTOR LDLegendaryMonsterPickupImpossible : LDLegendaryMonsterPickupEasy
+ACTOR LDLegendaryMonsterPickupImpossible : LDLegendaryMonsterPickupBase
 {
 	States
 	{
@@ -251,7 +261,7 @@ ACTOR LDLegendaryMonsterPickupImpossible : LDLegendaryMonsterPickupEasy
 	}
 }
 
-ACTOR LDLegendaryMonsterPickupOmega : LDLegendaryMonsterPickupEasy
+ACTOR LDLegendaryMonsterPickupOmega : LDLegendaryMonsterPickupBase
 {
 	States
 	{
@@ -439,7 +449,7 @@ ACTOR LDLegendaryMonsterBossMarker : MapMarker
 //				LOOT GENERATION
 //==============================================================================
 
-actor LDLiteDVDSArmorSpawner : RandomSpawner
+actor LDLiteDVDSArmorSpawner : RandomSpawner2
 {
 	DropItem "ArmorBonusDS2" 256 472
 	DropItem "GreenArmorDS" 256 13
@@ -450,7 +460,7 @@ actor LDLiteDVDSArmorSpawner : RandomSpawner
 	DropItem "DiamondSkinGA" 256 1
 }
 
-actor LDLiteDVDSAmmoSpawner : RandomSpawner
+actor LDLiteDVDSAmmoSpawner : RandomSpawner2
 {
 	DropItem "ClipNew" 256 3
 	DropItem "ShellNew" 256 3
@@ -458,7 +468,7 @@ actor LDLiteDVDSAmmoSpawner : RandomSpawner
 	DropItem "CellNew" 256 1
 }
 
-actor LDLiteDVDSItemSpawner : RandomSpawner
+actor LDLiteDVDSItemSpawner : RandomSpawner2
 {
 	DropItem "RandomHerbSpawner" 255 768
 	DropItem "RandomMagicSpawner" 255 256
@@ -504,7 +514,7 @@ ACTOR LDLiteDVDSItem : LDMaxHax
 	}
 }
 
-actor LDLiteDVDSBossArmorSpawner : RandomSpawner
+actor LDLiteDVDSBossArmorSpawner : RandomSpawner2
 {
 	DropItem "ArmorBonusDS2" 256 118
 	DropItem "GreenArmorDS" 256 26
@@ -515,7 +525,7 @@ actor LDLiteDVDSBossArmorSpawner : RandomSpawner
 	DropItem "DiamondSkinGA" 256 2
 }
 
-actor LDLiteDVDSBossAmmoSpawner : RandomSpawner
+actor LDLiteDVDSBossAmmoSpawner : RandomSpawner2
 {
 	DropItem "ClipBoxNew" 256 3
 	DropItem "ShellBoxNew" 256 3
@@ -523,7 +533,7 @@ actor LDLiteDVDSBossAmmoSpawner : RandomSpawner
 	DropItem "CellPackNew" 256 1
 }
 
-actor LDLiteDVDSBossItemSpawner : RandomSpawner
+actor LDLiteDVDSBossItemSpawner : RandomSpawner2
 {
 	DropItem "RandomHerbSpawner" 255 384
 	DropItem "RandomMagicSpawner" 255 128

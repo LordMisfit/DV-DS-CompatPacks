@@ -22,14 +22,14 @@ pickup Bomb
 }
 
 // MONSTERS
-actor NamiDarkImpSpawner : RandomSpawner 3100 { DropItem DarkImp 255 }
-actor VoidDarkImpSpawner : RandomSpawner { DropItem VoidDarkImp 255 }
-actor STDarkImpSpawner : RandomSpawner { DropItem STDarkImp 255 }
-ACTOR BloodDemonSpawner : RandomSpawner { DropItem BloodDemon 255 }
-ACTOR BloodDemonClone : RandomSpawner { DropItem BloodDemon 255 }
-ACTOR RocketGuySpawner : RandomSpawner 3202 { Dropitem RocketLauncherGuy 255 }
-ACTOR BruiserDemonSpawner : RandomSpawner { DropItem BruiserDemon 255 }
-ACTOR ChainsawZombie : RandomSpawner { DropItem ChainsawZombieNew 255 }
+actor NamiDarkImpSpawner : RandomSpawner2 3100 { DropItem DarkImp 255 }
+actor VoidDarkImpSpawner : RandomSpawner2 { DropItem VoidDarkImp 255 }
+actor STDarkImpSpawner : RandomSpawner2 { DropItem STDarkImp 255 }
+ACTOR BloodDemonSpawner : RandomSpawner2 { DropItem BloodDemon 255 }
+ACTOR BloodDemonClone : RandomSpawner2 { DropItem BloodDemon 255 }
+ACTOR RocketGuySpawner : RandomSpawner2 3202 { Dropitem RocketLauncherGuy 255 }
+ACTOR BruiserDemonSpawner : RandomSpawner2 { DropItem BruiserDemon 255 }
+ACTOR ChainsawZombie : RandomSpawner2 { DropItem ChainsawZombieNew 255 }
 actor DemonCubeMissile : AetheriusProjectileZSC
 {
 	Radius 8
@@ -179,7 +179,7 @@ ACTOR HellsFurySkull
 	}
 }
 
-ACTOR KDiZDNightmare : RandomSpawner { DropItem NightmareNew 255 }
+ACTOR KDiZDNightmare : RandomSpawner2 { DropItem NightmareNew 255 }
 ACTOR NightmareWisp
 {
 	Radius 4
@@ -244,9 +244,9 @@ ACTOR ZombieRifleBulletTracerCrisis : ZombieRifleBulletTracer
 	Damage ((20 * random(1,8)) * CallACS("CrisisMultiplier"))
 }
 
-ACTOR Satyr : RandomSpawner { DropItem SatyrNew 255 }
+ACTOR Satyr : RandomSpawner2 { DropItem SatyrNew 255 }
 
-ACTOR Shadow : RandomSpawner { DropItem ShadowNew 255 }
+ACTOR Shadow : RandomSpawner2 { DropItem ShadowNew 255 }
 
 ACTOR Shadowtorso
 {
@@ -390,7 +390,7 @@ ACTOR ShadowGhostD : ShadowGhostA
 	}
 }
 
-ACTOR SoulHarvester : RandomSpawner { DropItem SoulHarvesterNew 255 }
+ACTOR SoulHarvester : RandomSpawner2 { DropItem SoulHarvesterNew 255 }
 
 ACTOR SoulHarvesterBall : AetheriusProjectileZSC
 {
