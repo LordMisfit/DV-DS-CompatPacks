@@ -557,7 +557,7 @@ ACTOR NightmareNew : AetheriusMonsterZSC 26000
 	+NOINFIGHTSPECIES
 	Species "Nightmare"
 	RenderStyle Add
-	Alpha 0.4
+	Alpha 0.01
 	SeeSound "nightmare/sight"
 	PainSound "nightmare/pain"
 	DeathSound "nightmare/death"
