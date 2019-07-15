@@ -2515,11 +2515,10 @@ actor Transformer 4114
 	Radius 10
 	Height 48 
 	Health 100
-	Mass 4000
+	Mass 0x7FFFFFFE
 	+SOLID +NOBLOOD +SpawnCEILING +NOGRAVITY +SHOOTABLE +NORADIUSDMG +NOCLIP
 	SeeSound ""
 	DeathSound "TRANEXP"
-	Mass 5
 	States
 	{
 		Spawn:
@@ -2537,6 +2536,7 @@ actor Transformer 4114
 			TRAN C 3 Bright A_CustomMissile(TransformerSpark1, 0, 8, 0) 
 			TRAN C 3 Bright A_CustomMissile(TransformerSpark1, 0, -16, 135) 
 			TRAN C 0 Bright	A_CustomMissile(TransformerSpark1, 0, 24, 270) 
+			TRAN C 0 Bright	A_Explode(128,128) 
 			TRAN D 3 Bright A_CustomMissile(TransformerSpark1, 0, 0, 90) 
 			TRAN D 3 Bright A_CustomMissile(TransformerSpark1, 0, 16, 45) 
 			TRAN EFG 6 Bright

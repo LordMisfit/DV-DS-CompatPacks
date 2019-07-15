@@ -800,7 +800,7 @@ ACTOR JumpingSkullNew : AetheriusMonsterZSC replaces JumpingSkull 32121
 	MeleeSound "SKULBITE"
 	HitObituary "%o was bitten by a bouncing skull."
 
-	dropitem DoomSpellMana1 16
+	dropitem DoomSpellMana 16
 	dropitem GreenArmor 2
 	dropitem BlueArmor 2
 	dropitem HealthBonus 2
@@ -1075,7 +1075,7 @@ ACTOR JumpingSkull2New : AetheriusMonsterZSC replaces JumpingSkull2 3646 //spawn
 	RENDERSTYLE Translucent
 	ALPHA 0.67
 
-	dropitem DoomSpellMana1 16
+	dropitem DoomSpellMana 16
 	dropitem GreenArmor 2
 	dropitem BlueArmor 2
 	dropitem HealthBonus 2
@@ -1211,7 +1211,7 @@ ACTOR PossessedBalloonNew : AetheriusMonsterZSC replaces PossessedBalloon 3115
 	MeleeSound "BOONBITE"
 	HitObituary "%o wanted to float with all the pretty balloons."
 
-	dropitem DoomSpellMana1 8
+	dropitem DoomSpellMana 8
 	dropitem GreenArmor 1
 	dropitem BlueArmor 1
 	dropitem HealthBonus 1
@@ -1766,7 +1766,7 @@ ACTOR TinyBingoNew : AetheriusMonsterZSC replaces TinyBingo 4179
 	Obituary "%o got blasted by a freaky clown head." 
 	MissileHeight 12
 	MissileType MyBall
-	dropitem DoomSpellMana1 76
+	dropitem DoomSpellMana 76
 	dropitem GreenArmor 4
 	dropitem BlueArmor 4
 	dropitem HealthBonus 4
@@ -2105,8 +2105,8 @@ actor BeefyNew : AetheriusMonsterZSC replaces Beefy 4333
 	HitObituary "%o was scratched by beefy the clown."
 	MissileHeight 32
 	MissileType BeefyBall1
-	dropitem DoomSpellMana1 24
-	dropitem DoomSpellMana1 24
+	dropitem DoomSpellMana 24
+	dropitem DoomSpellMana 24
 	dropitem GreenArmor 2
 	dropitem BlueArmor 2
 	dropitem HealthBonus 2
@@ -2372,7 +2372,7 @@ ACTOR BlackBearNew : AetheriusMonsterZSC replaces BlackBear 3191
 	ExplosionRadius 40
 	ExplosionDamage 11
 
-	dropitem DoomSpellMana1 8
+	dropitem DoomSpellMana 8
 	dropitem HealthBonus 1
 	dropitem ArmorBonus 1
 	dropitem MaxHealthBonus 1
@@ -2521,8 +2521,8 @@ actor ClownGhostNew : AetheriusMonsterZSC replaces ClownGhost 32128
 	MissileHeight 12
 	MissileType SkullSeeker2 
 
-	dropitem DoomSpellMana1 24
-	dropitem DoomSpellMana1 24
+	dropitem DoomSpellMana 24
+	dropitem DoomSpellMana 24
 	dropitem DoomSpellMana2 24
 	dropitem DoomSpellMana2 24
 	dropitem GreenArmor 2
@@ -2767,7 +2767,7 @@ actor ClownGhost2New : AetheriusMonsterZSC replaces ClownGhost2 31211
 	Obituary "%o got incinerated by a flaming clown ghost." 
 	MissileHeight 15
 	MissileType Ghost2Ball
-	dropitem DoomSpellMana1 24
+	dropitem DoomSpellMana 24
 	dropitem DoomSpellMana2 24
 	dropitem DoomSpellMana3 24
 	dropitem GreenArmor 2
@@ -3132,7 +3132,7 @@ actor BulbyNew : AetheriusMonsterZSC replaces Bulby 3906
 	HitObituary "%o got electroshocked by Bulby." 
 	Obituary "%o got killed by Bulby." 
 	MissileType BulbyBall
-	dropitem DoomSpellMana1 24
+	dropitem DoomSpellMana 24
 	dropitem DoomSpellMana2 24
 	dropitem GreenArmor 2
 	dropitem BlueArmor 2
@@ -3323,7 +3323,7 @@ actor MegaBulbyNew : AetheriusMonsterZSC replaces MegaBulby 3989
 	HitObituary "%o got electroshocked by Mega Bulby." 
 	Obituary "%o got killed by Mega Bulby." 
 	MissileType BulbyBall3
-	dropitem DoomSpellMana1 24
+	dropitem DoomSpellMana 24
 	dropitem DoomSpellMana2 24
 	dropitem DoomSpellMana3 24
 	dropitem GreenArmor 2
@@ -3566,8 +3566,8 @@ ACTOR BigBertha2New : AetheriusMonsterZSC replaces BigBertha2 3192
 	Obituary "%o touched big birtha's puke." 
 	MissileHeight 12
 	MissileType BlackBear
-	dropitem DoomSpellMana1 24
-	dropitem DoomSpellMana1 24
+	dropitem DoomSpellMana 24
+	dropitem DoomSpellMana 24
 	dropitem DoomSpellMana2 24
 	dropitem DoomSpellMana2 24
 	dropitem DoomSpellMana3 24
@@ -4109,7 +4109,7 @@ ACTOR EvilDeadHandNew : AetheriusMonsterZSC replaces EvilDeadHand 32212
 	MeleeSound "SKULBITE"
 	HitObituary "%o was choked to death by the Evil Dead hand." 
 	Obituary "%o was choked to death by the Evil Dead hand." 
-	dropitem DoomSpellMana1 8
+	dropitem DoomSpellMana 8
 	dropitem GreenArmor 1
 	dropitem BlueArmor 1
 	dropitem HealthBonus 1

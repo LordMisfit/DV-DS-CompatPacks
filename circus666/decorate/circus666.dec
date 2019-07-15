@@ -455,7 +455,7 @@ ACTOR JumpingSkullNew : AetheriusMonsterZSC replaces JumpingSkull 3117
 	ActiveSound "laff4"
 	MeleeSound "jumpbite"
 	HitObituary "%o was bitten by a bouncing skull."
-	dropitem DoomSpellMana1 16
+	dropitem DoomSpellMana 16
 	dropitem GreenArmor 2
 	dropitem BlueArmor 2
 	dropitem HealthBonus 2
@@ -561,7 +561,7 @@ ACTOR PossessedBalloonNew : AetheriusMonsterZSC replaces PossessedBalloon 3115
 	ActiveSound "hit1"
 	MeleeSound "hit1"
 	HitObituary "%o wanted to float with all the pretty balloons."
-	dropitem DoomSpellMana1 8
+	dropitem DoomSpellMana 8
 	dropitem GreenArmor 1
 	dropitem BlueArmor 1
 	dropitem HealthBonus 1

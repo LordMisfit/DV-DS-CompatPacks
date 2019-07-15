@@ -529,7 +529,7 @@ actor LDLiteDVDSBossAmmoSpawner : RandomSpawner2
 {
 	DropItem "ClipBoxNew" 256 3
 	DropItem "ShellBoxNew" 256 3
-	DropItem "RocketBoxAmmoNew" 256 1
+	DropItem "RocketBoxNew" 256 1
 	DropItem "CellPackNew" 256 1
 }
 
