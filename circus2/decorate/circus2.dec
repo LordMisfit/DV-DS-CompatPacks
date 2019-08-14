@@ -5642,26 +5642,20 @@ ACTOR PopcornGunNew : Circus2Weapon replaces PopcornGun 30204
 			PGUN AAACCCDDDEEEFFFGGG 1 A_WeaponReady(WRF_ALLOWUSER1)
 			loop
 		Deselect: 
-			TNT1 A 0 
+			PGUN A 1  
 			{
-				if (CallACS("MiscVarCheckDECORATE",10051) >= 2) { A_Lower; }
-				if (CallACS("MiscVarCheckDECORATE",10051) >= 4) { A_Lower; }
-				if (CallACS("MiscVarCheckDECORATE",10035) >= 2) { A_Lower; }
-				if (CallACS("MiscVarCheckDECORATE",10035) >= 4) { A_Lower; }
+				A_Lower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
+				A_Lower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_Lower(18);
 			}
-			TNT1 A 0 { A_Lower; A_Lower; }
-			PGUN A 1 A_Lower 
 			loop
 		Select: 
-			TNT1 A 0 
+			PGUN A 1
 			{
-				if (CallACS("MiscVarCheckDECORATE",10051) >= 2) { A_Raise; }
-				if (CallACS("MiscVarCheckDECORATE",10051) >= 4) { A_Raise; }
-				if (CallACS("MiscVarCheckDECORATE",10035) >= 2) { A_Raise; }
-				if (CallACS("MiscVarCheckDECORATE",10035) >= 4) { A_Raise; }
+				A_Raise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
+				A_Raise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_Raise(18);
 			}
-			TNT1 A 0 { A_Raise; A_Raise; }
-			PGUN A 1 A_Raise 
 			loop
 		Fire:
 			PGUN A 0 A_Jump (200,"FirePhase2")
@@ -5790,44 +5784,40 @@ ACTOR GoreBalloonNew : Circus2Weapon replaces GoreBalloon 30030
 			TNT1 A 0 A_JumpIf(CallACS("CheckCharacterClass") == 2, "Deselect1")
 			goto Deselect2
 		Deselect1: 
-			TNT1 A 0 
+			BLNF E 1
 			{
-				if (CallACS("MiscVarCheckDECORATE",10051) >= 2) { A_Lower; }
-				if (CallACS("MiscVarCheckDECORATE",10051) >= 4) { A_Lower; }
+				A_Lower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
+				A_Lower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_Lower(18);
 			}
-			TNT1 A 0 { A_Lower; A_Lower; }
-			BLNF E 1 A_Lower
 			Loop
 		Deselect2: 
-			TNT1 A 0 
+			BLNN E 1
 			{
-				if (CallACS("MiscVarCheckDECORATE",10035) >= 2) { A_Lower; }
-				if (CallACS("MiscVarCheckDECORATE",10035) >= 4) { A_Lower; }
+				A_Lower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
+				A_Lower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_Lower(18);
 			}
-			TNT1 A 0 { A_Lower; A_Lower; }
-			BLNN E 1 A_Lower
 			Loop
 		Select: 
 			TNT1 A 0 A_JumpIf(CallACS("CheckCharacterClass") == 2, "Select1")
 			goto Select2
 			loop
 		Select1: 
-			TNT1 A 0 
+			BLNF E 1
 			{
-				if (CallACS("MiscVarCheckDECORATE",10035) >= 2) { A_Raise; }
-				if (CallACS("MiscVarCheckDECORATE",10035) >= 4) { A_Raise; }
+				A_Raise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
+				A_Raise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_Raise(18);
 			}
-			TNT1 A 0 { A_Raise; A_Raise; }
-			BLNF E 1 A_Raise
 			Loop
 		Select2: 
-			TNT1 A 0 
+			BLNN E 1
 			{
-				if (CallACS("MiscVarCheckDECORATE",10051) >= 2) { A_Raise; }
-				if (CallACS("MiscVarCheckDECORATE",10051) >= 4) { A_Raise; }
+				A_Raise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
+				A_Raise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_Raise(18);
 			}
-			TNT1 A 0 { A_Raise; A_Raise; }
-			BLNN E 1 A_Raise
 			Loop
 		Fire: 
 			TNT1 A 0 A_JumpIf(CallACS("CheckCharacterClass") == 2, "Fire1")
@@ -5988,26 +5978,20 @@ ACTOR ClownGrenadeNew : Circus2Weapon replaces ClownGrenade 30029
 			GHND ABCDEFFFFFEDCBAA 1 A_WeaponReady(WRF_ALLOWUSER1) 
 			loop
 		Deselect: 
-			TNT1 A 0 
+			GHND A 1
 			{
-				if (CallACS("MiscVarCheckDECORATE",10051) >= 2) { A_Lower; }
-				if (CallACS("MiscVarCheckDECORATE",10051) >= 4) { A_Lower; }
-				if (CallACS("MiscVarCheckDECORATE",10035) >= 2) { A_Lower; }
-				if (CallACS("MiscVarCheckDECORATE",10035) >= 4) { A_Lower; }
+				A_Lower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
+				A_Lower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_Lower(18);
 			}
-			TNT1 A 0 { A_Lower; A_Lower; }
-			GHND A 1 A_Lower 
 			loop
 		Select: 
-			TNT1 A 0 
+			GHND A 1 
 			{
-				if (CallACS("MiscVarCheckDECORATE",10051) >= 2) { A_Raise; }
-				if (CallACS("MiscVarCheckDECORATE",10051) >= 4) { A_Raise; }
-				if (CallACS("MiscVarCheckDECORATE",10035) >= 2) { A_Raise; }
-				if (CallACS("MiscVarCheckDECORATE",10035) >= 4) { A_Raise; }
+				A_Raise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
+				A_Raise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_Raise(18);
 			}
-			TNT1 A 0 { A_Raise; A_Raise; }
-			GHND A 1 A_Raise 
 			loop
 		Fire: 
 			GHND I 4
@@ -6148,26 +6132,20 @@ ACTOR GutFlingerNew : Circus2Weapon replaces GutFlinger 30028
 			CCCC A 1 A_WeaponReady(WRF_ALLOWUSER1) 
 			loop
 		Deselect: 
-			TNT1 A 0 
+			CCCC A 1 
 			{
-				if (CallACS("MiscVarCheckDECORATE",10051) >= 2) { A_Lower; }
-				if (CallACS("MiscVarCheckDECORATE",10051) >= 4) { A_Lower; }
-				if (CallACS("MiscVarCheckDECORATE",10035) >= 2) { A_Lower; }
-				if (CallACS("MiscVarCheckDECORATE",10035) >= 4) { A_Lower; }
+				A_Lower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
+				A_Lower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_Lower(18);
 			}
-			TNT1 A 0 { A_Lower; A_Lower; }
-			CCCC A 1 A_Lower 
 			loop
 		Select: 
-			TNT1 A 0 
+			CCCC A 1 
 			{
-				if (CallACS("MiscVarCheckDECORATE",10051) >= 2) { A_Raise; }
-				if (CallACS("MiscVarCheckDECORATE",10051) >= 4) { A_Raise; }
-				if (CallACS("MiscVarCheckDECORATE",10035) >= 2) { A_Raise; }
-				if (CallACS("MiscVarCheckDECORATE",10035) >= 4) { A_Raise; }
+				A_Raise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
+				A_Raise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_Raise(18);
 			}
-			TNT1 A 0 { A_Raise; A_Raise; }
-			CCCC A 1 A_Raise 
 			loop
 		Fire:
 			CCCC A 1 A_JumpIfNoAmmo("FireNoAmmo") 
@@ -6278,26 +6256,20 @@ ACTOR GasRocketLauncherNew : Circus2Weapon replaces GasRocketLauncher 30203
 			PRCK G 1 A_WeaponReady(WRF_ALLOWUSER1) 
 			loop
 		Deselect: 
-			TNT1 A 0 
+			PRCK G 1 
 			{
-				if (CallACS("MiscVarCheckDECORATE",10051) >= 2) { A_Lower; }
-				if (CallACS("MiscVarCheckDECORATE",10051) >= 4) { A_Lower; }
-				if (CallACS("MiscVarCheckDECORATE",10035) >= 2) { A_Lower; }
-				if (CallACS("MiscVarCheckDECORATE",10035) >= 4) { A_Lower; }
+				A_Lower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
+				A_Lower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_Lower(18);
 			}
-			TNT1 A 0 { A_Lower; A_Lower; }
-			PRCK G 1 A_Lower 
 			loop
 		Select: 
-			TNT1 A 0 
+			PRCK D 1
 			{
-				if (CallACS("MiscVarCheckDECORATE",10051) >= 2) { A_Raise; }
-				if (CallACS("MiscVarCheckDECORATE",10051) >= 4) { A_Raise; }
-				if (CallACS("MiscVarCheckDECORATE",10035) >= 2) { A_Raise; }
-				if (CallACS("MiscVarCheckDECORATE",10035) >= 4) { A_Raise; }
+				A_Raise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
+				A_Raise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_Raise(18);
 			}
-			TNT1 A 0 { A_Raise; A_Raise; }
-			PRCK D 1 A_Raise 
 			loop
 		Fire:
 			PRCK G 0 
@@ -6410,26 +6382,20 @@ ACTOR CrazyBall2New : Circus2Weapon replaces CrazyBall2 30205
 			HCRZ S 1 A_WeaponReady(WRF_ALLOWUSER1) 
 			loop
 		Deselect: 
-			TNT1 A 0 
+			HCRZ S 1 
 			{
-				if (CallACS("MiscVarCheckDECORATE",10051) >= 2) { A_Lower; }
-				if (CallACS("MiscVarCheckDECORATE",10051) >= 4) { A_Lower; }
-				if (CallACS("MiscVarCheckDECORATE",10035) >= 2) { A_Lower; }
-				if (CallACS("MiscVarCheckDECORATE",10035) >= 4) { A_Lower; }
+				A_Lower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
+				A_Lower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_Lower(18);
 			}
-			TNT1 A 0 { A_Lower; A_Lower; }
-			HCRZ S 1 A_Lower 
 			loop
 		Select: 
-			TNT1 A 0 
+			HCRZ S 1 
 			{
-				if (CallACS("MiscVarCheckDECORATE",10051) >= 2) { A_Raise; }
-				if (CallACS("MiscVarCheckDECORATE",10051) >= 4) { A_Raise; }
-				if (CallACS("MiscVarCheckDECORATE",10035) >= 2) { A_Raise; }
-				if (CallACS("MiscVarCheckDECORATE",10035) >= 4) { A_Raise; }
+				A_Raise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
+				A_Raise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_Raise(18);
 			}
-			TNT1 A 0 { A_Raise; A_Raise; }
-			HCRZ S 1 A_Raise 
 			loop
 		Fire:
 			HCRZ S 1 A_JumpIfNoAmmo("FireNoAmmo") 

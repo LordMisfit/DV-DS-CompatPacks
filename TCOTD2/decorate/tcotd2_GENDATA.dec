@@ -88,7 +88,7 @@ Actor ClayDevil
 	height 56
 	speed 9
 	scale 0.5
-	dropitem dropitem
+	dropitem None
 	mass 400
 	PainChance "SHOCK", 255
 	painchance 96
@@ -351,7 +351,6 @@ ACTOR AoDGhost
 	Alpha 0.75
 	+Noclip
 	SEESOUND "aod/ghost"
-	DropItem "Heart" 96
 	states
 	{
 		Spawn:
@@ -617,7 +616,6 @@ ACTOR LargeSpider // 22291
 	Translation 1
 	MONSTER
 	+FLOORCLIP
-	DropItem "Heart" 160
 	seesound "littlespider/sight"
 	attacksound "littlespider/attack"
 	painsound "littlespider/pain"
@@ -767,7 +765,6 @@ ACTOR HotDog // 30121
 	Height 50
 	Mass 500
 	MeleeDamage 7
-	DropItem "Heart" 160
 	MONSTER
 	+FloorClip
 	+FireResist
@@ -1213,7 +1210,6 @@ ACTOR SoulHarvester // 3117
 	PainChance 120
 	MONSTER 
 	+FloorClip
-	DropItem "Heart" 160    
 	SEESOUND "harvester/sight"
 	PAINSOUND "imp/pain"
 	DEATHSOUND "harvester/death"
@@ -1987,7 +1983,6 @@ actor Vulgar : DoomImp
 	deathsound "monster/vuldth"
 	activesound "monster/vulact"
 	meleesound "monster/vulhit"
-	DropItem "Heart" 128
 	MONSTER
 	+FLOORCLIP
 	states
@@ -2075,7 +2070,6 @@ ACTOR ESoul // 29012
 	bloodcolor "black"
 	painchance 128
 	renderstyle Add
-	DropItem "Heart" 160  
 	Alpha 0.4
 	attacksound "skull/melee"
 	PainSound "nightmare/pain"
@@ -2576,7 +2570,6 @@ ACTOR Fatty // 25010
 	obituary "%o was cut down by a bloated butcher."
 	hitobituary "%o was cut up by a bloated butcher."
 	Health 400
-	dropitem "heart" 128
 	gibhealth 20
 	meleesound "twix"
 	PainChance "SHOCK", 255
@@ -2874,7 +2867,6 @@ ACTOR Fatty2
 	DEATHSOUND "fatty/death"
 	ACTIVESOUND "fatty/act"
 	MONSTER
-	DropItem "Heart" 128
 	+FloorClip
 	+LongMeleeRange
 	+MissileMore
@@ -2983,14 +2975,13 @@ ACTOR FattyTracerTrail
 // ZOMBIE //
 ////////////
 
-ACTOR omgsogay
+ACTOR BloodZombie
 {
 	HITOBITUARY "%o was slaughtered by a zombie."
 	Health 150
 	PainChance 0
 	Speed 9
 	Radius 30
-	DropItem "Heart" 160  
 	Height 56
 	Mass 400
 	MeleeDamage 10 
@@ -4286,10 +4277,10 @@ actor NewFist : Weapon
 			PUNG A 1 A_WeaponReady
 			loop
 		Deselect:
-			PUNG A 1 A_Lower
+			PUNG A 1 A_Lower(6)
 			loop
 		Select: 
-			PUNG A 1 A_Raise
+			PUNG A 1 A_Raise(6)
 			loop
 		Fire:
 			PUNG B 4
@@ -4316,12 +4307,10 @@ ACTOR Pitchfork : QuickMeleeWeapon // 30876
 			FORK A 1 A_WeaponReady
 			loop
 		Deselect:
-			FORK A 0 A_Lower
-			FORK A 1 A_Lower
+			FORK A 1 A_Lower(12)
 			loop
 		Select: 
-			FORK A 0 A_Raise
-			FORK A 1 A_Raise
+			FORK A 1 A_Raise(12)
 			loop
 		Fire:
 			FORK BC 1
@@ -4417,12 +4406,10 @@ actor PistolBlood : Weapon
 			RVLV A 1 A_WeaponReady
 			loop
 		Select:
-			RVLV A 1 A_RAISE
-			NULL AA 0 A_RAISE
+			RVLV A 1 A_Raise(18)
 			Loop
 		Deselect:
-			RVLV A 1 A_Lower
-			NULL AA 0 A_Lower
+			RVLV A 1 A_Lower(18)
 			Loop
 		Fire:
 			NULL A 0 A_GunFlash
@@ -4456,12 +4443,10 @@ ACTOR Sawedoff_ : Weapon 27010
 			WP01 A 1 A_WeaponReady
 			Loop
 		Deselect:
-			WP01 A 1 A_Lower
-			NULL AA 0 A_LOWER
+			WP01 A 1 A_Lower(18)
 			Loop
 		Select:
-			WP01 A 1 A_Raise
-			NULL AA 0 A_RAISE
+			WP01 A 1 A_Raise(18)
 			Loop
 		Fire:
 			NULL A 0 A_JumpIfInventory("sawedoffcheck",1,"Fire2")
@@ -4545,12 +4530,10 @@ actor Thompson_ : DoomWeapon 27012
 			TOMM A 4
 			loop
 		select:
-			TOMG AA 0 A_raise
-			TOMG A 1 A_raise
+			TOMG A 1 A_Raise(18)
 			loop
 		deselect:
-			TOMG AA 0 A_lower
-			TOMG A 1 A_lower
+			TOMG A 1 A_Lower(18)
 			loop
 		ready:
 			TOMG A 1 A_weaponready
@@ -4748,12 +4731,10 @@ actor NapalmLauncher_ : QuickMeleeWeapon 21073
 			TESL AAABBBCCCDDDEEEFFF 1 A_WeaponReady
 			Loop
 		Deselect:	
-			TESR A 0 A_Lower
-			TESR A 1 A_Lower
+			TESR A 1 A_Lower(12)
 			Loop
 		Select:
-			TESR A 0 A_Raise
-			TESR A 1 A_Raise
+			TESR A 1 A_Raise(12)
 			Loop
 		Fire:
 			TESF A 1 BRIGHT 
@@ -5137,12 +5118,10 @@ actor PistolBlood_ : Weapon replaces PistolBlood
 			RVLV A 1 A_WeaponReady
 			loop
 		Select:
-			RVLV A 1 A_RAISE
-			NULL AA 0 A_RAISE
+			RVLV A 1 A_Raise(18)
 			Loop
 		Deselect:
-			RVLV A 1 A_Lower
-			NULL AA 0 A_Lower
+			RVLV A 1 A_Lower(18)
 			Loop
 		Fire:
 			NULL A 0 A_GunFlash
@@ -5187,10 +5166,10 @@ actor PistolBloodDual : PistolBlood_
 			PISG D 1 A_WeaponReady
 			loop
 		Deselect:
-			PISG D 1 A_Lower
+			PISG D 1 A_Lower(6)
 			loop
 		Select:
-			PISG D 1 A_Raise
+			PISG D 1 A_Raise(6)
 			loop
 		Fire:
 			PISG D 6
@@ -5327,12 +5306,10 @@ Actor RevolverBlood : PistolBlood replaces PistolBloodPickup
 			RVLV A 1 A_WeaponReady
 			loop
 		Select:
-			RVLV A 1 A_RAISE
-			NULL AA 0 A_RAISE
+			RVLV A 1 A_Raise(18)
 			Loop
 		Deselect:
-			RVLV A 1 A_Lower
-			NULL AA 0 A_Lower
+			RVLV A 1 A_Lower(18)
 			Loop
 		Fire:
 			NULL A 0 A_GunFlash
@@ -5693,12 +5670,10 @@ actor BloodTommygun : weapon
 			TOMM A 4
 			loop
 		Select:
-			TOMG AA 0 A_raise
-			TOMG A 1 A_raise
+			TOMG A 1 A_Raise(18)
 			loop
 		Deselect:
-			TOMG AA 0 A_lower
-			TOMG A 1 A_lower
+			TOMG A 1 A_Lower(18)
 			loop
 		Ready:
 			TOMG A 1 A_weaponready

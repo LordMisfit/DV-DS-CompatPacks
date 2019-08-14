@@ -1490,24 +1490,24 @@ ACTOR Rifle : MarineWeapon 31407 // replaces BFG9000
 			Loop
 
 		Select:
-			TNT1 A 0 
+			RIFG A 1 
 			{
-				if (CallACS("MiscVarCheckDECORATE",10019) >= 2) { A_Raise; }
-				if (CallACS("MiscVarCheckDECORATE",10051) >= 3) { A_Raise; }
-				if (CallACS("MiscVarCheckDECORATE",10019) >= 4) { A_Raise; }
+				A_Raise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10019)*3);
+				A_Raise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10020)*7.5);
+				A_Raise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_Raise(18);
+				A_Raise(18);
 			}
-			TNT1 A 0 { A_Raise; A_Raise; }
-			RIFG A 1 A_Raise
 			Loop
 		Deselect:
-			TNT1 A 0 
+			RIFG A 1 
 			{
-				if (CallACS("MiscVarCheckDECORATE",10019) >= 2) { A_Lower; }
-				if (CallACS("MiscVarCheckDECORATE",10051) >= 3) { A_Lower; }
-				if (CallACS("MiscVarCheckDECORATE",10019) >= 4) { A_Lower; }
+				A_Lower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10019)*3);
+				A_Lower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10020)*7.5);
+				A_Lower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_Lower(18);
+				A_Lower(18);
 			}
-			TNT1 A 0 { A_Lower; A_Lower; }
-			RIFG A 1 A_Lower
 			Loop
 		Ready:
 			RIFG A 1 A_WeaponReady(WRF_ALLOWUSER1)
@@ -1638,10 +1638,10 @@ ACTOR KDiZDGrenadeLauncher : MarineWeapon 31410 // replaces PlasmaRifle
 			Loop
 
 		Select:
-			GLAG A 1 A_Raise
+			GLAG A 1 A_Raise(6)
 			Loop
 		Deselect:
-			GLAG A 1 A_Lower
+			GLAG A 1 A_Lower(6)
 			Loop
 		Ready:
 			GLAG A 1 A_WeaponReady(WRF_ALLOWUSER1)
