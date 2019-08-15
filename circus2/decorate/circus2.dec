@@ -5644,16 +5644,20 @@ ACTOR PopcornGunNew : Circus2Weapon replaces PopcornGun 30204
 		Deselect: 
 			PGUN A 1  
 			{
-				A_DVDSLower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
-				A_DVDSLower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10035)*2);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10036)*5);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10052)*5);
 				A_DVDSLower(18);
 			}
 			loop
 		Select: 
 			PGUN A 1
 			{
-				A_DVDSRaise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
-				A_DVDSRaise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10035)*2);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10036)*5);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10052)*5);
 				A_DVDSRaise(18);
 			}
 			loop
@@ -5786,16 +5790,20 @@ ACTOR GoreBalloonNew : Circus2Weapon replaces GoreBalloon 30030
 		Deselect1: 
 			BLNF E 1
 			{
-				A_DVDSLower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
-				A_DVDSLower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10035)*2);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10036)*5);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10052)*5);
 				A_DVDSLower(18);
 			}
 			Loop
 		Deselect2: 
 			BLNN E 1
 			{
-				A_DVDSLower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
-				A_DVDSLower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10035)*2);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10036)*5);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10052)*5);
 				A_DVDSLower(18);
 			}
 			Loop
@@ -5806,16 +5814,20 @@ ACTOR GoreBalloonNew : Circus2Weapon replaces GoreBalloon 30030
 		Select1: 
 			BLNF E 1
 			{
-				A_DVDSRaise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
-				A_DVDSRaise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10035)*2);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10036)*5);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10052)*5);
 				A_DVDSRaise(18);
 			}
 			Loop
 		Select2: 
 			BLNN E 1
 			{
-				A_DVDSRaise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
-				A_DVDSRaise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10035)*2);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10036)*5);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10052)*5);
 				A_DVDSRaise(18);
 			}
 			Loop
@@ -5980,16 +5992,20 @@ ACTOR ClownGrenadeNew : Circus2Weapon replaces ClownGrenade 30029
 		Deselect: 
 			GHND A 1
 			{
-				A_DVDSLower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
-				A_DVDSLower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10035)*2);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10036)*5);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10052)*5);
 				A_DVDSLower(18);
 			}
 			loop
 		Select: 
 			GHND A 1 
 			{
-				A_DVDSRaise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
-				A_DVDSRaise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10035)*2);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10036)*5);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10052)*5);
 				A_DVDSRaise(18);
 			}
 			loop
@@ -6134,16 +6150,20 @@ ACTOR GutFlingerNew : Circus2Weapon replaces GutFlinger 30028
 		Deselect: 
 			CCCC A 1 
 			{
-				A_DVDSLower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
-				A_DVDSLower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10035)*2);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10036)*5);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10052)*5);
 				A_DVDSLower(18);
 			}
 			loop
 		Select: 
 			CCCC A 1 
 			{
-				A_DVDSRaise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
-				A_DVDSRaise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10035)*2);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10036)*5);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10052)*5);
 				A_DVDSRaise(18);
 			}
 			loop
@@ -6258,16 +6278,20 @@ ACTOR GasRocketLauncherNew : Circus2Weapon replaces GasRocketLauncher 30203
 		Deselect: 
 			PRCK G 1 
 			{
-				A_DVDSLower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
-				A_DVDSLower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10035)*2);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10036)*5);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10052)*5);
 				A_DVDSLower(18);
 			}
 			loop
 		Select: 
 			PRCK D 1
 			{
-				A_DVDSRaise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
-				A_DVDSRaise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10035)*2);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10036)*5);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10052)*5);
 				A_DVDSRaise(18);
 			}
 			loop
@@ -6384,16 +6408,20 @@ ACTOR CrazyBall2New : Circus2Weapon replaces CrazyBall2 30205
 		Deselect: 
 			HCRZ S 1 
 			{
-				A_DVDSLower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
-				A_DVDSLower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10035)*2);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10036)*5);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10052)*5);
 				A_DVDSLower(18);
 			}
 			loop
 		Select: 
 			HCRZ S 1 
 			{
-				A_DVDSRaise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10035)*2);
-				A_DVDSRaise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10035)*2);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10036)*5);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10052)*5);
 				A_DVDSRaise(18);
 			}
 			loop

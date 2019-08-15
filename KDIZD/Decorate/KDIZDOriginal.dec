@@ -1492,20 +1492,20 @@ ACTOR Rifle : MarineWeapon 31407 // replaces BFG9000
 		Select:
 			RIFG A 1 
 			{
-				A_DVDSRaise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10019)*3);
-				A_DVDSRaise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10020)*7.5);
-				A_DVDSRaise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
-				A_DVDSRaise(18);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10019)*3);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10020)*7.5);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSRaise(CallACS("MiscVarCheckDECORATE",10052)*5);
 				A_DVDSRaise(18);
 			}
 			Loop
 		Deselect:
 			RIFG A 1 
 			{
-				A_DVDSLower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10019)*3);
-				A_DVDSLower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10020)*7.5);
-				A_DVDSLower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
-				A_DVDSLower(18);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10019)*3);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10020)*7.5);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSLower(CallACS("MiscVarCheckDECORATE",10052)*5);
 				A_DVDSLower(18);
 			}
 			Loop
