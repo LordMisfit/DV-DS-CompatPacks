@@ -1492,21 +1492,21 @@ ACTOR Rifle : MarineWeapon 31407 // replaces BFG9000
 		Select:
 			RIFG A 1 
 			{
-				A_Raise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10019)*3);
-				A_Raise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10020)*7.5);
-				A_Raise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
-				A_Raise(18);
-				A_Raise(18);
+				A_DVDSRaise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10019)*3);
+				A_DVDSRaise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10020)*7.5);
+				A_DVDSRaise(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSRaise(18);
+				A_DVDSRaise(18);
 			}
 			Loop
 		Deselect:
 			RIFG A 1 
 			{
-				A_Lower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10019)*3);
-				A_Lower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10020)*7.5);
-				A_Lower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
-				A_Lower(18);
-				A_Lower(18);
+				A_DVDSLower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10019)*3);
+				A_DVDSLower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10020)*7.5);
+				A_DVDSLower(ACS_NamedExecuteWithResult("MiscVarCheckDECORATE",10051)*2);
+				A_DVDSLower(18);
+				A_DVDSLower(18);
 			}
 			Loop
 		Ready:
@@ -1638,10 +1638,10 @@ ACTOR KDiZDGrenadeLauncher : MarineWeapon 31410 // replaces PlasmaRifle
 			Loop
 
 		Select:
-			GLAG A 1 A_Raise(6)
+			GLAG A 1 A_DVDSRaise(6)
 			Loop
 		Deselect:
-			GLAG A 1 A_Lower(6)
+			GLAG A 1 A_DVDSLower(6)
 			Loop
 		Ready:
 			GLAG A 1 A_WeaponReady(WRF_ALLOWUSER1)
