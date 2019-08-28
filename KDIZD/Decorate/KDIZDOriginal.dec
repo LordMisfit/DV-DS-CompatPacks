@@ -1519,8 +1519,7 @@ ACTOR Rifle : MarineWeapon 31407 // replaces BFG9000
 			RIFG A 4
 			{
 				CallACS("StartTensionCountDown");
-				A_GetPlayerAttackDamage(60,1);
-				A_SpreadAuraFireBullets(0,0,1,(CountInv("FinalDamageDealt",AAPTR_PLAYER1)),"NewPuff",FBF_NORANDOM|FBF_NORANDOMPUFFZ,FBF_USEAMMO|FBF_NORANDOM|FBF_NORANDOMPUFFZ,0,"",0,0,1,"RifleAmmo");
+				A_SpreadAuraFireBullets(0,0,1,A_GetPlayerAttackDamage(60,1),"NewPuff",FBF_NORANDOM|FBF_NORANDOMPUFFZ,FBF_USEAMMO|FBF_NORANDOM|FBF_NORANDOMPUFFZ,0,"",0,0,1,"RifleAmmo");
 			}
 			RIFG BCDCB 2
 			RIFG A 3

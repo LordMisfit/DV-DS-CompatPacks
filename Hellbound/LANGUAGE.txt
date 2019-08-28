@@ -35,7 +35,10 @@ C2TEXT =
   "It tugs at your mind that this version of\n"
   "Earth is also undergoing a crisis not unlike\n"
   "the original 'Doom' War of the past. Just\n"
-  "what exactly happened in this world...?";
+  "what exactly happened in this world...?\n"
+  "\n"
+  "You sigh, realizing you have to move on to\n"
+  "find out exactly that...";
 C3TEXT = 
   "You took the Gateway and ended up in some\n"
   "unknown place, where the UAC tried to take\n"
@@ -55,7 +58,7 @@ C3TEXT =
   "your universe's version of Hell...";
 C4TEXT = 
   "As in the past, the forces of hell could not\n"
-  "withstand the rightouse fury you unleashed on\n"
+  "withstand the rightous fury you unleashed on\n"
   "them.\n"
   "\n"
   "Hell almost succeeded in planting an Icon of\n"
