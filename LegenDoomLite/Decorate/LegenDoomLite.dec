@@ -136,25 +136,28 @@ ACTOR LDLegendaryMonsterPickupBase : LDCustomFunction
 	{
 		Pickup:
 			TNT1 A 0 A_JumpIf ((GetCVar("LD_nomonsters") == 1), "NoLegendary")
-			TNT1 A 0 A_JumpIf ((GetCVar("LD_nobosses") == 2), "BOSSCheckeroonie")
-			TNT1 A 0 A_JumpIf ((GetCVar("LD_diemode") == 1), "LEGENDARIFYSuccess")
+			TNT1 A 0 A_JumpIf ((GetCVar("LD_nobosses") == 2), "BOSSCheckeroonie") // Makes all bosses legendary
+			TNT1 A 0 A_JumpIf ((GetCVar("LD_diemode") == 1), "LEGENDARIFYSuccess") // forces the monster to go legendary on "die.exe" regardless of previous settings
 			TNT1 A 0 A_Jump (256, "DifficultyChance")
 			Goto DifficultyChance
 
-		DifficultyChance:
-			TNT1 A 0 A_Jump (random(2,4) + (CallACS("PlayerCount", 0) * 4) + (CallACS("LD_legendarychance", 0) * 3), "LEGENDARIFY")
+		DifficultyChance: // The chance of successfully becoming legendary is increased through player count and menu options
+			TNT1 A 0 A_Jump (random(2,4) + (CallACS("PlayerCount", 0) * 4) + (GetCVar("LD_legendarychance") * 3), "LEGENDARIFY")
 			Stop
 
 		LEGENDARIFY:
 			TNT1 A 0 A_CheckFlag ("SPECIAL", "NoLegendary")
+			TNT1 A 0 A_JumpIf ((GetCVar("LD_monstercheck") == 0), 2) // Makes it ignore the next check if disabled
+			TNT1 A 0 A_CheckFlag ("COUNTKILL", 1) // Added to stop stuff like legendary trees
+			stop
 			TNT1 A 0 A_CheckFlag ("BOSS", "BOSSTIEM")
-			TNT1 A 0 A_Jump (160, "NoLegendary") // 240
+			TNT1 A 0 A_Jump (160, "NoLegendary") // 240 in LDL 3.0 proper
 			Goto LEGENDARIFYSuccess
-		LEGENDARIFYSuccess:
+		LEGENDARIFYSuccess: // Spawns map markers if active in the menu options
 			TNT1 A 0
 			{
 				if (GetCVar("LD_legendarymarkers") > 0) { A_SpawnItemEx ("LDLegendaryMonsterMarker", 0,0,0, 0,0,0, 0, SXF_NOCHECKPOSITION); }
-				ACS_NamedExecuteAlways("LDMonsterInit", 0);
+				ACS_NamedExecuteAlways("LDMonsterInit", 0); // POWER UP TIME
 			}
 			Stop
 		
@@ -168,14 +171,14 @@ ACTOR LDLegendaryMonsterPickupBase : LDCustomFunction
 			Goto DifficultyChance
 		
 		BOSSTIEM:
-			TNT1 A 0 A_JumpIf ((GetCVar("LD_nobosses") == 1), "NoLegendary")
-			TNT1 A 0 A_Jump (118, "NoLegendary") // 176
+			TNT1 A 0 A_JumpIf ((GetCVar("LD_nobosses") == 1), "NoLegendary") // Prevents bosses from being legendary
+			TNT1 A 0 A_Jump (120, "NoLegendary") // 180 in LDL 3.0 proper
 			Goto BOSSACTIVAAAATE
-		BOSSACTIVAAAATE:
+		BOSSACTIVAAAATE: // Spawns map markers if active in the menu options
 			TNT1 A 0
 			{
 				if (GetCVar("LD_legendarymarkers") > 0) { A_SpawnItemEx ("LDLegendaryMonsterBossMarker", 0,0,0, 0,0,0, 0, SXF_NOCHECKPOSITION); }
-				ACS_NamedExecuteAlways("LDMonsterInit", 0);
+				ACS_NamedExecuteAlways("LDMonsterInit", 0); // BRING THE PAIN
 			}
 			Stop
 	}
@@ -186,7 +189,7 @@ ACTOR LDLegendaryMonsterPickupEasy : LDLegendaryMonsterPickupBase
 	States
 	{
 		DifficultyChance:
-			TNT1 A 0 A_Jump (random(2,4) + (CallACS("PlayerCount", 0) * 4) + (CallACS("LD_legendarychance", 0) * 3), "LEGENDARIFY")
+			TNT1 A 0 A_Jump (random(2,4) + (CallACS("PlayerCount", 0) * 4) + (GetCVar("LD_legendarychance") * 3), "LEGENDARIFY")
 			Stop
 	}
 }
@@ -196,7 +199,7 @@ ACTOR LDLegendaryMonsterPickupNormal : LDLegendaryMonsterPickupBase
 	States
 	{
 		DifficultyChance:
-			TNT1 A 0 A_Jump (random(3,6) + (CallACS("PlayerCount", 0) * 6) + (CallACS("LD_legendarychance", 0) * 4), "LEGENDARIFY")
+			TNT1 A 0 A_Jump (random(3,6) + (CallACS("PlayerCount", 0) * 6) + (GetCVar("LD_legendarychance") * 4), "LEGENDARIFY")
 			Stop
 	}
 }
@@ -206,7 +209,7 @@ ACTOR LDLegendaryMonsterPickupHard : LDLegendaryMonsterPickupBase
 	States
 	{
 		DifficultyChance:
-			TNT1 A 0 A_Jump (random(4,8) + (CallACS("PlayerCount", 0) * 8) + (CallACS("LD_legendarychance", 0) * 5), "LEGENDARIFY")
+			TNT1 A 0 A_Jump (random(4,8) + (CallACS("PlayerCount", 0) * 8) + (GetCVar("LD_legendarychance") * 5), "LEGENDARIFY")
 			Stop
 	}
 }
@@ -216,7 +219,7 @@ ACTOR LDLegendaryMonsterPickupUV : LDLegendaryMonsterPickupBase
 	States
 	{
 		DifficultyChance:
-			TNT1 A 0 A_Jump (random(5,10) + (CallACS("PlayerCount", 0) * 10) + (CallACS("LD_legendarychance", 0) * 6), "LEGENDARIFY")
+			TNT1 A 0 A_Jump (random(5,10) + (CallACS("PlayerCount", 0) * 10) + (GetCVar("LD_legendarychance") * 6), "LEGENDARIFY")
 			Stop
 	}
 }
@@ -226,7 +229,7 @@ ACTOR LDLegendaryMonsterPickupNightmare : LDLegendaryMonsterPickupBase
 	States
 	{
 		DifficultyChance:
-			TNT1 A 0 A_Jump (random(7,14) + (CallACS("PlayerCount", 0) * 14) + (CallACS("LD_legendarychance", 0) * 7), "LEGENDARIFY")
+			TNT1 A 0 A_Jump (random(7,14) + (CallACS("PlayerCount", 0) * 14) + (GetCVar("LD_legendarychance") * 7), "LEGENDARIFY")
 			Stop
 	}
 }
@@ -236,7 +239,7 @@ ACTOR LDLegendaryMonsterPickupExtreme : LDLegendaryMonsterPickupBase
 	States
 	{
 		DifficultyChance:
-			TNT1 A 0 A_Jump (random(8,18) + (CallACS("PlayerCount", 0) * 18) + (CallACS("LD_legendarychance", 0) * 8), "LEGENDARIFY")
+			TNT1 A 0 A_Jump (random(8,18) + (CallACS("PlayerCount", 0) * 18) + (GetCVar("LD_legendarychance") * 8), "LEGENDARIFY")
 			Stop
 	}
 }
@@ -246,7 +249,7 @@ ACTOR LDLegendaryMonsterPickupHorrible : LDLegendaryMonsterPickupBase
 	States
 	{
 		DifficultyChance:
-			TNT1 A 0 A_Jump (random(11,22) + (CallACS("PlayerCount", 0) * 22) + (CallACS("LD_legendarychance", 0) * 9), "LEGENDARIFY")
+			TNT1 A 0 A_Jump (random(11,22) + (CallACS("PlayerCount", 0) * 22) + (GetCVar("LD_legendarychance") * 9), "LEGENDARIFY")
 			Stop
 	}
 }
@@ -256,7 +259,7 @@ ACTOR LDLegendaryMonsterPickupImpossible : LDLegendaryMonsterPickupBase
 	States
 	{
 		DifficultyChance:
-			TNT1 A 0 A_Jump (random(13,27) + (CallACS("PlayerCount", 0) * 27) + (CallACS("LD_legendarychance", 0) * 10), "LEGENDARIFY")
+			TNT1 A 0 A_Jump (random(13,27) + (CallACS("PlayerCount", 0) * 27) + (GetCVar("LD_legendarychance") * 10), "LEGENDARIFY")
 			Stop
 	}
 }
@@ -266,7 +269,7 @@ ACTOR LDLegendaryMonsterPickupOmega : LDLegendaryMonsterPickupBase
 	States
 	{
 		DifficultyChance:
-			TNT1 A 0 A_Jump (random(16,32) + (CallACS("PlayerCount", 0) * 32) + (CallACS("LD_legendarychance", 0) * 11), "LEGENDARIFY")
+			TNT1 A 0 A_Jump (random(16,32) + (CallACS("PlayerCount", 0) * 32) + (GetCVar("LD_legendarychance") * 11), "LEGENDARIFY")
 			Stop
 	}
 }
