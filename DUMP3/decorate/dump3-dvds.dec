@@ -38,7 +38,6 @@ ACTOR AdolfHitlerDS : AetheriusMonsterZSC replaces AdolfHitler
 		See:
 			HTLR A 0
 			{
-				A_RefreshStealthInfo(0);
 				user_shotsfired = 0;
 			}
 			HTLR ABCD 3
@@ -48,7 +47,7 @@ ACTOR AdolfHitlerDS : AetheriusMonsterZSC replaces AdolfHitler
 			}
 			Loop
 		Missile:
-			TNT1 A 0 A_RefreshStealthInfo(1) // makes a Stealth Monster become more visible
+			TNT1 A 0
 			TNT1 A 0
 			{
 				user_shotsfiredmax = random(75,125);
@@ -199,7 +198,6 @@ actor Benellus1DS : AetheriusMonsterZSC replaces Benellus1
 		See:
 			HTLR A 0
 			{
-				A_RefreshStealthInfo(0);
 				user_shotsfired = 0;
 			}
 			BENE ABCD 3
@@ -209,7 +207,7 @@ actor Benellus1DS : AetheriusMonsterZSC replaces Benellus1
 			}
 			loop
 		Missile:
-			TNT1 A 0 A_RefreshStealthInfo(1) // makes a Stealth Monster become more visible
+			TNT1 A 0
 			TNT1 A 0
 			{
 				user_shotsfiredmax = random(2,3);
@@ -527,7 +525,6 @@ actor Benellus3DS : AetheriusMonsterZSC replaces Benellus3
 		See:
 			HTLR A 0
 			{
-				A_RefreshStealthInfo(0);
 				user_shotsfired = 0;
 			}
 			BENE ABCD 3
@@ -537,7 +534,7 @@ actor Benellus3DS : AetheriusMonsterZSC replaces Benellus3
 			}
 			loop
 		Missile:
-			TNT1 A 0 A_RefreshStealthInfo(1) // makes a Stealth Monster become more visible
+			TNT1 A 0
 			BENE ABCD 3
 			{
 				if (levelbehavior > 0 && user_monsterlevel > 240) { A_SetTics(1); }

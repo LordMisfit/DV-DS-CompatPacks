@@ -38,7 +38,6 @@ ACTOR BerserkMarine : BaseAllyMarine 30000
 		See:
 			ALY1 A 0
 			{
-				A_RefreshStealthInfo(0);
 				user_shotsfired == 0;
 				user_nolegendarytrans == 1;
 			}
@@ -48,7 +47,7 @@ ACTOR BerserkMarine : BaseAllyMarine 30000
 			}
 			Loop
 		Melee:
-			TNT1 A 0 A_RefreshStealthInfo(1) // makes a Stealth Monster become more visible
+			TNT1 A 0
 			ALY1 D 4 A_FaceTarget
 			ALY1 E 13 A_MeleeAttack
 			Goto See
@@ -91,7 +90,6 @@ ACTOR PistolMarine : BaseAllyMarine 30001
 		See:
 			ALY2 A 0
 			{
-				A_RefreshStealthInfo(0);
 				user_shotsfired == 0;
 				user_nolegendarytrans == 1;
 			}
@@ -102,7 +100,7 @@ ACTOR PistolMarine : BaseAllyMarine 30001
 			}
 			Loop
 		Missile:
-			TNT1 A 0 A_RefreshStealthInfo(1) // makes a Stealth Monster become more visible
+			TNT1 A 0
 			ALY2 E 8 A_FaceTarget
 			ALY2 F 10 A_BulletAttack
 			ALY2 E 4 A_FaceTarget
@@ -147,7 +145,6 @@ ACTOR ShotgunMarine : BaseAllyMarine 30002
 		See:
 			ALY5 A 0
 			{
-				A_RefreshStealthInfo(0);
 				user_shotsfired == 0;
 				user_nolegendarytrans == 1;
 			}
@@ -158,7 +155,7 @@ ACTOR ShotgunMarine : BaseAllyMarine 30002
 			}
 			Loop
 		Missile:
-			TNT1 A 0 A_RefreshStealthInfo(1) // makes a Stealth Monster become more visible
+			TNT1 A 0
 			ALY5 E 8 A_FaceTarget
 			ALY5 F 7 
 			{
@@ -213,7 +210,6 @@ ACTOR SuperShotgunMarine : BaseAllyMarine 30003
 		See:
 			AL11 A 0
 			{
-				A_RefreshStealthInfo(0);
 				user_shotsfired == 0;
 				user_nolegendarytrans == 1;
 			}
@@ -224,7 +220,7 @@ ACTOR SuperShotgunMarine : BaseAllyMarine 30003
 			}
 			Loop
 		Missile:
-			TNT1 A 0 A_RefreshStealthInfo(1) // makes a Stealth Monster become more visible
+			TNT1 A 0
 			AL11 E 8 A_FaceTarget
 			AL11 F 9
 			{
@@ -283,7 +279,6 @@ ACTOR ChaingunMarine : BaseAllyMarine 30004
 		See:
 			ALY4 A 0
 			{
-				A_RefreshStealthInfo(0);
 				user_shotsfired == 0;
 				user_nolegendarytrans == 1;
 			}
@@ -294,7 +289,7 @@ ACTOR ChaingunMarine : BaseAllyMarine 30004
 			}
 			Loop
 		Missile:
-			TNT1 A 0 A_RefreshStealthInfo(1) // makes a Stealth Monster become more visible
+			TNT1 A 0
 			ALY4 E 8 A_FaceTarget
 			ALY4 F 4 A_BulletAttack
 			ALY4 E 4 A_BulletAttack
@@ -344,7 +339,6 @@ ACTOR RocketMarine : BaseAllyMarine 30005
 		See:
 			ALY9 A 0
 			{
-				A_RefreshStealthInfo(0);
 				user_shotsfired == 0;
 				user_nolegendarytrans == 1;
 			}
@@ -355,7 +349,7 @@ ACTOR RocketMarine : BaseAllyMarine 30005
 			}
 			Loop
 		Missile:
-			TNT1 A 0 A_RefreshStealthInfo(1) // makes a Stealth Monster become more visible
+			TNT1 A 0
 			ALY9 E 8 A_FaceTarget
 			ALY9 F 4 A_FaceTarget
 			ALY9 F 8 A_CyberAttack
@@ -406,7 +400,6 @@ ACTOR PlasmaRifleMarine : BaseAllyMarine 30006
 		See:
 			ALY8 A 0
 			{
-				A_RefreshStealthInfo(0);
 				user_shotsfired == 0;
 				user_nolegendarytrans == 1;
 			}
@@ -417,7 +410,7 @@ ACTOR PlasmaRifleMarine : BaseAllyMarine 30006
 			}
 			Loop
 		Missile:
-			TNT1 A 0 A_RefreshStealthInfo(1) // makes a Stealth Monster become more visible
+			TNT1 A 0
 			ALY8 E 8 A_FaceTarget
 		Attack:
 			ALY8 F 2 A_CustomMissile ("PlasmaBallMonster", 32, 0, 0)
@@ -466,7 +459,6 @@ ACTOR RailgunMarine : BaseAllyMarine 30007
 		See:
 			AL12 A 0
 			{
-				A_RefreshStealthInfo(0);
 				user_shotsfired == 0;
 				user_nolegendarytrans == 1;
 			}
@@ -477,7 +469,7 @@ ACTOR RailgunMarine : BaseAllyMarine 30007
 			}
 			Loop
 		Missile:
-			TNT1 A 0 A_RefreshStealthInfo(1) // makes a Stealth Monster become more visible
+			TNT1 A 0
 			AL12 E 8 A_FaceTarget
 			AL12 F 10 A_MonsterRail
 			AL12 E 15 A_FaceTarget
@@ -534,7 +526,6 @@ ACTOR ChainsawMarine : BaseAllyMarine 30008
 		See:
 			ALY7 A 0
 			{
-				A_RefreshStealthInfo(0);
 				user_shotsfired == 0;
 				user_nolegendarytrans == 1;
 			}
@@ -560,7 +551,7 @@ ACTOR ChainsawMarine : BaseAllyMarine 30008
 			ALY7 D 0 A_PlaySound ("weapons/sawidle")
 			Loop
 		Melee:
-			TNT1 A 0 A_RefreshStealthInfo(1) // makes a Stealth Monster become more visible
+			TNT1 A 0
 			ALY7 E 4 A_MeleeAttack
 			ALY7 F 4 A_MeleeAttack
 			Goto See
@@ -605,7 +596,6 @@ ACTOR BFGMarine : BaseAllyMarine 30009
 		See:
 			AL10 A 0
 			{
-				A_RefreshStealthInfo(0);
 				user_shotsfired == 0;
 				user_nolegendarytrans == 1;
 			}
@@ -616,7 +606,7 @@ ACTOR BFGMarine : BaseAllyMarine 30009
 			}
 		Loop
 		Missile:
-			TNT1 A 0 A_RefreshStealthInfo(1) // makes a Stealth Monster become more visible
+			TNT1 A 0
 			AL10 E 0 A_PlaySound ("weapons/bfgf")
 			AL10 E 25 A_FaceTarget
 			AL10 F 8 A_FaceTarget
@@ -662,7 +652,6 @@ ACTOR FistMarine : BaseAllyMarine 30010
 		See:
 			ALY1 A 0
 			{
-				A_RefreshStealthInfo(0);
 				user_shotsfired == 0;
 				user_nolegendarytrans == 1;
 			}
@@ -672,7 +661,7 @@ ACTOR FistMarine : BaseAllyMarine 30010
 			}
 			Loop
 		Melee:
-			TNT1 A 0 A_RefreshStealthInfo(1) // makes a Stealth Monster become more visible
+			TNT1 A 0
 			ALY1 D 4 A_FaceTarget
 			ALY1 E 13 A_MeleeAttack
 			Goto See
