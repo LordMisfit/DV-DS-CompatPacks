@@ -1460,7 +1460,7 @@ ACTOR LurkerNew : BloodFiendNew replaces Lurker 30101
 	RENDERSTYLE TRANSLUCENT
 	Obituary "%o didn't see the Blood Lurker that was shooting at %h."
 	HitObituary "%o didn't see the Blood Lurker right in front of %h."
-	DropItem BloodAmmo
+	//DropItem BloodAmmo
 	ALPHA 0.25
 }
 
@@ -1992,7 +1992,7 @@ ACTOR CultistNew : AetheriusMonsterZSC replaces Cultist 30119
 	DeathSound "monster/culdth" 
 	ActiveSound "monster/culact"
 	Obituary "%o was killed by a lowly Cultist."
-	DropItem Fire
+	//DropItem Fire
 	States 
 	{
 		Spawn: 
@@ -2116,7 +2116,7 @@ ACTOR UnlovedAcolyteNew : AetheriusMonsterZSC replaces AcolyteDude 30118
 	Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
 	Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
 	DamageFactor "Crush", 8
-	DropItem BloodAmmo
+	//DropItem BloodAmmo
 	Speed 8
 	Scale 0.90
 	Radius 20 
@@ -2237,7 +2237,7 @@ ACTOR UnlovedDiscipleNew : AetheriusMonsterZSC replaces Disciple 30117
 	Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
 	Painchance "Gauntlets", 210 // Fist attacks have a +50% chance of stunning an enemy
 	DamageFactor "Crush", 6.4
-	DropItem BoneAmmo
+	//DropItem BoneAmmo
 	Speed 8
 	Scale 0.90
 	Radius 20 
