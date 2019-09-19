@@ -121,16 +121,16 @@ ACTOR AdolfHitlerDS : AetheriusBossZSC 10917
 
 		Pain:
 			HTLR H 5
-			HTLR H 5 A_Pain
+			HTLR H 5 A_DVDSPain
 			Goto See
 		Pain.Fist:
 			HTLR H 5
-			HTLR H 5 A_Pain
+			HTLR H 5 A_DVDSPain
 			HTLR HH 5
 			Goto See
 		Pain.Kick:
 			HTLR H 5
-			HTLR H 5 A_Pain
+			HTLR H 5 A_DVDSPain
 			HTLR HHHH 5
 			Goto See
 

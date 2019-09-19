@@ -53,7 +53,7 @@ ACTOR BerserkMarine : BaseAllyMarine 30000
 			Goto See
 		Pain:
 			ALY1 G 4
-			ALY1 G 4 A_Pain
+			ALY1 G 4 A_DVDSPain
 			Goto See
 		Death:
 			ALY1 H 10
@@ -108,7 +108,7 @@ ACTOR PistolMarine : BaseAllyMarine 30001
 			Goto Missile+2
 		Pain:
 			ALY2 G 4	
-			ALY2 G 4 A_Pain
+			ALY2 G 4 A_DVDSPain
 			Goto See
 		Death:
 			ALY2 H 10
@@ -170,7 +170,7 @@ ACTOR ShotgunMarine : BaseAllyMarine 30002
 			Goto See
 		Pain:
 			ALY5 G 4
-			ALY5 G 4 A_Pain
+			ALY5 G 4 A_DVDSPain
 			Goto See
 		Death:
 			ALY5 H 10
@@ -238,7 +238,7 @@ ACTOR SuperShotgunMarine : BaseAllyMarine 30003
 			Goto See
 		Pain:
 			AL11 G 4
-			AL11 G 4 A_Pain
+			AL11 G 4 A_DVDSPain
 			Goto See
 		Death:
 			AL11 H 10
@@ -300,7 +300,7 @@ ACTOR ChaingunMarine : BaseAllyMarine 30004
 			Goto See
 		Pain:
 			ALY4 G 4
-			ALY4 G 4 A_Pain
+			ALY4 G 4 A_DVDSPain
 			Goto See
 		Death:
 			ALY4 H 10
@@ -361,7 +361,7 @@ ACTOR RocketMarine : BaseAllyMarine 30005
 			Goto See
 		Pain:
 			ALY9 G 4
-			ALY9 G 4 A_Pain
+			ALY9 G 4 A_DVDSPain
 			Goto See
 		Death:
 			ALY9 H 10
@@ -420,7 +420,7 @@ ACTOR PlasmaRifleMarine : BaseAllyMarine 30006
 			loop
 		Pain:
 			ALY8 G 4
-			ALY8 G 4 A_Pain
+			ALY8 G 4 A_DVDSPain
 			Goto See
 		Death:
 			ALY8 H 10
@@ -476,7 +476,7 @@ ACTOR RailgunMarine : BaseAllyMarine 30007
 			Goto See
 		Pain:
 			AL12 G 4
-			AL12 G 4 A_Pain
+			AL12 G 4 A_DVDSPain
 			Goto See
 		Death:
 			AL12 H 10
@@ -557,7 +557,7 @@ ACTOR ChainsawMarine : BaseAllyMarine 30008
 			Goto See
 		Pain:
 			ALY7 G 4
-			ALY7 G 4 A_Pain
+			ALY7 G 4 A_DVDSPain
 			Goto See
 		Death:
 			ALY7 H 10
@@ -614,7 +614,7 @@ ACTOR BFGMarine : BaseAllyMarine 30009
 			Goto See
 		Pain:
 			AL10 G 4
-			AL10 G 4 A_Pain
+			AL10 G 4 A_DVDSPain
 			Goto See
 		Death:
 			AL10 H 10
@@ -667,7 +667,7 @@ ACTOR FistMarine : BaseAllyMarine 30010
 			Goto See
 		Pain:
 			ALY1 G 4
-			ALY1 G 4 A_Pain
+			ALY1 G 4 A_DVDSPain
 			Goto See
 		Death:
 			ALY1 H 10

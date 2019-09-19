@@ -317,7 +317,7 @@ ACTOR Zakachi : AetheriusMonsterZSC 27043
 			THOR Q 5 
 			THOR Q 5 
 			{
-				A_Pain;
+				A_DVDSPain;
 				user_painfastchase = 2 * random(1,8);
 			}
 			TNT1 A 0 A_TakeInventory("ThorCounter", 9)
@@ -326,7 +326,7 @@ ACTOR Zakachi : AetheriusMonsterZSC 27043
 			THOR Q 5 
 			THOR Q 5 
 			{
-				A_Pain;
+				A_DVDSPain;
 				user_painfastchase = 3 * random(1,8);
 			}
 			THOR QQ 5 
@@ -336,7 +336,7 @@ ACTOR Zakachi : AetheriusMonsterZSC 27043
 			THOR Q 5 
 			THOR Q 5 
 			{
-				A_Pain;
+				A_DVDSPain;
 				user_painfastchase = 3 * random(1,8);
 			}
 			THOR QQQQ 5 
