@@ -1306,6 +1306,7 @@ ACTOR NightmareNew : AetheriusMonsterZSC replaces KDiZDNightmare 26000
 	Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
 	Painchance "Gauntlets", 216 // Fist attacks have a +50% chance of stunning an enemy
 	DamageFactor "Crush", 0
+	DamageFactor "Eldritch", 0.4
 	Radius 20
 	Height 56
 	Speed 15

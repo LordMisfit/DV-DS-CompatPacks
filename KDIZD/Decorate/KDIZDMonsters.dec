@@ -542,6 +542,8 @@ ACTOR NightmareNew : AetheriusMonsterZSC 26000
 	Painchance "Fist", 216 // Fist attacks have a +50% chance of stunning an enemy
 	Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
 	Painchance "Gauntlets", 216 // Fist attacks have a +50% chance of stunning an enemy
+	DamageFactor "Crush", 0
+	DamageFactor "Eldritch", 0.4
 	Radius 20
 	Height 56
 	Speed 15
@@ -686,6 +688,7 @@ ACTOR RapidFireTrooper : AetheriusMonsterZSC 3201
 	Painchance "Fist", 255 // Fist attacks have a +50% chance of stunning an enemy
 	Painchance "Kick", 255 // Kick attacks have a +150% chance of stunning an enemy
 	Painchance "Gauntlets", 255 // Fist attacks have a +50% chance of stunning an enemy
+	DamageFactor "Crush", 8.0
 	MONSTER 
 	+FLOORCLIP
 	DropItem Clip
