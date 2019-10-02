@@ -1,0 +1,3 @@
+#include "decorate/strangeaeons-original.dec"
+#include "decorate/strangeaeons-monsters.dec"
+#include "decorate/strangeaeons-pickups.dec"

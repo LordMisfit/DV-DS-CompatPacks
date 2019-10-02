@@ -1,0 +1,871 @@
+
+// MAPINFO for "Strange Aeons v.5"
+
+clearepisodes
+episode E1M0
+{
+ name = "Strange Aeons"
+ key = "D"
+}
+
+gameinfo
+{
+ InfoPage = "HELP1"
+ AddInfoPage = "GENHELP", "STATHELP", "FLORA-1", "FLORA-2", "FLORA-3", "FLORA-4", "FLORA-5"
+ TitlePage = "TITLEPI0"
+ CreditPage = "CREDIT"
+ AddCreditPage = "CREDIT2"
+ borderflat = "FIGHT1"
+ drawreadthis = true
+ titletime = 6
+}
+
+DoomEdNums
+{
+  7801 = Nyarlathotep	
+  7802 = NyarlathotepLesser
+  11111 = ScepterOfSouls
+  31893 = PurpleTentacle
+  31995 = Skeleton
+  26001 = StarVampire
+  19998 = LengSpiderling
+  19999 = LengSpider
+  29998 = SpiderGodling	
+  29999 = SpiderGod	
+  10077 = DShambler
+  30128 = Roach	
+  30120 = Devil
+  3201 = RapidFireTrooper
+  15488 = UndeadPriest
+  15489 = UndeadHunter
+  10560 = Grell
+  26000 = NightmareNew
+  31994 = SlimeWorm
+  31997 = DemonWizard
+  3118 = GlaakiSpawn
+  30123 = ShadowBeast
+  2112 = BeamRevenant
+  11300 = StarSpawn
+  13365 = DivinationSphereSpawner	
+  30127 = VulgarNew
+  10558 = Fleshspawn
+  9494 = Dhole
+}
+		
+Gameinfo
+{
+ titlemusic = "BGMINTRO"
+ intermissionmusic = "BGMINTER"
+}
+
+map E1M1 "The Traveler"
+{
+	levelnum = 1
+	next = "E1M2"
+	secretnext = "E1M9"
+	sky1 = "SASKY1"
+	cluster = 1
+	par = 30
+	music = "BGME1M1"
+}
+
+map E1M2 "Resident Evil"
+{
+	levelnum = 2
+	next = "E1M3"
+	secretnext = "E1M9"
+	sky1 = "SASKY1"
+	cluster = 1
+	par = 75
+	music = "BGME1M2"
+}
+
+map E1M3 "Shooting Range"
+{
+	levelnum = 3
+	next = "E1M4"
+	secretnext = "E1M9"
+	sky1 = "SASKY1"
+	cluster = 1
+	par = 120
+	music = "BGME1M3"
+}
+
+map E1M9 "Haunted Hospital"
+{
+	levelnum = 9
+	next = "E1M4"
+	secretnext = "E1M4"
+	sky1 = "SASKY1"
+	cluster = 1
+	par = 165
+	music = "BGME1M9"
+}
+
+map E1M4 "Cowboys and Indians"
+{
+	levelnum = 4
+	next = "E1M5"
+	secretnext = "E1M9"
+	sky1 = "SASKY1"
+	cluster = 1
+	par = 90
+	music = "BGME2M8"
+}
+
+map E1M5 "Highly Terminal"
+{
+	levelnum = 5
+	next = "E1M6"
+	secretnext = "E1M9"
+	sky1 = "SASKY1"
+	cluster = 2
+	par = 165
+	music = "BGME1M5"
+}
+
+map E1M6 "Island Hopping"
+{
+	levelnum = 6
+	next = "E1M7"
+	secretnext = "E1M9"
+	sky1 = "SASKY1"
+	cluster = 2
+	par = 180
+	music = "BGME1M6"
+}
+
+map E1M7 "Halls of Madness"
+{
+	levelnum = 7
+	next = "E1M8"
+	secretnext = "E1M9"
+	sky1 = "SASKY1"
+	cluster = 2
+	par = 180
+	music = "BGME1M7"
+}
+
+map E1M8 "Deathedral"
+{
+	levelnum = 8
+	next = "E2M1"
+	secretnext = "E1M9"
+	sky1 = "SASKY1"
+	cluster = 2
+	par = 60
+	nosoundclipping
+	baronspecial
+	specialaction_lowerfloor
+	music = "BGME1M8"
+}
+
+// Registered/Retail Episode 2
+
+map E2M1 "Beast Depot"
+{
+	levelnum = 11
+	next = "E2M2"
+	secretnext = "E2M9"
+	sky1 = "SASKY2"
+	cluster = 3
+	par = 90
+	music = "BGME1M9"
+}
+
+map E2M2 "Power Station"
+{
+	levelnum = 12
+	next = "E2M3"
+	secretnext = "E2M9"
+	sky1 = "SASKY2"
+	cluster = 3
+	par = 90
+	music = "BGME1M5"
+}
+
+map E2M3 "Ore Devourer"
+{
+	levelnum = 13
+	next = "E2M4"
+	secretnext = "E2M9"
+	sky1 = "SASKY2"
+	cluster = 3
+	par = 90
+	music = "BGME1M7"
+}
+
+map E2M4 "The Marrow Engine"
+{
+	levelnum = 14
+	next = "E2M5"
+	secretnext = "E2M9"
+	sky1 = "SASKY2"
+	cluster = 3
+	par = 120
+	music = "BGME5M2"
+}
+
+map E2M9 "Petting Zoo"
+{
+	levelnum = 19
+	next = "E2M6"
+	secretnext = "E2M6"
+	sky1 = "SASKY1"
+	cluster = 4
+	par = 170
+	music = "BGME1M3"
+}
+
+map E2M5 "Juggernaut"
+{
+	levelnum = 15
+	next = "E2M6"
+	secretnext = "E2M9"
+	sky1 = "SASKY2"
+	cluster = 4
+	par = 90
+	music = "BGME1M2"
+}
+
+map E2M6 "Eldritch Research"
+{
+	levelnum = 16
+	next = "E2M7"
+	secretnext = "E2M9"
+	sky1 = "SASKY2"
+	cluster = 4
+	par = 360
+	music = "BGME2M8"
+}
+
+map E2M7 "Underworld Gate"
+{
+	levelnum = 17
+	next = "E2M8"
+	secretnext = "E2M9"
+	sky1 = "SASKY2"
+	cluster = 4
+	par = 240
+	music = "BGME1M8"
+}
+
+map E2M8 "Siege of Pnath"
+{
+	levelnum = 18
+	next = "E3M1"
+	secretnext = "E2M9"
+	sky1 = "SASKY3"
+	cluster = 4
+	par = 30
+	nosoundclipping
+	cyberdemonspecial
+	specialaction_lowerfloor
+	music = "BGME1M4"
+}
+
+// Registered/Retail Episode 3
+
+map E3M1 "Altar of Blood"
+{
+	levelnum = 21
+	next = "E3M2"
+	secretnext = "E3M9"
+	sky1 = "SASKY3"
+	cluster = 5
+	par = 90
+	music = "BGME5M5"
+}
+
+map E3M2 "Monster Manor"
+{
+	levelnum = 22
+	next = "E3M3"
+	secretnext = "E3M9"
+	sky1 = "SASKY3"
+	cluster = 5
+	par = 45
+	music = "BGME1M1"
+}
+
+map E3M3 "City of Lost Souls"
+{
+	levelnum = 23
+	next = "E3M4"
+	secretnext = "E3M9"
+	sky1 = "SASKY3"
+	cluster = 5
+	par = 90
+	music = "BGME1M5"
+}
+
+map E3M4 "The Gondola Grotto"
+{
+	levelnum = 24
+	next = "E3M5"
+	secretnext = "E3M9"
+	sky1 = "SASKY3"
+	cluster = 5
+	par = 150
+	music = "BGME5M2"
+}
+
+map E3M5 "Lions Den"
+{
+	levelnum = 25
+	next = "E3M6"
+	secretnext = "E3M9"
+	sky1 = "SASKY3"
+	cluster = 6
+	par = 90
+	music = "BGME1M2"
+}
+
+map E3M9 "Tomb of the Dark Pharaoh"
+{
+	levelnum = 29
+	next = "E3M6"
+	secretnext = "E3M6"
+	sky1 = "SASKY3"
+	cluster = 6
+	par = 135
+	music = "BGMINTRO"
+}
+
+map E3M6 "The Vampire Trough"
+{
+	levelnum = 26
+	next = "E3M7"
+	secretnext = "E3M9"
+	sky1 = "SASKY3"
+	cluster = 6
+	par = 90
+	music = "BGME1M6"
+}
+
+map E3M7 "Proving Grounds"
+{
+	levelnum = 27
+	next = "E3M8"
+	secretnext = "E3M9"
+	sky1 = "SASKY3"
+	cluster = 6
+	par = 165
+	music = "BGME5M5"
+}
+
+map E3M8 "Flytrap"
+{
+	levelnum = 28
+	next = "E4M1"
+	secretnext = "E3M9"
+	sky1 = "SASKY3"
+	cluster = 6
+	par = 30
+	nosoundclipping
+	spidermastermindspecial
+	specialaction_lowerfloor
+	music = "BGME5M1"
+}
+
+// Bonus Episode 4
+
+map E4M1 "Cold and Stranded"
+{
+	levelnum = 31
+	next = "E4M2"
+	secretnext = "E4M9"
+	sky1 = "SASKY4"
+	cluster = 7
+	music = "BGME5M6"
+}
+
+map E4M9 "Maniac Mansion"
+{
+	levelnum = 39
+	next = "E4M2"
+	secretnext = "E4M2"
+	sky1 = "SASKY5"
+	cluster = 7
+	music = "BGMLEG"
+}
+
+map E4M2 "Hell Frozen Over"
+{
+	levelnum = 32
+	next = "E4M3"
+	secretnext = "E4M9"
+	sky1 = "SASKY4"
+	cluster = 7
+	music = "BGME1M2"
+}
+
+map E4M3 "Twilight Meat Train"
+{
+	levelnum = 33
+	next = "E4M4"
+	secretnext = "E4M9"
+	sky1 = "SASKY4"
+	cluster = 7
+	music = "BGME2M8"
+}
+
+map E4M4 "The Biospherians"
+{
+	levelnum = 34
+	next = "E4M5"
+	secretnext = "E4M9"
+	sky1 = "SASKY4"
+	cluster = 7
+	music = "BGME1M5"
+}
+
+map E4M5 "The Salt Mines"
+{
+	levelnum = 35
+	next = "E4M6"
+	secretnext = "E4M9"
+	sky1 = "SASKY4"
+	cluster = 8
+	music = "BGME1M3"
+}
+
+map E4M6 "Alcatraz"
+{
+	levelnum = 36
+	next = "E4M7"
+	secretnext = "E4M9"
+	sky1 = "SASKY4"
+	cluster = 8
+	music = "BGME5M5"
+}
+
+map E4M7 "Devil Canyon"
+{
+	levelnum = 37
+	next = "E4M8"
+	secretnext = "E4M9"
+	sky1 = "SASKY4"
+	cluster = 8
+	music = "BGME1M7"
+}
+
+map E4M8 "The Crawling Chaos"
+{
+	levelnum = 38
+	next = "E5M1"
+	secretnext = "E4M9"
+	sky1 = "SASKY4"
+	cluster = 8
+	nosoundclipping
+	music = "BGMINTRO"
+}
+
+// Bonus Episode 5
+map E5M1 "Rigorous Mortis"
+{
+	levelnum = 41
+	next = "E5M2"
+	secretnext = "E5M9"
+	sky1 = "SASKY2"
+	cluster = 9
+	par = 30
+	music = "BGME5M1"
+}
+
+map E5M2 "Drought Station Acheron"
+{
+	levelnum = 42
+	next = "E5M3"
+	secretnext = "E5M9"
+	sky1 = "SASKY4"
+	cluster = 9
+	par = 75
+	music = "BGME5M2"
+}
+
+map E5M3 "The Vaults of Zin"
+{
+	levelnum = 43
+	next = "E5M4"
+	secretnext = "E5M9"
+	sky1 = "SASKY2"
+	cluster = 9
+	par = 165
+	music = "BGME5M5"
+}
+
+map E5M9 "Mysterious Island"
+{
+	levelnum = 49
+	next = "E5M4"
+	secretnext = "E5M4"
+	sky1 = "SASKY2"
+	cluster = 9
+	par = 10
+	music = "BGMLEG"
+}
+
+map E5M4 "Man Flesh Processing"
+{
+	levelnum = 44
+	next = "E5M5"
+	secretnext = "E5M9"
+	sky1 = "SASKY2"
+	cluster = 9
+	par = 90
+	music = "BGME2M8"
+}
+
+map E5M5 "Valley of Death"
+{
+	levelnum = 45
+	next = "E5M6"
+	secretnext = "E5M9"
+	sky1 = "SASKY2"
+	cluster = 10
+	par = 120
+	music = "BGME1M3"
+}
+
+map E5M6 "Cthonian Planet"
+{
+	levelnum = 46
+	next = "E5M7"
+	secretnext = "E5M9"
+	sky1 = "SASKY2"
+	cluster = 10
+	par = 180
+	music = "BGME5M6"
+}
+
+map E5M7 "The House of Dagon"
+{
+	levelnum = 47
+	next = "E5M8"
+	secretnext = "E5M9"
+	sky1 = "SASKY4"
+	cluster = 10
+	par = 180
+	music = "BGME1M2"
+}
+
+map E5M8 "R'lyeh Rising"
+{
+	levelnum = 48
+	next = Endsequence,"E5End"
+	secretnext = "E5M9"
+	sky1 = "SASKY4"
+	cluster = 10
+	par = 60
+	nointermission
+	nosoundclipping
+	baronspecial
+	specialaction_lowerfloor
+	music = "BGME5M8"
+}
+
+
+// Clusters (correspond with same-numbered episode)
+
+cluster 1
+{
+	flat = "ENDBACK1"
+	music = "BGMINTRO"
+       entertext = "It all started with a trip to Earth, some time in",
+                   "recent days. You were on a shopping excursion, int-",
+                   "erested in more curiosities on the world you only",
+                   "saved over ten years ago.",
+                   "",
+                   "You found interest in an odd platinum colored stone-",
+                   "like tablet, which inscriptions of creatures of odd",
+                   "nature and indiscipherable runes. The man running the",
+                   "shop sells it to you for an extremely low price, be-",
+                   "lieving it to be mumbo-jumbo from 'eldritch' fairy",
+                   "tales, but you take it anyways.",
+                   "",
+                   "After returning to your rented hotel room for the",
+                   "night and falling asleep, you then suddenly awaken,",
+                   "but not inside your hotel room, but inside of a",
+                   "small, ominous house. You note the stone tablet you",
+                   "bought earlier is lying on a table in the next room.",
+                   "",
+                   "Feeling your power temporarily diminished [AGAIN],",
+                   "you sigh to yourself, and wonder what terrible force",
+                   "is up to their antics THIS time..."
+
+        exittext = "What in the multiverse is this realm? You note of",
+                   "all these broken apart 'islands' in the sky, as if",
+                   "one landmass floated in the aether before being",
+                   "shattered to bits.",
+                   "",
+                   "Not long after this, you contact the likes of Xeno-",
+                   "latias, your 'HaSatan's Majordomo', and also one",
+                   "responsible for your 'Doom Wars' history 'tests'",
+                   "of the past. You ask him tersely if he's also some-",
+                   "how responsible for this.",
+                   "",
+                   "Noting where you are, he states firmly that he has",
+                   "absolutely nothing to do with this, but takes note",
+                   "of that tablet you bought earlier at the baazar on",
+                   "Earth, and says he wants to learn more about it, and",
+                   "that you should use the Sceptre to contact Empyrea",
+                   "for extra assistance.",
+                   "",
+                   "Startled by his insistance of the latter, you realize",
+                   "he's really not his usually jokey self. You sigh as",
+                   "you continue exploring these shattered islands..."
+}
+cluster 2
+{
+	flat = "ENDBACK1"
+	music = "BGMINTRO"
+        exittext = "You meet a group of friendly sailors who offer to",
+                   "ferry you through the local aether, to a small",
+                   "cluster of islands where some more 'sane' inhabit-",
+                   "ants of the shattered islands and cities, could",
+                   "assist you.",
+                   "",
+                   "One of them also notes of the tablet in your po-",
+                   "session, stating that he might have once seen that",
+                   "very same tablet before, and notes of another like",
+                   "it, which he decides to hand off to you...",
+                   "",
+                   "Not sure what to make of this, you mentally ask",
+                   "Empyrea and Xenolatias if they can go and look into",
+                   "these tablets and learn more, to which both, in their",
+                   "own ways, accept and assure you they will do so...",
+                   "",
+                   "You are ferried to your destination, a dilapidated",
+                   "fortress of rusted metal. You are then wished luck",
+                   "in your so-far still blind travels in these realms...",
+                   "",
+                   "You note you may very well need it..."
+}
+
+cluster 3
+{
+	flat = "ENDBACK2"
+	music = "BGMINTRO"
+        exittext = "Though you've met your fair share of terrible, eld-",
+                   "ritch beings in these iron factories of blood and",
+                   "death, you've also taken note quickly of these...",
+                   "friendly Revenants? Though they possess beams inst-",
+                   "ead of the rockets they're known for.",
+                   "",
+                   "One of the surviving 'Revenants' explains that they",
+                   "are more commonly known as 'Ghouls' to this realm's",
+                   "inhabitants, and unlike most Revenants you know, have",
+                   "no disdain for mortals, happily fighting alongside",
+                   "them against the eldritch abominations in this realm.",
+                   "",
+                   "Xenos was surprised that beings of similar nature to",
+                   "Revenants are even roaming these realms, but he and",
+                   "Empyrea have also noted that your second collected",
+                   "stone tablet is still not the last you might find,",
+                   "mentioning the tablets seem to be pieces of a prop-",
+                   "hecy or 'story' of sorts.",
+                   "",
+                   "Prophecy, eh? You know that in the face of one like",
+                   "yourself, prophecies don't usually pan out as expect-",
+                   "ed... You are called the 'Eater of Fate', after all..."
+}
+cluster 4
+{
+	flat = "ENDBACK2"
+	music = "BGMINTRO"
+        exittext = "Between the loathesome Dholes and that pit of spiders",
+                   "you fell into unconsciousness, and some time later,",
+                   "awaken back inside that poor man's house for a THIRD",
+                   "time.",
+                   "",
+                   "During your unconscious stupor, you saw a dream-like",
+                   "vision of another eldritch location, a temple of sorts",
+                   "likely once the property of some forgotten being that",
+                   "occupied the stagnant lands around it.",
+                   "",
+                   "To your surprise, you see ANOTHER tablet, a third one,",
+                   "lying on the desk, and after a chat with Xenos and Emp-",
+                   "reya, they confirm from the writing it is indeed the",
+                   "same 'story' continued from the previous two tablets.",
+                   "",
+                   "Seeing through the portal on the edge of the room, you",
+                   "note the ancient temple waits, but you also sense a",
+                   "dread, like something has been luring you into these ",
+                   "worlds through these tablets. Xenos and Empyrea agree",
+                   "with you, and advise you to keep cautious and weary",
+                   "as you step through to the other side again..."
+}
+
+cluster 5
+{
+	flat = "ENDBACK3"
+	music = "BGMINTRO"
+        exittext = "These ruins, very ancient and Egyptian in nature, have",
+                   "only been home to dreaded eldritch spiders, more Dholes,",
+                   "and more of your commonly accquainted Leng beings. The",
+                   "spiders, though you are not arachnophobic after your many",
+                   "encounters with the likes of the Darkmoon Cult or 'The",
+                   "Source', are a lot more agile and speedy than ones you've",
+                   "faced before, and in some ways smarter.",
+                   "",
+                   "Empyrea has noted this too, and recalls in these elder",
+                   "realms of a spider 'goddess', known as Atlach-Nacha, who",
+                   "as stories have told, longs to escape into our physical",
+                   "realm. Xenos then wonders if Atlach-Nacha is responsible",
+                   "for all of this, and warns you of a potential meeting",
+                   "with the elder spider goddess.",
+                   "",
+                   "Though you are well versed in how to fight and more per-",
+                   "mantly defeat beings of eldritch nature like the Eternals",
+                   "wardened over by Mantorok, you know that the motives of",
+                   "these beings are seldom ever understood by mortals, be",
+                   "they human or not. You move on, ready for an massive",
+                   "encounter of the '8-legged freak' variety..."
+}
+cluster 6
+{
+	flat = "ENDBACK3"
+	music = "BGMINTRO"
+        exittext = "Atlach-Nacha's arachnid visage falls before you and",
+                   "she and her many spawn are cleansed from this world.",
+                   "Making sure you have the FOURTH tablet, found at her",
+                   "altar, you let Xenos and Empreya know she has been",
+                   "dealt with.",
+                   "",
+                   "Empreya confirms that indeed, Atlach-Nacha's presense",
+                   "in our reality is gone forever, explaining the spider",
+                   "old one was probably trying to use your death to break",
+                   "through onto Earth and cause untold destruction in her",
+                   "wake...",
+                   "",
+                   "Stepping through the portal nearby, you expect to be",
+                   "sent back to that man's house once more on Earth, how-",
+                   "ever, it is not the case. Black Spires, and an alien",
+                   "tundra dot the skies above, and it is frigid as hell",
+                   "in this new place.",
+                   "",
+                   "The cold might not bother you much, but you have no in-",
+                   "tent to live here for the rest of your life, so onward..."
+}
+
+cluster 7
+{
+	flat = "ENDBACK4"
+	music = "BGMINTRO"
+        exittext = "As you smash and blast your magics through the beings",
+                   "of what you know have identified as Leng proper, you",
+                   "have been informed by Xenos and Empyrea that the dark",
+                   "magicks of Nyarlathotep, 'The Crawling Chaos, and the",
+                   "son of Azathoth, the 'The Whispering Darkness', is the",
+                   "being who summoned you to the frosty tundra of Leng.",
+                   "",
+                   "For what purpose 'ol' Nyarly' wants with you, it can't",
+                   "be good. He has been known to be one of the more cunn-",
+                   "ing and malvolent elder beings, though not necessarily",
+                   "one at the very top like his more menacing father...",
+                   "",
+                   "Empyrea also adds that Nyarlathotep is possibly in",
+                   "possession of a FIFTH tablet, and perhaps he was the",
+                   "true puppet master, promising beings like Atlach-Nacha",
+                   "their freedom to dominate Earth should they take you",
+                   "out...",
+                   "",
+                   "Perhaps he's well aware of your feats and wants to",
+                   "put an end to you in order to bring an era of fear",
+                   "back to the universe, but you must find him, and if",
+                   "necessary, destroy him, hopefully for good this time."
+}
+cluster 8
+{
+	flat = "ENDBACK4"
+	music = "BGMINTRO"
+        exittext = "Nyarlathotep's final moments are of horror at the",
+                   "realization that he shouldn't have tried to trap",
+                   "you in Leng. Perhaps he was trying to avenge Atlach",
+                   "-Nacha's demise, but he failed to realized you've",
+                   "destroyed other eldritch beings in the past, incl-",
+                   "uding the Eternals themselves, nor did he know of",
+                   "your true heritage as half-Elohimiar.",
+                   "",
+                   "Collecting a FIFTH tablet from his reminants, you",
+                   "ask Xenos and Empyrea to check if this is the final",
+                   "tablet, or if there are anymore left. They tell you",
+                   "that the story on the tablets are still incomplete,",
+                   "but that perhaps there is only one tablet uncollected.",
+                   "",
+                   "Entering the portal, you find yourself back inside",
+                   "that poor man's house on Earth, but something is still",
+                   "wrong. Yet another portal lies ahead, and it appears",
+                   "to link to another place, one more Earthly, yet not...",
+                   "in origin...",
+                   "",
+                   "Is this the finale? Or is it just beginning for you...?"
+}
+
+cluster 9
+{
+	flat = "ENDBACK5"
+	music = "BGMINTRO"
+        exittext = "Collecting a sixth tablet, you make sure no other",
+                   "eldritch enemies are nearby to try to destroy it. You",
+                   "then report to Xenos and Empyrea on the tablet's acc-",
+                   "qisition. Xenos realizes immediately of the squid-like",
+                   "emblem on the tablet. Empyrea also seems to as well.",
+                   "",
+                   "They identify the being as none other than the much-",
+                   "talked about elder god, Cthulhu. Appearantly something",
+                   "involving him is on the rise.",
+                   "",
+                   "Xenos then gasps audibly in your mind, realizing the",
+                   "spanse of Earth ahead of you is the path in the realm",
+                   "to R'lyeh. R'lyeh is the underwater city of which the",
+                   "elder god is imprisoned and kept asleep within. You are",
+                   "fast approaching the rising city. Cthulhu himself might",
+                   "be dormant, but his malevolent StarSpawn seem to have",
+                   "been busy, and possibly waiting for you to deliver the",
+                   "six tablets in person on a silver platter.",
+                   "",
+                   "Now angry with this plot of the elder god, you're ready",
+                   "to face down and destroy these StarSpawn for their plot."
+}
+cluster 10
+{
+	flat = "ENDBACK5"
+	music = "BGMINTRO"
+        exittext = "As the Star Spawn of Cthulhu wail in their death",
+                   "throes, you notice the six tablets disintergrat-",
+                   "ing into nothingness, their purpose finally com-",
+                   "plete, and the sunken city of R'lyeh, begins to",
+                   "collapse. Using a World Ripple, you manage to es-",
+                   "scape quickly, returning to the hotel room you",
+                   "rented out where this had all started...",
+                   "",
+                   "Later that day, you find yourself at a lake of",
+                   "sorts, where you learn from Empyrea that five of",
+                   "the six tablets you had found were thrown into",
+                   "centuries ago in an attempt to protect the world",
+                   "from their magickal energies. You also finally",
+                   "find out that the poor man whose house you kept",
+                   "visiting had died in that lake as well, to keep",
+                   "the tablets buried after a similar quest through",
+                   "those worlds you traveled in...",
+                   "",
+                   "Saying your prayers of peace for the poor man, you",
+                   "decided it is time to return home to Zendaria...",
+                   "You've been through enough for the time being..."
+}
+
+//E5 End
+Intermission E5End
+{
+  Scroller
+  {
+    Background = "FINAL1"
+    Background2 = "FINAL2"
+    ScrollDirection = up
+    InitialDelay = 4
+    ScrollTime = 20
+    Music = "D_BUNNY"
+  }
+}

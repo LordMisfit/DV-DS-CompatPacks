@@ -1,0 +1,284 @@
+Ambient/Rain	AMBRAIN
+
+spider2/sight SPISIT
+spider2/death SPIDTH
+spider2/pain SPIPAI
+spider2/active SPIACT
+spider2/land SPILND
+grell/projhit   dsvulhit
+grell/attack    dsgreatk
+
+
+$random spider/step {spider/step1 spider/step2}
+spider/step1 SPIST1
+spider/step2 SPIST2
+
+starvamp/sight DSVAMACT
+starvamp/pain DSWORMP1
+starvamp/death DSWORMDI
+starvamp/active DSVAMACT
+starvamp/melee DSWORMAT
+
+skelsit raiseske
+skelpai gethit1
+skelatt attack1
+skeldth death1
+swordhit sword1
+
+$random wizard/tele 		{ wizard/dwiztel1  wizard/dwiztel2 }
+wizard/tele1                    dwiztel1
+wizard/tele2                    dwiztel2
+wizard/pain                     dwizpain
+wizard/sight                    dwizact
+wizard/active                   dwizact
+wizard/death                    dwizdth      
+weapons/boom1  dsboom1
+weapons/diasht dsdiasht
+monster/dknmsl dsdknmsl
+
+DWizard/See			DWIZDSIT
+DWizard/Pain		DWIZDPIN
+DWizard/Death		DWIZDDTH
+DWizard/Active		DWIZDACT
+
+WDProj/Fire			DWPRJFIR
+$limit WDProj/Fire 0
+WDProj/Xplode		DWPRJXPL
+$limit WDProj/Xplode 0
+
+Weapons/SoulScepter/Fire1	SLSPFIR1
+Weapons/SoulScepter/Loop	SLSPLOOP
+Weapons/SoulScepter/Hit		SLSPHIT
+Weapons/SoulScepter/Stop	SLSPSTOP
+
+
+$Volume Weapons/SoulScepter/Fire1 0.3
+$Volume Weapons/SoulScepter/Loop 0.3
+$Volume Weapons/SoulScepter/Stop 0.3
+
+$random deepone/pain { deepone/hurt1 deepone/hurt2 deepone/hurt3 deepone/hurt4 }
+
+deepone/hurt1 	DEEPPN1
+deepone/hurt2 	DEEPPN2
+deepone/hurt3  	DEEPPN3
+deepone/hurt4 	DEEPPN4
+
+$random deepone/active { deepone/groan1 deepone/groan2 }
+
+deepone/groan1 	DEEPGN1
+deepone/groan2 	DEEPGN2
+
+$random deepone/meleegrowl { deepone/attack1 deepone/attack2 }
+
+deepone/melee		DSCLAW
+
+deepone/attack1 	DEEPAK1
+deepone/attack2 	DEEPAK2
+
+deepone/sight 		DEEPSEE
+deepone/stealth		DEEPSTTH
+
+deepone/death 	DEEPDTH
+
+deepone/fire 	DEEPFIRE
+
+deepone/firehit 	DEEPFHIT
+
+Shambler/Sight	SHAMSEE
+Shambler/Active	SHAMSEE
+Shambler/Attack	SHAMATK
+Shambler/Hit	SHAMHIT
+Shambler/Pain	SHAMPIN
+Shambler/Death	SHAMDIE
+
+monster/incsit                dsincsit
+monster/incdth                dsincdth
+monster/incexp                dsincexp
+monster/incact                dsincact
+monster/incatk                dsincatk
+monster/inchit                dsinchit
+monster/hadsit                dshadsit
+monster/haddth                dshaddth
+monster/hadexp                dshadexp
+monster/hadtel                dshadtel
+monster/hadwlk                dshadwlk
+
+beamrevenant/activate DSSKEACT
+beamrevenant/pain DSSKEPAIN
+beamrevenant/death DSSKEDTH
+beamrevenant/punch DSSKEPCH
+
+mutantsphere/grow		mutpain
+mutantsphere/ungrow		dsplpain
+mutantsphere/oof		mutoof
+$playersound	mutant	male	*death		mutmdeath
+$playersound	mutant	male	*xdeath		mutmdeath
+$playersound	mutant	male	*gibbed		dsslop
+$playersound	mutant	male	*pain100	mutpain
+$playersounddup	mutant	male	*pain75		*pain100
+$playersounddup	mutant	male	*pain50		*pain100
+$playersounddup	mutant	male	*pain25		*pain100
+$playersound	mutant	male	*grunt		mutoof
+$playersounddup	mutant	male	*land		*grunt
+$playersound	mutant	male	*jump		dsjump
+$playersound	mutant	male	*fist		dspunch
+$playersound	mutant	male	*usefail	mutoof
+
+undeadhunter/activate DSDHACT
+undeadhunter/pain DSDHPAIN
+undeadhunter/death DSDHXDTH
+undeadhunter/xdeath DSDHXDTH
+
+baby/sight DSBSPSIT
+baby/pain DSDMPAIN
+baby/death DSBSPDTH
+baby/active DSBSPWLK
+baby/chargerailgun	DSRGCHRG
+
+electrogun/shoot		PZAPSEE	
+electrogun/hit			PZAPHIT
+electrogun/charge		PZAPCHRG
+electrogun/buzzer       DSBUZZER
+
+dholsee		dhoalert
+dholdie		dholdth
+dholbite	dholatk
+dholbigex   dhobigxp
+dholdethex  dhodthxp
+
+Weapons/AK47FIR AK47FIR
+
+Weapon/XBowFire ARROWR
+Weapon/XBowLoad BALLWIND
+Weapon/XBowSplatter NAILHTBD
+Weapon/XBowHit NAILHIT
+
+$random monster/vulsit 		{ monster/vulsi1  monster/vulsi2 monster/vulsi3 }
+$random monster/vuldth 		{ monster/vuldt1  monster/vuldt2 }
+monster/vulsi1                  dsvulsi1
+monster/vulsi2                  dsvulsi2
+monster/vulsi3                  dsvulsi3
+monster/vulsi4                  dsvulsi4
+monster/vulact                  dsvulact
+monster/vulpai                  dsvulpai
+monster/vuldt1                  dsvuldt1
+monster/vuldt2                  dsvuldt2
+monster/vulswg                  dsvulswg
+monster/vulhit                  dsvulhit
+monster/vulsh1                  dsvulsh1
+monster/vulsh2                  dsvulsh2
+
+slgmsee		medusigh
+slgmdie		medudeat
+slgmbite	meduact1
+
+// SNDINFO for Grell
+grell/sight     dsgresit
+grell/active    dsgreact
+grell/attack    dsgreatk
+grell/pain      dsgrepai
+grell/death     dsgredth
+grell/thud      dsgrethd
+grell/projhit   dsvulhit
+
+$RANDOM monster/dvlsit { monster/dvlsi1 monster/dvlsi2 }
+monster/dvlsi1 dsdvlsi1
+monster/dvlsi2 dsdvlsi2
+
+monster/dvlpai dsdvlpai
+$RANDOM monster/dvldth { monster/dvldt1 monster/dvldt2 }
+monster/dvldt1 dsdvldt1
+monster/dvldt2 dsdvldt2
+
+monster/dvlact dsdvlact
+
+DSWORMP1	DSWORMP1
+
+slimeworm/pain		DSWORMP1
+slimeworm/sight		DSWORMSE
+slimeworm/melee		DSWORMAT
+slimeworm/death		DSWORMDI
+slimeworm/active	DSWORMID
+
+$Random Roach/Sight { ROACSIG1 ROACSIG2 ROACSIG3 }
+ROACSIG1	ROACSIG1
+ROACSIG2	ROACSIG2
+ROACSIG3	ROACSIG3
+$Random Roach/Active { ROACACT1 ROACACT2 }
+ROACACT1	ROACACT1
+ROACACT2	ROACACT2
+Roach/Fire	ROACFIRE
+Roach/Hit	ROACHIT
+$Random Roach/Pain { ROACPAI1 ROACPAI2 }
+ROACPAI1	ROACPAI1
+ROACPAI2	ROACPAI2
+Roach/Death	ROACDEAT
+
+$Limit Roach/Fire 0
+$Limit Roach/Hit 0
+
+shadowbeast/attack	BDMATK1
+shadowbeast/death	BDMDTH1
+shadowbeast/idle1	BDMIDL1
+shadowbeast/idle2	BDMIDL2
+$random shadowbeast/active { shadowbeast/idle2 shadowbeast/idle1 }
+shadowbeast/pain	BDMPAN1
+shadowbeast/sight	BDMSIT1
+shadowbeast/pr1death	BDPD1
+shadowbeast/pr1sight	BDPS1
+shadowbeast/pr2death	BDPD2
+shadowbeast/pr2sight	BDPS2
+shadowbeast/spread	BDPSPR
+shadowbeast/spiritsit	BDSPR2
+shadowbeast/spiritdth	BDSPR1
+
+nightmare/sight DSNMRSIT
+nightmare/pain DSNMRPAI
+nightmare/death DSNMRDTH
+nightmare/active DSNMRACT
+nightmare/melee DSNMRATK
+
+DSUNDPN1	DSUNDPN1
+DSUNDPN2	DSUNDPN2
+DSUNDPN3	DSUNDPN3
+
+DSUNDIE1	DSUNDIE1
+DSUNDIE2	DSUNDIE2
+DSUNDIE3	DSUNDIE3
+
+DSUNDSHT	DSUNDSHT
+
+UndeadPriest/Shoot	DSUNDSHT
+UndeadPriest/Shoot2	DSUNDSHT
+$limit UndeadPriest/Shoot 0
+$limit UndeadPriest/Shoot2 0
+$random UndeadPriest/Pain	{ DSUNDPN1 DSUNDPN2 DSUNDPN3 }
+$random UndeadPriest/Die	{ DSUNDIE1 DSUNDIE2 DSUNDIE3 }
+
+flesh/sight		flspnsit
+flesh/melee		flspnatk
+flesh/pain		flspnhit
+flesh/death		flspndth
+flesh/active		flspnact
+
+wind	wind	// Gentle Cold Wind
+hum	    hum	    // Electric Hum
+chord	chord	// Ominous Chord
+water	water	// water-filled tunnel
+awind	awind	// alien wind
+pgen	pgen	// power generator
+ralert	ralert	// red alert siren
+train	train	// train tracks
+duke	duke	// duke ellington: East St Louis Toodle-oo
+myst    myst    // mystgate ambiance
+
+$AMBIENT 17 wind POINT CONTINUOUS 1
+$AMBIENT 18 hum POINT CONTINUOUS 1
+$AMBIENT 19 chord POINT CONTINUOUS 1
+$AMBIENT 20 water POINT CONTINUOUS 1
+$AMBIENT 21 awind POINT CONTINUOUS 1
+$AMBIENT 22 pgen POINT CONTINUOUS 1
+$AMBIENT 23 ralert POINT CONTINUOUS 1
+$AMBIENT 24 train POINT CONTINUOUS 1
+$AMBIENT 25 duke POINT CONTINUOUS 1
+$AMBIENT 26 myst POINT CONTINUOUS 1

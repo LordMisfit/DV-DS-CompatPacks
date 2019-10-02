@@ -1,0 +1,10 @@
+texture SCGREEN1	range SCGREEN3	tics 8
+texture SCSTWAT1	range SCSTWAT3	tics 8
+texture WFALL1	    range WFALL4	tics 8
+texture SFALL1	    range SFALL4	tics 8
+texture BFALL1	    range BFALL4	tics 8
+
+switch	SCSWHED0  on  pic SCSWHED1	tics 0
+switch	SCSWKAP0  on  pic SCSWKAP1	tics 0
+switch	SCSWPRS0  on  pic SCSWPRS1	tics 0
+switch  GTSW02A   on  pic GTSW02B   tics 0
