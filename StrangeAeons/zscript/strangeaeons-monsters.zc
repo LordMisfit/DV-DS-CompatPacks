@@ -648,7 +648,7 @@ Class GrellBall : AetheriusEffectProjectile
 		Radius 8;
 		Height 16;
 		Speed 15;
-		Damage 4;
+		DamageFunction(4 * random(1,8));
 		Renderstyle "Add";
 		DamageType "Eldritch";
 		DeathSound "grell/projhit";
@@ -695,7 +695,7 @@ Class GrellBallCrisis : GrellBall
 		Radius 8;
 		Height 16;
 		Speed 15;
-		Damage 4;
+		DamageFunction ((4 * random(1,8)) * CallACS("CrisisMultiplier"));
 		Renderstyle "Add";
 		DeathSound "grell/projhit";
 		Alpha 0.67;
