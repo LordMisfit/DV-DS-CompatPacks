@@ -17,7 +17,7 @@ gameinfo
  AddCreditPage = "CREDIT2"
  borderflat = "FIGHT1"
  drawreadthis = true
- titletime = 6
+ titletime = 10
 }
 
 DoomEdNums
@@ -756,25 +756,25 @@ cluster 7
         exittext = "As you smash and blast your magics through the beings",
                    "of what you know have identified as Leng proper, you",
                    "have been informed by Xenos and Empyrea that the dark",
-                   "magicks of Nyarlathotep, 'The Crawling Chaos, and the",
+                   "magicks of Nyarlathotep, 'The Crawling Chaos', and the",
                    "son of Azathoth, the 'The Whispering Darkness', is the",
-                   "being who summoned you to the frosty tundra of Leng.",
+                   "being who summoned you to the frosty tundra of Leng...",
                    "",
                    "For what purpose 'ol' Nyarly' wants with you, it can't",
                    "be good. He has been known to be one of the more cunn-",
                    "ing and malvolent elder beings, though not necessarily",
                    "one at the very top like his more menacing father...",
                    "",
-                   "Empyrea also adds that Nyarlathotep is possibly in",
-                   "possession of a FIFTH tablet, and perhaps he was the",
-                   "true puppet master, promising beings like Atlach-Nacha",
-                   "their freedom to dominate Earth should they take you",
-                   "out...",
+                   "Empyrea also adds that Nyarlathotep is possibly in poss-",
+                   "ession of a FIFTH tablet, and perhaps he was the true",
+                   "puppetmaster, promising beings like Atlach-Nacha their",
+                   "freedom to dominate Earth should they take you out...",
                    "",
-                   "Perhaps he's well aware of your feats and wants to",
-                   "put an end to you in order to bring an era of fear",
-                   "back to the universe, but you must find him, and if",
-                   "necessary, destroy him, hopefully for good this time."
+                   "Perhaps he's well aware of your feats and wants to put",
+                   "an end to you in order to bring an era of fear back to",
+                   "the universe, but you must find him, and if necessary,",
+                   "destroy him, hopefully for good this time... You have",
+                   "that ability to fully destroy the eldritch, as you know..."
 }
 cluster 8
 {
