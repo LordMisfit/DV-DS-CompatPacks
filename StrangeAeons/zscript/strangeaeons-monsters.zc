@@ -140,8 +140,8 @@ class RoachBase : AetheriusMonsterZSC
 
 		Ice:
 			"####" # 0 A_DVDSIceDeath(-2,0,1);
-			ROAC M 5 A_GenericFreezeDeath;
-			ROAC M 1 A_FreezeDeathChunks;
+			ROAC H 5 A_GenericFreezeDeath;
+			ROAC H 1 A_FreezeDeathChunks;
 			wait;
 	}
 

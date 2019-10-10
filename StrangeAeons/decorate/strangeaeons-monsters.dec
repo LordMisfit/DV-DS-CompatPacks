@@ -2240,6 +2240,7 @@ actor StarSpawn : AetheriusMonsterZSC replaces BaronofHell 11300
 			}
 			Goto Missile+1
 
+		Pain.Charm: goto See
 		Pain:
 			CUTH L 0 A_TakeInventory("squidinviso", 255)
 			CUTH L 2 A_ChangeFlag("STEALTH", 0)
@@ -3458,12 +3459,12 @@ Actor DShambler : AetheriusMonsterZSC 10077
 			{ 
 				if (Args[1] > 0)
 				{
-					if (random(1,16) == 1) { return state("Missile"); }
+					if (random(1,256) <= 16) { return state("Missile"); }
 					return state("");
 				}
 				return state("");
 			}
-			Goto See
+			Goto See+1
 		Melee:
 			SHAM H 0 A_JumpIfInventory("WraithTeleporting", 1, 5)
 			SHAM HH 1 
@@ -3497,6 +3498,16 @@ Actor DShambler : AetheriusMonsterZSC 10077
 				A_PlayWeaponSound("D3Wraith/Attack");
 				A_CrisisMeleeAttack(4*random(1,10),"none","none","Melee",true);
 			}
+			SHAM A 0
+			{
+				A_ChangeFlag("Invulnerable", 0);
+				A_SetShootable;
+				A_ChangeFlag("NonShootable", 0);
+				A_ChangeFlag("Shootable", 1);
+				A_ChangeFlag("NoTeleport", 0);
+				A_ChangeFlag("NoRadiusDMG", 0);
+				A_ChangeFlag("DropOff", 0);
+			}
 			Goto See
 		Missile:
 			SHAM A 0 A_JumpIfCloser(128, 2)
@@ -3515,6 +3526,8 @@ Actor DShambler : AetheriusMonsterZSC 10077
 			TNT1 A 0 A_GiveInventory("WraithTeleporting", 1)
 			TNT1 A 0 
 			{
+				A_PlaySound("misc/ZAHANDO");
+
 				A_ChangeFlag("Invulnerable", 1);
 				A_ChangeFlag("NonShootable", 1);
 				A_ChangeFlag("NoTeleport", 1);
@@ -3522,13 +3535,9 @@ Actor DShambler : AetheriusMonsterZSC 10077
 				A_ChangeFlag("DropOff", 1);
 				A_UnSetShootable;
 			}
-			TNT1 A 0
-			{
-				A_PlaySound("misc/ZAHANDO");
-			}
 			TNT1 AAAAAAAAAAAAAAAAAAAAAAAAA 0 A_ExtChase(1, 0, 0, 0)
 			TNT1 A 0 A_Jump(128,25)
-			TNT1 AAAAAAAAAAAAAAAAAAAAAAAA 0 A_ExtChase(1, 0, 0, 0)
+			TNT1 AAAAAAAAAAAAAAAAAAAAAAAAA 0 A_ExtChase(1, 0, 0, 0)
 			TNT1 A 1 
 			{
 				A_ExtChase(1, 0, 0, 0);
