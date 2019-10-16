@@ -1,3 +1,6 @@
+clearplayerclasses
+addplayerclass FloraBriscoletti
+
 weaponsection StrangeAeons
 
 addslotdefault 2 ImpalerXBow
