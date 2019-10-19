@@ -139,7 +139,7 @@ ACTOR ImpalerXBow : FloraWeapon replaces Chainsaw
 		Fire:
 			TNT1 A 0
 			{
-				if (A_UseManaAttack(1 * (12 - (CallACS("MiscVarCheckDECORATE",10053) + CallACS("MiscVarCheckDECORATE",10054))) / 12,2,1) == 0) 
+				if (A_UseManaAttack(CountInv("NormFireManaCost",AAPTR_PLAYER1),2,1) == 0) 
 				{ 
 					if (CountInv("ImpalerBowFakeReady",AAPTR_PLAYER1) > 0) { return state("FakeReady"); }
 					else if (CountInv("ImpalerBowRealReady",AAPTR_PLAYER1) > 0) { return state("RealReady"); }
@@ -205,7 +205,7 @@ ACTOR ImpalerXBow : FloraWeapon replaces Chainsaw
 		AltFire:
 			TNT1 A 0
 			{
-				if (A_UseManaAttack(10 * (12 - (CallACS("MiscVarCheckDECORATE",10053) + CallACS("MiscVarCheckDECORATE",10054))) / 12,2,1) == 0) 
+				if (A_UseManaAttack(CountInv("AltFireManaCost",AAPTR_PLAYER1),2,1) == 0) 
 				{ 
 					if (CountInv("ImpalerBowFakeReady",AAPTR_PLAYER1) > 0) { return state("FakeReady"); }
 					else if (CountInv("ImpalerBowRealReady",AAPTR_PLAYER1) > 0) { return state("RealReady"); }
@@ -392,7 +392,7 @@ ACTOR DualImpalerXBow : ImpalerXBow
 		Fire:
 			TNT1 A 0
 			{
-				if (A_UseManaAttack(2 * (12 - (CallACS("MiscVarCheckDECORATE",10053) + CallACS("MiscVarCheckDECORATE",10054))) / 12,2,1) == 0) 
+				if (A_UseManaAttack(CountInv("NormFireManaCost",AAPTR_PLAYER1),2,1) == 0) 
 				{ 
 					if (CountInv("ImpalerBowFakeReady",AAPTR_PLAYER1) > 0) { return state("FakeReady"); }
 					else if (CountInv("ImpalerBowRealReady",AAPTR_PLAYER1) > 0) { return state("RealReady"); }
@@ -463,7 +463,7 @@ ACTOR DualImpalerXBow : ImpalerXBow
 		AltFire:
 			TNT1 A 0
 			{
-				if (A_UseManaAttack(20 * (12 - (CallACS("MiscVarCheckDECORATE",10053) + CallACS("MiscVarCheckDECORATE",10054))) / 12,2,1) == 0) 
+				if (A_UseManaAttack(CountInv("AltFireManaCost",AAPTR_PLAYER1),2,1) == 0) 
 				{ 
 					if (CountInv("ImpalerBowFakeReady",AAPTR_PLAYER1) > 0) { return state("FakeReady"); }
 					else if (CountInv("ImpalerBowRealReady",AAPTR_PLAYER1) > 0) { return state("RealReady"); }
@@ -762,7 +762,7 @@ Actor ScepterOfSouls : FloraWeapon 11111
 					if (CountInv("ScepterOfSoulsUses",AAPTR_PLAYER1) >= 1)
 					{
 						A_SetInventory("ScepterOfSoulsUses",0,AAPTR_PLAYER1);
-						if (A_UseManaAttack(1,2,1,1) == 0) { return state("Ready"); }
+						if (A_UseManaAttack(CountInv("NormFireManaCost",AAPTR_PLAYER1),2,1,1) == 0) { return state("Ready"); }
 						return state("");
 					}
 					return state("");
@@ -820,7 +820,7 @@ Actor ScepterOfSouls : FloraWeapon 11111
 					if (CountInv("ScepterOfSoulsUses",AAPTR_PLAYER1) >= 1)
 					{
 						A_SetInventory("ScepterOfSoulsUses",0,AAPTR_PLAYER1);
-						if (A_UseManaAttack(2,2,1,1) == 0) { return state("Ready"); }
+						if (A_UseManaAttack(CountInv("AltFireManaCost",AAPTR_PLAYER1),2,1,1) == 0) { return state("Ready"); }
 						return state("");
 					}
 					return state("");
@@ -942,7 +942,7 @@ Actor DualScepterOfSouls : FloraWeapon 11112
 					if (CountInv("DualScepterOfSoulsUses",AAPTR_PLAYER1) >= 1)
 					{
 						A_SetInventory("DualScepterOfSoulsUses",0,AAPTR_PLAYER1);
-						if (A_UseManaAttack(2,2,1,1) == 0) { return state("Ready"); }
+						if (A_UseManaAttack(CountInv("NormFireManaCost",AAPTR_PLAYER1),2,1,1) == 0) { return state("Ready"); }
 						return state("");
 					}
 					return state("");
@@ -1003,7 +1003,7 @@ Actor DualScepterOfSouls : FloraWeapon 11112
 					if (CountInv("DualScepterOfSoulsUses",AAPTR_PLAYER1) >= 1)
 					{
 						A_SetInventory("DualScepterOfSoulsUses",0,AAPTR_PLAYER1);
-						if (A_UseManaAttack(4,2,1,1) == 0) { return state("Ready"); }
+						if (A_UseManaAttack(CountInv("AltFireManaCost",AAPTR_PLAYER1),2,1,1) == 0) { return state("Ready"); }
 						return state("");
 					}
 					return state("");
