@@ -1,8 +1,0 @@
-clearplayerclasses
-addplayerclass FloraBriscoletti
-
-alias message_deactivate "puke 555"
-defaultbind "k" "message_deactivate"
-
-addkeysection "TCOTD" tcotd_keysection
-addmenukey "Kill Onscreen Message" message_deactivate 
