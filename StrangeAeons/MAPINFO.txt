@@ -568,11 +568,11 @@ map E5M8 "R'lyeh Rising"
 
 // Clusters (correspond with same-numbered episode)
 
-cluster 1
+cluster 3232
 {
-	flat = "ENDBACK1"
+	flat = "STARTBAC"
 	music = "BGMINTRO"
-       entertext = "It all started with a trip to Earth, some time in",
+        exittext = "It all started with a trip to Earth, some time in",
                    "recent days. You were on a shopping excursion, int-",
                    "erested in more curiosities on the world you only",
                    "saved over ten years ago.",
@@ -593,7 +593,11 @@ cluster 1
                    "Feeling your power temporarily diminished [AGAIN],",
                    "you sigh to yourself, and wonder what terrible force",
                    "is up to their antics THIS time..."
-
+}
+cluster 1
+{
+	flat = "ENDBACK1"
+	music = "BGMINTRO"
         exittext = "What in the multiverse is this realm? You note of",
                    "all these broken apart 'islands' in the sky, as if",
                    "one landmass floated in the aether before being",
@@ -618,7 +622,7 @@ cluster 1
 }
 cluster 2
 {
-	flat = "ENDBACK1"
+	flat = "ENDBACKA"
 	music = "BGMINTRO"
         exittext = "You meet a group of friendly sailors who offer to",
                    "ferry you through the local aether, to a small",
@@ -672,7 +676,7 @@ cluster 3
 }
 cluster 4
 {
-	flat = "ENDBACK2"
+	flat = "ENDBACKB"
 	music = "BGMINTRO"
         exittext = "Between the loathesome Dholes and that pit of spiders",
                    "you fell into unconsciousness, and some time later,",
@@ -686,7 +690,7 @@ cluster 4
                    "",
                    "To your surprise, you see ANOTHER tablet, a third one,",
                    "lying on the desk, and after a chat with Xenos and Emp-",
-                   "reya, they confirm from the writing it is indeed the",
+                   "yera, they confirm from the writing it is indeed the",
                    "same 'story' continued from the previous two tablets.",
                    "",
                    "Seeing through the portal on the edge of the room, you",
@@ -725,15 +729,15 @@ cluster 5
 }
 cluster 6
 {
-	flat = "ENDBACK3"
+	flat = "ENDBACKC"
 	music = "BGMINTRO"
         exittext = "Atlach-Nacha's arachnid visage falls before you and",
                    "she and her many spawn are cleansed from this world.",
                    "Making sure you have the FOURTH tablet, found at her",
-                   "altar, you let Xenos and Empreya know she has been",
+                   "altar, you let Xenos and Empyrea know she has been",
                    "dealt with.",
                    "",
-                   "Empreya confirms that indeed, Atlach-Nacha's presense",
+                   "Empyrea confirms that indeed, Atlach-Nacha's presense",
                    "in our reality is gone forever, explaining the spider",
                    "old one was probably trying to use your death to break",
                    "through onto Earth and cause untold destruction in her",
@@ -778,7 +782,7 @@ cluster 7
 }
 cluster 8
 {
-	flat = "ENDBACK4"
+	flat = "ENDBACKD"
 	music = "BGMINTRO"
         exittext = "Nyarlathotep's final moments are of horror at the",
                    "realization that he shouldn't have tried to trap",
@@ -831,7 +835,7 @@ cluster 9
 }
 cluster 10
 {
-	flat = "ENDBACK5"
+	flat = "ENDBACKE"
 	music = "BGMINTRO"
         exittext = "As the Star Spawn of Cthulhu wail in their death",
                    "throes, you notice the six tablets disintergrat-",
