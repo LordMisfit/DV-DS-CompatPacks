@@ -8,8 +8,6 @@ DV-DS-CompatPacks ["Aetherius" - Compatiblity Patches for Various mapsets]
 	- LegenDoomLite v1.1 (loaded as a subfolder)
 	- Resurgence (loaded as a subfolder) [you also need to download "resurge.wad" to run with it]
 	- Scythe 2 (loaded as a subfolder) [you also need to download "scythe2.wad" to run with it]
-	- Sitnatla [Heretic mapset by ArgonianLord] (loaded as a subfolder)
-	- Starship [Hexen mapset by Hamster Republic Games] (loaded as a subfolder)
 	- Valiant: Vaccinated Edition (loaded as a WAD file)
 	- Void [incomplete] (loaded as a WAD file)
 
@@ -36,21 +34,18 @@ HOW TO INSTALL / RUN / ETC:
  - Running - 5. To run Scythe 2 w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" scythe2.wad "DV-DS-Compatpacks/Scythe2" +hud_scale 0 exit"
  - Note: DV-DS-CompatPacks does not come with scythe2.wad by default, you need to download that yourself. The CompatPack for this mostly replaces the Afrits that the wad's DEH replaces the CommanderKeens with, with the Flying Balrog proper where they have dynamic stats, etc.
 
- - Running - 6. To run Sitnalta w/ "Aetherius" Command line: "start gzdoom.exe -iwad heretic.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Heretic" "DV-DS-CompatPacks/Sitnalta-DVDS.pk3" +hud_scale 0 exit"
- - Note: This is the only Heretic levelset CompatPack included at the moment, and again you can load the Hexen compatpack here as well if you want [see Running - 2.], though it doesn't actually matter in this mapset.
-
- - Running - 7. To run Switcheroom w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Doom" "DV-DS-CompatPacks/Switcheroom" +hud_scale 0 exit" 
+ - Running - 6. To run Switcheroom w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Switcheroom" +hud_scale 0 exit" 
  - Note: This is an Ultimate Doom specfic mapset.
 
- - Running - 8. To run Valiant: Vaccinated Edition w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/valve-DVDS.wad" +hud_scale 0 exit" 
+ - Running - 7. To run Valiant: Vaccinated Edition w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/valve-DVDS.wad" +hud_scale 0 exit" 
 
- - Running - 9. To run Void w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/void-DVDS.wad" +hud_scale 0 exit" 
+ - Running - 8. To run Void w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/void-DVDS.wad" +hud_scale 0 exit" 
  - Note: This one is incomplete, and I'm not sure if it'll be finished anytime soon. It's there as more of an attempt to edit it since I liked this particular map. :P
 
- - Running - 10. To run "Deus Vult 1+2" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/DeusVult" +hud_scale 0 exit" 
+ - Running - 9. To run "Deus Vult 1+2" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/DeusVult" +hud_scale 0 exit" 
  - Note: You'll get two "episodes" in the start up menu. Deus Vult [1] and Deus Vult 2 "campaigns". The DV1 and DV2 maps are also named in their own name format and don't conflict with the other stuff, and thus are seperated in their own "episodes".
 
- - Running - 11. To run Hellbound w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Hellbound" +hud_scale 0 exit" 
+ - Running - 10. To run Hellbound w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Hellbound" +hud_scale 0 exit" 
  - Note: If you want higher-resolution music, add "hellbnd-HMUS.wad" after the Hellbound folder in the command line.
 
  - ABOUT LegenDoomLite: Can be added to any mode [or game type or even normal Doom1/2] essentially by adding "DV-DS-CompatPacks/LegenDoomLite" into the command line as the last file loaded. This one does NOT have to be loaded as a seperate mod from the above and is basically compatible with any of them and thensome. :V
