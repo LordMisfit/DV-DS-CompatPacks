@@ -1,6 +1,0 @@
-
-effects/legendaryenemyloop					LDLELOOP
-effects/legendaryenemy						LDLETRAN
-$limit effects/legendaryenemy		0
-effects/legendaryenemyboss					LDLEBOSS
-$limit effects/legendaryenemyboss	0
