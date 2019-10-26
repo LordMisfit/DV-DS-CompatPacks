@@ -1,1 +1,0 @@
-texture TYWFALL1 range TYWFALL4 tics 8

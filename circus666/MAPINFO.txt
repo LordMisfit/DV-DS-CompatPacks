@@ -1,8 +1,0 @@
-
-map MAP01 "Happy Time Circus!"
-cluster 1
-fade "05 00 00"
-sky1 skydark -0.15
-sky2 sky55 5.00
-next 2
-

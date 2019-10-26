@@ -1,9 +1,0 @@
-Skybox SKY2 fliptop
-{
-  SKY3BK
-  SKY3RT
-  SKY3FT
-  SKY3LF
-  SKY3UP
-  SKY3UP
-}

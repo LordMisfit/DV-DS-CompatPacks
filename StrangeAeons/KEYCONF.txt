@@ -1,8 +1,0 @@
-clearplayerclasses
-addplayerclass FloraBriscoletti
-
-weaponsection StrangeAeons
-
-addslotdefault 2 ImpalerXBow
-
-addkeysection "StrangeAeons" StrangeAeons_keysection
