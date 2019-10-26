@@ -47,7 +47,10 @@ HOW TO INSTALL / RUN / ETC:
  - Running - 9. To run Void w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/void-DVDS.wad" +hud_scale 0 exit" 
  - Note: This one is incomplete, and I'm not sure if it'll be finished anytime soon. It's there as more of an attempt to edit it since I liked this particular map. :P
 
- - Running - 20. To run "Deus Vult 1+2" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/DeusVult" +hud_scale 0 exit" 
+ - Running - 10. To run "Deus Vult 1+2" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/DeusVult" +hud_scale 0 exit" 
  - Note: You'll get two "episodes" in the start up menu. Deus Vult [1] and Deus Vult 2 "campaigns". The DV1 and DV2 maps are also named in their own name format and don't conflict with the other stuff, and thus are seperated in their own "episodes".
+
+ - Running - 11. To run Hellbound w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Hellbound" +hud_scale 0 exit" 
+ - Note: If you want higher-resolution music, add "hellbnd-HMUS.wad" after the Hellbound folder in the command line.
 
  - ABOUT LegenDoomLite: Can be added to any mode [or game type or even normal Doom1/2] essentially by adding "DV-DS-CompatPacks/LegenDoomLite" into the command line as the last file loaded. This one does NOT have to be loaded as a seperate mod from the above and is basically compatible with any of them and thensome. :V
