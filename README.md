@@ -5,7 +5,6 @@ DV-DS-CompatPacks ["Aetherius" - Compatiblity Patches for Various mapsets]
 	- Deus Vult 1+2 Combo Pack (loaded as a subfolder)
 	- Going Down (loaded as both a WAD file and a subfolder)
 	- Hellbound (loaded as a subfolder)
-	- LegenDoomLite v1.1 (loaded as a subfolder)
 	- Resurgence (loaded as a subfolder) [you also need to download "resurge.wad" to run with it]
 	- Scythe 2 (loaded as a subfolder) [you also need to download "scythe2.wad" to run with it]
 	- Valiant: Vaccinated Edition (loaded as a WAD file)
@@ -47,5 +46,3 @@ HOW TO INSTALL / RUN / ETC:
 
  - Running - 10. To run Hellbound w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Hellbound" +hud_scale 0 exit" 
  - Note: If you want higher-resolution music, add "hellbnd-HMUS.wad" after the Hellbound folder in the command line.
-
- - ABOUT LegenDoomLite: Can be added to any mode [or game type or even normal Doom1/2] essentially by adding "DV-DS-CompatPacks/LegenDoomLite" into the command line as the last file loaded. This one does NOT have to be loaded as a seperate mod from the above and is basically compatible with any of them and thensome. :V
