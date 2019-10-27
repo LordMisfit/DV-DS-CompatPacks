@@ -3,8 +3,6 @@ DV-DS-CompatPacks ["Aetherius" - Compatiblity Patches for Various mapsets]
 - Includes compatiability patches and PK3 files for the following wads/etc. Though keep in mind some of these are currently incomplete.
 	- Bloodstain (loaded as a subfolder) [you also need to download "bstain.wad" to run with it]
 	- Deus Vult 1+2 Combo Pack (loaded as a subfolder)
-	- Going Down (loaded as both a WAD file and a subfolder)
-	- Hellbound (loaded as a subfolder)
 	- Resurgence (loaded as a subfolder) [you also need to download "resurge.wad" to run with it]
 	- Scythe 2 (loaded as a subfolder) [you also need to download "scythe2.wad" to run with it]
 	- Valiant: Vaccinated Edition (loaded as a WAD file)
@@ -25,24 +23,19 @@ HOW TO INSTALL / RUN / ETC:
  - Running - 2. To run BloodStain w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" bstain.wad "DV-DS-Compatpacks/Bloodstain" +hud_scale 0 exit" 
  - Note: DV-DS-CompatPacks does not come with bstain.wad by default, you need to download that yourself. The CompatPack for this mostly replaces the Afrits that the wad's DEH replaces the CommanderKeens with, with the Flying Balrog proper where they have dynamic stats, etc.
 
- - Running - 3. To run Going Down w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-Compatpacks/GoingDown" +hud_scale 0 exit" 
-
- - Running - 4. To run Resurgence w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" resurge.wad "DV-DS-Compatpacks/Resurgence" +hud_scale 0 exit"
+ - Running - 3. To run Resurgence w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" resurge.wad "DV-DS-Compatpacks/Resurgence" +hud_scale 0 exit"
  - Note: DV-DS-CompatPacks does not come with resurge.wad by default, you need to download that yourself. The CompatPack for this mostly replaces the Afrits that the wad's DEH replaces the CommanderKeens with, with the Flying Balrog proper where they have dynamic stats, etc.
 
- - Running - 5. To run Scythe 2 w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" scythe2.wad "DV-DS-Compatpacks/Scythe2" +hud_scale 0 exit"
+ - Running - 4. To run Scythe 2 w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" scythe2.wad "DV-DS-Compatpacks/Scythe2" +hud_scale 0 exit"
  - Note: DV-DS-CompatPacks does not come with scythe2.wad by default, you need to download that yourself. The CompatPack for this mostly replaces the Afrits that the wad's DEH replaces the CommanderKeens with, with the Flying Balrog proper where they have dynamic stats, etc.
 
- - Running - 6. To run Switcheroom w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Switcheroom" +hud_scale 0 exit" 
+ - Running - 5. To run Switcheroom w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Switcheroom" +hud_scale 0 exit" 
  - Note: This is an Ultimate Doom specfic mapset.
 
- - Running - 7. To run Valiant: Vaccinated Edition w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/valve-DVDS.wad" +hud_scale 0 exit" 
+ - Running - 6. To run Valiant: Vaccinated Edition w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/valve-DVDS.wad" +hud_scale 0 exit" 
 
- - Running - 8. To run Void w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/void-DVDS.wad" +hud_scale 0 exit" 
+ - Running - 7. To run Void w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/void-DVDS.wad" +hud_scale 0 exit" 
  - Note: This one is incomplete, and I'm not sure if it'll be finished anytime soon. It's there as more of an attempt to edit it since I liked this particular map. :P
 
- - Running - 9. To run "Deus Vult 1+2" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/DeusVult" +hud_scale 0 exit" 
+ - Running - 8. To run "Deus Vult 1+2" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/DeusVult" +hud_scale 0 exit" 
  - Note: You'll get two "episodes" in the start up menu. Deus Vult [1] and Deus Vult 2 "campaigns". The DV1 and DV2 maps are also named in their own name format and don't conflict with the other stuff, and thus are seperated in their own "episodes".
-
- - Running - 10. To run Hellbound w/ "Aetherius" Command line: "start gzdoom.exe -iwad doom2.wad -file "DV-DS-ComboPack" "DV-DS-CompatPacks/Hellbound" +hud_scale 0 exit" 
- - Note: If you want higher-resolution music, add "hellbnd-HMUS.wad" after the Hellbound folder in the command line.
