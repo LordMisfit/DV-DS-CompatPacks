@@ -13,7 +13,9 @@ DV-DS-CompatPacks ["Aetherius" - Compatiblity Patches for Various mapsets]
 
 HOW TO INSTALL / RUN / ETC:
 
- - Important - Make absolutely sure you got DV-DS-ComboPack [@ https://github.com/LordMisfit/DV-DS-ComboPack ] working right before you do anything here. Refer to that repository's README.md file for more information.
+  [Note: if you have downloaded this as a file off the repository's site, the folders below inside the archive file will have the postfix '-master' appended onto them [i.e. "DV-DS-CompatPacks-master"]. Either consider that postfix in the folders for the command lines below, or rename the folders inside to remove the '-master' post fix. I usually don't use zips for testing, but I use a git client to directly upload the revisions of these repositories to Github and to download them as well, so they don't append '-master' to the foldernames on my end.]
+
+ - Important - Make absolutely sure you got "DV-DS-ComboPack" [@ https://github.com/LordMisfit/DV-DS-ComboPack ] working right before you do anything here. Refer to that repository's README.md file for more information.
 
  - Installing 1 - Make sure you unzip the entire "DV-DS-CompatPacks" folder inside the zip file to your designated GZDoom folder. Do not try to install the subfolders within into "DV-DS-ComboPacks" or into your main GZDoom folder, or you've done flapped it up and have to do everything up to this point on both repositories over again. :V
  - TL;DR: So basically make sure "DV-DS-ComboPacks" & "DV-DS-CompatPacks" are seperate subfolders in your main GZDoom folder. :P
