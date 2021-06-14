@@ -1,0 +1,137 @@
+// ZDoom MAPINFO for SIGIL [Aetherius edition]
+
+map E4M8 lookup "HUSTR_E4M8"
+{
+ levelnum = 38
+ titlepatch = "WILV37"
+ next = "E5M1"
+ secretnext = "E4M9"
+ sky1 = "SKY4"
+ cluster = 4
+ nosoundclipping
+ spidermastermindspecial
+ specialaction_lowerfloor
+ music = "$MUSIC_E2M5"
+ exitpic = "$IN_E4"
+ enterpic = "$IN_E4"
+}
+
+map E5M1 "$HUSTR_E5M1"
+{
+	levelnum = 41
+	next = "E5M2"
+	secretnext = "E5M9"
+  cluster = 5
+	titlepatch = "WILV40"
+	music = "D_E5M1"
+}
+
+map E5M2 "$HUSTR_E5M2"
+{
+	levelnum = 42
+	next = "E5M3"
+	secretnext = "E5M9"
+	sky1 = "SKY5"
+	cluster = 5
+	enterpic = "SIGILINT"
+	exitpic = "SIGILINT"
+	titlepatch = "WILV41"
+	music = "D_E5M2"
+}
+
+map E5M3 "$HUSTR_E5M3"
+{
+	levelnum = 43
+	next = "E5M4"
+	secretnext = "E5M9"
+	sky1 = "SKY5"
+	cluster = 5
+	enterpic = "SIGILINT"
+	exitpic = "SIGILINT"
+	titlepatch = "WILV42"
+	music = "D_E5M3"
+}
+
+map E5M4 "$HUSTR_E5M4"
+{
+	levelnum = 44
+	next = "E5M5"
+	secretnext = "E5M9"
+	sky1 = "SKY5"
+	cluster = 5
+	enterpic = "SIGILINT"
+	exitpic = "SIGILINT"
+	titlepatch = "WILV43"
+	music = "D_E5M4"
+}
+
+map E5M5 "$HUSTR_E5M5"
+{
+	levelnum = 45
+	next = "E5M6"
+	secretnext = "E5M9"
+	sky1 = "SKY5"
+	cluster = 5
+	enterpic = "SIGILINT"
+	exitpic = "SIGILINT"
+	titlepatch = "WILV44"
+	music = "D_E5M5"
+}
+
+map E5M6 "$HUSTR_E5M6"
+{
+	levelnum = 46
+	next = "E5M7"
+	secretnext = "E5M9"
+	sky1 = "SKY5"
+	cluster = 5
+	enterpic = "SIGILINT"
+	exitpic = "SIGILINT"
+	titlepatch = "WILV45"
+	music = "D_E5M6"
+}
+
+map E5M7 "$HUSTR_E5M7"
+{
+	levelnum = 47
+	next = "E5M8"
+	secretnext = "E5M9"
+	sky1 = "SKY5"
+	cluster = 5
+	enterpic = "SIGILINT"
+	exitpic = "SIGILINT"
+	titlepatch = "WILV46"
+	music = "D_E5M7"
+}
+
+map E5M8 "$HUSTR_E5M8"
+{
+	levelnum = 48
+	next = EndPic, "CREDIT"
+	secretnext = "E5M9"
+	sky1 = "SKY5"
+	cluster = 5
+	enterpic = "SIGILINT"
+	exitpic = "SIGILINT"
+	titlepatch = "WILV47"
+	nosoundclipping
+	music = "D_E5M8"
+}
+
+map E5M9 "$HUSTR_E5M9"
+{
+	levelnum = 49
+	next = "E5M7"
+	sky1 = "SKY5"
+	cluster = 5
+	enterpic = "SIGILINT"
+	exitpic = "SIGILINT"
+	titlepatch = "WILV48"
+	music =  "D_E5M9"
+}
+
+cluster 5
+{
+	flat = "FLOOR7_2"
+	exittext = lookup, "E5TEXT"
+}
