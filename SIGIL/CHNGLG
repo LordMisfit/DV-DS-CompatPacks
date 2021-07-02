@@ -1,0 +1,240 @@
+v1.2 -> v1.21
+============
+Changes made by John Romero, dew, Flambeau, Keyboard_Doomer, Ubergewei, Xaser
+
+general:
+- All A_BossDeath codepointers restored for SIGIL_v1_2's (dehacked).
+- All A_BossDeath codepointers restored for SIGIL_COMPAT_v1_2 except for the Spider Mastermind's which is needed preventing unwanted early end of map8 (see v1.0 -> v1.1, map8).
+
+v1.1 -> v1.2
+============
+Changes made by John Romero, dew, Flambeau, Keyboard_Doomer, Ubergewei, Xaser
+
+general:
+- fixed all eye switches to prevent triggering by zdoom projectiles and a slew of related potential soft-locks
+- automap cleanup for consistent secret/hidden linedef flagging and hiding undesirable active linedefs
+- added loads of co-op ammo and monsters to every map
+- new SIGIL texture
+- new TITLEPIC and CREDIT screens
+- new demos: DEMO1 E5M2 by Dew, DEMO2 E5M5 by Xaser, DEMO3 E5M7 by Keyboard_Doomer, DEMO4 E5M1 by Ubergewei
+
+map1:
+- final room has exit pulled out for easier movement
+- escape from lava in tight hallway on both sides
+- added co-op berserk in lava (thing 191)
+
+map2:
+- added tag 120 to ld 129, 145 so it's harder not to trigger the first elevator
+- added trim sector to secret area evil eye for proper texture alignment
+- changed RK door track linedefs 479, 914 from upper to lower unpegged
+- added METAL as upper backside texture on linedefs 454, 455, 1061 and 1924
+- changed textures on linedefs 982, 988 to METAL for consistency
+- realigned linedef 1348
+
+map3:
+- outstanding cell charge (t. 168) with no cell weapon changed into three clips
+- moved berserk (thing 125) east a little
+- added extra MP-only radsuit to the blood hallway
+- changed linedefs 1412 and 1414 from lower to upper unpegged 
+
+map4:
+- added shotgun thing 273 to make level start easier, removed co-op shotguns
+=== red skull key path === 
+- added repeatable floor lower action to ld 86 to avoid softlocked in coop if players inside the section wipe out
+- split sector 73 to ensure wall trap still works under the new setup
+- reshaped cavern architecture around eye switch for trigger safety
+- added a lift to final lava room; made easier to move around in lava
+- escape stairs out of lava next to raised bridge
+- escape stairs out of lava close to soul sphere
+=== yellow skull key path ===
+- reworked lava island re-raising to fully repeatable, using control sectors with decorative torches to support the mechanism
+- added ambush cave sector with things 260-262 next to yellow skull key door
+- distanced lava island raising lines under YSK door to prevent a special hit (spechit) overflow that would trash recorded demos
+- added stairs behind YSK door to prevent players from jumping up
+- modified center path environment to look more interesting with metal beams
+=== blue skull key path ===
+- changed hallway behind baron thing 37 to allow him to follow player into crusher area
+- made green crusher area easier by combining crushers and removing the separating midgrate
+- made ceilings higher in computer crusher maze
+- deactivated 3 crushers to make computer maze easier
+- moved spectre thing 85 to safe area
+- moved shotgunner thing 77 to safe area
+- removed deactivation crusher lines from broken teleport pieces and related reactivation lines around sector 272
+- changed floor textures on broken teleport pieces to look different
+- added backside lower texture (MARBLE3) to linedef 1926
+- changed linedefs 2021, 2030, 2042, 2049 to lower unpegged
+- changed linedefs 3909, 3911 from lower to upper unpegged
+=== final area ===
+- added MP-only chaingun to the center of the map
+- changed height of all 3 skull key posts to stop speedrunners from cheating (sorry ZM, you cheater, my hands are tied -dew)
+- reworked final bridge fight sequence to include lava dipping
+- added switch to outdoor lava area in a cave section to lower sector 535
+- made bridge monster rooms bigger and added monster things 266-269
+- made east lava teleporter monster-blocking
+- east lava has stimpacks and hidden green armor
+- added box of rockets to west lava side
+- removed computer map and added rad suit thing 239
+- the outstanding cell charge (t. 240) without a matching cell weapon changed into two rockets on all skills each
+- extended exit room and added several monsters
+- made spectra into a pinky in end cave
+- changed linedefs 3927, 3940 to lower unpegged
+
+map5:
+- made imps on the bridge at the start face away from the player
+- added shotgun thing 82 at start, removed corresponding co-op items
+- added chaingun thing 135 near start for hntr/hmp skills, thing 336 on fireblu ledge leading to lost soul building
+- changed shells in the first secret into a shellbox
+- cacodemon thing 154 changed only to hmp skill now
+- added another monster blocking line in front of switch linedef 2430
+- added islands under cybs to avoid lock-in damage when telefragging them
+- added another secret to back of biggest building
+- changed action on linedef 702 to walkover-repeatable to prevent potential coop softlock in which BSK door never gets revealed
+- created progression-blocking ceiling lifted when you complete the hellcrack building
+- changed depth of hellcracks in east building to 24 so imps don't get stuck
+- moved megaarmor by cyberdemon to be easier to get
+- created lift to get out of wooden building lava
+- reworked lost soul hallway with separation lifts, less lost souls
+- moved exit a little back from final fight
+- changed skull texture bridges to be FIREBLU1
+- added trim sector to rocket launcher area evil eye for texture alignment 
+- fixed ceiling of sector 266 to CEIL4_1 
+- changed linedef 1045 texture to METAL to fit its environment
+- changed width of exit door to 128 for SIGIL texture
+
+map6:
+- added action 38 with tag 10 to linedefs 3622, 3623, 2624 in the exit area in order to re-access the western section, so players can complete 100% secrets
+- added extra MP-only radsuit to red skull blood hallway
+- removed unpegged flag from linedefs 1227, 1243, 1257, 1263 
+- added trim sector to chainsaw room for proper door alignment
+
+map7:
+- added chaingun thing 378 to singleplayer on hntr/hmp, t. 517 on uv; removed extraneous shotgun coop things on start
+- added evil eye thing 398 to make opening the ruined wall easier
+- moved red torch thing 1 to make way for the evil eye
+- added UV cyb thing 390 that joins the barons in the red skull key ambush
+- added sector 833 as secondary tele-destination for the baron/cyb RSK ambush
+- added baron of hell thing 389 to make the player pay for the BFG (hidden in alcove opened by linedef 5540)
+- moved W1 floor raise action in trap behind RK door from ld 1156 to ld 5529 to prevent softlock if player's too fast and escapes the area
+- changed linedef 1585 to WR lift action
+- added a second cell charge by the exit room
+- added a super-secret SP chaingun
+- final building has 2nd set of stairs fixed so player cannot fall next to them
+- little pillars around the fort made consistently passable
+- shotgunner cages in the fort walls made impassable
+- changed upper and lower sidedefs of linedef 3418 to METAL
+- changed linedefs 3414 and 3421 to METAL for door track alignment reasons
+- changed linedefs 3008, 3016, 3026, 3029, 3119, 3549 to lower unpegged
+- changed linedefs 5461, 5464, 5467, 5470 to upper unpegged
+- removed unpegged flags from linedef 3343
+- fixed alignment of linedef 54 texture
+- fixed missing lower unpegged on linedefs 3421, 3414 near the evil eye
+
+map8:
+- added starting shotgun
+- added 2 imps and caco outside starting room, shellbox for compensation
+- reshaped linedefs that teleport lost souls into start area to prevent the cyberdemon from triggering them as well
+- added 2nd baron thing 195
+- moved soulsphere so you can't get it through the wall
+- added crushing ceiling trigger on linedef 605 to clear the gallery monsters
+- added several monsters for more difficulty
+- added lips to ledges and a decoration in building area to stop zero master
+- shortened the metal barrier in spider mastermind area
+- added a horde of monsters after final cyb
+- changed invulnerable to evil eye (baphomet's eye)
+- moved stimpak t. 112 from 1904, -640 to 1874, -640 to prevent item floating
+- door opened by that same stimpak produces HOMs on activation, added FIRELAV2 to backsides of sidedefs: 1522, 1523, 1524
+
+map9:
+- added action 2 tag 18 to linedef 947 to force map progression trigger
+- switched action 22 tag 17 from l.2525 to l.2530, 2531 to better force a trigger
+- moved cell charges t. 228, 229 on the rampart to entice ammo-starved players 
+- aligned front lower textures of linedefs 588, 589 and 591
+- added METAL as lower front texture on linedefs 2261, 2266, 2421 and 2426
+- changed starting door to BIGDOOR7 on linedefs 28, 233, 234
+- added shotgun shells at thing 239 to entice player to trigger linedef 2439
+- changed several lost souls into imps in end room
+- added several more enemies in end room
+- added specters in the lava behind castle (things 248, 249)
+- added imps (things 250, 251)
+- added cacodemons (things 252, 253) and carved out a secret alcove for them that triggers on linedefs 588, 589, 591
+- added shotgunner thing 254
+- added imp thing 255
+- added shotgun shells thing 256
+- changed sector 210 tag from 14 to 35
+- added teleport destinations to sectors tagged 14 (things 257, 258, 259)
+- added specters (things 260, 261, 262)
+- added shotgun shells thing 263
+- added imp thing 264
+- changed linedefs 747, 759, 799 to be lower unpegged
+- added secret tunnel to the left of thing 161
+- added monsters (things 265, 266)
+- added stimpack thing 267
+- added shotgunners things 268, 269
+- added imp thing 270
+- added box of ammo in front of switch that lowers platform to red skull door
+- made the trap door next to this switch take longer to lower
+- changed 2 shotgunners by yellow switches to zombiemen
+- added a box of bullets before blue door
+- added a medikit before blue door at top of stairs
+- added teleporter out of the secret by the castle (in the lava)
+- starting spot ceiling is now hellcracks
+
+mapinfo: (SIGIL.wad only)
+- added DD_DEFNS lump for Doomsday (props to skyjake)
+- added UMAPINFO lump for general future support (props to Shadow Hog)
+
+v1.0 -> v1.1
+============
+Changes made by John Romero, Flambeau, Keyboard_Doomer, dew
+
+map1:
+- changed the closed state texture of linedefs 2027, 2114 to METAL (DM)
+
+map2:
+- mandatory medkit pickup tied to opening the exit wall changed to 10 health bonuses to entice even players with 100+ health
+- reshaped architecture of the berserk/soulsphere secret to provide escape from the neighbouring lavapit to the west
+- changed the closed state texture of linedef 1835 to METAL (DM) 
+
+map4:
+- added key pickups to all routes to telegraph progression better
+- swapped action linedefs for eye switches to avoid a softlock scenario where the eye closes but nothing in the map opens:
+  eye 1: linedef 2070 swapped with linedef 3910
+  eye 2: linedef 3912 swapped with linedef 1362 
+- health bonus things 185-196 marked MP-only to enable collecting 100% items in single player
+
+map5:
+- swapped action linedefs for softlockable eye switch: ld 286 <-> ld 2352
+- added a starter medkit to avoid carryover low health leading to lava deaths
+
+map6:
+- swapped actions on linedefs 784 and 3505 to avoid a coop scenario in which players in the west section trigger just the wall close and then all die, softlocking everyone in the start room  
+
+map7:
+- sector 198 by the caco fountain hellpit originally mixed one-time wall lower and repeatable door close behaviour, leading to a potential lock-out and an ugly hom on linedef 1195 if the player fell off the rampart path:
+  added WOOD5 as upper texture to linedef 1195 front sidedef 1856
+  sector 198 floor lowered to height 152, ceiling lowered to 152
+  action on linedef 5295 changed to 86 (WR door open stay)  
+- following items marked MP-only to enable collecting 100% items in SP:
+  soulsphere thing 334
+	beserk thing 335
+	armor bonus things 350-354
+	health bonus hings 355-359
+
+map8:
+- swapped action linedefs for eye switches to avoid a softlock scenario where the eye closes but nothing in the map opens:
+  eye 1: linedef 337 swapped with linedef 2104
+  eye 2: linedef 14 swapped with linedef 1362 
+- linedef 339 in start room marked impassable to avoid walking through a grate
+- SIGIL_COMPAT.wad adds a DeHacked definition that removes the exit level property from the last frame of spider mastermind's death, preventing unwanted early end of the level, because the spider is considered a boss on E3
+
+map9:
+- linedefs 1264, 1269, 1274 in BK lava room marked impassable to avoid walking through grates of the firestick cages
+
+intermission screen fix: (SIGIL_COMPAT.wad only)
+- added transparent sprites WIURH0, WIURH1 and WISPLAT, which removes the hardcoded "You Are Here" graphic from the intermission screen, since there's no progression map and you did not in fact blow up Baphomet's nostril
+
+ZDaemon sky fix: (SIGIL.wad only)
+- added a ZDaemon-compatible (shorter) sky into dedicated mapinfo (leads to a change in TEXTURE1/TEXTURE2/PNAMES lumps)
+
+mapinfo: (SIGIL.wad only)
+- added old MAPINFO lump for classic zdoom source ports (e.g. ZDaemon, Odamex)
